@@ -41,7 +41,6 @@ class HomestuckTrollDoll extends HomestuckDoll {
     List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,leftHorn, rightHorn, leftFin, rightFin, wings, canonSymbol, facePaint];
 
 
-
     @override
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
@@ -103,6 +102,8 @@ class HomestuckTrollDoll extends HomestuckDoll {
         initFromReader(reader, new HomestuckTrollPalette());
     }
 
+
+
     String chooseBlood(Random rand) {
         List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
 
@@ -137,12 +138,12 @@ class HomestuckTrollDoll extends HomestuckDoll {
     }
 
     @override
-    void randomize() {
+    void randomize([bool chooseSign = true]) {
         Random rand = new Random();
         int firstEye = -100;
         int firstHorn = -100;
 
-        canonSymbol.imgNumber = rand.nextInt(canonSymbol.maxImageNumber)+1; //don't be zero
+        if(chooseSign)canonSymbol.imgNumber = rand.nextInt(canonSymbol.maxImageNumber)+1; //don't be zero
         //canonSymbol.imgNumber = maxCanonSymbol;
 
         String chosenBlood = chooseBlood(rand);

@@ -5,7 +5,8 @@ import 'dart:async';
 Doll doll;
 void main() {
     querySelector('#output').text = 'Your Dart app is running.';
-    doll = Doll.makeRandomDoll();
+    //doll = Doll.makeRandomDoll();
+    doll = new HomestuckTrollDoll();
     drawDoll();
 }
 

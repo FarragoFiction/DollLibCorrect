@@ -67,7 +67,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     }
 
     @override
-    void randomize()
+    void randomize([bool chooseSign = true])
 
     {
         super.randomize();
