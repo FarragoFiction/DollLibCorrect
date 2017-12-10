@@ -1,4 +1,4 @@
-// Copyright (c) 2017, Jenny. All rights reserved. Use of this source code
+// Copyright (c) 2017, JR. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 // TODO: Put public facing types in this file.
