@@ -60,10 +60,11 @@
       <file leaf-file-name="DollRenderer.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/DollRenderer.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+            <state relative-caret-position="285">
+              <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
               <folding>
-                <element signature="e#0#1217#0" expanded="true" />
+                <element signature="e#0#1256#0" expanded="true" />
+                <element signature="e#245#283#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -541,10 +542,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/DollRenderer.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+        <state relative-caret-position="285">
+          <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
           <folding>
-            <element signature="e#0#1217#0" expanded="true" />
+            <element signature="e#0#1256#0" expanded="true" />
+            <element signature="e#245#283#0" expanded="true" />
           </folding>
         </state>
       </provider>

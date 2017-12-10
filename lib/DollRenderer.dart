@@ -33,3 +33,4 @@ export "src/includes/colour.dart";
 export "src/includes/palette.dart";
 export "src/Dolls/TextLayer.dart";
 export "src/includes/predicates.dart";
+export "src/includes/path_utils.dart";
