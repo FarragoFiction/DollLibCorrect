@@ -13,7 +13,7 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
     //doll = Doll.makeRandomDoll();
-    doll = new HomestuckTrollDoll(HomestuckTrollDoll.randomJadeSign);
+    doll = new HomestuckGrubDoll(HomestuckTrollDoll.randomBronzeSign);
     drawDoll();
     //drawDoll();
     //drawDoll();

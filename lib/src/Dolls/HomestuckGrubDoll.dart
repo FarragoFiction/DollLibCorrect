@@ -41,9 +41,15 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
 
 
 
-    HomestuckGrubDoll() {
+    HomestuckGrubDoll([int sign]) {
         initLayers();
         randomize();
+        if(sign != null) {
+            print("sign is $sign");
+            canonSymbol.imgNumber = sign;
+            //makes sure palette is sign appropriate
+            randomize(false);
+        }
     }
 
     @override
@@ -70,7 +76,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     void randomize([bool chooseSign = true])
 
     {
-        super.randomize();
+        super.randomize(chooseSign);
         canonSymbol.imgNumber = 0;
         HomestuckPalette h = palette as HomestuckPalette;
         h.add(HomestuckPalette.EYE_WHITE_LEFT, h.aspect_light,true);
