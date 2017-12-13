@@ -30,7 +30,7 @@ Future<bool>  drawDoll() async{
     querySelector('#output').append(innerDiv);
     HomestuckPalette p = doll.palette as HomestuckPalette;
     HomestuckTrollDoll d = doll as HomestuckTrollDoll;
-    querySelector('#output').appendHtml(d.bloodColorToWord(p.aspect_light));
+    querySelector('#output').appendHtml("${p.aspect_light.toStyleString()} means ${d.bloodColorToWord(p.aspect_light)} Blood");
 
 
 }
