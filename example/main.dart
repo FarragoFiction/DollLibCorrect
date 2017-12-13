@@ -6,9 +6,19 @@ Doll doll;
 void main() {
     querySelector('#output').text = 'Your Dart app is running.';
     //doll = Doll.makeRandomDoll();
+    start();
+
+}
+
+Future<bool> start() async {
+    await Loader.preloadManifest();
+    print("done awaiting");
     doll = new HomestuckTrollDoll();
     drawDoll();
+    drawDoll();
+    drawDoll();
 }
+
 
 Future<bool>  drawDoll() async{
     Element innerDiv   = new DivElement();

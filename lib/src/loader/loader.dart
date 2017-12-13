@@ -24,6 +24,12 @@ abstract class Loader {
         Formats.init();
     }
 
+    static Future<Null> preloadManifest() async {
+        init();
+        manifest = await Loader.getResource("manifest/manifest.txt", format: Formats.manifest, bypassManifest: true);
+        //print("preloaded a manifest, its ${manifest.runtimeType} and $manifest");
+    }
+
     static Future<T> getResource<T>(String path, {FileFormat<T, dynamic> format, bool bypassManifest = false}) async {
         init();
         if (_resources.containsKey(path)) {
@@ -41,6 +47,8 @@ abstract class Loader {
             if (!bypassManifest) {
                 if (manifest == null) {
                     manifest = await Loader.getResource("manifest/manifest.txt", format: Formats.manifest, bypassManifest: true);
+                    print("lazy loaded a manifest, its ${manifest.runtimeType} and $manifest");
+
                 }
 
                 String bundle = manifest.getBundleForFile(path);

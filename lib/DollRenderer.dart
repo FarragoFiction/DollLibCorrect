@@ -32,5 +32,6 @@ export "src/Rendering/ReferenceColors.dart";
 export "src/includes/colour.dart";
 export "src/includes/palette.dart";
 export "src/Dolls/TextLayer.dart";
+import "src/formats/Formats.dart";
 export "src/includes/predicates.dart";
 export "src/includes/path_utils.dart";
