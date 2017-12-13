@@ -49,7 +49,34 @@ class HomestuckTrollDoll extends HomestuckDoll {
         initFromReader(reader, new HomestuckTrollPalette(), false);
     }
 
-    HomestuckTrollDoll() :super();
+    HomestuckTrollDoll([int sign]) :super() {
+        if(sign != null) {
+            canonSymbol.imgNumber = sign;
+            //makes sure palette is sign appropriate
+            randomize(false);
+        }
+    }
+
+    static int randomSignBetween(int minSign, int maxSign) {
+        Random rand = new Random();
+        int signNumber = rand.nextInt(maxSign - minSign) + minSign;
+        return signNumber;
+    }
+
+    static int get randomBurgundySign => randomSignBetween(1,24);
+    static int get randomBronzeSign => randomSignBetween(25,48);
+    static int get randomGoldSign => randomSignBetween(49,72);
+    static int get randomLimeSign => randomSignBetween(71,96);
+    static int get randomOliveSign => randomSignBetween(95,120);
+    static int get randomJadeSign => randomSignBetween(119,144);
+    static int get randomTealSign => randomSignBetween(143,168);
+    static int get randomCeruleanSign => randomSignBetween(167,192);
+    static int get randomIndigoSign => randomSignBetween(191,216);
+    static int get randomPurpleSign => randomSignBetween(215,240);
+    static int get randomVioletSign => randomSignBetween(239,264);
+    static int get randomFuchsiaSign => randomSignBetween(263,288);
+
+
 
     @override
     Palette paletteSource = ReferenceColours.TROLL_PALETTE;
