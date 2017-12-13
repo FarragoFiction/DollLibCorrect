@@ -5,7 +5,6 @@ import 'dart:async';
 Doll doll;
 void main() {
     querySelector('#output').text = 'Your Dart app is running.';
-    //doll = Doll.makeRandomDoll();
     start();
 
 }
@@ -13,6 +12,7 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
+    //doll = Doll.makeRandomDoll();
     doll = new HomestuckTrollDoll();
     drawDoll();
     drawDoll();
