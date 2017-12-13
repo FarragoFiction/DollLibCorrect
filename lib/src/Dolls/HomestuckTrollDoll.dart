@@ -103,6 +103,15 @@ class HomestuckTrollDoll extends HomestuckDoll {
     }
 
 
+    String bloodColorToWord(Colour color) {
+        List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
+        List<String> bloodColorWords = <String>["Burgundy", "Bronze", "Gold", "Lime", "Olive", "Jade", "Teal", "Cerulean", "Indigo", "Purple", "Violet", "Fuchsia"];
+        if(bloodColors.contains(color.toStyleString())) {
+            return bloodColorWords[bloodColors.indexOf(color.toStyleString())];
+        }else {
+            return "Mutant";
+        }
+    }
 
     String chooseBlood(Random rand) {
         List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];

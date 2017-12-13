@@ -15,8 +15,8 @@ Future<bool> start() async {
     //doll = Doll.makeRandomDoll();
     doll = new HomestuckTrollDoll();
     drawDoll();
-    drawDoll();
-    drawDoll();
+    //drawDoll();
+    //drawDoll();
 }
 
 
@@ -28,4 +28,9 @@ Future<bool>  drawDoll() async{
     finishedProduct.className = "cardCanvas";
     innerDiv.append(finishedProduct);
     querySelector('#output').append(innerDiv);
+    HomestuckPalette p = doll.palette as HomestuckPalette;
+    HomestuckTrollDoll d = doll as HomestuckTrollDoll;
+    querySelector('#output').appendHtml(d.bloodColorToWord(p.aspect_light));
+
+
 }
