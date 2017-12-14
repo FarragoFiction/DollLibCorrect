@@ -42,6 +42,30 @@ abstract class Doll {
         randomizeNotColors();
     }
 
+    static Doll convertOneDollToAnother(Doll source, Doll replacement) {
+        for(SpriteLayer sourceLayer in source.renderingOrderLayers) {
+            for(SpriteLayer replacementLayer in replacement.renderingOrderLayers) {
+                if(sourceLayer.imgNameBase == replacementLayer.imgNameBase) {
+                    replacementLayer.imgNumber = sourceLayer.imgNumber;
+                }
+            }
+        }
+        List<String> keysToReplace = new List<String>();
+
+        for(String sourceName in source.palette.names) {
+            for (String replacementName in replacement.palette.names) {
+                if (sourceName == replacementName) {
+                    keysToReplace.add(sourceName);
+                }
+            }
+        }
+
+        for(String key in keysToReplace) {
+            replacement.palette.add(key, source.palette[key], true);
+        }
+        return replacement;
+    }
+
     void randomizeColors() {
         Random rand = new Random();
         List<String> names = new List<String>.from(palette.names);
@@ -316,6 +340,8 @@ class SavedDoll {
             }
         });
     }
+
+
 
 
 }

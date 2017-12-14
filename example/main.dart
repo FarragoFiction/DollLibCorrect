@@ -13,9 +13,12 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
     //doll = Doll.makeRandomDoll();
-    doll = new HomestuckGrubDoll(HomestuckTrollDoll.randomBronzeSign);
+    doll = new HomestuckDoll();
+    await drawDoll();
+    doll = Doll.convertOneDollToAnother(doll, new HomestuckTrollDoll());
+    await drawDoll();
+    doll = Doll.convertOneDollToAnother(doll, new HomestuckGrubDoll());
     drawDoll();
-    //drawDoll();
     //drawDoll();
 }
 
@@ -28,9 +31,5 @@ Future<bool>  drawDoll() async{
     finishedProduct.className = "cardCanvas";
     innerDiv.append(finishedProduct);
     querySelector('#output').append(innerDiv);
-    HomestuckPalette p = doll.palette as HomestuckPalette;
-    HomestuckTrollDoll d = doll as HomestuckTrollDoll;
-    querySelector('#output').appendHtml("${p.aspect_light.toStyleString()} means ${d.bloodColorToWord(p.aspect_light)} Blood");
-
 
 }
