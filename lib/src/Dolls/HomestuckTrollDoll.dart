@@ -11,6 +11,20 @@ import "../Rendering/ReferenceColors.dart";
 
 
 class HomestuckTrollDoll extends HomestuckDoll {
+
+    static String BURGUNDY = "Burgundy";
+    static String BRONZE = "Bronze";
+    static String GOLD = "Gold";
+    static String LIME = "Lime";
+    static String OLIVE = "Olive";
+    static String JADE = "Jade";
+    static String TEAL = "Teal";
+    static String CERULEAN = "Cerulean";
+    static String INDIGO = "Indigo";
+    static String PURPLE = "Purple";
+    static String VIOLET = "Violet";
+    static String FUCHSIA = "Fuchsia";
+
     @override
     int renderingType = 2;
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
@@ -132,7 +146,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
 
     String bloodColorToWord(Colour color) {
         List<String> bloodColors = <String>["#A10000", "#A25203", "#A1A100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021CB", "#631DB4", "#610061", "#99004D"];
-        List<String> bloodColorWords = <String>["Burgundy", "Bronze", "Gold", "Lime", "Olive", "Jade", "Teal", "Cerulean", "Indigo", "Purple", "Violet", "Fuchsia"];
+        List<String> bloodColorWords = <String>[BURGUNDY, BRONZE, GOLD, LIME, OLIVE, JADE, TEAL, CERULEAN, INDIGO, PURPLE, VIOLET, FUCHSIA];
         if(bloodColors.contains(color.toStyleString())) {
             return bloodColorWords[bloodColors.indexOf(color.toStyleString())];
         }else {
