@@ -13,12 +13,14 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
     //doll = Doll.makeRandomDoll();
-    doll = new HomestuckDoll();
+    doll = new ConsortDoll();
+    ConsortDoll c = doll as ConsortDoll;
+    c.body.imgNumber = 22;
     await drawDoll();
-    doll = Doll.convertOneDollToAnother(doll, new HomestuckTrollDoll());
-    await drawDoll();
-    doll = Doll.convertOneDollToAnother(doll, new HomestuckGrubDoll());
-    drawDoll();
+   // doll = Doll.convertOneDollToAnother(doll, new HomestuckTrollDoll());
+    //await drawDoll();
+    //doll = Doll.convertOneDollToAnother(doll, new HomestuckGrubDoll());
+    //drawDoll();
     //drawDoll();
 }
 
