@@ -15,12 +15,12 @@ class HomestuckDoll extends Doll {
     String folder = "images/Homestuck";
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
     final int maxBody = 122;
-    final int maxHair = 121;
-    final int maxEye = 72;
-    final int maxMouth = 61;
+    final int maxHair = 127;
+    final int maxEye = 74;
+    final int maxMouth = 64;
     final int maxSymbol = 226;
-    final int maxGlass = 43;
-    final int maxGlass2 = 49;
+    final int maxGlass = 53;
+    final int maxGlass2 = 59;
     final int maxFacePaint = 68;
 
     SpriteLayer body;
