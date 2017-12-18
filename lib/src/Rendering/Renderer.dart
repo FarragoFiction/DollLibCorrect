@@ -173,6 +173,7 @@ class Renderer {
     }
 
     static void swapPalette(CanvasElement canvas, Palette source, Palette replacement) {
+        print("swapping ${source.names} for ${replacement.names}");
         CanvasRenderingContext2D ctx = canvas.getContext('2d');
         ImageData img_data = ctx.getImageData(0, 0, canvas.width, canvas.height);
 

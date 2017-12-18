@@ -16,6 +16,8 @@ export "src/Dolls/DadDoll.dart";
 export "src/Dolls/MomDoll.dart";
 export "src/Dolls/BroDoll.dart";
 export "src/loader/loader.dart";
+export "src/Dolls/MonsterPocketDoll.dart";
+
 export "src/Dolls/EggDoll.dart";
 export "src/Dolls/TrollEggDoll.dart";
 export "src/Dolls/ConsortDoll.dart";
