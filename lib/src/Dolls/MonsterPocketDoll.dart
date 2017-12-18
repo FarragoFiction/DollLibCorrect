@@ -86,8 +86,8 @@ class MonsterPocketDoll extends Doll {
     @override
     void initLayers() {
         body = new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
-        leftarm = new SpriteLayer("Left Arm", "$folder/LeftArm/", 1, maxLeftArm);
-        rightarm = new SpriteLayer("Right Arm", "$folder/RightArm/", 1, maxRightArm);
+        leftarm = new SpriteLayer("LeftArm", "$folder/LeftArm/", 1, maxLeftArm);
+        rightarm = new SpriteLayer("RightArm", "$folder/RightArm/", 1, maxRightArm);
         head = new SpriteLayer("Head", "$folder/Head/", 1, maxHead);
     }
 

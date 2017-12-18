@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b62ac1be-4f31-43ec-ac23-1245840a0e0d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/example/images/Homestuck/Glasses/66.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/example/images/Homestuck/Glasses/67.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/example/images/Homestuck/Glasses/68.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/example/images/Homestuck/Glasses2/75.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/example/images/Homestuck/Glasses2/76.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/example/images/Homestuck/Glasses2/77.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Glasses/61.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Glasses/61.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Glasses/65.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Glasses/65.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Glasses2/70.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Glasses2/70.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Glasses2/74.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Glasses2/74.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DollLibCorrect.iml" afterPath="$PROJECT_DIR$/DollLibCorrect.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/Dolls/HomestuckDoll.dart" afterPath="$PROJECT_DIR$/lib/src/Dolls/HomestuckDoll.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/Dolls/MonsterPocketDoll.dart" afterPath="$PROJECT_DIR$/lib/src/Dolls/MonsterPocketDoll.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MonsterPocketDoll.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MonsterPocketDoll.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/src/Dolls/MonsterPocketDoll.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="19" lean-forward="false" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+            <state relative-caret-position="231">
+              <caret line="88" column="39" lean-forward="true" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -61,7 +49,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomestuckDoll.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HomestuckDoll.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/Dolls/HomestuckDoll.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -178,9 +166,9 @@
         <option value="$PROJECT_DIR$/lib/src/Dolls/HomestuckTrollDoll.dart" />
         <option value="$PROJECT_DIR$/lib/DollRenderer.dart" />
         <option value="$PROJECT_DIR$/lib/src/Rendering/Renderer.dart" />
-        <option value="$PROJECT_DIR$/lib/src/Dolls/MonsterPocketDoll.dart" />
         <option value="$PROJECT_DIR$/example/main.dart" />
         <option value="$PROJECT_DIR$/lib/src/Dolls/HomestuckDoll.dart" />
+        <option value="$PROJECT_DIR$/lib/src/Dolls/MonsterPocketDoll.dart" />
       </list>
     </option>
   </component>
@@ -941,16 +929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/Dolls/MonsterPocketDoll.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="19" lean-forward="false" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/Dolls/Doll.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1000,6 +978,16 @@
         <state relative-caret-position="210">
           <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/Dolls/MonsterPocketDoll.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="88" column="39" lean-forward="true" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
