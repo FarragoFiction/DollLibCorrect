@@ -36,7 +36,7 @@ class MonsterPocketDoll extends Doll {
     int height = 96;
 
     @override
-    int renderingType =3;
+    int renderingType =151;
 
     @override
     Palette palette = new HomestuckPalette()

@@ -248,6 +248,10 @@ abstract class Doll {
         if(type == new HomestuckGrubDoll().renderingType) {
             return new HomestuckGrubDoll.fromReader(reader);
         }
+
+        if(type == new MonsterPocketDoll().renderingType) {
+            return new MonsterPocketDoll.fromReader(reader);
+        }
     }
 
     static List<SavedDoll> loadAllFromLocalStorage() {
