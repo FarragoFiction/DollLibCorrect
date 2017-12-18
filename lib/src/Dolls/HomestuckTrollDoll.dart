@@ -80,15 +80,15 @@ class HomestuckTrollDoll extends HomestuckDoll {
     static int get randomBurgundySign => randomSignBetween(1,24);
     static int get randomBronzeSign => randomSignBetween(25,48);
     static int get randomGoldSign => randomSignBetween(49,72);
-    static int get randomLimeSign => randomSignBetween(71,96);
-    static int get randomOliveSign => randomSignBetween(95,120);
-    static int get randomJadeSign => randomSignBetween(119,144);
-    static int get randomTealSign => randomSignBetween(143,168);
-    static int get randomCeruleanSign => randomSignBetween(167,192);
-    static int get randomIndigoSign => randomSignBetween(191,216);
-    static int get randomPurpleSign => randomSignBetween(215,240);
-    static int get randomVioletSign => randomSignBetween(239,264);
-    static int get randomFuchsiaSign => randomSignBetween(263,288);
+    static int get randomLimeSign => randomSignBetween(73,96);
+    static int get randomOliveSign => randomSignBetween(97,120);
+    static int get randomJadeSign => randomSignBetween(121,144);
+    static int get randomTealSign => randomSignBetween(145,168);
+    static int get randomCeruleanSign => randomSignBetween(169,192);
+    static int get randomIndigoSign => randomSignBetween(193,216);
+    static int get randomPurpleSign => randomSignBetween(217,240);
+    static int get randomVioletSign => randomSignBetween(241,264);
+    static int get randomFuchsiaSign => randomSignBetween(265,288);
 
 
 
