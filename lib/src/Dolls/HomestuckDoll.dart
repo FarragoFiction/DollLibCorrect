@@ -19,8 +19,8 @@ class HomestuckDoll extends Doll {
     final int maxEye = 82;
     final int maxMouth = 85;
     final int maxSymbol = 226;
-    final int maxGlass = 68;
-    final int maxGlass2 = 77;
+    final int maxGlass = 65;
+    final int maxGlass2 = 74;
     final int maxFacePaint = 80;
 
     SpriteLayer body;

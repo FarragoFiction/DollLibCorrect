@@ -78,6 +78,11 @@
       <excludeFolder url="file://$MODULE_DIR$/example/images/Homestuck/Zodiac_for_a_shirt/12-Fuchsia/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/images/Homestuck/Zodiac_for_a_shirt/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/images/Homestuck/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/images/MonsterPocket/Body/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/images/MonsterPocket/Head/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/images/MonsterPocket/LeftArm/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/images/MonsterPocket/RightArm/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/images/MonsterPocket/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/manifest/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/packages" />
