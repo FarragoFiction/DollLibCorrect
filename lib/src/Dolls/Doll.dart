@@ -164,6 +164,7 @@ abstract class Doll {
     }
 
     String toDataBytesX([ByteBuilder builder = null]) {
+        print("saving to data bytes x");
         if(builder == null) builder = new ByteBuilder();
         int length = palette.names.length + 1;//one byte for doll type
 
@@ -185,7 +186,7 @@ abstract class Doll {
 
         //layer is last so can add new layers
         for(SpriteLayer l in dataOrderLayers) {
-            print("adding ${l.imgNameBase} to data string builder.");
+            print("adding ${l.name}  with value ${l.imgNumber} to data string builder.");
             l.saveToBuilder(builder);
             //builder.appendByte(l.imgNumber);
         }
