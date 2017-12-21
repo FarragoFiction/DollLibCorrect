@@ -185,7 +185,7 @@ abstract class Doll {
 
         //layer is last so can add new layers
         for(SpriteLayer l in dataOrderLayers) {
-            //print("adding ${l.imgNameBase} to data string builder.");
+            print("adding ${l.imgNameBase} to data string builder.");
             l.saveToBuilder(builder);
             //builder.appendByte(l.imgNumber);
         }
