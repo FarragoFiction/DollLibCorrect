@@ -1,0 +1,33 @@
+Alright.
+
+There are bugs.
+
+//i feel like i keep switching this from < to <= because it sometimes breaks but swapping it fixes that specific break. IF THIS HAPPENS AGAIN THIS COMMENT WILL BE PROOF AND I SHOULD FIX IT FOR REALSIES
+
+I switched it because an older save string was literally crashing rather than working with default values like it should have.
+
+But now, I'm getting bug reports like:
+
+
+"speaking of not intentional, wings don't actually save in the dollsim. like, at all.
+ they just get exported like it never happened.
+"
+
+and
+
+"Face paint refuses to save on dolls
+ I put it on a doll and then when I load the doll's url or save it the face paint is gone
+ which sucks because"
+
+ and "they are duped" (???)
+
+~~~~~~~
+
+forgot I was working on this earlier.
+
+Step 1: confirm the problem.
+
+Can i make any layers (especially newest layer) stop rendering in save string?
+
+Confirmation:  Kid loses facepaint.
+

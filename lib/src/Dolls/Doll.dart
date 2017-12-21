@@ -142,11 +142,11 @@ abstract class Doll {
             print("layer ${l.name}, features read is $featuresRead and num features is $numFeatures");
 
             //i feel like i keep switching this from < to <= because it sometimes breaks but swapping it fixes that specific break. IF THIS HAPPENS AGAIN THIS COMMENT WILL BE PROOF AND I SHOULD FIX IT FOR REALSIES
-                if(featuresRead < numFeatures) {
+            if(featuresRead < numFeatures) {
                 l.loadFromReader(reader); //handles knowing if it's 1 or more bytes
                 //l.imgNumber = reader.readByte();
             }else {
-                print("skipping a feature i don't have in string");
+                print("skipping a feature (${l.name}) i don't have in string");
                 l.imgNumber = 0; //don't have.
             }
             print("loading layer ${l.name}. Value: ${l.imgNumber} bytesRead: $featuresRead  numFeatures: $numFeatures");
