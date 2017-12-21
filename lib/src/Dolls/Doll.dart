@@ -143,8 +143,12 @@ abstract class Doll {
 
             //i feel like i keep switching this from < to <= because it sometimes breaks but swapping it fixes that specific break. IF THIS HAPPENS AGAIN THIS COMMENT WILL BE PROOF AND I SHOULD FIX IT FOR REALSIES
             if(featuresRead <= numFeatures) {
-                //todo maybe do a try catch equivalent here so it fails silently?
-                l.loadFromReader(reader); //handles knowing if it's 1 or more bytes
+                try {
+                    l.loadFromReader(reader); //handles knowing if it's 1 or more bytes
+                }catch(exception, stackTrace) {
+                    print("exo said I have $numFeatures and i've only read $featuresRead, but still can't read (${l.name}) for some reason. this is a caught error");
+                    l.imgNumber = 0; //don't have.
+                }
                 //l.imgNumber = reader.readByte();
             }else {
                 print("skipping a feature (${l.name}) i don't have in string");
