@@ -62,8 +62,8 @@
       <file leaf-file-name="Doll.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/src/Dolls/Doll.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="170" column="55" lean-forward="true" selection-start-line="170" selection-start-column="55" selection-end-line="170" selection-end-column="55" />
+            <state relative-caret-position="95">
+              <caret line="143" column="264" lean-forward="false" selection-start-line="143" selection-start-column="264" selection-end-line="143" selection-end-column="264" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -994,8 +994,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/Dolls/Doll.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="170" column="55" lean-forward="true" selection-start-line="170" selection-start-column="55" selection-end-line="170" selection-end-column="55" />
+        <state relative-caret-position="95">
+          <caret line="143" column="264" lean-forward="false" selection-start-line="143" selection-start-column="264" selection-end-line="143" selection-end-column="264" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

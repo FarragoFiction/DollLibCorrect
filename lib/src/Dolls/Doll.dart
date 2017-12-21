@@ -141,7 +141,7 @@ abstract class Doll {
             //older strings with less layers
             print("layer ${l.name}, features read is $featuresRead and num features is $numFeatures");
 
-            //i feel like i keep switching this from < to <= because it sometimes breaks but swapping it fixes that specific break. IF THIS HAPPENS AGAIN THIS COMMENT WILL BE PROOF AND I SHOULD FIX IT FOR REALSIES
+            //<= is CORRECT DO NOT FUCKING CHANGE IT OR THE LAST LAYER WILL GET EATEN. ALSO: Fuck you, i don't know why i have to have a try catch in there since that if statement SHOULD mean only try to read if there's more to read but what fucking ever it works.
             if(featuresRead <= numFeatures) {
                 try {
                     l.loadFromReader(reader); //handles knowing if it's 1 or more bytes
