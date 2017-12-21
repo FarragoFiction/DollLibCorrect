@@ -142,7 +142,8 @@ abstract class Doll {
             print("layer ${l.name}, features read is $featuresRead and num features is $numFeatures");
 
             //i feel like i keep switching this from < to <= because it sometimes breaks but swapping it fixes that specific break. IF THIS HAPPENS AGAIN THIS COMMENT WILL BE PROOF AND I SHOULD FIX IT FOR REALSIES
-            if(featuresRead < numFeatures) {
+            if(featuresRead <= numFeatures) {
+                //todo maybe do a try catch equivalent here so it fails silently?
                 l.loadFromReader(reader); //handles knowing if it's 1 or more bytes
                 //l.imgNumber = reader.readByte();
             }else {
