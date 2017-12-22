@@ -127,16 +127,16 @@ class Renderer {
         }
         */
         //which is right
-        print("Scaling for size, width is ${width} and height is ${height}");
+        //print("Scaling for size, width is ${width} and height is ${height}");
         if(width < height) {
-            print("based on width");
+           // print("based on width");
             ratio = width/canvas.width;
         }else {
-            print("based on height");
+           // print("based on height");
             ratio = height/canvas.height;
         }
 
-        print("ratio is: $ratio");
+        //print("ratio is: $ratio");
         return ratio;
     }
 
@@ -173,7 +173,7 @@ class Renderer {
     }
 
     static void swapPalette(CanvasElement canvas, Palette source, Palette replacement) {
-        print("swapping ${source.names} for ${replacement.names}");
+        //print("swapping ${source.names} for ${replacement.names}");
         CanvasRenderingContext2D ctx = canvas.getContext('2d');
         ImageData img_data = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
