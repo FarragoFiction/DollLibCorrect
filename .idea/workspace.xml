@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b62ac1be-4f31-43ec-ac23-1245840a0e0d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Body/166.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Body/166.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/Rendering/Renderer.dart" afterPath="$PROJECT_DIR$/lib/src/Rendering/Renderer.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +20,7 @@
       <file leaf-file-name="HomestuckTrollDoll.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/Dolls/HomestuckTrollDoll.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="510">
               <caret line="34" column="21" lean-forward="false" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
@@ -27,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReferenceColors.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReferenceColors.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/Rendering/ReferenceColors.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="93" column="36" lean-forward="true" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="36" />
+            <state relative-caret-position="15">
+              <caret line="93" column="36" lean-forward="false" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -47,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Renderer.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Renderer.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/src/Rendering/Renderer.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1890">
-              <caret line="138" column="10" lean-forward="false" selection-start-line="138" selection-start-column="10" selection-end-line="138" selection-end-column="10" />
+            <state relative-caret-position="170">
+              <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -80,7 +82,7 @@
       <file leaf-file-name="main.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="285">
               <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -146,6 +148,7 @@
       <find>toData</find>
       <find>s</find>
       <find>swapping</find>
+      <find>scale</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -176,11 +179,11 @@
         <option value="$PROJECT_DIR$/lib/src/Dolls/MonsterPocketDoll.dart" />
         <option value="$PROJECT_DIR$/example/debug_ranting.txt" />
         <option value="$PROJECT_DIR$/lib/src/Dolls/Doll.dart" />
-        <option value="$PROJECT_DIR$/lib/src/Rendering/Renderer.dart" />
         <option value="$PROJECT_DIR$/example/main.dart" />
         <option value="$PROJECT_DIR$/lib/src/Dolls/HomestuckDoll.dart" />
         <option value="$PROJECT_DIR$/lib/src/Dolls/HomestuckTrollDoll.dart" />
         <option value="$PROJECT_DIR$/lib/src/Rendering/ReferenceColors.dart" />
+        <option value="$PROJECT_DIR$/lib/src/Rendering/Renderer.dart" />
       </list>
     </option>
   </component>
@@ -206,6 +209,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -310,7 +314,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
@@ -919,25 +922,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/DollRenderer.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/Rendering/Renderer.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1890">
-          <caret line="138" column="10" lean-forward="false" selection-start-line="138" selection-start-column="10" selection-end-line="138" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="285">
           <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -963,7 +950,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/Dolls/HomestuckTrollDoll.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="510">
           <caret line="34" column="21" lean-forward="false" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
@@ -971,10 +958,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/DollRenderer.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/Rendering/ReferenceColors.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="93" column="36" lean-forward="true" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="36" />
+        <state relative-caret-position="15">
+          <caret line="93" column="36" lean-forward="false" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/Rendering/Renderer.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="13" />
           <folding />
         </state>
       </provider>

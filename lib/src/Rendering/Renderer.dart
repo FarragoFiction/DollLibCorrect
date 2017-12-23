@@ -20,6 +20,8 @@ class Renderer {
     static  Future<bool>  drawDoll(CanvasElement canvas, Doll doll) async {
         //print("Drawing a doll");
         CanvasElement buffer = new CanvasElement(width: doll.width, height: doll.height);
+        buffer.context2D.imageSmoothingEnabled = false;
+
         for(SpriteLayer l in doll.renderingOrderLayers) {
             bool res = await drawWhateverFuture(buffer, l.imgLocation);
         }
@@ -27,6 +29,8 @@ class Renderer {
 
         if(doll.palette.isNotEmpty) swapPalette(buffer, doll.paletteSource, doll.palette);
         scaleCanvasForDoll(canvas, doll);
+        canvas.context2D.imageSmoothingEnabled = false;
+
         copyTmpCanvasToRealCanvasAtPos(canvas, buffer, 0, 0);
 
     }
@@ -39,9 +43,13 @@ class Renderer {
         }
         //print("done drawing images");
 
+        buffer.context2D.imageSmoothingEnabled = false;
+
         grayscale(buffer);
         emboss(buffer);
         scaleCanvasForDoll(canvas, doll);
+        canvas.context2D.imageSmoothingEnabled = false;
+
         copyTmpCanvasToRealCanvasAtPos(canvas, buffer, 0, 0);
 
     }
@@ -149,6 +157,10 @@ class Renderer {
         //int x = (destination.width/2 - source.width/2).round();
         int x = (destination.width/2 - newWidth/2).round();
         //print("New dimensions: ${newWidth}, height: ${newHeight}");
+        source.context2D.imageSmoothingEnabled = false;
+        destination.context2D.imageSmoothingEnabled = false;
+
+
         destination.context2D.drawImageScaled(source, x,0,newWidth,newHeight);
     }
 
@@ -161,6 +173,9 @@ class Renderer {
             ratio = canvas.height/doll.height;
         }
         canvas.context2D.scale(ratio, ratio);
+        //don't let it be all pixelated
+        canvas.context2D.imageSmoothingEnabled = false;
+
     }
 
 
@@ -241,6 +256,7 @@ class Renderer {
         print("Trying to draw $imageString");
         Loader.getResource(imageString).then((ImageElement loaded) {
             print("image $loaded loaded");
+            canvas.context2D.imageSmoothingEnabled = false;
             canvas.context2D.drawImage(loaded, 0, 0);
         });
 
@@ -249,6 +265,7 @@ class Renderer {
     static Future<bool>  drawWhateverFuture(CanvasElement canvas, String imageString) async {
         ImageElement image = await Loader.getResource((imageString));
         //print("got image $image");
+        canvas.context2D.imageSmoothingEnabled = false;
         canvas.context2D.drawImage(image, 0, 0);
         return true;
     }
