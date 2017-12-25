@@ -17,7 +17,9 @@ Future<bool> start() async {
     doll = new HomestuckTrollDoll();
     HomestuckTrollDoll t = doll as HomestuckTrollDoll;
     t.canonSymbol.imgNumber = 1;
-    t.body.imgNumber = 213;
+    t.leftHorn.imgNumber = 135;
+    t.rightHorn.imgNumber = 135;
+
 
 
     await drawDoll();
