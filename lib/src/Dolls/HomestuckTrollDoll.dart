@@ -16,6 +16,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     static String BRONZE = "Bronze";
     static String GOLD = "Gold";
     static String LIME = "Lime";
+    static String MUTANT = "MUTANT";
     static String OLIVE = "Olive";
     static String JADE = "Jade";
     static String TEAL = "Teal";
@@ -150,7 +151,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
         if(bloodColors.contains(color.toStyleString())) {
             return bloodColorWords[bloodColors.indexOf(color.toStyleString())];
         }else {
-            return "Mutant";
+            return MUTANT;
         }
     }
 
