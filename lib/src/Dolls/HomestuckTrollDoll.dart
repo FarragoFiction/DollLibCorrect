@@ -184,6 +184,10 @@ class HomestuckTrollDoll extends HomestuckDoll {
             chosenBlood = bloodColors[11];
         }
         //it's just random if it somehow doesn't fit
+        if(bloodColorToWord(new Colour.fromStyleString(chosenBlood)) == LIME && rand.nextDouble() > .9) {
+            chosenBlood = "#FF0000"; //mutant blood
+        }
+
         return chosenBlood;
     }
 

@@ -16,7 +16,8 @@ Future<bool> start() async {
     //doll = new MonsterPocketDoll();
     doll = new HomestuckTrollDoll();
     HomestuckTrollDoll t = doll as HomestuckTrollDoll;
-    t.canonSymbol.imgNumber = 1;
+    t.canonSymbol.imgNumber = HomestuckTrollDoll.randomLimeSign;
+    t.randomize(false); //absorb blood color
     t.leftHorn.imgNumber = 135;
     t.rightHorn.imgNumber = 135;
 
