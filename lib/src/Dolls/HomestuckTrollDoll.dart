@@ -16,7 +16,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     static String BRONZE = "Bronze";
     static String GOLD = "Gold";
     static String LIME = "Lime";
-    static String MUTANT = "MUTANT";
+    static String MUTANT = "Mutant";
     static String OLIVE = "Olive";
     static String JADE = "Jade";
     static String TEAL = "Teal";
@@ -185,7 +185,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
             chosenBlood = bloodColors[11];
         }
         //it's just random if it somehow doesn't fit
-        if(bloodColorToWord(new Colour.fromStyleString(chosenBlood)) == LIME && rand.nextDouble() > .0) {
+        if(bloodColorToWord(new Colour.fromStyleString(chosenBlood)) == LIME && rand.nextDouble() > .9) {
             chosenBlood = "#FF0000"; //mutant blood
         }
 
