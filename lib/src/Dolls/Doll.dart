@@ -168,6 +168,19 @@ abstract class Doll {
         }
     }
 
+    String toJustType([ByteBuilder builder = null]) {
+        print("saving to data bytes x");
+        if(builder == null) builder = new ByteBuilder();
+        int length = palette.names.length + 1;//one byte for doll type
+
+        for(SpriteLayer layer in dataOrderLayers) {
+            length += layer.numbytes;
+        }
+        builder.appendByte(renderingType); //value of 1 means homestuck doll
+        builder.appendExpGolomb(length); //for length
+        return BASE64URL.encode(builder.toBuffer().asUint8List());
+    }
+
     String toDataBytesX([ByteBuilder builder = null]) {
         print("saving to data bytes x");
         if(builder == null) builder = new ByteBuilder();
