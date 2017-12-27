@@ -350,6 +350,11 @@ class SavedDoll {
                 refreshMethod();
             }
         });
+
+        AnchorElement a = new AnchorElement();
+        a.href = "genericIndex.html?${doll.toDataBytesX()}";
+        a.text = "Edit Doll Link";
+        bluh.append(a);
     }
 
 
