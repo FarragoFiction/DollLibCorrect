@@ -274,6 +274,54 @@ abstract class Doll {
         }
     }
 
+    /* first part of any data string tells me what type of doll to load.*/
+    static Doll randomDollOfType(int type) {
+
+        if(type == new HomestuckDoll().renderingType) {
+            return new HomestuckDoll();
+        }
+
+        if(type == new HomestuckTrollDoll().renderingType) {
+            return new HomestuckTrollDoll();
+        }
+
+        if(type == new ConsortDoll().renderingType) {
+            return new ConsortDoll();
+        }
+
+        if(type == new DenizenDoll().renderingType) {
+            return new DenizenDoll();
+        }
+
+        if(type == new DadDoll().renderingType) {
+            return new DadDoll();
+        }
+
+        if(type == new QueenDoll().renderingType) {
+            return new QueenDoll();
+        }
+
+        if(type == new MomDoll().renderingType) {
+            return new MomDoll();
+        }
+
+        if(type == new BroDoll().renderingType) {
+            return new BroDoll();
+        }
+
+        if(type == new HomestuckBabyDoll().renderingType) {
+            return new HomestuckBabyDoll();
+        }
+
+        if(type == new HomestuckGrubDoll().renderingType) {
+            return new HomestuckGrubDoll();
+        }
+
+        if(type == new MonsterPocketDoll().renderingType) {
+            return new MonsterPocketDoll();
+        }
+    }
+
     static List<SavedDoll> loadAllFromLocalStorage() {
         int last = 255; //don't care about first ree id cuz they can be deleted.
         List<SavedDoll> ret = new List<SavedDoll>();

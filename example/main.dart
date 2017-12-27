@@ -20,6 +20,7 @@ Future<bool> start() async {
     t.randomize(false); //absorb blood color
     t.leftHorn.imgNumber = 135;
     t.rightHorn.imgNumber = 135;
+    print("Doll type in string form  is : ${t.toJustType()}");
 
 
 
