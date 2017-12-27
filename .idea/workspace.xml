@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b62ac1be-4f31-43ec-ac23-1245840a0e0d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/Dolls/Doll.dart" afterPath="$PROJECT_DIR$/lib/src/Dolls/Doll.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/lib/src/Dolls/Doll.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="465">
-              <caret line="355" column="32" lean-forward="false" selection-start-line="355" selection-start-column="32" selection-end-line="355" selection-end-column="32" />
+              <caret line="355" column="9" lean-forward="false" selection-start-line="355" selection-start-column="9" selection-end-line="355" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -966,7 +965,7 @@
     <entry file="file://$PROJECT_DIR$/lib/src/Dolls/Doll.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
-          <caret line="355" column="32" lean-forward="false" selection-start-line="355" selection-start-column="32" selection-end-line="355" selection-end-column="32" />
+          <caret line="355" column="9" lean-forward="false" selection-start-line="355" selection-start-column="9" selection-end-line="355" selection-end-column="9" />
           <folding />
         </state>
       </provider>
