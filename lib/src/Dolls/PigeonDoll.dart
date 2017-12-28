@@ -9,10 +9,10 @@ import "../includes/palette.dart";
 import "../Rendering/ReferenceColors.dart";
 class PigeonDoll extends Doll {
     //TODO random set of pigeon palettes maybe for random colored pigeons?
-    int maxBody = 1;
-    int maxHead = 1;
-    int maxTail = 1;
-    int maxWing = 1;
+    int maxBody = 0;
+    int maxHead = 0;
+    int maxTail = 0;
+    int maxWing = 0;
 
     String folder = "images/Pigeon";
 
