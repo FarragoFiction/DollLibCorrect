@@ -9,10 +9,10 @@ import "../includes/palette.dart";
 import "../Rendering/ReferenceColors.dart";
 class PigeonDoll extends Doll {
     //TODO random set of pigeon palettes maybe for random colored pigeons?
-    int maxBody = 0;
-    int maxHead = 0;
+    int maxBody = 1;
+    int maxHead = 3;
     int maxTail = 0;
-    int maxWing = 0;
+    int maxWing = 1;
 
     String folder = "images/Pigeon";
 
@@ -41,12 +41,14 @@ class PigeonDoll extends Doll {
         ..eyes = '#f6ff00'
         ..skin = '#00ff20'
         ..feather1 = '#ff0000'
+        ..accent = "#b400ff"
         ..feather2 = '#0135ff';
 
     @override
     Palette palette = new PigeonPalette()
         ..eyes = '#FF9B00'
         ..skin = '#EFEFEF'
+        ..accent = "#b400ff"
         ..feather1 = '#DBDBDB'
         ..feather2 = '#C6C6C6';
 
@@ -113,6 +115,7 @@ class PigeonPalette extends Palette {
     static String _SKIN = "skin"; //green
     static String _FEATHER1 = "feather1"; //red
     static String _FEATHER2 = "feather2"; //blue
+    static String _ACCENT = "accent"; //purple
 
     static Colour _handleInput(Object input) {
         if (input is Colour) {
@@ -143,6 +146,10 @@ class PigeonPalette extends Palette {
     Colour get skin => this[_SKIN];
 
     void set skin(dynamic c) => this.add(_SKIN, _handleInput(c), true);
+
+    Colour get accent => this[_ACCENT];
+
+    void set accent(dynamic c) => this.add(_ACCENT, _handleInput(c), true);
 
     Colour get feather1 => this[_FEATHER1];
 
