@@ -15,6 +15,8 @@ export "src/Dolls/HomestuckHeroDoll.dart";
 export "src/Dolls/DadDoll.dart";
 export "src/Dolls/MomDoll.dart";
 export "src/Dolls/BroDoll.dart";
+export "src/Dolls/PigeonDoll.dart";
+
 export "src/loader/loader.dart";
 export "src/Dolls/MonsterPocketDoll.dart";
 

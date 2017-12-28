@@ -301,6 +301,10 @@ abstract class Doll {
             return new QueenDoll();
         }
 
+        if(type == new PigeonDoll().renderingType) {
+            return new PigeonDoll();
+        }
+
         if(type == new MomDoll().renderingType) {
             return new MomDoll();
         }
