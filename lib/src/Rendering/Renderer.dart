@@ -128,7 +128,7 @@ class Renderer {
     static double scaleForSize(CanvasElement canvas, int width, int height) {
         double ratio = 1.0;
         print("width is $width, height is $height");
-        if(width > height) {
+        if(canvas.width > canvas.height) {
              print("based on width");
             ratio = width/canvas.width;
         }else {

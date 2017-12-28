@@ -18,6 +18,8 @@ Future<bool> start() async {
 
     await drawDoll();
     await drawDollScaled(doll,375,480);
+    await drawDollScaled(doll,480,375);
+
 
     // doll = Doll.convertOneDollToAnother(doll, new HomestuckTrollDoll());
     //await drawDoll();
