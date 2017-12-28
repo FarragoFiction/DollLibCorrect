@@ -12,14 +12,14 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
-    //doll = Doll.makeRandomDoll();
+    doll = Doll.makeRandomDoll();
     //doll = new MonsterPocketDoll();
     //doll = new DadDoll();
-    doll = Doll.loadSpecificDoll("http://localhost:63342/DollBuilder/web/index.html?AiCT3qkPDQWAggIIDQWAhweAggL41035100JDQUAAABYWlrS0dGJiIgAAACIiIiYmZkhJiYODQWAggJAJSNDQLAAqAEoLAQAACgCAAA=");
+    //doll = Doll.loadSpecificDoll("http://localhost:63342/DollBuilder/web/index.html?AiCT3qkPDQWAggIIDQWAhweAggL41035100JDQUAAABYWlrS0dGJiIgAAACIiIiYmZkhJiYODQWAggJAJSNDQLAAqAEoLAQAACgCAAA=");
 
    // await drawDoll(); //normal
     await drawDollScaled(doll,375,480); //char sheet
-    //await drawDollScaled(doll,256,208); //trading card
+    await drawDollScaled(doll,256,208); //trading card
     await drawDollScaled(doll,300,450);//troll call
 
 
