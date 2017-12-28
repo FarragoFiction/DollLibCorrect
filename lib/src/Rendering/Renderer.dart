@@ -125,31 +125,22 @@ class Renderer {
 
 
     //the doll should fit into the canvas. use largest size
-    static double scaleForSize(CanvasElement canvas, int width, int height) {
-        double ratio = 1.0;
-        print("width is $width, height is $height");
-        if(canvas.width > canvas.height) {
-             print("based on width");
-            ratio = width/canvas.width;
-        }else {
-             print("based on height");
-            ratio = height/canvas.height;
-        }
-
-        print("ratio is: $ratio");
-        return ratio;
+    static double scaleForSize(int sourcewidth, int sourceheight, int destwidth, int destheight) {
+        double widthratio = destwidth / sourcewidth;
+        double heightratio = destheight / sourceheight;
+        return Math.min(widthratio, heightratio);
     }
 
 
     static drawToFitCentered(CanvasElement destination, CanvasElement source) {
         //print("Drawing to fit width: ${destination.width}, height: ${destination.height}, native width is ${source.width} by ${source.height}");
-        double ratio = scaleForSize(source, destination.width, destination.height);
-        int newWidth = (source.width * ratio).floor();
-        int newHeight = (source.height * ratio).floor();
+        double ratio = scaleForSize(source.width, source.height, destination.width, destination.height);
+        int newWidth = (source.width * ratio).ceil();
+        int newHeight = (source.height * ratio).ceil();
         //doesn't look right :(
         //int x = (destination.width/2 - source.width/2).round();
-        int x = (destination.width/2 - newWidth/2).round();
-        //print("New dimensions: ${newWidth}, height: ${newHeight}");
+        int x = (destination.width/2 - newWidth/2).ceil();
+        print("New dimensions: ${newWidth}, height: ${newHeight}");
         source.context2D.imageSmoothingEnabled = false;
         destination.context2D.imageSmoothingEnabled = false;
 
