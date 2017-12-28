@@ -371,7 +371,7 @@ class Renderer {
         for(int x = 0; x<canvas.width; x ++) {
             for(int y = 0; y<canvas.height; y++) {
                 int i = (y * canvas.width + x) * 4;
-                if(img_data.data[i+3] != 0) {
+                if(img_data.data[i+3] >100) {
                     if(x < leftMostX) leftMostX = x;
                     if(x > rightMostX) rightMostX = x;
                     if(y > bottomMostY) bottomMostY = y;

@@ -14,10 +14,15 @@ Future<bool> start() async {
     print("done awaiting");
     doll = Doll.makeRandomDoll();
     //doll = new MonsterPocketDoll();
-    //doll = new DadDoll();
-    //doll = Doll.loadSpecificDoll("http://localhost:63342/DollBuilder/web/index.html?AiCT3qkPDQWAggIIDQWAhweAggL41035100JDQUAAABYWlrS0dGJiIgAAACIiIiYmZkhJiYODQWAggJAJSNDQLAAqAEoLAQAACgCAAA=");
+   // doll = new DadDoll();
+    doll = Doll.loadSpecificDoll("AiD7AkIIDQWAggIIDQWAhweAggL41035100JDQUAAABYWlrS0dGJiIgAAACIiIiYmZkhJiYODQWAggKQgoAYGYEAAADw8gIAAKABAAA=");
 
    // await drawDoll(); //normal
+    await drawDollScaled(doll,375,480); //char sheet
+    await drawDollScaled(doll,256,208); //trading card
+    await drawDollScaled(doll,300,450);//troll call
+
+    doll = new HomestuckTrollDoll();
     await drawDollScaled(doll,375,480); //char sheet
     await drawDollScaled(doll,256,208); //trading card
     await drawDollScaled(doll,300,450);//troll call
