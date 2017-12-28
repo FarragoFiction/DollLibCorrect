@@ -14,14 +14,28 @@ Future<bool> start() async {
     print("done awaiting");
     //doll = Doll.makeRandomDoll();
     //doll = new MonsterPocketDoll();
-    doll = new PigeonDoll();
+    doll = new DadDoll();
 
     await drawDoll();
-   // doll = Doll.convertOneDollToAnother(doll, new HomestuckTrollDoll());
+    await drawDollScaled(doll,375,480);
+
+    // doll = Doll.convertOneDollToAnother(doll, new HomestuckTrollDoll());
     //await drawDoll();
     //doll = Doll.convertOneDollToAnother(doll, new HomestuckGrubDoll());
     //drawDoll();
     //drawDoll();
+}
+
+Future<Null>  drawDollScaled(Doll doll, int w, int h) async {
+    CanvasElement monsterElement = new CanvasElement(width:w, height: h);
+    CanvasElement dollCanvas = new CanvasElement(width: doll.width, height: doll.height);
+    await Renderer.drawDoll(dollCanvas, doll);
+    //Renderer.drawBG(monsterElement, ReferenceColours.RED, ReferenceColours.WHITE);
+
+    dollCanvas = Renderer.cropToVisible(dollCanvas);
+
+    Renderer.drawToFitCentered(monsterElement, dollCanvas);
+    querySelector('#output').append(monsterElement);
 }
 
 

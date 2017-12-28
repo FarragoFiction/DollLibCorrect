@@ -127,26 +127,19 @@ class Renderer {
     //the doll should fit into the canvas. use largest size
     static double scaleForSize(CanvasElement canvas, int width, int height) {
         double ratio = 1.0;
-        /*
-        if(canvas.width<canvas.height) {
+        print("width is $width, height is $height");
+        if(width > height) {
+             print("based on width");
             ratio = width/canvas.width;
         }else {
-            ratio = height/canvas.height;
-        }
-        */
-        //which is right
-        //print("Scaling for size, width is ${width} and height is ${height}");
-        if(width < height) {
-           // print("based on width");
-            ratio = width/canvas.width;
-        }else {
-           // print("based on height");
+             print("based on height");
             ratio = height/canvas.height;
         }
 
-        //print("ratio is: $ratio");
+        print("ratio is: $ratio");
         return ratio;
     }
+
 
     static drawToFitCentered(CanvasElement destination, CanvasElement source) {
         //print("Drawing to fit width: ${destination.width}, height: ${destination.height}, native width is ${source.width} by ${source.height}");
