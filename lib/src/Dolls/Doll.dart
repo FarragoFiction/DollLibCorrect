@@ -406,7 +406,7 @@ class SavedDoll {
         });
 
         AnchorElement a = new AnchorElement();
-        a.href = "genericIndex.html?${doll.toDataBytesX()}";
+        a.href = "index.html?${doll.toDataBytesX()}";
         a.target = "_blank";
         a.text = "Edit Doll Link";
         bluh.append(a);
