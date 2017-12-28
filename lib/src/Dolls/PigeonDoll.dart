@@ -23,7 +23,7 @@ class PigeonDoll extends Doll {
 
 
     @override
-    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body,head,wing,tail];
+    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[tail, body,head,wing];
     @override
     List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,head,wing,tail];
 
@@ -78,9 +78,9 @@ class PigeonDoll extends Doll {
     @override
     void initLayers() {
         body = new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
-        body = new SpriteLayer("Head", "$folder/Head/", 1, maxHead);
-        body = new SpriteLayer("Wing", "$folder/Wing/", 1, maxWing);
-        body = new SpriteLayer("Tail", "$folder/Tail/", 1, maxTail);
+        head = new SpriteLayer("Head", "$folder/Head/", 1, maxHead);
+        wing = new SpriteLayer("Wing", "$folder/Wing/", 1, maxWing);
+        tail = new SpriteLayer("Tail", "$folder/Tail/", 1, maxTail);
 
     }
 

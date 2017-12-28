@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b62ac1be-4f31-43ec-ac23-1245840a0e0d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/src/Dolls/PigeonDoll.dart" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/DollRenderer.dart" afterPath="$PROJECT_DIR$/lib/DollRenderer.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/main.dart" afterPath="$PROJECT_DIR$/example/main.dart" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/Dolls/Doll.dart" afterPath="$PROJECT_DIR$/lib/src/Dolls/Doll.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/Dolls/PigeonDoll.dart" afterPath="$PROJECT_DIR$/lib/src/Dolls/PigeonDoll.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PigeonDoll.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PigeonDoll.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/src/Dolls/PigeonDoll.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="10" column="74" lean-forward="false" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
+            <state relative-caret-position="237">
+              <caret line="25" column="85" lean-forward="false" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="85" />
               <folding />
             </state>
           </provider>
@@ -73,18 +73,40 @@
       <file leaf-file-name="Doll.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/Dolls/Doll.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="304" column="33" lean-forward="false" selection-start-line="304" selection-start-column="33" selection-end-line="304" selection-end-column="33" />
+            <state relative-caret-position="170">
+              <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DollRenderer.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/main.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="64" lean-forward="false" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DollRenderer.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/DollRenderer.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="525">
+              <caret line="40" column="18" lean-forward="false" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -155,10 +177,10 @@
         <option value="$PROJECT_DIR$/lib/src/Rendering/Renderer.dart" />
         <option value="$PROJECT_DIR$/lib/src/Dolls/HomestuckTrollDoll.dart" />
         <option value="$PROJECT_DIR$/lib/src/Dolls/GenericDollMakerController.dart" />
+        <option value="$PROJECT_DIR$/lib/DollRenderer.dart" />
+        <option value="$PROJECT_DIR$/lib/src/Dolls/Doll.dart" />
         <option value="$PROJECT_DIR$/example/main.dart" />
         <option value="$PROJECT_DIR$/lib/src/Dolls/PigeonDoll.dart" />
-        <option value="$PROJECT_DIR$/lib/src/Dolls/Doll.dart" />
-        <option value="$PROJECT_DIR$/lib/DollRenderer.dart" />
       </list>
     </option>
   </component>
@@ -807,14 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/loader/loader.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -836,16 +850,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -949,26 +953,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/Dolls/PigeonDoll.dart">
+    <entry file="file://$PROJECT_DIR$/lib/DollRenderer.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="10" column="74" lean-forward="false" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
+        <state relative-caret-position="525">
+          <caret line="40" column="18" lean-forward="false" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/Dolls/Doll.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="304" column="33" lean-forward="false" selection-start-line="304" selection-start-column="33" selection-end-line="304" selection-end-column="33" />
+        <state relative-caret-position="170">
+          <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/DollRenderer.dart">
+    <entry file="file://$PROJECT_DIR$/example/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="5" column="64" lean-forward="false" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/Dolls/PigeonDoll.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="25" column="85" lean-forward="false" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="85" />
           <folding />
         </state>
       </provider>

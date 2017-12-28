@@ -14,15 +14,7 @@ Future<bool> start() async {
     print("done awaiting");
     //doll = Doll.makeRandomDoll();
     //doll = new MonsterPocketDoll();
-    doll = new HomestuckTrollDoll();
-    HomestuckTrollDoll t = doll as HomestuckTrollDoll;
-    t.canonSymbol.imgNumber = HomestuckTrollDoll.randomLimeSign;
-    t.randomize(false); //absorb blood color
-    t.leftHorn.imgNumber = 135;
-    t.rightHorn.imgNumber = 135;
-    print("Doll type in string form  is : ${t.toJustType()}");
-
-
+    doll = new PigeonDoll();
 
     await drawDoll();
    // doll = Doll.convertOneDollToAnother(doll, new HomestuckTrollDoll());
