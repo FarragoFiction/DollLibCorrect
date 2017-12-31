@@ -14,7 +14,7 @@ class HiveswapDoll extends Doll {
     int maxEyebrows = 2;
     int maxHorn = 1;
     int maxHair = 1;
-    int maxEyes = 2;
+    int maxEyes = 1;
     int maxMouth = 4;
 
 
@@ -114,6 +114,7 @@ class HiveswapDoll extends Doll {
         Random rand = new Random();
         for (SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber + 1);
+            if(l.imgNumber == 0 && l != body) l.imgNumber = 1;
         }
         randomizeColors();
     }
