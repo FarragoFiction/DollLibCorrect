@@ -136,14 +136,14 @@ class HiveswapDoll extends Doll {
 
 class HiveswapPalette extends Palette {
     static String _SKIN = "skin"; //fuscia
-    static String _SKIN_DARK = "skin dark";
+    static String _SKIN_DARK = "skindark";
     static String _SHIRT = "shirt"; //blue
-    static String _SHIRT_DETAIL = "shirt detail";
+    static String _SHIRT_DETAIL = "shirtdetail";
     static String _PANTS = "pants"; //purple
-    static String _PANTS_DETAIL = "pants detail";
+    static String _PANTS_DETAIL = "pantsdetail";
     static String _SHOES = "shoes"; //teal
-    static String _RIGHT_EYE = "right eye"; //yellow
-    static String _LEFT_EYE = "left eye"; //indigo
+    static String _RIGHT_EYE = "righteye"; //yellow
+    static String _LEFT_EYE = "lefteye"; //indigo
     static String _HAIR = "hair"; //green
 
 
