@@ -13,8 +13,9 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
    // doll = Doll.makeRandomDoll();
-    doll = new HomestuckTrollDoll();
-    HomestuckTrollDoll t = doll as HomestuckTrollDoll;
+    doll = new HiveswapDoll();
+    //HomestuckTrollDoll t = doll as HomestuckTrollDoll;
+    /*
     t.mouth.imgNumber = t.maxMouth;
     t.leftHorn.imgNumber = t.maxHorn;
     t.rightHorn.imgNumber = t.maxHorn;
@@ -25,7 +26,7 @@ Future<bool> start() async {
     t.glasses2.imgNumber = 120;
     t.hairTop.imgNumber = t.maxHair;
     t.hairBack.imgNumber = t.maxHair;
-
+*/
 
 
 

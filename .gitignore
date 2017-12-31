@@ -1,3 +1,7 @@
+.idea/
+*.iml
+*.DS_Store
+
 # Files and directories created by pub
 .packages
 .pub/
