@@ -278,6 +278,11 @@ abstract class Doll {
             return new HomestuckTrollDoll();
         }
 
+        if(type == new HiveswapDoll().renderingType) {
+            return new HiveswapDoll();
+        }
+
+
         if(type == new ConsortDoll().renderingType) {
             return new ConsortDoll();
         }
