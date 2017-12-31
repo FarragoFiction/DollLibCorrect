@@ -2,7 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b62ac1be-4f31-43ec-ac23-1245840a0e0d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/Dolls/HomestuckDoll.dart" afterPath="$PROJECT_DIR$/lib/src/Dolls/HomestuckDoll.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/227.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/227.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/228.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/228.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/229.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/229.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/230.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/230.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/231.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/231.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/232.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/232.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/233.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/233.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/234.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/234.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/235.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/235.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/236.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/236.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/237.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/237.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/238.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/238.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/239.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/239.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/240.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/240.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/241.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/241.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/242.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/242.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/243.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/243.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/244.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/244.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/245.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/245.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/246.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/246.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/247.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/247.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/248.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/248.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/249.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/249.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/images/Homestuck/Symbol/250.png" afterPath="$PROJECT_DIR$/example/images/Homestuck/Symbol/250.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -535,7 +559,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="185" y="22" width="993" height="673" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
