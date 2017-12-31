@@ -230,6 +230,10 @@ abstract class Doll {
             return new ConsortDoll.fromReader(reader);
         }
 
+        if(type == new HiveswapDoll().renderingType) {
+            return new HiveswapDoll.fromReader(reader);
+        }
+
         if(type == new DenizenDoll().renderingType) {
             return new DenizenDoll.fromReader(reader);
         }
