@@ -23,6 +23,7 @@ export "src/Dolls/MonsterPocketDoll.dart";
 export "src/Dolls/EggDoll.dart";
 export "src/Dolls/TrollEggDoll.dart";
 export "src/Dolls/ConsortDoll.dart";
+export "src/Dolls/HiveswapDoll.dart";
 export "src/Dolls/Doll.dart";
 export "src/Dolls/NamedLayerDoll.dart";
 export "src/Dolls/DenizenDoll.dart";
