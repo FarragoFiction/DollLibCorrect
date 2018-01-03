@@ -17,7 +17,7 @@ class HiveswapDoll extends Doll {
     int maxHair = 8;
     int maxFin = 1;
 
-    int maxEyes = 1;
+    int maxEyes = 3;
     int maxMouth = 6;
 
 
@@ -75,14 +75,14 @@ class HiveswapDoll extends Doll {
         ..cloak_light = '#A3A3A3'
         ..cloak_mid = '#999999'
         ..cloak_dark = '#898989'
-        ..shirt_light = '#111111'
+        ..shirt_light = '#212121'
         ..shirt_dark = '#000000'
         ..pants_light = '#4b4b4b'
         ..eye_white_left = '#ffba29'
         ..eye_white_right = '#ffba29'
         ..pants_dark = '#3a3a3a'
         ..hair_accent = '#aa0000'
-        ..hair_main = '#000000'
+        ..hair_main = '#212121'
         ..skin = '#C4C4C4';
 
     HiveswapDoll() {
@@ -159,7 +159,7 @@ class HiveswapDoll extends Doll {
         }
 
         HiveswapTrollPalette h = palette as HiveswapTrollPalette;
-        palette.add(HiveswapTrollPalette._ACCENT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+        palette.add(HiveswapTrollPalette._ACCENT, new Colour.fromStyleString("#969696"), true);
         palette.add(HiveswapTrollPalette._ASPECT_LIGHT, new Colour.fromStyleString(chosenBlood), true);
 
         palette.add(HiveswapTrollPalette._ASPECT_DARK, new Colour(h.aspect_light.red, h.aspect_light.green, h.aspect_light.blue)..setHSV(h.aspect_light.hue, h.aspect_light.saturation, h.aspect_light.value/2), true);
@@ -225,7 +225,7 @@ class HiveswapDoll extends Doll {
         HiveswapTrollPalette h = palette as HiveswapTrollPalette;
 
 
-        palette.add(HiveswapTrollPalette._ACCENT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+        palette.add(HiveswapTrollPalette._ACCENT, new Colour.fromStyleString("#969696"), true);
         palette.add(HiveswapTrollPalette._ASPECT_LIGHT, new Colour.fromStyleString(chosenBlood), true);
 
         palette.add(HiveswapTrollPalette._ASPECT_DARK, new Colour(h.aspect_light.red, h.aspect_light.green, h.aspect_light.blue)..setHSV(h.aspect_light.hue, h.aspect_light.saturation, h.aspect_light.value / 2), true);
