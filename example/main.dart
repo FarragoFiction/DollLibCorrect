@@ -33,10 +33,10 @@ Future<bool> start() async {
     // doll = new DadDoll();
     //doll = Doll.loadSpecificDoll("AiD7AkIIDQWAggIIDQWAhweAggL41035100JDQUAAABYWlrS0dGJiIgAAACIiIiYmZkhJiYODQWAggKQgoAYGYEAAADw8gIAAKABAAA=");
 
-   // await drawDoll(); //normal
-    await drawDollScaled(doll,375,480); //char sheet
-    await drawDollScaled(doll,256,208); //trading card
-    await drawDollScaled(doll,300,450);//troll call
+    await drawDoll(); //normal
+    //await drawDollScaled(doll,375,480); //char sheet
+    //await drawDollScaled(doll,256,208); //trading card
+    //await drawDollScaled(doll,300,450);//troll call
 
 
 

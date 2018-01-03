@@ -12,10 +12,11 @@ import "../Rendering/ReferenceColors.dart";
 class HiveswapDoll extends Doll {
     int maxBody = 0;
     int maxEyebrows = 2;
-    int maxHorn = 1;
-    int maxHair = 1;
+    int maxHorn = 6;
+    int maxHair = 8;
+
     int maxEyes = 1;
-    int maxMouth = 4;
+    int maxMouth = 6;
 
 
 
@@ -25,7 +26,8 @@ class HiveswapDoll extends Doll {
     SpriteLayer eyebrows;
     SpriteLayer leftEye;
     SpriteLayer rightEye;
-    SpriteLayer hair;
+    SpriteLayer hairTop;
+    SpriteLayer hairBack;
     SpriteLayer leftHorn;
     SpriteLayer rightHorn;
     SpriteLayer mouth;
@@ -33,9 +35,9 @@ class HiveswapDoll extends Doll {
 
 
     @override
-    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body, eyebrows,leftEye,rightEye, hair,leftHorn, rightHorn,mouth];
+    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body,hairBack, eyebrows,leftEye,rightEye, hairTop,leftHorn, rightHorn,mouth];
     @override
-    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,eyebrows,leftEye, rightEye,hair,leftHorn, rightHorn,mouth];
+    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,eyebrows,leftEye, rightEye,hairBack,hairTop,leftHorn, rightHorn,mouth];
 
 
     @override
@@ -99,11 +101,15 @@ class HiveswapDoll extends Doll {
 
     @override
     void initLayers() {
+        hairTop = new SpriteLayer("Hair","$folder/HairTop/", 1, maxHair);
+        hairBack = new SpriteLayer("Hair","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[hairTop]);
+        hairTop.syncedWith.add(hairBack);
+        hairBack.slave = true; //can't be selected on it's own
+
         body = new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
         eyebrows = new SpriteLayer("EyeBrows", "$folder/Eyebrows/", 1, maxEyebrows);
         leftEye = new SpriteLayer("LeftEye", "$folder/LeftEye/", 1, maxEyes);
         rightEye = new SpriteLayer("RightEye", "$folder/RightEye/", 1, maxEyes);
-        hair = new SpriteLayer("Hair", "$folder/Hair/", 1, maxHair);
         leftHorn = new SpriteLayer("LeftHorn", "$folder/LeftHorn/", 1, maxHorn);
         rightHorn = new SpriteLayer("RightHorn", "$folder/RightHorn/", 1, maxHorn);
         mouth = new SpriteLayer("Mouth", "$folder/Mouth/", 1, maxMouth);
