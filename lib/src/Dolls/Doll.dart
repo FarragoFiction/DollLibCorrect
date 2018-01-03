@@ -223,11 +223,11 @@ abstract class Doll {
         }
 
         if(type == new HiveswapDoll().renderingType) {
-            return new HiveswapDoll();
+            return new HiveswapDoll.fromReader(reader);
         }
 
         if(type == new PigeonDoll().renderingType) {
-            return new PigeonDoll();
+            return new PigeonDoll.fromReader(reader);
         }
 
         if(type == new HomestuckTrollDoll().renderingType) {
