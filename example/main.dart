@@ -14,7 +14,6 @@ Future<bool> start() async {
     print("done awaiting");
    // doll = Doll.makeRandomDoll();
     doll = new HiveswapDoll();
-    doll = new PigeonDoll();
 
     //HiveswapDoll t = doll as HiveswapDoll;
     //print("body is ${t.body.imgNumber}");
@@ -34,7 +33,7 @@ Future<bool> start() async {
 
 
     // doll = new DadDoll();
-    //doll = Doll.loadSpecificDoll("AiD7AkIIDQWAggIIDQWAhweAggL41035100JDQUAAABYWlrS0dGJiIgAAACIiIiYmZkhJiYODQWAggKQgoAYGYEAAADw8gIAAKABAAA=");
+    doll = Doll.loadSpecificDoll("DiCwtLQUlRqISgkQlRKY3xOISgn41035100RlRqoqKhYWlrS0dGpqKgAAACIiIiYmZkhJiYWlRqISgkAEBAQMDBAQFgAAAA=");
 
     await drawDoll(); //normal
     //await drawDollScaled(doll,375,480); //char sheet
@@ -72,5 +71,6 @@ Future<bool>  drawDoll() async{
     finishedProduct.className = "cardCanvas";
     innerDiv.append(finishedProduct);
     querySelector('#output').append(innerDiv);
+    querySelector('#output').appendHtml(doll.toDataBytesX());
 
 }

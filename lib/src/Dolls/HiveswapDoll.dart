@@ -70,6 +70,8 @@ class HiveswapDoll extends Doll {
         ..accent = '#FF9B00'
         ..aspect_light = '#FF9B00'
         ..aspect_dark = '#FF8700'
+        ..wing1 = '#FF9B00'
+        ..wing2 = '#FF8700'
         ..shoe_light = '#111111'
         ..shoe_dark = '#333333'
         ..cloak_light = '#A3A3A3'
