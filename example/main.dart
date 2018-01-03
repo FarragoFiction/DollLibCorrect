@@ -14,7 +14,8 @@ Future<bool> start() async {
     print("done awaiting");
    // doll = Doll.makeRandomDoll();
     doll = new HiveswapDoll();
-    //HomestuckTrollDoll t = doll as HomestuckTrollDoll;
+    //HiveswapDoll t = doll as HiveswapDoll;
+    //print("body is ${t.body.imgNumber}");
     /*
     t.mouth.imgNumber = t.maxMouth;
     t.leftHorn.imgNumber = t.maxHorn;

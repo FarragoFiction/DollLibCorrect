@@ -75,14 +75,14 @@ class HiveswapDoll extends Doll {
         ..cloak_light = '#A3A3A3'
         ..cloak_mid = '#999999'
         ..cloak_dark = '#898989'
-        ..shirt_light = '#212121'
+        ..shirt_light = '#151515'
         ..shirt_dark = '#000000'
         ..pants_light = '#4b4b4b'
         ..eye_white_left = '#ffba29'
         ..eye_white_right = '#ffba29'
         ..pants_dark = '#3a3a3a'
         ..hair_accent = '#aa0000'
-        ..hair_main = '#212121'
+        ..hair_main = '#151515'
         ..skin = '#C4C4C4';
 
     HiveswapDoll() {
@@ -146,7 +146,7 @@ class HiveswapDoll extends Doll {
                     }
                 }
 
-                if (l.imgNumber == 0 && !l.imgNameBase.contains("Fin") && !l.imgNameBase.contains("Wings")) l.imgNumber = 1;
+                avoidBlank();
                 if (l.imgNameBase.contains("Fin")) {
                     //"#610061", "#99004d"
                     if (chosenBlood == "#610061" || chosenBlood == "#99004d") {
@@ -171,6 +171,14 @@ class HiveswapDoll extends Doll {
         palette.add(HiveswapTrollPalette._WING1, new Colour.fromStyleString(chosenBlood), true);
         palette.add(HiveswapTrollPalette._WING2, new Colour(h.wing1.red, h.wing1.green, h.wing1.blue)..setHSV(h.wing1.hue, h.wing1.saturation, h.wing1.value/2), true);
         palette.add(HiveswapTrollPalette._HAIR_ACCENT, new Colour(h.wing1.red, h.wing1.green, h.wing1.blue), true);
+    }
+
+    void avoidBlank() {
+        if(mouth.imgNumber == 0) mouth.imgNumber = 1;
+        if(leftEye.imgNumber == 0) leftEye.imgNumber = 1;
+        if(leftHorn.imgNumber == 0) leftHorn.imgNumber = 1;
+        if(rightEye.imgNumber == 0) rightEye.imgNumber = 1;
+        if(rightHorn.imgNumber == 0) rightHorn.imgNumber = 1;
     }
 
 
@@ -202,7 +210,7 @@ class HiveswapDoll extends Doll {
                 }
             }
 
-            if (l.imgNumber == 0 && !l.imgNameBase.contains("Fin") && !l.imgNameBase.contains("Wings")) l.imgNumber = 1;
+            avoidBlank();
             if (l.imgNameBase.contains("Fin")) {
                 //"#610061", "#99004d"
                 if (chosenBlood == "#610061" || chosenBlood == "#99004d") {
