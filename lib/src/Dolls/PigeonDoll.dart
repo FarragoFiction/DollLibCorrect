@@ -27,7 +27,7 @@ class PigeonDoll extends Doll {
     @override
     List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,head,wing,tail];
 
-    List<Palette> get pigeonDefaultPalettes => <Palette>[greyBird, frohike,traitor,whiteBird,byers,redBird,blackBird];
+    List<Palette> get pigeonDefaultPalettes => <Palette>[redBird2, greyBird, frohike,traitor,whiteBird,byers,redBird,blackBird];
 
 
     @override
@@ -101,6 +101,14 @@ class PigeonDoll extends Doll {
         ..accent = "#b400ff"
         ..feather1 = '#ffffff'
         ..feather2 = '#4d1c15';
+
+    @override
+    Palette redBird2 = new PigeonPalette()
+        ..eyes = '#FF9B00'
+        ..skin = '#bb8d71'
+        ..accent = "#b400ff"
+        ..feather1 = '#4d1c15'
+        ..feather2 = '#ffffff';
 
     @override
     Palette blackBird = new PigeonPalette()
