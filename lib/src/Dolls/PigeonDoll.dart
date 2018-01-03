@@ -27,6 +27,8 @@ class PigeonDoll extends Doll {
     @override
     List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,head,wing,tail];
 
+    List<Palette> get pigeonDefaultPalettes => <Palette>[greyBird, frohike,traitor,whiteBird,byers,redBird,blackBird];
+
 
     @override
     int width = 500;
@@ -51,6 +53,62 @@ class PigeonDoll extends Doll {
         ..accent = "#b400ff"
         ..feather1 = '#DBDBDB'
         ..feather2 = '#C6C6C6';
+
+    @override
+    Palette whiteBird = new PigeonPalette()
+        ..eyes = '#ffffff'
+        ..skin = '#ffc27e'
+        ..accent = "#ffffff"
+        ..feather1 = '#ffffff'
+        ..feather2 = '#f8f8f8';
+
+    @override
+    Palette traitor = new PigeonPalette()
+        ..eyes = '#e8da57'
+        ..skin = '#dba0a6'
+        ..accent = "#a8d0ae"
+        ..feather1 = '#e6e2e1'
+        ..feather2 = '#bc949d';
+
+    @override
+    Palette frohike = new PigeonPalette()
+        ..eyes = '#e8da57'
+        ..skin = '#5c372e'
+        ..accent = "#b400ff"
+        ..feather1 = '#b57e79'
+        ..feather2 = '#a14f44';
+
+    @override
+    Palette byers = new PigeonPalette()
+        ..eyes = '#e8da57'
+        ..skin = '#807174'
+        ..accent = "#77a88b"
+        ..feather1 = '#dbd3c8'
+        ..feather2 = '#665858';
+
+    @override
+    Palette greyBird = new PigeonPalette()
+        ..eyes = '#FF9B00'
+        ..skin = '#ffc27e'
+        ..accent = "#b400ff"
+        ..feather1 = '#DBDBDB'
+        ..feather2 = '#4d4c45';
+
+    @override
+    Palette redBird = new PigeonPalette()
+        ..eyes = '#FF9B00'
+        ..skin = '#bb8d71'
+        ..accent = "#b400ff"
+        ..feather1 = '#ffffff'
+        ..feather2 = '#4d1c15';
+
+    @override
+    Palette blackBird = new PigeonPalette()
+        ..eyes = '#ba5931'
+        ..skin = '#000000'
+        ..accent = "#3c6a5d"
+        ..feather1 = '#0a1916'
+        ..feather2 = '#252e2c';
 
     PigeonDoll() {
         initLayers();
@@ -93,6 +151,12 @@ class PigeonDoll extends Doll {
             l.imgNumber = rand.nextInt(l.maxImageNumber + 1);
         }
         randomizeColors();
+    }
+
+    @override
+    randomizeColors() {
+        Random rand = new Random();
+        copyPalette(rand.pickFrom(pigeonDefaultPalettes));
     }
 
 

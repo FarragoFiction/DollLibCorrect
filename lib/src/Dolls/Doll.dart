@@ -222,6 +222,14 @@ abstract class Doll {
             return new HomestuckDoll.fromReader(reader);
         }
 
+        if(type == new HiveswapDoll().renderingType) {
+            return new HiveswapDoll();
+        }
+
+        if(type == new PigeonDoll().renderingType) {
+            return new PigeonDoll();
+        }
+
         if(type == new HomestuckTrollDoll().renderingType) {
             return new HomestuckTrollDoll.fromReader(reader);
         }
