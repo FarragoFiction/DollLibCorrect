@@ -50,7 +50,7 @@ class HiveswapDoll extends Doll {
     int height = 1000;
 
     @override
-    int renderingType =914; //hiveswap release date
+    int renderingType =14; //hiveswap release date is 9/14
 
     @override
     Palette paletteSource = new HiveswapTrollPalette()
