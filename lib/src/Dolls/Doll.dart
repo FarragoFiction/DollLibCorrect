@@ -116,11 +116,11 @@ abstract class Doll {
     //i am assuming type was already read at this point. Type, Exo is required.
     void initFromReader(ByteReader reader, Palette newP, [bool layersNeedInit = true]) {
         if(layersNeedInit) {
-            print("initalizing layers");
+            //print("initalizing layers");
             initLayers();
         }
         int numFeatures = reader.readExpGolomb();
-        print("I think there are ${numFeatures} features");
+        //print("I think there are ${numFeatures} features");
         int featuresRead = 2; //for exo and doll type
 
         List<String> names = new List<String>.from(palette.names);
@@ -132,7 +132,7 @@ abstract class Doll {
         }
 
         for(String name in newP.names) {
-            print("loading color $name");
+            //print("loading color $name");
             palette.add(name, newP[name], true);
         }
 
@@ -146,15 +146,15 @@ abstract class Doll {
                 try {
                     l.loadFromReader(reader); //handles knowing if it's 1 or more bytes
                 }catch(exception, stackTrace) {
-                    print("exo said I have $numFeatures and i've only read $featuresRead, but still can't read (${l.name}) for some reason. this is a caught error");
+                    //print("exo said I have $numFeatures and i've only read $featuresRead, but still can't read (${l.name}) for some reason. this is a caught error");
                     l.imgNumber = 0; //don't have.
                 }
                 //l.imgNumber = reader.readByte();
             }else {
-                print("skipping a feature (${l.name}) i don't have in string");
+               // print("skipping a feature (${l.name}) i don't have in string");
                 l.imgNumber = 0; //don't have.
             }
-            print("loading layer ${l.name}. Value: ${l.imgNumber} bytesRead: $featuresRead  numFeatures: $numFeatures");
+           // print("loading layer ${l.name}. Value: ${l.imgNumber} bytesRead: $featuresRead  numFeatures: $numFeatures");
             if(l.imgNumber > l.maxImageNumber) l.imgNumber = 0;
             featuresRead += 1;
 
@@ -171,7 +171,7 @@ abstract class Doll {
 
 
     String toDataBytesX([ByteBuilder builder = null]) {
-        print("saving to data bytes x");
+        //("saving to data bytes x");
         if(builder == null) builder = new ByteBuilder();
         int length = palette.names.length + 1;//one byte for doll type
 
@@ -193,7 +193,7 @@ abstract class Doll {
 
         //layer is last so can add new layers
         for(SpriteLayer l in dataOrderLayers) {
-            print("adding ${l.name}  with value ${l.imgNumber} to data string builder.");
+           // print("adding ${l.name}  with value ${l.imgNumber} to data string builder.");
             l.saveToBuilder(builder);
             //builder.appendByte(l.imgNumber);
         }
@@ -212,11 +212,11 @@ abstract class Doll {
     /* first part of any data string tells me what type of doll to load.*/
     static Doll loadSpecificDoll(String ds) {
         String dataString = removeURLFromString(ds);
-        print("dataString is $dataString");
+       // print("dataString is $dataString");
         Uint8List thingy = BASE64URL.decode(dataString);
         ByteReader reader = new ByteReader(thingy.buffer, 0);
         int type = reader.readByte();
-        print("type is $type");
+       // print("type is $type");
 
         if(type == new HomestuckDoll().renderingType) {
             return new HomestuckDoll.fromReader(reader);
