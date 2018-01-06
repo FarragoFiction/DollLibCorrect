@@ -16,7 +16,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     @override
     String folder = "images/Homestuck";
     @override
-    final int maxBody = 2;
+    final int maxBody = 4;
 
 
     @override
@@ -57,6 +57,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
 
     {
         super.randomizeNotColors();
+        if(body.imgNumber >2) body.imgNumber = 2;
         canonSymbol.imgNumber = 0;
 
     }
@@ -78,6 +79,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     {
         super.randomize(chooseSign);
         canonSymbol.imgNumber = 0;
+        if(body.imgNumber >2) body.imgNumber = 2;
         HomestuckPalette h = palette as HomestuckPalette;
         h.add(HomestuckPalette.EYE_WHITE_LEFT, h.aspect_light,true);
         h.add(HomestuckPalette.EYE_WHITE_RIGHT, h.aspect_light,true);
