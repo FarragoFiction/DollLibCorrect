@@ -63,6 +63,15 @@ class HiveswapDoll extends Doll {
         ..pants_dark = "#87FF52"
         ..shoe_light = "#5CDAFF"
         ..hair_main = "#5FDE52"
+        ..aspect_light = '#ff0000'
+        ..aspect_dark = '#6a0000'
+        ..wing1 = '#00ff00'
+        ..wing2 = '#0000a9'
+        ..shoe_dark = '#387f94'
+        ..cloak_light = '#ffa800'
+        ..cloak_mid = '#876a33'
+        ..cloak_dark = '#3b2e15'
+        ..hair_accent = '#2a5f25'
         ..shirt_light = '#3358FF';
 
     @override
