@@ -11,20 +11,21 @@ import "HomestuckDoll.dart";
 
 //MadCreativity championed this one.
 class HiveswapDoll extends Doll {
-    int maxBody = 1;
-    int maxEyebrows = 3;
-    int maxHorn = 8;
-    int maxHair = 8;
+    int maxBody = 3;
+    int maxEyebrows = 6;
+    int maxGlasses = 2;
+    int maxHorn = 9;
+    int maxHair = 9;
     int maxFin = 1;
-
-    int maxEyes = 3;
-    int maxMouth =11;
+    int maxEyes = 7;
+    int maxMouth =16;
 
 
 
     String folder = "images/Homestuck/Hiveswap";
 
     SpriteLayer body;
+    SpriteLayer glasses;
     SpriteLayer eyebrows;
     SpriteLayer leftEye;
     SpriteLayer rightEye;
@@ -39,9 +40,9 @@ class HiveswapDoll extends Doll {
 
 
     @override
-    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body,hairBack,rightFin, eyebrows,leftEye,rightEye, hairTop,leftHorn, rightHorn,mouth,leftFin];
+    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body,hairBack,rightFin, eyebrows,leftEye,rightEye, glasses,hairTop,leftHorn, rightHorn,mouth,leftFin];
     @override
-    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,eyebrows,leftEye, rightEye,hairBack,hairTop,leftHorn, rightHorn,mouth,leftFin,rightFin];
+    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,eyebrows,leftEye, rightEye,hairBack,hairTop,leftHorn, rightHorn,mouth,leftFin,rightFin,glasses];
 
 
     @override
@@ -274,6 +275,7 @@ class HiveswapDoll extends Doll {
         rightFin.slave = true; //can't be selected on it's own
 
         body = new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
+        glasses = new SpriteLayer("Glasses", "$folder/Glasses/", 1, maxGlasses);
 
 
         eyebrows = new SpriteLayer("EyeBrows", "$folder/Eyebrows/", 1, maxEyebrows);
