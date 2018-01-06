@@ -15,8 +15,10 @@ Future<bool> start() async {
    // doll = Doll.makeRandomDoll();
     doll = new HiveswapDoll();
 
-    //HiveswapDoll t = doll as HiveswapDoll;
+    HiveswapDoll t = doll as HiveswapDoll;
     //print("body is ${t.body.imgNumber}");
+    t.hairTop.imgNumber = t.maxHair;
+    t.hairBack.imgNumber = t.maxHair;
     /*
     t.mouth.imgNumber = t.maxMouth;
     t.leftHorn.imgNumber = t.maxHorn;
@@ -33,7 +35,7 @@ Future<bool> start() async {
 
 
     // doll = new DadDoll();
-    doll = Doll.loadSpecificDoll("DiCwtLQUlRqISgkQlRKY3xOISgn41035100RlRqoqKhYWlrS0dGpqKgAAACIiIiYmZkhJiYWlRqISgkAEBAQMDBAQFgAAAA=");
+   // doll = Doll.loadSpecificDoll("DiC0tLQ8IDQaEBo5IDRKME4bEBr510351005IDSqqKhYWlrS0dGpqKgAAACIiIiYmZkhJiY-IDQaEBoZICAgMDBAQCgAABAA");
 
     await drawDoll(); //normal
     //await drawDollScaled(doll,375,480); //char sheet
@@ -72,5 +74,12 @@ Future<bool>  drawDoll() async{
     innerDiv.append(finishedProduct);
     querySelector('#output').append(innerDiv);
     querySelector('#output').appendHtml(doll.toDataBytesX());
+    for(SpriteLayer i in doll.renderingOrderLayers) {
+        Element e = new DivElement();
+        e.text = "${i.name}: ${i.imgNumber}";
+
+        querySelector('#output').append(e);
+
+    }
 
 }

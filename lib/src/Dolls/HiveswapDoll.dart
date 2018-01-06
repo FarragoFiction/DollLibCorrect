@@ -11,7 +11,7 @@ import "HomestuckDoll.dart";
 
 //MadCreativity championed this one.
 class HiveswapDoll extends Doll {
-    int maxBody = 3;
+    int maxBody = 2;
     int maxEyebrows = 6;
     int maxGlasses = 2;
     int maxHorn = 9;
@@ -40,7 +40,7 @@ class HiveswapDoll extends Doll {
 
 
     @override
-    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body,hairBack,rightFin, eyebrows,leftEye,rightEye, glasses,hairTop,leftHorn, rightHorn,mouth,leftFin];
+    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack,body,rightFin, eyebrows,leftEye,rightEye, glasses,hairTop,leftHorn, rightHorn,mouth,leftFin];
     @override
     List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,eyebrows,leftEye, rightEye,hairBack,hairTop,leftHorn, rightHorn,mouth,leftFin,rightFin,glasses];
 
