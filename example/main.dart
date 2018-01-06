@@ -20,6 +20,8 @@ Future<bool> start() async {
     int minus = 1;
     t.leftHorn.imgNumber = t.maxHorn-minus;
     t.rightHorn.imgNumber = t.maxHorn-minus;
+    t.hairTop.imgNumber = t.maxHair-minus;
+    t.hairBack.imgNumber = t.maxHair-minus;
     /*
     t.mouth.imgNumber = t.maxMouth;
     t.leftHorn.imgNumber = t.maxHorn;
