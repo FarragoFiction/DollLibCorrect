@@ -38,7 +38,7 @@ class HiveswapDoll extends Doll {
 
 
     @override
-    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack,body,rightFin, eyebrows,leftEye,rightEye, glasses,hairTop,leftHorn, rightHorn,mouth,leftFin];
+    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack,body,rightFin, eyebrows,leftEye,rightEye,mouth, glasses,hairTop,leftHorn, rightHorn,leftFin];
     @override
     List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,eyebrows,leftEye, rightEye,hairBack,hairTop,leftHorn, rightHorn,mouth,leftFin,rightFin,glasses];
 
