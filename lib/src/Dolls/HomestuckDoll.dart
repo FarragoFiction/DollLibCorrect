@@ -16,7 +16,7 @@ class HomestuckDoll extends Doll {
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
     final int maxBody = 223;
     final int maxHair = 156;
-    final int maxEye = 111;
+    final int maxEye = 110;
     final int maxMouth = 111;
     final int maxSymbol = 250;
     final int maxGlass = 103;
