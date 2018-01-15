@@ -100,7 +100,7 @@ class HomestuckSatyrDoll extends HomestuckDoll {
         ..hair_accent = '#202020'
         ..eye_white_left = '#ffba35'
         ..eye_white_right = '#ffba15'
-        ..eyeBags = "9d9d9d"
+        ..eyeBags = "#9d9d9d"
         ..skin = '#ffffff';
 
     @override
