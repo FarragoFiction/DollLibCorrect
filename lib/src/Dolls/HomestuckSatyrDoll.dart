@@ -80,7 +80,28 @@ class HomestuckSatyrDoll extends HomestuckDoll {
 
 
     @override
-    Palette paletteSource = ReferenceColours.TROLL_PALETTE;
+     Palette source_palette = new HomestuckSatyrPalette()
+        ..accent = '#FF9B00'
+        ..aspect_light = '#FEFD49'
+        ..aspect_dark = '#FEC910'
+        ..wing1 = '#00FF2A'
+        ..wing2 = '#FF0000'
+        ..aspect_dark = '#FEC910'
+        ..shoe_light = '#10E0FF'
+        ..shoe_dark = '#00A4BB'
+        ..cloak_light = '#FA4900'
+        ..cloak_mid = '#E94200'
+        ..cloak_dark = '#C33700'
+        ..shirt_light = '#FF8800'
+        ..shirt_dark = '#D66E04'
+        ..pants_light = '#E76700'
+        ..pants_dark = '#CA5B00'
+        ..hair_main = '#313131'
+        ..hair_accent = '#202020'
+        ..eye_white_left = '#ffba35'
+        ..eye_white_right = '#ffba15'
+        ..eyeBags = "9d9d9d"
+        ..skin = '#ffffff';
 
     @override
     Palette palette = new HomestuckSatyrPalette()
@@ -92,27 +113,32 @@ class HomestuckSatyrDoll extends HomestuckDoll {
         ..cloak_light = '#A3A3A3'
         ..cloak_mid = '#999999'
         ..cloak_dark = '#898989'
-        ..shirt_light = '#111111'
+        ..shirt_light = '#ffffff'
         ..shirt_dark = '#000000'
-        ..pants_light = '#4b4b4b'
-        ..eye_white_left = '#ffba29'
-        ..eye_white_right = '#ffba29'
-        ..pants_dark = '#3a3a3a'
+        ..pants_light = '#ffffff'
+        ..eye_white_left = '#ffffff'
+        ..eye_white_right = '#ffffff'
+        ..pants_dark = '#000000'
         ..hair_accent = '#aa0000'
         ..hair_main = '#000000'
-        ..skin = '#C4C4C4';
+        ..skin = '#ffffff';
 
     @override
     void initLayers() {
         super.initLayers();
         //only do what is special to me here.
-        satyrSymbol = new SpriteLayer("Symbol", "$folder/CanonSymbol/", 0, maxSatyrSymbol, supportsMultiByte: true);
+        satyrSymbol = new SpriteLayer("Symbol", "$folder/SatyrSymbol/", 0, maxSatyrSymbol, supportsMultiByte: true);
         fluff = new SpriteLayer("Fluff", "$folder/SatyrFluff/", 1, maxFluff);
         tail = new SpriteLayer("Tail", "$folder/SatyrTail/", 0, maxTail);
         leftHorn = new SpriteLayer("LeftHorn", "$folder/SatyrLeftHorn/", 1, maxHorn);
         rightHorn = new SpriteLayer("RightHorn", "$folder/SatyrRightHorn/", 1, maxHorn);
         facePaint = new SpriteLayer("FacePattern","$folder/SatyrFacePattern/", 0, maxFacePattern);
+    }
 
+    @override
+    void randomize() {
+        super.randomize();
+        symbol.imgNumber = 0; //blank it out.
     }
 
 
@@ -126,6 +152,24 @@ class HomestuckSatyrDoll extends HomestuckDoll {
     //assumes type byte is already gone
     HomestuckSatyrDoll.fromReader(ByteReader reader){
         initFromReader(reader, new HomestuckSatyrPalette());
+    }
+
+    void randomizeColors() {
+
+        Random rand = new Random();
+        HomestuckPalette h = palette as HomestuckPalette;
+        List<HomestuckPalette> paletteOptions = new List<HomestuckPalette>.from(ReferenceColours.paletteList.values);
+        HomestuckPalette newPallete = rand.pickFrom(paletteOptions);
+        if(newPallete == ReferenceColours.INK) {
+            tackyColors();
+        }else {
+            copyPalette(newPallete);
+        }
+        palette.add(HomestuckPalette.SHIRT_LIGHT, ReferenceColours.WHITE, true);
+        palette.add(HomestuckPalette.SHIRT_DARK, ReferenceColours.BLACK, true);
+        palette.add(HomestuckPalette.PANTS_LIGHT, ReferenceColours.WHITE, true);
+        palette.add(HomestuckPalette.PANTS_DARK, ReferenceColours.BLACK, true);
+        palette.add(HomestuckSatyrPalette.EYE_BAGS, new Colour(h.aspect_light.red, h.aspect_light.green, h.aspect_light.blue)..setHSV(h.aspect_light.hue, h.aspect_light.saturation, h.aspect_light.value / 2), true);
     }
 
 
@@ -152,6 +196,7 @@ class HomestuckSatyrPalette extends HomestuckPalette {
     static String _HAIR_ACCENT = "hairAccent";
     static String _EYE_WHITES = "eyeWhites";
     static String _SKIN = "skin";
+    static String EYE_BAGS = "eyeBags";
 
     static Colour _handleInput(Object input) {
         if (input is Colour) {
@@ -176,6 +221,11 @@ class HomestuckSatyrPalette extends HomestuckPalette {
     Colour get wing1 => this[_WING1];
 
     void set wing1(dynamic c) => this.add(_WING1, _handleInput(c), true);
+
+
+    Colour get eyeBags => this[EYE_BAGS];
+
+    void set eyeBags(dynamic c) => this.add(EYE_BAGS, _handleInput(c), true);
 
     Colour get wing2 => this[_WING2];
 
