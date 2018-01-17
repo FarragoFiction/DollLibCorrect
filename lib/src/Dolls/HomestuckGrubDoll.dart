@@ -7,6 +7,8 @@ import 'dart:convert';
 import "../includes/bytebuilder.dart";
 import "../includes/palette.dart";
 import "../../DollRenderer.dart";
+import "dart:html";
+import 'dart:async';
 
 
 class HomestuckGrubDoll extends HomestuckTrollDoll {
@@ -16,7 +18,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     @override
     String folder = "images/Homestuck";
     @override
-    final int maxBody = 6;
+    final int maxBody = 8;
 
 
     @override
@@ -44,6 +46,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     HomestuckGrubDoll([int sign]) {
         initLayers();
         randomize();
+        if(body.imgNumber == 7 || body.imgNumber == 8) orientation = Doll.UPWAYS;
         if(sign != null) {
             print("sign is $sign");
             canonSymbol.imgNumber = sign;
@@ -51,6 +54,8 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
             randomize(false);
         }
     }
+
+
 
     @override
     void randomizeNotColors()
@@ -106,6 +111,8 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
      HomestuckGrubDoll.fromReader(ByteReader reader){
          initFromReader(reader,new HomestuckTrollPalette());
      }
+
+
 
 
 

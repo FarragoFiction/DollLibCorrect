@@ -7,7 +7,15 @@ import "../includes/bytebuilder.dart";
 
 import "../../DollRenderer.dart";
 abstract class Doll {
+    //things can optionally cause the doll's orientation to change, like grub body 7 and 8
+    static String NORMALWAYS = "normalways"; //flipped horizontal
+    static String TURNWAYS = "turnways"; //flipped horizontal
+    static String TURNWAYSBUTUP = "turnwaysFlipped"; //flipped horizontal and vertical
+    static String UPWAYS = "upways"; //flipped vertical
+
+
     String folder;
+    String orientation = NORMALWAYS;
     Colour _associatedColor;
     int width = 400;
     int height = 300;

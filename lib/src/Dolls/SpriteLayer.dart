@@ -8,6 +8,7 @@ typedef void JROnClick();
 
 //one byte of data
 class SpriteLayer {
+
     //if this isn't set will throw an error if you try to have multiple bytes
     bool supportsMultiByte = false;
     int numbytes = 1; //hardcoded to be 1 for this layer type
