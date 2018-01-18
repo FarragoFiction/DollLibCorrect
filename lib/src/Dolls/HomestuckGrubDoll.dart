@@ -92,8 +92,10 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     void setUpWays() {
         print("body is ${body.imgNumber}");
         if(body.imgNumber == 7 || body.imgNumber == 8) {
-            print("upways is true");
+           // print("upways is true");
             orientation = Doll.UPWAYS;
+        }else {
+            orientation = Doll.NORMALWAYS;
         }
     }
 
