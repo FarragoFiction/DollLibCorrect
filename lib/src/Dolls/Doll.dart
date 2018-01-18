@@ -44,6 +44,12 @@ abstract class Doll {
         return _associatedColor;
     }
 
+    //does nothing by default
+    void setUpWays() {
+
+    }
+
+
     void initLayers();
     void randomize() {
         randomizeColors();

@@ -21,6 +21,20 @@ class Renderer {
         //print("Drawing a doll");
         CanvasElement buffer = new CanvasElement(width: doll.width, height: doll.height);
         buffer.context2D.imageSmoothingEnabled = false;
+        doll.setUpWays();
+        if(doll.orientation == Doll.TURNWAYS) {
+                //print("drawing turnways");
+            buffer.context2D.scale(-1, 1);
+        }else if(doll.orientation == Doll.UPWAYS) {
+            //print("drawing up ways");
+            buffer.context2D.translate(0, buffer.height);
+            //buffer.context2D.rotate(1);
+            buffer.context2D.scale(1, -1);
+        }else if(doll.orientation == Doll.TURNWAYSBUTUP) {
+            //print("drawing turnways but up");
+            buffer.context2D.translate(0, buffer.height);
+            buffer.context2D.scale(-1, -1);
+        }
 
         for(SpriteLayer l in doll.renderingOrderLayers) {
             bool res = await drawWhateverFuture(buffer, l.imgLocation);

@@ -17,7 +17,7 @@ Future<bool> start() async {
 
     HomestuckTrollDoll t = doll as HomestuckTrollDoll;
     int minus = 0;
-    t.body.imgNumber = t.maxBody;
+    t.body.imgNumber = 7;
 
    // HiveswapDoll t = doll as HiveswapDoll;
     //t.leftHorn.imgNumber = t.maxHorn-minus;
