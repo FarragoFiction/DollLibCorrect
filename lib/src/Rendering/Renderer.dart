@@ -34,6 +34,8 @@ class Renderer {
             //print("drawing turnways but up");
             buffer.context2D.translate(0, buffer.height);
             buffer.context2D.scale(-1, -1);
+        }else {
+            buffer.context2D.scale(1, 1);
         }
 
         for(SpriteLayer l in doll.renderingOrderLayers) {
