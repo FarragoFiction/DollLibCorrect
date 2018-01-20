@@ -198,7 +198,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
         Random rand = new Random();
         rand.nextInt(); //init
         print("checking wings");
-        if(rand.nextDouble() > 0) { //1 in a 100 will have them.
+        if(rand.nextDouble() > 0.99) { //1 in a 100 will have them.
             print("Red bull gives you WINGS!!!");
             wings.imgNumber = rand.nextInt(wings.maxImageNumber + 1);
         }
