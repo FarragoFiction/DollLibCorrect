@@ -194,6 +194,14 @@ class HomestuckTrollDoll extends HomestuckDoll {
         return chosenBlood;
     }
 
+    void mutantWings() {
+        Random rand = new Random();
+        rand.nextInt(); //init
+        if(rand.nextDouble() > 0) { //1 in a 100 will have them.
+            wings.imgNumber = rand.nextInt(wings.maxImageNumber + 1);
+        }
+    }
+
     void mutantEyes() {
        // print("checking for mutant eyes for ${leftEye.imgNumber} and ${rightEye.imgNumber}");
         if(mutantEyeList.contains(leftEye.imgNumber) || mutantEyeList.contains(rightEye.imgNumber)) {
@@ -297,7 +305,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
         }
 
         mutantEyes();
-
+        mutantWings();
     }
 
 
@@ -345,6 +353,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
         if(rand.nextDouble() > .2) {
             facePaint.imgNumber = 0;
         }
+        mutantWings();
     }
 
     @override
