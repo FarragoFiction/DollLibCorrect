@@ -27,7 +27,8 @@ class PigeonDoll extends Doll {
     @override
     List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,head,wing,tail];
 
-    List<Palette> get pigeonDefaultPalettes => <Palette>[redBird2, greyBird, frohike,traitor,whiteBird,byers,redBird,blackBird];
+    @override
+    List<Palette> get validPalettes => <Palette>[redBird2, greyBird, frohike,traitor,whiteBird,byers,redBird,blackBird];
 
 
     @override
@@ -164,7 +165,7 @@ class PigeonDoll extends Doll {
     @override
     randomizeColors() {
         Random rand = new Random();
-        copyPalette(rand.pickFrom(pigeonDefaultPalettes));
+        copyPalette(rand.pickFrom(validPalettes));
     }
 
 

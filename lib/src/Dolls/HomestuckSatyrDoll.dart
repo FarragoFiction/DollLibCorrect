@@ -124,6 +124,115 @@ class HomestuckSatyrDoll extends HomestuckDoll {
         ..skin = '#ffffff';
 
     @override
+    Palette purple = new HomestuckSatyrPalette()
+        ..accent = '#5b0085'
+        ..aspect_light = '#8400a6'
+        ..aspect_dark = '#5b0085'
+        ..shoe_light = '#5b0085'
+        ..shoe_dark = '#4e0063'
+        ..cloak_light = '#8400a6'
+        ..cloak_mid = '#5b0085'
+        ..cloak_dark = '#4e0063'
+        ..shirt_light = '#ffffff'
+        ..shirt_dark = '#000000'
+        ..pants_light = '#ffffff'
+        ..eye_white_left = '#ffffff'
+        ..eye_white_right = '#ffffff'
+        ..pants_dark = '#000000'
+        ..hair_accent = '#aa0000'
+        ..hair_main = '#000000'
+        ..eyeBags = '#ae00c8'
+        ..skin = '#ffffff';
+
+
+    @override
+    Palette cerulean = new HomestuckSatyrPalette()
+        ..accent = '#155e9a'
+        ..aspect_light = '#006ec8'
+        ..aspect_dark = '#006185'
+        ..shoe_light = '#006185'
+        ..shoe_dark = '#003462'
+        ..cloak_light = '#006ec8'
+        ..cloak_mid = '#006185'
+        ..cloak_dark = '#003462'
+        ..shirt_light = '#ffffff'
+        ..shirt_dark = '#000000'
+        ..pants_light = '#ffffff'
+        ..eye_white_left = '#ffffff'
+        ..eye_white_right = '#ffffff'
+        ..pants_dark = '#000000'
+        ..hair_accent = '#aa0000'
+        ..hair_main = '#000000'
+        ..eyeBags  = "#0a78d2"
+        ..skin = '#ffffff';
+
+    @override
+    Palette jade = new HomestuckSatyrPalette()
+        ..accent = '#008250'
+        ..aspect_light = '#00a666'
+        ..aspect_dark = '#008543'
+        ..shoe_light = '#008543'
+        ..shoe_dark = '#005d3a'
+        ..cloak_light = '#00a666'
+        ..cloak_mid = '#008543'
+        ..cloak_dark = '#005d3a'
+        ..shirt_light = '#ffffff'
+        ..shirt_dark = '#000000'
+        ..pants_light = '#ffffff'
+        ..eye_white_left = '#ffffff'
+        ..eye_white_right = '#ffffff'
+        ..pants_dark = '#000000'
+        ..hair_accent = '#aa0000'
+        ..hair_main = '#000000'
+        ..eyeBags  = "#00c88c"
+        ..skin = '#ffffff';
+
+    @override
+    Palette gold = new HomestuckSatyrPalette()
+        ..accent = '#856600'
+        ..aspect_light = '#a69100'
+        ..aspect_dark = '#856600'
+        ..shoe_light = '#856600'
+        ..shoe_dark = '#714c00'
+        ..cloak_light = '#a69100'
+        ..cloak_mid = '#856600'
+        ..cloak_dark = '#714c00'
+        ..shirt_light = '#ffffff'
+        ..shirt_dark = '#000000'
+        ..pants_light = '#ffffff'
+        ..eye_white_left = '#ffffff'
+        ..eye_white_right = '#ffffff'
+        ..pants_dark = '#000000'
+        ..hair_accent = '#aa0000'
+        ..eyeBags  = "#c8bc00"
+        ..hair_main = '#000000'
+        ..skin = '#ffffff';
+
+    @override
+    Palette maroon = new HomestuckSatyrPalette()
+        ..accent = '#850022'
+        ..aspect_light = '#a60019'
+        ..aspect_dark = '#850022'
+        ..shoe_light = '#850022'
+        ..shoe_dark = '#5c0018'
+        ..cloak_light = '#a60019'
+        ..cloak_mid = '#850022'
+        ..cloak_dark = '#5c0018'
+        ..shirt_light = '#ffffff'
+        ..shirt_dark = '#000000'
+        ..pants_light = '#ffffff'
+        ..eye_white_left = '#ffffff'
+        ..eye_white_right = '#ffffff'
+        ..pants_dark = '#000000'
+        ..hair_accent = '#aa0000'
+        ..eyeBags  = "#c80010"
+        ..hair_main = '#000000'
+        ..skin = '#ffffff';
+
+    @override
+    List<Palette> get validPalettes => <Palette>[maroon, gold, jade, cerulean, purple];
+
+    @override
     void initLayers() {
         super.initLayers();
         //only do what is special to me here.
@@ -157,19 +266,8 @@ class HomestuckSatyrDoll extends HomestuckDoll {
     void randomizeColors() {
 
         Random rand = new Random();
-        HomestuckPalette h = palette as HomestuckPalette;
-        List<HomestuckPalette> paletteOptions = new List<HomestuckPalette>.from(ReferenceColours.paletteList.values);
-        HomestuckPalette newPallete = rand.pickFrom(paletteOptions);
-        if(newPallete == ReferenceColours.INK) {
-            tackyColors();
-        }else {
-            copyPalette(newPallete);
-        }
-        palette.add(HomestuckPalette.SHIRT_LIGHT, ReferenceColours.WHITE, true);
-        palette.add(HomestuckPalette.SHIRT_DARK, ReferenceColours.BLACK, true);
-        palette.add(HomestuckPalette.PANTS_LIGHT, ReferenceColours.WHITE, true);
-        palette.add(HomestuckPalette.PANTS_DARK, ReferenceColours.BLACK, true);
-        palette.add(HomestuckSatyrPalette.EYE_BAGS, new Colour(h.aspect_light.red, h.aspect_light.green, h.aspect_light.blue)..setHSV(h.aspect_light.hue, h.aspect_light.saturation, h.aspect_light.value / 2), true);
+        copyPalette(rand.pickFrom(validPalettes));
+
     }
 
 

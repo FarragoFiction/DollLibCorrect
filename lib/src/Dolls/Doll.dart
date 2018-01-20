@@ -22,6 +22,9 @@ abstract class Doll {
     int renderingType = 0;
     static String localStorageKey = "doll";
 
+    List<Palette> get validPalettes => <Palette>[];
+
+
     //IMPORTANT  if i want save strings to not break if new rendering order, then rendering order and load order must be different things.
 
     ///in rendering order.

@@ -32,6 +32,8 @@ class HomestuckTrollDoll extends HomestuckDoll {
 
     //these bodies look terrible with troll signs. if any of these use 47,48, or 49
     List<int> bannedRandomBodies = <int>[96,219,221,223,5,11,14,43,50,59,65,66,67,70,72,75,74,98,100,101,102,106,107,109,63,17];
+    //if a troll or grub has these eyes, they will be mutant
+    List<int> mutantEyeList = <int>[2,11,31,44,46,47,85];
     int defaultBody = 48;
     int maxHorn = 207;
     int maxFin = 19;
@@ -192,6 +194,43 @@ class HomestuckTrollDoll extends HomestuckDoll {
         return chosenBlood;
     }
 
+    void mutantEyes() {
+       // print("checking for mutant eyes for ${leftEye.imgNumber} and ${rightEye.imgNumber}");
+        if(mutantEyeList.contains(leftEye.imgNumber) || mutantEyeList.contains(rightEye.imgNumber)) {
+           // print("I'm gonna make a mutant eye!!!");
+            Random rand = new Random();
+            String bothRandom = "br";
+            String bothAccent = "ba";
+            String accentRandom = "ar";
+            String randomAccent = "ra";
+            String aspectAccent = 'aa';
+            String accentAsspect = "AA2";
+            HomestuckPalette hp = palette as HomestuckPalette;
+            List<String> possibilities = <String>[bothRandom, bothAccent, accentRandom, randomAccent, aspectAccent, accentAsspect];
+            String choice = rand.pickFrom(possibilities);
+            if(choice == bothRandom) {
+                palette.add(HomestuckPalette.EYE_WHITE_LEFT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+                palette.add(HomestuckPalette.EYE_WHITE_RIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+            }else if(choice == bothAccent) {
+                palette.add(HomestuckPalette.EYE_WHITE_LEFT, hp.accent, true);
+                palette.add(HomestuckPalette.EYE_WHITE_RIGHT, hp.accent, true);
+            }else if(choice == accentRandom) {
+                palette.add(HomestuckPalette.EYE_WHITE_LEFT, hp.accent, true);
+                palette.add(HomestuckPalette.EYE_WHITE_RIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+            }else if(choice == randomAccent) {
+                palette.add(HomestuckPalette.EYE_WHITE_LEFT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+                palette.add(HomestuckPalette.EYE_WHITE_RIGHT, hp.accent, true);
+            }else if(choice == aspectAccent) {
+                palette.add(HomestuckPalette.EYE_WHITE_LEFT, hp.aspect_light, true);
+                palette.add(HomestuckPalette.EYE_WHITE_RIGHT, hp.accent, true);
+            }else if(choice == accentAsspect) {
+                palette.add(HomestuckPalette.EYE_WHITE_LEFT, hp.accent, true);
+                palette.add(HomestuckPalette.EYE_WHITE_RIGHT, hp.aspect_light, true);
+            }
+        }
+
+    }
+
     @override
     void randomize([bool chooseSign = true]) {
         Random rand = new Random();
@@ -256,6 +295,8 @@ class HomestuckTrollDoll extends HomestuckDoll {
         if(rand.nextDouble() > .2) {
             facePaint.imgNumber = 0;
         }
+
+        mutantEyes();
 
     }
 
@@ -329,6 +370,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
         palette.add(HomestuckTrollPalette._WING1, new Colour.fromStyleString(chosenBlood), true);
         palette.add(HomestuckTrollPalette._WING2, new Colour(h.wing1.red, h.wing1.green, h.wing1.blue)..setHSV(h.wing1.hue, h.wing1.saturation, h.wing1.value / 2), true);
         palette.add(HomestuckTrollPalette._HAIR_ACCENT, new Colour(h.wing1.red, h.wing1.green, h.wing1.blue), true);
+        mutantEyes();
     }
 
 
