@@ -23,6 +23,7 @@ abstract class Doll {
     static String localStorageKey = "doll";
 
     List<Palette> get validPalettes => <Palette>[];
+    Map<String, Palette> get validPalettesMap =>new  Map<String, Palette>();
 
 
     //IMPORTANT  if i want save strings to not break if new rendering order, then rendering order and load order must be different things.
