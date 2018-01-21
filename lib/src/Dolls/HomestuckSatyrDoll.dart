@@ -231,6 +231,16 @@ class HomestuckSatyrDoll extends HomestuckDoll {
 
     @override
     List<Palette> get validPalettes => <Palette>[maroon, gold, jade, cerulean, purple];
+    Map<String, Palette> get validPalettesMap {
+        Map<String, Palette> ret  = new Map<String, Palette>();
+        ret["Maroon"] = maroon;
+        ret["Gold"] = gold;
+        ret["Jade"] = jade;
+        ret["Cerulean"] = cerulean;
+        ret["Purple"] = purple;
+        return ret;
+    }
+
 
     @override
     void initLayers() {
