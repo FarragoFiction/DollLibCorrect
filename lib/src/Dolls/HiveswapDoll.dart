@@ -14,7 +14,7 @@ class HiveswapDoll extends Doll {
     int maxBody = 6;
     int maxEyebrows = 6;
     int maxGlasses = 3;
-    int maxHorn = 9;
+    int maxHorn = 10;
     int maxHair = 13;
     int maxFin = 1;
     int maxEyes = 8;
