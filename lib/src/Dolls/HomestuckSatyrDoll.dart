@@ -233,11 +233,11 @@ class HomestuckSatyrDoll extends HomestuckDoll {
     List<Palette> get validPalettes => <Palette>[maroon, gold, jade, cerulean, purple];
     Map<String, Palette> get validPalettesMap {
         Map<String, Palette> ret  = new Map<String, Palette>();
-        ret["Maroon"] = maroon;
-        ret["Gold"] = gold;
-        ret["Jade"] = jade;
-        ret["Cerulean"] = cerulean;
-        ret["Purple"] = purple;
+        ret["SatyrMaroon"] = maroon;
+        ret["SatyrGold"] = gold;
+        ret["SatyrJade"] = jade;
+        ret["SatyrCerulean"] = cerulean;
+        ret["SatyrPurple"] = purple;
         return ret;
     }
 
