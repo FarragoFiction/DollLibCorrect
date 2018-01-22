@@ -272,6 +272,10 @@ abstract class Doll {
             return new DadDoll.fromReader(reader);
         }
 
+        if(type == new SuperbSuckDoll().renderingType) {
+            return new SuperbSuckDoll.fromReader(reader);
+        }
+
         if(type == new QueenDoll().renderingType) {
             return new QueenDoll.fromReader(reader);
         }
@@ -339,6 +343,10 @@ abstract class Doll {
 
         if(type == new MomDoll().renderingType) {
             return new MomDoll();
+        }
+
+        if(type == new SuperbSuckDoll().renderingType) {
+            return new SuperbSuckDoll();
         }
 
         if(type == new BroDoll().renderingType) {

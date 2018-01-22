@@ -13,12 +13,8 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
    // doll = Doll.makeRandomDoll();
-    doll = new HomestuckTrollDoll();
-    HomestuckTrollDoll t = doll as HomestuckTrollDoll;
+    doll = new SuperbSuckDoll();
 
-    t.leftEye.imgNumber = 2;
-    t.rightEye.imgNumber = 2;
-    t.mutantEyes();
 
 
    // HiveswapDoll t = doll as HiveswapDoll;
