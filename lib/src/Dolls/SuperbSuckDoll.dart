@@ -6,6 +6,9 @@ import "dart:typed_data";
 import 'dart:convert';
 import "../includes/bytebuilder.dart";
 import "../includes/palette.dart";
+import "../Rendering/ReferenceColors.dart";
+import "../Dolls/HomestuckDoll.dart";
+
 
 
 
@@ -95,11 +98,42 @@ class SuperbSuckDoll extends Doll{
     }
   }
 
+  void randomizeColors() {
+    List<String> human_hair_colors = <String>["#68410a", "#fffffe", "#000000", "#000000", "#000000", "#f3f28d", "#cf6338", "#feffd7", "#fff3bd", "#724107", "#382207", "#ff5a00", "#3f1904", "#ffd46d", "#473200", "#91683c"];
+
+    Random rand = new Random();
+    SuperbSuckPalette h = palette as SuperbSuckPalette;
+    tackyColors();
+    h.add("hairMain",new Colour.fromStyleString(rand.pickFrom(human_hair_colors)),true);
+  }
+
+  void tackyColors() {
+    Random rand = new Random();
+    SuperbSuckPalette h = palette as SuperbSuckPalette;
+    palette.add(SuperbSuckPalette._ACCENT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+    palette.add(SuperbSuckPalette._ASPECT_LIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+
+    palette.add(SuperbSuckPalette._ASPECT_DARK, new Colour(h.aspect_light.red, h.aspect_light.green, h.aspect_light.blue)..setHSV(h.aspect_light.hue, h.aspect_light.saturation, h.aspect_light.value/2), true);
+    palette.add(SuperbSuckPalette._SHOE_LIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+    palette.add(SuperbSuckPalette._SHOE_DARK, new Colour(h.shoe_light.red, h.shoe_light.green, h.shoe_light.blue)..setHSV(h.shoe_light.hue, h.shoe_light.saturation, h.shoe_light.value/2), true);
+    palette.add(SuperbSuckPalette._CLOAK_LIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+    palette.add(SuperbSuckPalette._CLOAK_DARK, new Colour(h.cloak_light.red, h.cloak_light.green, h.cloak_light.blue)..setHSV(h.cloak_light.hue, h.cloak_light.saturation, h.cloak_light.value/2), true);
+    palette.add(SuperbSuckPalette._CLOAK_MID, new Colour(h.cloak_dark.red, h.cloak_dark.green, h.cloak_dark.blue)..setHSV(h.cloak_dark.hue, h.cloak_dark.saturation, h.cloak_dark.value*3), true);
+    palette.add(SuperbSuckPalette._SHIRT_LIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+    palette.add(SuperbSuckPalette._SHIRT_DARK, new Colour(h.shirt_light.red, h.shirt_light.green, h.shirt_light.blue)..setHSV(h.shirt_light.hue, h.shirt_light.saturation, h.shirt_light.value/2), true);
+    palette.add(SuperbSuckPalette._PANTS_LIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+    palette.add(SuperbSuckPalette._PANTS_DARK, new Colour(h.pants_light.red, h.pants_light.green, h.pants_light.blue)..setHSV(h.pants_light.hue, h.pants_light.saturation, h.pants_light.value/2), true);
+    palette.add(SuperbSuckPalette._HAIR_ACCENT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+    palette.add(SuperbSuckPalette._HAIR_MAIN, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
+  }
+
 }
 
 
+
+
 /// Convenience class for getting/setting aspect palettes
-class SuperbSuckPalette extends Palette {
+class SuperbSuckPalette extends HomestuckPalette {
   static String _ACCENT = "accent";
   static String _ASPECT_LIGHT = "aspect1";
   static String _ASPECT_DARK = "aspect2";
