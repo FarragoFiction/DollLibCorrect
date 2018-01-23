@@ -56,6 +56,7 @@ class Renderer {
         CanvasElement buffer = new CanvasElement(width: doll.width, height: doll.height);
         for(SpriteLayer l in doll.renderingOrderLayers) {
             if(l.preloadedElement != null) {
+                print("I must be testing something, it's a preloaded Element");
                 bool res = await drawExistingElementFuture(buffer, l.preloadedElement);
             }else {
                 bool res = await drawWhateverFuture(buffer, l.imgLocation);
