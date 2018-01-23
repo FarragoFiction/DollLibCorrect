@@ -2,6 +2,7 @@ import 'dart:math';
 import "../includes/bytebuilder.dart";
 import 'dart:convert';
 import "dart:typed_data";
+import "dart:html";
 
 
 typedef void JROnClick();
@@ -17,6 +18,8 @@ class SpriteLayer {
     String name;
     int _imgNumber;
     int maxImageNumber;
+    //used for testing layers that aren't yet part of the sim
+    ImageElement preloadedElement;
     String description = "";
     //slaves just match whatever another thingy tells them to do.
     bool slave = false;

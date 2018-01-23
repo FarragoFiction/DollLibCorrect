@@ -55,7 +55,11 @@ class Renderer {
         //print("Drawing a doll");
         CanvasElement buffer = new CanvasElement(width: doll.width, height: doll.height);
         for(SpriteLayer l in doll.renderingOrderLayers) {
-            bool res = await drawWhateverFuture(buffer, l.imgLocation);
+            if(l.preloadedElement != null) {
+                bool res = await drawExistingElementFuture(buffer, l.preloadedElement);
+            }else {
+                bool res = await drawWhateverFuture(buffer, l.imgLocation);
+            }
         }
         //print("done drawing images");
 
@@ -264,6 +268,13 @@ class Renderer {
 
     static Future<bool>  drawWhateverFuture(CanvasElement canvas, String imageString) async {
         ImageElement image = await Loader.getResource((imageString));
+        //print("got image $image");
+        canvas.context2D.imageSmoothingEnabled = false;
+        canvas.context2D.drawImage(image, 0, 0);
+        return true;
+    }
+
+    static Future<bool>  drawExistingElementFuture(CanvasElement canvas, ImageElement image) async {
         //print("got image $image");
         canvas.context2D.imageSmoothingEnabled = false;
         canvas.context2D.drawImage(image, 0, 0);
