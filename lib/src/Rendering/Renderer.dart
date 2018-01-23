@@ -40,7 +40,7 @@ class Renderer {
 
         for(SpriteLayer l in doll.renderingOrderLayers) {
             if(l.preloadedElement != null) {
-                print("I must be testing something, it's a preloaded Element");
+                //print("I must be testing something, it's a preloaded Element");
                 bool res = await drawExistingElementFuture(buffer, l.preloadedElement);
             }else {
                 bool res = await drawWhateverFuture(buffer, l.imgLocation);
