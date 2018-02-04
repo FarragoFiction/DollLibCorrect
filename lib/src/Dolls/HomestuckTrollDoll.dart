@@ -195,7 +195,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     }
 
     void mutantWings([bool force = false]) {
-        Random rand = new Random();
+        Random rand = new Random(hairBack.imgNumber); //not true random
         rand.nextInt(); //init
        // print("checking wings");
         if(rand.nextDouble() > 0.99 || force) { //1 in a 100 will have them.
@@ -207,8 +207,8 @@ class HomestuckTrollDoll extends HomestuckDoll {
     void mutantEyes([bool force = false]) {
        // print("checking for mutant eyes for ${leftEye.imgNumber} and ${rightEye.imgNumber}");
         if(force || mutantEyeList.contains(leftEye.imgNumber) || mutantEyeList.contains(rightEye.imgNumber)) {
-           // print("I'm gonna make a mutant eye!!!");
-            Random rand = new Random();
+            print("I'm gonna make a mutant eye!!!");
+            Random rand = new Random(hairBack.imgNumber); //not true random
             String bothRandom = "br";
             String bothAccent = "ba";
             String accentRandom = "ar";
@@ -239,6 +239,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
             }
         }else {
             //this will fix the eyes failing to randomize
+            print("generating regular eyes");
             regularEyes();
         }
 
