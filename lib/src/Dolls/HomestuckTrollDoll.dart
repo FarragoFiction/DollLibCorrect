@@ -204,9 +204,9 @@ class HomestuckTrollDoll extends HomestuckDoll {
         }
     }
 
-    void mutantEyes() {
+    void mutantEyes([bool force = false]) {
        // print("checking for mutant eyes for ${leftEye.imgNumber} and ${rightEye.imgNumber}");
-        if(mutantEyeList.contains(leftEye.imgNumber) || mutantEyeList.contains(rightEye.imgNumber)) {
+        if(force || mutantEyeList.contains(leftEye.imgNumber) || mutantEyeList.contains(rightEye.imgNumber)) {
            // print("I'm gonna make a mutant eye!!!");
             Random rand = new Random();
             String bothRandom = "br";
