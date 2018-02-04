@@ -69,10 +69,15 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     }
 
     @override
-    void regularEyes() {
+    void regularEyes(older) {
         HomestuckPalette h = palette as HomestuckPalette;
-        h.add(HomestuckPalette.EYE_WHITE_LEFT, h.aspect_light,true);
-        h.add(HomestuckPalette.EYE_WHITE_RIGHT, h.aspect_light,true);
+        if(older) {
+            palette.add(HomestuckPalette.EYE_WHITE_LEFT, new Colour.fromStyleString("#ffba29"), true);
+            palette.add(HomestuckPalette.EYE_WHITE_RIGHT, new Colour.fromStyleString("#ffba29"), true);
+        }else {
+            h.add(HomestuckPalette.EYE_WHITE_LEFT, h.aspect_light, true);
+            h.add(HomestuckPalette.EYE_WHITE_RIGHT, h.aspect_light, true);
+        }
     }
 
     @override

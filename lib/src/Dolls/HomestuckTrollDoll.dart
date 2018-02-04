@@ -205,7 +205,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
         }
     }
 
-    void mutantEyes([bool force = false]) {
+    void mutantEyes([bool force = false, bool older = false]) {
         print("force eyes is $force");
         // print("checking for mutant eyes for ${leftEye.imgNumber} and ${rightEye.imgNumber}");
         Random rand = new Random(hairBack.imgNumber); //not true random
@@ -247,12 +247,12 @@ class HomestuckTrollDoll extends HomestuckDoll {
         }else {
             //this will fix the eyes failing to randomize
             print("generating regular eyes");
-            regularEyes();
+            regularEyes(older);
         }
 
     }
 
-    void regularEyes() {
+    void regularEyes(older) {
         palette.add(HomestuckPalette.EYE_WHITE_LEFT, new Colour.fromStyleString("#ffba29"), true);
         palette.add(HomestuckPalette.EYE_WHITE_RIGHT, new Colour.fromStyleString("#ffba29"), true);
     }
