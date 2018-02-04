@@ -157,7 +157,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
         }
     }
 
-    String chooseBlood(Random rand) {
+    String chooseBlood(Random rand, [bool forceMutant = false]) {
         List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
 
         String chosenBlood = rand.pickFrom(bloodColors);
@@ -187,18 +187,18 @@ class HomestuckTrollDoll extends HomestuckDoll {
             chosenBlood = bloodColors[11];
         }
         //it's just random if it somehow doesn't fit
-        if(bloodColorToWord(new Colour.fromStyleString(chosenBlood)) == LIME && rand.nextDouble() > .9) {
+        if((bloodColorToWord(new Colour.fromStyleString(chosenBlood)) == LIME && rand.nextDouble() > .9) || forceMutant) {
             chosenBlood = "#FF0000"; //mutant blood
         }
 
         return chosenBlood;
     }
 
-    void mutantWings() {
+    void mutantWings([bool force = false]) {
         Random rand = new Random();
         rand.nextInt(); //init
        // print("checking wings");
-        if(rand.nextDouble() > 0.99) { //1 in a 100 will have them.
+        if(rand.nextDouble() > 0.99 || force) { //1 in a 100 will have them.
             //print("Red bull gives you WINGS!!!");
             wings.imgNumber = rand.nextInt(wings.maxImageNumber + 1);
         }
