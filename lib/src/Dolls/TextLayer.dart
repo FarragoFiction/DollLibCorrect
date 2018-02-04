@@ -11,6 +11,7 @@ It ALSO always has a x/y start location.
 class TextLayer {
 
     Element element;
+    String justification;
     String name;
     String text;
     double topLeftX;
@@ -24,7 +25,7 @@ class TextLayer {
     //ctx.font = "42px Times New Roman";
     String fontName;
 
-    TextLayer(String this.name, String this.text, double this.topLeftX, double this.topLeftY, {this.emphasis: "", this.maxWidth: 100, this.maxHeight: 75,this.fontSize: 12, this.fontColor: null, this.fontName: "Times New Roman"}) {
+    TextLayer(String this.name, String this.text, double this.topLeftX, double this.topLeftY, {this.emphasis: "", this.maxWidth: 100, this.maxHeight: 75,this.fontSize: 12, this.fontColor: null, this.justification: "left", this.fontName: "Times New Roman"}) {
         if(fontColor == null) {
             fontColor = new Colour(0,0,0);
         }
