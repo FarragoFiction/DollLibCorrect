@@ -239,10 +239,14 @@ class HomestuckTrollDoll extends HomestuckDoll {
             }
         }else {
             //this will fix the eyes failing to randomize
-            palette.add(HomestuckPalette.EYE_WHITE_LEFT, new Colour.fromStyleString("#ffba29"), true);
-            palette.add(HomestuckPalette.EYE_WHITE_RIGHT, new Colour.fromStyleString("#ffba29"), true);
+            regularEyes();
         }
 
+    }
+
+    void regularEyes() {
+        palette.add(HomestuckPalette.EYE_WHITE_LEFT, new Colour.fromStyleString("#ffba29"), true);
+        palette.add(HomestuckPalette.EYE_WHITE_RIGHT, new Colour.fromStyleString("#ffba29"), true);
     }
 
     @override

@@ -66,6 +66,13 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     }
 
     @override
+    void regularEyes() {
+        HomestuckPalette h = palette as HomestuckPalette;
+        h.add(HomestuckPalette.EYE_WHITE_LEFT, h.aspect_light,true);
+        h.add(HomestuckPalette.EYE_WHITE_RIGHT, h.aspect_light,true);
+    }
+
+    @override
     void randomizeColors()
 
     {
