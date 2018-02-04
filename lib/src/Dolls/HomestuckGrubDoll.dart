@@ -55,6 +55,9 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     }
 
 
+    void mutantWings([bool force = false]) {
+        //grubs don't have wings. trolls do.
+    }
 
     @override
     void randomizeNotColors()
