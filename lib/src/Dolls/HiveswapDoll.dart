@@ -13,13 +13,13 @@ import "HomestuckDoll.dart";
 class HiveswapDoll extends Doll {
     int maxBody = 6;
     int maxEyebrows = 6;
-    int maxGlasses = 3;
+    int maxGlasses = 4;
     int maxFacepaint = 2;
     int maxHorn = 10;
     int maxHair = 11;
     int maxFin = 1;
-    int maxEyes = 8;
-    int maxMouth =18;
+    int maxEyes = 10;
+    int maxMouth =19;
 
     String folder = "images/Homestuck/Hiveswap";
 
@@ -184,6 +184,10 @@ class HiveswapDoll extends Doll {
         palette.add(HiveswapTrollPalette._WING1, new Colour.fromStyleString(chosenBlood), true);
         palette.add(HiveswapTrollPalette._WING2, new Colour(h.wing1.red, h.wing1.green, h.wing1.blue)..setHSV(h.wing1.hue, h.wing1.saturation, h.wing1.value/2), true);
         palette.add(HiveswapTrollPalette._HAIR_ACCENT, new Colour(h.wing1.red, h.wing1.green, h.wing1.blue), true);
+
+        if(rand.nextDouble() > .2) {
+            facepaint.imgNumber = 0;
+        }
     }
 
     void avoidBlank() {
