@@ -14,6 +14,7 @@ class HiveswapDoll extends Doll {
     int maxBody = 6;
     int maxEyebrows = 6;
     int maxGlasses = 3;
+    int maxFacepaint = 2;
     int maxHorn = 10;
     int maxHair = 11;
     int maxFin = 1;
@@ -34,13 +35,15 @@ class HiveswapDoll extends Doll {
     SpriteLayer mouth;
     SpriteLayer leftFin;
     SpriteLayer rightFin;
+    SpriteLayer facepaint;
+
 
 
 
     @override
-    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack,body,rightFin, eyebrows,leftEye,rightEye,mouth, glasses,hairTop,leftHorn, rightHorn,leftFin];
+    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack,body,facepaint, rightFin, eyebrows,leftEye,rightEye,mouth, glasses,hairTop,leftHorn, rightHorn,leftFin];
     @override
-    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,eyebrows,leftEye, rightEye,hairBack,hairTop,leftHorn, rightHorn,mouth,leftFin,rightFin,glasses];
+    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,eyebrows,leftEye, rightEye,hairBack,hairTop,leftHorn, rightHorn,mouth,leftFin,rightFin,glasses, facepaint];
 
 
     @override
@@ -274,6 +277,7 @@ class HiveswapDoll extends Doll {
 
         body = new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
         glasses = new SpriteLayer("Glasses", "$folder/Glasses/", 1, maxGlasses);
+        facepaint = new SpriteLayer("FacePaint", "$folder/Facepaint/", 1, maxFacepaint);
 
 
         eyebrows = new SpriteLayer("EyeBrows", "$folder/Eyebrows/", 1, maxEyebrows);
