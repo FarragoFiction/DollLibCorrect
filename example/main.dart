@@ -33,11 +33,11 @@ Future<bool> start() async {
     t.rightHorn.imgNumber = t.maxHorn;
     t.leftEye.imgNumber = t.maxEyes;
     t.rightEye.imgNumber = t.maxEyes;
-    t.body.imgNumber = t.maxBody;
+    t.body.imgNumber = t.maxBody - minus;
     t.facepaint.imgNumber = t.maxFacepaint;
     //t.glasses2.imgNumber = 120;
-    t.hairTop.imgNumber = t.maxHair;
-    t.hairBack.imgNumber = t.maxHair;
+    t.hairTop.imgNumber = t.maxHair-minus;
+    t.hairBack.imgNumber = t.maxHair-minus;
 
 
 
