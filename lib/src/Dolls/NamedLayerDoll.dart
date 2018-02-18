@@ -2,7 +2,7 @@
 import "../../DollRenderer.dart";
 import "dart:typed_data";
 import 'dart:convert';
-import "../includes/bytebuilder.dart";
+import 'package:RenderingLib/RendereringLib.dart';
 
 abstract class NamedLayerDoll extends Doll {
     List<String> possibleParts = new List<String>();

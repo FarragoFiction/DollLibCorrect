@@ -1,13 +1,13 @@
-import "../Misc/random.dart";
-import "../includes/colour.dart";
+import 'package:RenderingLib/RendereringLib.dart';
+
 import "../Dolls/NamedLayerDoll.dart";
 import "NamedSpriteLayer.dart";
 import "SpriteLayer.dart";
 
 import "dart:typed_data";
 import 'dart:convert';
-import "../includes/bytebuilder.dart";
-import "../includes/palette.dart";
+import 'package:RenderingLib/RendereringLib.dart';
+
 import "../../DollRenderer.dart";
 
 /*

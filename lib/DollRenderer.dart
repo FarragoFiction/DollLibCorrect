@@ -20,7 +20,6 @@ export "src/Dolls/SuperbSuckDoll.dart";
 
 export "src/Dolls/PigeonDoll.dart";
 
-export "src/loader/loader.dart";
 export "src/Dolls/MonsterPocketDoll.dart";
 
 export "src/Dolls/EggDoll.dart";
@@ -33,13 +32,9 @@ export "src/Dolls/DenizenDoll.dart";
 export "src/Dolls/QueenDoll.dart";
 export "src/Dolls/SpriteLayer.dart";
 export "src/Dolls/NamedSpriteLayer.dart";
-export "src/Rendering/Renderer.dart";
-export "src/Misc/random.dart";
-export "src/Misc/weighted_lists.dart";
+export "src/Rendering/DollRenderer.dart";
 export "src/Rendering/ReferenceColors.dart";
-export "src/includes/colour.dart";
-export "src/includes/palette.dart";
 export "src/Dolls/TextLayer.dart";
-import "src/formats/Formats.dart";
-export "src/includes/predicates.dart";
-export "src/includes/path_utils.dart";
+export  'package:RenderingLib/RendereringLib.dart';
+
+

@@ -1,14 +1,12 @@
 
 import "../Dolls/Doll.dart";
 import "../Dolls/HomestuckDoll.dart";
+import 'package:RenderingLib/RendereringLib.dart';
+
 import "../Dolls/HomestuckTrollDoll.dart";
 import "dart:html";
 import 'dart:async';
 import "../Dolls/SpriteLayer.dart";
-import "../includes/colour.dart";
-import "../includes/palette.dart";
-import "../Misc/random.dart";
-import "../loader/loader.dart";
 import "../Dolls/ConsortDoll.dart";
 import "../Dolls/QueenDoll.dart";
 abstract class ReferenceColours {

@@ -1,13 +1,12 @@
-import "../Misc/random.dart";
-import "../includes/colour.dart";
+import 'package:RenderingLib/RendereringLib.dart';
+
 import "../Dolls/Doll.dart";
 import "../Dolls/HomestuckDoll.dart";
 
 import "SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
-import "../includes/bytebuilder.dart";
-import "../includes/palette.dart";
+
 import "../Rendering/ReferenceColors.dart";
 class MonsterPocketDoll extends Doll {
     int maxBody = 3;

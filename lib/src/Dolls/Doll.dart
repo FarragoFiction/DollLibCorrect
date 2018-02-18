@@ -3,7 +3,7 @@ import "dart:typed_data";
 import "dart:html";
 import 'dart:convert';
 import 'dart:async';
-import "../includes/bytebuilder.dart";
+import 'package:RenderingLib/RendereringLib.dart';
 
 import "../../DollRenderer.dart";
 abstract class Doll {
@@ -428,7 +428,7 @@ class SavedDoll {
     Future<Null> renderSelfToContainer(Element container) async {
         canvas = new CanvasElement(width: doll.width, height: doll.height);
         container.append(canvas);
-        Renderer.drawDoll(canvas, doll);
+        DollRenderer.drawDoll(canvas, doll);
     }
 
     Future<Null> renderDataUrlToContainer(Element container, dynamic refreshMethod) async {

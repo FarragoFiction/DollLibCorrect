@@ -1,6 +1,8 @@
 import 'dart:html';
 import 'package:DollLibCorrect/DollRenderer.dart';
 import 'dart:async';
+import 'package:RenderingLib/RendereringLib.dart';
+
 
 Doll doll;
 void main() {
@@ -63,7 +65,7 @@ Future<bool> start() async {
 Future<Null>  drawDollScaled(Doll doll, int w, int h) async {
     CanvasElement monsterElement = new CanvasElement(width:w, height: h);
     CanvasElement dollCanvas = new CanvasElement(width: doll.width, height: doll.height);
-    await Renderer.drawDoll(dollCanvas, doll);
+    await DollRenderer.drawDoll(dollCanvas, doll);
     //Renderer.drawBG(monsterElement, ReferenceColours.RED, ReferenceColours.WHITE);
 
     dollCanvas = Renderer.cropToVisible(dollCanvas);
@@ -77,7 +79,7 @@ Future<bool>  drawDoll() async{
     Element innerDiv   = new DivElement();
     CanvasElement finishedProduct = new CanvasElement(width: doll.width, height: doll.height);
     innerDiv.className = "cardWithForm";
-    await Renderer.drawDoll(finishedProduct, doll);
+    await DollRenderer.drawDoll(finishedProduct, doll);
     finishedProduct.className = "cardCanvas";
     innerDiv.append(finishedProduct);
     querySelector('#output').append(innerDiv);
