@@ -10,12 +10,12 @@ import "HomestuckDoll.dart";
 
 //MadCreativity championed this one.
 class HiveswapDoll extends Doll {
-    int maxBody = 7;
+    int maxBody = 12;
     int maxEyebrows = 6;
     int maxGlasses = 4;
     int maxFacepaint = 5;
     int maxHorn = 11;
-    int maxHair = 12;
+    int maxHair = 13;
     int maxFin = 1;
     int maxEyes = 13;
     int maxMouth =22;

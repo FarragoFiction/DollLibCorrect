@@ -34,10 +34,10 @@ class HomestuckTrollDoll extends HomestuckDoll {
     //if a troll or grub has these eyes, they will be mutant
     List<int> mutantEyeList = <int>[2,11,31,44,46,47,85];
     int defaultBody = 48;
-    int maxHorn = 234;
+    int maxHorn = 237;
     int maxFin = 19;
     int maxCanonSymbol = 288; //288 eventually
-    int maxWing = 31;
+    int maxWing = 63;
 
     SpriteLayer leftHorn;
     SpriteLayer canonSymbol; //can pick any color, but when randomized will be a canon color.
