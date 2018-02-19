@@ -15,17 +15,19 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
    // doll = Doll.makeRandomDoll();
-    doll = new HiveswapDoll();
+    //doll = new HiveswapDoll();
+    doll = new HomestuckTrollDoll();
 
 
 
-    HiveswapDoll t = doll as HiveswapDoll;
+    //HiveswapDoll t = doll as HiveswapDoll;
+    HomestuckTrollDoll t = doll as HomestuckTrollDoll;
     //t.leftHorn.imgNumber = t.maxHorn-minus;
     //t.rightHorn.imgNumber = t.maxHorn-minus;
 
     //print("body is ${t.body.imgNumber}");
 
-    int minus = 0;
+    int minus = 2;
     t.leftHorn.imgNumber = t.maxHorn-minus;
     t.rightHorn.imgNumber = t.maxHorn-minus;
     t.hairTop.imgNumber = t.maxHair-minus;
@@ -33,10 +35,10 @@ Future<bool> start() async {
     t.mouth.imgNumber = t.maxMouth-minus;
     t.leftHorn.imgNumber = t.maxHorn-minus;
     t.rightHorn.imgNumber = t.maxHorn-minus;
-    t.leftEye.imgNumber = t.maxEyes-minus;
-    t.rightEye.imgNumber = t.maxEyes-minus;
+    t.leftEye.imgNumber = t.maxEye-minus;
+    t.rightEye.imgNumber = t.maxEye-minus;
     t.body.imgNumber = t.maxBody - minus;
-    t.facepaint.imgNumber = t.maxFacepaint-minus;
+    t.facePaint.imgNumber = t.maxFacePaint-minus;
     //t.glasses2.imgNumber = 120;
     t.hairTop.imgNumber = t.maxHair-minus;
     t.hairBack.imgNumber = t.maxHair-minus;
