@@ -65,24 +65,9 @@ class HomestuckCherubDoll extends HomestuckDoll {
         }
     }
 
-    static int randomSignBetween(int minSign, int maxSign) {
-        Random rand = new Random();
-        int signNumber = rand.nextInt(maxSign - minSign) + minSign;
-        return signNumber;
-    }
 
-    static int get randomBurgundySign => randomSignBetween(1,24);
-    static int get randomBronzeSign => randomSignBetween(25,48);
-    static int get randomGoldSign => randomSignBetween(49,72);
-    static int get randomLimeSign => randomSignBetween(73,96);
-    static int get randomOliveSign => randomSignBetween(97,120);
-    static int get randomJadeSign => randomSignBetween(121,144);
-    static int get randomTealSign => randomSignBetween(145,168);
-    static int get randomCeruleanSign => randomSignBetween(169,192);
-    static int get randomIndigoSign => randomSignBetween(193,216);
-    static int get randomPurpleSign => randomSignBetween(217,240);
-    static int get randomVioletSign => randomSignBetween(241,264);
-    static int get randomFuchsiaSign => randomSignBetween(265,288);
+
+
 
 
 
@@ -163,6 +148,15 @@ class HomestuckCherubDoll extends HomestuckDoll {
         h.add("skin",new Colour.fromStyleString(rand.pickFrom(human_hair_colors)),true);
 
         if(newPallete != ReferenceColours.SKETCH) h.add("hairMain",new Colour.fromStyleString(rand.pickFrom(human_hair_colors)),true);
+
+        if(rand.nextBool()) {
+            palette.add(HomestuckPalette.ASPECT_LIGHT, new Colour(0, 255, 0), true);
+        }else {
+            palette.add(HomestuckPalette.ASPECT_LIGHT, new Colour(255, 0, 0), true);
+        }
+
+        palette.add(HomestuckPalette.ASPECT_DARK, new Colour(h.aspect_light.red, h.aspect_light.green, h.aspect_light.blue)..setHSV(h.aspect_light.hue, h.aspect_light.saturation, h.aspect_light.value/2), true);
+
     }
 
 
