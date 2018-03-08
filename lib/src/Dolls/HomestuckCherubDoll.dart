@@ -12,18 +12,26 @@ import "../Rendering/ReferenceColors.dart";
 class HomestuckCherubDoll extends HomestuckDoll {
 
     @override
-    int renderingType = 15;
+    int renderingType = 16;
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
 
     //these bodies look terrible with troll signs. if any of these use 47,48, or 49
-    int maxCheeks = 9;
-    int maxWings = 9;
+    int maxCheeks = 4;
+    int maxWings = 2;
     @override
     int maxEyes = 6;
 
     @override
     int maxBody = 19;
 
+    @override
+    int maxMouth = 10;
+
+    @override
+    int maxGlass = 113;
+
+    @override
+    int maxGlass2 = 113;
 
     SpriteLayer cheeks;
     SpriteLayer wings;
@@ -135,6 +143,46 @@ class HomestuckCherubDoll extends HomestuckDoll {
         rightEye = new SpriteLayer("Eyes","$folder/CherubRightEyes/", 1, maxEyes);
         cheeks = new SpriteLayer("Cheeks","$folder/CherubCheeks/", 1, maxCheeks);
         body = new SpriteLayer("Body","$folder/CherubBody/", 1, maxBody);
+        glasses = new SpriteLayer("Glasses","$folder/CherubGlasses/", 0, maxGlass);
+        glasses2 = new SpriteLayer("Glasses2","$folder/CherubGlasses/", 0, maxGlass2);
+    }
+
+    @override
+    void randomizeColors() {
+        List<String> human_hair_colors = <String>["#fffffe", "#000000"];
+
+        Random rand = new Random();
+        HomestuckPalette h = palette as HomestuckPalette;
+        List<HomestuckPalette> paletteOptions = new List<HomestuckPalette>.from(ReferenceColours.paletteList.values);
+        HomestuckPalette newPallete = rand.pickFrom(paletteOptions);
+        if(newPallete == ReferenceColours.INK) {
+            tackyColors();
+        }else {
+            copyPalette(newPallete);
+        }
+        h.add("skin",new Colour.fromStyleString(rand.pickFrom(human_hair_colors)),true);
+
+        if(newPallete != ReferenceColours.SKETCH) h.add("hairMain",new Colour.fromStyleString(rand.pickFrom(human_hair_colors)),true);
+    }
+
+
+    @override
+    void randomizeNotColors() {
+        Random rand = new Random();
+        int firstEye = -100;
+        for(SpriteLayer l in renderingOrderLayers) {
+            l.imgNumber = rand.nextInt(l.maxImageNumber+1);
+            //keep eyes synced unless player decides otherwise
+            if(firstEye > 0 && l.imgNameBase.contains("Eye")) l.imgNumber = firstEye;
+            if(firstEye < 0 && l.imgNameBase.contains("Eye")) firstEye = l.imgNumber;
+            if(l.imgNumber == 0 && l != body) l.imgNumber = 1;
+            if(l == glasses || l == glasses2 && rand.nextDouble() > 0.35) l.imgNumber = 0;
+            if(l == wings && rand.nextDouble() > 0.35) l.imgNumber = 0;
+            if(l == hairBack || l == hairTop && rand.nextDouble() > 0.1) l.imgNumber = 61;
+        }
+        if(rand.nextDouble() > .2) {
+            facePaint.imgNumber = 0;
+        }
     }
 
     @override

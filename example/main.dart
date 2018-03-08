@@ -16,17 +16,18 @@ Future<bool> start() async {
     print("done awaiting");
    // doll = Doll.makeRandomDoll();
     //doll = new HiveswapDoll();
-    doll = new HomestuckTrollDoll();
+    doll = new HomestuckCherubDoll();
 
 
 
     //HiveswapDoll t = doll as HiveswapDoll;
-    HomestuckTrollDoll t = doll as HomestuckTrollDoll;
+    //HomestuckTrollDoll t = doll as HomestuckTrollDoll;
     //t.leftHorn.imgNumber = t.maxHorn-minus;
     //t.rightHorn.imgNumber = t.maxHorn-minus;
 
     //print("body is ${t.body.imgNumber}");
 
+    /*
     int minus = 2;
     t.leftHorn.imgNumber = t.maxHorn-minus;
     t.rightHorn.imgNumber = t.maxHorn-minus;
@@ -43,7 +44,7 @@ Future<bool> start() async {
     t.hairTop.imgNumber = t.maxHair-minus;
     t.hairBack.imgNumber = t.maxHair-minus;
 
-
+*/
 
 
     // doll = new DadDoll();
