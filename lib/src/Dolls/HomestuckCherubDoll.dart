@@ -43,7 +43,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
     String folder = "images/Homestuck";
 
     @override
-    List<SpriteLayer> get renderingOrderLayers => <SpriteLayer>[wings, hairBack, body, cheeks, facePaint, symbol, mouth, leftEye, rightEye, glasses, hairTop, glasses2];
+    List<SpriteLayer> get renderingOrderLayers => <SpriteLayer>[wings, hairBack, body,  facePaint, cheeks,symbol, mouth, leftEye, rightEye, glasses, hairTop, glasses2];
 
 
     @override
@@ -174,6 +174,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
             if(l == wings && rand.nextDouble() > 0.35) l.imgNumber = 0;
             if(l == hairBack || l == hairTop && rand.nextDouble() > 0.1) l.imgNumber = 61;
         }
+        leftEye.imgNumber = rightEye.imgNumber;
         if(rand.nextDouble() > .2) {
             facePaint.imgNumber = 0;
         }
