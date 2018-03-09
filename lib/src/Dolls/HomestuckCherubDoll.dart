@@ -122,6 +122,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
     void initLayers() {
         super.initLayers();
         //only do what is special to me here.
+        print("initializing layers, folder is: $folder and use absolute path is $useAbsolutePath");
         mouth = new SpriteLayer("Mouth","$folder/CherubMouth/", 1, maxMouth);
         wings = new SpriteLayer("Wings","$folder/CherubWings/", 1, maxWings);
         leftEye = new SpriteLayer("Eyes","$folder/CherubLeftEyes/", 1, maxEyes);

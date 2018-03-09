@@ -18,7 +18,12 @@ Future<bool> start() async {
     //doll = new HiveswapDoll();
     doll = new HomestuckCherubDoll();
 
-
+    HomestuckCherubDoll t = doll as HomestuckCherubDoll;
+    doll.useAbsolutePath = false;
+    doll.initLayers();
+    //vandalize body 1 to see if its absolute or relative
+    t.body.imgNumber = 1;
+    print("going to use folder ${t.folder}");
 
     //HiveswapDoll t = doll as HiveswapDoll;
     //HomestuckTrollDoll t = doll as HomestuckTrollDoll;
@@ -68,6 +73,7 @@ Future<bool> start() async {
 Future<Null>  drawDollScaled(Doll doll, int w, int h) async {
     CanvasElement monsterElement = new CanvasElement(width:w, height: h);
     CanvasElement dollCanvas = new CanvasElement(width: doll.width, height: doll.height);
+
     await DollRenderer.drawDoll(dollCanvas, doll);
     //Renderer.drawBG(monsterElement, ReferenceColours.RED, ReferenceColours.WHITE);
 

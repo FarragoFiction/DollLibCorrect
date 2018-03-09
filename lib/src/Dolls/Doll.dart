@@ -21,7 +21,7 @@ abstract class Doll {
 
     String get folder {
         if(useAbsolutePath) {
-            return "$absolutePathStart/$relativefolder";
+            return "$absolutePathStart$relativefolder";
         }else {
             return relativefolder;
         }
@@ -60,6 +60,8 @@ abstract class Doll {
         }
         return _associatedColor;
     }
+
+    Doll();
 
     //does nothing by default
     void setUpWays() {
