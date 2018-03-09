@@ -61,7 +61,14 @@ abstract class Doll {
         return _associatedColor;
     }
 
-    Doll();
+    Doll() {
+        if(window.location.hostname.contains("localhost")) {
+            //useAbsolutePath = false;
+             absolutePathStart = "http://www.farragofiction.com/DollSource/";
+
+        }
+
+    }
 
     //does nothing by default
     void setUpWays() {

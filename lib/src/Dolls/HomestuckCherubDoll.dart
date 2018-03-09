@@ -22,7 +22,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
     int maxEyes = 6;
 
     @override
-    int maxBody = 19;
+    int maxBody = 239;
 
     @override
     int maxMouth = 10;
