@@ -14,7 +14,7 @@ class MonsterPocketDoll extends Doll {
     int maxLeftArm = 3;
     int maxHead = 3;
 
-    String folder = "images/MonsterPocket";
+    String relativefolder = "images/MonsterPocket";
 
 
 

@@ -19,7 +19,7 @@ class DadDoll extends Doll {
     int height = 431;
 
     @override
-    String folder = "images/Homestuck/Dad";
+    String relativefolder = "images/Homestuck/Dad";
 
     final int maxHat = 14;
     final int maxNose = 10;

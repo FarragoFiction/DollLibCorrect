@@ -18,7 +18,7 @@ class HomestuckHeroDoll extends HomestuckDoll {
     @override
     int renderingType =11;
     @override
-    String folder = "images/Homestuck";
+    String relativefolder = "images/Homestuck";
     @override
     final int maxBody = 3;
 

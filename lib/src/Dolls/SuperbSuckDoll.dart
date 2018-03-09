@@ -21,7 +21,7 @@ class SuperbSuckDoll extends Doll{
   int height = 300;
 
   @override
-  String folder = "images/Homestuck/superbsuck";
+  String relativefolder = "images/Homestuck/superbsuck";
   final int maxFace = 1;
   final int maxBody = 1;
   final int maxSymbol =11;

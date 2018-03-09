@@ -31,7 +31,7 @@ class HomestuckSatyrDoll extends HomestuckDoll {
     SpriteLayer tail;
 
     @override
-    String folder = "images/Homestuck";
+    String relativefolder = "images/Homestuck";
 
     @override
     List<SpriteLayer> get renderingOrderLayers => <SpriteLayer>[tail, hairBack, body, facePaint, symbol, satyrSymbol, mouth, leftEye, rightEye, glasses, hairTop, fluff, glasses2, rightHorn, leftHorn];

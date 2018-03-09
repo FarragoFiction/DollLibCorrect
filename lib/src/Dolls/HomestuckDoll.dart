@@ -11,7 +11,7 @@ class HomestuckDoll extends Doll {
     @override
     int renderingType =1;
     @override
-    String folder = "images/Homestuck";
+    String relativefolder = "images/Homestuck";
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
     final int maxBody = 235;
     final int maxHair = 189;

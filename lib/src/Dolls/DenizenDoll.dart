@@ -18,7 +18,7 @@ class DenizenDoll extends Doll{
   int height = 580;
 
   @override
-  String folder = "images/Homestuck/Denizen";
+  String relativefolder = "images/Homestuck/Denizen";
   final int maxFace = 14;
   final int maxBack = 11;
   final int maxMouth =14;

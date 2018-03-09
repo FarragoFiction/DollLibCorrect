@@ -8,7 +8,7 @@ import 'package:RenderingLib/RendereringLib.dart';
 import "../Rendering/ReferenceColors.dart";
 class ConsortDoll extends Doll {
     int maxBody = 23;
-    String folder = "images/Homestuck";
+    String relativefolder = "images/Homestuck";
 
     SpriteLayer body;
 

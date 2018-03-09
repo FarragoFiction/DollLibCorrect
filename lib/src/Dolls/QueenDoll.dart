@@ -42,7 +42,7 @@ will also need to figure out how to do the drop downs.
      Palette paletteSource = ReferenceColours.QUEEN_PALETTE;
 
      @override
-     String folder = "images/Homestuck/Queen";
+     String relativefolder = "images/Homestuck/Queen";
 
      @override
      int width = 413;

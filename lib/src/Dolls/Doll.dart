@@ -13,8 +13,21 @@ abstract class Doll {
     static String TURNWAYSBUTUP = "turnwaysFlipped"; //flipped horizontal and vertical
     static String UPWAYS = "upways"; //flipped vertical
 
+    bool useAbsolutePath = true;
 
-    String folder;
+
+    String relativefolder;
+    String absolutePathStart = "http://farragofiction.com/DollSource/";
+
+    String get folder {
+        if(useAbsolutePath) {
+            return "$absolutePathStart/$relativefolder";
+        }else {
+            return relativefolder;
+        }
+    }
+
+
     String orientation = NORMALWAYS;
     Colour _associatedColor;
     int width = 400;

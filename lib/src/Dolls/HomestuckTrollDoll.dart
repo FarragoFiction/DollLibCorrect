@@ -47,7 +47,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     SpriteLayer wings;
 
     @override
-    String folder = "images/Homestuck";
+    String relativefolder = "images/Homestuck";
 
     @override
     List<SpriteLayer> get renderingOrderLayers => <SpriteLayer>[wings, hairBack, rightFin, body, facePaint, symbol, canonSymbol, mouth, leftEye, rightEye, glasses, hairTop, leftFin, glasses2, rightHorn, leftHorn];

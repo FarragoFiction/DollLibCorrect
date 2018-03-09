@@ -13,7 +13,7 @@ class PigeonDoll extends Doll {
     int maxTail = 0;
     int maxWing = 1;
 
-    String folder = "images/Pigeon";
+    String relativefolder = "images/Pigeon";
 
     SpriteLayer body;
     SpriteLayer head;
