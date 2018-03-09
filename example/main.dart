@@ -19,7 +19,7 @@ Future<bool> start() async {
     doll = new HomestuckCherubDoll();
 
     HomestuckCherubDoll t = doll as HomestuckCherubDoll;
-    doll.useAbsolutePath = false;
+    //doll.useAbsolutePath = false;
     doll.initLayers();
     //vandalize body 1 to see if its absolute or relative
     t.body.imgNumber = 1;

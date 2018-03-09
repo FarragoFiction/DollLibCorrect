@@ -17,7 +17,7 @@ abstract class Doll {
 
 
     String relativefolder;
-    String absolutePathStart = "http://farragofiction.com/DollSource/";
+    String absolutePathStart = "/DollSource/";
 
     String get folder {
         if(useAbsolutePath) {
