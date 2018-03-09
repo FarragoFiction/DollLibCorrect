@@ -31,3 +31,15 @@ Can i make any layers (especially newest layer) stop rendering in save string?
 
 Confirmation:  Kid loses facepaint.
 
+~~~~~~~~
+
+It's finally gotten to the point where i need to store images in  a single location, instead of locally
+to each project.
+
+*  make a shell script for transfering over all images to a   set location. DollSource/images/
+
+* have dolls take in a bool (defaults to true) for 'absolute path'.
+
+* ???
+
+* profit
