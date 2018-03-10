@@ -13,7 +13,7 @@ import "../Dolls/HomestuckDoll.dart";
 
 class SuperbSuckDoll extends Doll{
   @override
-  int renderingType =16;
+  int renderingType =17;
 
   @override
   int width = 400;
