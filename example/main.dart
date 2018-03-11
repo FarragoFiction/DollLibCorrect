@@ -20,7 +20,7 @@ Future<bool> start() async {
 
     //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
     //doll.useAbsolutePath = false;
-    doll.initLayers();
+   // doll.initLayers();
     //vandalize body 1 to see if its absolute or relative
     //t.body.imgNumber = 1;
     //print("going to use folder ${t.folder}");
@@ -32,7 +32,7 @@ Future<bool> start() async {
 
     //print("body is ${t.body.imgNumber}");
 
-/*
+
     int minus = 0;
     t.extendedHairTop.imgNumber = t.maxHair-minus;
     t.extendedHairBack.imgNumber = t.maxHair-minus;
@@ -44,7 +44,7 @@ Future<bool> start() async {
     t.extendedBody.imgNumber = t.maxBody - minus;
     t.facePaint.imgNumber = t.maxFacePaint-minus;
     //t.glasses2.imgNumber = 120;
-*/
+
 
 
 
