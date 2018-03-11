@@ -23,6 +23,11 @@ class HomestuckDoll extends Doll {
     final int maxFacePaint = 133;
 
     SpriteLayer body;
+    //need extended layers separate to keep  backwards compatibility with old data strings that had a single byte
+    SpriteLayer extendedBody;
+    SpriteLayer extendedHairTop;
+    SpriteLayer extendedHairBack;
+
     SpriteLayer facePaint;
     SpriteLayer hairTop;
     SpriteLayer hairBack;
@@ -35,10 +40,10 @@ class HomestuckDoll extends Doll {
 
 
     @override
-    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack, body, facePaint,symbol, mouth, leftEye, rightEye, glasses, hairTop, glasses2];
+    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[extendedHairBack, extendedBody, facePaint,symbol, mouth, leftEye, rightEye, glasses, extendedHairTop, glasses2];
 
     @override
-    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,facePaint];
+    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,facePaint,extendedBody, extendedHairTop, extendedHairBack];
 
 
 
@@ -80,12 +85,20 @@ class HomestuckDoll extends Doll {
     void initLayers()
 
     {
+        //old layers aren't rendered, but still exist so that data can be parsed
         hairTop = new SpriteLayer("Hair","$folder/HairTop/", 1, maxHair);
         hairBack = new SpriteLayer("Hair","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[hairTop]);
         hairTop.syncedWith.add(hairBack);
         hairBack.slave = true; //can't be selected on it's own
 
+        extendedHairTop = new SpriteLayer("Hair","$folder/HairTop/", 1, maxHair, supportsMultiByte: true);
+        extendedHairBack = new SpriteLayer("Hair","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[hairTop], supportsMultiByte: true);
+        extendedHairTop.syncedWith.add(hairBack);
+        extendedHairBack.slave = true;
+
+        extendedBody = new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true);
         body = new SpriteLayer("Body","$folder/Body/", 0, maxBody);
+
         facePaint = new SpriteLayer("FacePaint","$folder/FacePaint/", 0, maxFacePaint);
 
         symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol);
@@ -106,6 +119,10 @@ class HomestuckDoll extends Doll {
     //assumes type byte is already gone
      HomestuckDoll.fromReader(ByteReader reader){
          initFromReader(reader,new HomestuckPalette());
+         if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
+         if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
+         if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
+
      }
 
 

@@ -42,6 +42,9 @@ class HomestuckTrollDoll extends HomestuckDoll {
     SpriteLayer leftHorn;
     SpriteLayer canonSymbol; //can pick any color, but when randomized will be a canon color.
     SpriteLayer rightHorn;
+    SpriteLayer extendedLeftHorn;
+    SpriteLayer extendedRightHorn;
+
     SpriteLayer leftFin;
     SpriteLayer rightFin;
     SpriteLayer wings;
@@ -50,11 +53,11 @@ class HomestuckTrollDoll extends HomestuckDoll {
     String relativefolder = "images/Homestuck";
 
     @override
-    List<SpriteLayer> get renderingOrderLayers => <SpriteLayer>[wings, hairBack, rightFin, body, facePaint, symbol, canonSymbol, mouth, leftEye, rightEye, glasses, hairTop, leftFin, glasses2, rightHorn, leftHorn];
+    List<SpriteLayer> get renderingOrderLayers => <SpriteLayer>[wings, extendedHairBack, rightFin, extendedBody, facePaint, symbol, canonSymbol, mouth, leftEye, rightEye, glasses, extendedHairTop, leftFin, glasses2, rightHorn, leftHorn];
 
 
     @override
-    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,leftHorn, rightHorn, leftFin, rightFin, wings, canonSymbol, facePaint];
+    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,leftHorn, rightHorn, leftFin, rightFin, wings, canonSymbol, facePaint, extendedBody, extendedHairTop, extendedHairBack, extendedLeftHorn, extendedRightHorn];
 
 
     @override
@@ -143,6 +146,12 @@ class HomestuckTrollDoll extends HomestuckDoll {
     //assumes type byte is already gone
     HomestuckTrollDoll.fromReader(ByteReader reader){
         initFromReader(reader, new HomestuckTrollPalette());
+        if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
+        if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
+        if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
+
+        if(extendedLeftHorn.imgNumber ==0) extendedLeftHorn.imgNumber = leftHorn.imgNumber;
+        if(extendedRightHorn.imgNumber ==0) extendedRightHorn.imgNumber = rightHorn.imgNumber;
     }
 
 
