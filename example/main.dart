@@ -16,24 +16,24 @@ Future<bool> start() async {
     print("done awaiting");
    // doll = Doll.makeRandomDoll();
     //doll = new HiveswapDoll();
-    doll = new HomestuckCherubDoll();
+    doll = new HomestuckTrollDoll();
 
-    HomestuckCherubDoll t = doll as HomestuckCherubDoll;
+    //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
     //doll.useAbsolutePath = false;
     doll.initLayers();
     //vandalize body 1 to see if its absolute or relative
-    t.body.imgNumber = 1;
-    print("going to use folder ${t.folder}");
+    //t.body.imgNumber = 1;
+    //print("going to use folder ${t.folder}");
 
     //HiveswapDoll t = doll as HiveswapDoll;
-    //HomestuckTrollDoll t = doll as HomestuckTrollDoll;
+    HomestuckTrollDoll t = doll as HomestuckTrollDoll;
     //t.leftHorn.imgNumber = t.maxHorn-minus;
     //t.rightHorn.imgNumber = t.maxHorn-minus;
 
     //print("body is ${t.body.imgNumber}");
 
-    /*
-    int minus = 2;
+
+    int minus = 0;
     t.leftHorn.imgNumber = t.maxHorn-minus;
     t.rightHorn.imgNumber = t.maxHorn-minus;
     t.hairTop.imgNumber = t.maxHair-minus;
@@ -49,7 +49,7 @@ Future<bool> start() async {
     t.hairTop.imgNumber = t.maxHair-minus;
     t.hairBack.imgNumber = t.maxHair-minus;
 
-*/
+
 
 
     // doll = new DadDoll();
