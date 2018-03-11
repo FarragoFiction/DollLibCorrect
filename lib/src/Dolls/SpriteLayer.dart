@@ -45,7 +45,7 @@ class SpriteLayer {
             builder.appendByte(imgNumber);
         }else if(!supportsMultiByte) {
             //should first write the exo, then the numberm
-            throw("not  supported for ${numbytes} bytes, max is ${maxImageNumber} is invalid");
+            throw("not  supported for ${numbytes} bytes for ${name}, max is ${maxImageNumber} is invalid");
         }else {
             //first step, convert 4 byte signed integer into byte array
             //then store number of bytes, chopping off any excess beyond numBytes

@@ -86,8 +86,8 @@ class HomestuckDoll extends Doll {
 
     {
         //old layers aren't rendered, but still exist so that data can be parsed
-        hairTop = new SpriteLayer("Hair","$folder/HairTop/", 1, maxHair);
-        hairBack = new SpriteLayer("Hair","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[hairTop]);
+        hairTop = new SpriteLayer("HairOld","$folder/HairTop/", 1, 255);
+        hairBack = new SpriteLayer("HairOld","$folder/HairBack/", 1, 255, syncedWith:<SpriteLayer>[hairTop]);
         hairTop.syncedWith.add(hairBack);
         hairBack.slave = true; //can't be selected on it's own
 
@@ -97,7 +97,7 @@ class HomestuckDoll extends Doll {
         extendedHairBack.slave = true;
 
         extendedBody = new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true);
-        body = new SpriteLayer("Body","$folder/Body/", 0, maxBody);
+        body = new SpriteLayer("BodyOld","$folder/Body/", 0, 255);
 
         facePaint = new SpriteLayer("FacePaint","$folder/FacePaint/", 0, maxFacePaint);
 

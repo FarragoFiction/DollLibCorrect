@@ -32,22 +32,19 @@ Future<bool> start() async {
 
     //print("body is ${t.body.imgNumber}");
 
-
+/*
     int minus = 0;
-    t.leftHorn.imgNumber = t.maxHorn-minus;
-    t.rightHorn.imgNumber = t.maxHorn-minus;
-    t.hairTop.imgNumber = t.maxHair-minus;
-    t.hairBack.imgNumber = t.maxHair-minus;
+    t.extendedHairTop.imgNumber = t.maxHair-minus;
+    t.extendedHairBack.imgNumber = t.maxHair-minus;
     t.mouth.imgNumber = t.maxMouth-minus;
-    t.leftHorn.imgNumber = t.maxHorn-minus;
-    t.rightHorn.imgNumber = t.maxHorn-minus;
+    t.extendedLeftHorn.imgNumber = t.maxHorn-minus;
+    t.extendedRightHorn.imgNumber = t.maxHorn-minus;
     t.leftEye.imgNumber = t.maxEye-minus;
     t.rightEye.imgNumber = t.maxEye-minus;
-    t.body.imgNumber = t.maxBody - minus;
+    t.extendedBody.imgNumber = t.maxBody - minus;
     t.facePaint.imgNumber = t.maxFacePaint-minus;
     //t.glasses2.imgNumber = 120;
-    t.hairTop.imgNumber = t.maxHair-minus;
-    t.hairBack.imgNumber = t.maxHair-minus;
+*/
 
 
 
@@ -89,16 +86,19 @@ Future<bool>  drawDoll() async{
     CanvasElement finishedProduct = new CanvasElement(width: doll.width, height: doll.height);
     innerDiv.className = "cardWithForm";
     await DollRenderer.drawDoll(finishedProduct, doll);
+
     finishedProduct.className = "cardCanvas";
     innerDiv.append(finishedProduct);
+
     querySelector('#output').append(innerDiv);
-    querySelector('#output').appendHtml(doll.toDataBytesX());
-    for(SpriteLayer i in doll.renderingOrderLayers) {
+    for(SpriteLayer i in doll.dataOrderLayers) {
         Element e = new DivElement();
         e.text = "${i.name}: ${i.imgNumber}";
 
         querySelector('#output').append(e);
 
     }
+    querySelector('#output').appendHtml(doll.toDataBytesX());
+
 
 }
