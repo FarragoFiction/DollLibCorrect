@@ -63,8 +63,8 @@ abstract class Doll {
 
     Doll() {
         if(window.location.hostname.contains("localhost")) {
-            //useAbsolutePath = false;
-             absolutePathStart = "http://www.farragofiction.com/DollSource/";
+            useAbsolutePath = false;
+             //absolutePathStart = "http://www.farragofiction.com/DollSource/";
 
         }
 
