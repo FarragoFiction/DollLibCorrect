@@ -119,6 +119,8 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     {
         super.initLayers();
         body = new SpriteLayer("Body","$folder/Grub/", 0, maxBody);
+        extendedBody = new SpriteLayer("Body","$folder/Grub/", 0, maxBody, supportsMultiByte: true);
+
 
     }
 

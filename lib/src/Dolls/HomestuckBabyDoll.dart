@@ -69,6 +69,8 @@ class HomestuckBabyDoll extends HomestuckDoll {
     {
         super.initLayers();
         body = new SpriteLayer("Body","$folder/Baby/", 0, maxBody);
+        extendedBody = new SpriteLayer("Body","$folder/Baby/", 0, maxBody, supportsMultiByte: true);
+
 
     }
 
