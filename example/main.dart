@@ -16,7 +16,7 @@ Future<bool> start() async {
     print("done awaiting");
    // doll = Doll.makeRandomDoll();
     //doll = new HiveswapDoll();
-    doll = new HomestuckTrollDoll();
+    doll = new HomestuckDoll();
 
     //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
     //doll.useAbsolutePath = false;
@@ -26,12 +26,13 @@ Future<bool> start() async {
     //print("going to use folder ${t.folder}");
 
     //HiveswapDoll t = doll as HiveswapDoll;
-    HomestuckTrollDoll t = doll as HomestuckTrollDoll;
+    //HomestuckTrollDoll t = doll as HomestuckTrollDoll;
     //t.leftHorn.imgNumber = t.maxHorn-minus;
     //t.rightHorn.imgNumber = t.maxHorn-minus;
 
     //print("body is ${t.body.imgNumber}");
 
+    /*
 
     int minus = 9;
     t.extendedHairTop.imgNumber = t.maxHair-minus;
@@ -44,6 +45,7 @@ Future<bool> start() async {
     t.extendedBody.imgNumber = t.maxBody - minus;
     t.facePaint.imgNumber = t.maxFacePaint-minus;
     //t.glasses2.imgNumber = 120;
+    */
 
 
 

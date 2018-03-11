@@ -93,7 +93,7 @@ class HomestuckDoll extends Doll {
 
         extendedHairTop = new SpriteLayer("Hair","$folder/HairTop/", 1, maxHair, supportsMultiByte: true);
         extendedHairBack = new SpriteLayer("Hair","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[hairTop], supportsMultiByte: true);
-        extendedHairTop.syncedWith.add(hairBack);
+        extendedHairTop.syncedWith.add(extendedHairBack);
         extendedHairBack.slave = true;
 
         extendedBody = new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true);
