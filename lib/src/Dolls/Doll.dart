@@ -185,13 +185,14 @@ abstract class Doll {
             if(featuresRead <= numFeatures) {
                 try {
                     l.loadFromReader(reader); //handles knowing if it's 1 or more bytes
+                    //print("reading (${l.name}), its ${l.imgNumber} ");
                 }catch(exception, stackTrace) {
-                    //print("exo said I have $numFeatures and i've only read $featuresRead, but still can't read (${l.name}) for some reason. this is a caught error");
+                    print("exo said I have $numFeatures and i've only read $featuresRead, but still can't read (${l.name}) for some reason. this is a caught error");
                     l.imgNumber = 0; //don't have.
                 }
                 //l.imgNumber = reader.readByte();
             }else {
-               // print("skipping a feature (${l.name}) i don't have in string");
+                //print("skipping a feature (${l.name}) i don't have in string");
                 l.imgNumber = 0; //don't have.
             }
            // print("loading layer ${l.name}. Value: ${l.imgNumber} bytesRead: $featuresRead  numFeatures: $numFeatures");

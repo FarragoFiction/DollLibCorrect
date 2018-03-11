@@ -87,12 +87,12 @@ class HomestuckDoll extends Doll {
     {
         //old layers aren't rendered, but still exist so that data can be parsed
         hairTop = new SpriteLayer("HairOld","$folder/HairTop/", 1, 255);
-        hairBack = new SpriteLayer("HairOld","$folder/HairBack/", 1, 255, syncedWith:<SpriteLayer>[hairTop]);
-        hairTop.syncedWith.add(hairBack);
-        hairBack.slave = true; //can't be selected on it's own
+        hairBack = new SpriteLayer("HairOld","$folder/HairBack/", 1, 255);
+        //hairTop.syncedWith.add(hairBack);
+       // hairBack.slave = true; //can't be selected on it's own
 
         extendedHairTop = new SpriteLayer("Hair","$folder/HairTop/", 1, maxHair, supportsMultiByte: true);
-        extendedHairBack = new SpriteLayer("Hair","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[hairTop], supportsMultiByte: true);
+        extendedHairBack = new SpriteLayer("Hair","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[extendedHairTop], supportsMultiByte: true);
         extendedHairTop.syncedWith.add(extendedHairBack);
         extendedHairBack.slave = true;
 
@@ -115,16 +115,16 @@ class HomestuckDoll extends Doll {
         int type = reader.readByte(); //not gonna use, but needs to be off before given to initFromReader
         initFromReader(reader, new HomestuckPalette());
         if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
-        if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
-        if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
+       // if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
+       // if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
     }
 
     //assumes type byte is already gone
      HomestuckDoll.fromReader(ByteReader reader){
          initFromReader(reader,new HomestuckPalette());
          if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
-         if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
-         if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
+        // if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
+        // if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
 
      }
 

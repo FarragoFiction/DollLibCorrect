@@ -16,8 +16,8 @@ Future<bool> start() async {
     print("done awaiting");
    // doll = Doll.makeRandomDoll();
     //doll = new HiveswapDoll();
-    doll = new HomestuckDoll();
-
+    //doll = new HomestuckDoll();
+    doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/troll_index.html?AiA7IDQ6IDQqECMhPCTcX2c3Pk7-10351005IDQCAABYWlrS0dGJiIgAAACIiIiYmZkhJiYGCBIEAAmqaWiwsGgAAADAwAAAACAEAAA=");
     //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
     //doll.useAbsolutePath = false;
    // doll.initLayers();
