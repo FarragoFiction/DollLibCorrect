@@ -34,11 +34,11 @@ class HomestuckSatyrDoll extends HomestuckDoll {
     String relativefolder = "images/Homestuck";
 
     @override
-    List<SpriteLayer> get renderingOrderLayers => <SpriteLayer>[tail, hairBack, body, facePaint, symbol, satyrSymbol, mouth, leftEye, rightEye, glasses, hairTop, fluff, glasses2, rightHorn, leftHorn];
+    List<SpriteLayer> get renderingOrderLayers => <SpriteLayer>[tail, extendedHairBack, extendedBody, facePaint, symbol, satyrSymbol, mouth, leftEye, rightEye, glasses, extendedHairTop, fluff, glasses2, rightHorn, leftHorn];
 
 
     @override
-    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,leftHorn, rightHorn, fluff, tail, satyrSymbol, facePaint];
+    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,leftHorn, rightHorn, fluff, tail, satyrSymbol, facePaint,extendedBody, extendedHairTop, extendedHairBack];
 
 
     @override
