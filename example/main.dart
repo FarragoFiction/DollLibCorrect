@@ -33,7 +33,7 @@ Future<bool> start() async {
     //print("body is ${t.body.imgNumber}");
 
 
-    int minus = 0;
+    int minus = 9;
     t.extendedHairTop.imgNumber = t.maxHair-minus;
     t.extendedHairBack.imgNumber = t.maxHair-minus;
     t.mouth.imgNumber = t.maxMouth-minus;
