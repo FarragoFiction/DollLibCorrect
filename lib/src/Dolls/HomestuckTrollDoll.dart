@@ -144,7 +144,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
         ByteReader reader = new ByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be off before given to initFromReader
         initFromReader(reader, new HomestuckTrollPalette());
-        print("after initing from reader, hair top is ${hairTop.imgNumber} and hair back is ${hairBack.imgNumber}");
+       // print("after initing from reader, hair top is ${hairTop.imgNumber} and hair back is ${hairBack.imgNumber}");
         if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
         if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
         if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
@@ -156,7 +156,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     //assumes type byte is already gone
     HomestuckTrollDoll.fromReader(ByteReader reader){
         initFromReader(reader, new HomestuckTrollPalette());
-        print("after initing from reader, hair top is ${hairTop.imgNumber} and hair back is ${hairBack.imgNumber}");
+        //print("after initing from reader, hair top is ${hairTop.imgNumber} and hair back is ${hairBack.imgNumber}");
         if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
         if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
         if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
