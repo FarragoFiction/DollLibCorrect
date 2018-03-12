@@ -61,6 +61,9 @@ Future<bool> start() async {
     await drawDoll(); //normal
 
 
+    doll = new PngDoll("Bed","images/Homestuck/Items/bed.png");
+    await drawDoll(); //normal
+
 
     //await drawDollScaled(doll,375,480); //char sheet
     //await drawDollScaled(doll,256,208); //trading card

@@ -8,6 +8,11 @@ import 'dart:convert';
 import "../Rendering/ReferenceColors.dart";
 
 class HomestuckDoll extends Doll {
+
+    @override
+    int width = 400;
+    @override
+    int height = 300;
     @override
     int renderingType =1;
     @override

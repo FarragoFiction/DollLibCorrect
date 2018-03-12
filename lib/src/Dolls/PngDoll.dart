@@ -6,6 +6,9 @@ import "PNGWrapperSpriteLayer.dart";
     can interchangeably use dolls or pngs at will.
 
     TODO: do i need to care about width/height?
+
+    NOTE an indivudual project can extend this to, for example, always draw jail cell bars on top of an image
+    the laeyrs will work like normal
  */
 
 class PngDoll extends Doll {
@@ -14,11 +17,10 @@ class PngDoll extends Doll {
   List<SpriteLayer>  renderingOrderLayers  =  new List<SpriteLayer>();
 
     //relative or absolute, it's just the entire path to the png.
-    PngDoll(String imgName, String imgPath):super() {
+   PngDoll(String imgName, String imgPath):super() {
           pngWrapper = new PNGWrapperSpriteLayer(imgName, imgPath);
           renderingOrderLayers.add(pngWrapper);
-
-    }
+  }
   void initLayers() {
     // does nothing
   }

@@ -10,6 +10,7 @@ export "src/Dolls/HomestuckDoll.dart";
 export "src/Dolls/HomestuckTrollDoll.dart";
 export "src/Dolls/HomestuckSatyrDoll.dart";
 export "src/Dolls/HomestuckCherubDoll.dart";
+export "src/Dolls/PngDoll.dart";
 
 export "src/Dolls/HomestuckBabyDoll.dart";
 export "src/Dolls/HomestuckGrubDoll.dart";
@@ -30,6 +31,7 @@ export "src/Dolls/ConsortDoll.dart";
 export "src/Dolls/HiveswapDoll.dart";
 export "src/Dolls/Doll.dart";
 export "src/Dolls/NamedLayerDoll.dart";
+export "src/Dolls/PNGWrapperSpriteLayer.dart";
 export "src/Dolls/DenizenDoll.dart";
 export "src/Dolls/QueenDoll.dart";
 export "src/Dolls/SpriteLayer.dart";
