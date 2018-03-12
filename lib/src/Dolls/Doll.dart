@@ -83,8 +83,8 @@ abstract class Doll {
     }
 
     static Doll convertOneDollToAnother(Doll source, Doll replacement) {
-        for(SpriteLayer sourceLayer in source.renderingOrderLayers) {
-            for(SpriteLayer replacementLayer in replacement.renderingOrderLayers) {
+        for(SpriteLayer sourceLayer in source.dataOrderLayers) {
+            for(SpriteLayer replacementLayer in replacement.dataOrderLayers) {
                 if(sourceLayer.imgNameBase == replacementLayer.imgNameBase) {
                     replacementLayer.imgNumber = sourceLayer.imgNumber;
                 }

@@ -17,7 +17,7 @@ Future<bool> start() async {
    // doll = Doll.makeRandomDoll();
     //doll = new HiveswapDoll();
     //doll = new HomestuckDoll();
-    doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/troll_index.html?AiA7IDQ6IDQqECMhPCTcX2c3Pk7-10351005IDQCAABYWlrS0dGJiIgAAACIiIiYmZkhJiYGCBIEAAmqaWiwsGgAAADAwAAAACAEAAA=");
+    doll = new HomestuckGrubDoll();
     //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
     //doll.useAbsolutePath = false;
    // doll.initLayers();
@@ -55,6 +55,13 @@ Future<bool> start() async {
    // doll = Doll.loadSpecificDoll("DiC0tLQ8IDQaEBo5IDRKME4bEBr510351005IDSqqKhYWlrS0dGpqKgAAACIiIiYmZkhJiY-IDQaEBoZICAgMDBAQCgAABAA");
 
     await drawDoll(); //normal
+
+    Doll tmp = new HomestuckTrollDoll();
+    doll = Doll.convertOneDollToAnother(doll, tmp);
+    await drawDoll(); //normal
+
+
+
     //await drawDollScaled(doll,375,480); //char sheet
     //await drawDollScaled(doll,256,208); //trading card
     //await drawDollScaled(doll,300,450);//troll call
