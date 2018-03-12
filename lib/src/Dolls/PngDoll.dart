@@ -1,5 +1,7 @@
 import "Doll.dart";
 import "SpriteLayer.dart";
+import 'package:RenderingLib/RendereringLib.dart';
+
 import "PNGWrapperSpriteLayer.dart";
 /*
     A doll in name only. This is a simple wrapper for a png file, so that things that use the doll libarary
@@ -15,6 +17,7 @@ class PngDoll extends Doll {
   PNGWrapperSpriteLayer pngWrapper;
   @override
   List<SpriteLayer>  renderingOrderLayers  =  new List<SpriteLayer>();
+  Palette palette = new Palette();
 
     //relative or absolute, it's just the entire path to the png.
    PngDoll(String imgName, String imgPath):super() {
