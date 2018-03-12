@@ -96,7 +96,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     {
         super.randomize(chooseSign);
         canonSymbol.imgNumber = 0;
-        if(body.imgNumber >2) body.imgNumber = 2;
+        if(extendedBody.imgNumber >2) extendedBody.imgNumber = 2;
         HomestuckPalette h = palette as HomestuckPalette;
         h.add(HomestuckPalette.EYE_WHITE_LEFT, h.aspect_light,true);
         h.add(HomestuckPalette.EYE_WHITE_RIGHT, h.aspect_light,true);
@@ -105,7 +105,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     @override
     void setUpWays() {
         print("body is ${body.imgNumber}");
-        if(body.imgNumber == 7 || body.imgNumber == 8) {
+        if(extendedBody.imgNumber == 7 || extendedBody.imgNumber == 8) {
            // print("upways is true");
             orientation = Doll.UPWAYS;
         }else {
