@@ -46,13 +46,13 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
         initLayers();
         randomize();
         if(sign != null) {
-            print("sign is $sign");
+           // print("sign is $sign");
             canonSymbol.imgNumber = sign;
-            print("used sign to set canon Symbol to ${canonSymbol.imgNumber}");
+            //print("used sign to set canon Symbol to ${canonSymbol.imgNumber}");
 
             //makes sure palette is sign appropriate
             randomize(false);
-            print("after randomize, canon symbol is ${canonSymbol.imgNumber}");
+            //print("after randomize, canon symbol is ${canonSymbol.imgNumber}");
 
         }
     }

@@ -286,7 +286,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
         //canonSymbol.imgNumber = maxCanonSymbol;
 
         String chosenBlood = chooseBlood(rand);
-        print("choose blood $chosenBlood");
+        //print("choose blood $chosenBlood");
         for (SpriteLayer l in renderingOrderLayers) {
             if (l == canonSymbol) {
                 //ignore already chosen so i could get blood color
