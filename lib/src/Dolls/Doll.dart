@@ -30,8 +30,8 @@ abstract class Doll {
 
     String orientation = NORMALWAYS;
     Colour _associatedColor;
-    int width = 400;
-    int height = 300;
+    int width;
+    int height;
     int renderingType = 0;
     static String localStorageKey = "doll";
 

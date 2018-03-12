@@ -18,6 +18,11 @@ class DollRenderer {
 
     static  Future<bool>  drawDoll(CanvasElement canvas, Doll doll) async {
         //print("Drawing a doll");
+        if(doll.width == null) {
+            ImageElement image = await Loader.getResource((doll.renderingOrderLayers.first.imgLocation));
+            doll.width = image.width;
+            doll.height = image.height;
+        }
         CanvasElement buffer = new CanvasElement(width: doll.width, height: doll.height);
         buffer.context2D.imageSmoothingEnabled = false;
         doll.setUpWays();
