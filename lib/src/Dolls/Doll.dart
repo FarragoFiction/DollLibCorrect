@@ -8,7 +8,7 @@ import 'package:RenderingLib/RendereringLib.dart';
 import "../../DollRenderer.dart";
 abstract class Doll {
 
-    
+
     //things can optionally cause the doll's orientation to change, like grub body 7 and 8
     static String NORMALWAYS = "normalways"; //flipped horizontal
     static String TURNWAYS = "turnways"; //flipped horizontal
@@ -328,6 +328,17 @@ abstract class Doll {
         if(type == new MonsterPocketDoll().renderingType) {
             return new MonsterPocketDoll.fromReader(reader);
         }
+    }
+
+    static Doll randomHomestuckDoll() {
+        Random rand = new Random();
+        WeightedList<Doll> choices = new WeightedList<Doll>();
+        choices.addAll(<Doll>[new HomestuckTrollDoll(), new HomestuckDoll(), new HomestuckCherubDoll(), new HomestuckSatyrDoll()]);
+        choices.add(new HomestuckBabyDoll(), 0.5);
+        choices.add(new HomestuckGrubDoll(), 0.5);
+        choices.add(new EggDoll(), 0.1);
+        choices.add(new TrollEggDoll(), 0.1);
+        return rand.pickFrom(choices);
     }
 
     /* first part of any data string tells me what type of doll to load.*/
