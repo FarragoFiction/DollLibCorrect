@@ -255,6 +255,20 @@ abstract class ReferenceColours {
         ..pants_light = '#3B7E4F'
         ..pants_dark = '#265133';
 
+    static HomestuckPalette SAUCE = new HomestuckPalette()
+        ..accent = "#00ff00"
+        ..aspect_light = '#00ff00'
+        ..aspect_dark = '#00ff00'
+        ..shoe_light = '#00ff00'
+        ..shoe_dark = '#00cf00'
+        ..cloak_light = '#171717'
+        ..cloak_mid = '#080808'
+        ..cloak_dark = '#080808'
+        ..shirt_light = '#616161'
+        ..shirt_dark = '#3b3b3b'
+        ..pants_light = '#4a4a4a'
+        ..pants_dark = '#292929';
+
     static HomestuckPalette RAGE = new HomestuckPalette()
         ..accent = "#9900cc"
         ..aspect_light = '#974AA7'
@@ -550,6 +564,7 @@ abstract class ReferenceColours {
             _paletteList = new Map<String, Palette>();
             _paletteList["Blood"] = BLOOD;
             _paletteList["Mind"] = MIND;
+            _paletteList["Sauce"] = SAUCE;
             _paletteList["Rage"] = RAGE;
             _paletteList["Void"] = VOID;
             _paletteList["Time"] = TIME;
