@@ -7,6 +7,8 @@ import 'package:RenderingLib/RendereringLib.dart';
 
 import "../../DollRenderer.dart";
 abstract class Doll {
+
+    
     //things can optionally cause the doll's orientation to change, like grub body 7 and 8
     static String NORMALWAYS = "normalways"; //flipped horizontal
     static String TURNWAYS = "turnways"; //flipped horizontal

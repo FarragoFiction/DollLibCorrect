@@ -11,6 +11,7 @@ import 'package:RenderingLib/RendereringLib.dart';
     cannot be loaded/saved.
 
     intended use case is to draw the doll frames number of times to cached thingy
+    maybe should be a real thing.
  */
 
 class MatryoshkaDoll extends Doll {
