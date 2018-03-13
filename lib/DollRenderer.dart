@@ -11,6 +11,8 @@ export "src/Dolls/HomestuckTrollDoll.dart";
 export "src/Dolls/HomestuckSatyrDoll.dart";
 export "src/Dolls/HomestuckCherubDoll.dart";
 export "src/Dolls/PngDoll.dart";
+export "src/Dolls/MatryoshkaDoll.dart";
+
 
 export "src/Dolls/HomestuckBabyDoll.dart";
 export "src/Dolls/HomestuckGrubDoll.dart";

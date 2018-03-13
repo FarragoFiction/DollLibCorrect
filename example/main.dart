@@ -56,14 +56,26 @@ Future<bool> start() async {
 
     await drawDoll(); //normal
 
+    /*
     Doll tmp = new HomestuckTrollDoll();
     doll = Doll.convertOneDollToAnother(doll, tmp);
     await drawDoll(); //normal
+    */
 
 
+    //test png doll
     doll = new PngDoll("Bed","images/Homestuck/Items/bed.png");
     await (doll as PngDoll).getWidthFiguredOut();
     await drawDoll(); //normal
+
+    //test animtions
+    Doll regular = Doll.loadSpecificDoll("ASDsGdUy-E8mQC3suHKxKCKJuOn4_______3nIzuEcnY8XsyiZrpGdVy0Rtyc3BRQsD4__8XaWgAAAC4AAAAEAFoaAA=");
+    Doll edna = Doll.loadSpecificDoll("ASDsGdUy-E8mQC3suHKxKCKJuOn4_______3nIzuEcnY8XsyiZrpGdVy0Rtyc3BRQsD4__8XaWgAAAC4AAAAEAFoaAA=");
+    (edna as HomestuckDoll).extendedHairTop.imgNumber = 0;
+    (edna as HomestuckDoll).extendedHairBack.imgNumber = 0;
+
+    doll = new MatryoshkaDoll(<Doll>[regular, edna]);
+    //await drawDollLoop();
 
 
     //await drawDollScaled(doll,375,480); //char sheet
@@ -94,24 +106,38 @@ Future<Null>  drawDollScaled(Doll doll, int w, int h) async {
 }
 
 
-Future<bool>  drawDoll() async{
+
+Future<bool>  drawDollLoop([CanvasElement canvas = null]) async {
+    CanvasElement ret = await drawDoll(canvas);
+    new Timer(new Duration(milliseconds: 100), () => drawDollLoop(ret));
+
+}
+
+
+Future<CanvasElement>  drawDoll([CanvasElement finishedProduct = null]) async{
     Element innerDiv   = new DivElement();
-    CanvasElement finishedProduct = new CanvasElement(width: doll.width, height: doll.height);
+    bool fresh = false;
+    if(finishedProduct == null) {
+        finishedProduct = new CanvasElement(width: doll.width, height: doll.height);
+        fresh = true;
+    }else {
+        Renderer.clearCanvas(finishedProduct);
+    }
     innerDiv.className = "cardWithForm";
     await DollRenderer.drawDoll(finishedProduct, doll);
 
-    finishedProduct.className = "cardCanvas";
-    innerDiv.append(finishedProduct);
+    if(fresh) {
+        finishedProduct.className = "cardCanvas";
+        innerDiv.append(finishedProduct);
 
-    querySelector('#output').append(innerDiv);
-    for(SpriteLayer i in doll.dataOrderLayers) {
-        Element e = new DivElement();
-        e.text = "${i.name}: ${i.imgNumber}";
+        querySelector('#output').append(innerDiv);
+        for (SpriteLayer i in doll.dataOrderLayers) {
+            Element e = new DivElement();
+            e.text = "${i.name}: ${i.imgNumber}";
 
-        querySelector('#output').append(e);
-
+            querySelector('#output').append(e);
+        }
+        querySelector('#output').appendHtml(doll.toDataBytesX());
     }
-    querySelector('#output').appendHtml(doll.toDataBytesX());
-
-
+    return finishedProduct;
 }
