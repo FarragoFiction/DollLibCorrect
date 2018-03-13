@@ -62,6 +62,7 @@ Future<bool> start() async {
 
 
     doll = new PngDoll("Bed","images/Homestuck/Items/bed.png");
+    await (doll as PngDoll).getWidthFiguredOut();
     await drawDoll(); //normal
 
 

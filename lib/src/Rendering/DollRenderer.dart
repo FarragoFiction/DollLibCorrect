@@ -17,11 +17,13 @@ class DollRenderer {
 
 
     static  Future<bool>  drawDoll(CanvasElement canvas, Doll doll) async {
-        //print("Drawing a doll");
+        //print("Drawing a doll of width ${doll.width}");
         if(doll.width == null) {
             ImageElement image = await Loader.getResource((doll.renderingOrderLayers.first.imgLocation));
             doll.width = image.width;
             doll.height = image.height;
+            print("loaded image of ${doll.width} and height ${doll.height}. ");
+
         }
         CanvasElement buffer = new CanvasElement(width: doll.width, height: doll.height);
         buffer.context2D.imageSmoothingEnabled = false;

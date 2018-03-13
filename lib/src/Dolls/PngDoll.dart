@@ -1,9 +1,14 @@
 import "Doll.dart";
 import "SpriteLayer.dart";
 import 'package:RenderingLib/RendereringLib.dart';
+import "dart:html";
+import 'dart:async';
 
 import "PNGWrapperSpriteLayer.dart";
 /*
+    before drawing:     await (doll as PngDoll).getWidthFiguredOut();
+
+
     A doll in name only. This is a simple wrapper for a png file, so that things that use the doll libarary
     can interchangeably use dolls or pngs at will.
 
@@ -24,6 +29,16 @@ class PngDoll extends Doll {
           pngWrapper = new PNGWrapperSpriteLayer(imgName, imgPath);
           renderingOrderLayers.add(pngWrapper);
   }
+
+  Future<Null> getWidthFiguredOut() async {
+      if(width == null) {
+          ImageElement image = await Loader.getResource((renderingOrderLayers.first.imgLocation));
+          width = image.width;
+          height = image.height;
+          print("loaded image of ${width} and height ${height}. ");
+      }
+  }
+
   void initLayers() {
     // does nothing
   }
