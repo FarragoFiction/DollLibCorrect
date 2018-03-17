@@ -28,7 +28,7 @@ class EggDoll extends HomestuckDoll {
     {
         super.initLayers();
         //only one thing different
-        body = new SpriteLayer("Body","$folder/Egg/", 1, maxBody);
+        extendedBody = new SpriteLayer("Body","$folder/Egg/", 1, maxBody, supportsMultiByte: true);
 
 
     }

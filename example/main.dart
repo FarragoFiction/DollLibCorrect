@@ -17,7 +17,7 @@ Future<bool> start() async {
    // doll = Doll.makeRandomDoll();
     //doll = new HiveswapDoll();
     //doll = new HomestuckDoll();
-    doll = new HomestuckGrubDoll();
+    doll = Doll.randomDollOfType(66);
     //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
     //doll.useAbsolutePath = false;
    // doll.initLayers();
