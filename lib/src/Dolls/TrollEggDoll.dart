@@ -17,6 +17,11 @@ class TrollEggDoll extends HomestuckTrollDoll {
     @override
     final int maxBody = 13;
 
+    TrollEggDoll() {
+        initLayers();
+        randomize();
+    }
+
     @override
     void initLayers()
 
@@ -24,6 +29,14 @@ class TrollEggDoll extends HomestuckTrollDoll {
         super.initLayers();
         //only one thing different.
         body = new SpriteLayer("Body","$folder/Egg/", 1, maxBody);
+    }
+
+    TrollEggDoll.fromReader(ByteReader reader){
+        initFromReader(reader,new HomestuckPalette());
+        if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
+        if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
+        if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
+
     }
 
 

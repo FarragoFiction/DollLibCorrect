@@ -265,6 +265,14 @@ abstract class Doll {
             return new HomestuckDoll.fromReader(reader);
         }
 
+        if(type == new EggDoll().renderingType) {
+            return new EggDoll.fromReader(reader);
+        }
+
+        if(type == new TrollEggDoll().renderingType) {
+            return new TrollEggDoll.fromReader(reader);
+        }
+
         if(type == new HomestuckSatyrDoll().renderingType) {
             return new HomestuckSatyrDoll.fromReader(reader);
         }
@@ -346,6 +354,14 @@ abstract class Doll {
 
         if(type == new HomestuckDoll().renderingType) {
             return new HomestuckDoll();
+        }
+
+        if(type == new EggDoll().renderingType) {
+            return new EggDoll();
+        }
+
+        if(type == new TrollEggDoll().renderingType) {
+            return new TrollEggDoll();
         }
 
         if(type == new HomestuckTrollDoll().renderingType) {
