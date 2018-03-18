@@ -88,16 +88,16 @@ abstract class Doll {
         if(source is HomestuckDoll && replacement is HomestuckDoll) {
             HomestuckDoll r = replacement as HomestuckDoll;
             HomestuckDoll s = source as HomestuckDoll;
-            print("before replacement source hair is ${s.extendedHairBack.imgNumber} and replacement hair is ${r.extendedHairBack.imgNumber}");
+            //print("before replacement source hair is ${s.extendedHairBack.imgNumber} and replacement hair is ${r.extendedHairBack.imgNumber}");
         }
         for(SpriteLayer sourceLayer in source.dataOrderLayers) {
             for(SpriteLayer replacementLayer in replacement.dataOrderLayers) {
                 //don't compare imgNameBase since it'll be diff on local vs remote apparently
                 if(sourceLayer.name == replacementLayer.name) {
-                    print("${sourceLayer.imgNameBase} is ${replacementLayer.imgNameBase}");
+                    //print("${sourceLayer.imgNameBase} is ${replacementLayer.imgNameBase}");
                     replacementLayer.imgNumber = sourceLayer.imgNumber;
                 }else {
-                    print("${sourceLayer.imgNameBase} is not ${replacementLayer.imgNameBase}");
+                    //print("${sourceLayer.imgNameBase} is not ${replacementLayer.imgNameBase}");
                 }
             }
         }
@@ -118,7 +118,7 @@ abstract class Doll {
         if(source is HomestuckDoll && replacement is HomestuckDoll) {
             HomestuckDoll r = replacement as HomestuckDoll;
             HomestuckDoll s = source as HomestuckDoll;
-            print("after replacement source hair is ${s.extendedHairBack.imgNumber} and replacement hair is ${r.extendedHairBack.imgNumber}");
+            //print("after replacement source hair is ${s.extendedHairBack.imgNumber} and replacement hair is ${r.extendedHairBack.imgNumber}");
         }
         return replacement;
     }
@@ -147,7 +147,7 @@ abstract class Doll {
     void save() {
         int id = Doll.getFirstFreeID();
         window.localStorage["${Doll.localStorageKey}$id"] = toDataBytesX();
-        window.alert("Saved Doll $id!");
+        //window.alert("Saved Doll $id!");
     }
 
     static int getFirstFreeID() {
