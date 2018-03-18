@@ -93,7 +93,10 @@ abstract class Doll {
         for(SpriteLayer sourceLayer in source.dataOrderLayers) {
             for(SpriteLayer replacementLayer in replacement.dataOrderLayers) {
                 if(sourceLayer.imgNameBase == replacementLayer.imgNameBase) {
+                    print("${sourceLayer.imgNameBase} is ${replacementLayer.imgNameBase}");
                     replacementLayer.imgNumber = sourceLayer.imgNumber;
+                }else {
+                    print("${sourceLayer.imgNameBase} is not ${replacementLayer.imgNameBase}");
                 }
             }
         }
