@@ -85,6 +85,11 @@ abstract class Doll {
     }
 
     static Doll convertOneDollToAnother(Doll source, Doll replacement) {
+        if(source is HomestuckDoll && replacement is HomestuckDoll) {
+            HomestuckDoll r = replacement as HomestuckDoll;
+            HomestuckDoll s = source as HomestuckDoll;
+            print("before replacement source hair is ${s.extendedHairBack.imgNumber} and replacement hair is ${r.extendedHairBack.imgNumber}");
+        }
         for(SpriteLayer sourceLayer in source.dataOrderLayers) {
             for(SpriteLayer replacementLayer in replacement.dataOrderLayers) {
                 if(sourceLayer.imgNameBase == replacementLayer.imgNameBase) {
@@ -104,6 +109,12 @@ abstract class Doll {
 
         for(String key in keysToReplace) {
             replacement.palette.add(key, source.palette[key], true);
+        }
+
+        if(source is HomestuckDoll && replacement is HomestuckDoll) {
+            HomestuckDoll r = replacement as HomestuckDoll;
+            HomestuckDoll s = source as HomestuckDoll;
+            print("after replacement source hair is ${s.extendedHairBack.imgNumber} and replacement hair is ${r.extendedHairBack.imgNumber}");
         }
         return replacement;
     }
