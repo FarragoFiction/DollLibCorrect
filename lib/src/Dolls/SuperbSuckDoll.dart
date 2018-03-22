@@ -58,8 +58,11 @@ class SuperbSuckDoll extends Doll{
     ..hair_accent = '#ADADAD'
     ..skin = '#ffffff';
 
+  Random rand;
 
-  SuperbSuckDoll() {
+
+  SuperbSuckDoll([Random this.rand]) {
+    if(rand == null) rand = new Random();
     initLayers();
     randomize();
   }
@@ -100,14 +103,12 @@ class SuperbSuckDoll extends Doll{
   void randomizeColors() {
     List<String> human_hair_colors = <String>["#68410a", "#fffffe", "#000000", "#000000", "#000000", "#f3f28d", "#cf6338", "#feffd7", "#fff3bd", "#724107", "#382207", "#ff5a00", "#3f1904", "#ffd46d", "#473200", "#91683c"];
 
-    Random rand = new Random();
     SuperbSuckPalette h = palette as SuperbSuckPalette;
     tackyColors();
     h.add("hairMain",new Colour.fromStyleString(rand.pickFrom(human_hair_colors)),true);
   }
 
   void tackyColors() {
-    Random rand = new Random();
     SuperbSuckPalette h = palette as SuperbSuckPalette;
     palette.add(SuperbSuckPalette._ACCENT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
     palette.add(SuperbSuckPalette._ASPECT_LIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);

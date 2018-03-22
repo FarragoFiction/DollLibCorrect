@@ -9,8 +9,12 @@ import "../../DollRenderer.dart";
 abstract class Doll {
 
 
+    //in case i want controlled random
+    Random rand = new Random();
+
     //things can optionally cause the doll's orientation to change, like grub body 7 and 8
     static String NORMALWAYS = "normalways"; //flipped horizontal
+    //is this not working? turnways is fighting me
     static String TURNWAYS = "turnways"; //flipped horizontal
     static String TURNWAYSBUTUP = "turnwaysFlipped"; //flipped horizontal and vertical
     static String UPWAYS = "upways"; //flipped vertical
@@ -124,7 +128,6 @@ abstract class Doll {
     }
 
     void randomizeColors() {
-        Random rand = new Random();
         List<String> names = new List<String>.from(palette.names);
         for(String name in names) {
             palette.add(name, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
@@ -132,7 +135,6 @@ abstract class Doll {
     }
 
     void randomizeNotColors() {
-        Random rand = new Random();
         int firstEye = -100;
         for(SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber+1);

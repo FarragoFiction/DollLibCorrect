@@ -30,6 +30,7 @@ class DollRenderer {
         doll.setUpWays();
         if(doll.orientation == Doll.TURNWAYS) {
                 //print("drawing turnways");
+            buffer.context2D.translate(buffer.width/2, buffer.height/2);
             buffer.context2D.scale(-1, 1);
         }else if(doll.orientation == Doll.UPWAYS) {
             //print("drawing up ways");
@@ -58,7 +59,12 @@ class DollRenderer {
         scaleCanvasForDoll(canvas, doll);
         canvas.context2D.imageSmoothingEnabled = false;
 
-        Renderer.copyTmpCanvasToRealCanvasAtPos(canvas, buffer, 0, 0);
+        if(doll.orientation == Doll.TURNWAYS) {
+            canvas.context2D.drawImage(buffer, -1*buffer.width/2, -1*buffer.height/2);
+
+        }else {
+            Renderer.copyTmpCanvasToRealCanvasAtPos(canvas, buffer, 0, 0);
+        }
 
     }
 
@@ -82,7 +88,12 @@ class DollRenderer {
         scaleCanvasForDoll(canvas, doll);
         canvas.context2D.imageSmoothingEnabled = false;
 
-        Renderer.copyTmpCanvasToRealCanvasAtPos(canvas, buffer, 0, 0);
+        if(doll.orientation == Doll.TURNWAYS) {
+            canvas.context2D.drawImage(buffer, -buffer.width/2, -buffer.height/2);
+
+        }else {
+            Renderer.copyTmpCanvasToRealCanvasAtPos(canvas, buffer, 0, 0);
+        }
 
     }
 

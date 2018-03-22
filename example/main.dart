@@ -55,6 +55,8 @@ Future<bool> start() async {
    // doll = Doll.loadSpecificDoll("DiC0tLQ8IDQaEBo5IDRKME4bEBr510351005IDSqqKhYWlrS0dGpqKgAAACIiIiYmZkhJiY-IDQaEBoZICAgMDBAQCgAABAA");
 
     await drawDoll(); //normal
+    doll.orientation = Doll.TURNWAYS;
+    await drawDoll();
 
     /*
     Doll tmp = new HomestuckTrollDoll();
