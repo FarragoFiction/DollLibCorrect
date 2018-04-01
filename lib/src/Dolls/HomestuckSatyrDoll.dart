@@ -18,7 +18,7 @@ class HomestuckSatyrDoll extends HomestuckDoll {
     //these bodies look terrible with troll signs. if any of these use 47,48, or 49
     List<int> bannedRandomBodies = <int>[96,219,221,223,5,11,14,43,50,59,65,66,67,70,72,75,74,98,100,101,102,106,107,109,63,17];
     int defaultBody = 48;
-    int maxHorn = 9;
+    int maxHorn = 11;
     int maxFluff = 9;
     int maxFacePattern = 7;
     int maxSatyrSymbol = 15;
