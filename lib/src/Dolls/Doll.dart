@@ -282,6 +282,11 @@ abstract class Doll {
             return new HomestuckDoll.fromReader(reader);
         }
 
+        if(type == new VirusDoll().renderingType) {
+            return new VirusDoll.fromReader(reader);
+        }
+
+
         if(type == new EggDoll().renderingType) {
             return new EggDoll.fromReader(reader);
         }
@@ -372,6 +377,11 @@ abstract class Doll {
         if(type == new HomestuckDoll().renderingType) {
             return new HomestuckDoll();
         }
+
+        if(type == new VirusDoll().renderingType) {
+            return new VirusDoll();
+        }
+
 
         if(type == new EggDoll().renderingType) {
             return new EggDoll();
