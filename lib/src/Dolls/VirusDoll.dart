@@ -79,12 +79,12 @@ class VirusDoll extends Doll{
     randomize();
   }
 
+  //HELL YES i found the source of the save bug.
+  //i'm not supposed to use premade palettes like this, instead,
+  //how does the drop downs work?
   @override
   void randomizeColors() {
-    super.randomizeColors();
-    return;
     Random rand = new Random();
-    VirusPalette h = palette as VirusPalette;
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
     Palette newPallete = rand.pickFrom(paletteOptions);
     if(newPallete == ReferenceColours.INK) {

@@ -160,8 +160,16 @@ abstract class Doll {
     }
 
     void copyPalette(Palette newP) {
+        int i = 0;
+        List<String> names = palette.names;
+        //handles if the two paletttes match, or not.
         for(String name in newP.names) {
-            palette.add(name, newP[name], true);
+            if(palette.names.contains(name)) {
+                palette.add(name, newP[name], true);
+            }else {
+                if(i < palette.names.length)palette.add(names[i], newP[name], true);
+            }
+            i++;
         }
     }
 
