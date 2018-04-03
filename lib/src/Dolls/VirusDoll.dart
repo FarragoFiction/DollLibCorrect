@@ -4,6 +4,8 @@ import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
+import "../Rendering/ReferenceColors.dart";
+
 
 
 
@@ -75,6 +77,19 @@ class VirusDoll extends Doll{
   VirusDoll() {
     initLayers();
     randomize();
+  }
+
+  @override
+  void randomizeColors() {
+    Random rand = new Random();
+    VirusPalette h = palette as VirusPalette;
+    List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
+    Palette newPallete = rand.pickFrom(paletteOptions);
+    if(newPallete == ReferenceColours.INK) {
+      super.randomizeColors();
+    }else {
+      copyPalette(newPallete);
+    }
   }
 
   @override
