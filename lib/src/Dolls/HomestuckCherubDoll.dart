@@ -175,7 +175,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
             if(l == wings && rand.nextDouble() > 0.35) l.imgNumber = 0;
             if(l == hairBack || l == hairTop && rand.nextDouble() > 0.1) l.imgNumber = 61;
         }
-       // leftEye.imgNumber = rightEye.imgNumber;
+        leftEye.imgNumber = rightEye.imgNumber;
         if(rand.nextDouble() > .2) {
             facePaint.imgNumber = 0;
         }
