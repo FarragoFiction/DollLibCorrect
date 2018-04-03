@@ -125,8 +125,8 @@ class HomestuckCherubDoll extends HomestuckDoll {
         //print("initializing layers, folder is: $folder and use absolute path is $useAbsolutePath");
         mouth = new SpriteLayer("Mouth","$folder/CherubMouth/", 1, maxMouth);
         wings = new SpriteLayer("Wings","$folder/CherubWings/", 1, maxWings);
-        leftEye = new SpriteLayer("Left Eye","$folder/CherubLeftEyes/", 1, maxEyes);
-        rightEye = new SpriteLayer("Right Eye","$folder/CherubRightEyes/", 1, maxEyes);
+        leftEye = new SpriteLayer("LeftEye","$folder/CherubLeftEyes/", 1, maxEyes);
+        rightEye = new SpriteLayer("RightEye","$folder/CherubRightEyes/", 1, maxEyes);
         cheeks = new SpriteLayer("Cheeks","$folder/CherubCheeks/", 1, maxCheeks);
         body = new SpriteLayer("Body","$folder/CherubBody/", 1, maxBody);
         glasses = new SpriteLayer("Glasses","$folder/CherubGlasses/", 0, maxGlass);
@@ -175,7 +175,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
             if(l == wings && rand.nextDouble() > 0.35) l.imgNumber = 0;
             if(l == hairBack || l == hairTop && rand.nextDouble() > 0.1) l.imgNumber = 61;
         }
-        leftEye.imgNumber = rightEye.imgNumber;
+       // leftEye.imgNumber = rightEye.imgNumber;
         if(rand.nextDouble() > .2) {
             facePaint.imgNumber = 0;
         }
