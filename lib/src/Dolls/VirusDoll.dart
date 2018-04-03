@@ -81,6 +81,8 @@ class VirusDoll extends Doll{
 
   @override
   void randomizeColors() {
+    super.randomizeColors();
+    return;
     Random rand = new Random();
     VirusPalette h = palette as VirusPalette;
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);

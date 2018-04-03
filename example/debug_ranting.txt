@@ -151,3 +151,40 @@ i see it happening in virus:
 
 is the palette being weird?
 
+
+
+
+
+saving color accent1
+VM201:1 saving color accent2
+VM201:1 saving color armor1
+VM201:1 saving color armor2
+VM201:1 saving color armor3
+VM201:1 saving color capsid1
+VM201:1 saving color capsid2
+VM201:1 saving color capsid3
+VM201:1 saving color capsid4
+VM201:1 saving color claw1
+VM201:1 saving color claw2
+
+loading color accent1
+VM201:1 loading color claw1
+VM201:1 loading color capsid3
+VM201:1 loading color capsid1
+VM201:1 loading color claw2
+VM201:1 loading color armor1
+VM201:1 loading color armor2
+VM201:1 loading color capsid2
+VM201:1 loading color capsid4
+VM201:1 loading color accent2
+VM201:1 loading color armor3
+
+that's a different order.
+
+what.
+
+now to see if it's the same for kid dolls...
+
+shit. shit.
+
+it's adding colors to the palette. from the premade palettes. fuck.
