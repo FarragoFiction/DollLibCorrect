@@ -16,8 +16,8 @@ Future<bool> start() async {
     print("done awaiting");
    // doll = Doll.makeRandomDoll();
     //doll = new HiveswapDoll();
-    //doll = new HomestuckDoll();
-    doll = Doll.randomDollOfType(18);
+    doll = Doll.loadSpecificDoll("http://localhost:63342/DollBuilder/web/index.html?ElD_NwH-_wH-k2v-mQH-NwGM0wD-bzmM-wD-szn-0yf__v7k5OQEBAQEAgICAA==");
+    //doll = Doll.randomDollOfType(18);
     //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
     //doll.useAbsolutePath = false;
    // doll.initLayers();
@@ -55,8 +55,8 @@ Future<bool> start() async {
    // doll = Doll.loadSpecificDoll("DiC0tLQ8IDQaEBo5IDRKME4bEBr510351005IDSqqKhYWlrS0dGpqKgAAACIiIiYmZkhJiY-IDQaEBoZICAgMDBAQCgAABAA");
 
     await drawDoll(); //normal
-    doll.orientation = Doll.TURNWAYS;
-    await drawDoll();
+    //doll.orientation = Doll.TURNWAYS;
+    //await drawDoll();
 
     /*
     Doll tmp = new HomestuckTrollDoll();
@@ -66,17 +66,17 @@ Future<bool> start() async {
 
 
     //test png doll
-    doll = new PngDoll("Bed","images/Homestuck/Items/bed.png");
-    await (doll as PngDoll).getWidthFiguredOut();
-    await drawDoll(); //normal
+    //doll = new PngDoll("Bed","images/Homestuck/Items/bed.png");
+    //await (doll as PngDoll).getWidthFiguredOut();
+    //await drawDoll(); //normal
 
     //test animtions
-    Doll regular = Doll.loadSpecificDoll("ASDsGdUy-E8mQC3suHKxKCKJuOn4_______3nIzuEcnY8XsyiZrpGdVy0Rtyc3BRQsD4__8XaWgAAAC4AAAAEAFoaAA=");
-    Doll edna = Doll.loadSpecificDoll("ASDsGdUy-E8mQC3suHKxKCKJuOn4_______3nIzuEcnY8XsyiZrpGdVy0Rtyc3BRQsD4__8XaWgAAAC4AAAAEAFoaAA=");
-    (edna as HomestuckDoll).extendedHairTop.imgNumber = 0;
-    (edna as HomestuckDoll).extendedHairBack.imgNumber = 0;
+   // Doll regular = Doll.loadSpecificDoll("ASDsGdUy-E8mQC3suHKxKCKJuOn4_______3nIzuEcnY8XsyiZrpGdVy0Rtyc3BRQsD4__8XaWgAAAC4AAAAEAFoaAA=");
+    //Doll edna = Doll.loadSpecificDoll("ASDsGdUy-E8mQC3suHKxKCKJuOn4_______3nIzuEcnY8XsyiZrpGdVy0Rtyc3BRQsD4__8XaWgAAAC4AAAAEAFoaAA=");
+    //(edna as HomestuckDoll).extendedHairTop.imgNumber = 0;
+    //(edna as HomestuckDoll).extendedHairBack.imgNumber = 0;
 
-    doll = new MatryoshkaDoll(<Doll>[regular, edna]);
+    //doll = new MatryoshkaDoll(<Doll>[regular, edna]);
     //await drawDollLoop();
 
 

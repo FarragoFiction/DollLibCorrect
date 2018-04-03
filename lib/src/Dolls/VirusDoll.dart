@@ -111,6 +111,7 @@ class VirusDoll extends Doll{
     Uint8List thingy = BASE64URL.decode(dataString);
     ByteReader reader = new ByteReader(thingy.buffer, 0);
     int type = reader.readByte(); //not gonna use, but needs to be gone for reader
+    print("Initing a Virus Doll From Reader $dataOrderLayers");
     initFromReader(reader, new VirusPalette());
   }
 
@@ -130,7 +131,6 @@ class VirusDoll extends Doll{
       leg2 = new SpriteLayer("Leg2","$folder/Leg2/", 1, maxLeg2);
       leg3 = new SpriteLayer("Leg3","$folder/Leg3/", 1, maxLeg3);
       leg4 = new SpriteLayer("Leg4","$folder/Leg4/", 1, maxLeg4);
-
     }
   }
 

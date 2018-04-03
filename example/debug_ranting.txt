@@ -43,3 +43,69 @@ to each project.
 * ???
 
 * profit
+
+~~~~~~~~
+
+Virus dolls aren't loading properly. I'm stumped even after a good night's sleep. So it's time to bust out the
+5 minutes on the clock problem definition thingy.
+
+Problem:
+
+When I make a doll it's string looks like:
+
+ElD_NwH-_wH-k2v-mQH-NwGM0wD-bzmM-wD-szn-0yf__v7k5OQCAAAAAgICAA==
+
+When I load that string it looks like:
+ElD-NwH-_wH-k2v-mQH-NwGM0wD-bzmM-wD-szn-0yf__v4AAAACAAAAAA==
+
+Basically, palette is perfect, but the sprite layers are NOT.
+
+What gets rendered is:
+
+Leg1: 0
+Leg2: 0
+Leg3: 0
+Leg4: 1
+DecoLegs: 0
+Capsid: 0
+Body: 0
+
+What gets loaded is:
+
+reading (Leg1), its 114
+(program):1 reading (Leg2), its 114
+(program):1 reading (Leg3), its 114
+(program):1 reading (Leg4), its 1
+(program):1 reading (DecoLegs), its 0
+(program):1 reading (Capsid), its 0
+(program):1 reading (Body), its 0
+
+And what SHOULD be loaded is:
+
+1000111.
+
+So. Any patterns I see?
+
+I see 4 1's in the source pattern, and 4 "not zeroes" in the read patterns. Hrm.
+No feature is skipped.
+
+What does 114 look like in binary? 01110010
+
+Alright that doesn't have any obvious connections to 1...
+
+If I change everything to "2" leg 4 remains 1 and everything else is zero...
+
+What is going on?
+
+reading (Leg1), its 114
+VM180:1 reading (Leg2), its 114
+VM180:1 reading (Leg3), its 114
+VM180:1 reading (Leg4), its 2
+VM180:1 reading (DecoLegs), its 2
+VM180:1 reading (Capsid), its 2
+VM180:1 reading (Body), its 2
+
+Huh. there AREN'T two bodies. So something is getting twisted between reading and writing and those 114s
+ are back again too.
+
+ Let's print out some "toDataURL" or whatever text.
