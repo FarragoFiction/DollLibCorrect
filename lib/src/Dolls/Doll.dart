@@ -231,7 +231,7 @@ abstract class Doll {
 
 
     String toDataBytesX([ByteBuilder builder = null]) {
-        //("saving to data bytes x");
+        ("saving to data bytes x");
         if(builder == null) builder = new ByteBuilder();
         int length = palette.names.length + 1;//one byte for doll type
 
