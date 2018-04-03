@@ -109,3 +109,45 @@ Huh. there AREN'T two bodies. So something is getting twisted between reading an
  are back again too.
 
  Let's print out some "toDataURL" or whatever text.
+
+
+ saving to data bytes x
+ adding Leg1  with value 1 to data string builder.
+ adding Leg2  with value 2 to data string builder.
+ adding Leg3  with value 1 to data string builder.
+ adding Leg4  with value 2 to data string builder.
+ adding DecoLegs  with value 2 to data string builder.
+ adding Capsid  with value 0 to data string builder.
+ adding Body  with value 0 to data string builder.
+
+ http://localhost:63342/DollBuilder/web/index.html?ElD_ZzJ7McjwHn6YIEx4Gj5MEiiqKFR6HDzWEFKUEDA6rlwibjoCBAIEBAAAAA==
+
+and then when loading it's:
+
+reading (Leg1), its 17
+VM187:1 reading (Leg2), its 55
+VM187:1 reading (Leg3), its 29
+VM187:1 reading (Leg4), its 1
+VM187:1 reading (DecoLegs), its 2
+VM187:1 reading (Capsid), its 1
+VM187:1 reading (Body), its 2
+VM187:1 saving to data bytes x
+VM187:1 adding Leg1  with value 0 to data string builder.
+VM187:1 adding Leg2  with value 0 to data string builder.
+VM187:1 adding Leg3  with value 0 to data string builder.
+VM187:1 adding Leg4  with value 1 to data string builder.
+VM187:1 adding DecoLegs  with value 2 to data string builder.
+VM187:1 adding Capsid  with value 1 to data string builder.
+VM187:1 adding Body  with value 0 to data string builder.
+
+
+To me this means there must be a byte coming or going somewhere....
+
+where do I take out the type?
+
+i see it happening in virus:
+
+    int type = reader.readByte(); //not gonna use, but needs to be gone for reader
+
+is the palette being weird?
+

@@ -191,7 +191,7 @@ abstract class Doll {
         }
 
         for(String name in newP.names) {
-            //print("loading color $name");
+            print("loading color $name");
             palette.add(name, newP[name], true);
         }
 
@@ -245,6 +245,7 @@ abstract class Doll {
         List<String> names = new List<String>.from(palette.names);
         names.sort();
         for(String name in names) {
+            print("saving color $name");
             Colour color = palette[name];
             builder.appendByte(color.red);
             builder.appendByte(color.green);
