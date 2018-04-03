@@ -16,16 +16,16 @@ class HomestuckCherubDoll extends HomestuckDoll {
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
 
     //these bodies look terrible with troll signs. if any of these use 47,48, or 49
-    int maxCheeks = 4;
+    int maxCheeks = 24;
     int maxWings = 2;
     @override
-    int maxEyes = 6;
+    int maxEyes = 17;
 
     @override
     int maxBody = 239;
 
     @override
-    int maxMouth = 10;
+    int maxMouth = 15;
 
     @override
     int maxGlass = 113;
