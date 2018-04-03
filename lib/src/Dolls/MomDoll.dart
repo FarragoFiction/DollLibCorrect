@@ -19,6 +19,9 @@ class MomDoll extends Doll {
     int height = 455;
 
     @override
+    String name = "Mom";
+
+    @override
     String relativefolder = "images/Homestuck/Mom";
 
     final int maxHair = 14;

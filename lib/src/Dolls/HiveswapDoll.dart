@@ -20,6 +20,9 @@ class HiveswapDoll extends Doll {
     int maxEyes = 13;
     int maxMouth =22;
 
+    @override
+    String name = "Hiveswap";
+
     String folder = "images/Homestuck/Hiveswap";
 
     SpriteLayer body;

@@ -16,6 +16,9 @@ class MonsterPocketDoll extends Doll {
 
     String relativefolder = "images/MonsterPocket";
 
+    @override
+    String name = "Monster Pocket";
+
 
 
     SpriteLayer body;

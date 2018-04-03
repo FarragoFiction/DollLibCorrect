@@ -17,6 +17,9 @@ class EggDoll extends HomestuckDoll {
     @override
     final int maxBody = 13;
 
+    @override
+    String name = "Egg";
+
     EggDoll() {
         initLayers();
         randomize();

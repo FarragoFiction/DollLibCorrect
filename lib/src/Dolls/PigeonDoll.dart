@@ -20,6 +20,9 @@ class PigeonDoll extends Doll {
     SpriteLayer wing;
     SpriteLayer tail;
 
+    @override
+    String name = "Pigeon";
+
 
     @override
     List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[tail, body,head,wing];

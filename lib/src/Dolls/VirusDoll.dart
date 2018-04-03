@@ -20,6 +20,9 @@ class VirusDoll extends Doll{
   int height = 558;
 
   @override
+  String name = "Virus";
+
+  @override
   String relativefolder = "images/Virus";
   final int maxBody = 1;
   final int maxCapsid = 3;

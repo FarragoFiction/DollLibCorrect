@@ -27,6 +27,9 @@ class ConsortDoll extends Doll {
     int renderingType =3;
 
     @override
+    String name = "Consort";
+
+    @override
     Palette paletteSource = ReferenceColours.CONSORT_PALETTE;
 
     @override

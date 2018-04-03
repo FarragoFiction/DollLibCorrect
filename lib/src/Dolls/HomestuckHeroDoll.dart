@@ -22,6 +22,9 @@ class HomestuckHeroDoll extends HomestuckDoll {
     @override
     final int maxBody = 3;
 
+    @override
+    String name = "Hero";
+
 
     @override
     Palette palette = new HomestuckPalette()

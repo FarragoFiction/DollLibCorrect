@@ -12,6 +12,8 @@ abstract class Doll {
     //in case i want controlled random
     Random rand = new Random();
 
+    String name = "Unknown";
+
     //things can optionally cause the doll's orientation to change, like grub body 7 and 8
     static String NORMALWAYS = "normalways"; //flipped horizontal
     //is this not working? turnways is fighting me

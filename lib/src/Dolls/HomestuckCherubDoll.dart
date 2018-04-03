@@ -13,6 +13,11 @@ class HomestuckCherubDoll extends HomestuckDoll {
 
     @override
     int renderingType = 16;
+
+    @override
+    String name = "Cherub";
+
+
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
 
     //these bodies look terrible with troll signs. if any of these use 47,48, or 49

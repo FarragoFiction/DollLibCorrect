@@ -19,6 +19,9 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     @override
     final int maxBody = 8;
 
+    @override
+    String name = "Grub";
+
 
     @override
     Palette palette = new HomestuckTrollPalette()
