@@ -125,8 +125,8 @@ class HomestuckCherubDoll extends HomestuckDoll {
         //print("initializing layers, folder is: $folder and use absolute path is $useAbsolutePath");
         mouth = new SpriteLayer("Mouth","$folder/CherubMouth/", 1, maxMouth);
         wings = new SpriteLayer("Wings","$folder/CherubWings/", 1, maxWings);
-        leftEye = new SpriteLayer("Eyes","$folder/CherubLeftEyes/", 1, maxEyes);
-        rightEye = new SpriteLayer("Eyes","$folder/CherubRightEyes/", 1, maxEyes);
+        leftEye = new SpriteLayer("Left Eye","$folder/CherubLeftEyes/", 1, maxEyes);
+        rightEye = new SpriteLayer("Right Eye","$folder/CherubRightEyes/", 1, maxEyes);
         cheeks = new SpriteLayer("Cheeks","$folder/CherubCheeks/", 1, maxCheeks);
         body = new SpriteLayer("Body","$folder/CherubBody/", 1, maxBody);
         glasses = new SpriteLayer("Glasses","$folder/CherubGlasses/", 0, maxGlass);
