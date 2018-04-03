@@ -140,17 +140,17 @@ class VirusDoll extends Doll{
 /// Convenience class for getting/setting aspect palettes
 class VirusPalette extends Palette {
 
-  static String ARMOR1 = "accent";
-  static String ARMOR2 = "aspect1";
-  static String ARMOR3 = "aspect2";
-  static String CLAW1 = "shoe1";
-  static String CLAW2 = "shoe2";
-  static String CAPSID1 = "cloak1";
-  static String CAPSID2 = "cloak2";
-  static String CAPSID3 = "cloak3";
-  static String CAPSID4 = "shirt1";
-  static String ACCENT1 = "shirt2";
-  static String ACCENT2 = "pants1";
+  static String ARMOR1 = "armor1";
+  static String ARMOR2 = "armor2";
+  static String ARMOR3 = "armor3";
+  static String CLAW1 = "claw1";
+  static String CLAW2 = "claw2";
+  static String CAPSID1 = "capsid1";
+  static String CAPSID2 = "capsid2";
+  static String CAPSID3 = "capsid3";
+  static String CAPSID4 = "capsid4";
+  static String ACCENT1 = "accent1";
+  static String ACCENT2 = "accent2";
 
   static Colour _handleInput(Object input) {
     if (input is Colour) {
