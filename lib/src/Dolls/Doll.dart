@@ -161,7 +161,7 @@ abstract class Doll {
 
     void copyPalette(Palette newP) {
         int i = 0;
-        List<String> names = palette.names;
+        List<String> names = new List.from(palette.names);
         //handles if the two paletttes match, or not.
         for(String name in newP.names) {
             if(palette.names.contains(name)) {
