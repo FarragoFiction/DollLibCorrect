@@ -201,7 +201,7 @@ abstract class Doll {
         }
 
         for(String name in newP.names) {
-            print("loading color $name");
+           // print("loading color $name");
             palette.add(name, newP[name], true);
         }
 
@@ -214,7 +214,7 @@ abstract class Doll {
             if(featuresRead <= numFeatures) {
                 try {
                     l.loadFromReader(reader); //handles knowing if it's 1 or more bytes
-                    print("reading (${l.name}), its ${l.imgNumber} ");
+                   // print("reading (${l.name}), its ${l.imgNumber} ");
                 }catch(exception, stackTrace) {
                     print("exo said I have $numFeatures and i've only read $featuresRead, but still can't read (${l.name}) for some reason. this is a caught error");
                     l.imgNumber = 0; //don't have.
@@ -241,7 +241,7 @@ abstract class Doll {
 
 
     String toDataBytesX([ByteBuilder builder = null]) {
-        print("saving to data bytes x");
+       // print("saving to data bytes x");
         if(builder == null) builder = new ByteBuilder();
         int length = palette.names.length + 1;//one byte for doll type
 
@@ -255,7 +255,7 @@ abstract class Doll {
         List<String> names = new List<String>.from(palette.names);
         names.sort();
         for(String name in names) {
-            print("saving color $name");
+           // print("saving color $name");
             Colour color = palette[name];
             builder.appendByte(color.red);
             builder.appendByte(color.green);
@@ -264,7 +264,7 @@ abstract class Doll {
 
         //layer is last so can add new layers
         for(SpriteLayer l in dataOrderLayers) {
-            print("adding ${l.name}  with value ${l.imgNumber} to data string builder.");
+            //print("adding ${l.name}  with value ${l.imgNumber} to data string builder.");
             l.saveToBuilder(builder);
             //builder.appendByte(l.imgNumber);
         }
