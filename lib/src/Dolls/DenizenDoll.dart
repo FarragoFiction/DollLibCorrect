@@ -26,7 +26,7 @@ class DenizenDoll extends Doll{
   final int maxBack = 11;
   final int maxMouth =14;
   final int maxOther = 9;
-  final int maxBody = 5;
+  final int maxBody = 14;
   final int maxCore = 1;
   final int maxEyes = 18;
 
