@@ -181,7 +181,7 @@ class Quirk {
     }
     String randomJapaneseBullshit(){
         String japaneseBullshit = "私はあなたの歯の間に私の乳首を感じるようにしたい";
-        return japaneseBullshit[(rand.nextInt() * japaneseBullshit.length).floor()]; //true random
+        return japaneseBullshit[(rand.nextDouble() * japaneseBullshit.length).floor()]; //true random
     }
     String replaceEverythingWithRandomJapanese(String input){
         List<String> words = input.split(" ");

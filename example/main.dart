@@ -14,9 +14,9 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
-   // doll = Doll.makeRandomDoll();
+    doll = new HomestuckTrollDoll();
     //doll = new HiveswapDoll();
-    doll = Doll.loadSpecificDoll("http://localhost:63342/DollBuilder/web/index.html?ElD_ZzJ7McjwHn6YIEx4Gj5MEiiqKFR6HDzWEFKUEDA6rlwibjoCBAIEBAAAAA==");
+    //doll = Doll.loadSpecificDoll("http://localhost:63342/DollBuilder/web/index.html?ElD_ZzJ7McjwHn6YIEx4Gj5MEiiqKFR6HDzWEFKUEDA6rlwibjoCBAIEBAAAAA==");
     //doll = Doll.randomDollOfType(18);
     //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
     //doll.useAbsolutePath = false;
@@ -117,6 +117,9 @@ Future<bool>  drawDollLoop([CanvasElement canvas = null]) async {
 
 
 Future<CanvasElement>  drawDoll([CanvasElement finishedProduct = null]) async{
+
+    querySelector('#output').appendHtml(doll.quirk.translate("<br><br>The quick brown fox jumped over the lazy dog, yes?"));
+
     Element innerDiv   = new DivElement();
     bool fresh = false;
     if(finishedProduct == null) {
@@ -141,5 +144,7 @@ Future<CanvasElement>  drawDoll([CanvasElement finishedProduct = null]) async{
         }
         querySelector('#output').appendHtml(doll.toDataBytesX());
     }
+
+
     return finishedProduct;
 }
