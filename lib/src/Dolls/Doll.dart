@@ -148,8 +148,7 @@ abstract class Doll {
     }
 
     void setQuirk() {
-        int seed = palette.first.red + palette.first.green + palette.first.blue ;
-        Random rand  = new Random(seed);
+        int seed = associatedColor.red + associatedColor.green + associatedColor.blue ;        Random rand  = new Random(seed);
         quirkButDontUse = Quirk.randomHumanQuirk(rand);
     }
 

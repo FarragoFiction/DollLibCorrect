@@ -127,7 +127,7 @@ class HiveswapDoll extends Doll {
 
     @override
     void setQuirk() {
-        int seed = palette.first.red + palette.first.green + palette.first.blue ;
+        int seed = associatedColor.red + associatedColor.green + associatedColor.blue ;
         Random rand  = new Random(seed);
         quirkButDontUse = Quirk.randomTrollQuirk(rand);
     }
