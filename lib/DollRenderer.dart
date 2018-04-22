@@ -13,6 +13,7 @@ export "src/Dolls/HomestuckCherubDoll.dart";
 export "src/Dolls/PngDoll.dart";
 export "src/Dolls/MatryoshkaDoll.dart";
 export "src/Dolls/VirusDoll.dart";
+export "src/Dolls/Quirk.dart";
 
 
 export "src/Dolls/HomestuckBabyDoll.dart";

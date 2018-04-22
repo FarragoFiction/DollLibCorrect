@@ -4,6 +4,7 @@ import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
+import "../../DollRenderer.dart";
 
 import "../Dolls/HomestuckDoll.dart";
 import "../Rendering/ReferenceColors.dart";
@@ -215,6 +216,14 @@ class HomestuckTrollDoll extends HomestuckDoll {
 
         return chosenBlood;
     }
+
+    @override
+    void setQuirk() {
+        int seed = palette.first.red + palette.first.green + palette.first.blue ;
+        Random rand  = new Random(seed);
+        quirkButDontUse = Quirk.randomTrollQuirk(rand);
+    }
+
 
     void mutantWings([bool force = false]) {
         //print("force wing is $force");

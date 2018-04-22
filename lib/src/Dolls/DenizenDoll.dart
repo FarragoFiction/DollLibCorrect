@@ -1,4 +1,5 @@
 import 'package:RenderingLib/RendereringLib.dart';
+import "../../DollRenderer.dart";
 
 import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
@@ -88,6 +89,15 @@ class DenizenDoll extends Doll{
   DenizenDoll.fromReader(ByteReader reader){
     initFromReader(reader,new DenizenPalette());
   }
+
+  @override
+  void setQuirk() {
+    int seed = palette.first.red + palette.first.green + palette.first.blue ;
+    Random rand  = new Random(seed);
+    quirkButDontUse = Quirk.randomHumanQuirk(rand);
+    quirkButDontUse.capitalization = Quirk.ALLCAPS;
+  }
+
 
   @override
   void initLayers() {

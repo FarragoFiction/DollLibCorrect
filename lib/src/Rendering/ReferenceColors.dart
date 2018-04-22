@@ -570,7 +570,7 @@ abstract class ReferenceColours {
         ..pants_light = '#B8151F'
         ..pants_dark = '#8C1D1D'
         ..hair_accent = '#FFF775';
-    
+
 
     static Map<String, Palette> _paletteList;
 

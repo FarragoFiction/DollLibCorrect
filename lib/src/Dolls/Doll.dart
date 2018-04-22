@@ -14,6 +14,8 @@ abstract class Doll {
     //in case i want controlled random
     Random rand = new Random();
 
+    Quirk quirkButDontUse;
+
     String name = "Unknown";
 
     //things can optionally cause the doll's orientation to change, like grub body 7 and 8
@@ -24,6 +26,13 @@ abstract class Doll {
     static String UPWAYS = "upways"; //flipped vertical
 
     bool useAbsolutePath = true;
+
+    Quirk get quirk {
+        if(quirkButDontUse == null) {
+            setQuirk();
+        }
+        return quirkButDontUse;
+    }
 
 
     String relativefolder;
@@ -138,6 +147,12 @@ abstract class Doll {
         }
     }
 
+    void setQuirk() {
+        int seed = palette.first.red + palette.first.green + palette.first.blue ;
+        Random rand  = new Random(seed);
+        quirkButDontUse = Quirk.randomHumanQuirk(rand);
+    }
+
     void randomizeNotColors() {
         int firstEye = -100;
         for(SpriteLayer l in renderingOrderLayers) {
@@ -149,6 +164,8 @@ abstract class Doll {
             if(l.imgNameBase.contains("Glasses") && rand.nextDouble() > 0.35) l.imgNumber = 0;
         }
     }
+
+
 
     void save() {
         int id = Doll.getFirstFreeID();

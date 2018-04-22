@@ -1,5 +1,5 @@
 import 'package:RenderingLib/RendereringLib.dart';
-
+import "../../DollRenderer.dart";
 import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
 import "dart:typed_data";
@@ -123,6 +123,13 @@ class HiveswapDoll extends Doll {
     //assumes type byte is already gone
     HiveswapDoll.fromReader(ByteReader reader){
         initFromReader(reader,new HiveswapTrollPalette());
+    }
+
+    @override
+    void setQuirk() {
+        int seed = palette.first.red + palette.first.green + palette.first.blue ;
+        Random rand  = new Random(seed);
+        quirkButDontUse = Quirk.randomTrollQuirk(rand);
     }
 
 

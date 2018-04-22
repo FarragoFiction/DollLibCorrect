@@ -30,6 +30,8 @@ class DollRenderer {
         doll.setUpWays();
         if(doll.orientation == Doll.TURNWAYS) {
                 //print("drawing turnways");
+            //fuck is anything ever using this? this seems wrong, should be
+            //buffer.context2D.translate(dollCanvas.width, 0);
             buffer.context2D.translate(buffer.width/2, buffer.height/2);
             buffer.context2D.scale(-1, 1);
         }else if(doll.orientation == Doll.UPWAYS) {
