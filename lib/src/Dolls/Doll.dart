@@ -408,6 +408,10 @@ abstract class Doll {
             return new HomestuckDoll();
         }
 
+        if(type == new HomestuckHeroDoll().renderingType) {
+            return new HomestuckHeroDoll();
+        }
+
         if(type == new VirusDoll().renderingType) {
             return new VirusDoll();
         }
