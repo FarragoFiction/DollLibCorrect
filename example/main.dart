@@ -14,7 +14,7 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
-    doll = new HomestuckTrollDoll();
+    doll = new HomestuckHeroDoll();
     //doll = new HiveswapDoll();
     //doll = Doll.loadSpecificDoll("http://localhost:63342/DollBuilder/web/index.html?ElD_ZzJ7McjwHn6YIEx4Gj5MEiiqKFR6HDzWEFKUEDA6rlwibjoCBAIEBAAAAA==");
     //doll = Doll.randomDollOfType(18);
@@ -138,7 +138,7 @@ Future<CanvasElement>  drawDoll([CanvasElement finishedProduct = null]) async{
         querySelector('#output').append(innerDiv);
         for (SpriteLayer i in doll.dataOrderLayers) {
             Element e = new DivElement();
-            e.text = "${i.name}: ${i.imgNumber}";
+            e.text = "${i.name}: ${i.imgLocation}";
 
             querySelector('#output').append(e);
         }
