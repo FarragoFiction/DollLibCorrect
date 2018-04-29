@@ -6,6 +6,7 @@ import "SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 import "../Rendering/ReferenceColors.dart";
+import "Quirk.dart";
 
 
 //saving and loading isn't working .why?
@@ -114,6 +115,9 @@ class DogDoll extends Doll{
     for(SpriteLayer l in renderingOrderLayers) {
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
+    leftEye.imgNumber = rightEye.imgNumber;
+    leftEar.imgNumber = rightEar.imgNumber;
+    if(tail.imgNumber == 0) tail.imgNumber = 1;
   }
 
   @override
@@ -138,24 +142,39 @@ class DogDoll extends Doll{
   }
 
   @override
+  void setQuirk() {
+    int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
+    Random rand  = new Random(seed);
+    quirkButDontUse = Quirk.randomHumanQuirk(rand);
+    quirkButDontUse.lettersToReplaceIgnoreCase = [["^.*\$", "Woof"],["[.]\$", "Bark"],["[.]\$", "Yip"],];
+
+  }
+
+  @override
   void initLayers() {
 
     {
       //leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
       tail = new SpriteLayer("Tail","$folder/Tail/", 1, maxTail);
       body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      chestFur = new SpriteLayer("ChestFur","$folder/chestFurt/", 1, maxChestFur);
-      rightHeadFur = new SpriteLayer("RightHairFur","$folder/rightChestFur/", 1, maxRightHeadFur);
+      chestFur = new SpriteLayer("ChestFur","$folder/chestFur/", 1, maxChestFur);
+      rightHeadFur = new SpriteLayer("RightHeadFur","$folder/rightHeadFur/", 1, maxRightHeadFur);
       head = new SpriteLayer("Head","$folder/head/", 1, maxHead);
       leftEye = new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxLeftEye);
       rightEye = new SpriteLayer("RightEye","$folder/rightEye/", 1, maxRightEye);
-      leftHeadFur = new SpriteLayer("LeftHeadFur","$folder/leftHeadFur/", 1, maxLeftHeadFur);
+      leftHeadFur = new SpriteLayer("LeftHeadFur","$folder/leftHeadFur/", 1, maxLeftHeadFur, syncedWith: <SpriteLayer>[rightHeadFur]);
       leftEar = new SpriteLayer("LeftEar","$folder/leftEar/", 1, maxLeftEar);
       rightEar = new SpriteLayer("RightEar","$folder/rightEar/", 1, maxRightEar);
       snout = new SpriteLayer("Snout","$folder/snout/", 1, maxSnout);
       accessory = new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
       backLegs = new SpriteLayer("BackLegs","$folder/backLegs/", 1, maxbackLegs);
-      frontLegs = new SpriteLayer("FrontLegs","$folder/frontLegs/", 1, maxFrontLegs);
+      frontLegs = new SpriteLayer("FrontLegs","$folder/frontLeg/", 1, maxFrontLegs);
+
+
+      rightHeadFur.syncedWith.add(leftHeadFur);
+      leftHeadFur.slave = true; //can't be selected on it's own
+
+
 
     }
   }
