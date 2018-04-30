@@ -20,7 +20,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     @override
     String folder = "images/Homestuck";
     @override
-    final int maxBody = 8;
+    final int maxBody = 26;
 
     @override
     String name = "Grub";

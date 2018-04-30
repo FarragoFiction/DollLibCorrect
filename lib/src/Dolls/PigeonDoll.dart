@@ -13,7 +13,7 @@ class PigeonDoll extends Doll {
 
     //TODO random set of pigeon palettes maybe for random colored pigeons?
     int maxBody = 1;
-    int maxHead = 3;
+    int maxHead = 4;
     int maxTail = 0;
     int maxWing = 1;
 
