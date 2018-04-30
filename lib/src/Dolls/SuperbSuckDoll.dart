@@ -28,21 +28,24 @@ class SuperbSuckDoll extends Doll{
 
   @override
   String relativefolder = "images/Homestuck/superbsuck";
-  final int maxFace = 20;
-  final int maxBody = 44;
-  final int maxSymbol =38;
-  final int maxHair = 46;
+  final int maxFace = 26;
+  final int maxBody = 49;
+  final int maxSymbol =41;
+  final int maxHair = 51;
+  final int maxCanonSymbol = 51;
+
 
 
   SpriteLayer face;
   SpriteLayer body;
   SpriteLayer symbol;
   SpriteLayer hair;
+  SpriteLayer canonSymbol;
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body,symbol,face,hair];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body,symbol,canonSymbol,face,hair];
   @override
-  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,symbol,face,hair];
+  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,symbol,canonSymbol,face,hair];
 
   @override
   Palette palette = new SuperbSuckPalette()
@@ -102,6 +105,7 @@ class SuperbSuckDoll extends Doll{
       face = new SpriteLayer("Face","$folder/Face/", 1, maxFace);
       hair = new SpriteLayer("Hair","$folder/Hair/", 1, maxHair);
       symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol);
+      canonSymbol = new SpriteLayer("CanonSymbol", "$folder/CanonSymbol/", 0, maxCanonSymbol, supportsMultiByte: true);
 
     }
   }
