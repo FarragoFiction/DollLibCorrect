@@ -13,7 +13,7 @@ import "../Rendering/ReferenceColors.dart";
 
 class TalkSpriteDoll extends Doll{
   @override
-  int renderingType =19;
+  int renderingType =20;
 
   @override
   int width = 350;
@@ -54,7 +54,7 @@ class TalkSpriteDoll extends Doll{
 
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack, body, facePaint, leftEye, rightEye, brows, mouth,nose, accessory,shirt, symbol, hood, hairFront];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack, body, facePaint, leftEye, rightEye, brows, mouth,nose,shirt, symbol, hood, hairFront,accessory];
   @override
   List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[hairBack, body, facePaint,accessory, leftEye, rightEye, brows, mouth,nose, shirt, symbol, hood, hairFront];
 
@@ -75,6 +75,8 @@ class TalkSpriteDoll extends Doll{
     ..blood2 = "#00ff00"
     ..theme = "#ff00ff"
     ..bowties = "#ffff00"
+    ..eye_white_left = '#ffba35'
+    ..eye_white_right = '#ffba15'
     ..antiBowties = "#a0a000";
 
   @override
@@ -83,6 +85,8 @@ class TalkSpriteDoll extends Doll{
     ..hair2 = '#00a0a1'
     ..skin1 = '#ffffff'
     ..skin2 = "#c8c8c8"
+    ..eye_white_left = '#000000'
+    ..eye_white_right = '#000000'
     ..hoodLight = "#fa4900"
     ..hoodMid = "#e94200"
     ..hoodDark = "#c33700"
@@ -96,7 +100,7 @@ class TalkSpriteDoll extends Doll{
     ..bowties = "#ffff00"
     ..antiBowties = "#a0a000";
 
-  DogDoll() {
+  TalkSpriteDoll() {
     initLayers();
     randomize();
   }
@@ -107,6 +111,8 @@ class TalkSpriteDoll extends Doll{
   @override
   void randomizeColors() {
     Random rand = new Random();
+    List<String> human_hair_colors = <String>["#68410a", "#fffffe", "#000000", "#000000", "#000000", "#f3f28d", "#cf6338", "#feffd7", "#fff3bd", "#724107", "#382207", "#ff5a00", "#3f1904", "#ffd46d", "#473200", "#91683c"];
+
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
     Palette newPallete = rand.pickFrom(paletteOptions);
     if(newPallete == ReferenceColours.INK) {
@@ -114,14 +120,28 @@ class TalkSpriteDoll extends Doll{
     }else {
       copyPalette(newPallete);
     }
+
+    TalkSpritePalette p = palette as TalkSpritePalette;
+    p.skin1 = "#ffffff";
+    p.skin2 = "#c8c8c8";
+    p.eye_white_left = "#ffffff";
+    p.eye_white_right = "#ffffff";
+    palette.add("hairMain",new Colour.fromStyleString(rand.pickFrom(human_hair_colors)),true);
+    palette.add(TalkSpritePalette.HAIR2, new Colour(p.hair1.red, p.hair1.green, p.hair1.blue)..setHSV(p.hair1.hue, p.hair1.saturation, p.hair1.value/2), true);
+
+
   }
 
   @override
   void randomizeNotColors() {
     for(SpriteLayer l in renderingOrderLayers) {
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
+      if(l.imgNumber ==0 && l.maxImageNumber >=1) l.imgNumber = 1;
     }
+    leftEye.imgNumber = rightEye.imgNumber;
+    facePaint.imgNumber = 0;
   }
+
 
   @override
   void load(String dataString) {
@@ -148,8 +168,8 @@ class TalkSpriteDoll extends Doll{
   void initLayers() {
 
     {
-      hairFront = new SpriteLayer("Hair","$folder/hairFront/", 1, maxHair);
-      hairBack = new SpriteLayer("Hair","$folder/hairBack/", 1, maxHair, syncedWith: <SpriteLayer>[hairFront]);
+      hairFront = new SpriteLayer("Hair","$folder/HairFront/", 1, maxHair);
+      hairBack = new SpriteLayer("Hair","$folder/HairBack/", 1, maxHair, syncedWith: <SpriteLayer>[hairFront]);
       hairFront.syncedWith.add(hairBack);
       hairBack.slave = true; //can't be selected on it's own
 
@@ -158,8 +178,8 @@ class TalkSpriteDoll extends Doll{
       facePaint = new SpriteLayer("FacePaint","$folder/FacePaint/", 1, maxFacePaint);
       brows = new SpriteLayer("Brows","$folder/Brows/", 1, maxBrows);
       mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
-      leftEye = new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxEyes);
-      rightEye = new SpriteLayer("RightEye","$folder/rightEye/", 1, maxEyes);
+      leftEye = new SpriteLayer("LeftEye","$folder/LeftEye/", 1, maxEyes);
+      rightEye = new SpriteLayer("RightEye","$folder/RightEye/", 1, maxEyes);
 
       nose = new SpriteLayer("Nose","$folder/Nose/", 1, maxNose);
       accessory = new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
@@ -173,6 +193,8 @@ class TalkSpriteDoll extends Doll{
 }
 
 class TalkSpritePalette extends Palette {
+  static String EYE_WHITE_LEFT = "eyeWhitesLeft";
+  static String EYE_WHITE_RIGHT = "eyeWhitesRight";
   static String HAIR1 = "hairMain";
   static String HAIR2 = "hairAccent";
   static String SKIN1 = "skin";
@@ -257,6 +279,13 @@ class TalkSpritePalette extends Palette {
 
   Colour get antiBowties => this[ANTIBOWTIES];
   void set antiBowties(dynamic c) => this.add(ANTIBOWTIES, _handleInput(c), true);
+
+  Colour get eye_white_left => this[EYE_WHITE_LEFT];
+  void set eye_white_left(dynamic c) => this.add(EYE_WHITE_LEFT, _handleInput(c), true);
+
+  Colour get eye_white_right => this[EYE_WHITE_RIGHT];
+  void set eye_white_right(dynamic c) => this.add(EYE_WHITE_RIGHT, _handleInput(c), true);
+
 
 
 

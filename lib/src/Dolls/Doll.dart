@@ -320,6 +320,10 @@ abstract class Doll {
             return new DogDoll.fromReader(reader);
         }
 
+        if(type == new TalkSpriteDoll().renderingType) {
+            return new TalkSpriteDoll.fromReader(reader);
+        }
+
 
         if(type == new EggDoll().renderingType) {
             return new EggDoll.fromReader(reader);
@@ -422,6 +426,10 @@ abstract class Doll {
 
         if(type == new DogDoll().renderingType) {
             return new DogDoll();
+        }
+
+        if(type == new TalkSpriteDoll().renderingType) {
+            return new TalkSpriteDoll();
         }
 
 
