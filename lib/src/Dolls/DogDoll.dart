@@ -158,11 +158,11 @@ class DogDoll extends Doll{
       tail = new SpriteLayer("Tail","$folder/Tail/", 1, maxTail);
       body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
       chestFur = new SpriteLayer("ChestFur","$folder/chestFur/", 1, maxChestFur);
-      rightHeadFur = new SpriteLayer("RightHeadFur","$folder/rightHeadFur/", 1, maxRightHeadFur);
+      rightHeadFur = new SpriteLayer("HairFur","$folder/rightHeadFur/", 1, maxRightHeadFur);
       head = new SpriteLayer("Head","$folder/head/", 1, maxHead);
       leftEye = new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxLeftEye);
       rightEye = new SpriteLayer("RightEye","$folder/rightEye/", 1, maxRightEye);
-      leftHeadFur = new SpriteLayer("LeftHeadFur","$folder/leftHeadFur/", 1, maxLeftHeadFur, syncedWith: <SpriteLayer>[rightHeadFur]);
+      leftHeadFur = new SpriteLayer("HairFur","$folder/leftHeadFur/", 1, maxLeftHeadFur, syncedWith: <SpriteLayer>[rightHeadFur]);
       leftEar = new SpriteLayer("LeftEar","$folder/leftEar/", 1, maxLeftEar);
       rightEar = new SpriteLayer("RightEar","$folder/rightEar/", 1, maxRightEar);
       snout = new SpriteLayer("Snout","$folder/snout/", 1, maxSnout);
