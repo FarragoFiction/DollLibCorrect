@@ -58,10 +58,43 @@ class TalkSpriteDoll extends Doll{
   @override
   List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[hairBack, body, facePaint,accessory, leftEye, rightEye, brows, mouth,nose, shirt, symbol, hood, hairFront];
 
+  @override
+  Palette paletteSource = new TalkSpritePalette()
+    ..hair1 = '#00ffff'
+    ..hair2 = '#00a0a1'
+    ..skin1 = '#ffffff'
+    ..skin2 = "#c8c8c8"
+    ..hoodLight = "#fa4900"
+    ..hoodMid = "#e94200"
+    ..hoodDark = "#c33700"
+    ..shirtLight = "#ff8800"
+    ..shirtDark = "#d66e04"
+    ..aspect1 = "#fefd49"
+    ..aspect2 = "#fec910"
+    ..blood = "#ff0000"
+    ..blood2 = "#00ff00"
+    ..theme = "#ff00ff"
+    ..bowties = "#ffff00"
+    ..antiBowties = "#a0a000";
 
   @override
-  Palette palette = new TalkSpritePalette();
-
+  Palette palette = new TalkSpritePalette()
+    ..hair1 = '#00ffff'
+    ..hair2 = '#00a0a1'
+    ..skin1 = '#ffffff'
+    ..skin2 = "#c8c8c8"
+    ..hoodLight = "#fa4900"
+    ..hoodMid = "#e94200"
+    ..hoodDark = "#c33700"
+    ..shirtLight = "#ff8800"
+    ..shirtDark = "#d66e04"
+    ..aspect1 = "#fefd49"
+    ..aspect2 = "#fec910"
+    ..blood = "#ff0000"
+    ..blood2 = "#00ff00"
+    ..theme = "#ff00ff"
+    ..bowties = "#ffff00"
+    ..antiBowties = "#a0a000";
 
   DogDoll() {
     initLayers();
@@ -139,14 +172,23 @@ class TalkSpriteDoll extends Doll{
 
 }
 
-
-
 class TalkSpritePalette extends Palette {
-  static String _EYES = "eyes"; //yellow
-  static String _SKIN = "skin"; //green
-  static String _FEATHER1 = "feather1"; //red
-  static String _FEATHER2 = "feather2"; //blue
-  static String _ACCENT = "accent"; //purple
+  static String HAIR1 = "hairMain";
+  static String HAIR2 = "hairAccent";
+  static String SKIN1 = "skin";
+  static String SKIN2 = "skin2";
+  static String HOODLIGHT = "cloak1";
+  static String HOODMID = "cloak2";
+  static String HOODDARK = "cloak3";
+  static String SHIRTLIGHT = "shirt1";
+  static String SHIRTDARK = "shirt2";
+  static String ASPECT1 = "aspect1";
+  static String ASPECT2 = "aspect2";
+  static String BLOOD = "wing1";
+  static String BLOOD2 = "wing2";
+  static String THEME = "theme";
+  static String BOWTIES = "bowties";
+  static String ANTIBOWTIES = "antibowties";
 
   static Colour _handleInput(Object input) {
     if (input is Colour) {
@@ -168,26 +210,54 @@ class TalkSpritePalette extends Palette {
     throw "Invalid AspectPalette input: colour must be a Colour object, a valid colour int, or valid hex string (with or without leading #)";
   }
 
-  Colour get text => this[_EYES];
+  Colour get hair1 => this[HAIR1];
+  void set hair1(dynamic c) => this.add(HAIR1, _handleInput(c), true);
 
-  Colour get eyes => this[_EYES];
+  Colour get hair2 => this[HAIR2];
+  void set hair2(dynamic c) => this.add(HAIR2, _handleInput(c), true);
 
-  void set eyes(dynamic c) => this.add(_EYES, _handleInput(c), true);
+  Colour get skin1 => this[SKIN1];
+  void set skin1(dynamic c) => this.add(SKIN1, _handleInput(c), true);
 
-  Colour get skin => this[_SKIN];
+  Colour get skin2 => this[SKIN2];
+  void set skin2(dynamic c) => this.add(SKIN2, _handleInput(c), true);
 
-  void set skin(dynamic c) => this.add(_SKIN, _handleInput(c), true);
+  Colour get hoodLight => this[HOODLIGHT];
+  void set hoodLight(dynamic c) => this.add(HOODLIGHT, _handleInput(c), true);
 
-  Colour get accent => this[_ACCENT];
+  Colour get hoodMid => this[HOODMID];
+  void set hoodMid(dynamic c) => this.add(HOODMID, _handleInput(c), true);
 
-  void set accent(dynamic c) => this.add(_ACCENT, _handleInput(c), true);
+  Colour get hoodDark => this[HOODDARK];
+  void set hoodDark(dynamic c) => this.add(HOODDARK, _handleInput(c), true);
 
-  Colour get feather1 => this[_FEATHER1];
+  Colour get shirtLight => this[SHIRTLIGHT];
+  void set shirtLight(dynamic c) => this.add(SHIRTLIGHT, _handleInput(c), true);
 
-  void set feather1(dynamic c) => this.add(_FEATHER1, _handleInput(c), true);
+  Colour get shirtDark => this[SHIRTDARK];
+  void set shirtDark(dynamic c) => this.add(SHIRTDARK, _handleInput(c), true);
 
-  Colour get feather2 => this[_FEATHER2];
-  void set feather2(dynamic c) => this.add(_FEATHER2, _handleInput(c), true);
+  Colour get aspect1 => this[ASPECT1];
+  void set aspect1(dynamic c) => this.add(ASPECT1, _handleInput(c), true);
+
+  Colour get aspect2 => this[ASPECT2];
+  void set aspect2(dynamic c) => this.add(ASPECT2, _handleInput(c), true);
+
+  Colour get blood => this[BLOOD];
+  void set blood(dynamic c) => this.add(BLOOD, _handleInput(c), true);
+
+  Colour get blood2 => this[BLOOD2];
+  void set blood2(dynamic c) => this.add(BLOOD2, _handleInput(c), true);
+
+  Colour get theme => this[THEME];
+  void set theme(dynamic c) => this.add(THEME, _handleInput(c), true);
+
+  Colour get bowties => this[BOWTIES];
+  void set bowties(dynamic c) => this.add(BOWTIES, _handleInput(c), true);
+
+  Colour get antiBowties => this[ANTIBOWTIES];
+  void set antiBowties(dynamic c) => this.add(ANTIBOWTIES, _handleInput(c), true);
+
 
 
 }
