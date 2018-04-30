@@ -208,7 +208,7 @@ class TalkSpritePalette extends Palette {
   static String ASPECT2 = "aspect2";
   static String BLOOD = "wing1";
   static String BLOOD2 = "wing2";
-  static String THEME = "theme";
+  static String THEME = "accent";
   static String BOWTIES = "bowties";
   static String ANTIBOWTIES = "antibowties";
 
