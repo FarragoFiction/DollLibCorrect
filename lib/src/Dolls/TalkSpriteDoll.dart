@@ -26,46 +26,37 @@ class TalkSpriteDoll extends Doll{
   @override
   String relativefolder = "images/TalkSprite";
   final int maxAccessory = 1;
-  final int maxAspects = 1;
-  final int maxBrows = 0;
-  final int maxEyes = 1;
-  final int maxHai = 1;
-  final int maxHead = 1;
-  final int maxLeftEar = 1;
-  final int maxLeftEye = 2;
-  final int maxLeftHeadFur = 1;
-  final int maxRightEar = 1;
-  final int maxRightEye = 2;
-  final int maxRightHeadFur = 1;
-  final int maxSnout = 3;
-  final int maxTail = 1;
-
-
+  final int maxSymbol = 13;
+  final int maxBrows = 2;
+  final int maxEyes = 2;
+  final int maxHair = 2;
+  final int maxHood = 11;
+  final int maxMouth = 2;
+  final int maxNose = 2;
+  final int maxShirt = 6;
+  final int maxBody = 0;
+  final int maxFacePaint = 2;
 
 
   SpriteLayer accessory;
-  SpriteLayer backLegs;
-  SpriteLayer body;
-  SpriteLayer chestFur;
-  SpriteLayer frontLegs;
-  SpriteLayer head;
-  SpriteLayer leftEar;
+  SpriteLayer symbol;
+  SpriteLayer hood;
+  SpriteLayer brows;
   SpriteLayer leftEye;
-  SpriteLayer leftHeadFur;
-  SpriteLayer rightEar;
+  SpriteLayer hairBack;
+  SpriteLayer hairFront;
   SpriteLayer rightEye;
-  SpriteLayer rightHeadFur;
-  SpriteLayer snout;
-  SpriteLayer tail;
-
-
-
+  SpriteLayer mouth;
+  SpriteLayer nose;
+  SpriteLayer shirt;
+  SpriteLayer body;
+  SpriteLayer facePaint;
 
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[tail, body,chestFur, rightHeadFur, head, leftEye, rightEye, leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack, body, facePaint, leftEye, rightEye, brows, mouth,nose, accessory,shirt, symbol, hood, hairFront];
   @override
-  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[tail, body,chestFur, rightHeadFur, head, leftEye, rightEye, leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
+  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[hairBack, body, facePaint,accessory, leftEye, rightEye, brows, mouth,nose, shirt, symbol, hood, hairFront];
 
 
   @override
@@ -97,9 +88,6 @@ class TalkSpriteDoll extends Doll{
     for(SpriteLayer l in renderingOrderLayers) {
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
-    leftEye.imgNumber = rightEye.imgNumber;
-    leftEar.imgNumber = rightEar.imgNumber;
-    if(tail.imgNumber == 0) tail.imgNumber = 1;
   }
 
   @override
@@ -127,27 +115,24 @@ class TalkSpriteDoll extends Doll{
   void initLayers() {
 
     {
-      //leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
-      tail = new SpriteLayer("Tail","$folder/Tail/", 1, maxTail);
+      hairFront = new SpriteLayer("Hair","$folder/hairFront/", 1, maxHair);
+      hairBack = new SpriteLayer("Hair","$folder/hairBack/", 1, maxHair, syncedWith: <SpriteLayer>[hairFront]);
+      hairFront.syncedWith.add(hairBack);
+      hairBack.slave = true; //can't be selected on it's own
+
       body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      chestFur = new SpriteLayer("ChestFur","$folder/chestFur/", 1, maxChestFur);
-      rightHeadFur = new SpriteLayer("RightHeadFur","$folder/rightHeadFur/", 1, maxRightHeadFur);
-      head = new SpriteLayer("Head","$folder/head/", 1, maxHead);
-      leftEye = new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxLeftEye);
-      rightEye = new SpriteLayer("RightEye","$folder/rightEye/", 1, maxRightEye);
-      leftHeadFur = new SpriteLayer("LeftHeadFur","$folder/leftHeadFur/", 1, maxLeftHeadFur, syncedWith: <SpriteLayer>[rightHeadFur]);
-      leftEar = new SpriteLayer("LeftEar","$folder/leftEar/", 1, maxLeftEar);
-      rightEar = new SpriteLayer("RightEar","$folder/rightEar/", 1, maxRightEar);
-      snout = new SpriteLayer("Snout","$folder/snout/", 1, maxSnout);
+
+      facePaint = new SpriteLayer("FacePaint","$folder/FacePaint/", 1, maxFacePaint);
+      brows = new SpriteLayer("Brows","$folder/Brows/", 1, maxBrows);
+      mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
+      leftEye = new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxEyes);
+      rightEye = new SpriteLayer("RightEye","$folder/rightEye/", 1, maxEyes);
+
+      nose = new SpriteLayer("Nose","$folder/Nose/", 1, maxNose);
       accessory = new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
-      backLegs = new SpriteLayer("BackLegs","$folder/backLegs/", 1, maxbackLegs);
-      frontLegs = new SpriteLayer("FrontLegs","$folder/frontLeg/", 1, maxFrontLegs);
-
-
-      rightHeadFur.syncedWith.add(leftHeadFur);
-      leftHeadFur.slave = true; //can't be selected on it's own
-
-
+      shirt = new SpriteLayer("Shirt","$folder/Shirt/", 1, maxShirt);
+      symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol);
+      hood = new SpriteLayer("Hood","$folder/Hood/", 1, maxHood);
 
     }
   }
