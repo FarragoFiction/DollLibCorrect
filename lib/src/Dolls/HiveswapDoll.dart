@@ -10,6 +10,10 @@ import "HomestuckDoll.dart";
 
 //MadCreativity championed this one.
 class HiveswapDoll extends Doll {
+
+    @override
+    String originalCreator = "madCreativity";
+
     int maxBody = 12;
     int maxEyebrows = 6;
     int maxGlasses = 4;

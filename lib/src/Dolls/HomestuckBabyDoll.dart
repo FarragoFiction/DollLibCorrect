@@ -9,6 +9,8 @@ import "../../DollRenderer.dart";
 
 
 class HomestuckBabyDoll extends HomestuckDoll {
+    @override
+    String originalCreator = "karmicRetribution";
 
     @override
     int renderingType =12;

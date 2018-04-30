@@ -11,6 +11,9 @@ import 'dart:async';
 
 
 class HomestuckGrubDoll extends HomestuckTrollDoll {
+
+    @override
+    String originalCreator = "karmicRetribution";
     
     @override
     int renderingType =13;

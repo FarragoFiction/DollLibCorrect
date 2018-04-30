@@ -10,6 +10,10 @@ import 'dart:convert';
 
 
 class DadDoll extends Doll {
+
+    @override
+    String originalCreator = "yogisticDoctor";
+
     @override
     int renderingType =7;
 

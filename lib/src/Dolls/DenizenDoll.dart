@@ -10,6 +10,9 @@ import 'dart:convert';
 
 
 class DenizenDoll extends Doll{
+
+  @override
+  String originalCreator = "tableGuardian";
   @override
   int renderingType =4;
 

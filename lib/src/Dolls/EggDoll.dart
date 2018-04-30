@@ -12,6 +12,9 @@ import "../Rendering/ReferenceColors.dart";
 class EggDoll extends HomestuckDoll {
 
     @override
+    String originalCreator = "multipleStripes";
+
+    @override
     int renderingType =66;
 
     @override

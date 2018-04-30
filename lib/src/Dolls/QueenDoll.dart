@@ -35,6 +35,9 @@ will also need to figure out how to do the drop downs.
 
  class QueenDoll extends NamedLayerDoll{
 
+     @override
+     String originalCreator = "zaqInABox";
+
      //noice, Sn8wman's number is the rendering type on accident.
      @override
      int renderingType =8;

@@ -13,6 +13,10 @@ import "Quirk.dart";
 
 
 class DogDoll extends Doll{
+
+  @override
+  String originalCreator = "spinningDisks";
+
   @override
   int renderingType =19;
 

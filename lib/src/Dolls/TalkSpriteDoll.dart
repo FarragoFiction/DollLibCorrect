@@ -12,6 +12,10 @@ import "../Rendering/ReferenceColors.dart";
 
 
 class TalkSpriteDoll extends Doll{
+
+  @override
+  String originalCreator = "Azuki";
+
   @override
   int renderingType =20;
 

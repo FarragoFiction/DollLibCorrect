@@ -10,6 +10,7 @@ abstract class Doll {
 
     //useful for the builder
     static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20];
+    String originalCreator = "???";
 
     //in case i want controlled random
     Random rand = new Random();

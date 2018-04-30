@@ -9,6 +9,9 @@ import 'dart:convert';
 
 import "../Rendering/ReferenceColors.dart";
 class MonsterPocketDoll extends Doll {
+
+    @override
+    String originalCreator = "frew";
     int maxBody = 3;
     int maxRightArm = 3;
     int maxLeftArm = 3;

@@ -11,6 +11,11 @@ import "../Rendering/ReferenceColors.dart";
 
 
 class VirusDoll extends Doll{
+
+  @override
+  String originalCreator = "dystopicFuturism";
+
+
   @override
   int renderingType =18;
 

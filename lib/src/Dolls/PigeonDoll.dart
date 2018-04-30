@@ -7,6 +7,10 @@ import 'dart:convert';
 
 import "../Rendering/ReferenceColors.dart";
 class PigeonDoll extends Doll {
+
+    @override
+    String originalCreator = "Xexus";
+
     //TODO random set of pigeon palettes maybe for random colored pigeons?
     int maxBody = 1;
     int maxHead = 3;

@@ -12,6 +12,9 @@ import "../Rendering/ReferenceColors.dart";
 class HomestuckCherubDoll extends HomestuckDoll {
 
     @override
+    String originalCreator = "Neytra";
+
+    @override
     int renderingType = 16;
 
     @override

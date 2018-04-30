@@ -12,6 +12,9 @@ import "../Dolls/HomestuckDoll.dart";
 
 
 class SuperbSuckDoll extends Doll{
+
+  @override
+  String originalCreator = "Wongle";
   @override
   int renderingType =17;
 

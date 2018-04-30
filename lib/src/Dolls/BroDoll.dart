@@ -9,6 +9,9 @@ import 'package:RenderingLib/RendereringLib.dart';
 
 
 class BroDoll extends Doll {
+
+    @override
+    String originalCreator = "yogisticDoctor";
     @override
     int renderingType =10;
 

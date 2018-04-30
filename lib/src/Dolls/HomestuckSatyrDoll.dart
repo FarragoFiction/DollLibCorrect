@@ -12,6 +12,9 @@ import "../Rendering/ReferenceColors.dart";
 class HomestuckSatyrDoll extends HomestuckDoll {
 
     @override
+    String originalCreator = "Popo Merrygamz";
+
+    @override
     int renderingType = 15;
 
     @override
