@@ -29,7 +29,7 @@ class VirusDoll extends Doll{
 
   @override
   String relativefolder = "images/Virus";
-  final int maxBody = 2;
+  final int maxBody = 1;
   final int maxCapsid = 3;
   final int maxDecoLegs = 4;
   final int maxLeg1 = 2;
