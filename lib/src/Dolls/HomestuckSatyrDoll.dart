@@ -251,7 +251,7 @@ class HomestuckSatyrDoll extends HomestuckDoll {
     void initLayers() {
         super.initLayers();
         //only do what is special to me here.
-        satyrSymbol = new SpriteLayer("Symbol", "$folder/SatyrSymbol/", 0, maxSatyrSymbol, supportsMultiByte: true);
+        satyrSymbol = new SpriteLayer("SatyrSymbol", "$folder/SatyrSymbol/", 0, maxSatyrSymbol, supportsMultiByte: true);
         fluff = new SpriteLayer("Fluff", "$folder/SatyrFluff/", 1, maxFluff);
         tail = new SpriteLayer("Tail", "$folder/SatyrTail/", 0, maxTail);
         leftHorn = new SpriteLayer("LeftHorn", "$folder/SatyrLeftHorn/", 1, maxHorn);
