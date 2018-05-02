@@ -58,7 +58,7 @@ class TalkSpriteDoll extends Doll{
 
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack, body, facePaint, leftEye, rightEye, brows, mouth,nose,shirt, symbol, hood, hairFront,accessory];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack, body, facePaint,  brows, mouth,nose,shirt, symbol, hood,leftEye, rightEye, hairFront,accessory];
   @override
   List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[hairBack, body, facePaint,accessory, leftEye, rightEye, brows, mouth,nose, shirt, symbol, hood, hairFront];
 
@@ -130,8 +130,9 @@ class TalkSpriteDoll extends Doll{
     p.skin2 = "#c8c8c8";
     p.eye_white_left = "#ffffff";
     p.eye_white_right = "#ffffff";
-    p.bowties = new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
-    p.antiBowties = new Colour(255-p.bowties.red, 255-p.bowties.green, 255-p.bowties.blue);
+    p.bowties = new Colour(255-p.blood.red, 255-p.blood.green, 255-p.blood.blue);
+    p.antiBowties = new Colour(p.bowties.red, p.bowties.green, p.bowties.blue)..setHSV(p.bowties.hue, p.bowties.saturation, p.bowties.value/2)
+
 
     palette.add("hairMain",new Colour.fromStyleString(rand.pickFrom(human_hair_colors)),true);
     palette.add(TalkSpritePalette.HAIR2, new Colour(p.hair1.red, p.hair1.green, p.hair1.blue)..setHSV(p.hair1.hue, p.hair1.saturation, p.hair1.value/2), true);
