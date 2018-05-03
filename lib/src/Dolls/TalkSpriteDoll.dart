@@ -131,7 +131,7 @@ class TalkSpriteDoll extends Doll{
     p.eye_white_left = "#ffffff";
     p.eye_white_right = "#ffffff";
     p.bowties = new Colour(255-p.blood.red, 255-p.blood.green, 255-p.blood.blue);
-    p.antiBowties = new Colour(p.bowties.red, p.bowties.green, p.bowties.blue)..setHSV(p.bowties.hue, p.bowties.saturation, p.bowties.value/2)
+    p.antiBowties = new Colour(p.bowties.red, p.bowties.green, p.bowties.blue)..setHSV(p.bowties.hue, p.bowties.saturation, p.bowties.value/2);
 
 
     palette.add("hairMain",new Colour.fromStyleString(rand.pickFrom(human_hair_colors)),true);
