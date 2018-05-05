@@ -38,9 +38,9 @@ class EasterEggDoll extends Doll {
 
 
     @override
-    int width = 500;
+    int width = 234;
     @override
-    int height = 500;
+    int height = 300;
 
     @override
     int renderingType =41; //after the best day ever, easter fools
