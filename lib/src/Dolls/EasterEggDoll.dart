@@ -165,7 +165,12 @@ class EasterEggDoll extends Doll {
         }
         bird.head.imgNumber = top.imgNumber % bird.maxHead;
         bird.wing.imgNumber = middle.imgNumber % bird.maxWing;
-        bird.tail.imgNumber = bottom.imgNumber % bird.maxTail;
+        if(bird.tail.maxImageNumber == 0) {
+            bird.tail.imgNumber = 0;
+        }else {
+            bird.tail.imgNumber = bottom.imgNumber % bird.tail.maxImageNumber;
+        }
+        //print("bird head is ${bird.head.imgNumber} and egg top was ${top.imgNumber}");
         return bird;
     }
 
