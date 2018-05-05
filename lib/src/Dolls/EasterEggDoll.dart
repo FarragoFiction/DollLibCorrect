@@ -1,6 +1,7 @@
 import 'package:RenderingLib/RendereringLib.dart';
 
 import "../Dolls/Doll.dart";
+import "../Dolls/PigeonDoll.dart";
 import "SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
@@ -151,6 +152,16 @@ class EasterEggDoll extends Doll {
         top = new SpriteLayer("Top", "$folder/Top/", 1, maxTop
         );
 
+    }
+
+    PigeonDoll hatch() {
+        PigeonDoll bird = new PigeonDoll();
+        bird.copyPalette(palette);
+        bird.body.imgNumber = base.imgNumber;
+        bird.head.imgNumber = top.imgNumber;
+        bird.wing.imgNumber = middle.imgNumber;
+        bird.tail.imgNumber = bottom.imgNumber;
+        return bird;
     }
 
     @override
