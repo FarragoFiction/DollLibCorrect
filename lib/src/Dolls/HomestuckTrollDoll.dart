@@ -169,12 +169,15 @@ class HomestuckTrollDoll extends HomestuckDoll {
         if(extendedRightHorn.imgNumber ==0) extendedRightHorn.imgNumber = rightHorn.imgNumber;
     }
 
+    List<String> get castes {
+        return <String>[BURGUNDY, BRONZE, GOLD, LIME, OLIVE, JADE, TEAL, CERULEAN, INDIGO, PURPLE, VIOLET, FUCHSIA,MUTANT];
+    }
+
 
     String bloodColorToWord(Colour color) {
         List<String> bloodColors = <String>["#A10000", "#A25203", "#A1A100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021CB", "#631DB4", "#610061", "#99004D"];
-        List<String> bloodColorWords = <String>[BURGUNDY, BRONZE, GOLD, LIME, OLIVE, JADE, TEAL, CERULEAN, INDIGO, PURPLE, VIOLET, FUCHSIA];
-        if(bloodColors.contains(color.toStyleString())) {
-            return bloodColorWords[bloodColors.indexOf(color.toStyleString())];
+        if(castes.contains(color.toStyleString())) {
+            return castes[bloodColors.indexOf(color.toStyleString())];
         }else {
             return MUTANT;
         }
