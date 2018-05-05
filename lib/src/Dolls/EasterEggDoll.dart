@@ -12,10 +12,10 @@ class EasterEggDoll extends Doll {
     String originalCreator = "jadedResearcher";
 
     //TODO random set of pigeon palettes maybe for random colored pigeons?
-    int maxBase = 1;
-    int maxTop = 4;
-    int maxMiddle = 0;
-    int maxBottom = 1;
+    int maxBase = 32;
+    int maxTop = 20;
+    int maxMiddle = 20;
+    int maxBottom = 20;
 
     String relativefolder = "images/EasterEgg";
 
@@ -61,7 +61,6 @@ class EasterEggDoll extends Doll {
         ..feather1 = '#DBDBDB'
         ..feather2 = '#C6C6C6';
 
-    @override
     Palette whiteBird = new EasterEggPalette()
         ..eyes = '#ffffff'
         ..skin = '#ffc27e'
@@ -69,7 +68,6 @@ class EasterEggDoll extends Doll {
         ..feather1 = '#ffffff'
         ..feather2 = '#f8f8f8';
 
-    @override
     Palette traitor = new EasterEggPalette()
         ..eyes = '#e8da57'
         ..skin = '#dba0a6'
@@ -77,7 +75,6 @@ class EasterEggDoll extends Doll {
         ..feather1 = '#e6e2e1'
         ..feather2 = '#bc949d';
 
-    @override
     Palette frohike = new EasterEggPalette()
         ..eyes = '#e8da57'
         ..skin = '#5c372e'
@@ -85,7 +82,6 @@ class EasterEggDoll extends Doll {
         ..feather1 = '#b57e79'
         ..feather2 = '#a14f44';
 
-    @override
     Palette byers = new EasterEggPalette()
         ..eyes = '#e8da57'
         ..skin = '#807174'
@@ -93,7 +89,6 @@ class EasterEggDoll extends Doll {
         ..feather1 = '#dbd3c8'
         ..feather2 = '#665858';
 
-    @override
     Palette greyBird = new EasterEggPalette()
         ..eyes = '#FF9B00'
         ..skin = '#ffc27e'
@@ -101,7 +96,6 @@ class EasterEggDoll extends Doll {
         ..feather1 = '#DBDBDB'
         ..feather2 = '#4d4c45';
 
-    @override
     Palette redBird = new EasterEggPalette()
         ..eyes = '#FF9B00'
         ..skin = '#bb8d71'
@@ -109,7 +103,6 @@ class EasterEggDoll extends Doll {
         ..feather1 = '#ffffff'
         ..feather2 = '#4d1c15';
 
-    @override
     Palette redBird2 = new EasterEggPalette()
         ..eyes = '#FF9B00'
         ..skin = '#bb8d71'
@@ -117,7 +110,6 @@ class EasterEggDoll extends Doll {
         ..feather1 = '#4d1c15'
         ..feather2 = '#ffffff';
 
-    @override
     Palette blackBird = new EasterEggPalette()
         ..eyes = '#ba5931'
         ..skin = '#000000'
@@ -227,6 +219,11 @@ class EasterEggDoll extends Doll {
         for (SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber + 1);
         }
+
+        if(rand.nextBool()) top.imgNumber = 0;
+        if(rand.nextBool()) middle.imgNumber = 0;
+        if(rand.nextBool()) bottom.imgNumber = 0;
+
     }
 
 }
