@@ -178,8 +178,8 @@ class HomestuckTrollDoll extends HomestuckDoll {
     }
 
      String bloodColorToWord(Colour color) {
-        List<String> bloodColors = <String>["#A10000", "#A25203", "#A1A100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021CB", "#631DB4", "#610061", "#99004D"];
-        if(castes.contains(color.toStyleString())) {
+        List<String> bloodColors = <String>["#A10000", "#A25203", "#A1A100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021CB", "#631DB4", "#610061", "#99004D","#ff0000"];
+        if(bloodColors.contains(color.toStyleString())) {
             return castes[bloodColors.indexOf(color.toStyleString())];
         }else {
             return MUTANT;
