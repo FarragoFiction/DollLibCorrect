@@ -157,10 +157,11 @@ class EasterEggDoll extends Doll {
     PigeonDoll hatch() {
         PigeonDoll bird = new PigeonDoll();
         bird.copyPalette(palette);
-        bird.body.imgNumber = base.imgNumber;
-        bird.head.imgNumber = top.imgNumber;
-        bird.wing.imgNumber = middle.imgNumber;
-        bird.tail.imgNumber = bottom.imgNumber;
+        //same color, same layers (but don't go over max)
+        bird.body.imgNumber = base.imgNumber % bird.maxBody;
+        bird.head.imgNumber = top.imgNumber % bird.maxHead;
+        bird.wing.imgNumber = middle.imgNumber % bird.maxWing;
+        bird.tail.imgNumber = bottom.imgNumber % bird.maxTail;
         return bird;
     }
 
