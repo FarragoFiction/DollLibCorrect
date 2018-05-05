@@ -146,10 +146,10 @@ class EasterEggDoll extends Doll {
 
     @override
     void initLayers() {
-        base = new SpriteLayer("Base", "$folder/Base/", 1, maxBase);
-        middle = new SpriteLayer("Middle", "$folder/Middle/", 1, maxMiddle);
-        bottom = new SpriteLayer("Bottom", "$folder/Bottom/", 1, maxBottom);
-        top = new SpriteLayer("Top", "$folder/Top/", 1, maxTop
+        base = new SpriteLayer("Base", "$folder/base/", 1, maxBase);
+        middle = new SpriteLayer("Middle", "$folder/middle/", 1, maxMiddle);
+        bottom = new SpriteLayer("Bottom", "$folder/bottom/", 1, maxBottom);
+        top = new SpriteLayer("Top", "$folder/top/", 1, maxTop
         );
 
     }
