@@ -155,10 +155,7 @@ class EasterEggDoll extends Doll {
 
     @override
     void randomize() {
-        Random rand = new Random();
-        for (SpriteLayer l in renderingOrderLayers) {
-            l.imgNumber = rand.nextInt(l.maxImageNumber + 1);
-        }
+        randomizeNotColors();
         randomizeColors();
     }
 
@@ -216,13 +213,16 @@ class EasterEggDoll extends Doll {
     @override
     void randomizeNotColors() {
         Random rand = new Random();
+        print('randomizing not colors');
         for (SpriteLayer l in renderingOrderLayers) {
-            l.imgNumber = rand.nextInt(l.maxImageNumber + 1);
+            l.imgNumber = rand.nextInt(l.maxImageNumber);
         }
 
-        if(rand.nextBool()) top.imgNumber = 0;
-        if(rand.nextBool()) middle.imgNumber = 0;
-        if(rand.nextBool()) bottom.imgNumber = 0;
+        if(rand.nextDouble() > 0.5) {
+            top.imgNumber = 0;
+        }
+        if(rand.nextDouble() > 0.7) middle.imgNumber = 0;
+        if(rand.nextDouble() > 0.5) bottom.imgNumber = 0;
 
     }
 
