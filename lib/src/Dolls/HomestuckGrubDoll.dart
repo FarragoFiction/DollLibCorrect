@@ -22,6 +22,10 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     @override
     final int maxBody = 26;
 
+    List<int> landDwellerBodies = <int>[0,1,2,3,4,5,6,7,8];
+
+    List<int> seadwellerBodies = <int>[9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,26,26];
+
     @override
     String name = "Grub";
 
@@ -73,8 +77,23 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
 
     {
         super.randomizeNotColors();
-        if(body.imgNumber >2) body.imgNumber = 2;
+        pickCasteAppropriateBody();
         canonSymbol.imgNumber = 0;
+    }
+
+    void pickCasteAppropriateBody() {
+        Random hairRand = new Random(extendedHairBack.imgNumber);
+        if(bloodColor == HomestuckTrollDoll.VIOLET || bloodColor == HomestuckTrollDoll.FUCHSIA) {
+            extendedBody.imgNumber = hairRand.pickFrom(seadwellerBodies);
+        }else if(bloodColor == HomestuckTrollDoll.MUTANT ) {
+            if(rand.nextBool()) {
+                extendedBody.imgNumber =  hairRand.pickFrom(seadwellerBodies);
+            }else {
+                extendedBody.imgNumber =  hairRand.pickFrom(landDwellerBodies);
+            }
+        }else {
+            extendedBody.imgNumber =  hairRand.pickFrom(landDwellerBodies);
+        }
     }
 
     @override
@@ -106,7 +125,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     {
         super.randomize(chooseSign);
         canonSymbol.imgNumber = 0;
-        if(extendedBody.imgNumber >2) extendedBody.imgNumber = 2;
+        pickCasteAppropriateBody();
         HomestuckPalette h = palette as HomestuckPalette;
         h.add(HomestuckPalette.EYE_WHITE_LEFT, h.aspect_light,true);
         h.add(HomestuckPalette.EYE_WHITE_RIGHT, h.aspect_light,true);
@@ -114,8 +133,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
 
     @override
     void setUpWays() {
-        print("body is ${body.imgNumber}");
-        if(extendedBody.imgNumber == 7 || extendedBody.imgNumber == 8) {
+        if(extendedBody.imgNumber == 7 || extendedBody.imgNumber == 8|| extendedBody.imgNumber == 26 || extendedBody.imgNumber == 25 || extendedBody.imgNumber == 16 || extendedBody.imgNumber == 17) {
            // print("upways is true");
             orientation = Doll.UPWAYS;
         }else {
