@@ -83,6 +83,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
 
     void pickCasteAppropriateBody() {
         Random hairRand = new Random(extendedHairBack.imgNumber);
+        rand.nextInt(); //init;
         if(bloodColor == HomestuckTrollDoll.VIOLET || bloodColor == HomestuckTrollDoll.FUCHSIA) {
             extendedBody.imgNumber = hairRand.pickFrom(seadwellerBodies);
         }else if(bloodColor == HomestuckTrollDoll.MUTANT ) {
