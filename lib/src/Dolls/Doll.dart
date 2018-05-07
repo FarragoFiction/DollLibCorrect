@@ -150,6 +150,10 @@ abstract class Doll {
 
     void setQuirk() {
         int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
+        for(SpriteLayer imageLayer in renderingOrderLayers) {
+            seed += imageLayer.imgNumber;
+        }
+
         Random rand  = new Random(seed);
         quirkButDontUse = Quirk.randomHumanQuirk(rand);
     }

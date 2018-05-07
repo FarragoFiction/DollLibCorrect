@@ -196,7 +196,7 @@ class EasterEggDoll extends Doll {
         String choice = rand.pickFrom(possibilities);
         if(choice == valid) {
             copyPalette(rand.pickFrom(validPalettes));
-        }else if (choice == dark) {
+        }else if (choice == pastel) {
             pastelColor();
         }else if (choice == tacky) {
             tackyColor();
