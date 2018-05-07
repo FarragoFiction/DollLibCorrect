@@ -226,6 +226,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     @override
     void setQuirk() {
         int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
+        seed += canonSymbol.imgNumber + extendedHairBack.imgNumber + extendedLeftHorn.imgNumber;
         Random rand  = new Random(seed);
         quirkButDontUse = Quirk.randomTrollQuirk(rand);
     }
