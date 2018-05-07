@@ -14,10 +14,10 @@ class HatchedChick extends Doll {
     String originalCreator = "jadedResearcher";
 
     //TODO random set of pigeon palettes maybe for random colored pigeons?
-    int maxBase = 12;
+    int maxBase = 28;
     int maxTop = 14;
-    int maxMiddle = 12;
-    int maxBottom = 4;
+    int maxMiddle = 8;
+    int maxBottom = 0;
 
     String relativefolder = "images/HatchedChick";
 
