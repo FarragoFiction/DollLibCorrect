@@ -1,24 +1,25 @@
-import 'package:RenderingLib/RendereringLib.dart';
+ import 'package:RenderingLib/RendereringLib.dart';
 
 import "../Dolls/Doll.dart";
-import "../Dolls/HatchedChick.dart";
+import "../Dolls/PigeonDoll.dart";
 import "SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
+import "Quirk.dart";
 
 import "../Rendering/ReferenceColors.dart";
-class EasterEggDoll extends Doll {
+class HatchedChick extends Doll {
 
     @override
     String originalCreator = "jadedResearcher";
 
     //TODO random set of pigeon palettes maybe for random colored pigeons?
-    int maxBase = 32;
-    int maxTop = 20;
-    int maxMiddle = 20;
-    int maxBottom = 20;
+    int maxBase = 12;
+    int maxTop = 14;
+    int maxMiddle = 12;
+    int maxBottom = 4;
 
-    String relativefolder = "images/EasterEgg";
+    String relativefolder = "images/HatchedChick";
 
     SpriteLayer base;
     SpriteLayer middle;
@@ -26,11 +27,11 @@ class EasterEggDoll extends Doll {
     SpriteLayer top;
 
     @override
-    String name = "EasterEgg";
+    String name = "HatchedChick";
 
 
     @override
-    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[base, top,bottom,middle];
+    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[bottom,base, top,middle];
     @override
     List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[base,middle,bottom,top];
 
@@ -39,15 +40,15 @@ class EasterEggDoll extends Doll {
 
 
     @override
-    int width = 234;
+    int width = 300;
     @override
     int height = 300;
 
     @override
-    int renderingType =41; //after the best day ever, easter fools
+    int renderingType =42; //did lambda have an arc number?
 
     @override
-    Palette paletteSource = new EasterEggPalette()
+    Palette paletteSource = new HatchedChickPalette()
         ..eyes = '#f6ff00'
         ..skin = '#00ff20'
         ..feather1 = '#ff0000'
@@ -55,80 +56,89 @@ class EasterEggDoll extends Doll {
         ..feather2 = '#0135ff';
 
     @override
-    Palette palette = new EasterEggPalette()
+    Palette palette = new HatchedChickPalette()
         ..eyes = '#FF9B00'
         ..skin = '#EFEFEF'
         ..accent = "#b400ff"
         ..feather1 = '#DBDBDB'
         ..feather2 = '#C6C6C6';
 
-    Palette whiteBird = new EasterEggPalette()
+    Palette whiteBird = new HatchedChickPalette()
         ..eyes = '#ffffff'
         ..skin = '#ffc27e'
         ..accent = "#ffffff"
         ..feather1 = '#ffffff'
         ..feather2 = '#f8f8f8';
 
-    Palette traitor = new EasterEggPalette()
+    Palette traitor = new HatchedChickPalette()
         ..eyes = '#e8da57'
         ..skin = '#dba0a6'
         ..accent = "#a8d0ae"
         ..feather1 = '#e6e2e1'
         ..feather2 = '#bc949d';
 
-    Palette frohike = new EasterEggPalette()
+    Palette frohike = new HatchedChickPalette()
         ..eyes = '#e8da57'
         ..skin = '#5c372e'
         ..accent = "#b400ff"
         ..feather1 = '#b57e79'
         ..feather2 = '#a14f44';
 
-    Palette byers = new EasterEggPalette()
+    Palette byers = new HatchedChickPalette()
         ..eyes = '#e8da57'
         ..skin = '#807174'
         ..accent = "#77a88b"
         ..feather1 = '#dbd3c8'
         ..feather2 = '#665858';
 
-    Palette greyBird = new EasterEggPalette()
+    Palette greyBird = new HatchedChickPalette()
         ..eyes = '#FF9B00'
         ..skin = '#ffc27e'
         ..accent = "#b400ff"
         ..feather1 = '#DBDBDB'
         ..feather2 = '#4d4c45';
 
-    Palette redBird = new EasterEggPalette()
+    Palette redBird = new HatchedChickPalette()
         ..eyes = '#FF9B00'
         ..skin = '#bb8d71'
         ..accent = "#b400ff"
         ..feather1 = '#ffffff'
         ..feather2 = '#4d1c15';
 
-    Palette redBird2 = new EasterEggPalette()
+    Palette redBird2 = new HatchedChickPalette()
         ..eyes = '#FF9B00'
         ..skin = '#bb8d71'
         ..accent = "#b400ff"
         ..feather1 = '#4d1c15'
         ..feather2 = '#ffffff';
 
-    Palette blackBird = new EasterEggPalette()
+    Palette blackBird = new HatchedChickPalette()
         ..eyes = '#ba5931'
         ..skin = '#000000'
         ..accent = "#3c6a5d"
         ..feather1 = '#0a1916'
         ..feather2 = '#252e2c';
 
-    EasterEggDoll() {
+    HatchedChick() {
         initLayers();
         randomize();
     }
 
-    EasterEggDoll.fromDataString(String dataString){
+    @override
+    void setQuirk() {
+        int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
+        Random rand  = new Random(seed);
+        quirkButDontUse = Quirk.randomHumanQuirk(rand);
+        quirkButDontUse.lettersToReplaceIgnoreCase = [["^.*\$", "Cheep"],["[.]\$", "Peep"],["[.]\$", "Pip"],];
+
+    }
+
+    HatchedChick.fromDataString(String dataString){
         validPalettes.addAll(ReferenceColours.paletteList.values);
         Uint8List thingy = BASE64URL.decode(dataString);
         ByteReader reader = new ByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
-        initFromReader(reader, new EasterEggPalette());
+        initFromReader(reader, new HatchedChickPalette());
     }
 
     @override
@@ -136,12 +146,12 @@ class EasterEggDoll extends Doll {
         Uint8List thingy = BASE64URL.decode(dataString);
         ByteReader reader = new ByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
-        initFromReader(reader, new EasterEggPalette(), false);
+        initFromReader(reader, new HatchedChickPalette(), false);
     }
 
     //assumes type byte is already gone
-    EasterEggDoll.fromReader(ByteReader reader){
-        initFromReader(reader,new EasterEggPalette());
+    HatchedChick.fromReader(ByteReader reader){
+        initFromReader(reader,new HatchedChickPalette());
     }
 
     @override
@@ -154,21 +164,21 @@ class EasterEggDoll extends Doll {
 
     }
 
-    HatchedChick hatch() {
-        HatchedChick bird = new HatchedChick();
+    PigeonDoll hatch() {
+        PigeonDoll bird = new PigeonDoll();
         bird.copyPalette(palette);
         //same color, same layers (but don't go over max)
-        if(bird.base.maxImageNumber == 0) {
-            bird.base.imgNumber = 0;
+        if(bird.body.maxImageNumber == 0) {
+            bird.body.imgNumber = 0;
         }else {
-            bird.base.imgNumber = base.imgNumber % bird.maxBase;
+            bird.body.imgNumber = base.imgNumber % bird.maxBody;
         }
-        bird.top.imgNumber = top.imgNumber % bird.top.maxImageNumber;
-        bird.middle.imgNumber = middle.imgNumber % bird.middle.maxImageNumber;
-        if(bird.bottom.maxImageNumber == 0) {
-            bird.bottom.imgNumber = 0;
+        bird.head.imgNumber = top.imgNumber % bird.maxHead;
+        bird.wing.imgNumber = middle.imgNumber % bird.maxWing;
+        if(bird.tail.maxImageNumber == 0) {
+            bird.tail.imgNumber = 0;
         }else {
-            bird.bottom.imgNumber = bottom.imgNumber % bird.bottom.maxImageNumber;
+            bird.tail.imgNumber = bottom.imgNumber % bird.tail.maxImageNumber;
         }
         //print("bird head is ${bird.head.imgNumber} and egg top was ${top.imgNumber}");
         return bird;
@@ -207,7 +217,7 @@ class EasterEggDoll extends Doll {
 
     void pastelColor() {
         int colorAmount = rand.nextInt(100)+155;
-        EasterEggPalette h = palette as EasterEggPalette;
+        HatchedChickPalette h = palette as HatchedChickPalette;
         h.eyes =  new Colour(rand.nextInt(colorAmount), rand.nextInt(colorAmount), rand.nextInt(colorAmount));
         h.feather1 =  new Colour(rand.nextInt(colorAmount), rand.nextInt(colorAmount), rand.nextInt(colorAmount));
         h.feather2 =  new Colour(rand.nextInt(colorAmount), rand.nextInt(colorAmount), rand.nextInt(colorAmount));
@@ -221,7 +231,7 @@ class EasterEggDoll extends Doll {
 
     void darkColor() {
         int colorAmount = rand.nextInt(100)+100;
-        EasterEggPalette h = palette as EasterEggPalette;
+        HatchedChickPalette h = palette as HatchedChickPalette;
         h.eyes =  new Colour(rand.nextInt(colorAmount), rand.nextInt(colorAmount), rand.nextInt(colorAmount));
         h.feather1 =  new Colour(rand.nextInt(colorAmount), rand.nextInt(colorAmount), rand.nextInt(colorAmount));
         h.feather2 =  new Colour(rand.nextInt(colorAmount), rand.nextInt(colorAmount), rand.nextInt(colorAmount));
@@ -252,7 +262,7 @@ class EasterEggDoll extends Doll {
 
 
 
-class EasterEggPalette extends Palette {
+class HatchedChickPalette extends Palette {
     static String _EYES = "eyes"; //yellow
     static String _SKIN = "skin"; //green
     static String _FEATHER1 = "feather1"; //red
