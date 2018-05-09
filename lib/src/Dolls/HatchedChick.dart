@@ -248,13 +248,6 @@ class HatchedChick extends Doll {
         for (SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber);
         }
-
-        if(rand.nextDouble() > 0.5) {
-            top.imgNumber = 0;
-        }
-        if(rand.nextDouble() > 0.7) middle.imgNumber = 0;
-        if(rand.nextDouble() > 0.5) bottom.imgNumber = 0;
-
     }
 
 }
