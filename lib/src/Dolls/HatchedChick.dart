@@ -15,7 +15,7 @@ class HatchedChick extends Doll {
 
     //TODO random set of pigeon palettes maybe for random colored pigeons?
     int maxBase = 46;
-    int maxTop = 28;
+    int maxTop = 61;
     int maxMiddle = 20;
     int maxBottom = 6;
 
