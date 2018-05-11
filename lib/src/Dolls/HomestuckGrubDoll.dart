@@ -24,7 +24,8 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
 
     List<int> landDwellerBodies = <int>[0,1,2,3,4,5,6,7,8];
 
-    List<int> seadwellerBodies = <int>[9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,26,26];
+    List<int> seadwellerBodies1 = <int>[9,10,11,12,13,14,15,16,17];
+    List<int> seadwellerBodies2 = <int>[18,19,20,21,22,23,24,26,26];
 
     @override
     String name = "Grub";
@@ -83,12 +84,21 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
 
     void pickCasteAppropriateBody() {
         Random hairRand = new Random(extendedHairBack.imgNumber);
-        rand.nextInt(); //init;
+        hairRand.nextInt(); //init;
+        //should match up to wigglersim
         if(bloodColor == HomestuckTrollDoll.VIOLET || bloodColor == HomestuckTrollDoll.FUCHSIA) {
-            extendedBody.imgNumber = hairRand.pickFrom(seadwellerBodies);
+            if(hairRand.nextBool()) {
+                extendedBody.imgNumber = hairRand.pickFrom(seadwellerBodies2);
+            }else {
+                extendedBody.imgNumber = hairRand.pickFrom(seadwellerBodies1);
+            }
         }else if(bloodColor == HomestuckTrollDoll.MUTANT ) {
-            if(rand.nextBool()) {
-                extendedBody.imgNumber =  hairRand.pickFrom(seadwellerBodies);
+            if(hairRand.nextBool()) {
+                if(hairRand.nextBool()) {
+                    extendedBody.imgNumber = hairRand.pickFrom(seadwellerBodies2);
+                }else {
+                    extendedBody.imgNumber = hairRand.pickFrom(seadwellerBodies1);
+                }
             }else {
                 extendedBody.imgNumber =  hairRand.pickFrom(landDwellerBodies);
             }
