@@ -13,9 +13,9 @@ class EasterEggDoll extends Doll {
     String originalCreator = "jadedResearcher";
 
     //TODO random set of pigeon palettes maybe for random colored pigeons?
-    int maxBase = 32;
-    int maxTop = 20;
-    int maxMiddle = 20;
+    int maxBase = 40;
+    int maxTop = 28;
+    int maxMiddle = 27;
     int maxBottom = 20;
 
     String relativefolder = "images/EasterEgg";
