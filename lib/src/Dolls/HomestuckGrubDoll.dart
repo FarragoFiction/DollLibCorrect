@@ -22,10 +22,12 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     @override
     final int maxBody = 26;
 
-    List<int> landDwellerBodies = <int>[0,1,2,3,4,5,6,7,8];
+    static List<int> landDwellerBodies = <int>[0,1,2,3,4,5,6,7,8];
 
-    List<int> seadwellerBodies1 = <int>[9,10,11,12,13,14,15,16,17];
-    List<int> seadwellerBodies2 = <int>[18,19,20,21,22,23,24,26,26];
+    static List<int> seadwellerBodies1 = <int>[9,10,11,12,13,14,15,16,17];
+    static List<int> seadwellerBodies2 = <int>[18,19,20,21,22,23,24,26,26];
+    static List<int> upsideDownBodies = <int>[7,8,26,25,16,17];
+
 
     @override
     String name = "Grub";
@@ -97,26 +99,32 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     void pickCasteAppropriateBody() {
         Random hairRand = new Random(extendedHairBack.imgNumber);
         hairRand.nextInt(); //init;
+        List<int> choices = new List<int>();
         //should match up to wigglersim
         if(bloodColor == HomestuckTrollDoll.VIOLET || bloodColor == HomestuckTrollDoll.FUCHSIA) {
             if(hairRand.nextBool()) {
-                extendedBody.imgNumber = hairRand.pickFrom(seadwellerBodies2);
+                choices = (seadwellerBodies2);
             }else {
-                extendedBody.imgNumber = hairRand.pickFrom(seadwellerBodies1);
+                choices = (seadwellerBodies1);
             }
         }else if(bloodColor == HomestuckTrollDoll.MUTANT ) {
             if(hairRand.nextBool()) {
                 if(hairRand.nextBool()) {
-                    extendedBody.imgNumber = hairRand.pickFrom(seadwellerBodies2);
+                    choices = (seadwellerBodies2);
                 }else {
-                    extendedBody.imgNumber = hairRand.pickFrom(seadwellerBodies1);
+                   choices = (seadwellerBodies1);
                 }
             }else {
-                extendedBody.imgNumber =  hairRand.pickFrom(landDwellerBodies);
+                choices = (landDwellerBodies);
             }
         }else {
-            extendedBody.imgNumber =  hairRand.pickFrom(landDwellerBodies);
+            choices = (landDwellerBodies);
         }
+        choices.removeWhere((a) {
+            upsideDownBodies.contains(a);
+        });
+        extendedBody.imgNumber =  hairRand.pickFrom(choices);
+
     }
 
     @override
@@ -154,9 +162,11 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
         h.add(HomestuckPalette.EYE_WHITE_RIGHT, h.aspect_light,true);
     }
 
+
+
     @override
     void setUpWays() {
-        if(extendedBody.imgNumber == 7 || extendedBody.imgNumber == 8|| extendedBody.imgNumber == 26 || extendedBody.imgNumber == 25 || extendedBody.imgNumber == 16 || extendedBody.imgNumber == 17) {
+        if(upsideDownBodies.contains(extendedBody.imgNumber)) {
            // print("upways is true");
             orientation = Doll.UPWAYS;
         }else {
