@@ -169,19 +169,6 @@ class HomestuckCherubDoll extends HomestuckDoll {
     }
 
     @override
-    Doll hatch() {
-        HomestuckSatyrDoll newDoll = new HomestuckSatyrDoll();
-        int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
-        newDoll.rand = new Random(seed);
-        newDoll.randomize();
-        Doll.convertOneDollToAnother(this, newDoll);
-        newDoll.randomizeColors();
-        newDoll.symbol.imgNumber = 0; //use canon sign you dunkass.
-        return newDoll;
-    }
-
-
-    @override
     void randomizeNotColors() {
         Random rand = new Random();
         int firstEye = -100;

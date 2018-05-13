@@ -266,18 +266,6 @@ class HomestuckSatyrDoll extends HomestuckDoll {
         symbol.imgNumber = 0; //blank it out.
     }
 
-    @override
-    Doll hatch() {
-        HomestuckCherubDoll newDoll = new HomestuckCherubDoll();
-        int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
-        newDoll.rand = new Random(seed);
-        newDoll.randomize();
-        Doll.convertOneDollToAnother(this, newDoll);
-        newDoll.randomizeColors();
-        newDoll.symbol.imgNumber = 0; //use canon sign you dunkass.
-        return newDoll;
-    }
-
 
     HomestuckSatyrDoll.fromDataString(String dataString){
         Uint8List thingy = BASE64URL.decode(dataString);
