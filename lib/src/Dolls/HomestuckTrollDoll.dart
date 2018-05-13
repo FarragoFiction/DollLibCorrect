@@ -234,6 +234,10 @@ class HomestuckTrollDoll extends HomestuckDoll {
         newDoll.randomize();
         Doll.convertOneDollToAnother(this, newDoll);
         newDoll.randomizeColors();
+        (newDoll.palette as HomestuckPalette).skin = "#ffffff";
+        (newDoll.palette as HomestuckPalette).eye_white_right = "#ffffff";
+        (newDoll.palette as HomestuckPalette).eye_white_left = "#ffffff";
+
         newDoll.symbol.imgNumber = 0; //use canon sign you dunkass.
         return newDoll;
     }
