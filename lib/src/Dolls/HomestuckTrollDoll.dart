@@ -457,8 +457,8 @@ class HomestuckTrollDoll extends HomestuckDoll {
         palette.add(HomestuckTrollPalette._HAIR_ACCENT, new Colour(h.wing1.red, h.wing1.green, h.wing1.blue), true);
         mutantEyes();
         (palette as HomestuckPalette)..pants_light = '#4b4b4b'
-            ..eye_white_left = '#ffba29'
-            ..eye_white_right = '#ffba29'
+            ..shirt_light = '#111111'
+            ..shirt_dark = '#000000'
             ..pants_dark = '#3a3a3a';
     }
 
