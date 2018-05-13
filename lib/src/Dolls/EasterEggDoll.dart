@@ -9,11 +9,12 @@ import 'dart:convert';
 import "../Rendering/ReferenceColors.dart";
 class EasterEggDoll extends Doll {
 
+    static List<String> eggs = new List<String>();
     @override
     String originalCreator = "jadedResearcher";
 
     //TODO random set of pigeon palettes maybe for random colored pigeons?
-    int maxBase = 40;
+    int maxBase = 43;
     int maxTop = 28;
     int maxMiddle = 27;
     int maxBottom = 20;
@@ -121,6 +122,7 @@ class EasterEggDoll extends Doll {
     EasterEggDoll() {
         initLayers();
         randomize();
+        initEasterEggURLS();
     }
 
     EasterEggDoll.fromDataString(String dataString){
@@ -129,6 +131,62 @@ class EasterEggDoll extends Doll {
         ByteReader reader = new ByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new EasterEggPalette());
+    }
+
+    void initEasterEggURLS() {
+        eggs.add("http://www.farragofiction.com/SBURBSim/tools/");
+        eggs.add("http://www.farragofiction.com/MiniSims/TurtleSim/");
+        eggs.add("http://www.farragofiction.com/MiniSims/StrifeSim/?winner=you");
+        eggs.add("http://www.farragofiction.com/MiniSims/StrifeSim/?egg=troll");
+        eggs.add("http://www.farragofiction.com/MiniSims/StrifeSim/?cheaters=neverWin");
+        eggs.add("http://www.farragofiction.com/MiniSims/StrifeSim/?easter=egg");
+        eggs.add("http://www.farragofiction.com/WigglerSim/wigglerShop.html?debug=eggs");
+        eggs.add("http://www.farragofiction.com/WigglerSim/petInventory.html?mode=edna");
+        eggs.add("http://www.farragofiction.com/WigglerSim/viewAlumni.html?debug=signs");
+        eggs.add("http://www.farragofiction.com/WigglerSim/petInventory.html?eyes=mutant");
+        eggs.add("http://www.farragofiction.com/WigglerSim/petInventory.html?wings=mutant");
+        eggs.add("http://www.farragofiction.com/WigglerSim/petInventory.html?cheater=jrbutitsforareallygoodpurpose");
+        eggs.add("http://www.farragofiction.com/WigglerSim/petInventory.html?ca\$h=money");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?spacePlayers=screwed");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?self=cest");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?seerOfVoid=true");
+        //todo make this egg 43
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?pen15=ouija");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?canonState=everythingFuckingGoes");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?royalRumble=true");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?lollipop=true");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?babyStuck=true");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?sbajifier=true");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?robot=true");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?seed=13");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?seed=4037");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?seed=413");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?seed=111111");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?seed=613");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?hive=bent");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?open=bound");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?rumpus=fruity");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?seed=33");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?nepeta=:33");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?seed=88888888");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?luck=AAAAAAAALL");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?seed=420");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?honk=:o)");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?tier=cod&BardStuck=true");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?mode=manic");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?seed=0");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?HopeStuck=true&PageStuck=true");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?shenanigans=temporal");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?easter=egg");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?faces=off");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?scribe_scribblings.html");
+        eggs.add("http://www.farragofiction.com/SBURBSim/index2.html?images=pumpkin");
+
+
+    }
+
+    String getEasterEgg() {
+       return eggs[base.imgNumber % eggs.length];
     }
 
     @override
