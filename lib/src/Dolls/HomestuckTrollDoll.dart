@@ -84,7 +84,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     }
 
     static int randomSignBetween(int minSign, int maxSign) {
-        Random rand = new Random();;
+        Random rand = new Random();
         int signNumber = rand.nextInt(maxSign - minSign) + minSign;
         return signNumber;
     }
@@ -247,8 +247,9 @@ class HomestuckTrollDoll extends HomestuckDoll {
         int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
         for(SpriteLayer imageLayer in renderingOrderLayers) {
             seed += imageLayer.imgNumber;
-        }        Random rand  = new Random(seed);
-        quirkButDontUse = Quirk.randomTrollQuirk(rand);
+        }
+        Random rand2  = new Random(seed);
+        quirkButDontUse = Quirk.randomTrollQuirk(rand2);
     }
 
 

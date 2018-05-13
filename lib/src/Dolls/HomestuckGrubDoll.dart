@@ -77,6 +77,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
         newDoll.rand = new Random(seed);
         newDoll.randomize();
         Doll.convertOneDollToAnother(this, newDoll);
+        newDoll.extendedBody.imgNumber = newDoll.rand.nextInt(newDoll.extendedBody.maxImageNumber);
         newDoll.symbol.imgNumber = 0; //use canon sign you dunkass.
         //(newDoll as HomestuckTrollDoll).mutantEyes(false);
         return newDoll;
@@ -102,29 +103,36 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
         List<int> choices = new List<int>();
         //should match up to wigglersim
         if(bloodColor == HomestuckTrollDoll.VIOLET || bloodColor == HomestuckTrollDoll.FUCHSIA) {
+            //print("TEST: it's a seadweller");
             if(hairRand.nextBool()) {
-                choices = (seadwellerBodies2);
+                choices.addAll(seadwellerBodies2);
             }else {
-                choices = (seadwellerBodies1);
+                choices.addAll(seadwellerBodies1);
             }
         }else if(bloodColor == HomestuckTrollDoll.MUTANT ) {
+            //print("TEST: it's a mutant");
+
             if(hairRand.nextBool()) {
                 if(hairRand.nextBool()) {
-                    choices = (seadwellerBodies2);
+                    choices.addAll(seadwellerBodies2);
                 }else {
-                   choices = (seadwellerBodies1);
+                    choices.addAll(seadwellerBodies1);
                 }
             }else {
-                choices = (landDwellerBodies);
+                choices.addAll(landDwellerBodies);
             }
         }else {
-            choices = (landDwellerBodies);
-        }
-        choices.removeWhere((a) {
-            upsideDownBodies.contains(a);
-        });
-        extendedBody.imgNumber =  hairRand.pickFrom(choices);
+           // print("TEST: it's a landdweller");
 
+            choices.addAll(landDwellerBodies);
+        }
+
+        choices.removeWhere((a) {
+            return upsideDownBodies.contains(a);
+        });
+
+       // print("choices are $choices");
+        extendedBody.imgNumber =  hairRand.pickFrom(choices);
     }
 
     @override

@@ -14,8 +14,8 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
-    doll =  Doll.randomDollOfType(41);
-    doll = new HomestuckDoll();
+    doll =  Doll.randomDollOfType(13);
+    //doll = new HomestuckDoll();
     //doll = Doll.loadSpecificDoll("http://localhost:63342/DollBuilder/web/index.html?ElD_ZzJ7McjwHn6YIEx4Gj5MEiiqKFR6HDzWEFKUEDA6rlwibjoCBAIEBAAAAA==");
     //doll = Doll.randomDollOfType(18);
     //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
@@ -62,9 +62,6 @@ Future<bool> start() async {
 
     await drawDoll(); //normal
 
-    doll = (temp as HatchableDoll).hatch();
-
-    await drawDoll(); //normal
 
 
     //doll.orientation = Doll.TURNWAYS;
