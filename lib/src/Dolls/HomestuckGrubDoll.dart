@@ -68,6 +68,18 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
         }
     }
 
+    @override
+    Doll hatch() {
+        HomestuckTrollDoll newDoll = new HomestuckTrollDoll();
+        int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
+        newDoll.rand = new Random(seed);
+        newDoll.randomize();
+        Doll.convertOneDollToAnother(this, newDoll);
+        newDoll.symbol.imgNumber = 0; //use canon sign you dunkass.
+        //(newDoll as HomestuckTrollDoll).mutantEyes(false);
+        return newDoll;
+    }
+
 
     void mutantWings([bool force = false]) {
         //grubs don't have wings. trolls do.

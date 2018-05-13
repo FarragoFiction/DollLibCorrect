@@ -4,7 +4,7 @@ import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
-
+import "HomestuckSatyrDoll.dart";
 import "../Dolls/HomestuckDoll.dart";
 import "../Rendering/ReferenceColors.dart";
 
@@ -166,6 +166,18 @@ class HomestuckCherubDoll extends HomestuckDoll {
 
         palette.add(HomestuckPalette.ASPECT_DARK, new Colour(h.aspect_light.red, h.aspect_light.green, h.aspect_light.blue)..setHSV(h.aspect_light.hue, h.aspect_light.saturation, h.aspect_light.value/2), true);
 
+    }
+
+    @override
+    Doll hatch() {
+        HomestuckSatyrDoll newDoll = new HomestuckSatyrDoll();
+        int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
+        newDoll.rand = new Random(seed);
+        newDoll.randomize();
+        Doll.convertOneDollToAnother(this, newDoll);
+        newDoll.randomizeColors();
+        newDoll.symbol.imgNumber = 0; //use canon sign you dunkass.
+        return newDoll;
     }
 
 

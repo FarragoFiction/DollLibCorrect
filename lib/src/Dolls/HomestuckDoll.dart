@@ -207,6 +207,7 @@ class HomestuckDoll extends HatchableDoll {
       newDoll.rand = new Random(seed);
       newDoll.randomize();
       Doll.convertOneDollToAnother(this, newDoll);
+      newDoll.randomizeColors();
       (newDoll.palette as HomestuckTrollPalette).skin = HomestuckTrollDoll.skinColor;
       (newDoll.palette as HomestuckTrollPalette).hair_main = HomestuckTrollDoll.hairColor;
       newDoll.symbol.imgNumber = 0; //use canon sign you dunkass.

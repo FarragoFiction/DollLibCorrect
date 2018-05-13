@@ -4,6 +4,7 @@ import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
+import "HomestuckCherubDoll.dart";
 
 import "../Dolls/HomestuckDoll.dart";
 import "../Rendering/ReferenceColors.dart";
@@ -263,6 +264,18 @@ class HomestuckSatyrDoll extends HomestuckDoll {
     void randomize() {
         super.randomize();
         symbol.imgNumber = 0; //blank it out.
+    }
+
+    @override
+    Doll hatch() {
+        HomestuckCherubDoll newDoll = new HomestuckCherubDoll();
+        int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
+        newDoll.rand = new Random(seed);
+        newDoll.randomize();
+        Doll.convertOneDollToAnother(this, newDoll);
+        newDoll.randomizeColors();
+        newDoll.symbol.imgNumber = 0; //use canon sign you dunkass.
+        return newDoll;
     }
 
 

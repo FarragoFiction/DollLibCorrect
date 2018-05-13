@@ -97,6 +97,17 @@ class HomestuckBabyDoll extends HomestuckDoll {
          if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
      }
 
+    @override
+    Doll hatch() {
+        HomestuckDoll newDoll = new HomestuckDoll();
+        int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
+        newDoll.rand = new Random(seed);
+        newDoll.randomize();
+        Doll.convertOneDollToAnother(this, newDoll);
+        newDoll.symbol.imgNumber = 0; //use canon sign you dunkass.
+        return newDoll;
+    }
+
 
 
 
