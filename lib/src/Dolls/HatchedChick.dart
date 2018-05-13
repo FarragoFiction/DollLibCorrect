@@ -6,9 +6,11 @@ import "SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 import "Quirk.dart";
+ import "../Dolls/HatchableDoll.dart";
+
 
 import "../Rendering/ReferenceColors.dart";
-class HatchedChick extends Doll {
+class HatchedChick extends HatchableDoll {
 
     @override
     String originalCreator = "jadedResearcher";
@@ -164,7 +166,7 @@ class HatchedChick extends Doll {
 
     }
 
-    PigeonDoll hatch() {
+    Doll hatch() {
         PigeonDoll bird = new PigeonDoll();
         bird.copyPalette(palette);
         //same color, same layers (but don't go over max)

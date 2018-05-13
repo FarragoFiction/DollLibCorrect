@@ -2,12 +2,14 @@ import 'package:RenderingLib/RendereringLib.dart';
 
 import "../Dolls/Doll.dart";
 import "../Dolls/HatchedChick.dart";
+import "../Dolls/HatchableDoll.dart";
+
 import "SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 
 import "../Rendering/ReferenceColors.dart";
-class EasterEggDoll extends Doll {
+class EasterEggDoll extends HatchableDoll {
 
     static List<String> eggs = new List<String>();
     @override
@@ -212,7 +214,7 @@ class EasterEggDoll extends Doll {
 
     }
 
-    HatchedChick hatch() {
+    Doll hatch() {
         HatchedChick bird = new HatchedChick();
         bird.copyPalette(palette);
         //same color, same layers (but don't go over max)
