@@ -412,7 +412,7 @@ abstract class Doll {
     }
 
     static Doll randomHomestuckDoll() {
-        Random rand = new Random();
+        Random rand = new Random();;
         WeightedList<Doll> choices = new WeightedList<Doll>();
         choices.addAll(<Doll>[new HomestuckTrollDoll(), new HomestuckDoll(), new HomestuckCherubDoll(), new HomestuckSatyrDoll()]);
         choices.add(new HomestuckBabyDoll(), 0.5);
@@ -539,7 +539,7 @@ abstract class Doll {
     }
 
     static Doll makeRandomDoll()  {
-        Random rand = new Random();
+        Random rand = new Random();;
         WeightedList<Doll> dolls = new WeightedList<Doll>();
         dolls.add(new HomestuckDoll());
         dolls.add(new HomestuckTrollDoll());

@@ -91,7 +91,7 @@ will also need to figure out how to do the drop downs.
 
     @override
      void randomizeNotColors() {
-         Random rand = new Random();
+                 if(rand == null) rand = new Random();;
          initLayers();
          //how many players?
          int numLayers = rand.nextInt(4) + 2;
@@ -116,7 +116,7 @@ will also need to figure out how to do the drop downs.
 
      @override
      void randomizeColors() {
-         Random rand = new Random();
+                 if(rand == null) rand = new Random();;
          double number = rand.nextDouble();
          QueenPalette p = palette as QueenPalette;
          if(number > .6) {

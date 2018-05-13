@@ -287,7 +287,7 @@ class HomestuckSatyrDoll extends HomestuckDoll {
 
     void randomizeColors() {
 
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         copyPalette(rand.pickFrom(validPalettes));
 
     }

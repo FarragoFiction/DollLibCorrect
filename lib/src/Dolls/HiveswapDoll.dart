@@ -144,7 +144,7 @@ class HiveswapDoll extends Doll {
 
     @override
     void randomize([bool chooseSign = true]) {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         int firstEye = -100;
         int firstHorn = -100;
 
@@ -213,7 +213,7 @@ class HiveswapDoll extends Doll {
 
     @override
     void randomizeNotColors() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         int firstEye = -100;
         int firstHorn = -100;
         List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
@@ -255,7 +255,7 @@ class HiveswapDoll extends Doll {
 
     @override
     void randomizeColors() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
 
         String chosenBlood = rand.pickFrom(bloodColors);

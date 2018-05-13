@@ -84,7 +84,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     }
 
     static int randomSignBetween(int minSign, int maxSign) {
-        Random rand = new Random();
+        Random rand = new Random();;
         int signNumber = rand.nextInt(maxSign - minSign) + minSign;
         return signNumber;
     }
@@ -254,7 +254,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
 
     void mutantWings([bool force = false]) {
         //print("force wing is $force");
-        Random rand = new Random(hairBack.imgNumber); //not true random
+        if(rand == null) rand = new Random(hairBack.imgNumber);
         rand.nextInt(); //init
        // print("checking wings");
         if(rand.nextDouble() > 0.99 || force) { //1 in a 100 will have them.
@@ -266,7 +266,8 @@ class HomestuckTrollDoll extends HomestuckDoll {
     void mutantEyes([bool force = false, bool older = false]) {
         //print("force eyes is $force");
         // print("checking for mutant eyes for ${leftEye.imgNumber} and ${rightEye.imgNumber}");
-        Random rand = new Random(hairBack.imgNumber); //not true random
+        if(rand == null) rand = new Random(hairBack.imgNumber);
+
 
         if(force) {
             leftEye.imgNumber = rand.pickFrom(mutantEyeList);
@@ -317,7 +318,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
 
     @override
     void randomize([bool chooseSign = true]) {
-        Random rand = new Random();
+        if(rand == null) rand = new Random();
         int firstEye = -100;
         int firstHorn = -100;
 
@@ -388,7 +389,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
 
     @override
     void randomizeNotColors() {
-        Random rand = new Random();
+        if(rand == null) rand = new Random();
         int firstEye = -100;
         int firstHorn = -100;
         List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
@@ -435,7 +436,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
 
     @override
     void randomizeColors() {
-        Random rand = new Random();
+        if(rand == null) rand = new Random();
         List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
 
         String chosenBlood = rand.pickFrom(bloodColors);

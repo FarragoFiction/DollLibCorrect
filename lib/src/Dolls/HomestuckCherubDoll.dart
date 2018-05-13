@@ -145,7 +145,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
     void randomizeColors() {
         List<String> human_hair_colors = <String>["#fffffe", "#000000"];
 
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         HomestuckPalette h = palette as HomestuckPalette;
         List<HomestuckPalette> paletteOptions = new List<HomestuckPalette>.from(ReferenceColours.paletteList.values);
         HomestuckPalette newPallete = rand.pickFrom(paletteOptions);
@@ -170,7 +170,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
 
     @override
     void randomizeNotColors() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         int firstEye = -100;
         for(SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber+1);

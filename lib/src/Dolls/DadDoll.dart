@@ -81,7 +81,7 @@ class DadDoll extends Doll {
 
     @override
     void randomizeColors() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         //dads wear more serious colors
         int colorAmount = rand.nextInt(100)+100;
         DadPalette h = palette as DadPalette;
@@ -117,7 +117,7 @@ class DadDoll extends Doll {
 
 
     void randomizeNotColors() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         for(SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber+1);
         }

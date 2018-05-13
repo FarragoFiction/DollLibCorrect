@@ -194,7 +194,7 @@ class HatchedChick extends HatchableDoll {
 
     @override
     randomizeColors() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         WeightedList<String> possibilities = new WeightedList<String>();
         String valid = "valid";
         String tacky = "tacky";
@@ -245,7 +245,7 @@ class HatchedChick extends HatchableDoll {
 
     @override
     void randomizeNotColors() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         print('randomizing not colors');
         for (SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber);

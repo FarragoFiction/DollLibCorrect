@@ -92,7 +92,7 @@ class VirusDoll extends Doll{
   //how does the drop downs work?
   @override
   void randomizeColors() {
-    Random rand = new Random();
+            if(rand == null) rand = new Random();;
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
     Palette newPallete = rand.pickFrom(paletteOptions);
     if(newPallete == ReferenceColours.INK) {

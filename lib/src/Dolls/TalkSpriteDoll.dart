@@ -114,7 +114,7 @@ class TalkSpriteDoll extends Doll{
   //how does the drop downs work?
   @override
   void randomizeColors() {
-    Random rand = new Random();
+            if(rand == null) rand = new Random();;
     List<String> human_hair_colors = <String>["#68410a", "#fffffe", "#000000", "#000000", "#000000", "#f3f28d", "#cf6338", "#feffd7", "#fff3bd", "#724107", "#382207", "#ff5a00", "#3f1904", "#ffd46d", "#473200", "#91683c"];
 
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);

@@ -73,7 +73,7 @@ class ConsortDoll extends Doll {
 
     @override
     void randomize() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         for (SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber + 1);
         }
@@ -82,7 +82,7 @@ class ConsortDoll extends Doll {
 
     @override
     void randomizeColors() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         ConsortPalette p = palette as ConsortPalette;
         Colour c1 = new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
         Colour c2 = new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
@@ -96,7 +96,7 @@ class ConsortDoll extends Doll {
 
     @override
     void randomizeNotColors() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         for (SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber + 1);
         }

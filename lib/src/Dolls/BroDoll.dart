@@ -86,7 +86,7 @@ class BroDoll extends Doll {
 
     @override
     void randomizeColors() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         //bros wear any colors
         int colorAmount = 255;
         BroPalette h = palette as BroPalette;
@@ -122,7 +122,7 @@ class BroDoll extends Doll {
 
 
     void randomizeNotColors() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         for(SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber+1);
         }

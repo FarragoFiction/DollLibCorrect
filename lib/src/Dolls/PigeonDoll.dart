@@ -161,7 +161,7 @@ class PigeonDoll extends Doll {
 
     @override
     void randomize() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         for (SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber + 1);
         }
@@ -170,7 +170,7 @@ class PigeonDoll extends Doll {
 
     @override
     randomizeColors() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         copyPalette(rand.pickFrom(validPalettes));
     }
 
@@ -178,7 +178,7 @@ class PigeonDoll extends Doll {
 
     @override
     void randomizeNotColors() {
-        Random rand = new Random();
+                if(rand == null) rand = new Random();;
         for (SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber + 1);
         }

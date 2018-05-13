@@ -56,7 +56,13 @@ Future<bool> start() async {
 
     await drawDoll(); //normal
 
+    Doll temp = doll;
+
     doll = (doll as HatchableDoll).hatch();
+
+    await drawDoll(); //normal
+
+    doll = (temp as HatchableDoll).hatch();
 
     await drawDoll(); //normal
 
