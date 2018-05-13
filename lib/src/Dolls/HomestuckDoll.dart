@@ -1,5 +1,6 @@
 import 'package:RenderingLib/RendereringLib.dart';
-
+import "../Dolls/HatchableDoll.dart";
+import "HomestuckTrollDoll.dart";
 import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
 import "dart:typed_data";
@@ -7,7 +8,7 @@ import 'dart:convert';
 
 import "../Rendering/ReferenceColors.dart";
 
-class HomestuckDoll extends Doll {
+class HomestuckDoll extends HatchableDoll {
 
     @override
     int width = 400;
@@ -199,6 +200,20 @@ class HomestuckDoll extends Doll {
 
 
 
+  @override
+  Doll hatch() {
+      HomestuckTrollDoll newDoll = new HomestuckTrollDoll();
+      int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
+      newDoll.rand = new Random(seed);
+      newDoll.randomize();
+      Doll.convertOneDollToAnother(this, newDoll);
+      (newDoll.palette as HomestuckTrollPalette).skin = HomestuckTrollDoll.skinColor;
+      (newDoll.palette as HomestuckTrollPalette).hair_main = HomestuckTrollDoll.hairColor;
+      newDoll.symbol.imgNumber = 0; //use canon sign you dunkass.
+
+      (newDoll as HomestuckTrollDoll).mutantEyes(false);
+      return newDoll;
+  }
 }
 
 class CharSheetPalette extends Palette {

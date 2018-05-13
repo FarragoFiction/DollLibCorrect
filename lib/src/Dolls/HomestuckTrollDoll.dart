@@ -26,6 +26,9 @@ class HomestuckTrollDoll extends HomestuckDoll {
     static String VIOLET = "Violet";
     static String FUCHSIA = "Fuchsia";
 
+    static String skinColor = "#C4C4C4";
+    static String hairColor = "#000000";
+
     @override
     String name = "Troll";
 
