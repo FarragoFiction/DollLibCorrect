@@ -189,9 +189,10 @@ abstract class Doll {
                 if(d.renderingOrderLayers.length > i) yours = d.renderingOrderLayers[i];
                 if(yours != null) {
                     //print("my ${mine} was ${mine.imgNumber}, your ${yours} was ${yours.imgNumber}, them together is ${mine.imgNumber & yours.imgNumber}");
-                    mine.imgNumber = (mine.imgNumber & yours.imgNumber) % mine.maxImageNumber;
+                    int max = mine.maxImageNumber;
+                    if(max == 0) max = 1;
+                    mine.imgNumber = (mine.imgNumber & yours.imgNumber) % max;
                     //print("mine after alchemy is ${mine.imgNumber}");
-
                 }
             }
 
@@ -219,7 +220,9 @@ abstract class Doll {
                 if(d.renderingOrderLayers.length > i) yours = d.renderingOrderLayers[i];
                 if(yours != null) {
                     //print("my ${mine} was ${mine.imgNumber}, your ${yours} was ${yours.imgNumber}, them together is ${mine.imgNumber & yours.imgNumber}");
-                    mine.imgNumber = (mine.imgNumber | yours.imgNumber) % mine.maxImageNumber;
+                    int max = mine.maxImageNumber;
+                    if(max == 0) max = 1;
+                    mine.imgNumber = (mine.imgNumber | yours.imgNumber) % max;
                     //print("mine after alchemy is ${mine.imgNumber}");
 
                 }
