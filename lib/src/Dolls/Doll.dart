@@ -182,6 +182,7 @@ abstract class Doll {
     static Doll andAlchemizeDolls(List<Doll> dolls) {
         Random rand = new Random();
         Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls).renderingType);
+        dolls.removeWhere((Doll doll) => doll is NamedLayerDoll);
         for(Doll d in dolls) {
             for(int i = 0; i<ret.renderingOrderLayers.length; i++) {
                 SpriteLayer mine = ret.renderingOrderLayers[i];
@@ -211,6 +212,7 @@ abstract class Doll {
     }
 
     static Doll orAlchemizeDolls(List<Doll> dolls) {
+        dolls.removeWhere((Doll doll) => doll is NamedLayerDoll);
         Random rand = new Random();
         Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls).renderingType);
         for(Doll d in dolls) {
@@ -243,6 +245,7 @@ abstract class Doll {
     }
 
     static Doll breedDolls(List<Doll> dolls) {
+        dolls.removeWhere((Doll doll) => doll is NamedLayerDoll);
         Random rand = new Random();
         Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls).renderingType);
             for(int i = 0; i<ret.renderingOrderLayers.length; i++) {
