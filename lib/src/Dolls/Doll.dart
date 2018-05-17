@@ -242,14 +242,14 @@ abstract class Doll {
     static Doll breedDolls(List<Doll> dolls) {
         Random rand = new Random();
         Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls).renderingType);
-        for(Doll d in dolls) {
             for(int i = 0; i<ret.renderingOrderLayers.length; i++) {
                 SpriteLayer mine = ret.renderingOrderLayers[i];
+                Doll d = rand.pickFrom(dolls);
                 SpriteLayer yours;
                 if(d.renderingOrderLayers.length > i) yours = d.renderingOrderLayers[i];
                 //for each doll in the thing, pick one to be the source of this part
                 //if i don't pick any it's a 'mutant' since it's the random doll
-                if(yours != null && rand.nextDouble() > 1/dolls.length) {
+                if(yours != null && rand.nextDouble() < 1/dolls.length) {
                     //print("my ${mine} was ${mine.imgNumber}, your ${yours} was ${yours.imgNumber}, them together is ${mine.imgNumber & yours.imgNumber}");
                     mine.imgNumber = yours.imgNumber;
                     //print("mine after alchemy is ${mine.imgNumber}");
@@ -257,16 +257,17 @@ abstract class Doll {
             }
 
             for(int i = 0; i<ret.palette.length; i++) {
+                Doll d = rand.pickFrom(dolls);
                 Colour mine = ret.palette[i];
                 Colour yours;
                 if(d.palette.length > i) yours = d.palette[i];
-                if(yours != null && rand.nextDouble() > 1/dolls.length) {
+                if(yours != null && rand.nextDouble() < 1/dolls.length) {
                     mine.red = yours.red;
                     mine.green =yours.green;
                     mine.blue = yours.blue;
                 }
             }
-        }
+
         return ret;
 
     }

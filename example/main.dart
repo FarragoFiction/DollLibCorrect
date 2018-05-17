@@ -63,7 +63,7 @@ Future<bool> start() async {
 
     await drawDoll(); //normal
 
-    doll = Doll.orAlchemizeDolls(<Doll>[temp, doll]);
+    doll = Doll.breedDolls(<Doll>[temp, doll]);
 
     await drawDoll(); //normal
 
