@@ -58,7 +58,12 @@ Future<bool> start() async {
 
     Doll temp = doll;
 
-    doll = (doll as HatchableDoll).hatch();
+    doll =  Doll.randomDollOfType(13);
+
+
+    await drawDoll(); //normal
+
+    doll = Doll.andAlchemizeDolls(<Doll>[temp, doll]);
 
     await drawDoll(); //normal
 

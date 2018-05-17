@@ -188,7 +188,10 @@ abstract class Doll {
                 SpriteLayer yours;
                 if(d.renderingOrderLayers.length > i) yours = d.renderingOrderLayers[i];
                 if(yours != null) {
+                    //print("my ${mine} was ${mine.imgNumber}, your ${yours} was ${yours.imgNumber}, them together is ${mine.imgNumber & yours.imgNumber}");
                     mine.imgNumber = (mine.imgNumber & yours.imgNumber) % mine.maxImageNumber;
+                    //print("mine after alchemy is ${mine.imgNumber}");
+
                 }
             }
 
@@ -208,9 +211,32 @@ abstract class Doll {
 
     static Doll orAlchemizeDolls(List<Doll> dolls) {
         Random rand = new Random();
-        List<int> binary = new List<int>();
+        Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls).renderingType);
+        for(Doll d in dolls) {
+            for(int i = 0; i<ret.renderingOrderLayers.length; i++) {
+                SpriteLayer mine = ret.renderingOrderLayers[i];
+                SpriteLayer yours;
+                if(d.renderingOrderLayers.length > i) yours = d.renderingOrderLayers[i];
+                if(yours != null) {
+                    //print("my ${mine} was ${mine.imgNumber}, your ${yours} was ${yours.imgNumber}, them together is ${mine.imgNumber & yours.imgNumber}");
+                    mine.imgNumber = (mine.imgNumber | yours.imgNumber) % mine.maxImageNumber;
+                    //print("mine after alchemy is ${mine.imgNumber}");
 
+                }
+            }
 
+            for(int i = 0; i<ret.palette.length; i++) {
+                Colour mine = ret.palette[i];
+                Colour yours;
+                if(d.palette.length > i) yours = d.palette[i];
+                if(yours != null) {
+                    mine.red = (mine.red | yours.red) % 255;
+                    mine.green = (mine.green | yours.green) % 255;
+                    mine.blue = (mine.blue | yours.blue) % 255;
+                }
+            }
+        }
+        return ret;
     }
 
     static Doll breedDolls(List<Doll> dolls) {
