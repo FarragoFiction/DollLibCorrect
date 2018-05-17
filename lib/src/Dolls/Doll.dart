@@ -257,7 +257,9 @@ abstract class Doll {
                 //if i don't pick any it's a 'mutant' since it's the random doll
                 if(yours != null && rand.nextDouble() > .1) {
                     //print("my ${mine} was ${mine.imgNumber}, your ${yours} was ${yours.imgNumber}, them together is ${mine.imgNumber & yours.imgNumber}");
-                    mine.imgNumber = yours.imgNumber;
+                    int max = mine.maxImageNumber;
+                    if(max == 0) max = 1;
+                    mine.imgNumber = yours.imgNumber % max; //dont' go over you dick
                     //print("mine after alchemy is ${mine.imgNumber}");
                 }
             }
