@@ -102,6 +102,7 @@ abstract class Doll {
         randomizeNotColors();
     }
 
+
     static Doll convertOneDollToAnother(Doll source, Doll replacement) {
         if(source is HomestuckDoll && replacement is HomestuckDoll) {
             HomestuckDoll r = replacement as HomestuckDoll;
@@ -176,6 +177,56 @@ abstract class Doll {
         int id = Doll.getFirstFreeID();
         window.localStorage["${Doll.localStorageKey}$id"] = toDataBytesX();
         //window.alert("Saved Doll $id!");
+    }
+
+    static Doll andAlchemizeDolls(List<Doll> dolls) {
+        Random rand = new Random();
+        Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls).renderingType);
+        for(Doll d in dolls) {
+            for(int i = 0; i<ret.renderingOrderLayers.length; i++) {
+                SpriteLayer mine = ret.renderingOrderLayers[i];
+                SpriteLayer yours;
+                if(d.renderingOrderLayers.length > i) yours = d.renderingOrderLayers[i];
+                if(yours != null) {
+                    mine.imgNumber = (mine.imgNumber & yours.imgNumber) % mine.maxImageNumber;
+                }
+            }
+
+            for(int i = 0; i<ret.palette.length; i++) {
+                Colour mine = ret.palette[i];
+                Colour yours;
+                if(d.palette.length > i) yours = d.palette[i];
+                if(yours != null) {
+                    mine.red = (mine.red & yours.red) % 255;
+                    mine.green = (mine.green & yours.green) % 255;
+                    mine.blue = (mine.blue & yours.blue) % 255;
+                }
+            }
+        }
+        return ret;
+    }
+
+    static Doll orAlchemizeDolls(List<Doll> dolls) {
+        Random rand = new Random();
+        List<int> binary = new List<int>();
+
+
+    }
+
+    static Doll breedDolls(List<Doll> dolls) {
+        Random rand = new Random();
+
+    }
+
+    //who is shogun???
+    static int convertSentenceToNumber(String sentence) {
+        print("converting sentence ${sentence}");
+        int ret = 0;
+        for(int s in sentence.codeUnits) {
+            print ("code unit ${new String.fromCharCode(s)}");
+            ret += s;
+        }
+        return ret;
     }
 
     static int getFirstFreeID() {
