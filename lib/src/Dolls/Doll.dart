@@ -248,6 +248,7 @@ abstract class Doll {
     static Doll breedDolls(List<Doll> dolls) {
         dolls.removeWhere((Doll doll) => doll is NamedLayerDoll);
         Random rand = new Random();
+        int firstEye = -113;
         Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls).renderingType);
             for(int i = 0; i<ret.renderingOrderLayers.length; i++) {
                 SpriteLayer mine = ret.renderingOrderLayers[i];
@@ -262,6 +263,8 @@ abstract class Doll {
                     if(max == 0) max = 1;
                     mine.imgNumber = yours.imgNumber % max; //dont' go over you dick
                     //print("mine after alchemy is ${mine.imgNumber}");
+                    if(firstEye > 0 && mine.imgNameBase.contains("Eye")) mine.imgNumber = firstEye;
+                    if(firstEye < 0 && mine.imgNameBase.contains("Eye")) firstEye = mine.imgNumber;
                 }
             }
 
