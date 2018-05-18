@@ -250,11 +250,11 @@ abstract class Doll {
         Random rand = new Random();
         int firstEye = -113;
         Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls).renderingType);
-            for(int i = 0; i<ret.renderingOrderLayers.length; i++) {
-                SpriteLayer mine = ret.renderingOrderLayers[i];
+            for(int i = 0; i<ret.dataOrderLayers.length; i++) {
+                SpriteLayer mine = ret.dataOrderLayers[i];
                 Doll d = rand.pickFrom(dolls);
                 SpriteLayer yours;
-                if(d.renderingOrderLayers.length > i) yours = d.renderingOrderLayers[i];
+                if(d.dataOrderLayers.length > i) yours = d.dataOrderLayers[i];
                 //for each doll in the thing, pick one to be the source of this part
                 //if i don't pick any it's a 'mutant' since it's the random doll
                 if(yours != null && rand.nextDouble() > .1) {
