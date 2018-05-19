@@ -16,7 +16,7 @@ class EasterEggDoll extends HatchableDoll {
     String originalCreator = "jadedResearcher";
 
     //TODO random set of pigeon palettes maybe for random colored pigeons?
-    int maxBase = 43;
+    int maxBase = 101;
     int maxTop = 28;
     int maxMiddle = 27;
     int maxBottom = 20;
