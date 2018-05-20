@@ -19,15 +19,15 @@ class OpenBoundDoll extends Doll{
   int renderingType =21;
 
   @override
-  int width = 548;
+  int width = 160;
   @override
-  int height = 558;
+  int height = 137;
 
   @override
   String name = "OpenBound";
 
   @override
-  String relativefolder = "images/OpenBound";
+  String relativefolder = "images/Homestuck/OpenBound";
   final int maxBody = 1;
   final int maxCapsid = 3;
   final int maxDecoLegs = 4;
