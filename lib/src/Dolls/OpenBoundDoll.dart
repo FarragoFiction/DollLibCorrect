@@ -69,13 +69,15 @@ class OpenBoundDoll extends Doll{
 
 
   OpenBoundDoll() {
+    initLayers();
+    randomize();
+  }
 
+  void initPalette() {
     for(NCP ncp in OpenBoundPalette.sourceColors) {
       ncp.addToPalette(paletteSource);
       ncp.addToPalette(palette);
     }
-    initLayers();
-    randomize();
   }
 
   //HELL YES i found the source of the save bug.
@@ -171,7 +173,7 @@ class OpenBoundPalette extends Palette {
 
   //default colors are
   static List<NCP> sourceColors = <NCP>[new NCP(COATLIGHT,"#ff4e1b"),new NCP(COATLIGHT1,"#da4115"),new NCP(COATLIGHT2,"#ca3c13"),new NCP(COATLIGHTOUTLINE,"#bc3008")]
-  ..addAll(<NCP>[]);
+  ..addAll(<NCP>[new NCP(SHIRTLIGHT,"#ff892e"),new NCP(SHIRTLIGHT1,"#fa802a"),new NCP(SHIRTLIGHT2,"#f16f23"),new NCP(SHIRTLIGHTOUTLINE,"#cc5016")]);
 
   static Colour _handleInput(Object input) {
     if (input is Colour) {
