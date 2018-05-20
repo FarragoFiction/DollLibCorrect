@@ -57,39 +57,23 @@ class OpenBoundDoll extends Doll{
 
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack, cape, rightFin, body, mouth, rightEye, leftEye, glasses, hairFront, leftFin, accessory, rightHorn, leftHorn, symbol];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack, cape, body, mouth, rightEye, leftEye, glasses, hairFront,rightFin, leftFin, accessory, rightHorn, leftHorn, symbol];
   @override
   List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[hairBack, cape, rightFin, body, mouth, rightEye, leftEye, glasses, hairFront, leftFin, accessory, rightHorn, leftHorn, symbol];
 
   @override
-  Palette paletteSource = new OpenBoundPalette()
-    ..armor1 = '#00fffa'
-    ..armor2 = '#00d6d2'
-    ..armor3 = '#00a8a5'
-    ..claw1 = '#76e0db'
-    ..claw2 = '#9bc9c7'
-    ..capsid1 = '#0000ff'
-    ..capsid2 = '#0000c4'
-    ..capsid3 = '#000096'
-    ..capsid4 = '#5151ff'
-    ..accent1 = '#8700ff'
-    ..accent2 = '#a84cff';
+  Palette paletteSource = new OpenBoundPalette();
+
   @override
-  Palette palette = new OpenBoundPalette()
-    ..armor1 = '#FF9B00'
-    ..armor2 = '#FF9B00'
-    ..armor3 = '#FF8700'
-    ..claw1 = '#7F7F7F'
-    ..claw2 = '#727272'
-    ..capsid1 = '#A3A3A3'
-    ..capsid2 = '#999999'
-    ..capsid3 = '#898989'
-    ..capsid4 = '#EFEFEF'
-    ..accent1 = '#DBDBDB'
-    ..accent2 = '#C6C6C6';
+  Palette palette = new OpenBoundPalette();
 
 
   OpenBoundDoll() {
+
+    for(NCP ncp in OpenBoundPalette.sourceColors) {
+      ncp.addToPalette(paletteSource);
+      ncp.addToPalette(palette);
+    }
     initLayers();
     randomize();
   }
@@ -114,6 +98,9 @@ class OpenBoundDoll extends Doll{
     for(SpriteLayer l in renderingOrderLayers) {
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
+
+    rightHorn.imgNumber = leftHorn.imgNumber;
+    rightEye.imgNumber = leftEye.imgNumber;
   }
 
   @override
@@ -172,17 +159,19 @@ class OpenBoundDoll extends Doll{
 /// Convenience class for getting/setting aspect palettes
 class OpenBoundPalette extends Palette {
 
-  static String ARMOR1 = "armor1";
-  static String ARMOR2 = "armor2";
-  static String ARMOR3 = "armor3";
-  static String CLAW1 = "claw1";
-  static String CLAW2 = "claw2";
-  static String CAPSID1 = "capsid1";
-  static String CAPSID2 = "capsid2";
-  static String CAPSID3 = "capsid3";
-  static String CAPSID4 = "capsid4";
-  static String ACCENT1 = "accent1";
-  static String ACCENT2 = "accent2";
+  static String COATLIGHT = "coatLight";
+  static String COATLIGHT1 = "coatLight1";
+  static String COATLIGHT2 = "coatLight2";
+  static String COATLIGHTOUTLINE = "coatOutline";
+
+  static String SHIRTLIGHT = "shirtLight";
+  static String SHIRTLIGHT1 = "shirtLight1";
+  static String SHIRTLIGHT2 = "shirtLight2";
+  static String SHIRTLIGHTOUTLINE = "shirtOutline";
+
+  //default colors are
+  static List<NCP> sourceColors = <NCP>[new NCP(COATLIGHT,"#ff4e1b"),new NCP(COATLIGHT1,"#da4115"),new NCP(COATLIGHT2,"#ca3c13"),new NCP(COATLIGHTOUTLINE,"#bc3008")]
+  ..addAll(<NCP>[]);
 
   static Colour _handleInput(Object input) {
     if (input is Colour) {
@@ -204,51 +193,18 @@ class OpenBoundPalette extends Palette {
     throw "Invalid AspectPalette input: colour must be a Colour object, a valid colour int, or valid hex string (with or without leading #)";
   }
 
+}
 
+//name color pair but short
+class NCP
+{
+  String name;
+  String styleString;
 
-  Colour get armor1 => this[ARMOR1];
+  NCP(String this.name, String this.styleString);
 
-  void set armor1(dynamic c) => this.add(ARMOR1, _handleInput(c), true);
-
-  Colour get armor2 => this[ARMOR2];
-
-  void set armor2(dynamic c) => this.add(ARMOR2, _handleInput(c), true);
-
-  Colour get armor3 => this[ARMOR3];
-
-  void set armor3(dynamic c) => this.add(ARMOR3, _handleInput(c), true);
-
-  Colour get claw1 => this[CLAW1];
-
-  void set claw1(dynamic c) => this.add(CLAW1, _handleInput(c), true);
-
-  Colour get claw2 => this[CLAW2];
-
-  void set claw2(dynamic c) => this.add(CLAW2, _handleInput(c), true);
-
-  Colour get capsid1 => this[CAPSID1];
-
-  void set capsid1(dynamic c) => this.add(CAPSID1, _handleInput(c), true);
-
-  Colour get capsid2 => this[CAPSID2];
-
-  void set capsid2(dynamic c) => this.add(CAPSID2, _handleInput(c), true);
-
-  Colour get capsid3 => this[CAPSID3];
-
-  void set capsid3(dynamic c) => this.add(CAPSID3, _handleInput(c), true);
-
-  Colour get capsid4 => this[CAPSID4];
-
-  void set capsid4(dynamic c) => this.add(CAPSID4, _handleInput(c), true);
-
-  Colour get accent1 => this[ACCENT1];
-
-  void set accent1(dynamic c) => this.add(ACCENT1, _handleInput(c), true);
-
-  Colour get accent2 => this[ACCENT2];
-
-  void set accent2(dynamic c) => this.add(ACCENT2, _handleInput(c), true);
-
+  void addToPalette(Palette p) {
+    p.add(name, new Colour.fromStyleString(styleString), true);
+  }
 
 }

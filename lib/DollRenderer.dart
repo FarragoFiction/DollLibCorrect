@@ -22,7 +22,7 @@ export "src/Dolls/HomestuckGrubDoll.dart";
 export "src/Dolls/HomestuckHeroDoll.dart";
 export "src/Dolls/DogDoll.dart";
 export "src/Dolls/TalkSpriteDoll.dart";
-
+export "src/Dolls/OpenBoundDoll.dart";
 
 export "src/Dolls/DadDoll.dart";
 export "src/Dolls/MomDoll.dart";
