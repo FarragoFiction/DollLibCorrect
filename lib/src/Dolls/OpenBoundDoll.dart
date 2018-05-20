@@ -28,30 +28,38 @@ class OpenBoundDoll extends Doll{
 
   @override
   String relativefolder = "images/Homestuck/OpenBound";
+  final int maxAccessory = 2;
   final int maxBody = 1;
-  final int maxCapsid = 3;
-  final int maxDecoLegs = 4;
-  final int maxLeg1 = 2;
-  final int maxLeg2 = 2;
-  final int maxLeg3 = 2;
-  final int maxLeg4 = 2;
+  final int maxCape = 1;
+  final int maxEye = 1;
+  final int maxFin = 1;
+  final int maxHair = 1;
+  final int maxHorn = 1;
+  final int maxMouth = 1;
+  final int maxSymbol = 1;
 
 
 
+  SpriteLayer accessory;
+  SpriteLayer glasses;
   SpriteLayer body;
-  SpriteLayer capsid;
-  SpriteLayer decoLegs;
-  SpriteLayer leg1;
-  SpriteLayer leg2;
-  SpriteLayer leg3;
-  SpriteLayer leg4;
-
+  SpriteLayer cape;
+  SpriteLayer leftEye;
+  SpriteLayer rightEye;
+  SpriteLayer leftFin;
+  SpriteLayer rightFin;
+  SpriteLayer hairFront;
+  SpriteLayer hairBack;
+  SpriteLayer leftHorn;
+  SpriteLayer rightHorn;
+  SpriteLayer mouth;
+  SpriteLayer symbol;
 
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[leg1, leg2, leg3, leg4, decoLegs, capsid, body];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack, cape, rightFin, body, mouth, rightEye, leftEye, glasses, hairFront, leftFin, accessory, rightHorn, leftHorn, symbol];
   @override
-  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[leg1, leg2, leg3, leg4, decoLegs, capsid, body];
+  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[hairBack, cape, rightFin, body, mouth, rightEye, leftEye, glasses, hairFront, leftFin, accessory, rightHorn, leftHorn, symbol];
 
   @override
   Palette paletteSource = new OpenBoundPalette()
@@ -133,13 +141,28 @@ class OpenBoundDoll extends Doll{
   void initLayers() {
 
     {
-      capsid = new SpriteLayer("Capsid","$folder/Capsid/", 1, maxCapsid);
-      decoLegs = new SpriteLayer("DecoLegs","$folder/DecoLegs/", 1, maxDecoLegs);
-      body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      leg1 = new SpriteLayer("Leg1","$folder/Leg1/", 1, maxLeg1);
-      leg2 = new SpriteLayer("Leg2","$folder/Leg2/", 1, maxLeg2);
-      leg3 = new SpriteLayer("Leg3","$folder/Leg3/", 1, maxLeg3);
-      leg4 = new SpriteLayer("Leg4","$folder/Leg4/", 1, maxLeg4);
+
+      hairFront = new SpriteLayer("Hair","$folder/HairFront/", 1, maxHair, supportsMultiByte: true);
+      hairBack = new SpriteLayer("Hair","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[hairFront], supportsMultiByte: true);
+      hairFront.syncedWith.add(hairBack);
+      hairBack.slave = true;
+
+      leftFin = new SpriteLayer("Fin", "$folder/FinLeft/", 1, maxFin,supportsMultiByte: true);
+      rightFin = new SpriteLayer("Fin", "$folder/FinRight/", 1, maxFin, syncedWith: <SpriteLayer>[leftFin],supportsMultiByte: true);
+      leftFin.syncedWith.add(rightFin);
+      rightFin.slave = true; //can't be selected on it's own
+
+      body = new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true);
+      cape = new SpriteLayer("Body","$folder/Cape/", 1, maxCape, supportsMultiByte: true);
+      mouth = new SpriteLayer("Body","$folder/Mouth/", 1, maxMouth, supportsMultiByte: true);
+      leftEye = new SpriteLayer("Body","$folder/EyeLeft/", 1, maxEye, supportsMultiByte: true);
+      rightEye = new SpriteLayer("Body","$folder/EyeRight/", 1, maxEye, supportsMultiByte: true);
+      glasses = new SpriteLayer("Body","$folder/Accessory/", 1, maxAccessory, supportsMultiByte: true);
+      accessory = new SpriteLayer("Body","$folder/Accessory/", 1, maxAccessory, supportsMultiByte: true);
+      leftHorn = new SpriteLayer("Body","$folder/HornLeft/", 1, maxHorn, supportsMultiByte: true);
+      rightHorn = new SpriteLayer("Body","$folder/HornRight/", 1, maxHorn, supportsMultiByte: true);
+      symbol = new SpriteLayer("Body","$folder/Symbol/", 1, maxSymbol, supportsMultiByte: true);
+
     }
   }
 
