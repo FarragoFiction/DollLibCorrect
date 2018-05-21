@@ -211,9 +211,9 @@ abstract class Doll {
                 Colour yours;
                 if(d.palette.length > i) yours = d.palette[i];
                 if(yours != null) {
-                    mine.red = (mine.red & yours.red) % 255;
-                    mine.green = (mine.green & yours.green) % 255;
-                    mine.blue = (mine.blue & yours.blue) % 255;
+                    mine.red = (mine.red & yours.red) % 256;
+                    mine.green = (mine.green & yours.green) % 256;
+                    mine.blue = (mine.blue & yours.blue) % 256;
                 }
             }
         }
@@ -244,9 +244,9 @@ abstract class Doll {
                 Colour yours;
                 if(d.palette.length > i) yours = d.palette[i];
                 if(yours != null) {
-                    mine.red = (mine.red | yours.red) % 255;
-                    mine.green = (mine.green | yours.green) % 255;
-                    mine.blue = (mine.blue | yours.blue) % 255;
+                    mine.red = (mine.red | yours.red) % 256;
+                    mine.green = (mine.green | yours.green) % 256;
+                    mine.blue = (mine.blue | yours.blue) % 256;
                 }
             }
         }
