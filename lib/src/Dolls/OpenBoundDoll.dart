@@ -162,30 +162,45 @@ class OpenBoundDoll extends Doll{
 /// Convenience class for getting/setting aspect palettes
 class OpenBoundPalette extends Palette {
 
-  static String COATLIGHT = "coatLight";
-  static String COATLIGHT1 = "coatLight1";
-  static String COATLIGHT2 = "coatLight2";
+  static String COATLIGHT = "coat";
+  static String COATLIGHT1 = "coat1";
+  static String COATLIGHT2 = "coat2";
   static String COATLIGHTOUTLINE = "coatOutline";
 
-  static String SHIRTLIGHT = "shirtLight";
-  static String SHIRTLIGHT1 = "shirtLight1";
-  static String SHIRTLIGHT2 = "shirtLight2";
+  static String SHIRTLIGHT = "shirt";
+  static String SHIRTLIGHT1 = "shirt1";
+  static String SHIRTLIGHT2 = "shirt2";
   static String SHIRTLIGHTOUTLINE = "shirtOutline";
 
-  static String PANTSLIGHT = "pantsLight";
-  static String PANTSLIGHT1 = "pantsLight1";
-  static String PANTSLIGHT2 = "pantsLight2";
+  static String PANTSLIGHT = "pants";
+  static String PANTSLIGHT1 = "pants1";
+  static String PANTSLIGHT2 = "pants2";
   static String PANTSLIGHTOUTLINE = "pantsOutline";
 
-  static String SHOESLIGHT = "shoesLight";
-  static String SHOESLIGHT1 = "shoesLight1";
+  static String SHOESLIGHT = "shoes";
+  static String SHOESLIGHT1 = "shoes1";
   static String SHOESLIGHTOUTLINE = "shoesOutline";
+
+  static String ACCENT = "accent";
+  static String ACCENT1 = "accent1";
+  static String ACCENT2 = "accent2";
+  static String ACCENTOUTLINE = "accentOutline";
+
+  static String HAIR = "hairLight";
+  static String HAIR1 = "hairDark1";
+  static String HAIR2 = "hairDark2";
+
+  static String SKIN = "skinLight";
+  static String SKIN1 = "skinDark1";
+  static String SKIN2 = "skinDark2";
+  static String SKINOUTLINE = "skinOutline";
 
   //default colors are
   static List<NCP> sourceColors = <NCP>[new NCP(COATLIGHT,"#ff4e1b"),new NCP(COATLIGHT1,"#da4115"),new NCP(COATLIGHT2,"#ca3c13"),new NCP(COATLIGHTOUTLINE,"#bc3008")]
     ..addAll(<NCP>[new NCP(SHIRTLIGHT,"#ff892e"),new NCP(SHIRTLIGHT1,"#fa802a"),new NCP(SHIRTLIGHT2,"#f16f23"),new NCP(SHIRTLIGHTOUTLINE,"#cc5016")])
     ..addAll(<NCP>[new NCP(PANTSLIGHT,"#e76700"),new NCP(PANTSLIGHT1,"#cc5c00"),new NCP(PANTSLIGHT2,"#c05600"),new NCP(PANTSLIGHTOUTLINE,"#984400")])
-    ..addAll(<NCP>[new NCP(SHOESLIGHT,"#12e5fb"),new NCP(SHOESLIGHT1,"#00abf8"),new NCP(SHOESLIGHTOUTLINE,"#0061c7")]);
+    ..addAll(<NCP>[new NCP(SHOESLIGHT,"#12e5fb"),new NCP(SHOESLIGHT1,"#00abf8"),new NCP(SHOESLIGHTOUTLINE,"#0061c7")])
+    ..addAll(<NCP>[new NCP(PANTSLIGHT,"#ed1c24"),new NCP(PANTSLIGHT1,"#cc5c00"),new NCP(PANTSLIGHT2,"#c05600"),new NCP(PANTSLIGHTOUTLINE,"#984400")]);
 
 
 
