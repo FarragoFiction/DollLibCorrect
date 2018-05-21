@@ -438,6 +438,10 @@ abstract class Doll {
             return new VirusDoll.fromReader(reader);
         }
 
+        if(type == new OpenBoundDoll().renderingType) {
+            return new OpenBoundDoll.fromReader(reader);
+        }
+
         if(type == new EasterEggDoll().renderingType) {
             return new EasterEggDoll.fromReader(reader);
         }
@@ -552,6 +556,10 @@ abstract class Doll {
 
         if(type == new VirusDoll().renderingType) {
             return new VirusDoll();
+        }
+
+        if(type == new OpenBoundDoll().renderingType) {
+            return new OpenBoundDoll();
         }
 
         if(type == new EasterEggDoll().renderingType) {
