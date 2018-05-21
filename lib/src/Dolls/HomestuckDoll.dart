@@ -24,10 +24,10 @@ class HomestuckDoll extends HatchableDoll {
     @override
     String relativefolder = "images/Homestuck";
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
-    final int maxBody = 331;
-    final int maxHair = 263;
+    final int maxBody = 330;
+    final int maxHair = 259;
     final int maxEye = 186;
-    final int maxMouth = 177;
+    final int maxMouth = 176;
     final int maxSymbol = 250;
     final int maxGlass = 135;
     final int maxGlass2 = 152;
