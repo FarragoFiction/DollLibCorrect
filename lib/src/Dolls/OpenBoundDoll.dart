@@ -195,6 +195,22 @@ class OpenBoundPalette extends Palette {
   static String SKIN2 = "skinDark2";
   static String SKINOUTLINE = "skinOutline";
 
+  static String ASPECT1 = "aspectLight";
+  static String ASPECT2 = "aspectDark";
+
+  static String EYELEFT = "eyeLeft";
+  static String EYELEFTGLOW1 = "eyeLeftGlow1";
+  static String EYELEFTGLOW2 = "eyeLeftGlow2";
+  static String EYELEFTGLOW3 = "eyeLeftGlow3";
+  static String EYELEFTGLOW4 = "eyeLeftGlow4";
+
+  static String EYERIGHT = "eyeRight";
+  static String EYERIGHTGLOW1 = "eyeRightGlow1";
+  static String EYERIGHTGLOW2 = "eyeRightGlow2";
+  static String EYERIGHTGLOW3 = "eyeRightGlow3";
+  static String EYERIGHTGLOW4 = "eyeRightGlow4";
+
+
   //default colors are
   static List<NCP> sourceColors = <NCP>[new NCP(COATLIGHT,"#ff4e1b"),new NCP(COATLIGHT1,"#da4115"),new NCP(COATLIGHT2,"#ca3c13"),new NCP(COATLIGHTOUTLINE,"#bc3008")]
     ..addAll(<NCP>[new NCP(SHIRTLIGHT,"#ff892e"),new NCP(SHIRTLIGHT1,"#fa802a"),new NCP(SHIRTLIGHT2,"#f16f23"),new NCP(SHIRTLIGHTOUTLINE,"#cc5016")])
