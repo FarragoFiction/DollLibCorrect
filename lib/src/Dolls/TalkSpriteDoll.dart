@@ -30,17 +30,16 @@ class TalkSpriteDoll extends Doll{
   @override
   String relativefolder = "images/TalkSprite";
   final int maxAccessory = 1;
-  final int maxSymbol = 13;
+  final int maxSymbol = 15;
   final int maxBrows = 2;
-  final int maxEyes = 2;
+  final int maxEyes = 3;
   final int maxHair = 2;
   final int maxHood = 11;
-  final int maxMouth = 2;
+  final int maxMouth = 3;
   final int maxNose = 2;
-  final int maxShirt = 6;
+  final int maxShirt = 7;
   final int maxBody = 0;
   final int maxFacePaint = 2;
-
 
   SpriteLayer accessory;
   SpriteLayer symbol;
