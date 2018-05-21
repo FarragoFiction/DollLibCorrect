@@ -69,6 +69,7 @@ class OpenBoundDoll extends Doll{
 
 
   OpenBoundDoll() {
+    initPalette();
     initLayers();
     randomize();
   }
@@ -171,9 +172,22 @@ class OpenBoundPalette extends Palette {
   static String SHIRTLIGHT2 = "shirtLight2";
   static String SHIRTLIGHTOUTLINE = "shirtOutline";
 
+  static String PANTSLIGHT = "pantsLight";
+  static String PANTSLIGHT1 = "pantsLight1";
+  static String PANTSLIGHT2 = "pantsLight2";
+  static String PANTSLIGHTOUTLINE = "pantsOutline";
+
+  static String SHOESLIGHT = "shoesLight";
+  static String SHOESLIGHT1 = "shoesLight1";
+  static String SHOESLIGHTOUTLINE = "shoesOutline";
+
   //default colors are
   static List<NCP> sourceColors = <NCP>[new NCP(COATLIGHT,"#ff4e1b"),new NCP(COATLIGHT1,"#da4115"),new NCP(COATLIGHT2,"#ca3c13"),new NCP(COATLIGHTOUTLINE,"#bc3008")]
-  ..addAll(<NCP>[new NCP(SHIRTLIGHT,"#ff892e"),new NCP(SHIRTLIGHT1,"#fa802a"),new NCP(SHIRTLIGHT2,"#f16f23"),new NCP(SHIRTLIGHTOUTLINE,"#cc5016")]);
+    ..addAll(<NCP>[new NCP(SHIRTLIGHT,"#ff892e"),new NCP(SHIRTLIGHT1,"#fa802a"),new NCP(SHIRTLIGHT2,"#f16f23"),new NCP(SHIRTLIGHTOUTLINE,"#cc5016")])
+    ..addAll(<NCP>[new NCP(PANTSLIGHT,"#e76700"),new NCP(PANTSLIGHT1,"#cc5c00"),new NCP(PANTSLIGHT2,"#c05600"),new NCP(PANTSLIGHTOUTLINE,"#984400")])
+    ..addAll(<NCP>[new NCP(SHOESLIGHT,"#12e5fb"),new NCP(SHOESLIGHT1,"#00abf8"),new NCP(SHOESLIGHTOUTLINE,"#0061c7")]);
+
+
 
   static Colour _handleInput(Object input) {
     if (input is Colour) {
