@@ -86,14 +86,60 @@ class OpenBoundDoll extends Doll{
   //how does the drop downs work?
   @override
   void randomizeColors() {
-            if(rand == null) rand = new Random();;
-    List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
+    if(rand == null) rand = new Random();
+    //todo have versions of the major palettes for this.
+    //have doll builder know to pick default palettes depending on palette lengths
+    List<Palette> paletteOptions = new List<Palette>();
     Palette newPallete = rand.pickFrom(paletteOptions);
-    if(newPallete == ReferenceColours.INK) {
-      super.randomizeColors();
-    }else {
-      copyPalette(newPallete);
+    tackyColors();
+  }
+
+  //TODO have changing certain palettes via drop down call this maybe?
+  //TODO use this to make default palettes, maybe?
+  void makeOtherColorsDarker(Palette p, String sourceKey, List<String> otherColorKeys) {
+    String referenceKey = sourceKey;
+    for(String key in otherColorKeys) {
+      palette.add(key, new Colour(p[referenceKey].red, p[referenceKey].green, p[referenceKey].blue)..setHSV(p[referenceKey].hue, p[referenceKey].saturation, 2*p[referenceKey].value / 3), true);
+      referenceKey = key; //each one is progressively darker
     }
+  }
+
+  void tackyColors() {
+    OpenBoundPalette o = palette as OpenBoundPalette;
+    //pick random colors for each of the main things, then make their related colors slightly darker
+    //coat
+    palette.add(OpenBoundPalette.COATLIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+    makeOtherColorsDarker(o, OpenBoundPalette.COATLIGHT, <String>[OpenBoundPalette.COATLIGHT1, OpenBoundPalette.COATLIGHT2, OpenBoundPalette.COATLIGHTOUTLINE]);
+    //shirt
+    palette.add(OpenBoundPalette.SHIRTLIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+    makeOtherColorsDarker(o, OpenBoundPalette.SHIRTLIGHT, <String>[OpenBoundPalette.SHIRTLIGHT1, OpenBoundPalette.SHIRTLIGHT2, OpenBoundPalette.SHIRTLIGHTOUTLINE]);
+
+    //pants
+    palette.add(OpenBoundPalette.PANTSLIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+    makeOtherColorsDarker(o, OpenBoundPalette.PANTSLIGHT, <String>[OpenBoundPalette.PANTSLIGHT1, OpenBoundPalette.PANTSLIGHT2, OpenBoundPalette.PANTSLIGHTOUTLINE]);
+
+    //shoes
+    palette.add(OpenBoundPalette.SHOESLIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+    makeOtherColorsDarker(o, OpenBoundPalette.SHOESLIGHT, <String>[OpenBoundPalette.SHOESLIGHT1, OpenBoundPalette.SHOESLIGHTOUTLINE]);
+
+    //accent
+    palette.add(OpenBoundPalette.ACCENT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+    makeOtherColorsDarker(o, OpenBoundPalette.ACCENT, <String>[OpenBoundPalette.ACCENT1, OpenBoundPalette.ACCENT2, OpenBoundPalette.ACCENTOUTLINE]);
+
+    //hair
+    palette.add(OpenBoundPalette.HAIR, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+    makeOtherColorsDarker(o, OpenBoundPalette.HAIR, <String>[OpenBoundPalette.HAIR1, OpenBoundPalette.HAIR2]);
+
+    //skin
+    //skip this, it's fine
+    //aspect
+    palette.add(OpenBoundPalette.ASPECT1, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+    makeOtherColorsDarker(o, OpenBoundPalette.ASPECT1, <String>[OpenBoundPalette.ASPECT2]);
+
+    //eye left
+    //skip this
+    //eye right
+    //skip this
   }
 
   @override
