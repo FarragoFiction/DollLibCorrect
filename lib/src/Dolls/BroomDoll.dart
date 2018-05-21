@@ -102,7 +102,18 @@ class BroomDoll extends Doll {
         randomizeNotColors();
         randomizeColors();
     }
-    
+
+    @override
+    void randomizeColors() {
+        HomestuckPalette o = palette as HomestuckPalette;
+
+        palette.add(HomestuckPalette.ASPECT_LIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+        makeOtherColorsDarker(o, HomestuckPalette.ASPECT_LIGHT, <String>[HomestuckPalette.ASPECT_DARK]);
+
+        palette.add(HomestuckPalette.SHIRT_LIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+        makeOtherColorsDarker(o, HomestuckPalette.SHIRT_LIGHT, <String>[HomestuckPalette.SHIRT_DARK]);
+
+    }
 
 
 
