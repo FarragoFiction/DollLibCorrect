@@ -33,7 +33,7 @@ class TalkSpriteDoll extends Doll{
   final int maxSymbol = 15;
   final int maxBrows = 2;
   final int maxEyes = 3;
-  final int maxHair = 7;
+  final int maxHair = 5;
   final int maxHood = 11;
   final int maxMouth = 3;
   final int maxNose = 2;
