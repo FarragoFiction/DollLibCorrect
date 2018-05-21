@@ -92,8 +92,8 @@ class BroomDoll extends Doll {
 
     @override
     void initLayers() {
-        handle = new SpriteLayer("Handle", "$folder/base/", 1, maxHandle);
-        head = new SpriteLayer("Head", "$folder/middle/", 1, maxHead);
+        handle = new SpriteLayer("Handle", "$folder/Handle/", 1, maxHandle);
+        head = new SpriteLayer("Head", "$folder/Head/", 1, maxHead);
     }
 
 
@@ -102,5 +102,8 @@ class BroomDoll extends Doll {
         randomizeNotColors();
         randomizeColors();
     }
+    
+
+
 
 }
