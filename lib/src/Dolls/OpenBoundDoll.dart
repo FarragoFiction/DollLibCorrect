@@ -162,6 +162,8 @@ class OpenBoundDoll extends Doll{
 /// Convenience class for getting/setting aspect palettes
 class OpenBoundPalette extends Palette {
 
+  //when changing color if you change main auto change 1,2,3,outline etc?
+
   static String COATLIGHT = "coat";
   static String COATLIGHT1 = "coat1";
   static String COATLIGHT2 = "coat2";
@@ -186,29 +188,29 @@ class OpenBoundPalette extends Palette {
   static String ACCENT2 = "accent2";
   static String ACCENTOUTLINE = "accentOutline";
 
-  static String HAIR = "hairLight";
-  static String HAIR1 = "hairDark1";
-  static String HAIR2 = "hairDark2";
+  static String HAIR = "hair";
+  static String HAIR1 = "hair1";
+  static String HAIR2 = "hair2";
 
-  static String SKIN = "skinLight";
-  static String SKIN1 = "skinDark1";
-  static String SKIN2 = "skinDark2";
+  static String SKIN = "skin";
+  static String SKIN1 = "skin1";
+  static String SKIN2 = "skin2";
   static String SKINOUTLINE = "skinOutline";
 
-  static String ASPECT1 = "aspectLight";
-  static String ASPECT2 = "aspectDark";
+  static String ASPECT1 = "aspect";
+  static String ASPECT2 = "aspect1";
 
   static String EYELEFT = "eyeLeft";
-  static String EYELEFTGLOW1 = "eyeLeftGlow1";
-  static String EYELEFTGLOW2 = "eyeLeftGlow2";
-  static String EYELEFTGLOW3 = "eyeLeftGlow3";
-  static String EYELEFTGLOW4 = "eyeLeftGlow4";
+  static String EYELEFTGLOW1 = "eyeLeftGlow";
+  static String EYELEFTGLOW2 = "eyeLeftGlow1";
+  static String EYELEFTGLOW3 = "eyeLeftGlow2";
+  static String EYELEFTGLOW4 = "eyeLeftGlow3";
 
   static String EYERIGHT = "eyeRight";
-  static String EYERIGHTGLOW1 = "eyeRightGlow1";
-  static String EYERIGHTGLOW2 = "eyeRightGlow2";
-  static String EYERIGHTGLOW3 = "eyeRightGlow3";
-  static String EYERIGHTGLOW4 = "eyeRightGlow4";
+  static String EYERIGHTGLOW1 = "eyeRightGlow";
+  static String EYERIGHTGLOW2 = "eyeRightGlow1";
+  static String EYERIGHTGLOW3 = "eyeRightGlow2";
+  static String EYERIGHTGLOW4 = "eyeRightGlow3";
 
 
   //default colors are
@@ -216,7 +218,14 @@ class OpenBoundPalette extends Palette {
     ..addAll(<NCP>[new NCP(SHIRTLIGHT,"#ff892e"),new NCP(SHIRTLIGHT1,"#fa802a"),new NCP(SHIRTLIGHT2,"#f16f23"),new NCP(SHIRTLIGHTOUTLINE,"#cc5016")])
     ..addAll(<NCP>[new NCP(PANTSLIGHT,"#e76700"),new NCP(PANTSLIGHT1,"#cc5c00"),new NCP(PANTSLIGHT2,"#c05600"),new NCP(PANTSLIGHTOUTLINE,"#984400")])
     ..addAll(<NCP>[new NCP(SHOESLIGHT,"#12e5fb"),new NCP(SHOESLIGHT1,"#00abf8"),new NCP(SHOESLIGHTOUTLINE,"#0061c7")])
-    ..addAll(<NCP>[new NCP(PANTSLIGHT,"#ed1c24"),new NCP(PANTSLIGHT1,"#cc5c00"),new NCP(PANTSLIGHT2,"#c05600"),new NCP(PANTSLIGHTOUTLINE,"#984400")]);
+    ..addAll(<NCP>[new NCP(HAIR,"#2d2d2d"),new NCP(HAIR1,"#262626"),new NCP(HAIR2,"#212121")])
+    ..addAll(<NCP>[new NCP(SKIN,"#ffffff"),new NCP(SKIN1,"#d9d9d9"),new NCP(SKIN2,"#b9b9b9"),new NCP(SKINOUTLINE,"#595959")])
+    ..addAll(<NCP>[new NCP(ASPECT1,"#fefb6b"),new NCP(ASPECT2,"#ecbd48")])
+
+    ..addAll(<NCP>[new NCP(EYELEFT,"#ffbb1c"),new NCP(EYELEFTGLOW1,"#f7368a"),new NCP(EYELEFTGLOW2,"#ff006e"),new NCP(EYELEFTGLOW3,"#e10061"),new NCP(EYELEFTGLOW4,"#c40055")])
+    ..addAll(<NCP>[new NCP(EYERIGHT,"#ffbb00"),new NCP(EYERIGHTGLOW1,"#368af7"),new NCP(EYERIGHTGLOW2,"#006eff"),new NCP(EYERIGHTGLOW3,"#0061e0"),new NCP(EYERIGHTGLOW4,"#0055c4")])
+
+    ..addAll(<NCP>[new NCP(ACCENT,"#ed1c24"),new NCP(ACCENT1,"#c91900"),new NCP(ACCENT2,"#ad050b"),new NCP(ACCENTOUTLINE,"#710e11")]);
 
 
 
