@@ -28,7 +28,7 @@ class BroDoll extends Doll {
 
     final int maxHair = 5;
     final int maxHat = 5;
-    final int maxOutfit = 9;
+    final int maxOutfit = 6;
     final int maxGlasses = 7;
     final int maxBase = 0;
 
