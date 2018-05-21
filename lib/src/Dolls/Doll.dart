@@ -9,7 +9,7 @@ import "../../DollRenderer.dart";
 abstract class Doll {
 
     //useful for the builder
-    static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42];
+    static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22];
     String originalCreator = "???";
 
     //in case i want controlled random
@@ -141,6 +141,14 @@ abstract class Doll {
             //print("after replacement source hair is ${s.extendedHairBack.imgNumber} and replacement hair is ${r.extendedHairBack.imgNumber}");
         }
         return replacement;
+    }
+
+    void makeOtherColorsDarker(Palette p, String sourceKey, List<String> otherColorKeys) {
+        String referenceKey = sourceKey;
+        for(String key in otherColorKeys) {
+            palette.add(key, new Colour(p[referenceKey].red, p[referenceKey].green, p[referenceKey].blue)..setHSV(p[referenceKey].hue, p[referenceKey].saturation, 2*p[referenceKey].value / 3), true);
+            referenceKey = key; //each one is progressively darker
+        }
     }
 
     void randomizeColors() {
@@ -438,6 +446,10 @@ abstract class Doll {
             return new VirusDoll.fromReader(reader);
         }
 
+        if(type == new BroomDoll().renderingType) {
+            return new BroomDoll.fromReader(reader);
+        }
+
         if(type == new OpenBoundDoll().renderingType) {
             return new OpenBoundDoll.fromReader(reader);
         }
@@ -556,6 +568,10 @@ abstract class Doll {
 
         if(type == new VirusDoll().renderingType) {
             return new VirusDoll();
+        }
+
+        if(type == new BroomDoll().renderingType) {
+            return new BroomDoll();
         }
 
         if(type == new OpenBoundDoll().renderingType) {

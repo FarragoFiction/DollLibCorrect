@@ -94,15 +94,7 @@ class OpenBoundDoll extends Doll{
     tackyColors();
   }
 
-  //TODO have changing certain palettes via drop down call this maybe?
-  //TODO use this to make default palettes, maybe?
-  void makeOtherColorsDarker(Palette p, String sourceKey, List<String> otherColorKeys) {
-    String referenceKey = sourceKey;
-    for(String key in otherColorKeys) {
-      palette.add(key, new Colour(p[referenceKey].red, p[referenceKey].green, p[referenceKey].blue)..setHSV(p[referenceKey].hue, p[referenceKey].saturation, 2*p[referenceKey].value / 3), true);
-      referenceKey = key; //each one is progressively darker
-    }
-  }
+
 
   void tackyColors() {
     OpenBoundPalette o = palette as OpenBoundPalette;
