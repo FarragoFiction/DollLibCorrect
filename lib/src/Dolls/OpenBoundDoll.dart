@@ -143,15 +143,15 @@ class OpenBoundDoll extends Doll{
       rightFin.slave = true; //can't be selected on it's own
 
       body = new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true);
-      cape = new SpriteLayer("Body","$folder/Cape/", 1, maxCape, supportsMultiByte: true);
-      mouth = new SpriteLayer("Body","$folder/Mouth/", 1, maxMouth, supportsMultiByte: true);
-      leftEye = new SpriteLayer("Body","$folder/EyeLeft/", 1, maxEye, supportsMultiByte: true);
-      rightEye = new SpriteLayer("Body","$folder/EyeRight/", 1, maxEye, supportsMultiByte: true);
-      glasses = new SpriteLayer("Body","$folder/Accessory/", 1, maxAccessory, supportsMultiByte: true);
-      accessory = new SpriteLayer("Body","$folder/Accessory/", 1, maxAccessory, supportsMultiByte: true);
-      leftHorn = new SpriteLayer("Body","$folder/HornLeft/", 1, maxHorn, supportsMultiByte: true);
-      rightHorn = new SpriteLayer("Body","$folder/HornRight/", 1, maxHorn, supportsMultiByte: true);
-      symbol = new SpriteLayer("Body","$folder/Symbol/", 1, maxSymbol, supportsMultiByte: true);
+      cape = new SpriteLayer("Cape","$folder/Cape/", 1, maxCape, supportsMultiByte: true);
+      mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth, supportsMultiByte: true);
+      leftEye = new SpriteLayer("Eye","$folder/EyeLeft/", 1, maxEye, supportsMultiByte: true);
+      rightEye = new SpriteLayer("Eye","$folder/EyeRight/", 1, maxEye, supportsMultiByte: true);
+      glasses = new SpriteLayer("Accessory","$folder/Accessory/", 1, maxAccessory, supportsMultiByte: true);
+      accessory = new SpriteLayer("Accessory2","$folder/Accessory/", 1, maxAccessory, supportsMultiByte: true);
+      leftHorn = new SpriteLayer("Horns","$folder/HornLeft/", 1, maxHorn, supportsMultiByte: true);
+      rightHorn = new SpriteLayer("Horns","$folder/HornRight/", 1, maxHorn, supportsMultiByte: true);
+      symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol, supportsMultiByte: true);
 
     }
   }
