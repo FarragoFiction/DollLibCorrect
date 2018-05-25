@@ -297,10 +297,10 @@ class HiveswapDoll extends Doll {
 
 
         eyebrows = new SpriteLayer("EyeBrows", "$folder/Eyebrows/", 1, maxEyebrows);
-        leftEye = new SpriteLayer("LeftEye", "$folder/LeftEye/", 1, maxEyes);
-        rightEye = new SpriteLayer("RightEye", "$folder/RightEye/", 1, maxEyes);
-        leftHorn = new SpriteLayer("LeftHorn", "$folder/LeftHorn/", 1, maxHorn);
-        rightHorn = new SpriteLayer("RightHorn", "$folder/RightHorn/", 1, maxHorn);
+        leftEye = new SpriteLayer("LeftEye", "$folder/LeftEye/", 1, maxEyes)..primaryPartner = false;
+        rightEye = new SpriteLayer("RightEye", "$folder/RightEye/", 1, maxEyes)..partners.add(leftEye);
+        leftHorn = new SpriteLayer("LeftHorn", "$folder/LeftHorn/", 1, maxHorn)..primaryPartner = false;
+        rightHorn = new SpriteLayer("RightHorn", "$folder/RightHorn/", 1, maxHorn)..partners.add(leftHorn);
         mouth = new SpriteLayer("Mouth", "$folder/Mouth/", 1, maxMouth);
     }
 
