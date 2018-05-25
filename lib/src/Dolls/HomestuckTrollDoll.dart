@@ -132,8 +132,8 @@ class HomestuckTrollDoll extends HomestuckDoll {
         super.initLayers();
         //only do what is special to me here.
         canonSymbol = new SpriteLayer("CanonSymbol", "$folder/CanonSymbol/", 0, maxCanonSymbol, supportsMultiByte: true);
-        leftFin = new SpriteLayer("Fin", "$folder/LeftFin/", 1, maxFin);
-        rightFin = new SpriteLayer("Fin", "$folder/RightFin/", 1, maxFin, syncedWith: <SpriteLayer>[leftFin]);
+        leftFin = new SpriteLayer("FinLeft", "$folder/LeftFin/", 1, maxFin);
+        rightFin = new SpriteLayer("FinRight", "$folder/RightFin/", 1, maxFin, syncedWith: <SpriteLayer>[leftFin]);
         leftFin.syncedWith.add(rightFin);
         rightFin.slave = true; //can't be selected on it's own
 

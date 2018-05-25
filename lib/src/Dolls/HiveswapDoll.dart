@@ -281,13 +281,13 @@ class HiveswapDoll extends Doll {
 
     @override
     void initLayers() {
-        hairTop = new SpriteLayer("Hair","$folder/HairTop/", 1, maxHair);
-        hairBack = new SpriteLayer("Hair","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[hairTop]);
+        hairTop = new SpriteLayer("HairFront","$folder/HairTop/", 1, maxHair);
+        hairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[hairTop]);
         hairTop.syncedWith.add(hairBack);
         hairBack.slave = true; //can't be selected on it's own
 
-        leftFin = new SpriteLayer("Fin", "$folder/LeftFin/", 1, maxFin);
-        rightFin = new SpriteLayer("Fin", "$folder/RightFin/", 1, maxFin, syncedWith: <SpriteLayer>[leftFin]);
+        leftFin = new SpriteLayer("LeftFin", "$folder/LeftFin/", 1, maxFin);
+        rightFin = new SpriteLayer("RightFin", "$folder/RightFin/", 1, maxFin, syncedWith: <SpriteLayer>[leftFin]);
         leftFin.syncedWith.add(rightFin);
         rightFin.slave = true; //can't be selected on it's own
 

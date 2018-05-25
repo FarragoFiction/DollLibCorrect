@@ -175,8 +175,8 @@ class TalkSpriteDoll extends Doll{
   void initLayers() {
 
     {
-      hairFront = new SpriteLayer("Hair","$folder/HairFront/", 1, maxHair);
-      hairBack = new SpriteLayer("Hair","$folder/HairBack/", 1, maxHair, syncedWith: <SpriteLayer>[hairFront]);
+      hairFront = new SpriteLayer("HairFront","$folder/HairFront/", 1, maxHair);
+      hairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair, syncedWith: <SpriteLayer>[hairFront]);
       hairFront.syncedWith.add(hairBack);
       hairBack.slave = true; //can't be selected on it's own
 
