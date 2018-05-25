@@ -180,6 +180,14 @@ abstract class Doll {
         }
     }
 
+    List<String> getAllNeededDirectories() {
+        List<String> ret = new List<String>();
+        for(SpriteLayer layer in dataOrderLayers) {
+            ret.add(layer.imgNameBase);
+        }
+        return ret;
+    }
+
 
 
     void save() {
