@@ -22,8 +22,10 @@ class SpriteLayer {
     String description = "";
     //slaves just match whatever another thingy tells them to do.
     bool slave = false;
-    List<SpriteLayer> syncedWith; //for things like hair where they should always match.
-
+    //partners aren't forced to do anything, but i need to know they exist
+    bool primaryPartner = true;
+    List<SpriteLayer> syncedWith  = new List<SpriteLayer>(); //for things like hair where they should always match.
+    List<SpriteLayer> partners = new List<SpriteLayer>();
     bool changed = true; //generate descriptions when created, that will set it to false
 
     SpriteLayer(this.name, this.imgNameBase, this._imgNumber, this.maxImageNumber, {this.supportsMultiByte = false, this.syncedWith:null, this.imgFormat:"png"}) {

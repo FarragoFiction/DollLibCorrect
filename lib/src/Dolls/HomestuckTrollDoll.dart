@@ -140,8 +140,8 @@ class HomestuckTrollDoll extends HomestuckDoll {
         wings = new SpriteLayer("Wings", "$folder/Wings/", 0, maxWing);
         leftHorn = new SpriteLayer("LeftHornOld", "$folder/LeftHorn/", 1, 255);
         rightHorn = new SpriteLayer("RightHornOld", "$folder/RightHorn/", 1, 255);
-        extendedRightHorn =new SpriteLayer("RightHorn", "$folder/RightHorn/", 1, maxHorn, supportsMultiByte: true);
-        extendedLeftHorn = new SpriteLayer("LeftHorn", "$folder/LeftHorn/", 1, maxHorn, supportsMultiByte: true);
+        extendedRightHorn =new SpriteLayer("RightHorn", "$folder/RightHorn/", 1, maxHorn, supportsMultiByte: true)..primaryPartner = false;
+        extendedLeftHorn = new SpriteLayer("LeftHorn", "$folder/LeftHorn/", 1, maxHorn, supportsMultiByte: true)..partners.add(extendedRightHorn);
 
     }
 

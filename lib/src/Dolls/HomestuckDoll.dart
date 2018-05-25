@@ -123,8 +123,8 @@ class HomestuckDoll extends HatchableDoll {
 
         symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol);
         mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
-        leftEye = new SpriteLayer("LeftEye","$folder/LeftEye/", 1, maxEye);
-        rightEye = new SpriteLayer("RightEye","$folder/RightEye/", 1, maxEye);
+        leftEye = new SpriteLayer("LeftEye","$folder/LeftEye/", 1, maxEye)..primaryPartner = false;
+        rightEye = new SpriteLayer("RightEye","$folder/RightEye/", 1, maxEye)..partners.add(leftEye);
         glasses = new SpriteLayer("Glasses","$folder/Glasses/", 1, maxGlass);
         glasses2 = new SpriteLayer("Glasses2","$folder/Glasses2/", 0, maxGlass2);
     }
