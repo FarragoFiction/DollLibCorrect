@@ -185,8 +185,8 @@ class TalkSpriteDoll extends Doll{
       facePaint = new SpriteLayer("FacePaint","$folder/FacePaint/", 1, maxFacePaint);
       brows = new SpriteLayer("Brows","$folder/Brows/", 1, maxBrows);
       mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
-      leftEye = new SpriteLayer("LeftEye","$folder/LeftEye/", 1, maxEyes);
-      rightEye = new SpriteLayer("RightEye","$folder/RightEye/", 1, maxEyes);
+      leftEye = new SpriteLayer("LeftEye","$folder/LeftEye/", 1, maxEyes)..primaryPartner = false;
+      rightEye = new SpriteLayer("RightEye","$folder/RightEye/", 1, maxEyes)..partners.add(leftEye);
 
       nose = new SpriteLayer("Nose","$folder/Nose/", 1, maxNose);
       accessory = new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
