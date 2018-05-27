@@ -15,7 +15,7 @@ export "src/Dolls/MatryoshkaDoll.dart";
 export "src/Dolls/VirusDoll.dart";
 export "src/Dolls/Quirk.dart";
 export "src/Dolls/BroomDoll.dart";
-
+export "src/Dolls/CatDoll.dart";
 export "src/Dolls/HomestuckBabyDoll.dart";
 export "src/Dolls/HomestuckGrubDoll.dart";
 

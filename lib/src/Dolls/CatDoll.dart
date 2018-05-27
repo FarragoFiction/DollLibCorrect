@@ -29,20 +29,18 @@ class CatDoll extends Doll{
 
   @override
   String relativefolder = "images/Cat";
-  final int maxAccessory = 1;
-  final int maxbackLegs = 1;
-  final int maxBody = 0;
-  final int maxChestFur = 1;
-  final int maxFrontLegs = 1;
+  final int maxAccessory = 0;
+  final int maxbackLegs = 2;
+  final int maxBody = 2;
+  final int maxChestFur = 2;
+  final int maxFrontLegs = 3;
   final int maxHead = 1;
   final int maxLeftEar = 1;
   final int maxLeftEye = 2;
-  final int maxLeftHeadFur = 1;
   final int maxRightEar = 1;
   final int maxRightEye = 2;
-  final int maxRightHeadFur = 1;
-  final int maxSnout = 3;
-  final int maxTail = 1;
+  final int maxSnout = 2;
+  final int maxTail = 4;
 
 
 
@@ -55,10 +53,8 @@ class CatDoll extends Doll{
   SpriteLayer head;
   SpriteLayer leftEar;
   SpriteLayer leftEye;
-  SpriteLayer leftHeadFur;
   SpriteLayer rightEar;
   SpriteLayer rightEye;
-  SpriteLayer rightHeadFur;
   SpriteLayer snout;
   SpriteLayer tail;
 
@@ -67,9 +63,9 @@ class CatDoll extends Doll{
 
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[tail, body,chestFur, rightHeadFur, head, leftEye, rightEye, leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[tail, body,chestFur, head, leftEye, rightEye, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
   @override
-  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[tail, body,chestFur, rightHeadFur, head, leftEye, rightEye, leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
+  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[tail, body,chestFur, head, leftEye, rightEye, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
 
 
   @override
@@ -161,23 +157,15 @@ class CatDoll extends Doll{
       tail = new SpriteLayer("Tail","$folder/Tail/", 1, maxTail);
       body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
       chestFur = new SpriteLayer("ChestFur","$folder/chestFur/", 1, maxChestFur);
-      rightHeadFur = new SpriteLayer("HairFur","$folder/rightHeadFur/", 1, maxRightHeadFur);
       head = new SpriteLayer("Head","$folder/head/", 1, maxHead);
       leftEye = new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxLeftEye);
       rightEye = new SpriteLayer("RightEye","$folder/rightEye/", 1, maxRightEye);
-      leftHeadFur = new SpriteLayer("HairFur","$folder/leftHeadFur/", 1, maxLeftHeadFur, syncedWith: <SpriteLayer>[rightHeadFur]);
       leftEar = new SpriteLayer("LeftEar","$folder/leftEar/", 1, maxLeftEar);
       rightEar = new SpriteLayer("RightEar","$folder/rightEar/", 1, maxRightEar);
       snout = new SpriteLayer("Snout","$folder/snout/", 1, maxSnout);
       accessory = new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
       backLegs = new SpriteLayer("BackLegs","$folder/backLegs/", 1, maxbackLegs);
       frontLegs = new SpriteLayer("FrontLegs","$folder/frontLeg/", 1, maxFrontLegs);
-
-
-      rightHeadFur.syncedWith.add(leftHeadFur);
-      leftHeadFur.slave = true; //can't be selected on it's own
-
-
 
     }
   }
