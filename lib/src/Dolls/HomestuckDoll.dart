@@ -35,7 +35,7 @@ class HomestuckDoll extends HatchableDoll {
      fuck.
      */
     final int maxHair = 254; //don't go above this yet
-    final int maxEye = 193;
+    final int maxEye = 194;
     final int maxMouth = 177;
     final int maxSymbol = 250;
     final int maxGlass = 160;
