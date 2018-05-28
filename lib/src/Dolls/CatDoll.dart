@@ -41,6 +41,7 @@ class CatDoll extends Doll{
   final int maxRightEye = 2;
   final int maxSnout = 2;
   final int maxTail = 4;
+  final int maxHeadFur = 1;
 
 
 
@@ -57,15 +58,18 @@ class CatDoll extends Doll{
   SpriteLayer rightEye;
   SpriteLayer snout;
   SpriteLayer tail;
+  SpriteLayer rightHeadFur;
+  SpriteLayer leftHeadFur;
+
 
 
 
 
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[tail, body,chestFur, head, leftEye, rightEye, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[tail, body,chestFur, head,rightHeadFur,leftHeadFur, leftEye, rightEye, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
   @override
-  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[tail, body,chestFur, head, leftEye, rightEye, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
+  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[tail, body,chestFur, head, leftEye, rightEye, leftEar, rightEar, snout, accessory, backLegs, frontLegs,rightHeadFur,leftHeadFur];
 
 
   @override
@@ -166,6 +170,13 @@ class CatDoll extends Doll{
       accessory = new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
       backLegs = new SpriteLayer("BackLegs","$folder/backLegs/", 1, maxbackLegs);
       frontLegs = new SpriteLayer("FrontLegs","$folder/frontLeg/", 1, maxFrontLegs);
+
+      rightHeadFur = new SpriteLayer("HairFur","$folder/rightHeadFur/", 1, maxHeadFur);
+      leftHeadFur = new SpriteLayer("HairFur","$folder/leftHeadFur/", 1, maxHeadFur, syncedWith: <SpriteLayer>[rightHeadFur]);
+
+
+      rightHeadFur.syncedWith.add(leftHeadFur);
+      leftHeadFur.slave = true; //can't be selected on it's own
 
     }
   }
