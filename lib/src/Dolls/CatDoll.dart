@@ -14,7 +14,7 @@ import "Quirk.dart";
 class CatDoll extends Doll{
 
   @override
-  String originalCreator = "CD";
+  String originalCreator = "CD and spinningDisks";
 
   @override
   int renderingType =23;
