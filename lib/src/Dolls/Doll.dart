@@ -9,7 +9,7 @@ import "../../DollRenderer.dart";
 abstract class Doll {
 
     //useful for the builder
-    static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22];
+    static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22,23];
     String originalCreator = "???";
 
     //in case i want controlled random
