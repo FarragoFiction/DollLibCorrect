@@ -31,16 +31,16 @@ class CatDoll extends Doll{
   String relativefolder = "images/Cat";
   final int maxAccessory = 0;
   final int maxbackLegs = 2;
-  final int maxBody = 2;
+  final int maxBody = 5;
   final int maxChestFur = 2;
-  final int maxFrontLegs = 3;
+  final int maxFrontLegs = 5;
   final int maxHead = 1;
-  final int maxLeftEar = 1;
-  final int maxLeftEye = 2;
-  final int maxRightEar = 1;
-  final int maxRightEye = 2;
-  final int maxSnout = 2;
-  final int maxTail = 4;
+  final int maxLeftEar = 6;
+  final int maxLeftEye = 5;
+  final int maxRightEar = 6;
+  final int maxRightEye = 5;
+  final int maxSnout = 5;
+  final int maxTail = 25;
   final int maxHeadFur = 1;
 
 

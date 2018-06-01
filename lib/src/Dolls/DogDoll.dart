@@ -32,18 +32,15 @@ class DogDoll extends Doll{
   String relativefolder = "images/Dog";
   final int maxAccessory = 1;
   final int maxbackLegs = 1;
-  final int maxBody = 0;
+  final int maxBody = 2;
   final int maxChestFur = 1;
   final int maxFrontLegs = 1;
   final int maxHead = 1;
-  final int maxLeftEar = 1;
-  final int maxLeftEye = 2;
-  final int maxLeftHeadFur = 1;
-  final int maxRightEar = 1;
-  final int maxRightEye = 2;
-  final int maxRightHeadFur = 1;
+  final int maxEar = 1;
+  final int maxEye = 3;
+  final int maxHeadFur = 1;
   final int maxSnout = 3;
-  final int maxTail = 1;
+  final int maxTail = 3;
 
 
 
@@ -162,13 +159,13 @@ class DogDoll extends Doll{
       tail = new SpriteLayer("Tail","$folder/Tail/", 1, maxTail);
       body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
       chestFur = new SpriteLayer("ChestFur","$folder/chestFur/", 1, maxChestFur);
-      rightHeadFur = new SpriteLayer("HairFur","$folder/rightHeadFur/", 1, maxRightHeadFur);
+      rightHeadFur = new SpriteLayer("HairFur","$folder/rightHeadFur/", 1, maxHeadFur);
       head = new SpriteLayer("Head","$folder/head/", 1, maxHead);
-      leftEye = new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxLeftEye);
-      rightEye = new SpriteLayer("RightEye","$folder/rightEye/", 1, maxRightEye);
-      leftHeadFur = new SpriteLayer("HairFur","$folder/leftHeadFur/", 1, maxLeftHeadFur, syncedWith: <SpriteLayer>[rightHeadFur]);
-      leftEar = new SpriteLayer("LeftEar","$folder/leftEar/", 1, maxLeftEar);
-      rightEar = new SpriteLayer("RightEar","$folder/rightEar/", 1, maxRightEar);
+      leftEye = new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxEye);
+      rightEye = new SpriteLayer("RightEye","$folder/rightEye/", 1, maxEye);
+      leftHeadFur = new SpriteLayer("HairFur","$folder/leftHeadFur/", 1, maxHeadFur, syncedWith: <SpriteLayer>[rightHeadFur]);
+      leftEar = new SpriteLayer("LeftEar","$folder/leftEar/", 1, maxEar);
+      rightEar = new SpriteLayer("RightEar","$folder/rightEar/", 1, maxEar);
       snout = new SpriteLayer("Snout","$folder/snout/", 1, maxSnout);
       accessory = new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
       backLegs = new SpriteLayer("BackLegs","$folder/backLegs/", 1, maxbackLegs);

@@ -51,7 +51,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
     String relativefolder = "images/Homestuck";
 
     @override
-    List<SpriteLayer> get renderingOrderLayers => <SpriteLayer>[wings, hairBack, body,  facePaint, cheeks,symbol, mouth, leftEye, rightEye, glasses, hairTop, glasses2];
+    List<SpriteLayer> get renderingOrderLayers => <SpriteLayer>[wings, extendedHairBack, body,  facePaint, cheeks,symbol, mouth, leftEye, rightEye, glasses, extendedHairTop, glasses2];
 
 
     @override
