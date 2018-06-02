@@ -27,7 +27,8 @@ class HiveswapDoll extends Doll {
     @override
     String name = "Hiveswap";
 
-    String folder = "images/Homestuck/Hiveswap";
+    @override
+    String relativeFolder = "images/Homestuck/Hiveswap";
 
     SpriteLayer body;
     SpriteLayer glasses;
