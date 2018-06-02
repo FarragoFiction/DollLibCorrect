@@ -152,12 +152,12 @@ class HomestuckTrollDoll extends HomestuckDoll {
         int type = reader.readByte(); //not gonna use, but needs to be off before given to initFromReader
         initFromReader(reader, new HomestuckTrollPalette());
        // print("after initing from reader, hair top is ${hairTop.imgNumber} and hair back is ${hairBack.imgNumber}");
-        if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
-        if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
-        if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
+        if(extendedBody.imgNumber <255) extendedBody.imgNumber = body.imgNumber;
+        if(extendedHairTop.imgNumber <255) extendedHairTop.imgNumber = hairTop.imgNumber;
+        if(extendedHairBack.imgNumber <255) extendedHairBack.imgNumber = hairBack.imgNumber;
 
-        if(extendedLeftHorn.imgNumber ==0) extendedLeftHorn.imgNumber = leftHorn.imgNumber;
-        if(extendedRightHorn.imgNumber ==0) extendedRightHorn.imgNumber = rightHorn.imgNumber;
+        if(extendedLeftHorn.imgNumber <255) extendedLeftHorn.imgNumber = leftHorn.imgNumber;
+        if(extendedRightHorn.imgNumber <255) extendedRightHorn.imgNumber = rightHorn.imgNumber;
     }
 
     //assumes type byte is already gone
@@ -305,6 +305,15 @@ class HomestuckTrollDoll extends HomestuckDoll {
            // print("generating regular eyes");
             regularEyes(older);
         }
+
+    }
+
+    @override
+    void beforeSaving() {
+        super.beforeSaving();
+        //nothing to do but other dolls might sync old and new parts
+        leftHorn.imgNumber = extendedLeftHorn.imgNumber%255;
+        rightHorn.imgNumber = extendedRightHorn.imgNumber%255;
 
     }
 

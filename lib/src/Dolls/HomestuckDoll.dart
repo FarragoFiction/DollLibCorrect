@@ -102,6 +102,17 @@ class HomestuckDoll extends HatchableDoll {
         initFromReader(reader, new HomestuckPalette(), false);
     }
 
+    @override
+    void beforeSaving() {
+        super.beforeSaving();
+        //nothing to do but other dolls might sync old and new parts
+        body.imgNumber = extendedBody.imgNumber%255;
+        hairBack.imgNumber = extendedHairBack.imgNumber%255;
+        hairTop.imgNumber = extendedHairTop.imgNumber%255;
+
+
+    }
+
     void initLayers()
 
     {

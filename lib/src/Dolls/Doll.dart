@@ -399,8 +399,12 @@ abstract class Doll {
     }
 
 
+    void beforeSaving() {
+        //nothing to do but other dolls might sync old and new parts
+    }
 
     String toDataBytesX([ByteBuilder builder = null]) {
+        beforeSaving();
        // print("saving to data bytes x");
         if(builder == null) builder = new ByteBuilder();
         int length = palette.names.length + 1;//one byte for doll type
