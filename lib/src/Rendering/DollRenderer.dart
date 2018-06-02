@@ -52,6 +52,7 @@ class DollRenderer {
                 //print("I must be testing something, it's a preloaded Element");
                 bool res = await Renderer.drawExistingElementFuture(buffer, l.preloadedElement);
             }else {
+                print("I am trying to load a file from ${l.imgLocation}");
                 bool res = await Renderer.drawWhateverFuture(buffer, l.imgLocation);
             }
         }
