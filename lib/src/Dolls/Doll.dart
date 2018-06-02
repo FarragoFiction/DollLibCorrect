@@ -28,6 +28,14 @@ abstract class Doll {
 
     bool useAbsolutePath = true;
 
+    int get seed {
+        int s = associatedColor.red + associatedColor.green + associatedColor.blue;
+        for(SpriteLayer imageLayer in renderingOrderLayers) {
+            s += imageLayer.imgNumber;
+        }
+        return s;
+    }
+
     Quirk get quirk {
         if(quirkButDontUse == null) {
             setQuirk();
@@ -159,11 +167,6 @@ abstract class Doll {
     }
 
     void setQuirk() {
-        int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
-        for(SpriteLayer imageLayer in renderingOrderLayers) {
-            seed += imageLayer.imgNumber;
-        }
-
         Random rand  = new Random(seed);
         quirkButDontUse = Quirk.randomHumanQuirk(rand);
     }

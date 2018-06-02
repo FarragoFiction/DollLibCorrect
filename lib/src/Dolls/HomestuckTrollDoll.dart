@@ -244,10 +244,6 @@ class HomestuckTrollDoll extends HomestuckDoll {
 
     @override
     void setQuirk() {
-        int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
-        for(SpriteLayer imageLayer in renderingOrderLayers) {
-            seed += imageLayer.imgNumber;
-        }
         Random rand2  = new Random(seed);
         quirkButDontUse = Quirk.randomTrollQuirk(rand2);
     }
