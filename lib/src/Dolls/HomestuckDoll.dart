@@ -106,6 +106,8 @@ class HomestuckDoll extends HatchableDoll {
     void beforeSaving() {
         super.beforeSaving();
         //nothing to do but other dolls might sync old and new parts
+        print("before saving, setting old parts to equal new parts where they can ");
+
         body.imgNumber = extendedBody.imgNumber%255;
         hairBack.imgNumber = extendedHairBack.imgNumber%255;
         hairTop.imgNumber = extendedHairTop.imgNumber%255;

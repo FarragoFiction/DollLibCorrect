@@ -15,7 +15,7 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
     //doll =  Doll.randomDollOfType(23);
-    doll = Doll.loadSpecificDoll("AqA7qIbMBGhiAjDJBGgaB4hjAjD51035103JBGgCAABYWlrS0dGJiIgAAACIiIiYmZkhJibOBGhiAjABCAgICKADAAAICAgIAPAIAAgL4OICAAAAAA==");
+    doll = Doll.loadSpecificDoll("http://localhost:63342/DollBuilder/web/index.html?AqDTdy4MMgMAmQEIMgMAywQAmQH41035100JMgMAAABYWlrS0dGJiIgAAACIiIiYmZkhJiYOMgMAmQEACAjQ0sIEAAAICAAAAMADgAQEICQEAAAAAA==");
     //doll = new HomestuckDoll();
     //doll = Doll.loadSpecificDoll("http://localhost:63342/DollBuilder/web/index.html?ElD_ZzJ7McjwHn6YIEx4Gj5MEiiqKFR6HDzWEFKUEDA6rlwibjoCBAIEBAAAAA==");
     //doll = Doll.randomDollOfType(18);
@@ -27,9 +27,10 @@ Future<bool> start() async {
     //print("going to use folder ${t.folder}");
 
     //HiveswapDoll t = doll as HiveswapDoll;
-    //HomestuckTrollDoll t = doll as HomestuckTrollDoll;
-    //t.leftHorn.imgNumber = t.maxHorn-minus;
-    //t.rightHorn.imgNumber = t.maxHorn-minus;
+    HomestuckTrollDoll t = doll as HomestuckTrollDoll;
+
+    t.extendedRightHorn.imgNumber = 0;
+    t.extendedLeftHorn.imgNumber = 0;
 
     //print("body is ${t.body.imgNumber}");
 
