@@ -18,7 +18,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     @override
     int renderingType =13;
     @override
-    String folder = "images/Homestuck";
+    String relativeFolder = "images/Homestuck";
     @override
     final int maxBody = 26;
 
