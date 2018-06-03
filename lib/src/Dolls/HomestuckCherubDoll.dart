@@ -51,7 +51,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
     String relativefolder = "images/Homestuck";
 
     @override
-    List<SpriteLayer> get renderingOrderLayers => <SpriteLayer>[wings, extendedHairBack, extendedBody,  facePaint, cheeks,symbol, mouth, leftEye, rightEye, glasses, extendedHairTop, glasses2];
+    List<SpriteLayer> get renderingOrderLayers => <SpriteLayer>[wings, extendedHairBack, body,  facePaint, cheeks,symbol, mouth, leftEye, rightEye, glasses, extendedHairTop, glasses2];
 
 
     @override
@@ -205,9 +205,21 @@ class HomestuckCherubDoll extends HomestuckDoll {
     //assumes type byte is already gone
     HomestuckCherubDoll.fromReader(ByteReader reader){
         initFromReader(reader, new HomestuckCherubPalette());
-        if(extendedBody.imgNumber <2) extendedBody.imgNumber = body.imgNumber;
         if(extendedHairBack.imgNumber <2) extendedHairBack.imgNumber = hairBack.imgNumber;
         if(extendedHairTop.imgNumber <2) extendedHairTop.imgNumber = hairTop.imgNumber;
+    }
+
+    @override
+    void beforeSaving() {
+        super.beforeSaving();
+        //nothing to do but other dolls might sync old and new parts
+        print("before saving, setting old parts to equal new parts where they can ");
+        //cherubs don't use the extended body yet
+       // body.imgNumber = extendedBody.imgNumber%255;
+        hairBack.imgNumber = extendedHairBack.imgNumber%255;
+        hairTop.imgNumber = extendedHairTop.imgNumber%255;
+
+
     }
 
 }
