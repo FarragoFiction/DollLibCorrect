@@ -122,7 +122,7 @@ abstract class Doll {
                 if(sourceLayer.name == replacementLayer.name) {
                     //print("${sourceLayer.imgNameBase} is ${replacementLayer.imgNameBase}");
                     //even if similar doll typesp might have different maxes
-                    replacementLayer.imgNumber = sourceLayer.imgNumber % replacementLayer.maxImageNumber;
+                    replacementLayer.imgNumber = sourceLayer.imgNumber % (replacementLayer.maxImageNumber+1);
                 }else {
                     //print("${sourceLayer.imgNameBase} is not ${replacementLayer.imgNameBase}");
                 }
