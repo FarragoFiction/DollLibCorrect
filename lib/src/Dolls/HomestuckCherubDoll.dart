@@ -205,9 +205,9 @@ class HomestuckCherubDoll extends HomestuckDoll {
     //assumes type byte is already gone
     HomestuckCherubDoll.fromReader(ByteReader reader){
         initFromReader(reader, new HomestuckCherubPalette());
-        if(extendedBody.imgNumber <255) extendedBody.imgNumber = body.imgNumber;
-        if(extendedHairBack.imgNumber <255) extendedHairBack.imgNumber = hairBack.imgNumber;
-        if(extendedHairTop.imgNumber <255) extendedHairTop.imgNumber = hairTop.imgNumber;
+        if(extendedBody.imgNumber <2) extendedBody.imgNumber = body.imgNumber;
+        if(extendedHairBack.imgNumber <2) extendedHairBack.imgNumber = hairBack.imgNumber;
+        if(extendedHairTop.imgNumber <2) extendedHairTop.imgNumber = hairTop.imgNumber;
     }
 
 }

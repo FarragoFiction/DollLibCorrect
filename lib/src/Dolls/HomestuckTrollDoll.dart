@@ -152,12 +152,12 @@ class HomestuckTrollDoll extends HomestuckDoll {
         int type = reader.readByte(); //not gonna use, but needs to be off before given to initFromReader
         initFromReader(reader, new HomestuckTrollPalette());
        // print("after initing from reader, hair top is ${hairTop.imgNumber} and hair back is ${hairBack.imgNumber}");
-        if(extendedBody.imgNumber <255) extendedBody.imgNumber = body.imgNumber;
-        if(extendedHairTop.imgNumber <255) extendedHairTop.imgNumber = hairTop.imgNumber;
-        if(extendedHairBack.imgNumber <255) extendedHairBack.imgNumber = hairBack.imgNumber;
+        if(extendedBody.imgNumber <2) extendedBody.imgNumber = body.imgNumber;
+        if(extendedHairTop.imgNumber <2) extendedHairTop.imgNumber = hairTop.imgNumber;
+        if(extendedHairBack.imgNumber <2) extendedHairBack.imgNumber = hairBack.imgNumber;
 
-        if(extendedLeftHorn.imgNumber <255) extendedLeftHorn.imgNumber = leftHorn.imgNumber;
-        if(extendedRightHorn.imgNumber <255) extendedRightHorn.imgNumber = rightHorn.imgNumber;
+        if(extendedLeftHorn.imgNumber <2) extendedLeftHorn.imgNumber = leftHorn.imgNumber;
+        if(extendedRightHorn.imgNumber <2) extendedRightHorn.imgNumber = rightHorn.imgNumber;
     }
 
     //assumes type byte is already gone
