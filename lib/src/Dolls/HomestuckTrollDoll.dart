@@ -312,7 +312,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     void beforeSaving() {
         super.beforeSaving();
         //nothing to do but other dolls might sync old and new parts
-        print("old left horn was ${ leftHorn.imgNumber} should now be ${extendedLeftHorn.imgNumber%255}");
+        //print("old left horn was ${ leftHorn.imgNumber} should now be ${extendedLeftHorn.imgNumber%255}");
         leftHorn.imgNumber = extendedLeftHorn.imgNumber%255;
         rightHorn.imgNumber = extendedRightHorn.imgNumber%255;
 

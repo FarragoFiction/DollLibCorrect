@@ -213,7 +213,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
     void beforeSaving() {
         //super.beforeSaving();
         //nothing to do but other dolls might sync old and new parts
-        print("before saving, setting old parts to equal new parts where they can ");
+       // print("before saving, setting old parts to equal new parts where they can ");
         //cherubs don't use the extended body yet
        // body.imgNumber = extendedBody.imgNumber%255;
         hairBack.imgNumber = extendedHairBack.imgNumber%255;
