@@ -211,7 +211,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
 
     @override
     void beforeSaving() {
-        super.beforeSaving();
+        //super.beforeSaving();
         //nothing to do but other dolls might sync old and new parts
         print("before saving, setting old parts to equal new parts where they can ");
         //cherubs don't use the extended body yet
