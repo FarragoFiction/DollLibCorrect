@@ -461,6 +461,10 @@ abstract class Doll {
             return new VirusDoll.fromReader(reader);
         }
 
+        if(type == new BlobMonsterDoll().renderingType) {
+          return new BlobMonsterDoll.fromReader(reader);
+        }
+
         if(type == new CatDoll().renderingType) {
             return new CatDoll.fromReader(reader);
         }
@@ -587,6 +591,10 @@ abstract class Doll {
 
         if(type == new VirusDoll().renderingType) {
             return new VirusDoll();
+        }
+
+        if(type == new BlobMonsterDoll().renderingType) {
+          return new BlobMonsterDoll();
         }
 
         if(type == new CatDoll().renderingType) {
@@ -787,5 +795,19 @@ class SavedDoll {
 
 
 
+
+}
+
+//name color pair but short
+class NCP
+{
+    String name;
+    String styleString;
+
+    NCP(String this.name, String this.styleString);
+
+    void addToPalette(Palette p) {
+        p.add(name, new Colour.fromStyleString(styleString), true);
+    }
 
 }

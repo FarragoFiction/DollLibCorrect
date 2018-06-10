@@ -289,16 +289,3 @@ class OpenBoundPalette extends Palette {
 
 }
 
-//name color pair but short
-class NCP
-{
-  String name;
-  String styleString;
-
-  NCP(String this.name, String this.styleString);
-
-  void addToPalette(Palette p) {
-    p.add(name, new Colour.fromStyleString(styleString), true);
-  }
-
-}
