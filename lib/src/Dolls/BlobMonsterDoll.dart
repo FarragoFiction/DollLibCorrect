@@ -70,15 +70,37 @@ class BlobMonsterDoll extends Doll{
   //how does the drop downs work?
   @override
   void randomizeColors() {
-            if(rand == null) rand = new Random();;
-    List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
+    if (rand == null) rand = new Random();;
+    List<Palette> paletteOptions = new List<Palette>.from(
+        ReferenceColours.paletteList.values);
     Palette newPallete = rand.pickFrom(paletteOptions);
-    if(newPallete == ReferenceColours.INK) {
-      super.randomizeColors();
-    }else {
+    if (rand.nextDouble() > 0.3) {
+      tackyColors();
+    } else {
       copyPalette(newPallete);
     }
   }
+
+
+    void tackyColors() {
+      BlobMonsterPalette o = palette as BlobMonsterPalette;
+
+      palette.add(BlobMonsterPalette.SKIN, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+      makeOtherColorsDarker(o, BlobMonsterPalette.SKIN, <String>[BlobMonsterPalette.SKINDARK]);
+
+      palette.add(BlobMonsterPalette.ACCENT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+      makeOtherColorsDarker(o, BlobMonsterPalette.ACCENT, <String>[BlobMonsterPalette.ACCENTDARK]);
+
+      palette.add(BlobMonsterPalette.FEATHER1, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+      makeOtherColorsDarker(o, BlobMonsterPalette.FEATHER1, <String>[BlobMonsterPalette.FEATHER1DARK]);
+
+      palette.add(BlobMonsterPalette.FEATHER2, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+      makeOtherColorsDarker(o, BlobMonsterPalette.FEATHER2, <String>[BlobMonsterPalette.FEATHER2DARK]);
+
+      palette.add(BlobMonsterPalette.EYES, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+      makeOtherColorsDarker(o, BlobMonsterPalette.EYES, <String>[BlobMonsterPalette.EYESDARK]);
+
+    }
 
   @override
   void randomizeNotColors() {

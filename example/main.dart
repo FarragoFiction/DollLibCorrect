@@ -15,7 +15,7 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
     //doll =  Doll.randomDollOfType(16);
-   doll = Doll.loadSpecificDoll("AqCz4B7OBGhiAjDJBGgaB4hjAjD51035103JBGgCAABYWlrS0dGJiIgAAACIiIiYmZkhJibOBGhiAjCJcHMTFg4AAACIjAQAEAEAAIgAcHOLBIgEAA==");
+   doll = Doll.randomDollOfType(25);
     //doll = new HomestuckDoll();
     //doll = Doll.loadSpecificDoll("http://localhost:63342/DollBuilder/web/index.html?ElD_ZzJ7McjwHn6YIEx4Gj5MEiiqKFR6HDzWEFKUEDA6rlwibjoCBAIEBAAAAA==");
     //doll = Doll.randomDollOfType(18);
