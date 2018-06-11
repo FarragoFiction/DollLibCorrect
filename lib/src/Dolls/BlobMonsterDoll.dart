@@ -31,7 +31,7 @@ class BlobMonsterDoll extends Doll{
   String relativefolder = "images/BlobMonster";
   final int maxBody = 13;
   final int maxHorn = 14;
-  final int maxMouth = 4;
+  final int maxMouth = 13;
   final int maxWing = 8;
   final int maxEyes = 8;
 
