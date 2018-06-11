@@ -29,8 +29,8 @@ class BlobMonsterDoll extends Doll{
 
   @override
   String relativefolder = "images/BlobMonster";
-  final int maxBody = 7;
-  final int maxHorn = 6;
+  final int maxBody = 13;
+  final int maxHorn = 14;
   final int maxMouth = 4;
   final int maxWing = 8;
   final int maxEyes = 8;
