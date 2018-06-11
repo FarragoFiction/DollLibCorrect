@@ -489,6 +489,10 @@ abstract class Doll {
             return new DogDoll.fromReader(reader);
         }
 
+        if(type == new DocDoll().renderingType) {
+          return new DocDoll.fromReader(reader);
+        }
+
         if(type == new PupperDoll().renderingType) {
           return new PupperDoll.fromReader(reader);
         }
@@ -623,6 +627,10 @@ abstract class Doll {
 
         if(type == new DogDoll().renderingType) {
             return new DogDoll();
+        }
+
+        if(type == new DocDoll().renderingType) {
+          return new DocDoll();
         }
 
         if(type == new PupperDoll().renderingType) {

@@ -12,60 +12,46 @@ import "Quirk.dart";
 //saving and loading isn't working .why?
 
 
-class PupperDoll extends Doll{
+class DocDoll extends Doll{
 
   @override
-  String originalCreator = "The Law, spinningDisks, CD";
+  String originalCreator = "spinningDisks";
 
   @override
-  int renderingType =24;
+  int renderingType =26;
 
   @override
-  int width = 300;
+  int width = 149;
   @override
-  int height = 300;
+  int height = 369;
 
   @override
-  String name = "Pupper";
+  String name = "Doc";
 
   @override
-  String relativefolder = "images/Pupper";
+  String relativefolder = "images/Doc";
   final int maxAccessory = 1;
-  final int maxbackLegs = 0;
-  final int maxBody = 0;
-  final int maxFrontLegs = 0;
+  final int maxBody = 1;
+  final int maxLeg = 1;
   final int maxHead = 0;
-  final int maxEar = 0;
-  final int maxEye = 1;
-  final int maxHeadFur = 1;
-  final int maxSnout = 0;
-  final int maxTail = 1;
 
 
 
 
   SpriteLayer accessory;
-  SpriteLayer backLegs;
   SpriteLayer body;
-  SpriteLayer frontLegs;
   SpriteLayer head;
-  SpriteLayer leftEar;
-  SpriteLayer leftEye;
-  SpriteLayer leftHeadFur;
-  SpriteLayer rightEar;
-  SpriteLayer rightEye;
-  SpriteLayer rightHeadFur;
-  SpriteLayer snout;
-  SpriteLayer tail;
+  SpriteLayer legs;
+
 
 
 
 
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[tail, body,  head,rightHeadFur, leftEye, rightEye, leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[legs, body, head, accessory];
   @override
-  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[tail, body, rightHeadFur, head, leftEye, rightEye, leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
+  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[legs, body, head, accessory];
 
 
   @override
@@ -89,7 +75,7 @@ class PupperDoll extends Doll{
     ..skin = '#ffffff';
 
 
-  PupperDoll() {
+  DocDoll() {
     initLayers();
     randomize();
   }
@@ -114,9 +100,6 @@ class PupperDoll extends Doll{
     for(SpriteLayer l in renderingOrderLayers) {
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
-    leftEye.imgNumber = rightEye.imgNumber;
-    leftEar.imgNumber = rightEar.imgNumber;
-    if(tail.imgNumber == 0) tail.imgNumber = 1;
   }
 
   @override
@@ -127,7 +110,7 @@ class PupperDoll extends Doll{
     initFromReader(reader, new HomestuckPalette(), false);
   }
 
-  PupperDoll.fromDataString(String dataString){
+  DocDoll.fromDataString(String dataString){
     Uint8List thingy = BASE64URL.decode(dataString);
     ByteReader reader = new ByteReader(thingy.buffer, 0);
     int type = reader.readByte(); //not gonna use, but needs to be gone for reader
@@ -136,16 +119,14 @@ class PupperDoll extends Doll{
   }
 
   //assumes type byte is already gone
-  PupperDoll.fromReader(ByteReader reader){
+  DocDoll.fromReader(ByteReader reader){
     initFromReader(reader,new HomestuckPalette());
   }
 
   @override
   void setQuirk() {
-    int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
     Random rand  = new Random(seed);
     quirkButDontUse = Quirk.randomHumanQuirk(rand);
-    quirkButDontUse.lettersToReplaceIgnoreCase = [["^.*\$", "Woof"],["[.]\$", "Bark"],["[.]\$", "Yip"],];
 
   }
 
@@ -153,27 +134,10 @@ class PupperDoll extends Doll{
   void initLayers() {
 
     {
-      //leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
-      tail = new SpriteLayer("Tail","$folder/Tail/", 1, maxTail);
       body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      rightHeadFur = new SpriteLayer("HairFur","$folder/rightHeadFur/", 1, maxHeadFur);
-      head = new SpriteLayer("Head","$folder/head/", 1, maxHead);
-      leftEye = new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxEye);
-      rightEye = new SpriteLayer("RightEye","$folder/rightEye/", 1, maxEye);
-      leftHeadFur = new SpriteLayer("HairFur","$folder/leftHeadFur/", 1, maxHeadFur, syncedWith: <SpriteLayer>[rightHeadFur]);
-      leftEar = new SpriteLayer("LeftEar","$folder/leftEar/", 1, maxEar);
-      rightEar = new SpriteLayer("RightEar","$folder/rightEar/", 1, maxEar);
-      snout = new SpriteLayer("Snout","$folder/snout/", 1, maxSnout);
-      accessory = new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
-      backLegs = new SpriteLayer("BackLegs","$folder/backLegs/", 1, maxbackLegs);
-      frontLegs = new SpriteLayer("FrontLegs","$folder/frontLeg/", 1, maxFrontLegs);
-
-
-      rightHeadFur.syncedWith.add(leftHeadFur);
-      leftHeadFur.slave = true; //can't be selected on it's own
-
-
-
+      head = new SpriteLayer("Head","$folder/Head/", 1, maxHead);
+      accessory = new SpriteLayer("Accessory","$folder/Accessory/", 1, maxAccessory);
+      legs = new SpriteLayer("Legs","$folder/Legs/", 1, maxLeg);
     }
   }
 
