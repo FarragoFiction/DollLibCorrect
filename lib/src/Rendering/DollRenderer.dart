@@ -22,7 +22,7 @@ class DollRenderer {
             ImageElement image = await Loader.getResource((doll.renderingOrderLayers.first.imgLocation));
             doll.width = image.width;
             doll.height = image.height;
-            print("loaded image of ${doll.width} and height ${doll.height}. ");
+           // print("loaded image of ${doll.width} and height ${doll.height}. ");
 
         }
         CanvasElement buffer = new CanvasElement(width: doll.width, height: doll.height);

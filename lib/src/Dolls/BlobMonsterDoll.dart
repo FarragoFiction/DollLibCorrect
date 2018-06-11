@@ -51,6 +51,9 @@ class BlobMonsterDoll extends Doll{
   @override
   Palette palette = new BlobMonsterPalette();
 
+  @override
+  Palette paletteSource = new BlobMonsterPalette();
+
 
   BlobMonsterDoll() {
     initLayers();

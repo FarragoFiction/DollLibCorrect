@@ -304,10 +304,10 @@ abstract class Doll {
 
     //who is shogun???
     static int convertSentenceToNumber(String sentence) {
-        print("converting sentence ${sentence}");
+       // print("converting sentence ${sentence}");
         int ret = 0;
         for(int s in sentence.codeUnits) {
-            print ("code unit ${new String.fromCharCode(s)}");
+            //print ("code unit ${new String.fromCharCode(s)}");
             ret += s;
         }
         return ret;
