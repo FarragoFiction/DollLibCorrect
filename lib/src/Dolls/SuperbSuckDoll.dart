@@ -110,6 +110,14 @@ class SuperbSuckDoll extends Doll{
     }
   }
 
+  @override
+  void randomizeNotColors() {
+    super.randomizeNotColors();
+    canonSymbol.imgNumber = 0;
+  }
+
+
+
   void randomizeColors() {
     List<String> human_hair_colors = <String>["#68410a", "#fffffe", "#000000", "#000000", "#000000", "#f3f28d", "#cf6338", "#feffd7", "#fff3bd", "#724107", "#382207", "#ff5a00", "#3f1904", "#ffd46d", "#473200", "#91683c"];
 
