@@ -15,7 +15,7 @@ import "Quirk.dart";
 class PupperDoll extends Doll{
 
   @override
-  String originalCreator = "The Law";
+  String originalCreator = "The Law, spinningDisks, CD";
 
   @override
   int renderingType =24;
@@ -31,16 +31,15 @@ class PupperDoll extends Doll{
   @override
   String relativefolder = "images/Pupper";
   final int maxAccessory = 1;
-  final int maxbackLegs = 1;
-  final int maxBody = 2;
-  final int maxChestFur = 1;
-  final int maxFrontLegs = 1;
-  final int maxHead = 1;
-  final int maxEar = 1;
-  final int maxEye = 3;
+  final int maxbackLegs = 0;
+  final int maxBody = 0;
+  final int maxFrontLegs = 0;
+  final int maxHead = 0;
+  final int maxEar = 0;
+  final int maxEye = 1;
   final int maxHeadFur = 1;
-  final int maxSnout = 3;
-  final int maxTail = 3;
+  final int maxSnout = 1;
+  final int maxTail = 1;
 
 
 
@@ -48,7 +47,6 @@ class PupperDoll extends Doll{
   SpriteLayer accessory;
   SpriteLayer backLegs;
   SpriteLayer body;
-  SpriteLayer chestFur;
   SpriteLayer frontLegs;
   SpriteLayer head;
   SpriteLayer leftEar;
@@ -65,9 +63,9 @@ class PupperDoll extends Doll{
 
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[tail, body,chestFur,  head,rightHeadFur, leftEye, rightEye, leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[tail, body,  head,rightHeadFur, leftEye, rightEye, leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
   @override
-  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[tail, body,chestFur, rightHeadFur, head, leftEye, rightEye, leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
+  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[tail, body, rightHeadFur, head, leftEye, rightEye, leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
 
 
   @override
@@ -158,7 +156,6 @@ class PupperDoll extends Doll{
       //leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
       tail = new SpriteLayer("Tail","$folder/Tail/", 1, maxTail);
       body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      chestFur = new SpriteLayer("ChestFur","$folder/chestFur/", 1, maxChestFur);
       rightHeadFur = new SpriteLayer("HairFur","$folder/rightHeadFur/", 1, maxHeadFur);
       head = new SpriteLayer("Head","$folder/head/", 1, maxHead);
       leftEye = new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxEye);
