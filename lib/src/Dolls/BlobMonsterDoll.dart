@@ -168,7 +168,7 @@ class BlobMonsterPalette extends Palette {
   static String ACCENT = "accent"; //
   static String ACCENTDARK = "accentDark"; //purple
 
-  static List<NCP> sourceColors = <NCP>[new NCP(ACCENT,"#b400ff"), new NCP(ACCENTDARK,"#6f009e"),new NCP(SKIN,"#00ff20"), new NCP(SKINDARK,"#06ab1b"),new NCP(FEATHER1,"#ff0000"), new NCP(FEATHER1DARK,"#ae0000"),new NCP(FEATHER1,"#0135ff"), new NCP(FEATHER2,"#011f93"),new NCP(EYES,"#f6ff00"), new NCP(EYESDARK,"#bdc400")];
+  static List<NCP> sourceColors = <NCP>[new NCP(ACCENT,"#b400ff"), new NCP(ACCENTDARK,"#6f009e"),new NCP(SKIN,"#00ff20"), new NCP(SKINDARK,"#06ab1b"),new NCP(FEATHER1,"#ff0000"), new NCP(FEATHER1DARK,"#ae0000"),new NCP(FEATHER2,"#0135ff"), new NCP(FEATHER2DARK,"#011f93"),new NCP(EYES,"#f6ff00"), new NCP(EYESDARK,"#bdc400")];
 
   static Colour _handleInput(Object input) {
     if (input is Colour) {
