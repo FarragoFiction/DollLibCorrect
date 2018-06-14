@@ -74,14 +74,7 @@ class BlobMonsterDoll extends Doll{
   @override
   void randomizeColors() {
     if (rand == null) rand = new Random();;
-    List<Palette> paletteOptions = new List<Palette>.from(
-        ReferenceColours.paletteList.values);
-    Palette newPallete = rand.pickFrom(paletteOptions);
-    if (rand.nextDouble() > 0.3) {
-      tackyColors();
-    } else {
-      copyPalette(newPallete);
-    }
+    tackyColors();
   }
 
 
