@@ -17,6 +17,19 @@ class SpriteLayer {
     String name;
     int _imgNumber;
     int maxImageNumber;
+    //uesd for uploader until i can handle more than 255 parts
+    int _secretMax = -1;
+
+    int get secretMax {
+        if(_secretMax < 0) return maxImageNumber;
+        return _secretMax;
+    }
+
+    void set secretMax(int n) {
+        _secretMax = n;
+    }
+
+
     //used for testing layers that aren't yet part of the sim
     ImageElement preloadedElement;
     String description = "";

@@ -34,10 +34,13 @@ class HomestuckDoll extends HatchableDoll {
 
      fuck.
      */
-    final int maxHair = 254; //don't go above this yet, but have 279
+    final int maxHair = 254; //don't go above this yet, but have
+    final int maxSecretHair = 287;
     final int maxEye = 230;
-    final int maxMouth = 254; //actually 256
-    final int maxSymbol = 254;  //don't go above this yet, but have 300
+    final int maxMouth = 254; //actually
+    final int maxSecretMouth = 260;
+    final int maxSymbol = 254;  //don't go above this yet, but have
+    final int maxSecretSymbol = 259;
     final int maxGlass = 201;
     final int maxGlass2 = 229;
     final int maxFacePaint = 161;
@@ -119,8 +122,8 @@ class HomestuckDoll extends HatchableDoll {
 
     {
         //old layers aren't rendered, but still exist so that data can be parsed
-        hairTop = new SpriteLayer("HairOld","$folder/HairTop/", 1, 255);
-        hairBack = new SpriteLayer("HairOld","$folder/HairBack/", 1, 255);
+        hairTop = new SpriteLayer("HairOld","$folder/HairTop/", 1, 255)..secretMax = maxSecretHair;
+        hairBack = new SpriteLayer("HairOld","$folder/HairBack/", 1, 255)..secretMax = maxSecretHair;
         //hairTop.syncedWith.add(hairBack);
        // hairBack.slave = true; //can't be selected on it's own
 
@@ -134,8 +137,8 @@ class HomestuckDoll extends HatchableDoll {
 
         facePaint = new SpriteLayer("FacePaint","$folder/FacePaint/", 0, maxFacePaint);
 
-        symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol);
-        mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
+        symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol)..secretMax = maxSecretSymbol;
+        mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth)..secretMax = maxSecretMouth;
         leftEye = new SpriteLayer("LeftEye","$folder/LeftEye/", 1, maxEye)..primaryPartner = false;
         rightEye = new SpriteLayer("RightEye","$folder/RightEye/", 1, maxEye)..partners.add(leftEye);
         glasses = new SpriteLayer("Glasses","$folder/Glasses/", 1, maxGlass);
