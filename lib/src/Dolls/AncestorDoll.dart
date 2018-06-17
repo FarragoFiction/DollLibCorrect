@@ -57,9 +57,9 @@ class AncestorDoll extends Doll{
   final int maxBody = 18;
   final int maxEye = 4;
   final int maxPaint = 2;
-  final int maxHair = 12;
-  final int maxHorn = 12;
-  final int maxMouth = 9;
+  final int maxHair = 14;
+  final int maxHorn = 14;
+  final int maxMouth = 11;
   final int maxFin = 1;
 
   SpriteLayer accessoryFront;
