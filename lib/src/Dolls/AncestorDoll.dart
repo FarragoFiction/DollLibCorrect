@@ -103,6 +103,8 @@ class AncestorDoll extends Doll{
     for(SpriteLayer l in renderingOrderLayers) {
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
+    hornLeft.imgNumber = hornRight.imgNumber;
+    eyeLeft.imgNumber = eyeRight.imgNumber;
   }
 
   @override
