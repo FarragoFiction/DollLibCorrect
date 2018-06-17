@@ -21,9 +21,9 @@ class AncestorDoll extends Doll{
   int renderingType =27;
 
   @override
-  int width = 149;
+  int width = 744;
   @override
-  int height = 369;
+  int height = 1101;
 
   @override
   String name = "Doc";
