@@ -29,7 +29,7 @@ class AncestorDoll extends Doll{
   String name = "Doc";
 
   @override
-  String relativefolder = "images/AncestorDoll";
+  String relativefolder = "images/Ancestors";
   final int maxAccessoryBehind = 2;
   final int maxAccessoryFront = 4;
   final int maxBody = 12;
