@@ -39,24 +39,22 @@ class AncestorDoll extends Doll{
   final int maxHorn = 12;
   final int maxMouth = 9;
 
-
-
-
-
-  SpriteLayer accessory;
+  SpriteLayer accessoryFront;
+  SpriteLayer accessoryBack;
   SpriteLayer body;
-  SpriteLayer head;
-  SpriteLayer legs;
-
-
-
-
-
+  SpriteLayer eyeLeft;
+  SpriteLayer eyeRight;
+  SpriteLayer hornLeft;
+  SpriteLayer hornRight;
+  SpriteLayer mouth;
+  SpriteLayer facepaint;
+  SpriteLayer hairBack;
+  SpriteLayer hairFront;
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[legs, body, head, accessory];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[accessoryBack, hairBack, body,facepaint, mouth, eyeLeft, eyeRight, accessoryFront, hairFront, hornLeft, hornRight ];
   @override
-  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[legs, body, head, accessory];
+  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[accessoryBack, hairBack, body,facepaint, mouth, eyeLeft, eyeRight, accessoryFront, hairFront, hornLeft, hornRight];
 
 
   @override
@@ -139,10 +137,24 @@ class AncestorDoll extends Doll{
   void initLayers() {
 
     {
+
+     // hairFront, hornLeft, hornRight
       body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      head = new SpriteLayer("Head","$folder/Head/", 1, maxHead);
-      accessory = new SpriteLayer("Accessory","$folder/Accessory/", 1, maxAccessory);
-      legs = new SpriteLayer("Legs","$folder/Legs/", 1, maxLeg);
+      accessoryBack = new SpriteLayer("BehindAccessory","$folder/AccessoriesBehind/", 1, maxAccessoryBehind);
+      hairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair);
+      facepaint = new SpriteLayer("Facepaint","$folder/Facepaint/", 1, maxPaint);
+      mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
+      eyeLeft = new SpriteLayer("LeftEye","$folder/EyeLeft/", 1, maxEye)..primaryPartner = false;
+      eyeRight = new SpriteLayer("RightEye","$folder/EyeRight/", 1, maxEye)..partners.add(eyeLeft);
+      accessoryFront = new SpriteLayer("FrontAccessory","$folder/AccessoriesFront/", 1, maxAccessoryFront);
+      hairFront = new SpriteLayer("HairFront","$folder/HairFront/", 1, maxHair, syncedWith: <SpriteLayer>[hairBack]);
+      hairBack.syncedWith.add(hairFront);
+      hairFront.slave = true; //can't be selected on it's own
+      hornLeft = new SpriteLayer("LeftHorn","$folder/HornLeft/", 1, maxHorn)..primaryPartner = false;;
+      hornRight = new SpriteLayer("RightHorn","$folder/HornRight/", 1, maxHorn)..partners.add(hornLeft);
+
+      //slave hair, partner horns/eyes
+
     }
   }
 
