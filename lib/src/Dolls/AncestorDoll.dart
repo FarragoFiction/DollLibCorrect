@@ -48,7 +48,7 @@ class AncestorDoll extends Doll{
   int height = 1101;
 
   @override
-  String name = "Doc";
+  String name = "Ancestor";
 
   @override
   String relativefolder = "images/Ancestors";
