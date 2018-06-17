@@ -29,9 +29,9 @@ class SuperbSuckDoll extends Doll{
   @override
   String relativefolder = "images/Homestuck/superbsuck";
   final int maxFace = 35;
-  final int maxBody = 63;
+  final int maxBody = 64;
   final int maxSymbol =47;
-  final int maxHair = 57;
+  final int maxHair = 58;
   final int maxCanonSymbol = 51;
 
 
