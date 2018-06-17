@@ -461,6 +461,10 @@ abstract class Doll {
             return new VirusDoll.fromReader(reader);
         }
 
+        if(type == new AncestorDoll().renderingType) {
+            return new AncestorDoll.fromReader(reader);
+        }
+
         if(type == new BlobMonsterDoll().renderingType) {
           return new BlobMonsterDoll.fromReader(reader);
         }
@@ -599,6 +603,10 @@ abstract class Doll {
 
         if(type == new VirusDoll().renderingType) {
             return new VirusDoll();
+        }
+
+        if(type == new AncestorDoll().renderingType) {
+            return new AncestorDoll();
         }
 
         if(type == new BlobMonsterDoll().renderingType) {
