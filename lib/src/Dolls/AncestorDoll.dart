@@ -33,10 +33,10 @@ class AncestorDoll extends Doll{
   final int maxAccessoryBehind = 2;
   final int maxAccessoryFront = 4;
   final int maxBody = 12;
-  final int maxEye = 1;
-  final int maxPaint = 0;
-  final int maxHair = 0;
-  final int maxHorn = 0;
+  final int maxEye = 3;
+  final int maxPaint = 2;
+  final int maxHair = 12;
+  final int maxHorn = 12;
   final int maxMouth = 9;
 
 
