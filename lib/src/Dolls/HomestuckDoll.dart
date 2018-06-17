@@ -24,7 +24,7 @@ class HomestuckDoll extends HatchableDoll {
     @override
     String relativefolder = "images/Homestuck";
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
-    final int maxBody = 483;
+    final int maxBody = 549;
     //TODO future JR, oh god i fucked up.
     /*
      TODO: future jr you need to make a THIRD FUCKING HAIR LAYER
@@ -36,14 +36,15 @@ class HomestuckDoll extends HatchableDoll {
      */
     final int maxHair = 254; //don't go above this yet, but have
     final int maxSecretHair = 287;
-    final int maxEye = 230;
+    final int maxEye = 244;
     final int maxMouth = 254; //actually
     final int maxSecretMouth = 260;
     final int maxSymbol = 254;  //don't go above this yet, but have
     final int maxSecretSymbol = 259;
-    final int maxGlass = 201;
-    final int maxGlass2 = 229;
-    final int maxFacePaint = 161;
+    final int maxGlass = 227;
+    final int maxGlass2 = 254;
+    final int maxSecretGlass2 = 257;
+    final int maxFacePaint = 168;
 
     SpriteLayer body;
     //need extended layers separate to keep  backwards compatibility with old data strings that had a single byte
@@ -142,7 +143,7 @@ class HomestuckDoll extends HatchableDoll {
         leftEye = new SpriteLayer("LeftEye","$folder/LeftEye/", 1, maxEye)..primaryPartner = false;
         rightEye = new SpriteLayer("RightEye","$folder/RightEye/", 1, maxEye)..partners.add(leftEye);
         glasses = new SpriteLayer("Glasses","$folder/Glasses/", 1, maxGlass);
-        glasses2 = new SpriteLayer("Glasses2","$folder/Glasses2/", 0, maxGlass2);
+        glasses2 = new SpriteLayer("Glasses2","$folder/Glasses2/", 0, maxGlass2)..secretMax = maxSecretGlass2;
     }
 
     HomestuckDoll.fromDataString(String dataString){
