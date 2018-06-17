@@ -30,10 +30,15 @@ class AncestorDoll extends Doll{
 
   @override
   String relativefolder = "images/AncestorDoll";
-  final int maxAccessory = 1;
+  final int maxAccessoryBehind = 1;
+  final int maxAccessoryFront = 1;
   final int maxBody = 1;
-  final int maxLeg = 1;
-  final int maxHead = 0;
+  final int maxEye = 1;
+  final int maxPaint = 0;
+  final int maxHair = 0;
+  final int maxHOrn = 0;
+  final int maxMouth = 0;
+
 
 
 
