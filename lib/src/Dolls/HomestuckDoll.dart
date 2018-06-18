@@ -24,7 +24,8 @@ class HomestuckDoll extends HatchableDoll {
     @override
     String relativefolder = "images/Homestuck";
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
-    final int maxBody = 549;
+    final int maxBody = 510;
+    final int maxSecretBody = 549;
     //TODO future JR, oh god i fucked up.
     /*
      TODO: future jr you need to make a THIRD FUCKING HAIR LAYER
@@ -134,7 +135,7 @@ class HomestuckDoll extends HatchableDoll {
         extendedHairBack.slave = true;
 
         extendedBody = new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true);
-        body = new SpriteLayer("BodyOld","$folder/Body/", 0, 255);
+        body = new SpriteLayer("BodyOld","$folder/Body/", 0, 255)..secretMax = maxSecretBody;
 
         facePaint = new SpriteLayer("FacePaint","$folder/FacePaint/", 0, maxFacePaint);
 
