@@ -28,15 +28,15 @@ class OpenBoundDoll extends Doll{
 
   @override
   String relativefolder = "images/Homestuck/OpenBound";
-  final int maxAccessory = 2;
-  final int maxBody = 1;
-  final int maxCape = 1;
-  final int maxEye = 1;
+  final int maxAccessory = 15;
+  final int maxBody = 40;
+  final int maxCape = 8;
+  final int maxEye = 8;
   final int maxFin = 1;
-  final int maxHair = 1;
-  final int maxHorn = 1;
-  final int maxMouth = 1;
-  final int maxSymbol = 1;
+  final int maxHair = 33;
+  final int maxHorn = 14;
+  final int maxMouth = 7;
+  final int maxSymbol = 21;
 
 
 
