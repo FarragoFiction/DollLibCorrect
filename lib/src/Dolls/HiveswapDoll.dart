@@ -113,7 +113,7 @@ class HiveswapDoll extends Doll {
     HiveswapDoll.fromDataString(String dataString){
         Uint8List thingy = BASE64URL.decode(dataString);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-        int type = reader.readByte(); //not gonna use, but needs to be gone for reader
+
         initFromReader(reader, new HiveswapTrollPalette());
     }
 
@@ -121,7 +121,7 @@ class HiveswapDoll extends Doll {
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-        int type = reader.readByte(); //not gonna use, but needs to be gone for reader
+
         initFromReader(reader, new HiveswapTrollPalette(), false);
     }
 

@@ -69,7 +69,10 @@ class HomestuckDoll extends HatchableDoll {
     List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[extendedHairBack, extendedBody, facePaint,symbol, mouth, leftEye, rightEye, glasses, extendedHairTop, glasses2];
 
     @override
-    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,facePaint,extendedBody, extendedHairTop, extendedHairBack];
+    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[leftEye, rightEye, mouth, symbol, glasses, glasses2,facePaint,extendedBody, extendedHairTop, extendedHairBack];
+
+    @override
+    List<SpriteLayer>  get oldDataLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,facePaint,extendedBody, extendedHairTop, extendedHairBack];
 
 
 
@@ -104,7 +107,7 @@ class HomestuckDoll extends HatchableDoll {
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-        int type = reader.readByte(); //not gonna use, but needs to be gone for reader
+
         initFromReader(reader, new HomestuckPalette(), false);
     }
 

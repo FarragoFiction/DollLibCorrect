@@ -106,7 +106,7 @@ will also need to figure out how to do the drop downs.
      void load(String dataString) {
          Uint8List thingy = BASE64URL.decode(dataString);
          ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
+
          initFromReader(reader, new QueenPalette(),false);
      }
 
@@ -136,7 +136,7 @@ will also need to figure out how to do the drop downs.
      QueenDoll.fromDataString(String dataString){
          Uint8List thingy = BASE64URL.decode(dataString);
          ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
+
          initFromReader(reader, new Palette());
      }
 

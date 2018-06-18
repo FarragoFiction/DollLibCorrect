@@ -114,14 +114,12 @@ class VirusDoll extends Doll{
   void load(String dataString) {
     Uint8List thingy = BASE64URL.decode(dataString);
     ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-    int type = reader.readByte(); //not gonna use, but needs to be gone for reader
     initFromReader(reader, new VirusPalette(), false);
   }
 
   VirusDoll.fromDataString(String dataString){
     Uint8List thingy = BASE64URL.decode(dataString);
     ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-    int type = reader.readByte(); //not gonna use, but needs to be gone for reader
     print("Initing a Virus Doll From Reader $dataOrderLayers");
     initFromReader(reader, new VirusPalette());
   }

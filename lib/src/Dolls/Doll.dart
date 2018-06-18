@@ -7,10 +7,11 @@ import 'dart:async';
 import "../../DollRenderer.dart";
 
 import 'package:RenderingLib/src/Misc/weighted_lists.dart';
+import 'package:RenderingLib/src/includes/bytebuilder.dart'as OldByteBuilder;
 abstract class Doll {
     String labelPattern = ":___ ";
     //whatever calls me is responsible for deciding if it wants to be url encoded or not
-    String get label => "dollName$labelPattern";
+    String get label => "$dollName$labelPattern";
 
     //useful for the builder
     static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22,23,25,27,21];
@@ -79,6 +80,7 @@ abstract class Doll {
     List<SpriteLayer>  get renderingOrderLayers => new List<SpriteLayer>();
     //what order do we save load these. things humans have first, then trolls, then new layers so you don't break save data strings
     List<SpriteLayer>  get dataOrderLayers => new List<SpriteLayer>();
+    List<SpriteLayer>  get oldDataLayers => new List<SpriteLayer>();
 
     Palette palette;
 
@@ -343,12 +345,19 @@ abstract class Doll {
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-        int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new Palette(), false);
     }
 
     //i am assuming type was already read at this point. Type, Exo is required.
     void initFromReader(ImprovedByteReader reader, Palette newP, [bool layersNeedInit = true]) {
+        if(layersNeedInit) {
+            //print("initalizing layers");
+            initLayers();
+        }
+        //TODO
+    }
+
+    void initFromReaderOld(OldByteBuilder.ByteReader reader, Palette newP, [bool layersNeedInit = true]) {
         if(layersNeedInit) {
             //print("initalizing layers");
             initLayers();
@@ -366,7 +375,7 @@ abstract class Doll {
         }
 
         for(String name in newP.names) {
-           // print("loading color $name");
+            // print("loading color $name");
             palette.add(name, newP[name], true);
         }
 
@@ -378,8 +387,8 @@ abstract class Doll {
             //<= is CORRECT DO NOT FUCKING CHANGE IT OR THE LAST LAYER WILL GET EATEN. ALSO: Fuck you, i don't know why i have to have a try catch in there since that if statement SHOULD mean only try to read if there's more to read but what fucking ever it works.
             if(featuresRead <= numFeatures) {
                 try {
-                    l.loadFromReader(reader); //handles knowing if it's 1 or more bytes
-                   // print("reading (${l.name}), its ${l.imgNumber} ");
+                    l.loadFromReaderOld(reader); //handles knowing if it's 1 or more bytes
+                    // print("reading (${l.name}), its ${l.imgNumber} ");
                 }catch(exception, stackTrace) {
                     print("exo said I have $numFeatures and i've only read $featuresRead, but still can't read (${l.name}) for some reason. this is a caught error");
                     l.imgNumber = 0; //don't have.
@@ -389,7 +398,7 @@ abstract class Doll {
                 print("skipping a feature (${l.name}) i don't have in string");
                 l.imgNumber = 0; //don't have.
             }
-           // print("loading layer ${l.name}. Value: ${l.imgNumber} bytesRead: $featuresRead  numFeatures: $numFeatures");
+            // print("loading layer ${l.name}. Value: ${l.imgNumber} bytesRead: $featuresRead  numFeatures: $numFeatures");
             if(l.imgNumber > l.maxImageNumber) l.imgNumber = 0;
             featuresRead += 1;
 
@@ -422,8 +431,8 @@ abstract class Doll {
         names.sort();
         builder.appendExpGolomb(names.length); //for length of palette
         for(String name in names) {
-            // print("saving color $name");
             Colour color = palette[name];
+           // print("saving color $name with value red ${color.red}, green${color.green} blue${color.blue}");
             builder.appendByte(color.red);
             builder.appendByte(color.green);
             builder.appendByte(color.blue);

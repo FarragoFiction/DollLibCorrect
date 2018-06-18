@@ -60,6 +60,7 @@ class SpriteLayer {
         //first step, calculate exo whatever. so i guess, calculate how many bytes i would need
         //does numbytes do that for me?
         //PL says that i don't need to encode the length manually
+        //expwhatever is a way to put data down, with a way to get exactly that data back
         builder.appendExpGolomb(imgNumber); //for length
     }
 

@@ -147,7 +147,7 @@ where do I take out the type?
 
 i see it happening in virus:
 
-    int type = reader.readByte(); //not gonna use, but needs to be gone for reader
+
 
 is the palette being weird?
 
