@@ -40,7 +40,7 @@ class HomestuckDoll extends HatchableDoll {
     final int maxMouth = 254; //actually
     final int maxSecretMouth = 260;
     final int maxSymbol = 254;  //don't go above this yet, but have
-    final int maxSecretSymbol = 259;
+    final int maxSecretSymbol = 308;
     final int maxGlass = 227;
     final int maxGlass2 = 254;
     final int maxSecretGlass2 = 257;
