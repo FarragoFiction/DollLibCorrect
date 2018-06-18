@@ -124,6 +124,10 @@ class OpenBoundDoll extends Doll{
 
     //skin
     //skip this, it's fine
+
+    //troll color
+    palette.add(OpenBoundPalette.SKIN, new Colour.fromStyleString("#c4c4c4"),true);
+    makeOtherColorsDarker(o, OpenBoundPalette.SKIN, <String>[OpenBoundPalette.SKIN1, OpenBoundPalette.SKIN2]);
     //aspect
     palette.add(OpenBoundPalette.ASPECT1, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
     makeOtherColorsDarker(o, OpenBoundPalette.ASPECT1, <String>[OpenBoundPalette.ASPECT2]);
