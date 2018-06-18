@@ -93,7 +93,7 @@ class SpriteLayer {
     }
 
     void loadFromReader(ImprovedByteReader reader) {
-        //TODO
+        imgNumber = reader.readExpGolomb();
     }
 
     void loadFromReaderOld(OldByteBuilder.ByteReader reader) {

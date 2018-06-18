@@ -356,6 +356,7 @@ abstract class Doll {
             initLayers();
         }
         int numColors = reader.readExpGolomb();
+        print("Number of colors is $numColors");
         List<String> names = new List<String>.from(palette.names);
         for(int i = 0; i< numColors; i++) {
             Colour newColor = new Colour(reader.readByte(),reader.readByte(),reader.readByte());
@@ -368,6 +369,7 @@ abstract class Doll {
         }
 
         int numLayers = reader.readExpGolomb();
+        print("Number of layers is $numLayers");
         for(int i = 0; i<numLayers; i++) {
             dataOrderLayers[i].loadFromReader(reader);
         }
@@ -429,6 +431,7 @@ abstract class Doll {
             palette.add(name, chosen[name],true);
         }
     }
+
 
 
     void beforeSaving() {
@@ -518,7 +521,7 @@ abstract class Doll {
     static Doll loadSpecificDoll(String ds) {
         String dataString = removeURLFromString(ds);
         dataString = removeLabelFromString(ds);
-       // print("dataString is $dataString");
+        print("dataString is $dataString");
         Uint8List thingy = BASE64URL.decode(dataString);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readExpGolomb();
