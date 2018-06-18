@@ -119,7 +119,7 @@ class OpenBoundDoll extends Doll{
     makeOtherColorsDarker(o, OpenBoundPalette.ACCENT, <String>[OpenBoundPalette.ACCENT1, OpenBoundPalette.ACCENT2, OpenBoundPalette.ACCENTOUTLINE]);
 
     //hair
-    palette.add(OpenBoundPalette.HAIR, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)),true);
+    palette.add(OpenBoundPalette.HAIR, new Colour.fromStyleString("#333333"),true);
     makeOtherColorsDarker(o, OpenBoundPalette.HAIR, <String>[OpenBoundPalette.HAIR1, OpenBoundPalette.HAIR2]);
 
     //skin
