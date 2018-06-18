@@ -411,7 +411,32 @@ abstract class Doll {
 
     String toDataBytesX([ByteBuilder builder = null]) {
         if(dollName == null || dollName.isEmpty) dollName = name;
-        return "$label TODO ACTUALLY GET EACH LAYER EXOWHATEVERED AND ONE EXO FOR COLOR THEN COLOR.";
+
+        beforeSaving();
+        // print("saving to data bytes x");
+        if(builder == null) builder = new ByteBuilder();
+        builder.appendByte(renderingType); //value of 1 means homestuck doll
+
+
+        List<String> names = new List<String>.from(palette.names);
+        names.sort();
+        builder.appendExpGolomb(names.length); //for length of palette
+        for(String name in names) {
+            // print("saving color $name");
+            Colour color = palette[name];
+            builder.appendByte(color.red);
+            builder.appendByte(color.green);
+            builder.appendByte(color.blue);
+        }
+
+        builder.appendExpGolomb(dataOrderLayers.length); //for length of layers
+        //layer is last so can add new layers
+        for(SpriteLayer l in dataOrderLayers) {
+            //print("adding ${l.name}  with value ${l.imgNumber} to data string builder.");
+            l.saveToBuilder(builder);
+            //builder.appendByte(l.imgNumber);
+        }
+        return "$label${BASE64URL.encode(builder.toBuffer().asUint8List())}";
     }
 
     //legacy as of 6/18/18
