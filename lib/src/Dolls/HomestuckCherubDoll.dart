@@ -1,4 +1,5 @@
 import 'package:RenderingLib/RendereringLib.dart';
+import 'package:CommonLib/Compression.dart';
 
 import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
@@ -61,7 +62,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
     @override
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+       ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new HomestuckCherubPalette(), false);
     }
@@ -197,13 +198,13 @@ class HomestuckCherubDoll extends HomestuckDoll {
 
     HomestuckCherubDoll.fromDataString(String dataString){
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+       ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be off before given to initFromReader
         initFromReader(reader, new HomestuckCherubPalette());
     }
 
     //assumes type byte is already gone
-    HomestuckCherubDoll.fromReader(ByteReader reader){
+    HomestuckCherubDoll.fromReader(ImprovedByteReader reader){
         initFromReader(reader, new HomestuckCherubPalette());
         if(extendedHairBack.imgNumber <2) extendedHairBack.imgNumber = hairBack.imgNumber;
         if(extendedHairTop.imgNumber <2) extendedHairTop.imgNumber = hairTop.imgNumber;

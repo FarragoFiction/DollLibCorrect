@@ -1,3 +1,4 @@
+import 'package:CommonLib/Compression.dart';
 import 'package:RenderingLib/RendereringLib.dart';
 
 import "../Dolls/Doll.dart";
@@ -70,7 +71,7 @@ class MonsterPocketDoll extends Doll {
 
     MonsterPocketDoll.fromDataString(String dataString){
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new HomestuckPalette());
     }
@@ -78,13 +79,13 @@ class MonsterPocketDoll extends Doll {
     @override
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new HomestuckPalette(), false);
     }
 
     //assumes type byte is already gone
-    MonsterPocketDoll.fromReader(ByteReader reader){
+    MonsterPocketDoll.fromReader(ImprovedByteReader reader){
         initFromReader(reader,new HomestuckPalette());
     }
 

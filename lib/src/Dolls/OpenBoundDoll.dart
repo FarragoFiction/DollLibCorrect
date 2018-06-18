@@ -6,6 +6,7 @@ import "dart:typed_data";
 import 'dart:convert';
 import "../Rendering/ReferenceColors.dart";
 
+import 'package:CommonLib/Compression.dart';
 
 
 
@@ -154,21 +155,21 @@ class OpenBoundDoll extends Doll{
   @override
   void load(String dataString) {
     Uint8List thingy = BASE64URL.decode(dataString);
-    ByteReader reader = new ByteReader(thingy.buffer, 0);
+    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
     int type = reader.readByte(); //not gonna use, but needs to be gone for reader
     initFromReader(reader, new OpenBoundPalette(), false);
   }
 
   OpenBoundDoll.fromDataString(String dataString){
     Uint8List thingy = BASE64URL.decode(dataString);
-    ByteReader reader = new ByteReader(thingy.buffer, 0);
+    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
     int type = reader.readByte(); //not gonna use, but needs to be gone for reader
     print("Initing a Virus Doll From Reader $dataOrderLayers");
     initFromReader(reader, new OpenBoundPalette());
   }
 
   //assumes type byte is already gone
-  OpenBoundDoll.fromReader(ByteReader reader){
+  OpenBoundDoll.fromReader(ImprovedByteReader reader){
     initFromReader(reader,new OpenBoundPalette());
   }
 

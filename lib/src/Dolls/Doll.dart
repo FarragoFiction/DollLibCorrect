@@ -3,11 +3,13 @@ import "dart:typed_data";
 import "dart:html";
 import 'dart:convert';
 import 'dart:async';
-import 'package:RenderingLib/RendereringLib.dart';
 
 import "../../DollRenderer.dart";
+
+import 'package:RenderingLib/src/Misc/weighted_lists.dart';
 abstract class Doll {
     String labelPattern = ":___ ";
+    //whatever calls me is responsible for deciding if it wants to be url encoded or not
     String get label => "dollName$labelPattern";
 
     //useful for the builder
@@ -340,13 +342,13 @@ abstract class Doll {
 
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new Palette(), false);
     }
 
     //i am assuming type was already read at this point. Type, Exo is required.
-    void initFromReader(ByteReader reader, Palette newP, [bool layersNeedInit = true]) {
+    void initFromReader(ImprovedByteReader reader, Palette newP, [bool layersNeedInit = true]) {
         if(layersNeedInit) {
             //print("initalizing layers");
             initLayers();
@@ -459,7 +461,7 @@ abstract class Doll {
         String dataString = removeURLFromString(ds);
        // print("dataString is $dataString");
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte();
        // print("type is $type");
 

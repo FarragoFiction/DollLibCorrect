@@ -1,3 +1,4 @@
+import 'package:CommonLib/Compression.dart';
 
 import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
@@ -48,7 +49,7 @@ class ConsortDoll extends Doll {
 
     ConsortDoll.fromDataString(String dataString){
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new ConsortPalette());
     }
@@ -56,13 +57,13 @@ class ConsortDoll extends Doll {
     @override
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new ConsortPalette(), false);
     }
 
     //assumes type byte is already gone
-    ConsortDoll.fromReader(ByteReader reader){
+    ConsortDoll.fromReader(ImprovedByteReader reader){
         initFromReader(reader,new ConsortPalette());
     }
 

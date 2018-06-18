@@ -1,4 +1,5 @@
 import 'package:RenderingLib/RendereringLib.dart';
+import 'package:CommonLib/Compression.dart';
 
 import "../Dolls/Doll.dart";
 import "../Dolls/HatchedChick.dart";
@@ -9,6 +10,7 @@ import "dart:typed_data";
 import 'dart:convert';
 
 import "../Rendering/ReferenceColors.dart";
+import 'package:RenderingLib/src/Misc/weighted_lists.dart';
 class EasterEggDoll extends HatchableDoll {
 
     static List<String> eggs = new List<String>();
@@ -130,7 +132,7 @@ class EasterEggDoll extends HatchableDoll {
     EasterEggDoll.fromDataString(String dataString){
         validPalettes.addAll(ReferenceColours.paletteList.values);
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+       ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new EasterEggPalette());
     }
@@ -194,13 +196,13 @@ class EasterEggDoll extends HatchableDoll {
     @override
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+       ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new EasterEggPalette(), false);
     }
 
     //assumes type byte is already gone
-    EasterEggDoll.fromReader(ByteReader reader){
+    EasterEggDoll.fromReader(ImprovedByteReader reader){
         initFromReader(reader,new EasterEggPalette());
     }
 

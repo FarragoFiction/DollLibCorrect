@@ -5,6 +5,7 @@ import "dart:html";
 import 'dart:async';
 
 import "PNGWrapperSpriteLayer.dart";
+import 'package:RenderingLib/src/loader/loader.dart';
 /*
     before drawing:     await (doll as PngDoll).getWidthFiguredOut();
 

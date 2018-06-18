@@ -1,4 +1,5 @@
 import "HomestuckTrollDoll.dart";
+import 'package:CommonLib/Compression.dart';
 import 'package:RenderingLib/RendereringLib.dart';
 
 import "../Dolls/Doll.dart";
@@ -34,7 +35,7 @@ class TrollEggDoll extends HomestuckTrollDoll {
         extendedBody = new SpriteLayer("Body","$folder/Egg/", 1, maxBody, supportsMultiByte: true);
     }
 
-    TrollEggDoll.fromReader(ByteReader reader){
+    TrollEggDoll.fromReader(ImprovedByteReader reader){
         initFromReader(reader,new HomestuckPalette());
         if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
         if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;

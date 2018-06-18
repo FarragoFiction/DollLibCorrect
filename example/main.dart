@@ -2,6 +2,7 @@ import 'dart:html';
 import 'package:DollLibCorrect/DollRenderer.dart';
 import 'dart:async';
 import 'package:RenderingLib/RendereringLib.dart';
+import 'package:RenderingLib/src/loader/loader.dart';
 
 
 Doll doll;

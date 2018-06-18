@@ -6,6 +6,7 @@ import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
+import 'package:CommonLib/Compression.dart';
 
 
 
@@ -127,7 +128,7 @@ class DadDoll extends Doll {
     @override
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new DadPalette(), false);
     }
@@ -135,13 +136,13 @@ class DadDoll extends Doll {
 
     DadDoll.fromDataString(String dataString){
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new DadPalette());
     }
 
     //assumes type byte is already gone
-    DadDoll.fromReader(ByteReader reader){
+    DadDoll.fromReader(ImprovedByteReader reader){
         initFromReader(reader,new DadPalette());
     }
 

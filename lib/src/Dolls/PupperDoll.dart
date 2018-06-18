@@ -7,6 +7,8 @@ import "dart:typed_data";
 import 'dart:convert';
 import "../Rendering/ReferenceColors.dart";
 import "Quirk.dart";
+import 'package:CommonLib/Compression.dart';
+
 
 
 //saving and loading isn't working .why?
@@ -122,21 +124,21 @@ class PupperDoll extends Doll{
   @override
   void load(String dataString) {
     Uint8List thingy = BASE64URL.decode(dataString);
-    ByteReader reader = new ByteReader(thingy.buffer, 0);
+    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
     int type = reader.readByte(); //not gonna use, but needs to be gone for reader
     initFromReader(reader, new HomestuckPalette(), false);
   }
 
   PupperDoll.fromDataString(String dataString){
     Uint8List thingy = BASE64URL.decode(dataString);
-    ByteReader reader = new ByteReader(thingy.buffer, 0);
+    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
     int type = reader.readByte(); //not gonna use, but needs to be gone for reader
     print("Initing a Virus Doll From Reader $dataOrderLayers");
     initFromReader(reader, new HomestuckPalette());
   }
 
   //assumes type byte is already gone
-  PupperDoll.fromReader(ByteReader reader){
+  PupperDoll.fromReader(ImprovedByteReader reader){
     initFromReader(reader,new HomestuckPalette());
   }
 

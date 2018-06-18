@@ -10,6 +10,7 @@ import 'package:RenderingLib/RendereringLib.dart';
 import "dart:math" as Math;
 
 import "../Dolls/ConsortDoll.dart";
+import 'package:RenderingLib/src/loader/loader.dart';
 
 class DollRenderer {
     static int imagesWaiting = 0;

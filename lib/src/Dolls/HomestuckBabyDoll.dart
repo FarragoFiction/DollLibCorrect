@@ -1,4 +1,5 @@
 import 'package:RenderingLib/RendereringLib.dart';
+import 'package:CommonLib/Compression.dart';
 
 import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
@@ -81,7 +82,7 @@ class HomestuckBabyDoll extends HomestuckDoll {
 
     HomestuckBabyDoll.fromDataString(String dataString){
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be off before given to initFromReader
         initFromReader(reader, new HomestuckPalette());
         if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
@@ -90,7 +91,7 @@ class HomestuckBabyDoll extends HomestuckDoll {
     }
 
     //assumes type byte is already gone
-     HomestuckBabyDoll.fromReader(ByteReader reader){
+     HomestuckBabyDoll.fromReader(ImprovedByteReader reader){
          initFromReader(reader,new HomestuckPalette());
          if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
          if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;

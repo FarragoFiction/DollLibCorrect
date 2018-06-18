@@ -1,6 +1,7 @@
 //unlike other dolls, moms have  a single, non chooseable base.
 //also moms are mostly pastel colors.
 import 'package:RenderingLib/RendereringLib.dart';
+import 'package:CommonLib/Compression.dart';
 
 import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
@@ -75,7 +76,7 @@ class MomDoll extends Doll {
     @override
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new MomPalette(),false);
     }
@@ -134,13 +135,13 @@ class MomDoll extends Doll {
 
     MomDoll.fromDataString(String dataString){
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new MomPalette());
     }
 
     //assumes type byte is already gone, don't forget to add line to Doll.dart
-    MomDoll.fromReader(ByteReader reader){
+    MomDoll.fromReader(ImprovedByteReader reader){
         initFromReader(reader,new MomPalette());
     }
 

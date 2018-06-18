@@ -1,4 +1,5 @@
 import 'package:RenderingLib/RendereringLib.dart';
+import 'package:CommonLib/Compression.dart';
 
 import "../Dolls/Doll.dart";
 import "../Dolls/HomestuckDoll.dart";
@@ -71,7 +72,7 @@ class BroomDoll extends Doll {
     BroomDoll.fromDataString(String dataString){
         validPalettes.addAll(ReferenceColours.paletteList.values);
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new HomestuckPalette());
     }
@@ -80,13 +81,13 @@ class BroomDoll extends Doll {
     @override
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new HomestuckPalette(), false);
     }
 
     //assumes type byte is already gone
-    BroomDoll.fromReader(ByteReader reader){
+    BroomDoll.fromReader(ImprovedByteReader reader){
         initFromReader(reader,new HomestuckPalette());
     }
 

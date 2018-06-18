@@ -1,5 +1,6 @@
 import "HomestuckTrollDoll.dart";
 import 'package:RenderingLib/RendereringLib.dart';
+import 'package:CommonLib/Compression.dart';
 
 import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
@@ -39,7 +40,7 @@ class EggDoll extends HomestuckDoll {
 
     }
 
-    EggDoll.fromReader(ByteReader reader){
+    EggDoll.fromReader(ImprovedByteReader reader){
         initFromReader(reader,new HomestuckPalette());
         if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
         if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;

@@ -1,8 +1,9 @@
+import 'package:CommonLib/Compression.dart';
 import 'package:RenderingLib/RendereringLib.dart';
 import 'dart:convert';
 import "dart:typed_data";
 import "dart:html";
-
+import 'package:RenderingLib/src/includes/bytebuilder.dart'as OldByteBuilder;
 
 typedef void JROnClick();
 
@@ -82,7 +83,11 @@ class SpriteLayer {
         }
     }
 
-    void loadFromReader(ByteReader reader) {
+    void loadFromReader(ImprovedByteReader reader) {
+        //TODO
+    }
+
+    void loadFromReaderOld(OldByteBuilder.ByteReader reader) {
         if(numbytes == 1 || numbytes == 0) {
             imgNumber = reader.readByte();
         }else if(!supportsMultiByte) {

@@ -2,7 +2,7 @@
 import "../../DollRenderer.dart";
 import "dart:typed_data";
 import 'dart:convert';
-import 'package:RenderingLib/RendereringLib.dart';
+import 'package:CommonLib/src/compression/bytebuilder.dart';
 
 abstract class NamedLayerDoll extends Doll {
     List<String> possibleParts = new List<String>();
@@ -14,7 +14,7 @@ abstract class NamedLayerDoll extends Doll {
 
     //i am assuming type was already read at this point. Type, Exo is required.
     @override
-    void initFromReader(ByteReader reader, Palette newP, [bool layersNeedInit = true]) {
+    void initFromReader(ImprovedByteReader reader, Palette newP, [bool layersNeedInit = true]) {
         initLayers(); //gets body/crown.
         int numFeatures = reader.readExpGolomb();
         print("I think there are ${numFeatures} features");

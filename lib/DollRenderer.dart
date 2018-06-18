@@ -55,6 +55,8 @@ export "src/Dolls/NamedSpriteLayer.dart";
 export "src/Rendering/DollRenderer.dart";
 export "src/Rendering/ReferenceColors.dart";
 export "src/Dolls/TextLayer.dart";
+export "package:CommonLib/Compression.dart";
 export  'package:RenderingLib/RendereringLib.dart';
+
 
 

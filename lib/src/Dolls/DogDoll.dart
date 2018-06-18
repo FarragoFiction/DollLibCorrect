@@ -1,4 +1,5 @@
 import 'package:RenderingLib/RendereringLib.dart';
+import 'package:CommonLib/Compression.dart';
 
 import "../Dolls/Doll.dart";
 import "../Dolls/HomestuckDoll.dart";
@@ -124,21 +125,21 @@ class DogDoll extends Doll{
   @override
   void load(String dataString) {
     Uint8List thingy = BASE64URL.decode(dataString);
-    ByteReader reader = new ByteReader(thingy.buffer, 0);
+    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
     int type = reader.readByte(); //not gonna use, but needs to be gone for reader
     initFromReader(reader, new HomestuckPalette(), false);
   }
 
   DogDoll.fromDataString(String dataString){
     Uint8List thingy = BASE64URL.decode(dataString);
-    ByteReader reader = new ByteReader(thingy.buffer, 0);
+    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
     int type = reader.readByte(); //not gonna use, but needs to be gone for reader
     print("Initing a Virus Doll From Reader $dataOrderLayers");
     initFromReader(reader, new HomestuckPalette());
   }
 
   //assumes type byte is already gone
-  DogDoll.fromReader(ByteReader reader){
+  DogDoll.fromReader(ImprovedByteReader reader){
     initFromReader(reader,new HomestuckPalette());
   }
 

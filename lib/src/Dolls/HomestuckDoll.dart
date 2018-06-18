@@ -1,3 +1,4 @@
+import 'package:CommonLib/Compression.dart';
 import 'package:RenderingLib/RendereringLib.dart';
 import "../Dolls/HatchableDoll.dart";
 import "HomestuckTrollDoll.dart";
@@ -102,7 +103,7 @@ class HomestuckDoll extends HatchableDoll {
     @override
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new HomestuckPalette(), false);
     }
@@ -149,7 +150,7 @@ class HomestuckDoll extends HatchableDoll {
 
     HomestuckDoll.fromDataString(String dataString){
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be off before given to initFromReader
         initFromReader(reader, new HomestuckPalette());
         if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
@@ -158,7 +159,7 @@ class HomestuckDoll extends HatchableDoll {
     }
 
     //assumes type byte is already gone
-     HomestuckDoll.fromReader(ByteReader reader){
+     HomestuckDoll.fromReader(ImprovedByteReader reader){
          initFromReader(reader,new HomestuckPalette());
          if(extendedBody.imgNumber <2) extendedBody.imgNumber = body.imgNumber;
          if(extendedHairBack.imgNumber <2) extendedHairBack.imgNumber = hairBack.imgNumber;

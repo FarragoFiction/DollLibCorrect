@@ -70,7 +70,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     @override
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new HomestuckTrollPalette(), false);
     }
@@ -148,7 +148,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
 
     HomestuckTrollDoll.fromDataString(String dataString){
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be off before given to initFromReader
         initFromReader(reader, new HomestuckTrollPalette());
        // print("after initing from reader, hair top is ${hairTop.imgNumber} and hair back is ${hairBack.imgNumber}");
@@ -161,7 +161,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     }
 
     //assumes type byte is already gone
-    HomestuckTrollDoll.fromReader(ByteReader reader){
+    HomestuckTrollDoll.fromReader(ImprovedByteReader reader){
         initFromReader(reader, new HomestuckTrollPalette());
         //print("after initing from reader, hair top is ${hairTop.imgNumber} and hair back is ${hairBack.imgNumber}");
         if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;

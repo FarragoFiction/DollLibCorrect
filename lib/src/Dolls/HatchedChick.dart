@@ -1,4 +1,5 @@
  import 'package:RenderingLib/RendereringLib.dart';
+ import 'package:CommonLib/Compression.dart';
 
 import "../Dolls/Doll.dart";
 import "../Dolls/PigeonDoll.dart";
@@ -10,6 +11,7 @@ import "Quirk.dart";
 
 
 import "../Rendering/ReferenceColors.dart";
+import 'package:RenderingLib/src/Misc/weighted_lists.dart';
 class HatchedChick extends HatchableDoll {
 
     @override
@@ -138,7 +140,7 @@ class HatchedChick extends HatchableDoll {
     HatchedChick.fromDataString(String dataString){
         validPalettes.addAll(ReferenceColours.paletteList.values);
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new HatchedChickPalette());
     }
@@ -146,13 +148,13 @@ class HatchedChick extends HatchableDoll {
     @override
     void load(String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
-        ByteReader reader = new ByteReader(thingy.buffer, 0);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readByte(); //not gonna use, but needs to be gone for reader
         initFromReader(reader, new HatchedChickPalette(), false);
     }
 
     //assumes type byte is already gone
-    HatchedChick.fromReader(ByteReader reader){
+    HatchedChick.fromReader(ImprovedByteReader reader){
         initFromReader(reader,new HatchedChickPalette());
     }
 
