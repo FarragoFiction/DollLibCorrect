@@ -358,14 +358,17 @@ abstract class Doll {
         int numColors = reader.readExpGolomb();
         print("Number of colors is $numColors");
         List<String> names = new List<String>.from(palette.names);
+        names.sort();
+
         for(int i = 0; i< numColors; i++) {
+            print("reading color ${names[i]}");
             Colour newColor = new Colour(reader.readByte(),reader.readByte(),reader.readByte());
             newP.add(names[i], newColor, true);
         }
 
-        for(String name2 in newP.names) {
-            // print("loading color $name");
-            palette.add(name2, newP[name], true);
+        for(String name2 in names) {
+            print("loading color $name2");
+            palette.add(name2, newP[name2], true);
         }
 
         int numLayers = reader.readExpGolomb();
@@ -453,9 +456,9 @@ abstract class Doll {
         List<String> names = new List<String>.from(palette.names);
         names.sort();
         builder.appendExpGolomb(names.length); //for length of palette
-        for(String name in names) {
-            Colour color = palette[name];
-           // print("saving color $name with value red ${color.red}, green${color.green} blue${color.blue}");
+        for(String name2 in names) {
+            Colour color = palette[name2];
+            print("saving color $name2 with value red ${color.red}, green${color.green} blue${color.blue}");
             builder.appendByte(color.red);
             builder.appendByte(color.green);
             builder.appendByte(color.blue);

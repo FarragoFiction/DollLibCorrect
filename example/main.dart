@@ -16,9 +16,9 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
     //doll =  Doll.randomDollOfType(16);
-   doll = Doll.randomDollOfType(1);
+   //doll = Doll.randomDollOfType(1);
     //doll = new HomestuckDoll();
-    doll = Doll.loadSpecificDoll("Kid:___ QSACHLACHLAACpACHLAACpAACH________ACHLAAAAS0tLOjo6ERERAAAAERERMzMz____FgTgJwCyA_AIEBqgIUA_YDiAcQ");
+    doll = Doll.loadSpecificDoll("Kid:___ QSmQDMl0qnazR9fD-6bTSmWS2G________ra2tPxkEKB02HRUmOBt2HgxHPRkKLBIH____FtgQgIgErAKGA5QHKA");
     //doll = Doll.randomDollOfType(18);
     //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
     //doll.useAbsolutePath = false;
