@@ -418,13 +418,14 @@ abstract class Doll {
     }
 
 
+    //first, the rendering type. (this will get taken off before being passed to the loader)
     String toDataBytesX([ByteBuilder builder = null]) {
         if(dollName == null || dollName.isEmpty) dollName = name;
 
         beforeSaving();
         // print("saving to data bytes x");
         if(builder == null) builder = new ByteBuilder();
-        builder.appendByte(renderingType); //value of 1 means homestuck doll
+        builder.appendExpGolomb(renderingType); //value of 1 means homestuck doll, etc. exo whatever so can have more than 255 dolltypes becaues i am thinking ahead for once. you won't get any 'no way we'll have more than 250 dolls' from me anytime soon
 
 
         List<String> names = new List<String>.from(palette.names);
@@ -496,7 +497,7 @@ abstract class Doll {
        // print("dataString is $dataString");
         Uint8List thingy = BASE64URL.decode(dataString);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-        int type = reader.readByte();
+        int type = reader.readExpGolomb();
        // print("type is $type");
 
         if(type == new HomestuckDoll().renderingType) {
