@@ -144,8 +144,11 @@ class OpenBoundDoll extends Doll{
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
 
+    if(leftEye.imgNumber ==0) leftEye.imgNumber = 1;
+    if(mouth.imgNumber ==0) mouth.imgNumber = 1;
     rightHorn.imgNumber = leftHorn.imgNumber;
     rightEye.imgNumber = leftEye.imgNumber;
+
   }
 
   @override
