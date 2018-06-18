@@ -9,7 +9,7 @@ import "../../DollRenderer.dart";
 import 'package:RenderingLib/src/Misc/weighted_lists.dart';
 import 'package:RenderingLib/src/includes/bytebuilder.dart'as OldByteBuilder;
 abstract class Doll {
-    String labelPattern = ":___ ";
+    static String labelPattern = ":___ ";
     //whatever calls me is responsible for deciding if it wants to be url encoded or not
     String get label => "$dollName$labelPattern";
 
@@ -509,10 +509,15 @@ abstract class Doll {
         return ret[1];
     }
 
+    static String removeLabelFromString(String ds) {
+        return ds.split("$labelPattern")[1];
+    }
+
 
     /* first part of any data string tells me what type of doll to load.*/
     static Doll loadSpecificDoll(String ds) {
         String dataString = removeURLFromString(ds);
+        dataString = removeLabelFromString(ds);
        // print("dataString is $dataString");
         Uint8List thingy = BASE64URL.decode(dataString);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);

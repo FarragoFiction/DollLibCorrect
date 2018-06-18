@@ -18,7 +18,7 @@ Future<bool> start() async {
     //doll =  Doll.randomDollOfType(16);
    doll = Doll.randomDollOfType(1);
     //doll = new HomestuckDoll();
-    //doll = Doll.loadSpecificDoll("http://localhost:63342/DollBuilder/web/index.html?ElD_ZzJ7McjwHn6YIEx4Gj5MEiiqKFR6HDzWEFKUEDA6rlwibjoCBAIEBAAAAA==");
+    doll = Doll.loadSpecificDoll("Kid:___ QSACHLACHLAACpACHLAACpAACH________ACHLAAAAS0tLOjo6ERERAAAAERERMzMz____FgTgJwCyA_AIEBqgIUA_YDiAcQ");
     //doll = Doll.randomDollOfType(18);
     //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
     //doll.useAbsolutePath = false;
