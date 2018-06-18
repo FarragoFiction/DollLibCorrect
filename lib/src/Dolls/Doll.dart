@@ -18,6 +18,8 @@ abstract class Doll {
     Quirk quirkButDontUse;
 
     String name = "Unknown";
+    //used for labeling and things like rom sim
+    String dollName = "";
 
     //things can optionally cause the doll's orientation to change, like grub body 7 and 8
     static String NORMALWAYS = "normalways"; //flipped horizontal
