@@ -349,13 +349,31 @@ abstract class Doll {
     }
 
     //i am assuming type was already read at this point. Type, Exo is required.
+    //IMPORTANT: WHATEVER CALLS ME SHOULD try/catch FOR OLD DATA
     void initFromReader(ImprovedByteReader reader, Palette newP, [bool layersNeedInit = true]) {
         if(layersNeedInit) {
             //print("initalizing layers");
             initLayers();
         }
-        //TODO
+        int numColors = reader.readExpGolomb();
+        List<String> names = new List<String>.from(palette.names);
+        for(int i = 0; i< numColors; i++) {
+            Colour newColor = new Colour(reader.readByte(),reader.readByte(),reader.readByte());
+            newP.add(names[i], newColor, true);
+        }
+
+        for(String name2 in newP.names) {
+            // print("loading color $name");
+            palette.add(name2, newP[name], true);
+        }
+
+        int numLayers = reader.readExpGolomb();
+        for(int i = 0; i<numLayers; i++) {
+            dataOrderLayers[i].loadFromReader(reader);
+        }
+
     }
+
 
     void initFromReaderOld(OldByteBuilder.ByteReader reader, Palette newP, [bool layersNeedInit = true]) {
         if(layersNeedInit) {
@@ -368,15 +386,15 @@ abstract class Doll {
 
         List<String> names = new List<String>.from(palette.names);
         names.sort();
-        for(String name in names) {
+        for(String name2 in names) {
             featuresRead +=1;
             Colour newColor = new Colour(reader.readByte(),reader.readByte(),reader.readByte());
-            newP.add(name, newColor, true);
+            newP.add(name2, newColor, true);
         }
 
-        for(String name in newP.names) {
+        for(String name2 in newP.names) {
             // print("loading color $name");
-            palette.add(name, newP[name], true);
+            palette.add(name2, newP[name], true);
         }
 
         //layer is last so can add new layers.
@@ -419,6 +437,7 @@ abstract class Doll {
 
 
     //first, the rendering type. (this will get taken off before being passed to the loader)
+    //numColors, colors, numLayers, layers
     String toDataBytesX([ByteBuilder builder = null]) {
         if(dollName == null || dollName.isEmpty) dollName = name;
 
