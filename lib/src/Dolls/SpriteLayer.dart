@@ -57,6 +57,19 @@ class SpriteLayer {
     }
 
     void saveToBuilder(ByteBuilder builder) {
+        //first step, calculate exo whatever. so i guess, calculate how many bytes i would need
+        //does numbytes do that for me?
+        builder.appendExpGolomb(numbytes); //for length
+        if(numbytes == 2) {
+            builder.appendShort(imgNumber);
+
+        }else {
+            builder.appendInt32(imgNumber);
+        }
+    }
+
+    //do not use this, in fact TODO delete this when i am done, purge this mistake from the earth.
+    void saveToBuilderOld(ByteBuilder builder) {
         if(numbytes == 1 || numbytes == 0) {
             builder.appendByte(imgNumber);
         }else if(!supportsMultiByte) {
