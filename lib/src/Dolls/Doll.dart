@@ -399,6 +399,7 @@ abstract class Doll {
         }
         try {
             initFromReader(reader, false);
+            setDollNameFromString(dataString);//i know it has a name
         }catch(e) {
             initFromReaderOld(new OldByteBuilder.ByteReader(thingy.buffer,0),false);
         }
@@ -575,6 +576,10 @@ abstract class Doll {
 
     static String removeLabelFromString(String ds) {
         return ds.split("$labelPattern")[1];
+    }
+
+    void setDollNameFromString(String ds) {
+        dollName = ds.split("$labelPattern")[0];
     }
 
 
