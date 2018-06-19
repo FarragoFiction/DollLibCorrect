@@ -113,8 +113,8 @@ class HomestuckDoll extends HatchableDoll {
 
     {
         //old layers aren't rendered, but still exist so that data can be parsed
-        hairTop = new SpriteLayer("HairOld","$folder/HairTop/", 1, 255)..secretMax = maxSecretHair;
-        hairBack = new SpriteLayer("HairOld","$folder/HairBack/", 1, 255)..secretMax = maxSecretHair;
+        hairTop = new SpriteLayer("HairOld","$folder/HairTop/", 1, 255);
+        hairBack = new SpriteLayer("HairOld","$folder/HairBack/", 1, 255);
         //hairTop.syncedWith.add(hairBack);
        // hairBack.slave = true; //can't be selected on it's own
 
@@ -124,7 +124,7 @@ class HomestuckDoll extends HatchableDoll {
         extendedHairBack.slave = true;
 
         extendedBody = new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true)..secretMax = maxSecretBody;
-        body = new SpriteLayer("BodyOld","$folder/Body/", 0, 255)..secretMax = maxSecretBody;
+        body = new SpriteLayer("BodyOld","$folder/Body/", 0, 255);
 
         facePaint = new SpriteLayer("FacePaint","$folder/FacePaint/", 0, maxFacePaint);
 
