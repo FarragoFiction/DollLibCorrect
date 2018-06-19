@@ -598,11 +598,21 @@ abstract class Doll {
         print("dataString is $dataStringWithoutName");
         Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-        int type = reader.readExpGolomb();
-       // print("type is $type");
-
-
-        allDollsMappedByType[type].load(reader, ds);
+        int type = -99;
+        //FUTURE JR, PAY ATTENTION
+        //IF THE EXOWHATEVER ACCIDENTALLY READS SOMETHING THAT MAKES SENSE
+        //YOU MIGHT NOT REALIZE IT'S GOT AN ERROR
+        //BUT WHEN IT TRIES TO LOAD THE WRONG TYPE IT WILL
+        //BUT BY THEN IT WILL ALREADY BE IN THE WRONG DOLL
+        //WORRY ABOUT THIS IF IT HAPPENS, FOR NOW
+        try {
+            type = reader.readExpGolomb();
+            allDollsMappedByType[type].load(reader, ds);
+        }catch(e) {
+            type = reader.readByte(); //legacy
+            allDollsMappedByType[type].load(reader, ds);
+        }
+        print("type is $type");
         return allDollsMappedByType[type];
     }
 
