@@ -575,6 +575,7 @@ abstract class Doll {
     }
 
     static String removeLabelFromString(String ds) {
+        ds = Uri.decodeQueryComponent(ds); //get rid of any url encoding that might exist
         return ds.split("$labelPattern")[1];
     }
 
