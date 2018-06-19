@@ -604,6 +604,7 @@ abstract class Doll {
         }else {
             dollName = parts[0];
         }
+        print("after loading, doll name is $dollName");
     }
 
 
