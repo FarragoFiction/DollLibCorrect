@@ -451,7 +451,7 @@ abstract class Doll {
         }
 
         //layer is last so can add new layers.
-        for(SpriteLayer l in dataOrderLayers) {
+        for(SpriteLayer l in oldDataLayers) {
             //older strings with less layers
             //print("layer ${l.name}, features read is $featuresRead and num features is $numFeatures");
 
