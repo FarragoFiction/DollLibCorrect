@@ -16,52 +16,49 @@ abstract class Doll {
     //useful for the builder
     static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22,23,25,27,21];
 
-    static List<Doll> _allDollsEvenWIPS = new List<Doll>();
-    static Map<int, Doll> _allDollsMappedByType = new Map<int, Doll>();
 
     static Map<int, Doll> get  allDollsMappedByType {
-        if(_allDollsMappedByType.isEmpty) {
+        Map<int, Doll> ret = new Map<int, Doll>();
             for(Doll doll in allDollsEvenWIPS) {
-                _allDollsMappedByType[doll.renderingType]= doll;
+                ret[doll.renderingType]= doll;
             }
-        }
-        return _allDollsMappedByType;
+        return ret;
     }
     static List<Doll> get allDollsEvenWIPS {
-        if(_allDollsEvenWIPS.isEmpty) {
-            _allDollsEvenWIPS.add(new AncestorDoll());
-            _allDollsEvenWIPS.add(new BlobMonsterDoll());
-            _allDollsEvenWIPS.add(new BroDoll());
-            _allDollsEvenWIPS.add(new BroomDoll());
-            _allDollsEvenWIPS.add(new CatDoll());
-            _allDollsEvenWIPS.add(new ConsortDoll());
-            _allDollsEvenWIPS.add(new DadDoll());
-            _allDollsEvenWIPS.add(new DenizenDoll());
-            _allDollsEvenWIPS.add(new DocDoll());
-            _allDollsEvenWIPS.add(new DogDoll());
-            _allDollsEvenWIPS.add(new EasterEggDoll());
-            _allDollsEvenWIPS.add(new EggDoll());
-            _allDollsEvenWIPS.add(new HatchedChick());
-            _allDollsEvenWIPS.add(new HiveswapDoll());
-            _allDollsEvenWIPS.add(new HomestuckBabyDoll());
-            _allDollsEvenWIPS.add(new HomestuckCherubDoll());
-            _allDollsEvenWIPS.add(new HomestuckDoll());
-            _allDollsEvenWIPS.add(new HomestuckGrubDoll());
-            _allDollsEvenWIPS.add(new HomestuckHeroDoll());
-            _allDollsEvenWIPS.add(new HomestuckSatyrDoll());
-            _allDollsEvenWIPS.add(new HomestuckTrollDoll());
-            _allDollsEvenWIPS.add(new MomDoll());
-            _allDollsEvenWIPS.add(new MonsterPocketDoll());
-            _allDollsEvenWIPS.add(new OpenBoundDoll());
-            _allDollsEvenWIPS.add(new PigeonDoll());
-            _allDollsEvenWIPS.add(new PupperDoll());
-            _allDollsEvenWIPS.add(new QueenDoll());
-            _allDollsEvenWIPS.add(new SuperbSuckDoll());
-            _allDollsEvenWIPS.add(new TalkSpriteDoll());
-            _allDollsEvenWIPS.add(new TrollEggDoll());
-            _allDollsEvenWIPS.add(new VirusDoll());
-        }
-        return _allDollsEvenWIPS;
+        //never cache this
+        List<Doll> ret = new List<Doll>();
+            ret.add(new AncestorDoll());
+            ret.add(new BlobMonsterDoll());
+            ret.add(new BroDoll());
+            ret.add(new BroomDoll());
+            ret.add(new CatDoll());
+            ret.add(new ConsortDoll());
+            ret.add(new DadDoll());
+            ret.add(new DenizenDoll());
+            ret.add(new DocDoll());
+            ret.add(new DogDoll());
+            ret.add(new EasterEggDoll());
+            ret.add(new EggDoll());
+            ret.add(new HatchedChick());
+            ret.add(new HiveswapDoll());
+            ret.add(new HomestuckBabyDoll());
+            ret.add(new HomestuckCherubDoll());
+            ret.add(new HomestuckDoll());
+            ret.add(new HomestuckGrubDoll());
+            ret.add(new HomestuckHeroDoll());
+            ret.add(new HomestuckSatyrDoll());
+            ret.add(new HomestuckTrollDoll());
+            ret.add(new MomDoll());
+            ret.add(new MonsterPocketDoll());
+            ret.add(new OpenBoundDoll());
+            ret.add(new PigeonDoll());
+            ret.add(new PupperDoll());
+            ret.add(new QueenDoll());
+            ret.add(new SuperbSuckDoll());
+            ret.add(new TalkSpriteDoll());
+            ret.add(new TrollEggDoll());
+            ret.add(new VirusDoll());
+        return ret;
     }
 
     String originalCreator = "???";
@@ -377,6 +374,18 @@ abstract class Doll {
         }
     }
 
+    void copy(Doll source) {
+        copyPalette(source.palette);
+        copyLayers(source.dataOrderLayers);
+        dollName = source.dollName;
+    }
+
+    Doll clone() {
+        Doll ret = allDollsMappedByType[renderingType];
+        ret.copy(this);
+        return ret;
+    }
+
     void copyPalette(Palette newP) {
         int i = 0;
         List<String> names = new List.from(palette.names);
@@ -388,6 +397,12 @@ abstract class Doll {
                 if(i < palette.names.length)palette.add(names[i], newP[name], true);
             }
             i++;
+        }
+    }
+
+    void copyLayers(List<SpriteLayer> layers) {
+        for(int i = 0; i<dataOrderLayers.length; i++) {
+            dataOrderLayers[i].imgNumber = layers[i].imgNumber;
         }
     }
 
@@ -530,10 +545,6 @@ abstract class Doll {
         return "$label${BASE64URL.encode(builder.toBuffer().asUint8List())}";
     }
 
-    void copyFromReaderWithDataString(ImprovedByteReader reader, String dataStringBackup) {
-
-    }
-
     //legacy as of 6/18/18
     String toDataBytesXOld([ByteBuilder builder = null]) {
         beforeSaving();
@@ -621,7 +632,7 @@ abstract class Doll {
             print("reading legacy, type is $type");
             allDollsMappedByType[type].initFromReaderOld(reader);
         }
-        return allDollsMappedByType[type];
+        return allDollsMappedByType[type].clone();
     }
 
     static Doll randomHomestuckDoll() {
@@ -637,7 +648,7 @@ abstract class Doll {
 
     /* first part of any data string tells me what type of doll to load.*/
     static Doll randomDollOfType(int type) {
-        return allDollsMappedByType[type];
+        return allDollsMappedByType[type].clone();
     }
 
     static List<SavedDoll> loadAllFromLocalStorage() {
