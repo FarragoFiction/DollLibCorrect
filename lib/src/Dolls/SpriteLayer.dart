@@ -13,6 +13,7 @@ class SpriteLayer {
     //if this isn't set will throw an error if you try to have multiple bytes
     //LEGACY you don't need to use this anymore but taking it out might break legacy save strings
     bool supportsMultiByte = false;
+    //LEGACY DO NOT USE numbytes
     int numbytes = 1; //hardcoded to be 1 for this layer type
     String imgFormat;
     String imgNameBase;
@@ -98,6 +99,7 @@ class SpriteLayer {
     }
 
     void loadFromReaderOld(OldByteBuilder.ByteReader reader) {
+        numbytes = (secretMax/255).ceil();
         if(numbytes == 1 || numbytes == 0) {
             imgNumber = reader.readByte();
         }else if(!supportsMultiByte) {
