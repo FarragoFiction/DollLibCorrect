@@ -11,6 +11,7 @@ typedef void JROnClick();
 class SpriteLayer {
 
     //if this isn't set will throw an error if you try to have multiple bytes
+    //LEGACY you don't need to use this anymore but taking it out might break legacy save strings
     bool supportsMultiByte = false;
     int numbytes = 1; //hardcoded to be 1 for this layer type
     String imgFormat;
@@ -22,7 +23,7 @@ class SpriteLayer {
     int _secretMax = -1;
 
     int get secretMax {
-        if(_secretMax < 0) return maxImageNumber;
+        if(_secretMax < 0) return 254; //one byte unless otherwise noted
         return _secretMax;
     }
 

@@ -42,6 +42,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     List<int> mutantEyeList = <int>[2,11,31,44,46,47,85];
     int defaultBody = 48;
     int maxHorn = 314;
+    int maxSecretHorn = 314;
     int maxFin = 21;
     int maxCanonSymbol = 288; //288 eventually
     int maxWing = 65;
@@ -135,8 +136,8 @@ class HomestuckTrollDoll extends HomestuckDoll {
         wings = new SpriteLayer("Wings", "$folder/Wings/", 0, maxWing);
         leftHorn = new SpriteLayer("LeftHornOld", "$folder/LeftHorn/", 1, 255);
         rightHorn = new SpriteLayer("RightHornOld", "$folder/RightHorn/", 1, 255);
-        extendedRightHorn =new SpriteLayer("RightHorn", "$folder/RightHorn/", 1, maxHorn, supportsMultiByte: true)..primaryPartner = false;
-        extendedLeftHorn = new SpriteLayer("LeftHorn", "$folder/LeftHorn/", 1, maxHorn, supportsMultiByte: true)..partners.add(extendedRightHorn);
+        extendedRightHorn =new SpriteLayer("RightHorn", "$folder/RightHorn/", 1, maxHorn, supportsMultiByte: true)..primaryPartner = false..secretMax = maxSecretHorn;
+        extendedLeftHorn = new SpriteLayer("LeftHorn", "$folder/LeftHorn/", 1, maxHorn, supportsMultiByte: true)..partners.add(extendedRightHorn)..secretMax = maxSecretHorn;
 
     }
 

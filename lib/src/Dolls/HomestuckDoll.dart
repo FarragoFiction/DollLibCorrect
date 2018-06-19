@@ -26,27 +26,18 @@ class HomestuckDoll extends HatchableDoll {
     @override
     String relativefolder = "images/Homestuck";
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
-    final int maxBody = 510;
-    final int maxSecretBody = 549;
-    //TODO future JR, oh god i fucked up.
-    /*
-     TODO: future jr you need to make a THIRD FUCKING HAIR LAYER
-     that handles the extension byte and only then can you have more than 255 hairs
-     you also need to change the "supporsts multi" tag means it ALWAYS does that
-     not just when it's over 255.
-
-     fuck.
-     */
-    final int maxHair = 254; //don't go above this yet, but have
-    final int maxSecretHair = 287;
+    final int maxBody = 549;
+    final int maxSecretBody = 510;
+    final int maxHair = 287; //don't go above this yet, but have
+    final int maxSecretHair = 254;
     final int maxEye = 244;
-    final int maxMouth = 254; //actually
-    final int maxSecretMouth = 260;
-    final int maxSymbol = 254;  //don't go above this yet, but have
-    final int maxSecretSymbol = 308;
+    final int maxMouth = 260; //actually
+    final int maxSecretMouth = 254;
+    final int maxSymbol = 308;  //don't go above this yet, but have
+    final int maxSecretSymbol = 254;
     final int maxGlass = 227;
-    final int maxGlass2 = 254;
-    final int maxSecretGlass2 = 257;
+    final int maxGlass2 = 257;
+    final int maxSecretGlass2 = 254;
     final int maxFacePaint = 168;
 
     SpriteLayer body;
