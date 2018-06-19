@@ -600,7 +600,7 @@ abstract class Doll {
     static Doll loadSpecificDoll(String ds) {
         print("loading doll from string $ds");
         String dataStringWithoutName = removeURLFromString(ds);
-        dataStringWithoutName = removeLabelFromString(ds);
+        dataStringWithoutName = removeLabelFromString(dataStringWithoutName);
         print("dataString is $dataStringWithoutName");
         Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
