@@ -103,18 +103,6 @@ will also need to figure out how to do the drop downs.
      }
 
      @override
-     void load(String dataString) {
-         Uint8List thingy = BASE64URL.decode(dataString);
-         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-         initFromReader(reader, new QueenPalette(),false);
-     }
-
-
-
-
-
-     @override
      void randomizeColors() {
                  if(rand == null) rand = new Random();;
          double number = rand.nextDouble();
@@ -129,24 +117,6 @@ will also need to figure out how to do the drop downs.
             super.randomizeColors();
          }
      }
-
-
-
-
-     QueenDoll.fromDataString(String dataString){
-         Uint8List thingy = BASE64URL.decode(dataString);
-         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-         initFromReader(reader, new Palette());
-     }
-
-     //assumes type byte is already gone
-     QueenDoll.fromReader(ImprovedByteReader reader){
-         //TODO make a custom one of these that allows multiple layers
-         initFromReader(reader,new Palette());
-     }
-
-
 
  }
 

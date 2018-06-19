@@ -14,7 +14,7 @@ abstract class NamedLayerDoll extends Doll {
 
     //i am assuming type was already read at this point. Type, Exo is required.
     @override
-    void initFromReader(ImprovedByteReader reader, Palette newP, [bool layersNeedInit = true]) {
+    void initFromReader(ImprovedByteReader reader, [bool layersNeedInit = true]) {
         initLayers(); //gets body/crown.
         int numFeatures = reader.readExpGolomb();
         print("I think there are ${numFeatures} features");
@@ -25,12 +25,7 @@ abstract class NamedLayerDoll extends Doll {
         for(String name in names) {
             featuresRead +=1;
             Colour newColor = new Colour(reader.readByte(),reader.readByte(),reader.readByte());
-            newP.add(name, newColor, true);
-        }
-
-        for(String name in newP.names) {
-            print("loading color $name");
-            palette.add(name, newP[name], true);
+            palette.add(name, newColor, true);
         }
 
         for(int i = 1; i< (numFeatures-featuresRead); i++) {

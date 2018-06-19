@@ -107,27 +107,6 @@ class BlobMonsterDoll extends Doll{
   }
 
   @override
-  void load(String dataString) {
-    Uint8List thingy = BASE64URL.decode(dataString);
-   ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    initFromReader(reader, new HomestuckPalette(), false);
-  }
-
-  BlobMonsterDoll.fromDataString(String dataString){
-    Uint8List thingy = BASE64URL.decode(dataString);
-   ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    print("Initing a blob Doll From Reader $dataOrderLayers");
-    initFromReader(reader, new BlobMonsterPalette());
-  }
-
-  //assumes type byte is already gone
-  BlobMonsterDoll.fromReader(ImprovedByteReader reader){
-    initFromReader(reader,new BlobMonsterPalette());
-  }
-
-  @override
   void setQuirk() {
     Random rand  = new Random(seed);
     quirkButDontUse = Quirk.randomHumanQuirk(rand);

@@ -69,26 +69,6 @@ class MonsterPocketDoll extends Doll {
         randomize();
     }
 
-    MonsterPocketDoll.fromDataString(String dataString){
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new HomestuckPalette());
-    }
-
-    @override
-    void load(String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new HomestuckPalette(), false);
-    }
-
-    //assumes type byte is already gone
-    MonsterPocketDoll.fromReader(ImprovedByteReader reader){
-        initFromReader(reader,new HomestuckPalette());
-    }
-
     @override
     void initLayers() {
         body = new SpriteLayer("Body", "$folder/Body/", 1, maxBody);

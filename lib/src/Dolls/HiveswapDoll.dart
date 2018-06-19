@@ -110,25 +110,7 @@ class HiveswapDoll extends Doll {
         randomize();
     }
 
-    HiveswapDoll.fromDataString(String dataString){
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
 
-        initFromReader(reader, new HiveswapTrollPalette());
-    }
-
-    @override
-    void load(String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new HiveswapTrollPalette(), false);
-    }
-
-    //assumes type byte is already gone
-    HiveswapDoll.fromReader(ImprovedByteReader reader){
-        initFromReader(reader,new HiveswapTrollPalette());
-    }
 
     @override
     void setQuirk() {

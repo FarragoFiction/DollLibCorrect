@@ -67,14 +67,6 @@ class HomestuckTrollDoll extends HomestuckDoll {
     List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,leftHorn, rightHorn, leftFin, rightFin, wings, canonSymbol, facePaint, extendedBody, extendedHairTop, extendedHairBack, extendedLeftHorn, extendedRightHorn];
 
 
-    @override
-    void load(String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new HomestuckTrollPalette(), false);
-    }
-
     HomestuckTrollDoll([int sign]) :super() {
         if(sign != null) {
             canonSymbol.imgNumber = sign;
@@ -143,33 +135,6 @@ class HomestuckTrollDoll extends HomestuckDoll {
         extendedRightHorn =new SpriteLayer("RightHorn", "$folder/RightHorn/", 1, maxHorn, supportsMultiByte: true)..primaryPartner = false;
         extendedLeftHorn = new SpriteLayer("LeftHorn", "$folder/LeftHorn/", 1, maxHorn, supportsMultiByte: true)..partners.add(extendedRightHorn);
 
-    }
-
-
-    HomestuckTrollDoll.fromDataString(String dataString){
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-        int type = reader.readByte(); //not gonna use, but needs to be off before given to initFromReader
-        initFromReader(reader, new HomestuckTrollPalette());
-       // print("after initing from reader, hair top is ${hairTop.imgNumber} and hair back is ${hairBack.imgNumber}");
-        if(extendedBody.imgNumber <2) extendedBody.imgNumber = body.imgNumber;
-        if(extendedHairTop.imgNumber <2) extendedHairTop.imgNumber = hairTop.imgNumber;
-        if(extendedHairBack.imgNumber <2) extendedHairBack.imgNumber = hairBack.imgNumber;
-
-        if(extendedLeftHorn.imgNumber <2) extendedLeftHorn.imgNumber = leftHorn.imgNumber;
-        if(extendedRightHorn.imgNumber <2) extendedRightHorn.imgNumber = rightHorn.imgNumber;
-    }
-
-    //assumes type byte is already gone
-    HomestuckTrollDoll.fromReader(ImprovedByteReader reader){
-        initFromReader(reader, new HomestuckTrollPalette());
-        //print("after initing from reader, hair top is ${hairTop.imgNumber} and hair back is ${hairBack.imgNumber}");
-        if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
-        if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
-        if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
-
-        if(extendedLeftHorn.imgNumber ==0) extendedLeftHorn.imgNumber = leftHorn.imgNumber;
-        if(extendedRightHorn.imgNumber ==0) extendedRightHorn.imgNumber = rightHorn.imgNumber;
     }
 
     static List<String> get castes {

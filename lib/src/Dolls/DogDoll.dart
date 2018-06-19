@@ -122,26 +122,7 @@ class DogDoll extends Doll{
     if(tail.imgNumber == 0) tail.imgNumber = 1;
   }
 
-  @override
-  void load(String dataString) {
-    Uint8List thingy = BASE64URL.decode(dataString);
-    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
 
-    initFromReader(reader, new HomestuckPalette(), false);
-  }
-
-  DogDoll.fromDataString(String dataString){
-    Uint8List thingy = BASE64URL.decode(dataString);
-    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    print("Initing a Virus Doll From Reader $dataOrderLayers");
-    initFromReader(reader, new HomestuckPalette());
-  }
-
-  //assumes type byte is already gone
-  DogDoll.fromReader(ImprovedByteReader reader){
-    initFromReader(reader,new HomestuckPalette());
-  }
 
   @override
   void setQuirk() {

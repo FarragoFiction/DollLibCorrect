@@ -47,25 +47,6 @@ class ConsortDoll extends Doll {
         randomize();
     }
 
-    ConsortDoll.fromDataString(String dataString){
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new ConsortPalette());
-    }
-
-    @override
-    void load(String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new ConsortPalette(), false);
-    }
-
-    //assumes type byte is already gone
-    ConsortDoll.fromReader(ImprovedByteReader reader){
-        initFromReader(reader,new ConsortPalette());
-    }
 
     @override
     void initLayers() {

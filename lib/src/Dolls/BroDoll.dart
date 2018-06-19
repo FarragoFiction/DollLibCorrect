@@ -71,13 +71,6 @@ class BroDoll extends Doll {
         randomize();
     }
 
-    @override
-    void load(String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new BroPalette(), false);
-    }
 
     //moms like pastel pink
     @override
@@ -127,20 +120,6 @@ class BroDoll extends Doll {
         for(SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber+1);
         }
-    }
-
-
-
-    BroDoll.fromDataString(String dataString){
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new BroPalette());
-    }
-
-    //assumes type byte is already gone, don't forget to add line to Doll.dart
-    BroDoll.fromReader(ImprovedByteReader reader){
-        initFromReader(reader,new BroPalette());
     }
 
 

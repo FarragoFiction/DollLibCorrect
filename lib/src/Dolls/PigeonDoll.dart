@@ -131,25 +131,6 @@ class PigeonDoll extends Doll {
         randomize();
     }
 
-    PigeonDoll.fromDataString(String dataString){
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new PigeonPalette());
-    }
-
-    @override
-    void load(String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new PigeonPalette(), false);
-    }
-
-    //assumes type byte is already gone
-    PigeonDoll.fromReader(ImprovedByteReader reader){
-        initFromReader(reader,new PigeonPalette());
-    }
 
     @override
     void initLayers() {

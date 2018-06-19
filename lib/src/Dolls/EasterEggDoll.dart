@@ -129,13 +129,6 @@ class EasterEggDoll extends HatchableDoll {
         initEasterEggURLS();
     }
 
-    EasterEggDoll.fromDataString(String dataString){
-        validPalettes.addAll(ReferenceColours.paletteList.values);
-        Uint8List thingy = BASE64URL.decode(dataString);
-       ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new EasterEggPalette());
-    }
 
     void initEasterEggURLS() {
         eggs.add("http://www.farragofiction.com/SBURBSim/tools/");
@@ -193,18 +186,6 @@ class EasterEggDoll extends HatchableDoll {
        return eggs[base.imgNumber % eggs.length];
     }
 
-    @override
-    void load(String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
-       ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new EasterEggPalette(), false);
-    }
-
-    //assumes type byte is already gone
-    EasterEggDoll.fromReader(ImprovedByteReader reader){
-        initFromReader(reader,new EasterEggPalette());
-    }
 
     @override
     void initLayers() {

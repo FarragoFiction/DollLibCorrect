@@ -152,27 +152,6 @@ class TalkSpriteDoll extends Doll{
 
 
   @override
-  void load(String dataString) {
-    Uint8List thingy = BASE64URL.decode(dataString);
-    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    initFromReader(reader, new TalkSpritePalette(), false);
-  }
-
-  TalkSpriteDoll.fromDataString(String dataString){
-    Uint8List thingy = BASE64URL.decode(dataString);
-    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    print("Initing a Virus Doll From Reader $dataOrderLayers");
-    initFromReader(reader, new TalkSpritePalette());
-  }
-
-  //assumes type byte is already gone
-  TalkSpriteDoll.fromReader(ImprovedByteReader reader){
-    initFromReader(reader,new TalkSpritePalette());
-  }
-
-  @override
   void initLayers() {
 
     {

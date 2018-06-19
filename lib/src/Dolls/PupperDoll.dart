@@ -122,27 +122,6 @@ class PupperDoll extends Doll{
   }
 
   @override
-  void load(String dataString) {
-    Uint8List thingy = BASE64URL.decode(dataString);
-    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    initFromReader(reader, new HomestuckPalette(), false);
-  }
-
-  PupperDoll.fromDataString(String dataString){
-    Uint8List thingy = BASE64URL.decode(dataString);
-    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    print("Initing a Virus Doll From Reader $dataOrderLayers");
-    initFromReader(reader, new HomestuckPalette());
-  }
-
-  //assumes type byte is already gone
-  PupperDoll.fromReader(ImprovedByteReader reader){
-    initFromReader(reader,new HomestuckPalette());
-  }
-
-  @override
   void setQuirk() {
     int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
     Random rand  = new Random(seed);

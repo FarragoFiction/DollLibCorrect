@@ -15,6 +15,8 @@ abstract class Doll {
 
     //useful for the builder
     static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22,23,25,27,21];
+    static List<int> allDollTypesEvenWIPS = <int>[27,25,10,22,23,3,7,4,26,19,41,66,42,14,12,16,1,13,11,15,2,9,151,21,113,24,8,17,20,65,18];
+
     String originalCreator = "???";
 
     //in case i want controlled random
@@ -342,15 +344,22 @@ abstract class Doll {
         }
     }
 
-    void load(String dataString) {
+    void load(ImprovedByteReader reader, String dataString) {
         Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-        initFromReader(reader, new Palette(), false);
+        if(reader == null) {
+            reader = new ImprovedByteReader(thingy.buffer, 0);
+            reader.readExpGolomb(); //pop it off, i already know my type
+        }
+        try {
+            initFromReader(reader, false);
+        }catch(e) {
+            initFromReaderOld(new OldByteBuilder.ByteReader(thingy.buffer,0),false);
+        }
     }
 
     //i am assuming type was already read at this point. Type, Exo is required.
     //IMPORTANT: WHATEVER CALLS ME SHOULD try/catch FOR OLD DATA
-    void initFromReader(ImprovedByteReader reader, Palette newP, [bool layersNeedInit = true]) {
+    void initFromReader(ImprovedByteReader reader, [bool layersNeedInit = true]) {
         if(layersNeedInit) {
             //print("initalizing layers");
             initLayers();
@@ -363,12 +372,7 @@ abstract class Doll {
         for(int i = 0; i< numColors; i++) {
             print("reading color ${names[i]}");
             Colour newColor = new Colour(reader.readByte(),reader.readByte(),reader.readByte());
-            newP.add(names[i], newColor, true);
-        }
-
-        for(String name2 in names) {
-            print("loading color $name2");
-            palette.add(name2, newP[name2], true);
+            palette.add(names[i], newColor, true);
         }
 
         int numLayers = reader.readExpGolomb();
@@ -380,7 +384,7 @@ abstract class Doll {
     }
 
 
-    void initFromReaderOld(OldByteBuilder.ByteReader reader, Palette newP, [bool layersNeedInit = true]) {
+    void initFromReaderOld(OldByteBuilder.ByteReader reader, [bool layersNeedInit = true]) {
         if(layersNeedInit) {
             //print("initalizing layers");
             initLayers();
@@ -394,12 +398,7 @@ abstract class Doll {
         for(String name2 in names) {
             featuresRead +=1;
             Colour newColor = new Colour(reader.readByte(),reader.readByte(),reader.readByte());
-            newP.add(name2, newColor, true);
-        }
-
-        for(String name2 in newP.names) {
-            // print("loading color $name");
-            palette.add(name2, newP[name], true);
+            palette.add(name2, newColor, true);
         }
 
         //layer is last so can add new layers.
@@ -474,6 +473,10 @@ abstract class Doll {
         return "$label${BASE64URL.encode(builder.toBuffer().asUint8List())}";
     }
 
+    void copyFromReaderWithDataString(ImprovedByteReader reader, String dataStringBackup) {
+
+    }
+
     //legacy as of 6/18/18
     String toDataBytesXOld([ByteBuilder builder = null]) {
         beforeSaving();
@@ -530,131 +533,13 @@ abstract class Doll {
         int type = reader.readExpGolomb();
        // print("type is $type");
 
-        if(type == new HomestuckDoll().renderingType) {
-            return new HomestuckDoll.fromReader(reader);
+        Map<int, Doll> map = new Map<int,Doll>();
+
+        for(int aType in allDollTypesEvenWIPS) {
+            map[aType]= randomDollOfType(aType);
         }
-
-
-        if(type == new VirusDoll().renderingType) {
-            return new VirusDoll.fromReader(reader);
-        }
-
-        if(type == new AncestorDoll().renderingType) {
-            return new AncestorDoll.fromReader(reader);
-        }
-
-        if(type == new BlobMonsterDoll().renderingType) {
-          return new BlobMonsterDoll.fromReader(reader);
-        }
-
-        if(type == new CatDoll().renderingType) {
-            return new CatDoll.fromReader(reader);
-        }
-
-        if(type == new BroomDoll().renderingType) {
-            return new BroomDoll.fromReader(reader);
-        }
-
-        if(type == new OpenBoundDoll().renderingType) {
-            return new OpenBoundDoll.fromReader(reader);
-        }
-
-        if(type == new EasterEggDoll().renderingType) {
-            return new EasterEggDoll.fromReader(reader);
-        }
-
-        if(type == new HatchedChick().renderingType) {
-            return new HatchedChick.fromReader(reader);
-        }
-
-        if(type == new DogDoll().renderingType) {
-            return new DogDoll.fromReader(reader);
-        }
-
-        if(type == new DocDoll().renderingType) {
-          return new DocDoll.fromReader(reader);
-        }
-
-        if(type == new PupperDoll().renderingType) {
-          return new PupperDoll.fromReader(reader);
-        }
-
-        if(type == new TalkSpriteDoll().renderingType) {
-            return new TalkSpriteDoll.fromReader(reader);
-        }
-
-
-        if(type == new EggDoll().renderingType) {
-            return new EggDoll.fromReader(reader);
-        }
-
-        if(type == new TrollEggDoll().renderingType) {
-            return new TrollEggDoll.fromReader(reader);
-        }
-
-        if(type == new HomestuckSatyrDoll().renderingType) {
-            return new HomestuckSatyrDoll.fromReader(reader);
-        }
-
-        if(type == new HomestuckCherubDoll().renderingType) {
-            return new HomestuckCherubDoll.fromReader(reader);
-        }
-
-        if(type == new HiveswapDoll().renderingType) {
-            return new HiveswapDoll.fromReader(reader);
-        }
-
-        if(type == new PigeonDoll().renderingType) {
-            return new PigeonDoll.fromReader(reader);
-        }
-
-        if(type == new HomestuckTrollDoll().renderingType) {
-            return new HomestuckTrollDoll.fromReader(reader);
-        }
-
-        if(type == new ConsortDoll().renderingType) {
-            return new ConsortDoll.fromReader(reader);
-        }
-
-        if(type == new HiveswapDoll().renderingType) {
-            return new HiveswapDoll.fromReader(reader);
-        }
-
-        if(type == new DenizenDoll().renderingType) {
-            return new DenizenDoll.fromReader(reader);
-        }
-
-        if(type == new DadDoll().renderingType) {
-            return new DadDoll.fromReader(reader);
-        }
-
-        if(type == new SuperbSuckDoll().renderingType) {
-            return new SuperbSuckDoll.fromReader(reader);
-        }
-
-        if(type == new QueenDoll().renderingType) {
-            return new QueenDoll.fromReader(reader);
-        }
-
-        if(type == new MomDoll().renderingType) {
-            return new MomDoll.fromReader(reader);
-        }
-
-        if(type == new BroDoll().renderingType) {
-            return new BroDoll.fromReader(reader);
-        }
-
-        if(type == new HomestuckBabyDoll().renderingType) {
-            return new HomestuckBabyDoll.fromReader(reader);
-        }
-
-        if(type == new HomestuckGrubDoll().renderingType) {
-            return new HomestuckGrubDoll.fromReader(reader);
-        }
-
-        if(type == new MonsterPocketDoll().renderingType) {
-            return new MonsterPocketDoll.fromReader(reader);
-        }
+        map[type].load(reader, dataString);
+        return map[type];
     }
 
     static Doll randomHomestuckDoll() {
@@ -670,6 +555,10 @@ abstract class Doll {
 
     /* first part of any data string tells me what type of doll to load.*/
     static Doll randomDollOfType(int type) {
+
+        Map<int, Doll> map = new Map<int, Doll>();
+
+        //todo
 
         if(type == new HomestuckDoll().renderingType) {
             return new HomestuckDoll();

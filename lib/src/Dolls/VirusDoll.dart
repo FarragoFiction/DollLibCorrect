@@ -109,26 +109,7 @@ class VirusDoll extends Doll{
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
   }
-
-  @override
-  void load(String dataString) {
-    Uint8List thingy = BASE64URL.decode(dataString);
-    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-    initFromReader(reader, new VirusPalette(), false);
-  }
-
-  VirusDoll.fromDataString(String dataString){
-    Uint8List thingy = BASE64URL.decode(dataString);
-    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-    print("Initing a Virus Doll From Reader $dataOrderLayers");
-    initFromReader(reader, new VirusPalette());
-  }
-
-  //assumes type byte is already gone
-  VirusDoll.fromReader(ImprovedByteReader reader){
-    initFromReader(reader,new VirusPalette());
-  }
-
+  
   @override
   void initLayers() {
 

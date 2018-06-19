@@ -40,13 +40,7 @@ class EggDoll extends HomestuckDoll {
 
     }
 
-    EggDoll.fromReader(ImprovedByteReader reader){
-        initFromReader(reader,new HomestuckPalette());
-        if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
-        if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
-        if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
 
-    }
 
 
 

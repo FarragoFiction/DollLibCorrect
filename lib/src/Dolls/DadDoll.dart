@@ -125,26 +125,6 @@ class DadDoll extends Doll {
     }
 
 
-    @override
-    void load(String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new DadPalette(), false);
-    }
-
-
-    DadDoll.fromDataString(String dataString){
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new DadPalette());
-    }
-
-    //assumes type byte is already gone
-    DadDoll.fromReader(ImprovedByteReader reader){
-        initFromReader(reader,new DadPalette());
-    }
 
 
 

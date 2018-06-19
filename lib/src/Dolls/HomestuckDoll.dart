@@ -103,13 +103,6 @@ class HomestuckDoll extends HatchableDoll {
         randomize();
     }
 
-    @override
-    void load(String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new HomestuckPalette(), false);
-    }
 
     @override
     void beforeSaving() {
@@ -150,27 +143,6 @@ class HomestuckDoll extends HatchableDoll {
         glasses = new SpriteLayer("Glasses","$folder/Glasses/", 1, maxGlass);
         glasses2 = new SpriteLayer("Glasses2","$folder/Glasses2/", 0, maxGlass2)..secretMax = maxSecretGlass2;
     }
-
-    HomestuckDoll.fromDataString(String dataString){
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-        int type = reader.readByte(); //not gonna use, but needs to be off before given to initFromReader
-        initFromReader(reader, new HomestuckPalette());
-        if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
-        if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
-        if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
-    }
-
-    //assumes type byte is already gone
-     HomestuckDoll.fromReader(ImprovedByteReader reader){
-         initFromReader(reader,new HomestuckPalette());
-         if(extendedBody.imgNumber <2) extendedBody.imgNumber = body.imgNumber;
-         if(extendedHairBack.imgNumber <2) extendedHairBack.imgNumber = hairBack.imgNumber;
-         if(extendedHairTop.imgNumber <2) extendedHairTop.imgNumber = hairTop.imgNumber;
-
-     }
-
-
 
 
     void randomize() {

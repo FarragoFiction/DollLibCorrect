@@ -137,26 +137,7 @@ class HatchedChick extends HatchableDoll {
 
     }
 
-    HatchedChick.fromDataString(String dataString){
-        validPalettes.addAll(ReferenceColours.paletteList.values);
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
 
-        initFromReader(reader, new HatchedChickPalette());
-    }
-
-    @override
-    void load(String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new HatchedChickPalette(), false);
-    }
-
-    //assumes type byte is already gone
-    HatchedChick.fromReader(ImprovedByteReader reader){
-        initFromReader(reader,new HatchedChickPalette());
-    }
 
     @override
     void initLayers() {

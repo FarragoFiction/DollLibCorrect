@@ -59,13 +59,6 @@ class HomestuckCherubDoll extends HomestuckDoll {
     List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,facePaint,wings, cheeks];
 
 
-    @override
-    void load(String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
-       ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new HomestuckCherubPalette(), false);
-    }
 
     HomestuckCherubDoll([int sign]) :super() {
         if(sign != null) {
@@ -196,19 +189,6 @@ class HomestuckCherubDoll extends HomestuckDoll {
     }
 
 
-    HomestuckCherubDoll.fromDataString(String dataString){
-        Uint8List thingy = BASE64URL.decode(dataString);
-       ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-        int type = reader.readByte(); //not gonna use, but needs to be off before given to initFromReader
-        initFromReader(reader, new HomestuckCherubPalette());
-    }
-
-    //assumes type byte is already gone
-    HomestuckCherubDoll.fromReader(ImprovedByteReader reader){
-        initFromReader(reader, new HomestuckCherubPalette());
-        if(extendedHairBack.imgNumber <2) extendedHairBack.imgNumber = hairBack.imgNumber;
-        if(extendedHairTop.imgNumber <2) extendedHairTop.imgNumber = hairTop.imgNumber;
-    }
 
     @override
     void beforeSaving() {

@@ -49,13 +49,7 @@ class HomestuckSatyrDoll extends HomestuckDoll {
     List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,leftHorn, rightHorn, fluff, tail, satyrSymbol, facePaint,extendedBody, extendedHairTop, extendedHairBack];
 
 
-    @override
-    void load(String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
 
-        initFromReader(reader, new HomestuckSatyrPalette(), false);
-    }
 
     HomestuckSatyrDoll([int sign]) :super() {
         if(sign != null) {
@@ -267,24 +261,6 @@ class HomestuckSatyrDoll extends HomestuckDoll {
         symbol.imgNumber = 0; //blank it out.
     }
 
-
-    HomestuckSatyrDoll.fromDataString(String dataString){
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-        int type = reader.readByte(); //not gonna use, but needs to be off before given to initFromReader
-        initFromReader(reader, new HomestuckSatyrPalette());
-        if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
-        if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
-        if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
-    }
-
-    //assumes type byte is already gone
-    HomestuckSatyrDoll.fromReader(ImprovedByteReader reader){
-        initFromReader(reader, new HomestuckSatyrPalette());
-        if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
-        if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
-        if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
-    }
 
     void randomizeColors() {
 

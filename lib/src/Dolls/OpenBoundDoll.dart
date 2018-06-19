@@ -152,26 +152,6 @@ class OpenBoundDoll extends Doll{
 
   }
 
-  @override
-  void load(String dataString) {
-    Uint8List thingy = BASE64URL.decode(dataString);
-    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    initFromReader(reader, new OpenBoundPalette(), false);
-  }
-
-  OpenBoundDoll.fromDataString(String dataString){
-    Uint8List thingy = BASE64URL.decode(dataString);
-    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    print("Initing a Virus Doll From Reader $dataOrderLayers");
-    initFromReader(reader, new OpenBoundPalette());
-  }
-
-  //assumes type byte is already gone
-  OpenBoundDoll.fromReader(ImprovedByteReader reader){
-    initFromReader(reader,new OpenBoundPalette());
-  }
 
   @override
   void initLayers() {

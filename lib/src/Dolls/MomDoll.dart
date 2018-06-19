@@ -73,14 +73,6 @@ class MomDoll extends Doll {
         randomize();
     }
 
-    @override
-    void load(String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new MomPalette(),false);
-    }
-
     //moms like pastel pink
     @override
     Colour get associatedColor {
@@ -130,22 +122,6 @@ class MomDoll extends Doll {
             l.imgNumber = rand.nextInt(l.maxImageNumber+1);
         }
     }
-
-
-
-    MomDoll.fromDataString(String dataString){
-        Uint8List thingy = BASE64URL.decode(dataString);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-        initFromReader(reader, new MomPalette());
-    }
-
-    //assumes type byte is already gone, don't forget to add line to Doll.dart
-    MomDoll.fromReader(ImprovedByteReader reader){
-        initFromReader(reader,new MomPalette());
-    }
-
-
 
 }
 

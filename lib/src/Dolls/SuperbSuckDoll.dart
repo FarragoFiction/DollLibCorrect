@@ -77,25 +77,6 @@ class SuperbSuckDoll extends Doll{
     randomize();
   }
 
-  @override
-  void load(String dataString) {
-    Uint8List thingy = BASE64URL.decode(dataString);
-    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    initFromReader(reader, new SuperbSuckPalette(), false);
-  }
-
-  SuperbSuckDoll.fromDataString(String dataString){
-    Uint8List thingy = BASE64URL.decode(dataString);
-    ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    initFromReader(reader, new SuperbSuckPalette());
-  }
-
-  //assumes type byte is already gone
-  SuperbSuckDoll.fromReader(ImprovedByteReader reader){
-    initFromReader(reader,new SuperbSuckPalette());
-  }
 
   @override
   void initLayers() {

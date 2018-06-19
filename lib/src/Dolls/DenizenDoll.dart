@@ -74,25 +74,6 @@ class DenizenDoll extends Doll{
     randomize();
   }
 
-  @override
-  void load(String dataString) {
-    Uint8List thingy = BASE64URL.decode(dataString);
-   ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    initFromReader(reader, new DenizenPalette(), false);
-  }
-
-  DenizenDoll.fromDataString(String dataString){
-    Uint8List thingy = BASE64URL.decode(dataString);
-   ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    initFromReader(reader, new DenizenPalette());
-  }
-
-  //assumes type byte is already gone
-  DenizenDoll.fromReader(ImprovedByteReader reader){
-    initFromReader(reader,new DenizenPalette());
-  }
 
   @override
   void setQuirk() {

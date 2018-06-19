@@ -104,27 +104,6 @@ class DocDoll extends Doll{
   }
 
   @override
-  void load(String dataString) {
-    Uint8List thingy = BASE64URL.decode(dataString);
-   ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    initFromReader(reader, new HomestuckPalette(), false);
-  }
-
-  DocDoll.fromDataString(String dataString){
-    Uint8List thingy = BASE64URL.decode(dataString);
-   ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
-
-    print("Initing a Virus Doll From Reader $dataOrderLayers");
-    initFromReader(reader, new HomestuckPalette());
-  }
-
-  //assumes type byte is already gone
-  DocDoll.fromReader(ImprovedByteReader reader){
-    initFromReader(reader,new HomestuckPalette());
-  }
-
-  @override
   void setQuirk() {
     Random rand  = new Random(seed);
     quirkButDontUse = Quirk.randomHumanQuirk(rand);
