@@ -392,7 +392,8 @@ abstract class Doll {
     }
 
     void load(ImprovedByteReader reader, String dataString) {
-        Uint8List thingy = BASE64URL.decode(dataString);
+        String dataStringWithoutName = removeLabelFromString(dataString);
+        Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
         if(reader == null) {
             reader = new ImprovedByteReader(thingy.buffer, 0);
             reader.readExpGolomb(); //pop it off, i already know my type
@@ -587,16 +588,16 @@ abstract class Doll {
 
     /* first part of any data string tells me what type of doll to load.*/
     static Doll loadSpecificDoll(String ds) {
-        String dataString = removeURLFromString(ds);
-        dataString = removeLabelFromString(ds);
-        print("dataString is $dataString");
-        Uint8List thingy = BASE64URL.decode(dataString);
+        String dataStringWithoutName = removeURLFromString(ds);
+        dataStringWithoutName = removeLabelFromString(ds);
+        print("dataString is $dataStringWithoutName");
+        Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = reader.readExpGolomb();
        // print("type is $type");
 
 
-        allDollsMappedByType[type].load(reader, dataString);
+        allDollsMappedByType[type].load(reader, ds);
         return allDollsMappedByType[type];
     }
 
