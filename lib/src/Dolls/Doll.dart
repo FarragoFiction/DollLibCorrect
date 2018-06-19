@@ -487,6 +487,12 @@ abstract class Doll {
         //nothing to do but other dolls might sync old and new parts
     }
 
+    //what goes after a ?
+    String toDataUrlPart() {
+        String dataString = toDataBytesX();
+        //need to escape name shit
+        return Uri.encodeQueryComponent(dataString);
+    }
 
 
 
