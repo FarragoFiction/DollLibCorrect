@@ -109,7 +109,7 @@ class VirusDoll extends Doll{
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
   }
-  
+
   @override
   void initLayers() {
 

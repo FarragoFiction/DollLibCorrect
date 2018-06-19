@@ -15,7 +15,54 @@ abstract class Doll {
 
     //useful for the builder
     static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22,23,25,27,21];
-    static List<int> allDollTypesEvenWIPS = <int>[27,25,10,22,23,3,7,4,26,19,41,66,42,14,12,16,1,13,11,15,2,9,151,21,113,24,8,17,20,65,18];
+
+    static List<Doll> _allDollsEvenWIPS = new List<Doll>();
+    static Map<int, Doll> _allDollsMappedByType = new Map<int, Doll>();
+
+    static Map<int, Doll> get  allDollsMappedByType {
+        if(_allDollsMappedByType.isEmpty) {
+            for(Doll doll in allDollsEvenWIPS) {
+                _allDollsMappedByType[doll.renderingType]= doll;
+            }
+        }
+        return _allDollsMappedByType;
+    }
+    static List<Doll> get allDollsEvenWIPS {
+        if(_allDollsEvenWIPS.isEmpty) {
+            _allDollsEvenWIPS.add(new AncestorDoll());
+            _allDollsEvenWIPS.add(new BlobMonsterDoll());
+            _allDollsEvenWIPS.add(new BroDoll());
+            _allDollsEvenWIPS.add(new BroomDoll());
+            _allDollsEvenWIPS.add(new CatDoll());
+            _allDollsEvenWIPS.add(new ConsortDoll());
+            _allDollsEvenWIPS.add(new DadDoll());
+            _allDollsEvenWIPS.add(new DenizenDoll());
+            _allDollsEvenWIPS.add(new DocDoll());
+            _allDollsEvenWIPS.add(new DogDoll());
+            _allDollsEvenWIPS.add(new EasterEggDoll());
+            _allDollsEvenWIPS.add(new EggDoll());
+            _allDollsEvenWIPS.add(new HatchedChick());
+            _allDollsEvenWIPS.add(new HiveswapDoll());
+            _allDollsEvenWIPS.add(new HomestuckBabyDoll());
+            _allDollsEvenWIPS.add(new HomestuckCherubDoll());
+            _allDollsEvenWIPS.add(new HomestuckDoll());
+            _allDollsEvenWIPS.add(new HomestuckGrubDoll());
+            _allDollsEvenWIPS.add(new HomestuckHeroDoll());
+            _allDollsEvenWIPS.add(new HomestuckSatyrDoll());
+            _allDollsEvenWIPS.add(new HomestuckTrollDoll());
+            _allDollsEvenWIPS.add(new MomDoll());
+            _allDollsEvenWIPS.add(new MonsterPocketDoll());
+            _allDollsEvenWIPS.add(new OpenBoundDoll());
+            _allDollsEvenWIPS.add(new PigeonDoll());
+            _allDollsEvenWIPS.add(new PupperDoll());
+            _allDollsEvenWIPS.add(new QueenDoll());
+            _allDollsEvenWIPS.add(new SuperbSuckDoll());
+            _allDollsEvenWIPS.add(new TalkSpriteDoll());
+            _allDollsEvenWIPS.add(new TrollEggDoll());
+            _allDollsEvenWIPS.add(new VirusDoll());
+        }
+        return _allDollsEvenWIPS;
+    }
 
     String originalCreator = "???";
 
@@ -533,13 +580,9 @@ abstract class Doll {
         int type = reader.readExpGolomb();
        // print("type is $type");
 
-        Map<int, Doll> map = new Map<int,Doll>();
 
-        for(int aType in allDollTypesEvenWIPS) {
-            map[aType]= randomDollOfType(aType);
-        }
-        map[type].load(reader, dataString);
-        return map[type];
+        allDollsMappedByType[type].load(reader, dataString);
+        return allDollsMappedByType[type];
     }
 
     static Doll randomHomestuckDoll() {
@@ -555,136 +598,7 @@ abstract class Doll {
 
     /* first part of any data string tells me what type of doll to load.*/
     static Doll randomDollOfType(int type) {
-
-        Map<int, Doll> map = new Map<int, Doll>();
-
-        //todo
-
-        if(type == new HomestuckDoll().renderingType) {
-            return new HomestuckDoll();
-        }
-
-        if(type == new HomestuckHeroDoll().renderingType) {
-            return new HomestuckHeroDoll();
-        }
-
-        if(type == new VirusDoll().renderingType) {
-            return new VirusDoll();
-        }
-
-        if(type == new AncestorDoll().renderingType) {
-            return new AncestorDoll();
-        }
-
-        if(type == new BlobMonsterDoll().renderingType) {
-          return new BlobMonsterDoll();
-        }
-
-        if(type == new CatDoll().renderingType) {
-            return new CatDoll();
-        }
-
-        if(type == new BroomDoll().renderingType) {
-            return new BroomDoll();
-        }
-
-        if(type == new OpenBoundDoll().renderingType) {
-            return new OpenBoundDoll();
-        }
-
-        if(type == new EasterEggDoll().renderingType) {
-            return new EasterEggDoll();
-        }
-
-        if(type == new HatchedChick().renderingType) {
-            return new HatchedChick();
-        }
-
-        if(type == new DogDoll().renderingType) {
-            return new DogDoll();
-        }
-
-        if(type == new DocDoll().renderingType) {
-          return new DocDoll();
-        }
-
-        if(type == new PupperDoll().renderingType) {
-          return new PupperDoll();
-        }
-
-        if(type == new TalkSpriteDoll().renderingType) {
-            return new TalkSpriteDoll();
-        }
-
-
-        if(type == new EggDoll().renderingType) {
-            return new EggDoll();
-        }
-
-        if(type == new TrollEggDoll().renderingType) {
-            return new TrollEggDoll();
-        }
-
-        if(type == new HomestuckTrollDoll().renderingType) {
-            return new HomestuckTrollDoll();
-        }
-
-        if(type == new HomestuckSatyrDoll().renderingType) {
-            return new HomestuckSatyrDoll();
-        }
-
-        if(type == new HomestuckCherubDoll().renderingType) {
-            return new HomestuckCherubDoll();
-        }
-
-        if(type == new HiveswapDoll().renderingType) {
-            return new HiveswapDoll();
-        }
-
-
-        if(type == new ConsortDoll().renderingType) {
-            return new ConsortDoll();
-        }
-
-        if(type == new DenizenDoll().renderingType) {
-            return new DenizenDoll();
-        }
-
-        if(type == new DadDoll().renderingType) {
-            return new DadDoll();
-        }
-
-        if(type == new QueenDoll().renderingType) {
-            return new QueenDoll();
-        }
-
-        if(type == new PigeonDoll().renderingType) {
-            return new PigeonDoll();
-        }
-
-        if(type == new MomDoll().renderingType) {
-            return new MomDoll();
-        }
-
-        if(type == new SuperbSuckDoll().renderingType) {
-            return new SuperbSuckDoll();
-        }
-
-        if(type == new BroDoll().renderingType) {
-            return new BroDoll();
-        }
-
-        if(type == new HomestuckBabyDoll().renderingType) {
-            return new HomestuckBabyDoll();
-        }
-
-        if(type == new HomestuckGrubDoll().renderingType) {
-            return new HomestuckGrubDoll();
-        }
-
-        if(type == new MonsterPocketDoll().renderingType) {
-            return new MonsterPocketDoll();
-        }
+        return allDollsMappedByType[type];
     }
 
     static List<SavedDoll> loadAllFromLocalStorage() {
