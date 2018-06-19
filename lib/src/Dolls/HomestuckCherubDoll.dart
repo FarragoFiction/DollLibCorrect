@@ -54,9 +54,11 @@ class HomestuckCherubDoll extends HomestuckDoll {
     @override
     List<SpriteLayer> get renderingOrderLayers => <SpriteLayer>[wings, extendedHairBack, body,  facePaint, cheeks,symbol, mouth, leftEye, rightEye, glasses, extendedHairTop, glasses2];
 
+    @override
+    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[leftEye, rightEye, mouth, symbol, glasses, glasses2,facePaint,wings, cheeks];
 
     @override
-    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,facePaint,wings, cheeks];
+    List<SpriteLayer>  get oldDataLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,facePaint,wings, cheeks];
 
 
 

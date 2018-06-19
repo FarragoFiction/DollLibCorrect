@@ -9,7 +9,7 @@ import "../../DollRenderer.dart";
 import 'package:RenderingLib/src/Misc/weighted_lists.dart';
 import 'package:RenderingLib/src/includes/bytebuilder.dart'as OldByteBuilder;
 abstract class Doll {
-    static String labelPattern = ":___ ";
+    static String labelPattern = ":___";
     //whatever calls me is responsible for deciding if it wants to be url encoded or not
     String get label => "$dollName$labelPattern";
 
@@ -486,6 +486,8 @@ abstract class Doll {
     void beforeSaving() {
         //nothing to do but other dolls might sync old and new parts
     }
+
+
 
 
     //first, the rendering type. (this will get taken off before being passed to the loader)

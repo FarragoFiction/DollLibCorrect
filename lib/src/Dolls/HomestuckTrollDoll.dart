@@ -64,7 +64,10 @@ class HomestuckTrollDoll extends HomestuckDoll {
 
 
     @override
-    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,leftHorn, rightHorn, leftFin, rightFin, wings, canonSymbol, facePaint, extendedBody, extendedHairTop, extendedHairBack, extendedLeftHorn, extendedRightHorn];
+    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[leftEye, rightEye, mouth, symbol, glasses, glasses2, leftFin, rightFin, wings, canonSymbol, facePaint, extendedBody, extendedHairTop, extendedHairBack, extendedLeftHorn, extendedRightHorn];
+
+    @override
+    List<SpriteLayer>  get oldDataLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,leftHorn, rightHorn, leftFin, rightFin, wings, canonSymbol, facePaint, extendedBody, extendedHairTop, extendedHairBack, extendedLeftHorn, extendedRightHorn];
 
 
     HomestuckTrollDoll([int sign]) :super() {
