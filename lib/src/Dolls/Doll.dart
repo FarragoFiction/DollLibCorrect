@@ -587,12 +587,18 @@ abstract class Doll {
 
     void setDollNameFromString(String ds) {
         ds = Uri.decodeQueryComponent(ds); //get rid of any url encoding that might exist
-        dollName = ds.split("$labelPattern")[0];
+        List<String> parts = ds.split("$labelPattern");
+        if(parts.length == 1) {
+            //do nothing
+        }else {
+            dollName = parts[0];
+        }
     }
 
 
     /* first part of any data string tells me what type of doll to load.*/
     static Doll loadSpecificDoll(String ds) {
+        print("loading doll from string $ds");
         String dataStringWithoutName = removeURLFromString(ds);
         dataStringWithoutName = removeLabelFromString(ds);
         print("dataString is $dataStringWithoutName");
@@ -607,12 +613,14 @@ abstract class Doll {
         //WORRY ABOUT THIS IF IT HAPPENS, FOR NOW
         try {
             type = reader.readExpGolomb();
+            print("reading exo whatever, type is $type");
             allDollsMappedByType[type].load(reader, ds);
         }catch(e) {
-            type = reader.readByte(); //legacy
-            allDollsMappedByType[type].load(reader, ds);
+            OldByteBuilder.ByteReader reader = new OldByteBuilder.ByteReader(thingy.buffer, 0);
+            type = reader.readByte();
+            print("reading legacy, type is $type");
+            allDollsMappedByType[type].initFromReaderOld(reader);
         }
-        print("type is $type");
         return allDollsMappedByType[type];
     }
 
