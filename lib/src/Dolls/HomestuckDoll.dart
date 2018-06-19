@@ -6,6 +6,7 @@ import "../Dolls/Doll.dart";
 import "SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
+import 'package:RenderingLib/src/includes/bytebuilder.dart'as OldByteBuilder;
 
 import "../Rendering/ReferenceColors.dart";
 
@@ -151,8 +152,8 @@ class HomestuckDoll extends HatchableDoll {
     }
 
     @override
-    void load(ImprovedByteReader reader, String dataString) {
-        super.load(reader, dataString);
+    void initFromReaderOld(OldByteBuilder.ByteReader reader, [bool layersNeedInit = true]) {
+        super.initFromReaderOld(reader, layersNeedInit);
         print("overwritten load");
         if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
         if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;

@@ -5,7 +5,7 @@ import "SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 import "../../DollRenderer.dart";
-
+import 'package:RenderingLib/src/includes/bytebuilder.dart'as OldByteBuilder;
 import "../Dolls/HomestuckDoll.dart";
 import "../Rendering/ReferenceColors.dart";
 
@@ -277,8 +277,8 @@ class HomestuckTrollDoll extends HomestuckDoll {
     }
 
     @override
-    void load(ImprovedByteReader reader, String dataString) {
-        super.load(reader, dataString);
+    void initFromReaderOld(OldByteBuilder.ByteReader reader, [bool layersNeedInit = true]) {
+        super.initFromReaderOld(reader, layersNeedInit);
         if(extendedRightHorn.imgNumber ==0) extendedRightHorn.imgNumber = rightHorn.imgNumber;
         if(extendedLeftHorn.imgNumber ==0) extendedLeftHorn.imgNumber = leftHorn.imgNumber;
     }
