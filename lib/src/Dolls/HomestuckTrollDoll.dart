@@ -45,6 +45,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     int maxSecretHorn = 314;
     int maxFin = 21;
     int maxCanonSymbol = 288; //288 eventually
+    int maxSecretCanonSymbol = 288;
     int maxWing = 65;
 
     SpriteLayer leftHorn;
@@ -127,7 +128,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     void initLayers() {
         super.initLayers();
         //only do what is special to me here.
-        canonSymbol = new SpriteLayer("CanonSymbol", "$folder/CanonSymbol/", 0, maxCanonSymbol, supportsMultiByte: true);
+        canonSymbol = new SpriteLayer("CanonSymbol", "$folder/CanonSymbol/", 0, maxCanonSymbol, supportsMultiByte: true)..secretMax = 288;
         leftFin = new SpriteLayer("FinLeft", "$folder/LeftFin/", 1, maxFin);
         rightFin = new SpriteLayer("FinRight", "$folder/RightFin/", 1, maxFin, syncedWith: <SpriteLayer>[leftFin]);
         leftFin.syncedWith.add(rightFin);

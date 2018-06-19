@@ -484,7 +484,7 @@ abstract class Doll {
                 print("skipping a feature (${l.name}) i don't have in string");
                 l.imgNumber = 0; //don't have.
             }
-            // print("loading layer ${l.name}. Value: ${l.imgNumber} bytesRead: $featuresRead  numFeatures: $numFeatures");
+            print("loading layer ${l.name}. Value: ${l.imgNumber} bytesRead: $featuresRead  numFeatures: $numFeatures");
             if(l.imgNumber > l.maxImageNumber) l.imgNumber = 0;
             featuresRead += 1;
 
