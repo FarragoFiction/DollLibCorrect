@@ -45,7 +45,7 @@ class SpriteLayer {
     bool changed = true; //generate descriptions when created, that will set it to false
 
     SpriteLayer(this.name, this.imgNameBase, this._imgNumber, this.maxImageNumber, {this.supportsMultiByte = false, this.syncedWith:null, this.imgFormat:"png"}) {
-        numbytes = (maxImageNumber/255).ceil();
+        numbytes = (secretMax/255).ceil();
         if(syncedWith == null) syncedWith = new List<SpriteLayer>();
     }
 
