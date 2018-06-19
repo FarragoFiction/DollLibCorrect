@@ -622,14 +622,16 @@ abstract class Doll {
         //BUT WHEN IT TRIES TO LOAD THE WRONG TYPE IT WILL
         //BUT BY THEN IT WILL ALREADY BE IN THE WRONG DOLL
         //WORRY ABOUT THIS IF IT HAPPENS, FOR NOW
-        Doll ret = allDollsMappedByType[type].clone();
+        Doll ret;
         try {
             type = reader.readExpGolomb();
             print("reading exo whatever, type is $type");
+            ret = allDollsMappedByType[type].clone();
             ret.load(reader, ds);
         }catch(e) {
             OldByteBuilder.ByteReader reader = new OldByteBuilder.ByteReader(thingy.buffer, 0);
             type = reader.readByte();
+            ret = allDollsMappedByType[type].clone();
             print("reading legacy, type is $type");
             ret.initFromReaderOld(reader);
         }
