@@ -277,6 +277,13 @@ class HomestuckTrollDoll extends HomestuckDoll {
     }
 
     @override
+    void load(ImprovedByteReader reader, String dataString) {
+        super.load(reader, dataString);
+        if(extendedRightHorn.imgNumber ==0) extendedRightHorn.imgNumber = rightHorn.imgNumber;
+        if(extendedLeftHorn.imgNumber ==0) extendedLeftHorn.imgNumber = leftHorn.imgNumber;
+    }
+
+    @override
     void beforeSaving() {
         super.beforeSaving();
         //nothing to do but other dolls might sync old and new parts

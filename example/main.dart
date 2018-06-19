@@ -18,7 +18,8 @@ Future<bool> start() async {
     //doll =  Doll.randomDollOfType(16);
    //doll = Doll.randomDollOfType(2);
     //doll = new HomestuckDoll();
-    doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/index.html?ASAE-AcAAPgHEHlGQkLKysqKiYn5______9vbW11cXFJSkrKycmxtbXNy8uztbU1NTX9__8HCAgAAAAAAACo2gEYGwM=");
+    //doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/index.html?ASAE-AcAAPgHEHlGQkLKysqKiYn5______9vbW11cXFJSkrKycmxtbXNy8uztbU1NTX9__8HCAgAAAAAAACo2gEYGwM=");
+    doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/index.html?AXBnMv8hwP8BSHcBpOYBjKIBZiz_______-DzAAAAAAA1sIBqGABDtcB4Nr9-5OsrQP-__89BgYaGmg-QkIAAA==");
     //doll = Doll.randomDollOfType(18);
     //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
     //doll.useAbsolutePath = false;

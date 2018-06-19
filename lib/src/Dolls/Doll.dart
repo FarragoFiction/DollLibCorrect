@@ -468,7 +468,7 @@ abstract class Doll {
         //layer is last so can add new layers.
         for(SpriteLayer l in oldDataLayers) {
             //older strings with less layers
-            //print("layer ${l.name}, features read is $featuresRead and num features is $numFeatures");
+            print("layer ${l.name}, features read is $featuresRead and num features is $numFeatures");
 
             //<= is CORRECT DO NOT FUCKING CHANGE IT OR THE LAST LAYER WILL GET EATEN. ALSO: Fuck you, i don't know why i have to have a try catch in there since that if statement SHOULD mean only try to read if there's more to read but what fucking ever it works.
             if(featuresRead <= numFeatures) {

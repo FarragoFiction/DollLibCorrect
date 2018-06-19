@@ -150,6 +150,15 @@ class HomestuckDoll extends HatchableDoll {
          randomizeNotColors();
     }
 
+    @override
+    void load(ImprovedByteReader reader, String dataString) {
+        super.load(reader, dataString);
+        print("overwritten load");
+        if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
+        if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
+        if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
+    }
+
     void randomizeColors() {
         List<String> human_hair_colors = <String>["#68410a", "#fffffe", "#000000", "#000000", "#000000", "#f3f28d", "#cf6338", "#feffd7", "#fff3bd", "#724107", "#382207", "#ff5a00", "#3f1904", "#ffd46d", "#473200", "#91683c"];
 
