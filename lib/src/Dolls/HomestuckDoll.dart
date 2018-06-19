@@ -118,12 +118,12 @@ class HomestuckDoll extends HatchableDoll {
         //hairTop.syncedWith.add(hairBack);
        // hairBack.slave = true; //can't be selected on it's own
 
-        extendedHairTop = new SpriteLayer("HairFront","$folder/HairTop/", 1, maxHair, supportsMultiByte: true);
-        extendedHairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[extendedHairTop], supportsMultiByte: true);
+        extendedHairTop = new SpriteLayer("HairFront","$folder/HairTop/", 1, maxHair, supportsMultiByte: true)..secretMax = maxSecretHair;
+        extendedHairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[extendedHairTop], supportsMultiByte: true)..secretMax = maxSecretHair;
         extendedHairTop.syncedWith.add(extendedHairBack);
         extendedHairBack.slave = true;
 
-        extendedBody = new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true);
+        extendedBody = new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true)..secretMax = maxSecretBody;
         body = new SpriteLayer("BodyOld","$folder/Body/", 0, 255)..secretMax = maxSecretBody;
 
         facePaint = new SpriteLayer("FacePaint","$folder/FacePaint/", 0, maxFacePaint);
