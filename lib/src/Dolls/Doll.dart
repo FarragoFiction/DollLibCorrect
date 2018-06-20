@@ -468,7 +468,7 @@ abstract class Doll {
         //layer is last so can add new layers.
         for(SpriteLayer l in oldDataLayers) {
             //older strings with less layers
-            print("layer ${l.name}, features read is $featuresRead and num features is $numFeatures");
+           // print("layer ${l.name}, features read is $featuresRead and num features is $numFeatures");
 
             //<= is CORRECT DO NOT FUCKING CHANGE IT OR THE LAST LAYER WILL GET EATEN. ALSO: Fuck you, i don't know why i have to have a try catch in there since that if statement SHOULD mean only try to read if there's more to read but what fucking ever it works.
             if(featuresRead <= numFeatures) {
@@ -476,7 +476,7 @@ abstract class Doll {
                     l.loadFromReaderOld(reader); //handles knowing if it's 1 or more bytes
                     // print("reading (${l.name}), its ${l.imgNumber} ");
                 }catch(exception, stackTrace) {
-                    print("exo said I have $numFeatures and i've only read $featuresRead, but still can't read (${l.name}) for some reason. this is a caught error");
+                   // print("exo said I have $numFeatures and i've only read $featuresRead, but still can't read (${l.name}) for some reason. this is a caught error");
                     l.imgNumber = 0; //don't have.
                 }
                 //l.imgNumber = reader.readByte();
@@ -484,7 +484,7 @@ abstract class Doll {
                 print("skipping a feature (${l.name}) i don't have in string");
                 l.imgNumber = 0; //don't have.
             }
-            print("loading layer ${l.name}. Value: ${l.imgNumber} bytesRead: $featuresRead  numFeatures: $numFeatures");
+           // print("loading layer ${l.name}. Value: ${l.imgNumber} bytesRead: $featuresRead  numFeatures: $numFeatures");
             if(l.imgNumber > l.maxImageNumber) l.imgNumber = 0;
             featuresRead += 1;
 
@@ -529,7 +529,7 @@ abstract class Doll {
         builder.appendExpGolomb(names.length); //for length of palette
         for(String name2 in names) {
             Colour color = palette[name2];
-            print("saving color $name2 with value red ${color.red}, green${color.green} blue${color.blue}");
+            //print("saving color $name2 with value red ${color.red}, green${color.green} blue${color.blue}");
             builder.appendByte(color.red);
             builder.appendByte(color.green);
             builder.appendByte(color.blue);
@@ -610,10 +610,10 @@ abstract class Doll {
 
     /* first part of any data string tells me what type of doll to load.*/
     static Doll loadSpecificDoll(String ds) {
-        print("loading doll from string $ds");
+        //print("loading doll from string $ds");
         String dataStringWithoutName = removeURLFromString(ds);
         dataStringWithoutName = removeLabelFromString(dataStringWithoutName);
-        print("dataString is $dataStringWithoutName");
+        //print("dataString is $dataStringWithoutName");
         Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = -99;
@@ -626,7 +626,7 @@ abstract class Doll {
         Doll ret;
         try {
             type = reader.readExpGolomb();
-            print("reading exo whatever, type is $type");
+            //print("reading exo whatever, type is $type");
             ret = allDollsMappedByType[type].clone();
             ret.load(reader, ds);
         }catch(e) {
