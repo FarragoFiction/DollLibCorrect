@@ -100,7 +100,7 @@ class SpriteLayer {
 
     void loadFromReaderOld(OldByteBuilder.ByteReader reader) {
         numbytes = (secretMax/255).ceil();
-        print("I am $name and number of bytes is $numbytes and secretMax is $secretMax");
+        //print("I am $name and number of bytes is $numbytes and secretMax is $secretMax");
         if(numbytes == 1 || numbytes == 0) {
             imgNumber = reader.readByte();
         }else if(!supportsMultiByte) {
