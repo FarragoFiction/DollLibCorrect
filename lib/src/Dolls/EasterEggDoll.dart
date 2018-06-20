@@ -277,7 +277,7 @@ class EasterEggDoll extends HatchableDoll {
     @override
     void randomizeNotColors() {
                 if(rand == null) rand = new Random();;
-        print('randomizing not colors');
+        //print('randomizing not colors');
         for (SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber);
         }
