@@ -34,7 +34,7 @@ class DocDoll extends Doll{
   final int maxAccessory = 1;
   final int maxBody = 1;
   final int maxLeg = 1;
-  final int maxHead = 0;
+  final int maxHead = 2;
 
 
 
