@@ -429,18 +429,18 @@ abstract class Doll {
             initLayers();
         }
         int numColors = reader.readExpGolomb();
-        print("Number of colors is $numColors");
+        //print("Number of colors is $numColors");
         List<String> names = new List<String>.from(palette.names);
         names.sort();
 
         for(int i = 0; i< numColors; i++) {
-            print("reading color ${names[i]}");
+            //print("reading color ${names[i]}");
             Colour newColor = new Colour(reader.readByte(),reader.readByte(),reader.readByte());
             palette.add(names[i], newColor, true);
         }
 
         int numLayers = reader.readExpGolomb();
-        print("Number of layers is $numLayers");
+        //print("Number of layers is $numLayers");
         for(int i = 0; i<numLayers; i++) {
             dataOrderLayers[i].loadFromReader(reader);
         }

@@ -18,7 +18,7 @@ Future<bool> start() async {
     //doll =  Doll.randomDollOfType(16);
    //doll = Doll.randomDollOfType(2);
     //doll = new HomestuckDoll();
-    doll = Doll.loadSpecificDoll("DaA9QBoIAwiDAYAJAwiDBICEAYD51035100JAwgDAABYWlrS0dGJiIgAAACIiIiYmZkhJiYOAwiDAYBpMDUNDd0HAACAgQkIAAAAqGkwNX0JeAkA");
+    doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/index.html?GhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoa");
     //doll = Doll.loadSpecificDoll("manicInsomniac:___QSADMADw8PAQEBHiEeFBYUCw0L________AAAAaz4UGSwWEh8QIEAgESAP6AIDxwMA____Fh0Oh-CLA0AtBa");
     //doll = Doll.randomDollOfType(18);
     //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
