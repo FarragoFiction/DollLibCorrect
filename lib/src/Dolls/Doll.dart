@@ -409,6 +409,7 @@ abstract class Doll {
 
 
     void load(ImprovedByteReader reader, String dataString) {
+        setDollNameFromString(dataString);//i know it has a name, or else it's legacy and this will throw an error.
         String dataStringWithoutName = removeLabelFromString(dataString);
         Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
         if(reader == null) {
@@ -416,7 +417,6 @@ abstract class Doll {
             reader.readExpGolomb(); //pop it off, i already know my type
         }
         initFromReader(reader, false);
-        setDollNameFromString(dataString);//i know it has a name
     }
 
 
@@ -522,6 +522,7 @@ abstract class Doll {
         Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer);
         TableElement table = new TableElement();
+        me.append(table);
         oneRowOfDataTable("Type",table, reader);
         oneRowOfDataTable("Number of Colors",table, reader);
 
@@ -539,6 +540,15 @@ abstract class Doll {
             oneRowOfDataTable("${l.name}",table, reader);
         }
 
+        try {
+            for(int i = 0; i<113; i++) {
+                oneRowOfDataTable("???", table, reader);
+            }
+
+        }catch(e) {
+            print("ran out of data, $e");
+        }
+
 
     }
 
@@ -548,13 +558,14 @@ abstract class Doll {
 
         TableCellElement td1 = new TableCellElement()..setInnerHtml("<b>$label</b>");
         TableCellElement td2;
-        row.append(td1)..append(td2);
+        row.append(td1);
         if(oneByte) {
             //colors
             td2 = new TableCellElement()..setInnerHtml("${reader.readByte()}");
         }else {
             td2 = new TableCellElement()..setInnerHtml("${reader.readExpGolomb()}");
         }
+        row.append(td2);
     }
 
 
@@ -645,7 +656,8 @@ abstract class Doll {
         ds = Uri.decodeQueryComponent(ds); //get rid of any url encoding that might exist
         List<String> parts = ds.split("$labelPattern");
         if(parts.length == 1) {
-            //do nothing
+            //this should defeat DQ0N
+            throw "ERROR: THERE WAS NO NAME WHICH MEANS THIS WAS LEGACY. ABORTING SO I CAN SWITCH TO LEGACY MODE.";
         }else {
             dollName = parts[0];
         }
