@@ -622,10 +622,11 @@ abstract class Doll {
         Doll ret;
         try {
             type = reader.readExpGolomb();
-            //print("reading exo whatever, type is $type");
+            print("reading exo whatever, type is $type");
             ret = allDollsMappedByType[type].clone();
             ret.load(reader, ds);
-        }catch(e) {
+        }catch(e){
+            thingy = BASE64URL.decode(dataStringWithoutName);
             OldByteBuilder.ByteReader reader = new OldByteBuilder.ByteReader(thingy.buffer, 0);
             type = reader.readByte();
             ret = allDollsMappedByType[type].clone();
