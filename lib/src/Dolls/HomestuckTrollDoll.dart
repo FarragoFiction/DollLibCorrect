@@ -162,7 +162,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     @override
     String toDataBytesX([ByteBuilder builder = null]) {
         if (dollName == null || dollName.isEmpty) dollName = "${bloodColor} Blooded ${name}";
-        super.toDataBytesX(builder);
+        return super.toDataBytesX(builder);
     }
 
     String chooseBlood(Random rand, [bool forceMutant = false]) {
