@@ -413,12 +413,8 @@ abstract class Doll {
             reader = new ImprovedByteReader(thingy.buffer, 0);
             reader.readExpGolomb(); //pop it off, i already know my type
         }
-        try {
-            initFromReader(reader, false);
-            setDollNameFromString(dataString);//i know it has a name
-        }catch(e) {
-            initFromReaderOld(new OldByteBuilder.ByteReader(thingy.buffer,0),false);
-        }
+        initFromReader(reader, false);
+        setDollNameFromString(dataString);//i know it has a name
     }
 
     //i am assuming type was already read at this point. Type, Exo is required.
