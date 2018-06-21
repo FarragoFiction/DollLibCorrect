@@ -32,8 +32,8 @@ class DocDoll extends Doll{
   @override
   String relativefolder = "images/Doc";
   final int maxAccessory = 1;
-  final int maxBody = 1;
-  final int maxLeg = 1;
+  final int maxBody = 3;
+  final int maxLeg = 2;
   final int maxHead = 2;
 
 
