@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:RenderingLib/RendereringLib.dart';
 import 'package:RenderingLib/src/loader/loader.dart';
 
-
+Element output = querySelector('#output');
 Doll doll;
 void main() {
     querySelector('#output').text = 'Your Dart app is running.';
@@ -126,7 +126,7 @@ Future<bool>  drawDollLoop([CanvasElement canvas = null]) async {
 
 Future<CanvasElement>  drawDoll([CanvasElement finishedProduct = null]) async{
 
-    querySelector('#output').appendHtml(doll.quirk.translate("<br><br>The quick brown fox jumped over the lazy dog, yes?"));
+    output.appendHtml(doll.quirk.translate("<br><br>The quick brown fox jumped over the lazy dog, yes?"));
 
     Element innerDiv   = new DivElement();
     bool fresh = false;
@@ -143,22 +143,22 @@ Future<CanvasElement>  drawDoll([CanvasElement finishedProduct = null]) async{
         finishedProduct.className = "cardCanvas";
         innerDiv.append(finishedProduct);
 
-        querySelector('#output').append(innerDiv);
+        output.append(innerDiv);
         for (SpriteLayer i in doll.dataOrderLayers) {
             Element e = new DivElement();
             e.text = "${i.name}: ${i.imgLocation}";
 
-            querySelector('#output').append(e);
+            output.append(e);
         }
-        querySelector('#output').appendHtml(doll.toDataBytesX());
+        output.appendHtml(doll.toDataBytesX());
     }
     
     if(doll is EasterEggDoll) {
         AnchorElement a = new AnchorElement(href: (doll as EasterEggDoll).getEasterEgg());
         a.text = "${(doll as EasterEggDoll).getEasterEgg()} (${EasterEggDoll.eggs.length} possible)";
-        querySelector('#output').append(a);
+        output.append(a);
     }
 
-
+    doll.visualizeData(output);
     return finishedProduct;
 }

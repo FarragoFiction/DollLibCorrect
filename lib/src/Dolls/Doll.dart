@@ -406,6 +406,8 @@ abstract class Doll {
         }
     }
 
+
+
     void load(ImprovedByteReader reader, String dataString) {
         String dataStringWithoutName = removeLabelFromString(dataString);
         Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
@@ -416,6 +418,8 @@ abstract class Doll {
         initFromReader(reader, false);
         setDollNameFromString(dataString);//i know it has a name
     }
+
+
 
     //i am assuming type was already read at this point. Type, Exo is required.
     //IMPORTANT: WHATEVER CALLS ME SHOULD try/catch FOR OLD DATA
@@ -507,6 +511,51 @@ abstract class Doll {
         return Uri.encodeQueryComponent(dataString);
     }
 
+    //will always be new format, since it calls toDataBytesX itself
+    void visualizeData(Element container, [String dataString]) {
+        DivElement me = new DivElement();
+        container.append(me);
+        if(dataString == null) {
+            dataString = toDataBytesX();
+        }
+        String dataStringWithoutName = removeLabelFromString(dataString);
+        Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
+        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer);
+        TableElement table = new TableElement();
+        oneRowOfDataTable("Type",table, reader);
+        oneRowOfDataTable("Number of Colors",table, reader);
+
+        List<String> names = new List<String>.from(palette.names);
+        names.sort();
+        for(String name2 in names) {
+            //print("saving color $name2 with value red ${color.red}, green${color.green} blue${color.blue}");
+            oneRowOfDataTable("$name2 Red",table, reader, true);
+            oneRowOfDataTable("$name2 Green",table, reader, true);
+            oneRowOfDataTable("$name2 Blue",table, reader, true);
+        }
+
+        oneRowOfDataTable("Number of Layers",table, reader);
+        for(SpriteLayer l in dataOrderLayers) {
+            oneRowOfDataTable("${l.name}",table, reader);
+        }
+
+
+    }
+
+    void oneRowOfDataTable( String label, TableElement table, ImprovedByteReader reader, [bool oneByte = false]) {
+        TableRowElement row = new TableRowElement();
+        table.append(row);
+
+        TableCellElement td1 = new TableCellElement()..setInnerHtml("<b>$label</b>");
+        TableCellElement td2;
+        row.append(td1)..append(td2);
+        if(oneByte) {
+            //colors
+            td2 = new TableCellElement()..setInnerHtml("${reader.readByte()}");
+        }else {
+            td2 = new TableCellElement()..setInnerHtml("${reader.readExpGolomb()}");
+        }
+    }
 
 
     //first, the rendering type. (this will get taken off before being passed to the loader)
@@ -619,6 +668,9 @@ abstract class Doll {
         //BUT WHEN IT TRIES TO LOAD THE WRONG TYPE IT WILL
         //BUT BY THEN IT WILL ALREADY BE IN THE WRONG DOLL
         //WORRY ABOUT THIS IF IT HAPPENS, FOR NOW
+
+        //ACTUALLY, RET.LOAD DOESN'T TRY CATCH ANYMORE, SO IT COMES OUT AND SHOULD HAVE THE
+        //RIGHT TYPE, BUT IT'S STILL LOADING WRONG AND I DON'T KNOW WHY???
         Doll ret;
         try {
             type = reader.readExpGolomb();
