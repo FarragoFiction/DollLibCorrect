@@ -106,6 +106,7 @@ class FekDoll extends Doll{
     for(SpriteLayer l in renderingOrderLayers) {
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
+    canonSymbol.imgNumber = 0;
   }
 
   @override
