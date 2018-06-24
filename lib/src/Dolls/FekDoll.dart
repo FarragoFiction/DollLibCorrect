@@ -55,7 +55,7 @@ class FekDoll extends Doll{
   SpriteLayer facePaint;
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body, facePaint,face, hair, horns,symbol,canonSymbol, glasses, text];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body, facePaint, hair,face, horns,symbol,canonSymbol, glasses, text];
   @override
   List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, face,facePaint, hair, horns,symbol,canonSymbol, glasses, text];
 
