@@ -16,7 +16,7 @@ import "Quirk.dart";
 class FekDoll extends Doll{
 
   @override
-  String originalCreator = "nebulousHarmong and Firanka";
+  String originalCreator = "nebulousHarmony and Firanka";
 
   @override
   int renderingType =28;

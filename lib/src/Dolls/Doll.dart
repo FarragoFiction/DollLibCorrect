@@ -638,6 +638,7 @@ abstract class Doll {
 
     //if it's in url form, it has a ? right before the text.
     static String removeURLFromString(String ds) {
+        if(!ds.contains(".com")) return ds; //make sure it at least looks url like
         List<String> ret = ds.split("?");
         if(ret.length == 1) return ret[0];
         return ret[1];
@@ -670,8 +671,9 @@ abstract class Doll {
     static Doll loadSpecificDoll(String ds) {
         //print("loading doll from string $ds");
         String dataStringWithoutName = removeURLFromString(ds);
+        print("datastring without url is $dataStringWithoutName");
         dataStringWithoutName = removeLabelFromString(dataStringWithoutName);
-        //print("dataString is $dataStringWithoutName");
+        print("dataString without name is $dataStringWithoutName");
         Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = -99;
