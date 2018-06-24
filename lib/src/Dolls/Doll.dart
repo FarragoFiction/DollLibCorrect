@@ -127,7 +127,7 @@ abstract class Doll {
     List<SpriteLayer>  get renderingOrderLayers => new List<SpriteLayer>();
     //what order do we save load these. things humans have first, then trolls, then new layers so you don't break save data strings
     List<SpriteLayer>  get dataOrderLayers => new List<SpriteLayer>();
-    List<SpriteLayer>  get oldDataLayers => new List<SpriteLayer>();
+    List<SpriteLayer>  get oldDataLayers => dataOrderLayers; //if i change shit for a specific doll (like homestuck) go here
 
     Palette palette;
 
@@ -455,7 +455,7 @@ abstract class Doll {
             initLayers();
         }
         int numFeatures = reader.readExpGolomb();
-        //print("I think there are ${numFeatures} features");
+       // print("in legacy reader, I think there are ${numFeatures} features");
         int featuresRead = 2; //for exo and doll type
 
         List<String> names = new List<String>.from(palette.names);
@@ -465,11 +465,12 @@ abstract class Doll {
             Colour newColor = new Colour(reader.readByte(),reader.readByte(),reader.readByte());
             palette.add(name2, newColor, true);
         }
+        //print ("ready to start reading old data layers $oldDataLayers");
 
         //layer is last so can add new layers.
         for(SpriteLayer l in oldDataLayers) {
             //older strings with less layers
-           // print("layer ${l.name}, features read is $featuresRead and num features is $numFeatures");
+          //  print("layer ${l.name}, features read is $featuresRead and num features is $numFeatures");
 
             //<= is CORRECT DO NOT FUCKING CHANGE IT OR THE LAST LAYER WILL GET EATEN. ALSO: Fuck you, i don't know why i have to have a try catch in there since that if statement SHOULD mean only try to read if there's more to read but what fucking ever it works.
             if(featuresRead <= numFeatures) {
@@ -477,15 +478,15 @@ abstract class Doll {
                     l.loadFromReaderOld(reader); //handles knowing if it's 1 or more bytes
                     // print("reading (${l.name}), its ${l.imgNumber} ");
                 }catch(exception, stackTrace) {
-                   // print("exo said I have $numFeatures and i've only read $featuresRead, but still can't read (${l.name}) for some reason. this is a caught error");
+            //        print("exo said I have $numFeatures and i've only read $featuresRead, but still can't read (${l.name}) for some reason. this is a caught error");
                     l.imgNumber = 0; //don't have.
                 }
                 //l.imgNumber = reader.readByte();
             }else {
-                print("skipping a feature (${l.name}) i don't have in string");
+              //  print("skipping a feature (${l.name}) i don't have in string");
                 l.imgNumber = 0; //don't have.
             }
-           // print("loading layer ${l.name}. Value: ${l.imgNumber} bytesRead: $featuresRead  numFeatures: $numFeatures");
+            //print("loading layer ${l.name}. Value: ${l.imgNumber} bytesRead: $featuresRead  numFeatures: $numFeatures");
             if(l.imgNumber > l.maxImageNumber) l.imgNumber = 0;
             featuresRead += 1;
 
@@ -538,7 +539,7 @@ abstract class Doll {
 
         oneRowOfDataTable("Number of Layers",table, reader);
         for(SpriteLayer l in dataOrderLayers) {
-            oneRowOfDataTable("${l.name}",table, reader);
+            oneRowOfDataTable("${l.name}",table, reader, false);
         }
 
         try {

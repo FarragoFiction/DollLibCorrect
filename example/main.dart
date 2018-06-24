@@ -15,10 +15,11 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
-    doll =  Doll.randomDollOfType(28);
+    //doll =  Doll.randomDollOfType(28);
    //doll = Doll.randomDollOfType(2);
     //doll = new HomestuckDoll();
-    // doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/index.html?GhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoa");
+    //doll = Doll.loadSpecificDoll("KWghqQ8BvkiVPqMuGpIkFqEwAAAA");
+     doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/index.html?GhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoa");
     //doll = Doll.loadSpecificDoll("manicInsomniac??:___QSADMADw8PAQEBHiEeFBYUCw0L________AAAAaz4UGSwWEh8QIEAgESAP6AIDxwMA____Fh0Oh-CLA0AtBa");
     //doll = Doll.randomDollOfType(18);
     //HomestuckCherubDoll t = doll as HomestuckCherubDoll;

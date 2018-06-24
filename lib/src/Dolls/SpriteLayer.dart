@@ -100,16 +100,20 @@ class SpriteLayer {
 
     void loadFromReaderOld(OldByteBuilder.ByteReader reader) {
         numbytes = (secretMax/255).ceil();
+       // print("in legacy reader, numbytes is $numbytes");
         //print("I am $name and number of bytes is $numbytes and secretMax is $secretMax");
         if(numbytes == 1 || numbytes == 0) {
             imgNumber = reader.readByte();
+            //print("single byte read is $imgNumber");
         }else if(!supportsMultiByte) {
             throw("not  supported for ${numbytes} bytes, max is ${secretMax} is invalid");
         }else {
             if(numbytes == 2) {
                 imgNumber = reader.readShort();
+              //  print("short byte read is $imgNumber");
             }else {
                 imgNumber = reader.readInt32();
+                //print("int bytes read is $imgNumber");
             }
         }
     }

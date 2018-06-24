@@ -115,10 +115,17 @@ class FekDoll extends Doll{
         palette.add(HomestuckPalette.SKIN, new Colour.fromStyleString("#ffffff"), true);
         List<String> human_hair_colors = <String>["#68410a", "#fffffe", "#000000", "#000000", "#000000", "#f3f28d", "#cf6338", "#feffd7", "#fff3bd", "#724107", "#382207", "#ff5a00", "#3f1904", "#ffd46d", "#473200", "#91683c"];
         palette.add(HomestuckPalette.HAIR_MAIN, new Colour.fromStyleString(rand.pickFrom(human_hair_colors)), true);
+        palette.add(HomestuckPalette.EYE_WHITE_LEFT, new Colour.fromStyleString("#c4c4c4"), true);
+        palette.add(HomestuckPalette.EYE_WHITE_RIGHT, new Colour.fromStyleString("#c4c4c4"), true);
+
+
 
     }else {
         palette.add(HomestuckPalette.SKIN, new Colour.fromStyleString("#c4c4c4"), true);
         palette.add(HomestuckPalette.HAIR_MAIN, new Colour.fromStyleString("#000000"), true);
+        palette.add(HomestuckPalette.EYE_WHITE_LEFT, new Colour.fromStyleString("#000000"), true);
+        palette.add(HomestuckPalette.EYE_WHITE_RIGHT, new Colour.fromStyleString("#000000"), true);
+
 
     }
   }
