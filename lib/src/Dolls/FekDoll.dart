@@ -30,7 +30,7 @@ class FekDoll extends Doll{
   String name = "Fek";
 
   @override
-  String relativefolder = "images/Fek";
+  String relativefolder = "images/fek";
   final int maxCanonSymbol = 288;
   final int maxBody = 14;
   final int maxFace = 11;
@@ -81,7 +81,7 @@ class FekDoll extends Doll{
     ..skin = '#ffffff';
 
 
-  DocDoll() {
+  FekDoll() {
     initLayers();
     randomize();
   }
@@ -118,7 +118,7 @@ class FekDoll extends Doll{
   @override
   void initLayers() {
       body = new SpriteLayer("Body","$folder/body/", 1, maxBody);
-      canonSymbol = new SpriteLayer("canonSymbol","$folder/Head/", 1, maxCanonSymbol);
+      canonSymbol = new SpriteLayer("canonSymbol","$folder/canonSymbol/", 1, maxCanonSymbol);
       face = new SpriteLayer("Face","$folder/face/", 1, maxFace);
       text = new SpriteLayer("Text","$folder/text/", 1, maxText);
       glasses = new SpriteLayer("Glasses","$folder/glasses/", 1, maxGlasses);
@@ -126,7 +126,6 @@ class FekDoll extends Doll{
       horns = new SpriteLayer("Horns","$folder/horns/", 1, maxHorns);
       symbol = new SpriteLayer("Symbol","$folder/symbol/", 1, maxSymbol);
       facePaint = new SpriteLayer("FacePaint","$folder/facepaint/", 1, maxFacePaint);
-
   }
 
 }
