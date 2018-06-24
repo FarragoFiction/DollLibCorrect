@@ -55,7 +55,7 @@ class FekDoll extends Doll{
   SpriteLayer facePaint;
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body, face,facePaint, hair, horns,symbol,canonSymbol, glasses, text];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body, facePaint,face, hair, horns,symbol,canonSymbol, glasses, text];
   @override
   List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, face,facePaint, hair, horns,symbol,canonSymbol, glasses, text];
 
@@ -107,6 +107,20 @@ class FekDoll extends Doll{
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
     canonSymbol.imgNumber = 0;
+    //roughly 50/50 shot of being human
+    if(rand.nextBool()) {
+        horns.imgNumber = 0;
+    }
+    if(horns.imgNumber == 0) {
+        palette.add(HomestuckPalette.SKIN, new Colour.fromStyleString("#ffffff"), true);
+        List<String> human_hair_colors = <String>["#68410a", "#fffffe", "#000000", "#000000", "#000000", "#f3f28d", "#cf6338", "#feffd7", "#fff3bd", "#724107", "#382207", "#ff5a00", "#3f1904", "#ffd46d", "#473200", "#91683c"];
+        palette.add(HomestuckPalette.HAIR_MAIN, new Colour.fromStyleString(rand.pickFrom(human_hair_colors)), true);
+
+    }else {
+        palette.add(HomestuckPalette.SKIN, new Colour.fromStyleString("#c4c4c4"), true);
+        palette.add(HomestuckPalette.HAIR_MAIN, new Colour.fromStyleString("#000000"), true);
+
+    }
   }
 
   @override
