@@ -36,6 +36,7 @@ export "src/Dolls/SuperbSuckDoll.dart";
 export "src/Dolls/EasterEggDoll.dart";
 export "src/Dolls/HatchedChick.dart";
 export "src/Dolls/HatchableDoll.dart";
+export "src/Dolls/FekDoll.dart";
 
 export "src/Dolls/PigeonDoll.dart";
 

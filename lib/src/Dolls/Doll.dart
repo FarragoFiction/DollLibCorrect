@@ -28,6 +28,7 @@ abstract class Doll {
         //never cache this
         List<Doll> ret = new List<Doll>();
             ret.add(new AncestorDoll());
+             ret.add(new FekDoll());
             ret.add(new BlobMonsterDoll());
             ret.add(new BroDoll());
             ret.add(new BroomDoll());

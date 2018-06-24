@@ -31,28 +31,33 @@ class FekDoll extends Doll{
 
   @override
   String relativefolder = "images/Fek";
-  final int maxAccessory = 1;
-  final int maxBody = 4;
-  final int maxLeg = 2;
-  final int maxHead = 2;
+  final int maxCanonSymbol = 288;
+  final int maxBody = 14;
+  final int maxFace = 11;
+  final int maxFacePaint = 4;
+  final int maxGlasses = 9;
+  final int maxHair = 33;
+  final int maxHorns = 16;
+  final int maxSymbol = 18;
+  final int maxText = 8;
 
 
 
 
-  SpriteLayer accessory;
+  SpriteLayer canonSymbol;
   SpriteLayer body;
-  SpriteLayer head;
-  SpriteLayer legs;
-
-
-
-
-
+  SpriteLayer face;
+  SpriteLayer text;
+  SpriteLayer glasses;
+  SpriteLayer hair;
+  SpriteLayer horns;
+  SpriteLayer symbol;
+  SpriteLayer facePaint;
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[legs, body, head, accessory];
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body, face,facePaint, hair, horns,symbol,canonSymbol, glasses, text];
   @override
-  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[legs, body, head, accessory];
+  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body, face,facePaint, hair, horns,symbol,canonSymbol, glasses, text];
 
 
   @override
@@ -112,13 +117,16 @@ class FekDoll extends Doll{
 
   @override
   void initLayers() {
+      body = new SpriteLayer("Body","$folder/body/", 1, maxBody);
+      canonSymbol = new SpriteLayer("canonSymbol","$folder/Head/", 1, maxCanonSymbol);
+      face = new SpriteLayer("Face","$folder/face/", 1, maxFace);
+      text = new SpriteLayer("Text","$folder/text/", 1, maxText);
+      glasses = new SpriteLayer("Glasses","$folder/glasses/", 1, maxGlasses);
+      hair = new SpriteLayer("Hair","$folder/hair/", 1, maxHair);
+      horns = new SpriteLayer("Horns","$folder/horns/", 1, maxHorns);
+      symbol = new SpriteLayer("Symbol","$folder/symbol/", 1, maxSymbol);
+      facePaint = new SpriteLayer("FacePaint","$folder/facepaint/", 1, maxFacePaint);
 
-    {
-      body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      head = new SpriteLayer("Head","$folder/Head/", 1, maxHead);
-      accessory = new SpriteLayer("Accessory","$folder/Accessory/", 1, maxAccessory);
-      legs = new SpriteLayer("Legs","$folder/Legs/", 1, maxLeg);
-    }
   }
 
 }
