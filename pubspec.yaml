@@ -17,7 +17,9 @@ dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
   RenderingLib:
-          git: git@github.com:jadedResearcher/RenderingLib.git
+          git:
+            url: git@github.com:jadedResearcher/RenderingLib.git
+            ref: 2307b618fd8e86dc8a33c6bac6bc8ccf2812964e
 
 transformers:
 - $dart2js:
