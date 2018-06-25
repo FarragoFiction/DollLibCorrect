@@ -639,7 +639,7 @@ abstract class Doll {
 
     //if it's in url form, it has a ? right before the text.
     static String removeURLFromString(String ds) {
-        if(!ds.contains(".com")) return ds; //make sure it at least looks url like
+        if(!ds.contains("index.html")) return ds; //make sure it at least looks url like
         List<String> ret = ds.split("?");
         if(ret.length == 1) return ret[0];
         return ret[1];
