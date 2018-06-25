@@ -410,7 +410,7 @@ abstract class Doll {
 
 
     void load(ImprovedByteReader reader, String dataString) {
-        setDollNameFromString(dataString);//i know it has a name, or else it's legacy and this will throw an error.
+        setDollNameFromString(removeURLFromString(dataString));//i know it has a name, or else it's legacy and this will throw an error.
         String dataStringWithoutName = removeLabelFromString(dataString);
         Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
         if(reader == null) {
