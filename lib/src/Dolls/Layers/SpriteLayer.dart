@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:CommonLib/Compression.dart';
 import 'package:RenderingLib/RendereringLib.dart';
 import 'dart:convert';
@@ -91,6 +92,15 @@ class SpriteLayer {
         imgNumber = rand.nextInt(maxImageNumber);
         for(SpriteLayer l in syncedWith) {
             l.imgNumber = imgNumber;
+        }
+    }
+
+    Future<Null> drawSelf(CanvasElement buffer) async {
+        if(preloadedElement != null) {
+            //print("I must be testing something, it's a preloaded Element");
+            bool res = await Renderer.drawExistingElementFuture(buffer, preloadedElement);
+        }else {
+            bool res = await Renderer.drawWhateverFuture(buffer, imgLocation);
         }
     }
 
