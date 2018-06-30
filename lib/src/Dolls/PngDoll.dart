@@ -1,10 +1,10 @@
 import "Doll.dart";
-import "SpriteLayer.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import 'package:RenderingLib/RendereringLib.dart';
 import "dart:html";
 import 'dart:async';
 
-import "PNGWrapperSpriteLayer.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/PNGWrapperSpriteLayer.dart";
 import 'package:RenderingLib/src/loader/loader.dart';
 /*
     before drawing:     await (doll as PngDoll).getWidthFiguredOut();

@@ -1,14 +1,12 @@
 import 'package:CommonLib/Compression.dart';
 import 'package:RenderingLib/RendereringLib.dart';
-import "../Dolls/HatchableDoll.dart";
-import "HomestuckTrollDoll.dart";
-import "../Dolls/Doll.dart";
-import "SpriteLayer.dart";
+import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckTrollDoll.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 import 'package:RenderingLib/src/includes/bytebuilder.dart'as OldByteBuilder;
 
-import "../Rendering/ReferenceColors.dart";
+import "../../../DollRenderer.dart";
 
 class HomestuckDoll extends HatchableDoll {
 

@@ -1,12 +1,12 @@
 import 'package:RenderingLib/RendereringLib.dart';
 import "../../DollRenderer.dart";
 import "../Dolls/Doll.dart";
-import "SpriteLayer.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 
 import "../Rendering/ReferenceColors.dart";
-import "HomestuckDoll.dart";
+import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
 
 //MadCreativity championed this one.
 class HiveswapDoll extends Doll {

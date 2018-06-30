@@ -1,5 +1,5 @@
 import 'dart:math';
-import "SpriteLayer.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 
 
 class NamedSpriteLayer extends SpriteLayer {

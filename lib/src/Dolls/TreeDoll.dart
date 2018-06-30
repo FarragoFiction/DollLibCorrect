@@ -10,49 +10,52 @@ import "../Rendering/ReferenceColors.dart";
 import "Quirk.dart";
 
 
-//saving and loading isn't working .why?
+/*
+
+prototype for a doll that has positioned layers
+ */
 
 
-class DocDoll extends Doll{
-
-  @override
-  String originalCreator = "spinningDisks";
-
-  @override
-  int renderingType =26;
+class TreeDoll extends Doll{
 
   @override
-  int width = 149;
-  @override
-  int height = 369;
+  String originalCreator = "jadedResearcher and dystopicFuturism";
 
   @override
-  String name = "Doc";
+  int renderingType =33;
 
   @override
-  String relativefolder = "images/Doc";
-  final int maxAccessory = 1;
-  final int maxBody = 4;
-  final int maxLeg = 2;
-  final int maxHead = 2;
-
-
-
-
-  SpriteLayer accessory;
-  SpriteLayer body;
-  SpriteLayer head;
-  SpriteLayer legs;
-
-
-
-
-
+  int width = 500;
+  @override
+  int height = 500;
 
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[legs, body, head, accessory];
+  String name = "Tree";
+
   @override
-  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[legs, body, head, accessory];
+  String relativefolder = "images/Tree";
+  final int maxBranches = 1;
+  final int maxLeaves = 4;
+  //these are special and there are more than one of this layer
+  final int maxFruits = 2;
+  final int maxFlowers = 2;
+
+
+
+
+  SpriteLayer branches;
+  SpriteLayer leavesFront;
+  SpriteLayer leavesBack;
+
+
+
+
+    //TODO think about how i wanna do flowers/fruit, wont know how many to have will I?
+
+  @override
+  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[leavesBack,branches, leavesFront];
+  @override
+  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[leavesBack,branches, leavesFront];
 
 
   @override
@@ -76,7 +79,7 @@ class DocDoll extends Doll{
     ..skin = '#ffffff';
 
 
-  DocDoll() {
+  TreeDoll() {
     initLayers();
     randomize();
   }
@@ -114,10 +117,9 @@ class DocDoll extends Doll{
   void initLayers() {
 
     {
-      body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      head = new SpriteLayer("Head","$folder/Head/", 1, maxHead);
-      accessory = new SpriteLayer("Accessory","$folder/Accessory/", 1, maxAccessory);
-      legs = new SpriteLayer("Legs","$folder/Legs/", 1, maxLeg);
+      branches = new SpriteLayer("Branches","$folder/branches/", 1, maxBranches);
+      leavesFront = new SpriteLayer("FrontLeaves","$folder/leavesFront/", 1, maxLeaves);
+      leavesBack = new SpriteLayer("BackLeaves","$folder/leavesBack/", 1, maxLeaves);
     }
   }
 

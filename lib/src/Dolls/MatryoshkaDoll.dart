@@ -1,6 +1,6 @@
 
 import "Doll.dart";
-import "SpriteLayer.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import 'package:RenderingLib/RendereringLib.dart';
 
 /*

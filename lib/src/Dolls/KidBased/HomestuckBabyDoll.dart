@@ -1,12 +1,12 @@
 import 'package:RenderingLib/RendereringLib.dart';
 import 'package:CommonLib/Compression.dart';
 
-import "../Dolls/Doll.dart";
-import "SpriteLayer.dart";
+import "../Doll.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 
-import "../../DollRenderer.dart";
+import "../../../DollRenderer.dart";
 
 
 class HomestuckBabyDoll extends HomestuckDoll {

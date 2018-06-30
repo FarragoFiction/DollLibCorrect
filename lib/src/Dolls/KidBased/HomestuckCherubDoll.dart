@@ -1,13 +1,13 @@
 import 'package:RenderingLib/RendereringLib.dart';
 import 'package:CommonLib/Compression.dart';
 
-import "../Dolls/Doll.dart";
-import "SpriteLayer.dart";
+import "../Doll.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
-import "HomestuckSatyrDoll.dart";
-import "../Dolls/HomestuckDoll.dart";
-import "../Rendering/ReferenceColors.dart";
+import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckSatyrDoll.dart";
+import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
+import "../../Rendering/ReferenceColors.dart";
 
 
 class HomestuckCherubDoll extends HomestuckDoll {

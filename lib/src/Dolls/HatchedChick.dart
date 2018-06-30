@@ -3,7 +3,7 @@
 
 import "../Dolls/Doll.dart";
 import "../Dolls/PigeonDoll.dart";
-import "SpriteLayer.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 import "Quirk.dart";

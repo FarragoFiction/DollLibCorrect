@@ -6,23 +6,24 @@
 /// More dartdocs go here.
 library DollRenderer;
 
-export "src/Dolls/HomestuckDoll.dart";
-export "src/Dolls/HomestuckTrollDoll.dart";
-export "src/Dolls/HomestuckSatyrDoll.dart";
-export "src/Dolls/HomestuckCherubDoll.dart";
+export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
+export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckTrollDoll.dart";
+export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckSatyrDoll.dart";
+export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckCherubDoll.dart";
 export "src/Dolls/BlobMonsterDoll.dart";
 export "src/Dolls/PngDoll.dart";
 export "src/Dolls/MatryoshkaDoll.dart";
 export "src/Dolls/VirusDoll.dart";
 export "src/Dolls/Quirk.dart";
+export "src/Dolls/TreeDoll.dart";
 export "src/Dolls/BroomDoll.dart";
 export "src/Dolls/CatDoll.dart";
 export "src/Dolls/AncestorDoll.dart";
 
-export "src/Dolls/HomestuckBabyDoll.dart";
-export "src/Dolls/HomestuckGrubDoll.dart";
+export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckBabyDoll.dart";
+export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckGrubDoll.dart";
 
-export "src/Dolls/HomestuckHeroDoll.dart";
+export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckHeroDoll.dart";
 export "src/Dolls/DogDoll.dart";
 export "src/Dolls/DocDoll.dart";
 export "src/Dolls/PupperDoll.dart";
@@ -42,20 +43,20 @@ export "src/Dolls/PigeonDoll.dart";
 
 export "src/Dolls/MonsterPocketDoll.dart";
 
-export "src/Dolls/EggDoll.dart";
-export "src/Dolls/TrollEggDoll.dart";
+export "package:DollLibCorrect/src/Dolls/KidBased/EggDoll.dart";
+export "package:DollLibCorrect/src/Dolls/KidBased/TrollEggDoll.dart";
 export "src/Dolls/ConsortDoll.dart";
 export "src/Dolls/HiveswapDoll.dart";
 export "src/Dolls/Doll.dart";
 export "src/Dolls/NamedLayerDoll.dart";
-export "src/Dolls/PNGWrapperSpriteLayer.dart";
+export "package:DollLibCorrect/src/Dolls/Layers/PNGWrapperSpriteLayer.dart";
 export "src/Dolls/DenizenDoll.dart";
 export "src/Dolls/QueenDoll.dart";
-export "src/Dolls/SpriteLayer.dart";
-export "src/Dolls/NamedSpriteLayer.dart";
+export "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
+export "package:DollLibCorrect/src/Dolls/Layers/NamedSpriteLayer.dart";
 export "src/Rendering/DollRenderer.dart";
 export "src/Rendering/ReferenceColors.dart";
-export "src/Dolls/TextLayer.dart";
+export "package:DollLibCorrect/src/Dolls/Layers/TextLayer.dart";
 export "package:CommonLib/Compression.dart";
 export  'package:RenderingLib/RendereringLib.dart';
 

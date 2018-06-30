@@ -1,4 +1,4 @@
-import "SpriteLayer.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import "dart:html";
 import 'dart:convert';
@@ -27,6 +27,7 @@ abstract class Doll {
     static List<Doll> get allDollsEvenWIPS {
         //never cache this
         List<Doll> ret = new List<Doll>();
+            ret.add(new TreeDoll());
             ret.add(new AncestorDoll());
              ret.add(new FekDoll());
             ret.add(new BlobMonsterDoll());

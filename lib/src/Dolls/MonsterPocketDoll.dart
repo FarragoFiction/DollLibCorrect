@@ -2,9 +2,9 @@ import 'package:CommonLib/Compression.dart';
 import 'package:RenderingLib/RendereringLib.dart';
 
 import "../Dolls/Doll.dart";
-import "../Dolls/HomestuckDoll.dart";
+import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
 
-import "SpriteLayer.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 

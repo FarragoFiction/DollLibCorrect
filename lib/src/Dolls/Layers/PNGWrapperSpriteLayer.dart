@@ -1,4 +1,4 @@
-import "SpriteLayer.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import 'package:CommonLib/Compression.dart';
 import 'package:RenderingLib/RendereringLib.dart';
 import 'package:RenderingLib/src/includes/bytebuilder.dart' as OldByteBuilder;

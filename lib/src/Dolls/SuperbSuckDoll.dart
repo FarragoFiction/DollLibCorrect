@@ -1,12 +1,12 @@
 import 'package:RenderingLib/RendereringLib.dart';
 
 import "../Dolls/Doll.dart";
-import "SpriteLayer.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 
 import "../Rendering/ReferenceColors.dart";
-import "../Dolls/HomestuckDoll.dart";
+import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
 
 
 import 'package:CommonLib/Compression.dart';

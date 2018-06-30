@@ -5,7 +5,7 @@ import "../Dolls/Doll.dart";
 import "../Dolls/HatchedChick.dart";
 import "../Dolls/HatchableDoll.dart";
 
-import "SpriteLayer.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 

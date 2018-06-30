@@ -1,7 +1,7 @@
 //unlike other dolls, bros have  a single, non chooseable base.
 //also bros can be any color.
 import "../Dolls/Doll.dart";
-import "SpriteLayer.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 import 'package:RenderingLib/RendereringLib.dart';

@@ -1,13 +1,13 @@
 import 'package:RenderingLib/RendereringLib.dart';
 
-import "../Dolls/Doll.dart";
-import "SpriteLayer.dart";
+import "../Doll.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
-import "../../DollRenderer.dart";
+import "../../../DollRenderer.dart";
 import 'package:RenderingLib/src/includes/bytebuilder.dart'as OldByteBuilder;
-import "../Dolls/HomestuckDoll.dart";
-import "../Rendering/ReferenceColors.dart";
+import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
+import "../../Rendering/ReferenceColors.dart";
 
 
 class HomestuckTrollDoll extends HomestuckDoll {

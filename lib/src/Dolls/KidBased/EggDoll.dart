@@ -1,14 +1,14 @@
-import "HomestuckTrollDoll.dart";
+import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckTrollDoll.dart";
 import 'package:RenderingLib/RendereringLib.dart';
 import 'package:CommonLib/Compression.dart';
 
-import "../Dolls/Doll.dart";
-import "SpriteLayer.dart";
+import "../Doll.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 
-import "../Dolls/HomestuckDoll.dart";
-import "../Rendering/ReferenceColors.dart";
+import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
+import "../../Rendering/ReferenceColors.dart";
 
 class EggDoll extends HomestuckDoll {
 
