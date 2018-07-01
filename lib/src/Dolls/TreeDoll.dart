@@ -184,7 +184,7 @@ class TreeDoll extends Doll{
      }
   }
 
-  void createFruit(int xpos, int ypos) {
+  void createFruit() {
       //print ('creating fruit');
       int amount = rand.nextIntRange(3,13);
       for(int i = 0; i < amount; i++) {
@@ -201,7 +201,7 @@ class TreeDoll extends Doll{
       }
   }
 
-  void createGloriousBullshit(int xpos, int ypos) {
+  void createGloriousBullshit() {
       int type = rand.pickFrom(Doll.allDollTypes);
       print("creating glorious bullshit, type is $type");
 

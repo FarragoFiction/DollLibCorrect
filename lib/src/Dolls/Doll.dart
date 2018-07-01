@@ -411,6 +411,7 @@ abstract class Doll {
     }
 
     void copyLayers(List<SpriteLayer> layers) {
+        print("copying layers $layers and dataOrderLayers is $dataOrderLayers");
         for(int i = 0; i<dataOrderLayers.length; i++) {
             dataOrderLayers[i].imgNumber = layers[i].imgNumber;
         }
