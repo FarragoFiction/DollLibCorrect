@@ -62,15 +62,7 @@ Future<bool> start() async {
     // doll = new DadDoll();
    // doll = Doll.loadSpecificDoll("DiC0tLQ8IDQaEBo5IDRKME4bEBr510351005IDSqqKhYWlrS0dGpqKgAAACIiIiYmZkhJiY-IDQaEBoZICAgMDBAQCgAABAA");
 
-    doll = Doll.randomDollOfType(35);
-    FruitDoll doll2 = doll as FruitDoll;
-
-    for(int i = 0; i<=doll2.body.maxImageNumber; i++) {
-        doll2.body.imgNumber = i;
-        await drawDoll();
-    }
-
-    //await drawDoll(); //normal
+    await drawDoll(); //normal
 
 
 
