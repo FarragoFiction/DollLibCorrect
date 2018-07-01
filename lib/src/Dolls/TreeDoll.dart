@@ -1,3 +1,5 @@
+import 'package:DollLibCorrect/src/Dolls/FlowerDoll.dart';
+import 'package:DollLibCorrect/src/Dolls/Layers/PositionedDollLayer.dart';
 import 'package:DollLibCorrect/src/Dolls/Layers/PositionedLayer.dart';
 import 'package:RenderingLib/RendereringLib.dart';
 import 'package:CommonLib/Compression.dart';
@@ -122,12 +124,31 @@ class TreeDoll extends Doll{
     for(SpriteLayer l in renderingOrderLayers) {
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
+    createFlowers();
   }
 
   @override
   void setQuirk() {
     Random rand  = new Random(seed);
     quirkButDontUse = Quirk.randomHumanQuirk(rand);
+
+  }
+
+  void createFlowers() {
+      FlowerDoll doll = new FlowerDoll();
+      doll.rand = rand.spawn();
+      doll.randomizeNotColors(); //now it will fit my seed.
+      doll.copyPalette(palette);
+      PositionedDollLayer newLayer = new PositionedDollLayer(doll, 50, 50, 10,10, "Flower1");
+      renderingOrderLayers.add(newLayer);
+      dataOrderLayers.add(newLayer);
+  }
+
+  void createFruit() {
+
+  }
+
+  void createGloriousBullshit() {
 
   }
 

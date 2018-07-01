@@ -55,6 +55,8 @@ export "src/Dolls/DenizenDoll.dart";
 export "src/Dolls/QueenDoll.dart";
 export "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 export "package:DollLibCorrect/src/Dolls/Layers/PositionedLayer.dart";
+export "package:DollLibCorrect/src/Dolls/Layers/PositionedDollLayer.dart";
+
 export "package:DollLibCorrect/src/Dolls/Layers/NamedSpriteLayer.dart";
 export "src/Rendering/DollRenderer.dart";
 export "src/Rendering/ReferenceColors.dart";
