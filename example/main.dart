@@ -16,7 +16,7 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
     //doll =  Doll.randomDollOfType(28);
-   doll = Doll.randomDollOfType(33);
+   doll = Doll.randomDollOfType(34);
     //doll = new HomestuckDoll();
     //doll = Doll.loadSpecificDoll("KWghqQ8BvkiVPqMuGpIkFqEwAAAA");
     // doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/index.html?EPD_AQD-QwwsCgGiDAyABAQ-AAD-_______z-f____0dKyzIDg5uGxwuBQZWVla2trYWggBQenoCAgQ4AAAAAAgA");

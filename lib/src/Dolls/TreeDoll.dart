@@ -1,3 +1,4 @@
+import 'package:DollLibCorrect/src/Dolls/Layers/PositionedLayer.dart';
 import 'package:RenderingLib/RendereringLib.dart';
 import 'package:CommonLib/Compression.dart';
 
@@ -18,6 +19,23 @@ prototype for a doll that has positioned layers
 
 class TreeDoll extends Doll{
 
+  List<int> bushes = <int>[0,1,2,3,4];
+
+  bool get isBush => bushes.contains(branches.imgNumber);
+  int get leafX {
+    if(isBush) return bushX;
+    return treeX;
+  }
+
+  int get leafY {
+    if(isBush) return bushY;
+    return treeY;
+  }
+  int treeX = 50;
+  int treeY = 50;
+  int bushX = 50;
+  int bushY = 150;
+
   @override
   String originalCreator = "jadedResearcher and dystopicFuturism";
 
@@ -34,18 +52,18 @@ class TreeDoll extends Doll{
 
   @override
   String relativefolder = "images/Tree";
-  final int maxBranches = 1;
-  final int maxLeaves = 4;
+  final int maxBranches = 9;
+  final int maxLeaves = 7;
   //these are special and there are more than one of this layer
-  final int maxFruits = 2;
-  final int maxFlowers = 2;
+  final int maxFruits = 5;
+  final int maxFlowers = 4;
 
 
 
 
   SpriteLayer branches;
-  SpriteLayer leavesFront;
-  SpriteLayer leavesBack;
+  PositionedLayer leavesFront;
+  PositionedLayer leavesBack;
 
 
 
@@ -114,12 +132,23 @@ class TreeDoll extends Doll{
   }
 
   @override
+  void beforeRender() {
+      leavesBack.x = leafX;
+      leavesBack.y = leafY;
+      leavesFront.x = leafX;
+      leavesFront.y = leafY;
+  }
+
+  @override
   void initLayers() {
 
     {
       branches = new SpriteLayer("Branches","$folder/branches/", 1, maxBranches);
-      leavesFront = new SpriteLayer("FrontLeaves","$folder/leavesFront/", 1, maxLeaves);
-      leavesBack = new SpriteLayer("BackLeaves","$folder/leavesBack/", 1, maxLeaves);
+      leavesBack = new PositionedLayer(treeX,treeY,"BackLeaves","$folder/leavesBack/", 1, maxLeaves);
+      leavesFront = new PositionedLayer(treeX,treeY,"FrontLeaves","$folder/leavesFront/", 1, maxLeaves);
+      leavesBack.syncedWith.add(leavesFront);
+      leavesFront.syncedWith.add(leavesBack);
+      leavesBack.slave = true;
     }
   }
 

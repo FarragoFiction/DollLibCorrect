@@ -28,8 +28,9 @@ abstract class Doll {
         //never cache this
         List<Doll> ret = new List<Doll>();
             ret.add(new TreeDoll());
+            ret.add(new FlowerDoll());
             ret.add(new AncestorDoll());
-             ret.add(new FekDoll());
+            ret.add(new FekDoll());
             ret.add(new BlobMonsterDoll());
             ret.add(new BroDoll());
             ret.add(new BroomDoll());
@@ -402,6 +403,11 @@ abstract class Doll {
         }
     }
 
+    //most dolls do nothing, but things with positioned layers, like trees, will do things.
+    void beforeRender() {
+
+    }
+
     void copyLayers(List<SpriteLayer> layers) {
         for(int i = 0; i<dataOrderLayers.length; i++) {
             dataOrderLayers[i].imgNumber = layers[i].imgNumber;
@@ -701,6 +707,34 @@ abstract class Doll {
             ret = allDollsMappedByType[type].clone();
             print("reading legacy, type is $type");
             ret.initFromReaderOld(reader);
+        }
+        return ret;
+    }
+
+    CanvasElement get blankCanvas {
+        return new CanvasElement(width: width, height: height);
+    }
+
+    static Doll loadSpecificDollFromReader(ImprovedByteReader reader) {
+        //print("loading doll from string $ds");
+        int type = -99;
+        //FUTURE JR, PAY ATTENTION
+        //IF THE EXOWHATEVER ACCIDENTALLY READS SOMETHING THAT MAKES SENSE
+        //YOU MIGHT NOT REALIZE IT'S GOT AN ERROR
+        //BUT WHEN IT TRIES TO LOAD THE WRONG TYPE IT WILL
+        //BUT BY THEN IT WILL ALREADY BE IN THE WRONG DOLL
+        //WORRY ABOUT THIS IF IT HAPPENS, FOR NOW
+
+        //ACTUALLY, RET.LOAD DOESN'T TRY CATCH ANYMORE, SO IT COMES OUT AND SHOULD HAVE THE
+        //RIGHT TYPE, BUT IT'S STILL LOADING WRONG AND I DON'T KNOW WHY???
+        Doll ret;
+        try {
+            type = reader.readExpGolomb();
+            print("reading exo whatever, type is $type");
+            ret = allDollsMappedByType[type].clone();
+            ret.load(reader, "doesnotexist");
+        }catch(e){
+            print("ERROR: this method does not support legacy strings");
         }
         return ret;
     }

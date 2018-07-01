@@ -19,6 +19,8 @@ class DollRenderer {
 
     static  Future<bool>  drawDoll(CanvasElement canvas, Doll doll) async {
         //print("Drawing a doll of width ${doll.width}");
+        //most dolls will do nothing here, but if they need to calculate where their layers get positioned they do it here.
+        doll.beforeRender();
         if(doll.width == null) {
             ImageElement image = await Loader.getResource((doll.renderingOrderLayers.first.imgLocation));
             doll.width = image.width;
