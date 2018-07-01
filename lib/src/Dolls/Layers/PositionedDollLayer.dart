@@ -24,8 +24,9 @@ class PositionedDollLayer extends PositionedLayer{
 
     @override
     Future<Null> drawSelf(CanvasElement buffer) async {
+        print("drawing a positioned doll layer named $name");
         CanvasElement dollCanvas = doll.blankCanvas;
-        DollRenderer.drawDoll(dollCanvas, doll);
+        await DollRenderer.drawDoll(dollCanvas, doll);
         buffer.context2D.drawImageScaled(dollCanvas, x, y, width, height);
     }
 

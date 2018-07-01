@@ -72,10 +72,11 @@ class TreeDoll extends Doll{
 
     //TODO think about how i wanna do flowers/fruit, wont know how many to have will I?
 
+  //not a get, so i can add flowers/fruit to it over time.
   @override
-  List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[leavesBack,branches, leavesFront];
+  List<SpriteLayer>   renderingOrderLayers = new List <SpriteLayer>();
   @override
-  List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[leavesBack,branches, leavesFront];
+  List<SpriteLayer>   dataOrderLayers =new List <SpriteLayer>();
 
 
   @override
@@ -98,10 +99,13 @@ class TreeDoll extends Doll{
     ..hair_accent = '#ADADAD'
     ..skin = '#ffffff';
 
+  //for making random trees in the randomdolloftype method, don't let it recurse and need ever more fruit.
+  //(to make one tree with random doll fruit, i would need to make another tree to genererate a random doll)
+  bool barren = false;
 
-  TreeDoll() {
-    initLayers();
-    randomize();
+  TreeDoll([bool this.barren = false]) {
+      initLayers();
+      randomize();
   }
 
   //HELL YES i found the source of the save bug.
@@ -121,10 +125,11 @@ class TreeDoll extends Doll{
 
   @override
   void randomizeNotColors() {
+      //print("randomizing not colors, rendering order layers is $renderingOrderLayers");
     for(SpriteLayer l in renderingOrderLayers) {
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
-    createFlowers();
+    createHangables();
   }
 
   @override
@@ -134,22 +139,51 @@ class TreeDoll extends Doll{
 
   }
 
+  void createHangables() {
+      if(barren) return;
+        double chosenNum = rand.nextDouble();
+        if(chosenNum < 0.3) {
+            createGloriousBullshit();
+        }else {
+            createGloriousBullshit();
+        }
+  }
+
   void createFlowers() {
+     print ('creating flowers');
       FlowerDoll doll = new FlowerDoll();
       doll.rand = rand.spawn();
       doll.randomizeNotColors(); //now it will fit my seed.
       doll.copyPalette(palette);
-      PositionedDollLayer newLayer = new PositionedDollLayer(doll, 50, 50, 10,10, "Flower1");
+      PositionedDollLayer newLayer = new PositionedDollLayer(doll, 50, 50, 210,210, "Flower1");
       renderingOrderLayers.add(newLayer);
       dataOrderLayers.add(newLayer);
   }
 
   void createFruit() {
-
+      FlowerDoll doll = new FlowerDoll();
+      doll.rand = rand.spawn();
+      doll.randomizeNotColors(); //now it will fit my seed.
+      doll.copyPalette(palette);
+      PositionedDollLayer newLayer = new PositionedDollLayer(doll, 50, 50, 210,210, "Flower1");
+      renderingOrderLayers.add(newLayer);
+      dataOrderLayers.add(newLayer);
   }
 
   void createGloriousBullshit() {
+      int type = rand.pickFrom(Doll.allDollTypes);
+      print("creating glorious bullshit, type is $type");
 
+      Doll doll = Doll.randomDollOfType(type);
+      print("creating glorious bullshit, ${doll.renderingType}");
+
+      doll.rand = rand.spawn();
+      doll.randomizeNotColors(); //now it will fit my seed.
+      doll.copyPalette(palette);
+      PositionedDollLayer newLayer = new PositionedDollLayer(doll, 50, 50, 210,210, "${doll.dollName}1");
+      renderingOrderLayers.add(newLayer);
+      dataOrderLayers.add(newLayer);
+      print("after glorious bullshit, layers are ${renderingOrderLayers}");
   }
 
   @override
@@ -163,14 +197,15 @@ class TreeDoll extends Doll{
   @override
   void initLayers() {
 
-    {
       branches = new SpriteLayer("Branches","$folder/branches/", 1, maxBranches);
       leavesBack = new PositionedLayer(treeX,treeY,"BackLeaves","$folder/leavesBack/", 1, maxLeaves);
       leavesFront = new PositionedLayer(treeX,treeY,"FrontLeaves","$folder/leavesFront/", 1, maxLeaves);
       leavesBack.syncedWith.add(leavesFront);
       leavesFront.syncedWith.add(leavesBack);
       leavesBack.slave = true;
-    }
+      //have to do it here because not a get, can be modified
+      renderingOrderLayers = <SpriteLayer>[leavesBack,branches, leavesFront];
+      dataOrderLayers = <SpriteLayer>[leavesBack,branches, leavesFront];
   }
 
 }
