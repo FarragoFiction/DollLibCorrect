@@ -1,4 +1,5 @@
 import 'package:DollLibCorrect/src/Dolls/FlowerDoll.dart';
+import 'package:DollLibCorrect/src/Dolls/FruitDoll.dart';
 import 'package:DollLibCorrect/src/Dolls/Layers/PositionedDollLayer.dart';
 import 'package:DollLibCorrect/src/Dolls/Layers/PositionedLayer.dart';
 import 'package:RenderingLib/RendereringLib.dart';
@@ -142,10 +143,12 @@ class TreeDoll extends Doll{
   void createHangables() {
       if(barren) return;
         double chosenNum = rand.nextDouble();
-        if(chosenNum < 0.3) {
-            createGloriousBullshit();
+        if(chosenNum < 0.45) {
+            createFruit();
+        }else if (chosenNum < 0.9) {
+            createFruit();
         }else {
-            createGloriousBullshit();
+            createFruit();
         }
   }
 
@@ -155,17 +158,17 @@ class TreeDoll extends Doll{
       doll.rand = rand.spawn();
       doll.randomizeNotColors(); //now it will fit my seed.
       doll.copyPalette(palette);
-      PositionedDollLayer newLayer = new PositionedDollLayer(doll, 50, 50, 210,210, "Flower1");
+      PositionedDollLayer newLayer = new PositionedDollLayer(doll, 50, 50, 210,210, "Hanging1");
       renderingOrderLayers.add(newLayer);
       dataOrderLayers.add(newLayer);
   }
 
   void createFruit() {
-      FlowerDoll doll = new FlowerDoll();
+      FruitDoll doll = new FruitDoll();
       doll.rand = rand.spawn();
       doll.randomizeNotColors(); //now it will fit my seed.
       doll.copyPalette(palette);
-      PositionedDollLayer newLayer = new PositionedDollLayer(doll, 50, 50, 210,210, "Flower1");
+      PositionedDollLayer newLayer = new PositionedDollLayer(doll, 50, 50, 210,210, "Hanging1");
       renderingOrderLayers.add(newLayer);
       dataOrderLayers.add(newLayer);
   }
@@ -180,7 +183,7 @@ class TreeDoll extends Doll{
       doll.rand = rand.spawn();
       doll.randomizeNotColors(); //now it will fit my seed.
       doll.copyPalette(palette);
-      PositionedDollLayer newLayer = new PositionedDollLayer(doll, 50, 50, 210,210, "${doll.dollName}1");
+      PositionedDollLayer newLayer = new PositionedDollLayer(doll, 50, 50, 210,210, "Hanging1");
       renderingOrderLayers.add(newLayer);
       dataOrderLayers.add(newLayer);
       print("after glorious bullshit, layers are ${renderingOrderLayers}");

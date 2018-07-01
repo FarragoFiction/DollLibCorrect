@@ -30,6 +30,7 @@ abstract class Doll {
         //passing true means the tree doll won't try to make any fruit, which would let it accidentally recurse if its fruit were a random doll
             ret.add(new TreeDoll(true));
             ret.add(new FlowerDoll());
+            ret.add(new FruitDoll());
             ret.add(new AncestorDoll());
             ret.add(new FekDoll());
             ret.add(new BlobMonsterDoll());
