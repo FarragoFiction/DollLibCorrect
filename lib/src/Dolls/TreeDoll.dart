@@ -56,7 +56,7 @@ class TreeDoll extends Doll{
   @override
   String relativefolder = "images/Tree";
   final int maxBranches = 9;
-  final int maxLeaves = 7;
+  final int maxLeaves = 8;
   //these are special and there are more than one of this layer
   final int maxFruits = 5;
   final int maxFlowers = 4;
@@ -158,6 +158,7 @@ class TreeDoll extends Doll{
   void createHangables() {
       if(barren) return;
         double chosenNum = rand.nextDouble();
+        print("chosen num is $chosenNum is it less than 0.45? ${chosenNum < 0.45}");
         if(chosenNum < 0.45) {
             createFruit();
         }else if (chosenNum < 0.9) {
@@ -171,14 +172,15 @@ class TreeDoll extends Doll{
     // print ('creating flowers');
      int amount = rand.nextIntRange(3,13);
      FlowerDoll doll = new FlowerDoll();
+     doll.rand = rand.spawn();
+     doll.randomizeNotColors(); //now it will fit my seed.
+     doll.copyPalette(palette);
      for(int i = 0; i < amount; i++) {
          int xpos = randomValidHangableX();
          int ypos = randomVAlidHangableY();
-         doll.rand = rand.spawn();
-         doll.randomizeNotColors(); //now it will fit my seed.
-         doll.copyPalette(palette);
+
          PositionedDollLayer newLayer = new PositionedDollLayer(
-             new FruitDoll()..copy(doll), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
+             doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
          renderingOrderLayers.add(newLayer);
          dataOrderLayers.add(newLayer);
      }
@@ -188,15 +190,17 @@ class TreeDoll extends Doll{
       //print ('creating fruit');
       int amount = rand.nextIntRange(3,13);
       FruitDoll doll = new FruitDoll();
+      doll.rand = rand.spawn();
+      doll.randomizeNotColors(); //now it will fit my seed.
+      doll.copyPalette(palette);
       for(int i = 0; i < amount; i++) {
+          FruitDoll clonedDoll = doll.clone();
+          //print("adding flower with body of ${clonedDoll.body.imgNumber}");
           int xpos = randomValidHangableX();
           int ypos = randomVAlidHangableY();
-          FruitDoll doll = new FruitDoll();
-          doll.rand = rand.spawn();
-          doll.randomizeNotColors(); //now it will fit my seed.
-          doll.copyPalette(palette);
+
           PositionedDollLayer newLayer = new PositionedDollLayer(
-              new FruitDoll()..copy(doll), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
+              clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
           renderingOrderLayers.add(newLayer);
           dataOrderLayers.add(newLayer);
       }
@@ -207,16 +211,16 @@ class TreeDoll extends Doll{
       print("creating glorious bullshit, type is $type");
 
       Doll doll = Doll.randomDollOfType(type);
+      doll.rand = rand.spawn();
+      doll.randomize(); //now it will fit my seed.
+      doll.copyPalette(palette);
 
       int amount = rand.nextIntRange(3,13);
       for(int i = 0; i < amount; i++) {
           int xpos = randomValidHangableX();
           int ypos = randomVAlidHangableY();
-          doll.rand = rand.spawn();
-          doll.randomize(); //now it will fit my seed.
-          doll.copyPalette(palette);
           PositionedDollLayer newLayer = new PositionedDollLayer(
-              new FruitDoll()..copy(doll), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
+              doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
           renderingOrderLayers.add(newLayer);
           dataOrderLayers.add(newLayer);
       }
