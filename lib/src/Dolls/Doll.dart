@@ -413,7 +413,7 @@ abstract class Doll {
     void copyLayers(List<SpriteLayer> layers) {
         //print("copying layers $layers and dataOrderLayers is $dataOrderLayers");
         for(int i = 0; i<dataOrderLayers.length; i++) {
-            if(dataOrderLayers.length > i) {
+            if(i >= dataOrderLayers.length) {
                 print("skipping because $i is out of index for dataorders ${dataOrderLayers.length}");
             }else{
                // print("layer ${dataOrderLayers[i]} is going to be ${layers[i].imgNumber}");
