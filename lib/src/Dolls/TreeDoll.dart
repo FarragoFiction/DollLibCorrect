@@ -170,15 +170,15 @@ class TreeDoll extends Doll{
   void createFlowers() {
     // print ('creating flowers');
      int amount = rand.nextIntRange(3,13);
+     FlowerDoll doll = new FlowerDoll();
      for(int i = 0; i < amount; i++) {
          int xpos = randomValidHangableX();
          int ypos = randomVAlidHangableY();
-         FlowerDoll doll = new FlowerDoll();
          doll.rand = rand.spawn();
          doll.randomizeNotColors(); //now it will fit my seed.
          doll.copyPalette(palette);
          PositionedDollLayer newLayer = new PositionedDollLayer(
-             doll, fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
+             new FruitDoll()..copy(doll), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
          renderingOrderLayers.add(newLayer);
          dataOrderLayers.add(newLayer);
      }
@@ -187,6 +187,7 @@ class TreeDoll extends Doll{
   void createFruit() {
       //print ('creating fruit');
       int amount = rand.nextIntRange(3,13);
+      FruitDoll doll = new FruitDoll();
       for(int i = 0; i < amount; i++) {
           int xpos = randomValidHangableX();
           int ypos = randomVAlidHangableY();
@@ -195,7 +196,7 @@ class TreeDoll extends Doll{
           doll.randomizeNotColors(); //now it will fit my seed.
           doll.copyPalette(palette);
           PositionedDollLayer newLayer = new PositionedDollLayer(
-              doll, fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
+              new FruitDoll()..copy(doll), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
           renderingOrderLayers.add(newLayer);
           dataOrderLayers.add(newLayer);
       }
@@ -205,17 +206,17 @@ class TreeDoll extends Doll{
       int type = rand.pickFrom(Doll.allDollTypes);
       print("creating glorious bullshit, type is $type");
 
+      Doll doll = Doll.randomDollOfType(type);
 
       int amount = rand.nextIntRange(3,13);
       for(int i = 0; i < amount; i++) {
           int xpos = randomValidHangableX();
           int ypos = randomVAlidHangableY();
-          Doll doll = Doll.randomDollOfType(type);
           doll.rand = rand.spawn();
           doll.randomize(); //now it will fit my seed.
           doll.copyPalette(palette);
           PositionedDollLayer newLayer = new PositionedDollLayer(
-              doll, fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
+              new FruitDoll()..copy(doll), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
           renderingOrderLayers.add(newLayer);
           dataOrderLayers.add(newLayer);
       }
