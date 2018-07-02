@@ -414,9 +414,9 @@ abstract class Doll {
         //print("copying layers $layers and dataOrderLayers is $dataOrderLayers");
         for(int i = 0; i<dataOrderLayers.length; i++) {
             if(i >= layers.length) {
-                print("skipping because $i is out of index for dataorders ${dataOrderLayers.length}");
+                print("skipping because $i is out of index for layers ${layers.length}");
             }else{
-               // print("layer ${dataOrderLayers[i]} is going to be ${layers[i].imgNumber}");
+                //print("$i is in index for layers ${layers.length}");
                 dataOrderLayers[i].imgNumber = layers[i].imgNumber;
             }
         }
