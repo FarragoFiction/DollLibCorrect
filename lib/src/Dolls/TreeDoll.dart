@@ -197,8 +197,15 @@ class TreeDoll extends Doll{
       return rand.nextIntRange(leafY, leafY + leafHeight);
   }
 
+  bool hasHangablesAlready() {
+      for(SpriteLayer layer in renderingOrderLayers) {
+            if(layer.name.contains("Hang")) return true;
+      }
+      return false;
+  }
+
   Future<Null> createHangables() async {
-      if(barren) return;
+      if(barren || hasHangablesAlready()) return;
         double chosenNum = rand.nextDouble();
         print("creating hangables and chosen num is $chosenNum is it less than 0.45? ${chosenNum < 0.45}");
         if(chosenNum < 0.45) {
