@@ -162,6 +162,7 @@ class TreeDoll extends Doll{
       print("looking for a valid point on tree");
       int xGuess = randomValidHangableX();
       int yGuess = randomVAlidHangableY();
+      return new Math.Point(xGuess, yGuess);
       CanvasElement pointFinderCanvas = new CanvasElement(width: width, height: height);
       for(SpriteLayer l in renderingOrderLayers) {
           print("drawing rendering order layer $l for hanging position");
@@ -176,7 +177,7 @@ class TreeDoll extends Doll{
               if(img_data.data[i+3] >100) {
                   //the '0' point for the data is xguess,yguess so take that into account.
                   print("found valid position at ${x+xGuess}, ${y+yGuess} because alpha is ${img_data.data[i+3]}");
-                  return new Point(x + xGuess, y + yGuess);
+                  return new Math.Point(x + xGuess, y + yGuess);
               }
           }
 
@@ -193,16 +194,16 @@ class TreeDoll extends Doll{
       return rand.nextIntRange(leafY, leafY + leafHeight);
   }
 
-  void createHangables() {
+  Future<Null> createHangables() async {
       if(barren) return;
         double chosenNum = rand.nextDouble();
         print("chosen num is $chosenNum is it less than 0.45? ${chosenNum < 0.45}");
         if(chosenNum < 0.45) {
-            createFruit();
+            await createFruit();
         }else if (chosenNum < 0.9) {
-            createFlowers();
+            await createFlowers();
         }else {
-            createGloriousBullshit();
+            await createGloriousBullshit();
         }
   }
 

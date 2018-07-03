@@ -51,7 +51,7 @@ class DollRenderer {
         }
 
         for(SpriteLayer l in doll.renderingOrderLayers) {
-            //print("drawing rendering order layer $l");
+            print("drawing rendering order layer $l for doll $doll");
             await l.drawSelf(buffer);
         }
         //print("done drawing images");

@@ -18,7 +18,7 @@ Future<bool> start() async {
     //doll =  Doll.randomDollOfType(28);
    doll = Doll.randomDollOfType(33);
     (doll as TreeDoll).barren = false;
-    (doll as TreeDoll).createHangables();
+    await (doll as TreeDoll).createHangables();
    print("after making layers are ${doll.renderingOrderLayers}");
     //doll = new HomestuckDoll();
     //doll = Doll.loadSpecificDoll("KWghqQ8BvkiVPqMuGpIkFqEwAAAA");
