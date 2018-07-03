@@ -33,6 +33,9 @@ class TreeDoll extends Doll{
     return treeX;
   }
 
+  int minFruit = 13;
+  int maxFruit = 33;
+
   int get leafY {
     if(isBush) return bushY;
     return treeY;
@@ -140,7 +143,6 @@ class TreeDoll extends Doll{
     for(SpriteLayer l in renderingOrderLayers) {
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
-    createHangables();
   }
 
   @override
@@ -161,7 +163,9 @@ class TreeDoll extends Doll{
   Future<Math.Point> randomValidPointOnTree() async {
       print("looking for a valid point on tree");
       int xGuess = randomValidHangableX();
+      if(xGuess == leafWidth) xGuess = leafX;
       int yGuess = randomVAlidHangableY();
+      if(yGuess == leafHeight) yGuess = leafY;
       CanvasElement pointFinderCanvas = new CanvasElement(width: width, height: height);
       //not a for loop because don't do fruit
       await leavesFront.drawSelf(pointFinderCanvas);
@@ -172,7 +176,7 @@ class TreeDoll extends Doll{
       ImageData img_data = pointFinderCanvas.context2D.getImageData(xGuess, yGuess, leafWidth-xGuess, leafHeight-yGuess);
       for(int x = 0; x<leafWidth-xGuess; x ++) {
           for(int y = 0; y<leafHeight-yGuess; y++) {
-              int i = (y * (leafHeight-yGuess) + x) * 4;
+              int i = (y * (leafWidth-xGuess) + x) * 4;
               if(img_data.data[i+3] >100) {
                   //the '0' point for the data is xguess,yguess so take that into account.
                   print("found valid position at ${x+xGuess}, ${y+yGuess} because alpha is ${img_data.data[i+3]}");
@@ -196,7 +200,7 @@ class TreeDoll extends Doll{
   Future<Null> createHangables() async {
       if(barren) return;
         double chosenNum = rand.nextDouble();
-        print("chosen num is $chosenNum is it less than 0.45? ${chosenNum < 0.45}");
+        print("creating hangables and chosen num is $chosenNum is it less than 0.45? ${chosenNum < 0.45}");
         if(chosenNum < 0.45) {
             await createFruit();
         }else if (chosenNum < 0.9) {
@@ -207,15 +211,15 @@ class TreeDoll extends Doll{
   }
 
   Future<Null> createFlowers() async {
-    // print ('creating flowers');
-     int amount = rand.nextIntRange(3,13);
+     print ('first creating flowers');
+     int amount = rand.nextIntRange(minFruit,maxFruit);
      FlowerDoll doll = new FlowerDoll();
      doll.rand = rand.spawn();
      doll.randomizeNotColors(); //now it will fit my seed.
      doll.copyPalette(palette);
      for(int i = 0; i < amount; i++) {
          Math.Point point = await randomValidPointOnTree();
-         print("point is $point");
+         print("second point is $point");
          if(point != null) {
              int xpos = point.x;
              int ypos = point.y;
@@ -224,15 +228,16 @@ class TreeDoll extends Doll{
              PositionedDollLayer newLayer = new PositionedDollLayer(
                  doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
              renderingOrderLayers.add(newLayer);
-             print("added to rendering order layer $newLayer");
+             print("third added to rendering order layer $newLayer");
              dataOrderLayers.add(newLayer);
          }
      }
+     print ("fourth is done");
   }
 
   Future<Null> createFruit() async{
-      //print ('creating fruit');
-      int amount = rand.nextIntRange(3,13);
+      print ('first creating fruit');
+      int amount = rand.nextIntRange(minFruit,maxFruit);
       FruitDoll doll = new FruitDoll();
       doll.rand = rand.spawn();
       doll.randomizeNotColors(); //now it will fit my seed.
@@ -240,7 +245,7 @@ class TreeDoll extends Doll{
       for(int i = 0; i < amount; i++) {
           FruitDoll clonedDoll = doll.clone();
           Math.Point point = await randomValidPointOnTree();
-          print("point is $point");
+          print("second point is $point");
 
           if(point != null) {
               int xpos = point.x;
@@ -248,10 +253,11 @@ class TreeDoll extends Doll{
 
               PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
               renderingOrderLayers.add(newLayer);
-              print("added to rendering order layer $newLayer");
+              print("third added to rendering order layer $newLayer");
               dataOrderLayers.add(newLayer);
           }
       }
+      print ("fourth is done");
   }
 
   Future<Null> createGloriousBullshit() async {
@@ -263,7 +269,7 @@ class TreeDoll extends Doll{
       doll.randomize(); //now it will fit my seed.
       doll.copyPalette(palette);
 
-      int amount = rand.nextIntRange(3,13);
+      int amount = rand.nextIntRange(minFruit,maxFruit);
       for(int i = 0; i < amount; i++) {
           Math.Point point = await randomValidPointOnTree();
           print("point is $point");
