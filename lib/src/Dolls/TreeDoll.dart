@@ -25,25 +25,21 @@ prototype for a doll that has positioned layers
 
 class TreeDoll extends Doll{
 
-  List<int> bushes = <int>[0,1,2,3,4];
+    List<TreeForm> forms = new List<TreeForm>();
 
-  bool get isBush => bushes.contains(branches.imgNumber);
-  int get leafX {
-    if(isBush) return bushX;
-    return treeX;
-  }
+    TreeForm get form {
+        for(TreeForm form in forms) {
+            if(form.hasForm(this)) return form;
+        }
+        //just assume it's a tree
+        return forms.first;
+    }
 
   int minFruit = 13;
   int maxFruit = 33;
 
-  int get leafY {
-    if(isBush) return bushY;
-    return treeY;
-  }
-  int treeX = 50;
-  int treeY = 50;
-  int bushX = 50;
-  int bushY = 150;
+
+
 
   @override
   String originalCreator = "jadedResearcher and dystopicFuturism";
@@ -61,15 +57,12 @@ class TreeDoll extends Doll{
 
   @override
   String relativefolder = "images/Tree";
-  final int maxBranches = 9;
+  final int maxBranches = 19;
   final int maxLeaves = 8;
   //these are special and there are more than one of this layer
   final int maxFruits = 5;
   final int maxFlowers = 4;
 
-  //hangables should confine themselves to that space
-  int leafWidth = 368;
-  int leafHeight = 328;
   int fruitWidth = 50;
   int fruitHeight = 50;
 
@@ -116,6 +109,7 @@ class TreeDoll extends Doll{
   bool barren = false;
 
   TreeDoll([bool this.barren = false]) {
+      forms.addAll(<TreeForm>[new TreeForm(), new BushForm(), new LeftForm(), new RightFrom()]);
       initLayers();
       randomize();
   }
@@ -163,9 +157,9 @@ class TreeDoll extends Doll{
   Future<Math.Point> randomValidPointOnTree() async {
       print("looking for a valid point on tree");
       int xGuess = randomValidHangableX();
-      if(xGuess == leafWidth) xGuess = leafX;
+      if(xGuess == form.leafWidth) xGuess = form.leafX;
       int yGuess = randomVAlidHangableY();
-      if(yGuess == leafHeight) yGuess = leafY;
+      if(yGuess == form.leafHeight) yGuess = form.leafY;
       CanvasElement pointFinderCanvas = new CanvasElement(width: width, height: height);
       //not a for loop because don't do fruit
       await leavesFront.drawSelf(pointFinderCanvas);
@@ -173,10 +167,10 @@ class TreeDoll extends Doll{
       await leavesBack.drawSelf(pointFinderCanvas);
 
       //only look at leaf locations
-      ImageData img_data = pointFinderCanvas.context2D.getImageData(xGuess, yGuess, leafWidth-xGuess, leafHeight-yGuess);
-      for(int x = 0; x<leafWidth-xGuess; x ++) {
-          for(int y = 0; y<leafHeight-yGuess; y++) {
-              int i = (y * (leafWidth-xGuess) + x) * 4;
+      ImageData img_data = pointFinderCanvas.context2D.getImageData(xGuess, yGuess, form.leafWidth-xGuess, form.leafHeight-yGuess);
+      for(int x = 0; x<form.leafWidth-xGuess; x ++) {
+          for(int y = 0; y<form.leafHeight-yGuess; y++) {
+              int i = (y * (form.leafWidth-xGuess) + x) * 4;
               if(img_data.data[i+3] >100) {
                   //the '0' point for the data is xguess,yguess so take that into account.
                   print("found valid position at ${x+xGuess}, ${y+yGuess} because alpha is ${img_data.data[i+3]}");
@@ -190,11 +184,11 @@ class TreeDoll extends Doll{
   }
 
   int randomValidHangableX() {
-      return rand.nextIntRange(leafX, leafX + leafWidth);
+      return rand.nextIntRange(form.leafX, form.leafX + form.leafWidth);
   }
 
   int randomVAlidHangableY() {
-      return rand.nextIntRange(leafY, leafY + leafHeight);
+      return rand.nextIntRange(form.leafY, form.leafY + form.leafHeight);
   }
 
   bool hasHangablesAlready() {
@@ -296,18 +290,18 @@ class TreeDoll extends Doll{
 
   @override
   void beforeRender() {
-      leavesBack.x = leafX;
-      leavesBack.y = leafY;
-      leavesFront.x = leafX;
-      leavesFront.y = leafY;
+      leavesBack.x = form.leafX;
+      leavesBack.y = form.leafY;
+      leavesFront.x = form.leafX;
+      leavesFront.y = form.leafY;
   }
 
   @override
   void initLayers() {
 
       branches = new SpriteLayer("Branches","$folder/branches/", 1, maxBranches);
-      leavesBack = new PositionedLayer(treeX,treeY,"BackLeaves","$folder/leavesBack/", 1, maxLeaves);
-      leavesFront = new PositionedLayer(treeX,treeY,"FrontLeaves","$folder/leavesFront/", 1, maxLeaves);
+      leavesBack = new PositionedLayer(0,0,"BackLeaves","$folder/leavesBack/", 1, maxLeaves);
+      leavesFront = new PositionedLayer(0,0,"FrontLeaves","$folder/leavesFront/", 1, maxLeaves);
       leavesBack.syncedWith.add(leavesFront);
       leavesFront.syncedWith.add(leavesBack);
       leavesBack.slave = true;
@@ -318,3 +312,57 @@ class TreeDoll extends Doll{
 
 }
 
+
+//forms decide where valid leaf/flower/etc locations are
+
+class TreeForm {
+    List<int> branchesNumbers = <int>[5,6,7,8,9];
+    int leafX = 50;
+    int leafY = 50;
+    int leafWidth = 368;
+    int leafHeight = 328;
+
+    bool hasForm(TreeDoll doll) {
+        return branchesNumbers.contains(doll.branches.imgNumber);
+    }
+}
+
+
+class BushForm extends TreeForm {
+    @override
+    List<int> branchesNumbers = <int>[0,1,2,3,4];
+    @override
+    int leafX = 50;
+    @override
+    int leafY = 150;
+    @override
+    int leafWidth = 368;
+    @override
+    int leafHeight = 328;
+}
+
+class LeftForm extends TreeForm {
+    @override
+    List<int> branchesNumbers = <int>[15,16,17,18,19];
+    @override
+    int leafX = 50;
+    @override
+    int leafY = 50;
+    @override
+    int leafWidth = 368;
+    @override
+    int leafHeight = 328;
+}
+
+class RightFrom extends TreeForm {
+    @override
+    List<int> branchesNumbers = <int>[10,11,12,13,14];
+    @override
+    int leafX = 50;
+    @override
+    int leafY = 50;
+    @override
+    int leafWidth = 368;
+    @override
+    int leafHeight = 328;
+}
