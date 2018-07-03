@@ -200,7 +200,7 @@ class TreeDoll extends Doll{
         }
   }
 
-  void createFlowers() {
+  Future<Null> createFlowers() async {
     // print ('creating flowers');
      int amount = rand.nextIntRange(3,13);
      FlowerDoll doll = new FlowerDoll();
@@ -208,8 +208,10 @@ class TreeDoll extends Doll{
      doll.randomizeNotColors(); //now it will fit my seed.
      doll.copyPalette(palette);
      for(int i = 0; i < amount; i++) {
-         int xpos = randomValidHangableX();
-         int ypos = randomVAlidHangableY();
+         Math.Point point = await randomValidPointOnTree();
+         int xpos = point.x;
+         int ypos = point.y;
+
 
          PositionedDollLayer newLayer = new PositionedDollLayer(
              doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
@@ -218,7 +220,7 @@ class TreeDoll extends Doll{
      }
   }
 
-  void createFruit() {
+  Future<Null> createFruit() async{
       //print ('creating fruit');
       int amount = rand.nextIntRange(3,13);
       FruitDoll doll = new FruitDoll();
@@ -227,9 +229,9 @@ class TreeDoll extends Doll{
       doll.copyPalette(palette);
       for(int i = 0; i < amount; i++) {
           FruitDoll clonedDoll = doll.clone();
-          //print("adding flower with body of ${clonedDoll.body.imgNumber}");
-          int xpos = randomValidHangableX();
-          int ypos = randomVAlidHangableY();
+          Math.Point point = await randomValidPointOnTree();
+          int xpos = point.x;
+          int ypos = point.y;
 
           PositionedDollLayer newLayer = new PositionedDollLayer(
               clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
@@ -238,7 +240,7 @@ class TreeDoll extends Doll{
       }
   }
 
-  void createGloriousBullshit() {
+  Future<Null> createGloriousBullshit() async {
       int type = rand.pickFrom(Doll.allDollTypes);
       print("creating glorious bullshit, type is $type");
 
@@ -249,8 +251,9 @@ class TreeDoll extends Doll{
 
       int amount = rand.nextIntRange(3,13);
       for(int i = 0; i < amount; i++) {
-          int xpos = randomValidHangableX();
-          int ypos = randomVAlidHangableY();
+          Math.Point point = await randomValidPointOnTree();
+          int xpos = point.x;
+          int ypos = point.y;
           PositionedDollLayer newLayer = new PositionedDollLayer(
               doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
           renderingOrderLayers.add(newLayer);
