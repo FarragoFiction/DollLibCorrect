@@ -161,15 +161,15 @@ class TreeDoll extends Doll{
       int yGuess = randomVAlidHangableY();
       CanvasElement pointFinderCanvas = new CanvasElement(width: width, height: height);
       for(SpriteLayer l in renderingOrderLayers) {
-          //print("drawing rendering order layer $l");
+          print("drawing rendering order layer $l for hanging position");
           await l.drawSelf(pointFinderCanvas);
       }
 
       //only look at leaf locations
       ImageData img_data = pointFinderCanvas.context2D.getImageData(xGuess, yGuess, leafWidth-xGuess, leafHeight-yGuess);
-      for(int x = 0; x<pointFinderCanvas.width; x ++) {
+      for(int x = 0; x<leafWidth-xGuess; x ++) {
           for(int y = 0; y<pointFinderCanvas.height; y++) {
-              int i = (y * pointFinderCanvas.width + x) * 4;
+              int i = (y * leafHeight-yGuess + x) * 4;
               if(img_data.data[i+3] >100) {
                   //the '0' point for the data is xguess,yguess so take that into account.
                   return new Point(x + xGuess, y + yGuess);
@@ -209,14 +209,16 @@ class TreeDoll extends Doll{
      doll.copyPalette(palette);
      for(int i = 0; i < amount; i++) {
          Math.Point point = await randomValidPointOnTree();
-         int xpos = point.x;
-         int ypos = point.y;
+         if(point != null) {
+             int xpos = point.x;
+             int ypos = point.y;
 
 
-         PositionedDollLayer newLayer = new PositionedDollLayer(
-             doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
-         renderingOrderLayers.add(newLayer);
-         dataOrderLayers.add(newLayer);
+             PositionedDollLayer newLayer = new PositionedDollLayer(
+                 doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
+             renderingOrderLayers.add(newLayer);
+             dataOrderLayers.add(newLayer);
+         }
      }
   }
 
@@ -230,13 +232,15 @@ class TreeDoll extends Doll{
       for(int i = 0; i < amount; i++) {
           FruitDoll clonedDoll = doll.clone();
           Math.Point point = await randomValidPointOnTree();
-          int xpos = point.x;
-          int ypos = point.y;
+          if(point != null) {
+              int xpos = point.x;
+              int ypos = point.y;
 
-          PositionedDollLayer newLayer = new PositionedDollLayer(
-              clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
-          renderingOrderLayers.add(newLayer);
-          dataOrderLayers.add(newLayer);
+              PositionedDollLayer newLayer = new PositionedDollLayer(
+                  clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
+              renderingOrderLayers.add(newLayer);
+              dataOrderLayers.add(newLayer);
+          }
       }
   }
 
@@ -252,12 +256,15 @@ class TreeDoll extends Doll{
       int amount = rand.nextIntRange(3,13);
       for(int i = 0; i < amount; i++) {
           Math.Point point = await randomValidPointOnTree();
-          int xpos = point.x;
-          int ypos = point.y;
-          PositionedDollLayer newLayer = new PositionedDollLayer(
-              doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
-          renderingOrderLayers.add(newLayer);
-          dataOrderLayers.add(newLayer);
+          if(point != null) {
+              int xpos = point.x;
+              int ypos = point.y;
+              PositionedDollLayer newLayer = new PositionedDollLayer(
+                  doll.clone(), fruitWidth, fruitHeight, xpos, ypos,
+                  "Hanging1");
+              renderingOrderLayers.add(newLayer);
+              dataOrderLayers.add(newLayer);
+          }
       }
   }
 
