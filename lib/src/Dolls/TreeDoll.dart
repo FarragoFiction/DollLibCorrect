@@ -162,12 +162,11 @@ class TreeDoll extends Doll{
       print("looking for a valid point on tree");
       int xGuess = randomValidHangableX();
       int yGuess = randomVAlidHangableY();
-      return new Math.Point(xGuess, yGuess);
       CanvasElement pointFinderCanvas = new CanvasElement(width: width, height: height);
-      for(SpriteLayer l in renderingOrderLayers) {
-          print("drawing rendering order layer $l for hanging position");
-          await l.drawSelf(pointFinderCanvas);
-      }
+      //not a for loop because don't do fruit
+      await leavesFront.drawSelf(pointFinderCanvas);
+      await branches.drawSelf(pointFinderCanvas);
+      await leavesBack.drawSelf(pointFinderCanvas);
 
       //only look at leaf locations
       ImageData img_data = pointFinderCanvas.context2D.getImageData(xGuess, yGuess, leafWidth-xGuess, leafHeight-yGuess);
@@ -223,7 +222,7 @@ class TreeDoll extends Doll{
 
 
              PositionedDollLayer newLayer = new PositionedDollLayer(
-                 doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
+                 doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
              renderingOrderLayers.add(newLayer);
              print("added to rendering order layer $newLayer");
              dataOrderLayers.add(newLayer);
@@ -247,7 +246,7 @@ class TreeDoll extends Doll{
               int xpos = point.x;
               int ypos = point.y;
 
-              PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "Hanging1");
+              PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
               renderingOrderLayers.add(newLayer);
               print("added to rendering order layer $newLayer");
               dataOrderLayers.add(newLayer);
@@ -274,7 +273,7 @@ class TreeDoll extends Doll{
               int ypos = point.y;
               PositionedDollLayer newLayer = new PositionedDollLayer(
                   doll.clone(), fruitWidth, fruitHeight, xpos, ypos,
-                  "Hanging1");
+                  "Hanging$i");
               renderingOrderLayers.add(newLayer);
               print("added to rendering order layer $newLayer");
               dataOrderLayers.add(newLayer);
