@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:html';
+import 'dart:math' as Math;
 import 'package:DollLibCorrect/src/Dolls/FlowerDoll.dart';
 import 'package:DollLibCorrect/src/Dolls/FruitDoll.dart';
 import 'package:DollLibCorrect/src/Dolls/Layers/PositionedDollLayer.dart';
@@ -145,6 +148,35 @@ class TreeDoll extends Doll{
     Random rand  = new Random(seed);
     quirkButDontUse = Quirk.randomHumanQuirk(rand);
 
+  }
+
+  /*
+    pick a valid ish point at random
+    draw this tree (no color replacement).
+    check right and down from this point till you find a valid point. if you never do, give up.
+    (never look left and up because whatever, this should be good enough for now)
+   */
+  Future<Math.Point> randomValidPointOnTree() async {
+      int xGuess = randomValidHangableX();
+      int yGuess = randomVAlidHangableY();
+      CanvasElement pointFinderCanvas = new CanvasElement(width: width, height: height);
+      for(SpriteLayer l in renderingOrderLayers) {
+          //print("drawing rendering order layer $l");
+          await l.drawSelf(pointFinderCanvas);
+      }
+
+      //only look at leaf locations
+      ImageData img_data = pointFinderCanvas.context2D.getImageData(xGuess, yGuess, leafWidth-xGuess, leafHeight-yGuess);
+      for(int x = 0; x<pointFinderCanvas.width; x ++) {
+          for(int y = 0; y<pointFinderCanvas.height; y++) {
+              int i = (y * pointFinderCanvas.width + x) * 4;
+              if(img_data.data[i+3] >100) {
+                  //the '0' point for the data is xguess,yguess so take that into account.
+                  return new Point(x + xGuess, y + yGuess);
+              }
+          }
+
+      }
   }
 
   int randomValidHangableX() {
