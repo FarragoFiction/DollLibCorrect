@@ -190,13 +190,25 @@ class TreeDoll extends Doll{
               if(img_data.data[i+3] >100) {
                   //the '0' point for the data is xguess,yguess so take that into account.
                   print("found valid position at ${x+xGuess}, ${y+yGuess} because alpha is ${img_data.data[i+3]}");
-                  return new Math.Point(x + xGuess, y + yGuess);
+                  return keepInBounds(new Math.Point(x + xGuess, y + yGuess));
               }
           }
 
       }
       print("returning null");
       return null;
+  }
+
+  Math.Point keepInBounds(Math.Point p) {
+      int x = p.x;
+      int y = p.y;
+      if(p.x > width-bufferWidth) x = width-bufferWidth;
+      if(p.x < bufferWidth) x = bufferWidth;
+
+      if(p.y > height-bufferHeight) y = height-bufferHeight;
+      if(p.y < bufferHeight) y = bufferHeight;
+      return new Math.Point(x,y);
+
   }
 
   //leafs can be up to 1.5 times their base size
