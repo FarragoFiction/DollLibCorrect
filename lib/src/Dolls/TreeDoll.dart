@@ -46,8 +46,8 @@ class TreeDoll extends Doll{
 
   int minFruit = 13;
   int maxFruit = 33;
-  int minLeaf = 33;
-  int maxLeaf = 66;
+  int minLeaf = 50;
+  int maxLeaf = 75;
 
 
 
@@ -70,9 +70,6 @@ class TreeDoll extends Doll{
   String relativefolder = "images/Tree";
   final int maxBranches = 19;
   final int maxLeaves = 8;
-  //these are special and there are more than one of this layer
-  final int maxFruits = 5;
-  final int maxFlowers = 4;
 
   int fruitWidth = 50;
   int fruitHeight = 50;
@@ -333,7 +330,7 @@ class TreeDoll extends Doll{
       if(leavesFront.imgNumber != 0 || hasClustersAlready()) return;
       //print ('first creating clusters');
       if(rand.nextBool()) {
-            //less leaves but bigger
+            //less leaves but bigger on average
             minLeaf = (minLeaf/2).round();
             maxLeaf = (maxLeaf/2).round();
             leafWidth = leafWidth * 2;
