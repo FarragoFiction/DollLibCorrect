@@ -64,9 +64,7 @@ Future<bool> start() async {
    // doll = Doll.loadSpecificDoll("DiC0tLQ8IDQaEBo5IDRKME4bEBr510351005IDSqqKhYWlrS0dGpqKgAAACIiIiYmZkhJiY-IDQaEBoZICAgMDBAQCgAABAA");
 
     await drawDoll(); //normal
-    doll = Doll.randomDollOfType(33);
-    (doll as TreeDoll).barren = false;
-    await drawDoll();
+    makeForestOfDollOfType(33);
     /*
     doll.orientation = Doll.TURNWAYS;
     await drawDoll();
@@ -179,4 +177,24 @@ Future<CanvasElement>  drawDoll([CanvasElement finishedProduct = null]) async{
 
     doll.visualizeData(output);
     return finishedProduct;
+}
+
+
+Future<Null> makeForestOfDollOfType(int type) async {
+    int width = 1000;
+    int height = 800;
+    CanvasElement canvas = new CanvasElement(width: width, height: height);
+    Doll sampleDoll = Doll.randomDollOfType(type);
+    int x = 0;
+    int y = height - doll.height;
+    while(x < width - sampleDoll.width) {
+        Doll tmpDoll = Doll.randomDollOfType(type);
+        tmpDoll.copyPalette(sampleDoll.palette);
+        CanvasElement dollCanvas = new CanvasElement(width: tmpDoll.width, height: tmpDoll.height);
+        await DollRenderer.drawDoll(dollCanvas, tmpDoll);
+        canvas.context2D.drawImage(dollCanvas,x, y);
+        x = sampleDoll.rand.nextIntRange((sampleDoll.width/2).round(), sampleDoll.width);
+
+    }
+    output.append(canvas);
 }

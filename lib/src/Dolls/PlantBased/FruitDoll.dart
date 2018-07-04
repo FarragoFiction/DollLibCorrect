@@ -1,16 +1,16 @@
 import 'package:CommonLib/Compression.dart';
 
-import "../Dolls/Doll.dart";
+import "../../Dolls/Doll.dart";
 import 'package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart';
 import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import 'dart:convert';
 import 'package:RenderingLib/RendereringLib.dart';
 
-import "../Rendering/ReferenceColors.dart";
-class FlowerDoll extends Doll {
-    int maxBody = 9;
-    String relativefolder = "images/Flower";
+import "../../Rendering/ReferenceColors.dart";
+class FruitDoll extends Doll {
+    int maxBody = 11;
+    String relativefolder = "images/Fruit";
 
     SpriteLayer body;
 
@@ -26,10 +26,10 @@ class FlowerDoll extends Doll {
     int height = 50;
 
     @override
-    int renderingType =34;
+    int renderingType =35;
 
     @override
-    String name = "Flower";
+    String name = "Fruit";
 
     @override
     Palette palette = new HomestuckPalette()
@@ -54,7 +54,7 @@ class FlowerDoll extends Doll {
     @override
     String originalCreator = "jadedResearcher and dystopicFuturism";
 
-    FlowerDoll() {
+    FruitDoll() {
         initLayers();
         randomize();
     }
