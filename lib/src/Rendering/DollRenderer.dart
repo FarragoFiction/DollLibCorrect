@@ -32,8 +32,37 @@ class DollRenderer {
         buffer.context2D.imageSmoothingEnabled = false;
         doll.setUpWays();
         buffer.context2D.save();
+
+        processOrientation(buffer, doll);
+        processRotation(buffer, doll);
+
+        for(SpriteLayer l in doll.renderingOrderLayers) {
+            print("drawing rendering order layer $l for doll $doll");
+            await l.drawSelf(buffer);
+        }
+        //print("done drawing images");
+
+        if(doll.palette.isNotEmpty) Renderer.swapPalette(buffer, doll.paletteSource, doll.palette);
+        scaleCanvasForDoll(canvas, doll);
+        canvas.context2D.imageSmoothingEnabled = false;
+
+        Renderer.copyTmpCanvasToRealCanvasAtPos(canvas, buffer, 0, 0);
+
+        buffer.context2D.restore();
+
+    }
+
+    //whatever calls this handles save and restore
+    static void processRotation(buffer, doll) {
+        if(doll.rotation != 0) {
+            buffer.context2D.translate(buffer.width, buffer.height);
+            buffer.context2D.rotate(doll.rotation*Math.PI/180);
+        }
+    }
+
+    static void processOrientation(CanvasElement buffer, Doll doll) {
         if(doll.orientation == Doll.TURNWAYS) {
-                //print("drawing turnways");
+            //print("drawing turnways");
             //fuck is anything ever using this? this seems wrong, should be
             //buffer.context2D.translate(dollCanvas.width, 0);
             buffer.context2D.translate(buffer.width, 0);
@@ -50,21 +79,6 @@ class DollRenderer {
         }else {
             buffer.context2D.scale(1, 1);
         }
-
-        for(SpriteLayer l in doll.renderingOrderLayers) {
-            print("drawing rendering order layer $l for doll $doll");
-            await l.drawSelf(buffer);
-        }
-        //print("done drawing images");
-
-        if(doll.palette.isNotEmpty) Renderer.swapPalette(buffer, doll.paletteSource, doll.palette);
-        scaleCanvasForDoll(canvas, doll);
-        canvas.context2D.imageSmoothingEnabled = false;
-
-        Renderer.copyTmpCanvasToRealCanvasAtPos(canvas, buffer, 0, 0);
-
-        buffer.context2D.restore();
-
     }
 
     static  Future<bool>  drawDollEmbossed(CanvasElement canvas, Doll doll) async {

@@ -116,6 +116,10 @@ abstract class Doll {
 
 
     String orientation = NORMALWAYS;
+
+    // in degrees, things like 0, 90, 180, etc. used for auto rendering
+    int rotation = 0;
+
     Colour _associatedColor;
     int width;
     int height;

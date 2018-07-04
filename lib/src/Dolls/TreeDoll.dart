@@ -229,7 +229,13 @@ class TreeDoll extends Doll{
               double scale = 0.5+rand.nextDouble();
               int w = (leafWidth * scale).round();
               int h = (leafHeight * scale).round();
-              if(rand.nextBool()) clonedDoll.orientation = Doll.TURNWAYS;
+              if(rand.nextBool()) {
+                  clonedDoll.orientation = Doll.TURNWAYS;
+              }
+
+              //don't rotate too much (still hang from the "top") but have some wiggle
+              clonedDoll.rotation = rand.nextIntRange(-15, 15);
+
               PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, w, h, xpos, ypos, "LeafCluster$i");
               renderingOrderLayers.add(newLayer);
               print("third added to rendering order layer $newLayer");

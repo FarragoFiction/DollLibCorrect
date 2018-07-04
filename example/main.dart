@@ -16,15 +16,15 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
     //doll =  Doll.randomDollOfType(28);
-   doll = Doll.randomDollOfType(36);
-   /*
+   doll = Doll.randomDollOfType(33);
+
    TreeDoll tree = doll as TreeDoll;
    tree.leavesFront.imgNumber = 0;
    tree.leavesBack.imgNumber = 0;
    await tree.createLeafClusters();
     (doll as TreeDoll).barren = false;
     await (doll as TreeDoll).createHangables();
-    */
+
     //doll = new HomestuckDoll();
     //doll = Doll.loadSpecificDoll("Tree:___BEEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____wycGYMxRwZgzBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0J");
     // doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/index.html?EPD_AQD-QwwsCgGiDAyABAQ-AAD-_______z-f____0dKyzIDg5uGxwuBQZWVla2trYWggBQenoCAgQ4AAAAAAgA");
@@ -68,12 +68,14 @@ Future<bool> start() async {
    // doll = Doll.loadSpecificDoll("DiC0tLQ8IDQaEBo5IDRKME4bEBr510351005IDSqqKhYWlrS0dGpqKgAAACIiIiYmZkhJiY-IDQaEBoZICAgMDBAQCgAABAA");
 
     await drawDoll(); //normal
+    /*
     doll.orientation = Doll.TURNWAYS;
     await drawDoll();
     doll.orientation = Doll.UPWAYS;
     await drawDoll();
     doll.orientation = Doll.TURNWAYSBUTUP;
     await drawDoll();
+    */
 
 
 
