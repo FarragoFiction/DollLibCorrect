@@ -411,7 +411,7 @@ abstract class Doll {
     }
 
     //most dolls do nothing, but things with positioned layers, like trees, will do things.
-    void beforeRender() {
+    Future<Null> beforeRender() async {
 
     }
 

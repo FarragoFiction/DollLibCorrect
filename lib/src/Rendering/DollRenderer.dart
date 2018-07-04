@@ -20,7 +20,8 @@ class DollRenderer {
     static  Future<bool>  drawDoll(CanvasElement canvas, Doll doll) async {
         //print("Drawing a doll of width ${doll.width}");
         //most dolls will do nothing here, but if they need to calculate where their layers get positioned they do it here.
-        doll.beforeRender();
+        //or if they need to figure out if they even have shit
+        await doll.beforeRender();
         if(doll.width == null) {
             ImageElement image = await Loader.getResource((doll.renderingOrderLayers.first.imgLocation));
             doll.width = image.width;
@@ -55,8 +56,11 @@ class DollRenderer {
     //whatever calls this handles save and restore
     static void processRotation(buffer, doll) {
         if(doll.rotation != 0) {
-            buffer.context2D.translate(buffer.width, buffer.height);
+            print("rotating ${doll.rotation}");
+            buffer.context2D.translate(buffer.width/2, buffer.height/2);
             buffer.context2D.rotate(doll.rotation*Math.PI/180);
+            //return
+            buffer.context2D.translate(-buffer.width/2, -buffer.height/2);
         }
     }
 

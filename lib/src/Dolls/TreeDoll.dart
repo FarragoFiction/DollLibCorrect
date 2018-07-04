@@ -141,6 +141,12 @@ class TreeDoll extends Doll{
     for(SpriteLayer l in renderingOrderLayers) {
       l.imgNumber = rand.nextInt(l.maxImageNumber+1);
     }
+
+    //make clusters instead
+    if(rand.nextBool()) {
+        leavesFront.imgNumber == 0;
+        leavesBack.imgNumber == 0;
+    }
   }
 
   @override
@@ -234,7 +240,8 @@ class TreeDoll extends Doll{
               }
 
               //don't rotate too much (still hang from the "top") but have some wiggle
-              clonedDoll.rotation = rand.nextIntRange(-15, 15);
+              clonedDoll.rotation = rand.nextIntRange(-45, 45);
+              print("rotation is set to be ${clonedDoll.rotation}");
 
               PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, w, h, xpos, ypos, "LeafCluster$i");
               renderingOrderLayers.add(newLayer);
@@ -335,11 +342,14 @@ class TreeDoll extends Doll{
   }
 
   @override
-  void beforeRender() {
+  Future<Null> beforeRender() async{
       leavesBack.x = form.leafX;
       leavesBack.y = form.leafY;
       leavesFront.x = form.leafX;
       leavesFront.y = form.leafY;
+      await createLeafClusters();
+      await createHangables();
+
   }
 
   @override
