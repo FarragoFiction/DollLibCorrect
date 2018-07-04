@@ -144,8 +144,8 @@ class TreeDoll extends Doll{
 
     //make clusters instead
     if(rand.nextBool()) {
-        leavesFront.imgNumber == 0;
-        leavesBack.imgNumber == 0;
+        leavesFront.imgNumber = 0;
+        leavesBack.imgNumber = 0;
     }
   }
 
@@ -162,8 +162,6 @@ class TreeDoll extends Doll{
     check right and down from this point till you find a valid point. if you never do, give up.
     (never look left and up because whatever, this should be good enough for now)
    */
-  //TODO when get hom find out why it almost always says 0,0 is valid and then doesn't actually.....render...
-  //oh. it needs to start at 0 + imageWidth? maybe? TODO
   Future<Math.Point> randomValidPointOnTree() async {
       print("looking for a valid point on tree");
       int xGuess = randomValidHangableX();
@@ -232,7 +230,7 @@ class TreeDoll extends Doll{
           if(point != null) {
               int xpos = point.x;
               int ypos = point.y;
-              double scale = 0.5+rand.nextDouble();
+              double scale = 0.5+rand.nextDouble()*1.5;
               int w = (leafWidth * scale).round();
               int h = (leafHeight * scale).round();
               if(rand.nextBool()) {
