@@ -32,7 +32,7 @@ class VirusDoll extends Doll{
   String relativefolder = "images/Virus";
   final int maxBody = 1;
   final int maxCapsid = 3;
-  final int maxDecoLegs = 4;
+  final int maxDecoLegs = 2;
   final int maxLeg1 = 2;
   final int maxLeg2 = 2;
   final int maxLeg3 = 2;

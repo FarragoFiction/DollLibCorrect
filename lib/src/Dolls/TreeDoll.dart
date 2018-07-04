@@ -125,9 +125,7 @@ class TreeDoll extends Doll{
   }
 
   void initPalettes() {
-      //TODO oh god please remove this clear or you won't have aspect any more this is just for testing
-      validPalettes.clear();
-      for(int i = 0; i < 1; i++) {
+      for(int i = 0; i < 13*2; i++) {
           validPalettes.add(makeRandomPalette());
       }
   }
@@ -175,9 +173,9 @@ class TreeDoll extends Doll{
   Future<Math.Point> randomValidPointOnTree() async {
       print("looking for a valid point on tree");
       int xGuess = randomValidHangableX();
-      if(xGuess == form.leafWidth) xGuess = form.leafX;
+      if(xGuess >= form.canopyWidth-xGuess-leafWidth*1.5) xGuess = form.leafX;
       int yGuess = randomVAlidHangableY();
-      if(yGuess == form.leafHeight) yGuess = form.leafY;
+      if(yGuess == form.canopyHeight) yGuess = form.leafY;
       CanvasElement pointFinderCanvas = new CanvasElement(width: width, height: height);
       //not a for loop because don't do fruit
       await leavesFront.drawSelf(pointFinderCanvas);
@@ -185,10 +183,12 @@ class TreeDoll extends Doll{
       await leavesBack.drawSelf(pointFinderCanvas);
 
       //only look at leaf locations
-      ImageData img_data = pointFinderCanvas.context2D.getImageData(xGuess, yGuess, form.leafWidth-xGuess, form.leafHeight-yGuess);
-      for(int x = 0; x<form.leafWidth-xGuess; x ++) {
-          for(int y = 0; y<form.leafHeight-yGuess; y++) {
-              int i = (y * (form.leafWidth-xGuess) + x) * 4;
+      //leaf width * 1.5 is the biggest a leaf cluster can be, dont' let it clip off screen
+      //diff than form.leafWidth which is canopy, actually will rename now
+      ImageData img_data = pointFinderCanvas.context2D.getImageData(xGuess, yGuess, form.canopyWidth-xGuess-leafWidth*1.5, form.canopyHeight-yGuess);
+      for(int x = 0; x<form.canopyWidth-xGuess; x ++) {
+          for(int y = 0; y<form.canopyHeight-yGuess; y++) {
+              int i = (y * (form.canopyWidth-xGuess) + x) * 4;
               if(img_data.data[i+3] >100) {
                   //the '0' point for the data is xguess,yguess so take that into account.
                   print("found valid position at ${x+xGuess}, ${y+yGuess} because alpha is ${img_data.data[i+3]}");
@@ -202,11 +202,11 @@ class TreeDoll extends Doll{
   }
 
   int randomValidHangableX() {
-      return rand.nextIntRange(form.leafX, form.leafX + form.leafWidth);
+      return rand.nextIntRange(form.leafX, form.leafX + form.canopyWidth);
   }
 
   int randomVAlidHangableY() {
-      return rand.nextIntRange(form.leafY, form.leafY + form.leafHeight);
+      return rand.nextIntRange(form.leafY, form.leafY + form.canopyHeight);
   }
 
    Colour getRandomFruitColor() {
@@ -430,8 +430,8 @@ class TreeForm {
     List<int> branchesNumbers = <int>[5,6,7,8,9];
     int leafX = 75;
     int leafY = 50;
-    int leafWidth = 368;
-    int leafHeight = 300;
+    int canopyWidth = 368;
+    int canopyHeight = 300;
 
     bool hasForm(TreeDoll doll) {
         return branchesNumbers.contains(doll.branches.imgNumber);
@@ -447,9 +447,9 @@ class BushForm extends TreeForm {
     @override
     int leafY = 150;
     @override
-    int leafWidth = 368;
+    int canopyWidth = 368;
     @override
-    int leafHeight = 300;
+    int canopyHeight = 300;
 }
 
 class LeftForm extends TreeForm {
@@ -460,9 +460,9 @@ class LeftForm extends TreeForm {
     @override
     int leafY = 50;
     @override
-    int leafWidth = 475;
+    int canopyWidth = 475;
     @override
-    int leafHeight = 300;
+    int canopyHeight = 300;
 }
 
 class RightFrom extends TreeForm {
@@ -473,7 +473,7 @@ class RightFrom extends TreeForm {
     @override
     int leafY = 50;
     @override
-    int leafWidth = 475;
+    int canopyWidth = 475;
     @override
-    int leafHeight = 300;
+    int canopyHeight = 300;
 }
