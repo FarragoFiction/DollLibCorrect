@@ -46,8 +46,8 @@ class TreeDoll extends Doll{
 
   int minFruit = 13;
   int maxFruit = 33;
-  int minLeaf = 13;
-  int maxLeaf = 33;
+  int minLeaf = 33;
+  int maxLeaf = 66;
 
 
 
@@ -76,8 +76,8 @@ class TreeDoll extends Doll{
 
   int fruitWidth = 50;
   int fruitHeight = 50;
-    int leafWidth = 100;
-    int leafHeight = 100;
+    int leafWidth = 50;
+    int leafHeight = 50;
 
 
   SpriteLayer branches;
@@ -121,7 +121,7 @@ class TreeDoll extends Doll{
   bool barren = false;
 
   TreeDoll([bool this.barren = false]) {
-      print("making a new tree");
+      //print("making a new tree");
       forms.addAll(<TreeForm>[new TreeForm(), new BushForm(), new LeftForm(), new RightFrom()]);
       rand.nextInt(); //init;
       initPalettes();
@@ -192,9 +192,7 @@ class TreeDoll extends Doll{
           branchCache = new CanvasElement(
               width: width, height: height);
           //not a for loop because don't do fruit
-          await leavesFront.drawSelf(branchCache);
           await branches.drawSelf(branchCache);
-          await leavesBack.drawSelf(branchCache);
       }
 
       return branchCache;
@@ -237,13 +235,13 @@ class TreeDoll extends Doll{
               int i = (y * (form.canopyWidth-xGuess) + x) * 4;
               if(img_data.data[i+3] >100) {
                   //the '0' point for the data is xguess,yguess so take that into account.
-                  print("found valid position at ${x+xGuess}, ${y+yGuess} because alpha is ${img_data.data[i+3]}");
+                 // print("found valid position at ${x+xGuess}, ${y+yGuess} because alpha is ${img_data.data[i+3]}");
                   return keepInBounds(new Math.Point(x + xGuess, y + yGuess));
               }
           }
 
       }
-      print("returning null");
+      //print("returning null");
       return null;
   }
 
@@ -334,6 +332,14 @@ class TreeDoll extends Doll{
       //print("leaf cluster being made, leavesfront is ${leavesFront.imgNumber}");
       if(leavesFront.imgNumber != 0 || hasClustersAlready()) return;
       //print ('first creating clusters');
+      if(rand.nextBool()) {
+            //less leaves but bigger
+            minLeaf = (minLeaf/2).round();
+            maxLeaf = (maxLeaf/2).round();
+            leafWidth = leafWidth * 2;
+            leafHeight = leafHeight * 2;
+
+      }
       int amount = rand.nextIntRange(minLeaf,maxLeaf);
       LeafDoll doll = new LeafDoll();
       doll.rand = rand.spawn();
@@ -358,7 +364,7 @@ class TreeDoll extends Doll{
               clonedDoll.rotation = rand.nextIntRange(-45, 45);
   //            print("rotation is set to be ${clonedDoll.rotation}");
 
-              PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, w, h, (xpos-w/2).round(), ypos, "LeafCluster$i");
+              PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, w, h, (xpos-w/2).round(), ypos-(h/2).round(), "LeafCluster$i");
               renderingOrderLayers.add(newLayer);
     //          print("third added to rendering order layer $newLayer");
               dataOrderLayers.add(newLayer);
