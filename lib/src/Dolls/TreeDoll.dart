@@ -42,8 +42,8 @@ class TreeDoll extends Doll{
 
   int minFruit = 13;
   int maxFruit = 33;
-  int minLeaf = 33;
-  int maxLeaf = 66;
+  int minLeaf = 13;
+  int maxLeaf = 33;
 
 
 
@@ -117,6 +117,7 @@ class TreeDoll extends Doll{
   bool barren = false;
 
   TreeDoll([bool this.barren = false]) {
+      print("making a new tree");
       forms.addAll(<TreeForm>[new TreeForm(), new BushForm(), new LeftForm(), new RightFrom()]);
       rand.nextInt(); //init;
       initPalettes();
@@ -164,6 +165,15 @@ class TreeDoll extends Doll{
 
   }
 
+  @override
+    Doll spawn() {
+        TreeDoll copy = this.clone();
+        copy.renderingOrderLayers.clear();
+        copy.initLayers();
+        copy.randomize();
+        return copy;
+    }
+
   /*
     pick a valid ish point at random
     draw this tree (no color replacement).
@@ -190,7 +200,7 @@ class TreeDoll extends Doll{
           await leavesBack.drawSelf(pointFinderCanvas);
           List<SpriteLayer> tmp = clusters;
           for(SpriteLayer l in tmp) {
-                await l.drawSelf(pointFinderCanvas);
+                //await l.drawSelf(pointFinderCanvas);
           }
       }
 

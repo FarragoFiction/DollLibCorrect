@@ -24,47 +24,54 @@ abstract class Doll {
             }
         return ret;
     }
+
+    static List<Doll> cachedAllDolls = new List<Doll>();
+
     static List<Doll> get allDollsEvenWIPS {
         //never cache this
-        List<Doll> ret = new List<Doll>();
-        //passing true means the tree doll won't try to make any fruit, which would let it accidentally recurse if its fruit were a random doll
-            ret.add(new TreeDoll(true));
-            ret.add(new LeafDoll());
-            ret.add(new FlowerDoll());
-            ret.add(new FruitDoll());
-            ret.add(new AncestorDoll());
-            ret.add(new FekDoll());
-            ret.add(new BlobMonsterDoll());
-            ret.add(new BroDoll());
-            ret.add(new BroomDoll());
-            ret.add(new CatDoll());
-            ret.add(new ConsortDoll());
-            ret.add(new DadDoll());
-            ret.add(new DenizenDoll());
-            ret.add(new DocDoll());
-            ret.add(new DogDoll());
-            ret.add(new EasterEggDoll());
-            ret.add(new EggDoll());
-            ret.add(new HatchedChick());
-            ret.add(new HiveswapDoll());
-            ret.add(new HomestuckBabyDoll());
-            ret.add(new HomestuckCherubDoll());
-            ret.add(new HomestuckDoll());
-            ret.add(new HomestuckGrubDoll());
-            ret.add(new HomestuckHeroDoll());
-            ret.add(new HomestuckSatyrDoll());
-            ret.add(new HomestuckTrollDoll());
-            ret.add(new MomDoll());
-            ret.add(new MonsterPocketDoll());
-            ret.add(new OpenBoundDoll());
-            ret.add(new PigeonDoll());
-            ret.add(new PupperDoll());
-            ret.add(new QueenDoll());
-            ret.add(new SuperbSuckDoll());
-            ret.add(new TalkSpriteDoll());
-            ret.add(new TrollEggDoll());
-            ret.add(new VirusDoll());
-        return ret;
+        //okay so like, past jr SAYS that, but now that i have tree dolls caching makes a LOT of sense.
+        //except that makes it crash so whatever, uncache for now
+        cachedAllDolls.clear();
+        if(cachedAllDolls.isEmpty) {
+            //passing true means the tree doll won't try to make any fruit, which would let it accidentally recurse if its fruit were a random doll
+            cachedAllDolls.add(new TreeDoll(true));
+            cachedAllDolls.add(new LeafDoll());
+            cachedAllDolls.add(new FlowerDoll());
+            cachedAllDolls.add(new FruitDoll());
+            cachedAllDolls.add(new AncestorDoll());
+            cachedAllDolls.add(new FekDoll());
+            cachedAllDolls.add(new BlobMonsterDoll());
+            cachedAllDolls.add(new BroDoll());
+            cachedAllDolls.add(new BroomDoll());
+            cachedAllDolls.add(new CatDoll());
+            cachedAllDolls.add(new ConsortDoll());
+            cachedAllDolls.add(new DadDoll());
+            cachedAllDolls.add(new DenizenDoll());
+            cachedAllDolls.add(new DocDoll());
+            cachedAllDolls.add(new DogDoll());
+            cachedAllDolls.add(new EasterEggDoll());
+            cachedAllDolls.add(new EggDoll());
+            cachedAllDolls.add(new HatchedChick());
+            cachedAllDolls.add(new HiveswapDoll());
+            cachedAllDolls.add(new HomestuckBabyDoll());
+            cachedAllDolls.add(new HomestuckCherubDoll());
+            cachedAllDolls.add(new HomestuckDoll());
+            cachedAllDolls.add(new HomestuckGrubDoll());
+            cachedAllDolls.add(new HomestuckHeroDoll());
+            cachedAllDolls.add(new HomestuckSatyrDoll());
+            cachedAllDolls.add(new HomestuckTrollDoll());
+            cachedAllDolls.add(new MomDoll());
+            cachedAllDolls.add(new MonsterPocketDoll());
+            cachedAllDolls.add(new OpenBoundDoll());
+            cachedAllDolls.add(new PigeonDoll());
+            cachedAllDolls.add(new PupperDoll());
+            cachedAllDolls.add(new QueenDoll());
+            cachedAllDolls.add(new SuperbSuckDoll());
+            cachedAllDolls.add(new TalkSpriteDoll());
+            cachedAllDolls.add(new TrollEggDoll());
+            cachedAllDolls.add(new VirusDoll());
+        }
+        return cachedAllDolls;
     }
 
     String originalCreator = "???";
