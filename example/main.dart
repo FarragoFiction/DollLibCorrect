@@ -65,6 +65,7 @@ Future<bool> start() async {
 
     await drawDoll(); //normal
     doll = Doll.randomDollOfType(33);
+    (doll as TreeDoll).barren = false;
     await drawDoll();
     /*
     doll.orientation = Doll.TURNWAYS;

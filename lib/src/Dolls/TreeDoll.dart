@@ -27,6 +27,10 @@ prototype for a doll that has positioned layers
 class TreeDoll extends Doll{
 
     List<TreeForm> forms = new List<TreeForm>();
+    //for drawing leaves on, only want to get branches once
+    CanvasElement branchCache;
+    //for drawing fruit and other hangables only want to get tree once
+    CanvasElement leavesAndBranchCache;
 
     @override
     List<Palette> validPalettes = new List<Palette>.from(ReferenceColours.paletteList.values);
@@ -182,26 +186,48 @@ class TreeDoll extends Doll{
 
     if it's not for leaf, then in addition to leaves front and back, it ALSO checks for cluster leaves
    */
+
+  Future<Null> getBranchCache() async {
+      if(branchCache == null) {
+          branchCache = new CanvasElement(
+              width: width, height: height);
+          //not a for loop because don't do fruit
+          await leavesFront.drawSelf(branchCache);
+          await branches.drawSelf(branchCache);
+          await leavesBack.drawSelf(branchCache);
+      }
+
+      return branchCache;
+  }
+
+
+  Future<Null> getTreeCache() async {
+      if(leavesAndBranchCache == null) {
+          leavesAndBranchCache = new CanvasElement(
+              width: width, height: height);
+          await leavesFront.drawSelf(leavesAndBranchCache);
+          await branches.drawSelf(leavesAndBranchCache);
+          await leavesBack.drawSelf(leavesAndBranchCache);
+          List<SpriteLayer> tmp = clusters;
+          for (SpriteLayer l in tmp) {
+              await l.drawSelf(leavesAndBranchCache);
+          }
+      }
+      return leavesAndBranchCache;
+  }
+
   Future<Math.Point> randomValidPointOnTree(bool forLeaf) async {
       print("looking for a valid point on tree");
       int xGuess = randomValidHangableX();
       if(xGuess == form.canopyWidth) xGuess = form.leafX;
       int yGuess = randomVAlidHangableY();
       if(yGuess == form.canopyHeight) yGuess = form.leafY;
-      CanvasElement pointFinderCanvas = new CanvasElement(width: width, height: height);
-      //not a for loop because don't do fruit
+      CanvasElement pointFinderCanvas;
+      //handles caching shit, no need to redraw for each leave/fruit
       if(forLeaf) {
-          await leavesFront.drawSelf(pointFinderCanvas);
-          await branches.drawSelf(pointFinderCanvas);
-          await leavesBack.drawSelf(pointFinderCanvas);
+          pointFinderCanvas = await getBranchCache();
       }else {
-          await leavesFront.drawSelf(pointFinderCanvas);
-          await branches.drawSelf(pointFinderCanvas);
-          await leavesBack.drawSelf(pointFinderCanvas);
-          List<SpriteLayer> tmp = clusters;
-          for(SpriteLayer l in tmp) {
-                //await l.drawSelf(pointFinderCanvas);
-          }
+          pointFinderCanvas = await getTreeCache();
       }
 
       //only look at leaf locations
@@ -270,7 +296,7 @@ class TreeDoll extends Doll{
     }
 
    Palette makeRandomPalette() {
-      print("making a random palette for $name");
+      //print("making a random palette for $name");
       HomestuckPalette newPalette = new HomestuckPalette();
 
       newPalette.add(HomestuckPalette.SHOE_LIGHT, getRandomFruitColor(),true);
@@ -432,6 +458,7 @@ class TreeDoll extends Doll{
 
   @override
   Future<Null> beforeRender() async{
+      print ("doing a before render");
       leavesBack.x = form.leafX;
       leavesBack.y = form.leafY;
       leavesFront.x = form.leafX;
