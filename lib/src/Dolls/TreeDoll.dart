@@ -199,6 +199,52 @@ class TreeDoll extends Doll{
       return rand.nextIntRange(form.leafY, form.leafY + form.leafHeight);
   }
 
+   Colour getRandomFruitColor() {
+      //reds, purples, yellows are all valid, so lets go for hsv, max s and at least 50% v?
+      double color = rand.nextDouble(0.16); //up to green
+      //60 to 180 is green so avoid that
+      //.16 to 0.5
+      if(rand.nextBool()) {
+          color = rand.nextDouble(0.5) + 0.5; //blue to pink
+      }
+      return new Colour.hsv(color,1.0,rand.nextDouble()+0.5);
+  }
+
+     Colour getRandomLeafColor() {
+        //reds, purples, yellows are all valid, so lets go for hsv, max s and at least 50% v?
+        double color = rand.nextDouble(0.66)-0.16;// up to green minus the reds
+        return new Colour.hsv(color,rand.nextDouble()+0.5,rand.nextDouble()+0.1);
+    }
+
+     Colour getRandomBarkColor() {
+        //reds, purples, yellows are all valid, so lets go for hsv, max s and at least 50% v?
+        double color = rand.nextDouble(0.13);// up to yellow
+        return new Colour.hsv(color,rand.nextDouble()+0.25,rand.nextDouble()+0.1);
+    }
+
+   Palette makeRandomPalette() {
+      HomestuckPalette newPalette = new HomestuckPalette();
+
+      newPalette.add(HomestuckPalette.SHOE_LIGHT, getRandomFruitColor(),true);
+      makeOtherColorsDarker(newPalette, HomestuckPalette.SHOE_LIGHT, <String>[HomestuckPalette.SHOE_DARK, HomestuckPalette.ACCENT]);
+
+      newPalette.add(HomestuckPalette.ASPECT_LIGHT, getRandomFruitColor(),true);
+      makeOtherColorsDarker(newPalette, HomestuckPalette.ASPECT_LIGHT, <String>[HomestuckPalette.ASPECT_DARK]);
+
+      newPalette.add(HomestuckPalette.HAIR_MAIN, getRandomFruitColor(),true);
+      makeOtherColorsDarker(newPalette, HomestuckPalette.HAIR_MAIN, <String>[HomestuckPalette.HAIR_ACCENT]);
+
+      newPalette.add(HomestuckPalette.SHIRT_LIGHT, getRandomBarkColor(),true);
+      makeOtherColorsDarker(newPalette, HomestuckPalette.SHIRT_LIGHT, <String>[HomestuckPalette.SHIRT_DARK]);
+
+      newPalette.add(HomestuckPalette.PANTS_LIGHT, getRandomBarkColor(),true);
+      makeOtherColorsDarker(newPalette, HomestuckPalette.PANTS_LIGHT, <String>[HomestuckPalette.PANTS_DARK]);
+
+      newPalette.add(HomestuckPalette.CLOAK_LIGHT, getRandomLeafColor(),true);
+      makeOtherColorsDarker(newPalette, HomestuckPalette.CLOAK_LIGHT, <String>[HomestuckPalette.CLOAK_MID, HomestuckPalette.CLOAK_DARK]);
+      return newPalette;
+  }
+
   bool hasHangablesAlready() {
       for(SpriteLayer layer in renderingOrderLayers) {
             if(layer.name.contains("Hang")) return true;
