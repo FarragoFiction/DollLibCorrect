@@ -169,8 +169,10 @@ class TreeDoll extends Doll{
     draw this tree (no color replacement).
     check right and down from this point till you find a valid point. if you never do, give up.
     (never look left and up because whatever, this should be good enough for now)
+
+    if it's not for leaf, then in addition to leaves front and back, it ALSO checks for cluster leaves
    */
-  Future<Math.Point> randomValidPointOnTree() async {
+  Future<Math.Point> randomValidPointOnTree(bool forLeaf) async {
       print("looking for a valid point on tree");
       int xGuess = randomValidHangableX();
       if(xGuess == form.canopyWidth) xGuess = form.leafX;
@@ -178,9 +180,19 @@ class TreeDoll extends Doll{
       if(yGuess == form.canopyHeight) yGuess = form.leafY;
       CanvasElement pointFinderCanvas = new CanvasElement(width: width, height: height);
       //not a for loop because don't do fruit
-      await leavesFront.drawSelf(pointFinderCanvas);
-      await branches.drawSelf(pointFinderCanvas);
-      await leavesBack.drawSelf(pointFinderCanvas);
+      if(forLeaf) {
+          await leavesFront.drawSelf(pointFinderCanvas);
+          await branches.drawSelf(pointFinderCanvas);
+          await leavesBack.drawSelf(pointFinderCanvas);
+      }else {
+          await leavesFront.drawSelf(pointFinderCanvas);
+          await branches.drawSelf(pointFinderCanvas);
+          await leavesBack.drawSelf(pointFinderCanvas);
+          List<SpriteLayer> tmp = clusters;
+          for(SpriteLayer l in tmp) {
+                await l.drawSelf(pointFinderCanvas);
+          }
+      }
 
       //only look at leaf locations
       ImageData img_data = pointFinderCanvas.context2D.getImageData(xGuess, yGuess, form.canopyWidth-xGuess, form.canopyHeight-yGuess);
@@ -212,8 +224,8 @@ class TreeDoll extends Doll{
   }
 
   //leafs can be up to 1.5 times their base size
-  int get bufferWidth => ((leafWidth*1.5)/2).round();
-  int get bufferHeight => ((leafHeight*1.5)/2).round();
+  int get bufferWidth => (leafWidth).round();
+  int get bufferHeight => (leafHeight).round();
 
 
     int randomValidHangableX() {
@@ -237,7 +249,7 @@ class TreeDoll extends Doll{
 
      Colour getRandomLeafColor() {
         //reds, purples, yellows are all valid, so lets go for hsv, max s and at least 50% v?
-        double color = rand.nextDouble(0.44)+0.16;// up to green minus the reds
+        double color = rand.nextDouble(0.44-0.16)+0.16;// up to green minus the reds
         return new Colour.hsv(color,rand.nextDouble()+0.5,rand.nextDouble()+0.1);
     }
 
@@ -271,18 +283,15 @@ class TreeDoll extends Doll{
       return newPalette;
   }
 
+  List<SpriteLayer> get hangables => renderingOrderLayers.where((SpriteLayer s) => s.name.contains("Hang"));
+    List<SpriteLayer> get clusters => renderingOrderLayers.where((SpriteLayer s) => s.name.contains("Cluster"));
+
   bool hasHangablesAlready() {
-      for(SpriteLayer layer in renderingOrderLayers) {
-            if(layer.name.contains("Hang")) return true;
-      }
-      return false;
+      return hangables.isNotEmpty;
   }
 
     bool hasClustersAlready() {
-        for(SpriteLayer layer in renderingOrderLayers) {
-            if(layer.name.contains("Cluster")) return true;
-        }
-        return false;
+        return clusters.isNotEmpty;
     }
 
   Future<Null> createLeafClusters() async {
@@ -296,7 +305,7 @@ class TreeDoll extends Doll{
       doll.copyPalette(palette);
       for(int i = 0; i < amount; i++) {
           LeafDoll clonedDoll = doll.clone();
-          Math.Point point = await randomValidPointOnTree();
+          Math.Point point = await randomValidPointOnTree(true);
 //          print("second point is $point and doll is $clonedDoll");
 
           if(point != null) {
@@ -342,7 +351,7 @@ class TreeDoll extends Doll{
      doll.randomizeNotColors(); //now it will fit my seed.
      doll.copyPalette(palette);
      for(int i = 0; i < amount; i++) {
-         Math.Point point = await randomValidPointOnTree();
+         Math.Point point = await randomValidPointOnTree(false);
          //print("second point is $point");
          if(point != null) {
              int xpos = point.x;
@@ -368,7 +377,7 @@ class TreeDoll extends Doll{
       doll.copyPalette(palette);
       for(int i = 0; i < amount; i++) {
           FruitDoll clonedDoll = doll.clone();
-          Math.Point point = await randomValidPointOnTree();
+          Math.Point point = await randomValidPointOnTree(false);
           //print("second point is $point");
 
           if(point != null) {
@@ -395,7 +404,7 @@ class TreeDoll extends Doll{
 
       int amount = rand.nextIntRange(minFruit,maxFruit);
       for(int i = 0; i < amount; i++) {
-          Math.Point point = await randomValidPointOnTree();
+          Math.Point point = await randomValidPointOnTree(false);
           //print("point is $point");
 
           if(point != null) {
