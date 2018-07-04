@@ -28,6 +28,10 @@ class TreeDoll extends Doll{
 
     List<TreeForm> forms = new List<TreeForm>();
 
+    @override
+    List<Palette> validPalettes = new List<Palette>.from(ReferenceColours.paletteList.values);
+
+
     TreeForm get form {
         for(TreeForm form in forms) {
             if(form.hasForm(this)) return form;
@@ -114,8 +118,18 @@ class TreeDoll extends Doll{
 
   TreeDoll([bool this.barren = false]) {
       forms.addAll(<TreeForm>[new TreeForm(), new BushForm(), new LeftForm(), new RightFrom()]);
+      rand.nextInt(); //init;
+      initPalettes();
       initLayers();
       randomize();
+  }
+
+  void initPalettes() {
+      //TODO oh god please remove this clear or you won't have aspect any more this is just for testing
+      validPalettes.clear();
+      for(int i = 0; i < 1; i++) {
+          validPalettes.add(makeRandomPalette());
+      }
   }
 
 
@@ -125,14 +139,10 @@ class TreeDoll extends Doll{
   //how does the drop downs work?
   @override
   void randomizeColors() {
-            if(rand == null) rand = new Random();;
-    List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
-    Palette newPallete = rand.pickFrom(paletteOptions);
-    if(newPallete == ReferenceColours.INK) {
-      super.randomizeColors();
-    }else {
-      copyPalette(newPallete);
-    }
+    if(rand == null) rand = new Random();;
+
+    Palette newPallete = rand.pickFrom(validPalettes);
+    copyPalette(newPallete);
   }
 
   @override
@@ -223,10 +233,11 @@ class TreeDoll extends Doll{
     }
 
    Palette makeRandomPalette() {
+      print("making a random palette for $name");
       HomestuckPalette newPalette = new HomestuckPalette();
 
       newPalette.add(HomestuckPalette.SHOE_LIGHT, getRandomFruitColor(),true);
-      makeOtherColorsDarker(newPalette, HomestuckPalette.SHOE_LIGHT, <String>[HomestuckPalette.SHOE_DARK, HomestuckPalette.ACCENT]);
+     makeOtherColorsDarker(newPalette, HomestuckPalette.SHOE_LIGHT, <String>[HomestuckPalette.SHOE_DARK, HomestuckPalette.ACCENT]);
 
       newPalette.add(HomestuckPalette.ASPECT_LIGHT, getRandomFruitColor(),true);
       makeOtherColorsDarker(newPalette, HomestuckPalette.ASPECT_LIGHT, <String>[HomestuckPalette.ASPECT_DARK]);
@@ -260,9 +271,9 @@ class TreeDoll extends Doll{
     }
 
   Future<Null> createLeafClusters() async {
-      print("leaf cluster being made, leavesfront is ${leavesFront.imgNumber}");
+      //print("leaf cluster being made, leavesfront is ${leavesFront.imgNumber}");
       if(leavesFront.imgNumber != 0 || hasClustersAlready()) return;
-      print ('first creating clusters');
+      //print ('first creating clusters');
       int amount = rand.nextIntRange(minLeaf,maxLeaf);
       LeafDoll doll = new LeafDoll();
       doll.rand = rand.spawn();
@@ -271,7 +282,7 @@ class TreeDoll extends Doll{
       for(int i = 0; i < amount; i++) {
           LeafDoll clonedDoll = doll.clone();
           Math.Point point = await randomValidPointOnTree();
-          print("second point is $point and doll is $clonedDoll");
+//          print("second point is $point and doll is $clonedDoll");
 
           if(point != null) {
               int xpos = point.x;
@@ -285,11 +296,11 @@ class TreeDoll extends Doll{
 
               //don't rotate too much (still hang from the "top") but have some wiggle
               clonedDoll.rotation = rand.nextIntRange(-45, 45);
-              print("rotation is set to be ${clonedDoll.rotation}");
+  //            print("rotation is set to be ${clonedDoll.rotation}");
 
               PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, w, h, xpos, ypos, "LeafCluster$i");
               renderingOrderLayers.add(newLayer);
-              print("third added to rendering order layer $newLayer");
+    //          print("third added to rendering order layer $newLayer");
               dataOrderLayers.add(newLayer);
           }
       }

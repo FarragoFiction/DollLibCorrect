@@ -38,7 +38,7 @@ class DollRenderer {
         processRotation(buffer, doll);
 
         for(SpriteLayer l in doll.renderingOrderLayers) {
-            print("drawing rendering order layer $l for doll $doll");
+            //print("drawing rendering order layer $l for doll $doll");
             await l.drawSelf(buffer);
         }
         //print("done drawing images");
@@ -56,7 +56,7 @@ class DollRenderer {
     //whatever calls this handles save and restore
     static void processRotation(buffer, doll) {
         if(doll.rotation != 0) {
-            print("rotating ${doll.rotation}");
+            //print("rotating ${doll.rotation}");
             buffer.context2D.translate(buffer.width/2, buffer.height/2);
             buffer.context2D.rotate(doll.rotation*Math.PI/180);
             //return
