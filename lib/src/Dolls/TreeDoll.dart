@@ -199,12 +199,17 @@ class TreeDoll extends Doll{
       return null;
   }
 
-  int randomValidHangableX() {
-      return rand.nextIntRange(form.leafX, form.leafX + form.canopyWidth);
+  //leafs can be up to 1.5 times their base size
+  int get bufferWidth => ((leafWidth*1.5)/2).round();
+  int get bufferHeight => ((leafHeight*1.5)/2).round();
+
+
+    int randomValidHangableX() {
+      return rand.nextIntRange(form.leafX+bufferWidth, form.leafX + form.canopyWidth-bufferWidth);
   }
 
   int randomVAlidHangableY() {
-      return rand.nextIntRange(form.leafY, form.leafY + form.canopyHeight);
+      return rand.nextIntRange(form.leafY+bufferHeight, form.leafY + form.canopyHeight-bufferHeight);
   }
 
    Colour getRandomFruitColor() {
@@ -296,7 +301,7 @@ class TreeDoll extends Doll{
               clonedDoll.rotation = rand.nextIntRange(-45, 45);
   //            print("rotation is set to be ${clonedDoll.rotation}");
 
-              PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, w, h, xpos, ypos, "LeafCluster$i");
+              PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, w, h, (xpos-w/2).round(), ypos, "LeafCluster$i");
               renderingOrderLayers.add(newLayer);
     //          print("third added to rendering order layer $newLayer");
               dataOrderLayers.add(newLayer);
