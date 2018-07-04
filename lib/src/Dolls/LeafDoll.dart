@@ -26,7 +26,7 @@ class LeafDoll extends Doll {
     int height = 50;
 
     @override
-    int renderingType =34;
+    int renderingType =36;
 
     @override
     String name = "LeafClump";

@@ -17,6 +17,10 @@ Future<bool> start() async {
     print("done awaiting");
     //doll =  Doll.randomDollOfType(28);
    doll = Doll.randomDollOfType(33);
+   TreeDoll tree = doll as TreeDoll;
+   tree.leavesFront.imgNumber = 0;
+   tree.leavesBack.imgNumber = 0;
+   await tree.createLeafClusters();
     (doll as TreeDoll).barren = false;
     await (doll as TreeDoll).createHangables();
     //doll = new HomestuckDoll();

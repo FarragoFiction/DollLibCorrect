@@ -209,9 +209,10 @@ class TreeDoll extends Doll{
     }
 
   Future<Null> createLeafClusters() async {
+      print("leaf cluster being made, leavesfront is ${leavesFront.imgNumber}");
       if(leavesFront.imgNumber != 0 || hasClustersAlready()) return;
       print ('first creating clusters');
-      int amount = rand.nextIntRange(minFruit,maxFruit);
+      int amount = rand.nextIntRange(minLeaf,maxLeaf);
       LeafDoll doll = new LeafDoll();
       doll.rand = rand.spawn();
       doll.randomizeNotColors(); //now it will fit my seed.
@@ -219,13 +220,13 @@ class TreeDoll extends Doll{
       for(int i = 0; i < amount; i++) {
           LeafDoll clonedDoll = doll.clone();
           Math.Point point = await randomValidPointOnTree();
-          print("second point is $point");
+          print("second point is $point and doll is $clonedDoll");
 
           if(point != null) {
               int xpos = point.x;
               int ypos = point.y;
 
-              PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
+              PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "LeafCluster$i");
               renderingOrderLayers.add(newLayer);
               print("third added to rendering order layer $newLayer");
               dataOrderLayers.add(newLayer);
