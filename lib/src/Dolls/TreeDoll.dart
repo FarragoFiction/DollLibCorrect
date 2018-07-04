@@ -173,7 +173,7 @@ class TreeDoll extends Doll{
   Future<Math.Point> randomValidPointOnTree() async {
       print("looking for a valid point on tree");
       int xGuess = randomValidHangableX();
-      if(xGuess >= form.canopyWidth-xGuess-leafWidth*1.5) xGuess = form.leafX;
+      if(xGuess >= form.canopyWidth-xGuess) xGuess = form.leafX;
       int yGuess = randomVAlidHangableY();
       if(yGuess == form.canopyHeight) yGuess = form.leafY;
       CanvasElement pointFinderCanvas = new CanvasElement(width: width, height: height);
@@ -185,7 +185,7 @@ class TreeDoll extends Doll{
       //only look at leaf locations
       //leaf width * 1.5 is the biggest a leaf cluster can be, dont' let it clip off screen
       //diff than form.leafWidth which is canopy, actually will rename now
-      ImageData img_data = pointFinderCanvas.context2D.getImageData(xGuess, yGuess, form.canopyWidth-xGuess-leafWidth*1.5, form.canopyHeight-yGuess);
+      ImageData img_data = pointFinderCanvas.context2D.getImageData(xGuess, yGuess, form.canopyWidth-xGuess, form.canopyHeight-yGuess);
       for(int x = 0; x<form.canopyWidth-xGuess; x ++) {
           for(int y = 0; y<form.canopyHeight-yGuess; y++) {
               int i = (y * (form.canopyWidth-xGuess) + x) * 4;
@@ -298,7 +298,7 @@ class TreeDoll extends Doll{
               clonedDoll.rotation = rand.nextIntRange(-45, 45);
   //            print("rotation is set to be ${clonedDoll.rotation}");
 
-              PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, w, h, xpos, ypos, "LeafCluster$i");
+              PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, w, h, (xpos+leafWidth/2).round(), ypos, "LeafCluster$i");
               renderingOrderLayers.add(newLayer);
     //          print("third added to rendering order layer $newLayer");
               dataOrderLayers.add(newLayer);
