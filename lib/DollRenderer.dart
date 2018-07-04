@@ -16,6 +16,7 @@ export "src/Dolls/MatryoshkaDoll.dart";
 export "src/Dolls/VirusDoll.dart";
 export "src/Dolls/Quirk.dart";
 export "src/Dolls/TreeDoll.dart";
+export "src/Dolls/LeafDoll.dart";
 export "src/Dolls/FlowerDoll.dart";
 export "src/Dolls/FruitDoll.dart";
 export "src/Dolls/BroomDoll.dart";

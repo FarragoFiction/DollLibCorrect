@@ -5,6 +5,7 @@ import 'package:DollLibCorrect/src/Dolls/FlowerDoll.dart';
 import 'package:DollLibCorrect/src/Dolls/FruitDoll.dart';
 import 'package:DollLibCorrect/src/Dolls/Layers/PositionedDollLayer.dart';
 import 'package:DollLibCorrect/src/Dolls/Layers/PositionedLayer.dart';
+import 'package:DollLibCorrect/src/Dolls/LeafDoll.dart';
 import 'package:RenderingLib/RendereringLib.dart';
 import 'package:CommonLib/Compression.dart';
 
@@ -37,6 +38,8 @@ class TreeDoll extends Doll{
 
   int minFruit = 13;
   int maxFruit = 33;
+  int minLeaf = 3;
+  int maxLeaf = 13;
 
 
 
@@ -198,53 +201,23 @@ class TreeDoll extends Doll{
       return false;
   }
 
-  Future<Null> createHangables() async {
-      if(barren || hasHangablesAlready()) return;
-        double chosenNum = rand.nextDouble();
-        print("creating hangables and chosen num is $chosenNum is it less than 0.45? ${chosenNum < 0.45}");
-        if(chosenNum < 0.45) {
-            await createFruit();
-        }else if (chosenNum < 0.9) {
-            await createFlowers();
-        }else {
-            await createGloriousBullshit();
+    bool hasClustersAlready() {
+        for(SpriteLayer layer in renderingOrderLayers) {
+            if(layer.name.contains("Cluster")) return true;
         }
-  }
+        return false;
+    }
 
-  Future<Null> createFlowers() async {
-     print ('first creating flowers');
-     int amount = rand.nextIntRange(minFruit,maxFruit);
-     FlowerDoll doll = new FlowerDoll();
-     doll.rand = rand.spawn();
-     doll.randomizeNotColors(); //now it will fit my seed.
-     doll.copyPalette(palette);
-     for(int i = 0; i < amount; i++) {
-         Math.Point point = await randomValidPointOnTree();
-         print("second point is $point");
-         if(point != null) {
-             int xpos = point.x;
-             int ypos = point.y;
-
-
-             PositionedDollLayer newLayer = new PositionedDollLayer(
-                 doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
-             renderingOrderLayers.add(newLayer);
-             print("third added to rendering order layer $newLayer");
-             dataOrderLayers.add(newLayer);
-         }
-     }
-     print ("fourth is done");
-  }
-
-  Future<Null> createFruit() async{
-      print ('first creating fruit');
+  Future<Null> createLeafClusters() async {
+      if(leavesFront.imgNumber != 0 || hasClustersAlready()) return;
+      print ('first creating clusters');
       int amount = rand.nextIntRange(minFruit,maxFruit);
-      FruitDoll doll = new FruitDoll();
+      LeafDoll doll = new LeafDoll();
       doll.rand = rand.spawn();
       doll.randomizeNotColors(); //now it will fit my seed.
       doll.copyPalette(palette);
       for(int i = 0; i < amount; i++) {
-          FruitDoll clonedDoll = doll.clone();
+          LeafDoll clonedDoll = doll.clone();
           Math.Point point = await randomValidPointOnTree();
           print("second point is $point");
 
@@ -258,12 +231,74 @@ class TreeDoll extends Doll{
               dataOrderLayers.add(newLayer);
           }
       }
-      print ("fourth is done");
+    }
+
+  Future<Null> createHangables() async {
+      if(barren || hasHangablesAlready()) return;
+        double chosenNum = rand.nextDouble();
+        //print("creating hangables and chosen num is $chosenNum is it less than 0.45? ${chosenNum < 0.45}");
+        if(chosenNum < 0.45) {
+            await createFruit();
+        }else if (chosenNum < 0.9) {
+            await createFlowers();
+        }else {
+            await createGloriousBullshit();
+        }
+  }
+
+  Future<Null> createFlowers() async {
+     //print ('first creating flowers');
+     int amount = rand.nextIntRange(minFruit,maxFruit);
+     FlowerDoll doll = new FlowerDoll();
+     doll.rand = rand.spawn();
+     doll.randomizeNotColors(); //now it will fit my seed.
+     doll.copyPalette(palette);
+     for(int i = 0; i < amount; i++) {
+         Math.Point point = await randomValidPointOnTree();
+         //print("second point is $point");
+         if(point != null) {
+             int xpos = point.x;
+             int ypos = point.y;
+
+
+             PositionedDollLayer newLayer = new PositionedDollLayer(
+                 doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
+             renderingOrderLayers.add(newLayer);
+             //print("third added to rendering order layer $newLayer");
+             dataOrderLayers.add(newLayer);
+         }
+     }
+     //print ("fourth is done");
+  }
+
+  Future<Null> createFruit() async{
+      //print ('first creating fruit');
+      int amount = rand.nextIntRange(minFruit,maxFruit);
+      FruitDoll doll = new FruitDoll();
+      doll.rand = rand.spawn();
+      doll.randomizeNotColors(); //now it will fit my seed.
+      doll.copyPalette(palette);
+      for(int i = 0; i < amount; i++) {
+          FruitDoll clonedDoll = doll.clone();
+          Math.Point point = await randomValidPointOnTree();
+          //print("second point is $point");
+
+          if(point != null) {
+              int xpos = point.x;
+              int ypos = point.y;
+
+              PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
+              renderingOrderLayers.add(newLayer);
+              //print("third added to rendering order layer $newLayer");
+              dataOrderLayers.add(newLayer);
+          }
+      }
+      //print ("fourth is done");
   }
 
   Future<Null> createGloriousBullshit() async {
       int type = rand.pickFrom(Doll.allDollTypes);
-      print("creating glorious bullshit, type is $type");
+      //print("creating glorious bullshit, type is $type");
 
       Doll doll = Doll.randomDollOfType(type);
       doll.rand = rand.spawn();
@@ -273,7 +308,7 @@ class TreeDoll extends Doll{
       int amount = rand.nextIntRange(minFruit,maxFruit);
       for(int i = 0; i < amount; i++) {
           Math.Point point = await randomValidPointOnTree();
-          print("point is $point");
+          //print("point is $point");
 
           if(point != null) {
               int xpos = point.x;
@@ -282,7 +317,7 @@ class TreeDoll extends Doll{
                   doll.clone(), fruitWidth, fruitHeight, xpos, ypos,
                   "Hanging$i");
               renderingOrderLayers.add(newLayer);
-              print("added to rendering order layer $newLayer");
+              //print("added to rendering order layer $newLayer");
               dataOrderLayers.add(newLayer);
           }
       }
