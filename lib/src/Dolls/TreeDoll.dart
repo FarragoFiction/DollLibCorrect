@@ -317,7 +317,7 @@ class TreeDoll extends Doll{
 
 class TreeForm {
     List<int> branchesNumbers = <int>[5,6,7,8,9];
-    int leafX = 50;
+    int leafX = 75;
     int leafY = 50;
     int leafWidth = 368;
     int leafHeight = 328;
@@ -332,7 +332,7 @@ class BushForm extends TreeForm {
     @override
     List<int> branchesNumbers = <int>[0,1,2,3,4];
     @override
-    int leafX = 50;
+    int leafX = 75;
     @override
     int leafY = 150;
     @override
@@ -345,11 +345,11 @@ class LeftForm extends TreeForm {
     @override
     List<int> branchesNumbers = <int>[15,16,17,18,19];
     @override
-    int leafX = 50;
+    int leafX = 0;
     @override
     int leafY = 50;
     @override
-    int leafWidth = 368;
+    int leafWidth = 475;
     @override
     int leafHeight = 328;
 }
@@ -358,11 +358,11 @@ class RightFrom extends TreeForm {
     @override
     List<int> branchesNumbers = <int>[10,11,12,13,14];
     @override
-    int leafX = 50;
+    int leafX = 150;
     @override
     int leafY = 50;
     @override
-    int leafWidth = 368;
+    int leafWidth = 475;
     @override
     int leafHeight = 328;
 }
