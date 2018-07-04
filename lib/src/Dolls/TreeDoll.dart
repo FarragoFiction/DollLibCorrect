@@ -222,7 +222,7 @@ class TreeDoll extends Doll{
 
      Colour getRandomLeafColor() {
         //reds, purples, yellows are all valid, so lets go for hsv, max s and at least 50% v?
-        double color = rand.nextDouble(0.66)-0.16;// up to green minus the reds
+        double color = rand.nextDouble(0.44)+0.16;// up to green minus the reds
         return new Colour.hsv(color,rand.nextDouble()+0.5,rand.nextDouble()+0.1);
     }
 
