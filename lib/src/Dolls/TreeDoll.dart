@@ -38,8 +38,8 @@ class TreeDoll extends Doll{
 
   int minFruit = 13;
   int maxFruit = 33;
-  int minLeaf = 3;
-  int maxLeaf = 13;
+  int minLeaf = 33;
+  int maxLeaf = 66;
 
 
 
@@ -68,7 +68,8 @@ class TreeDoll extends Doll{
 
   int fruitWidth = 50;
   int fruitHeight = 50;
-
+    int leafWidth = 100;
+    int leafHeight = 100;
 
 
   SpriteLayer branches;
@@ -225,8 +226,11 @@ class TreeDoll extends Doll{
           if(point != null) {
               int xpos = point.x;
               int ypos = point.y;
-
-              PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "LeafCluster$i");
+              double scale = 0.5+rand.nextDouble();
+              int w = (leafWidth * scale).round();
+              int h = (leafHeight * scale).round();
+              if(rand.nextBool()) clonedDoll.orientation = Doll.TURNWAYS;
+              PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, w, h, xpos, ypos, "LeafCluster$i");
               renderingOrderLayers.add(newLayer);
               print("third added to rendering order layer $newLayer");
               dataOrderLayers.add(newLayer);
@@ -356,7 +360,7 @@ class TreeForm {
     int leafX = 75;
     int leafY = 50;
     int leafWidth = 368;
-    int leafHeight = 328;
+    int leafHeight = 300;
 
     bool hasForm(TreeDoll doll) {
         return branchesNumbers.contains(doll.branches.imgNumber);
@@ -374,7 +378,7 @@ class BushForm extends TreeForm {
     @override
     int leafWidth = 368;
     @override
-    int leafHeight = 328;
+    int leafHeight = 300;
 }
 
 class LeftForm extends TreeForm {
@@ -387,7 +391,7 @@ class LeftForm extends TreeForm {
     @override
     int leafWidth = 475;
     @override
-    int leafHeight = 328;
+    int leafHeight = 300;
 }
 
 class RightFrom extends TreeForm {
@@ -400,5 +404,5 @@ class RightFrom extends TreeForm {
     @override
     int leafWidth = 475;
     @override
-    int leafHeight = 328;
+    int leafHeight = 300;
 }

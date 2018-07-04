@@ -21,9 +21,9 @@ class LeafDoll extends Doll {
 
 
     @override
-    int width = 50;
+    int width = 100;
     @override
-    int height = 50;
+    int height = 100;
 
     @override
     int renderingType =36;

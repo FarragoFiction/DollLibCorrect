@@ -31,11 +31,12 @@ class DollRenderer {
         CanvasElement buffer = new CanvasElement(width: doll.width, height: doll.height);
         buffer.context2D.imageSmoothingEnabled = false;
         doll.setUpWays();
+        buffer.context2D.save();
         if(doll.orientation == Doll.TURNWAYS) {
                 //print("drawing turnways");
             //fuck is anything ever using this? this seems wrong, should be
             //buffer.context2D.translate(dollCanvas.width, 0);
-            buffer.context2D.translate(buffer.width/2, buffer.height/2);
+            buffer.context2D.translate(buffer.width, 0);
             buffer.context2D.scale(-1, 1);
         }else if(doll.orientation == Doll.UPWAYS) {
             //print("drawing up ways");
@@ -44,7 +45,7 @@ class DollRenderer {
             buffer.context2D.scale(1, -1);
         }else if(doll.orientation == Doll.TURNWAYSBUTUP) {
             //print("drawing turnways but up");
-            buffer.context2D.translate(0, buffer.height);
+            buffer.context2D.translate(buffer.width, buffer.height);
             buffer.context2D.scale(-1, -1);
         }else {
             buffer.context2D.scale(1, 1);
@@ -60,12 +61,9 @@ class DollRenderer {
         scaleCanvasForDoll(canvas, doll);
         canvas.context2D.imageSmoothingEnabled = false;
 
-        if(doll.orientation == Doll.TURNWAYS) {
-            canvas.context2D.drawImage(buffer, -1*buffer.width/2, -1*buffer.height/2);
+        Renderer.copyTmpCanvasToRealCanvasAtPos(canvas, buffer, 0, 0);
 
-        }else {
-            Renderer.copyTmpCanvasToRealCanvasAtPos(canvas, buffer, 0, 0);
-        }
+        buffer.context2D.restore();
 
     }
 
