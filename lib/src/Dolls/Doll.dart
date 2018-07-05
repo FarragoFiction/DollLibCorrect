@@ -570,7 +570,7 @@ abstract class Doll {
 
         oneRowOfDataTable("Number of Layers",table, reader);
         for(SpriteLayer l in dataOrderLayers) {
-            oneRowOfDataTable("${l.name}",table, reader, false);
+            oneRowOfDataTable("${l.name}",table, reader, false, l);
         }
 
         try {
@@ -585,7 +585,7 @@ abstract class Doll {
 
     }
 
-    void oneRowOfDataTable( String label, TableElement table, ImprovedByteReader reader, [bool oneByte = false]) {
+    void oneRowOfDataTable( String label, TableElement table, ImprovedByteReader reader, [bool oneByte = false, SpriteLayer layer]) {
         TableRowElement row = new TableRowElement();
         table.append(row);
 
@@ -596,7 +596,7 @@ abstract class Doll {
             //colors
             td2 = new TableCellElement()..setInnerHtml("${reader.readByte()}");
         }else {
-            td2 = new TableCellElement()..setInnerHtml("${reader.readExpGolomb()}");
+            td2 = new TableCellElement()..append(layer.parseDataForDebugging(reader));
         }
         row.append(td2);
     }

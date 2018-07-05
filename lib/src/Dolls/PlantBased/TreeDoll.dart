@@ -212,7 +212,7 @@ class TreeDoll extends Doll{
   }
 
   Future<Math.Point> randomValidPointOnTree(bool forLeaf) async {
-      print("looking for a valid point on tree");
+      //print("looking for a valid point on tree");
       int xGuess = randomValidHangableX();
       if(xGuess == form.canopyWidth) xGuess = form.leafX;
       int yGuess = randomVAlidHangableY();

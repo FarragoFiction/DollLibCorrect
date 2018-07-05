@@ -104,6 +104,10 @@ class SpriteLayer {
         }
     }
 
+    Element parseDataForDebugging(ImprovedByteReader reader) {
+        return new DivElement()..text = "${reader.readExpGolomb()}";
+    }
+
     void loadFromReader(ImprovedByteReader reader) {
         imgNumber = reader.readExpGolomb();
     }
@@ -127,6 +131,8 @@ class SpriteLayer {
             }
         }
     }
+
+
 
 
 

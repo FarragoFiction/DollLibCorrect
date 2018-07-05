@@ -22,7 +22,7 @@ Future<bool> start() async {
     tree.barren = false;
 
     //doll = new HomestuckDoll();
-    //doll = Doll.loadSpecificDoll("Tree:___BEEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____wycGYMxRwZgzBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0JBIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0J");
+    //doll = Doll.loadSpecificDoll("Tree:___BEEqJSA6JSA4AwAaJSA4AwAWAQAP_______6JSA____0tLSzo6OhEREQAAABERETMzM____wyMwkMwRhKiUgOiUgOAMAGiUgOAMAFgEAD_______-iUgP___9LS0s6OjoREREAAAAREREzMzP___9HBGEqJSA6JSA4AwAaJSA4AwAWAQAP_______6JSA____0tLSzo6OhEREQAAABERETMzM____0cEYSolIDolIDgDABolIDgDABYBAA________olID____S0tLOjo6ERERAAAAERERMzMz____RwRhKiUgOiUgOAMAGiUgOAMAFgEAD_______-iUgP___9LS0s6OjoREREAAAAREREzMzP___9HBGEqJSA6JSA4AwAaJSA4AwAWAQAP_______6JSA____0tLSzo6OhEREQAAABERETMzM____0cEYSolIDolIDgDABolIDgDABYBAA________olID____S0tLOjo6ERERAAAAERERMzMz____RwRhKiUgOiUgOAMAGiUgOAMAFgEAD_______-iUgP___9LS0s6OjoREREAAAAREREzMzP___9HBGEqJSA6JSA4AwAaJSA4AwAWAQAP_______6JSA____0tLSzo6OhEREQAAABERETMzM____0cEYSolIDolIDgDABolIDgDABYBAA________olID____S0tLOjo6ERERAAAAERERMzMz____RwRhKiUgOiUgOAMAGiUgOAMAFgEAD_______-iUgP___9LS0s6OjoREREAAAAREREzMzP___9HBGEqJSA6JSA4AwAaJSA4AwAWAQAP_______6JSA____0tLSzo6OhEREQAAABERETMzM____0cEYSolIDolIDgDABolIDgDABYBAA________olID____S0tLOjo6ERERAAAAERERMzMz____RwRhKiUgOiUgOAMAGiUgOAMAFgEAD_______-iUgP___9LS0s6OjoREREAAAAREREzMzP___9HBGEqJSA6JSA4AwAaJSA4AwAWAQAP_______6JSA____0tLSzo6OhEREQAAABERETMzM____0cEYSolIDolIDgDABolIDgDABYBAA________olID____S0tLOjo6ERERAAAAERERMzMz____RwRhKiUgOiUgOAMAGiUgOAMAFgEAD_______-iUgP___9LS0s6OjoREREAAAAREREzMzP___9HBGEqJSA6JSA4AwAaJSA4AwAWAQAP_______6JSA____0tLSzo6OhEREQAAABERETMzM____0cEYSolIDolIDgDABolIDgDABYBAA________olID____S0tLOjo6ERERAAAAERERMzMz____RwRhKiUgOiUgOAMAGiUgOAMAFgEAD_______-iUgP___9LS0s6OjoREREAAAAREREzMzP___9HBGEqJSA6JSA4AwAaJSA4AwAWAQAP_______6JSA____0tLSzo6OhEREQAAABERETMzM____0cEYSolIDolIDgDABolIDgDABYBAA________olID____S0tLOjo6ERERAAAAERERMzMz____Rw");
     // doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/index.html?EPD_AQD-QwwsCgGiDAyABAQ-AAD-_______z-f____0dKyzIDg5uGxwuBQZWVla2trYWggBQenoCAgQ4AAAAAAgA");
     //doll = Doll.loadSpecificDoll("manicInsomniac??:___QSADMADw8PAQEBHiEeFBYUCw0L________AAAAaz4UGSwWEh8QIEAgESAP6AIDxwMA____Fh0Oh-CLA0AtBa");
     //doll = Doll.randomDollOfType(18);
@@ -64,7 +64,7 @@ Future<bool> start() async {
    // doll = Doll.loadSpecificDoll("DiC0tLQ8IDQaEBo5IDRKME4bEBr510351005IDSqqKhYWlrS0dGpqKgAAACIiIiYmZkhJiY-IDQaEBoZICAgMDBAQCgAABAA");
 
     await drawDoll(); //normal
-    makeForestOfDollOfType(33);
+    //makeForestOfDollOfType(33);
     /*
     doll.orientation = Doll.TURNWAYS;
     await drawDoll();
@@ -181,20 +181,26 @@ Future<CanvasElement>  drawDoll([CanvasElement finishedProduct = null]) async{
 
 
 Future<Null> makeForestOfDollOfType(int type) async {
-    int width = 1000;
+    int width = 2000;
     int height = 800;
     CanvasElement canvas = new CanvasElement(width: width, height: height);
     Doll sampleDoll = Doll.randomDollOfType(type);
-    int x = 0;
+    int x = -1 * doll.width;
     int y = height - doll.height;
-    while(x < width - sampleDoll.width) {
+    while(x < width) {
+        print("drawing a thing of type $type, x is $x");
         Doll tmpDoll = Doll.randomDollOfType(type);
+        if(tmpDoll is TreeDoll) {
+            (tmpDoll as TreeDoll).barren = false;
+        }
         tmpDoll.copyPalette(sampleDoll.palette);
         CanvasElement dollCanvas = new CanvasElement(width: tmpDoll.width, height: tmpDoll.height);
         await DollRenderer.drawDoll(dollCanvas, tmpDoll);
         canvas.context2D.drawImage(dollCanvas,x, y);
-        x = sampleDoll.rand.nextIntRange((sampleDoll.width/2).round(), sampleDoll.width);
+        x += sampleDoll.rand.nextIntRange((sampleDoll.width*.25).round(), (sampleDoll.width*.75).round());
+        print("finished drawing, x is $x");
 
     }
+    print("appending canvas to output");
     output.append(canvas);
 }
