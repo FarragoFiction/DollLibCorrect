@@ -20,6 +20,8 @@ class PositionedLayer extends SpriteLayer {
     @override
     Element parseDataForDebugging(ImprovedByteReader reader) {
         TableElement table = new TableElement();
+        table.style.border = "3px solid black";
+
         TableRowElement row1 = new TableRowElement();
         table.append(row1);
 

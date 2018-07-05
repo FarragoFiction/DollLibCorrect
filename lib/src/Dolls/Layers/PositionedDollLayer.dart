@@ -34,23 +34,17 @@ class PositionedDollLayer extends PositionedLayer{
     @override
     Element parseDataForDebugging(ImprovedByteReader reader) {
         TableElement table = new TableElement();
+        table.style.border = "3px solid black";
 
         TableRowElement row0 = new TableRowElement();
         table.append(row0);
 
         TableCellElement td1 = new TableCellElement()..text = "Doll:";
         doll = Doll.loadSpecificDollFromReader(reader);
-        TableCellElement td2 = new TableCellElement()..text = "${doll.toDataBytesX()}";
+        TableCellElement td2 = new TableCellElement()..text = "TODO, but it's a ${doll.name}";
         row0.append(td1);
         row0.append(td2);
 
-        TableRowElement row1 = new TableRowElement();
-        table.append(row1);
-
-         td1 = new TableCellElement()..text = "Image Number:";
-         td2 = new TableCellElement()..text = "${reader.readExpGolomb()}}";
-        row1.append(td1);
-        row1.append(td2);
 
         TableRowElement row2 = new TableRowElement();
         table.append(row2);
