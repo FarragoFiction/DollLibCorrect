@@ -595,8 +595,12 @@ abstract class Doll {
         if(oneByte) {
             //colors
             td2 = new TableCellElement()..setInnerHtml("${reader.readByte()}");
-        }else {
+        }else if (layer != null) {
+            //layer
             td2 = new TableCellElement()..append(layer.parseDataForDebugging(reader));
+        }else {
+            //misc
+            td2 = new TableCellElement()..setInnerHtml("${reader.readExpGolomb()}");
         }
         row.append(td2);
     }
