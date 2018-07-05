@@ -86,11 +86,11 @@ abstract class Doll {
     String dollName = "";
 
     //things can optionally cause the doll's orientation to change, like grub body 7 and 8
-    static String NORMALWAYS = "normalways"; //flipped horizontal
+    static int NORMALWAYS = 0; //flipped horizontal
     //is this not working? turnways is fighting me
-    static String TURNWAYS = "turnways"; //flipped horizontal
-    static String TURNWAYSBUTUP = "turnwaysFlipped"; //flipped horizontal and vertical
-    static String UPWAYS = "upways"; //flipped vertical
+    static int TURNWAYS = 1; //flipped horizontal
+    static int TURNWAYSBUTUP = 2; //flipped horizontal and vertical
+    static int UPWAYS = 3; //flipped vertical
 
     bool useAbsolutePath = true;
 
@@ -122,7 +122,7 @@ abstract class Doll {
     }
 
 
-    String orientation = NORMALWAYS;
+    int orientation = NORMALWAYS;
 
     // in degrees, things like 0, 90, 180, etc. used for auto rendering
     int rotation = 0;
