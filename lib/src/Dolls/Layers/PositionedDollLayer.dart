@@ -14,7 +14,6 @@ class PositionedDollLayer extends PositionedLayer{
 
     @override
     void saveToBuilder(ByteBuilder builder) {
-
         doll.toDataBytesX(builder);
         builder.appendExpGolomb(x);
         builder.appendExpGolomb(y);
@@ -35,25 +34,35 @@ class PositionedDollLayer extends PositionedLayer{
     @override
     Element parseDataForDebugging(ImprovedByteReader reader) {
         TableElement table = new TableElement();
+
+        TableRowElement row0 = new TableRowElement();
+        table.append(row0);
+
+        TableCellElement td1 = new TableCellElement()..text = "Doll:";
+        doll = Doll.loadSpecificDollFromReader(reader);
+        TableCellElement td2 = new TableCellElement()..text = "${doll.toDataBytesX()}";
+        row0.append(td1);
+        row0.append(td2);
+
         TableRowElement row1 = new TableRowElement();
         table.append(row1);
 
-        TableCellElement td1 = new TableCellElement()..text = "Image Number:";
-        TableCellElement td2 = new TableCellElement()..text = "$imgNumber";
+         td1 = new TableCellElement()..text = "Image Number:";
+         td2 = new TableCellElement()..text = "${reader.readExpGolomb()}}";
         row1.append(td1);
         row1.append(td2);
 
         TableRowElement row2 = new TableRowElement();
         table.append(row2);
         td1 = new TableCellElement()..text = "X:";
-        td2 = new TableCellElement()..text = "$x";
+        td2 = new TableCellElement()..text = "${reader.readExpGolomb()}";
         row2.append(td1);
         row2.append(td2);
 
         TableRowElement row3 = new TableRowElement();
         table.append(row3);
         td1 = new TableCellElement()..text = "Y:";
-        td2 = new TableCellElement()..text = "$y";
+        td2 = new TableCellElement()..text = "${reader.readExpGolomb()}";
         row3.append(td1);
         return table;
     }

@@ -24,21 +24,21 @@ class PositionedLayer extends SpriteLayer {
         table.append(row1);
 
         TableCellElement td1 = new TableCellElement()..text = "Image Number:";
-        TableCellElement td2 = new TableCellElement()..text = "$imgNumber";
+        TableCellElement td2 = new TableCellElement()..text = "${reader.readExpGolomb()}";
         row1.append(td1);
         row1.append(td2);
 
         TableRowElement row2 = new TableRowElement();
         table.append(row2);
         td1 = new TableCellElement()..text = "X:";
-        td2 = new TableCellElement()..text = "$x";
+        td2 = new TableCellElement()..text = "${reader.readExpGolomb()}";
         row2.append(td1);
         row2.append(td2);
 
         TableRowElement row3 = new TableRowElement();
         table.append(row3);
         td1 = new TableCellElement()..text = "Y:";
-        td2 = new TableCellElement()..text = "$y";
+        td2 = new TableCellElement()..text = "${reader.readExpGolomb()}";
         row3.append(td1);
         return table;
     }

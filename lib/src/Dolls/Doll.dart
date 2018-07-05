@@ -584,6 +584,10 @@ abstract class Doll {
             oneRowOfDataTable("${l.name}",table, reader, false, l);
         }
 
+        oneRowOfDataTable("Rotation:",table, reader);
+        oneRowOfDataTable("Orientation",table, reader);
+
+
         try {
             for(int i = 0; i<113; i++) {
                 oneRowOfDataTable("???", table, reader);
