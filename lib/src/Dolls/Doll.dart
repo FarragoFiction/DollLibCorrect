@@ -477,6 +477,17 @@ abstract class Doll {
             dataOrderLayers[i].loadFromReader(reader);
         }
 
+        try {
+            //builder.appendExpGolomb(rotation);
+            //        builder.appendExpGolomb(orientation);
+            rotation = reader.readExpGolomb();
+            orientation = reader.readExpGolomb();
+        }catch(e) {
+            //print("no rotation data but that's okay");
+        }
+
+
+
     }
 
 
@@ -635,6 +646,8 @@ abstract class Doll {
             l.saveToBuilder(builder);
             //builder.appendByte(l.imgNumber);
         }
+        builder.appendExpGolomb(rotation);
+        builder.appendExpGolomb(orientation);
         return "$label${BASE64URL.encode(builder.toBuffer().asUint8List())}";
     }
 

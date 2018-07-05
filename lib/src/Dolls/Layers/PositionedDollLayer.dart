@@ -20,16 +20,16 @@ class PositionedDollLayer extends PositionedLayer{
         builder.appendExpGolomb(y);
         builder.appendExpGolomb(width);
         builder.appendExpGolomb(height);
-        builder.appendExpGolomb(doll.rotation);
-        builder.appendExpGolomb(doll.orientation);
-
-        builder.appendExpGolomb(y);
 
     }
 
     @override
     void loadFromReader(ImprovedByteReader reader) {
         doll = Doll.loadSpecificDollFromReader(reader);
+        x = reader.readExpGolomb();
+        y = reader.readExpGolomb();
+        width = reader.readExpGolomb();
+        height = reader.readExpGolomb();
     }
 
     @override
