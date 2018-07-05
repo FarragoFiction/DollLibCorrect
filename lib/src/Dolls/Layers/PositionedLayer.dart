@@ -12,7 +12,8 @@ class PositionedLayer extends SpriteLayer {
 
   @override
     void saveToBuilder(ByteBuilder builder) {
-        builder.appendExpGolomb(imgNumber);
+      print("saving positioned  layer $name to builder");
+      builder.appendExpGolomb(imgNumber);
         builder.appendExpGolomb(x);
         builder.appendExpGolomb(y);
     }

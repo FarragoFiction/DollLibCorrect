@@ -627,7 +627,7 @@ abstract class Doll {
         if(dollName == null || dollName.isEmpty) dollName = name;
 
         beforeSaving();
-        // print("saving to data bytes x");
+         print("saving to data bytes x");
         if(builder == null) builder = new ByteBuilder();
         builder.appendExpGolomb(renderingType); //value of 1 means homestuck doll, etc. exo whatever so can have more than 255 dolltypes becaues i am thinking ahead for once. you won't get any 'no way we'll have more than 250 dolls' from me anytime soon
 
@@ -635,6 +635,7 @@ abstract class Doll {
         List<String> names = new List<String>.from(palette.names);
         names.sort();
         builder.appendExpGolomb(names.length); //for length of palette
+        print("saved color length");
         for(String name2 in names) {
             Colour color = palette[name2];
             //print("saving color $name2 with value red ${color.red}, green${color.green} blue${color.blue}");
@@ -642,16 +643,20 @@ abstract class Doll {
             builder.appendByte(color.green);
             builder.appendByte(color.blue);
         }
-
+        print('saved colors');
         builder.appendExpGolomb(dataOrderLayers.length); //for length of layers
+        print('saved data length');
         //layer is last so can add new layers
         for(SpriteLayer l in dataOrderLayers) {
             //print("adding ${l.name}  with value ${l.imgNumber} to data string builder.");
             l.saveToBuilder(builder);
             //builder.appendByte(l.imgNumber);
         }
+        print("saved data, now for rotaiton of $rotation");
         builder.appendExpGolomb(rotation);
+        print("saved rotation, now for orientation of $orientation");
         builder.appendExpGolomb(orientation);
+        print("saved orientation");
         return "$label${BASE64URL.encode(builder.toBuffer().asUint8List())}";
     }
 
@@ -775,8 +780,9 @@ abstract class Doll {
         Doll ret;
         try {
             type = reader.readExpGolomb();
-            print("reading exo whatever, type is $type");
+            print("reading exo whatever in load from reader, type is $type");
             ret = allDollsMappedByType[type].clone();
+            print("load from reader, ret is $ret");
             ret.load(reader, "doesnotexist");
         }catch(e){
             print("ERROR: this method does not support legacy strings");

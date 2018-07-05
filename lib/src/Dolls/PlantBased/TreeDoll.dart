@@ -46,8 +46,8 @@ class TreeDoll extends Doll{
 
   int minFruit = 13;
   int maxFruit = 33;
-  int minLeaf = 50;
-  int maxLeaf = 75;
+  int minLeaf = 13;
+  int maxLeaf = 33;
 
 
 
@@ -73,8 +73,8 @@ class TreeDoll extends Doll{
 
   int fruitWidth = 50;
   int fruitHeight = 50;
-    int leafWidth = 50;
-    int leafHeight = 50;
+    int leafWidth = 100;
+    int leafHeight = 100;
 
 
   SpriteLayer branches;
@@ -357,7 +357,7 @@ class TreeDoll extends Doll{
               //don't rotate too much (still hang from the "top") but have some wiggle
               clonedDoll.rotation = rand.nextIntRange(-45, 45);
   //            print("rotation is set to be ${clonedDoll.rotation}");
-
+              if(clonedDoll.rotation <0) clonedDoll.rotation = 365-clonedDoll.rotation;
               PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, w, h, (xpos-w/2).round(), ypos-(h/2).round(), "LeafCluster$i");
               renderingOrderLayers.add(newLayer);
     //          print("third added to rendering order layer $newLayer");
