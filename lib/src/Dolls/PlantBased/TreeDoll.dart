@@ -68,7 +68,7 @@ class TreeDoll extends Doll{
 
   @override
   String relativefolder = "images/Tree";
-  final int maxBranches = 21;
+  final int maxBranches = 27;
   final int maxLeaves = 12;
 
   int fruitWidth = 50;
@@ -488,7 +488,7 @@ class TreeDoll extends Doll{
 //forms decide where valid leaf/flower/etc locations are
 
 class TreeForm {
-    List<int> branchesNumbers = <int>[5,6,7,8,9,20,21];
+    List<int> branchesNumbers = <int>[5,6,7,8,9,20,21,22];
     int leafX = 75;
     int leafY = 0;
     int canopyWidth = 368;
@@ -502,7 +502,7 @@ class TreeForm {
 
 class BushForm extends TreeForm {
     @override
-    List<int> branchesNumbers = <int>[0,1,2,3,4];
+    List<int> branchesNumbers = <int>[0,1,2,3,4,23,24,25,26,27];
     @override
     int leafX = 75;
     @override
