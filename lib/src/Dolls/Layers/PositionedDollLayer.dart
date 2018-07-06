@@ -62,6 +62,19 @@ class PositionedDollLayer extends PositionedLayer{
         td1 = new TableCellElement()..text = "Y:";
         td2 = new TableCellElement()..text = "${reader.readExpGolomb()}";
         row3.append(td1);
+
+        row3 = new TableRowElement();
+        table.append(row3);
+        td1 = new TableCellElement()..text = "Width:";
+        td2 = new TableCellElement()..text = "${reader.readExpGolomb()}";
+        row3.append(td1);
+        row3.append(td2);
+
+        row3 = new TableRowElement();
+        table.append(row3);
+        td1 = new TableCellElement()..text = "Height:";
+        td2 = new TableCellElement()..text = "${reader.readExpGolomb()}";
+        row3.append(td1);
         return table;
     }
 
