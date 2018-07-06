@@ -506,11 +506,11 @@ class BushForm extends TreeForm {
     @override
     int leafX = 75;
     @override
-    int leafY = 100;
+    int leafY = 150;
     @override
-    int canopyWidth = 368;
+    int canopyWidth = 475;
     @override
-    int canopyHeight = 300;
+    int canopyHeight = 400;
 }
 
 class LeftForm extends TreeForm {

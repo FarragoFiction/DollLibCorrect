@@ -26,6 +26,7 @@ class PositionedDollLayer extends PositionedLayer{
 
     @override
     void loadFromReader(ImprovedByteReader reader) {
+        print("loading positioned doll layer from reader");
         doll = Doll.loadSpecificDollFromReader(reader);
         x = reader.readExpGolomb();
         y = reader.readExpGolomb();
@@ -35,6 +36,7 @@ class PositionedDollLayer extends PositionedLayer{
 
     @override
     Element parseDataForDebugging(ImprovedByteReader reader) {
+        print("debugging positioned doll layer from reader");
         TableElement table = new TableElement();
         table.style.border = "3px solid black";
 
