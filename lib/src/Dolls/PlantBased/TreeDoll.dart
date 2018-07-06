@@ -359,9 +359,7 @@ class TreeDoll extends Doll{
   //            print("rotation is set to be ${clonedDoll.rotation}");
               if(clonedDoll.rotation <0) clonedDoll.rotation = 365-clonedDoll.rotation;
               PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, w, h, (xpos-w/2).round(), ypos-(h/2).round(), "LeafCluster$i");
-              renderingOrderLayers.add(newLayer);
-    //          print("third added to rendering order layer $newLayer");
-              dataOrderLayers.add(newLayer);
+              addDynamicLayer(newLayer);
           }
       }
     }
@@ -396,9 +394,7 @@ class TreeDoll extends Doll{
 
              PositionedDollLayer newLayer = new PositionedDollLayer(
                  doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
-             renderingOrderLayers.add(newLayer);
-             //print("third added to rendering order layer $newLayer");
-             dataOrderLayers.add(newLayer);
+             addDynamicLayer(newLayer);
          }
      }
      //print ("fourth is done");
@@ -421,9 +417,7 @@ class TreeDoll extends Doll{
               int ypos = point.y;
 
               PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
-              renderingOrderLayers.add(newLayer);
-              //print("third added to rendering order layer $newLayer");
-              dataOrderLayers.add(newLayer);
+              addDynamicLayer(newLayer);
           }
       }
       //print ("fourth is done");
@@ -449,9 +443,7 @@ class TreeDoll extends Doll{
               PositionedDollLayer newLayer = new PositionedDollLayer(
                   doll.clone(), fruitWidth, fruitHeight, xpos, ypos,
                   "Hanging$i");
-              renderingOrderLayers.add(newLayer);
-              //print("added to rendering order layer $newLayer");
-              dataOrderLayers.add(newLayer);
+              addDynamicLayer(newLayer);
           }
       }
   }

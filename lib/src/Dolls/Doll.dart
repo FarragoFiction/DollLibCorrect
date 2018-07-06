@@ -1,3 +1,4 @@
+import 'package:DollLibCorrect/src/Dolls/Layers/DynamicLayer.dart';
 import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "dart:typed_data";
 import "dart:html";
@@ -144,6 +145,7 @@ abstract class Doll {
     //what order do we save load these. things humans have first, then trolls, then new layers so you don't break save data strings
     List<SpriteLayer>  get dataOrderLayers => new List<SpriteLayer>();
     List<SpriteLayer>  get oldDataLayers => dataOrderLayers; //if i change shit for a specific doll (like homestuck) go here
+
 
     Palette palette;
 
@@ -453,6 +455,12 @@ abstract class Doll {
     }
 
 
+    void addDynamicLayer(DynamicLayer d) {
+        //IMPORTANT: will only work if data and rendering layers are not gets
+        //worry about refacatoring this l8r
+        dataOrderLayers.add(d);
+        renderingOrderLayers.add(d);
+    }
 
     //i am assuming type was already read at this point. Type, Exo is required.
     //IMPORTANT: WHATEVER CALLS ME SHOULD try/catch FOR OLD DATA
@@ -475,7 +483,12 @@ abstract class Doll {
         int numLayers = reader.readExpGolomb();
         //print("Number of layers is $numLayers");
         for(int i = 0; i<numLayers; i++) {
-            dataOrderLayers[i].loadFromReader(reader);
+            if(dataOrderLayers.length < i) {
+                dataOrderLayers[i].loadFromReader(reader);
+            }else {
+                DynamicLayer d = DynamicLayer.instantiateLayer(reader);
+                addDynamicLayer(d);
+            }
         }
 
         try {
