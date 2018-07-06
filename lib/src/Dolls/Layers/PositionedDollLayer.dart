@@ -15,7 +15,7 @@ class PositionedDollLayer extends PositionedLayer{
     @override
     void saveToBuilder(ByteBuilder builder) {
         print("saving positioned doll layer $name to builder");
-        doll.toDataBytesX(builder);
+        builder = doll.appendDataBytesToBuilder(builder);
         print("doll done, time for everything else");
         builder.appendExpGolomb(x);
         builder.appendExpGolomb(y);

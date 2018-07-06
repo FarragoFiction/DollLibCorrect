@@ -440,8 +440,9 @@ abstract class Doll {
 
 
 
-    void load(ImprovedByteReader reader, String dataString) {
-        setDollNameFromString(removeURLFromString(dataString));//i know it has a name, or else it's legacy and this will throw an error.
+    //if its a subdoll, can skip the name, it won't be legacy anywyas
+    void load(ImprovedByteReader reader, String dataString, bool nameExpected) {
+        setDollNameFromString(removeURLFromString(dataString), nameExpected);//i know it has a name, or else it's legacy and this will throw an error.
         String dataStringWithoutName = removeLabelFromString(dataString);
         Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
         if(reader == null) {
@@ -659,6 +660,7 @@ abstract class Doll {
         beforeSaving();
          print("saving to data bytes x");
         if(builder == null) builder = new ByteBuilder();
+        builder = appendDataBytesToBuilder(builder);
 
         return "$label${BASE64URL.encode(builder.toBuffer().asUint8List())}";
     }
@@ -668,7 +670,6 @@ abstract class Doll {
         beforeSaving();
        // print("saving to data bytes x");
         if(builder == null) builder = new ByteBuilder();
-        builder = appendDataBytesToBuilder(builder);
         int length = palette.names.length + 1;//one byte for doll type
 
         for(SpriteLayer layer in dataOrderLayers) {
@@ -716,12 +717,12 @@ abstract class Doll {
         }
     }
 
-    void setDollNameFromString(String ds) {
+    void setDollNameFromString(String ds, bool nameExpected) {
         ds = Uri.decodeQueryComponent(ds); //get rid of any url encoding that might exist
         List<String> parts = ds.split("$labelPattern");
         if(parts.length == 1) {
             //this should defeat DQ0N
-            throw "ERROR: THERE WAS NO NAME WHICH MEANS THIS WAS LEGACY. ABORTING SO I CAN SWITCH TO LEGACY MODE.";
+            if(nameExpected) throw "ERROR: THERE WAS NO NAME WHICH MEANS THIS WAS LEGACY. ABORTING SO I CAN SWITCH TO LEGACY MODE.";
         }else {
             dollName = parts[0];
         }
@@ -753,13 +754,13 @@ abstract class Doll {
             type = reader.readExpGolomb();
             print("reading exo whatever, type is $type");
             ret = allDollsMappedByType[type].clone();
-            ret.load(reader, ds);
+            ret.load(reader, ds,true);
         }catch(e){
             thingy = BASE64URL.decode(dataStringWithoutName);
             OldByteBuilder.ByteReader reader = new OldByteBuilder.ByteReader(thingy.buffer, 0);
             type = reader.readByte();
             ret = allDollsMappedByType[type].clone();
-            print("reading legacy, type is $type");
+            print("reading legacy because of error $e, type is $type");
             ret.initFromReaderOld(reader);
         }
         return ret;
@@ -788,9 +789,10 @@ abstract class Doll {
             print("reading exo whatever in load from reader, type is $type");
             ret = allDollsMappedByType[type].clone();
             print("load from reader, ret is $ret");
-            ret.load(reader, "doesnotexist");
+            //name is NOT expected because if i'm loading from a reader this is a subdoll or similar, no plain text in any case
+            ret.load(reader, "doesnotexist",false);
         }catch(e){
-            print("ERROR: this method does not support legacy strings");
+            print("ERROR: this method does not support legacy strings, but had error $e in parsing.");
         }
         return ret;
     }
