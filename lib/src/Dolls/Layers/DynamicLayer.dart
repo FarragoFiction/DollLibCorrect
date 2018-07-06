@@ -14,6 +14,7 @@ class DynamicLayer extends PositionedLayer {
 
   static DynamicLayer instantiateLayer(ImprovedByteReader reader) {
       int type = reader.readExpGolomb();
+      print("I think the type is $type");
 
       List<DynamicLayer> list = <DynamicLayer>[new PositionedDollLayer(null,0,0,0, 0, "LoadedDynamicLayer")];
       for(DynamicLayer layer in list) {
@@ -22,6 +23,7 @@ class DynamicLayer extends PositionedLayer {
             return layer;
           }
       }
+      throw("I don't know what kind of layer is type $type");
   }
 
 

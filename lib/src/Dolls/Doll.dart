@@ -483,7 +483,7 @@ abstract class Doll {
         int numLayers = reader.readExpGolomb();
         //print("Number of layers is $numLayers");
         for(int i = 0; i<numLayers; i++) {
-            if(dataOrderLayers.length < i) {
+            if( i < dataOrderLayers.length) {
                 dataOrderLayers[i].loadFromReader(reader);
             }else {
                 print("more layers than expected, is it a dynamic layer?");

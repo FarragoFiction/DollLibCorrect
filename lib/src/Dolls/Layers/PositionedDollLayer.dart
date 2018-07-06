@@ -9,6 +9,7 @@ class PositionedDollLayer extends DynamicLayer{
     Doll doll;
     int width;
     int height;
+
     @override
     int renderingType = 2;
   PositionedDollLayer(Doll this.doll, int this.width, int this.height, int x, int y, String name) : super(x, y, name, "n/a", 0, 1);
@@ -16,7 +17,7 @@ class PositionedDollLayer extends DynamicLayer{
 
     @override
     void saveToBuilder(ByteBuilder builder) {
-        print("saving positioned doll layer $name to builder");
+        print("saving positioned doll layer $name of type $renderingType to builder");
         builder.appendExpGolomb(renderingType);
         builder = doll.appendDataBytesToBuilder(builder);
         print("doll done, time for everything else");
