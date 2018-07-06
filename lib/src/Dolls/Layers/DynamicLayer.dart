@@ -1,14 +1,28 @@
 import 'package:CommonLib/Compression.dart';
+import 'package:DollLibCorrect/src/Dolls/Layers/PositionedDollLayer.dart';
+import 'package:DollLibCorrect/src/Dolls/Layers/PositionedLayer.dart';
 import 'package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart';
 
+//layers that aren't necessarily present when a doll is intialized (like fruit/flowers/etc)
 //has a type so that when loaded from datastring it knows how to instantiate itself
-class DynamicLayer extends SpriteLayer {
+//a positioned layer by itself is NOT dynamic (folder and things like that are hard to serialize)
+class DynamicLayer extends PositionedLayer {
     //just like how dolls do it
     int renderingType = 0;
-  DynamicLayer(String name, String imgNameBase, int imgNumber, int maxImageNumber) : super(name, imgNameBase, imgNumber, maxImageNumber);
+
+  DynamicLayer(int x, int y, String name, String imgNameBase, int imgNumber, int maxImageNumber) : super(x, y, name, imgNameBase, imgNumber, maxImageNumber);
 
   static DynamicLayer instantiateLayer(ImprovedByteReader reader) {
+      int type = reader.readExpGolomb();
 
+      List<DynamicLayer> list = <DynamicLayer>[new PositionedDollLayer(null,0,0,0, 0, "LoadedDynamicLayer")];
+      for(DynamicLayer layer in list) {
+          if(layer.renderingType == type) {
+            layer.loadFromReader(reader);
+            return layer;
+          }
+      }
   }
 
 }
+

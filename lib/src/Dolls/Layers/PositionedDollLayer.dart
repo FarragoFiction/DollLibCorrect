@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:html';
 import 'package:DollLibCorrect/DollRenderer.dart';
 import 'package:DollLibCorrect/src/Dolls/Doll.dart';
-import 'package:DollLibCorrect/src/Dolls/Layers/PositionedLayer.dart';
+import 'package:DollLibCorrect/src/Dolls/Layers/DynamicLayer.dart';
 import 'package:CommonLib/Compression.dart';
 //it's a layer which is an entire doll (like fruit or flower or whatever, or evne a kid)
-class PositionedDollLayer extends PositionedLayer{
+class PositionedDollLayer extends DynamicLayer{
     Doll doll;
     int width;
     int height;
@@ -92,3 +92,4 @@ class PositionedDollLayer extends PositionedLayer{
     }
 
 }
+

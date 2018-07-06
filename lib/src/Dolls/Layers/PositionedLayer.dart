@@ -5,10 +5,8 @@ import 'package:DollLibCorrect/src/Dolls/Layers/DynamicLayer.dart';
 import 'package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart';
 import 'package:CommonLib/Compression.dart';
 
-class PositionedLayer extends DynamicLayer {
+class PositionedLayer extends SpriteLayer {
     //assume doll's upper left is 0,0
-    @override
-    int renderingType = 1;
     int x;
     int y;
   PositionedLayer(int this.x, int this.y, String name, String imgNameBase, int imgNumber, int maxImageNumber) : super(name, imgNameBase, imgNumber, maxImageNumber);
@@ -16,7 +14,6 @@ class PositionedLayer extends DynamicLayer {
   @override
     void saveToBuilder(ByteBuilder builder) {
       print("saving positioned  layer $name to builder");
-      builder.appendExpGolomb(renderingType);
       builder.appendExpGolomb(imgNumber);
         builder.appendExpGolomb(x);
         builder.appendExpGolomb(y);
@@ -51,9 +48,7 @@ class PositionedLayer extends DynamicLayer {
     }
 
     @override
-    void loadFromReader(ImprovedByteReader reader, [bool readType = true]) {
-        //if read normally, will need to read and discard type, but if read as an extra layer will read the type ahead of time
-        if(readType) reader.readExpGolomb();
+    void loadFromReader(ImprovedByteReader reader) {
         imgNumber = reader.readExpGolomb();
         x = reader.readExpGolomb();
         y = reader.readExpGolomb();
