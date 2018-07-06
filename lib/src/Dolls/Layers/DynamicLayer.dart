@@ -18,11 +18,21 @@ class DynamicLayer extends PositionedLayer {
       List<DynamicLayer> list = <DynamicLayer>[new PositionedDollLayer(null,0,0,0, 0, "LoadedDynamicLayer")];
       for(DynamicLayer layer in list) {
           if(layer.renderingType == type) {
-            layer.loadFromReader(reader);
+            layer.loadFromReader(reader, false);
             return layer;
           }
       }
   }
+
+
+    @override
+    void loadFromReader(ImprovedByteReader reader, [bool readType = true]) {
+        if(readType) {
+            print("i have to read (and discard) the type");
+            reader.readExpGolomb();
+        }
+        super.loadFromReader(reader);
+    }
 
 }
 

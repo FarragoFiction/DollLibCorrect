@@ -31,7 +31,10 @@ class PositionedDollLayer extends DynamicLayer{
     void loadFromReader(ImprovedByteReader reader, [bool readType = true]) {
         print("loading positioned doll layer from reader");
         //if read normally, will need to read and discard type, but if read as an extra layer will read the type ahead of time
-        if(readType) reader.readExpGolomb();
+        if(readType) {
+            print("i have to read (and discard) the type");
+            reader.readExpGolomb();
+        }
         doll = Doll.loadSpecificDollFromReader(reader);
         x = reader.readExpGolomb();
         y = reader.readExpGolomb();
