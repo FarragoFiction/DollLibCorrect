@@ -9,12 +9,15 @@ class PositionedDollLayer extends PositionedLayer{
     Doll doll;
     int width;
     int height;
+    @override
+    int renderingType = 2;
   PositionedDollLayer(Doll this.doll, int this.width, int this.height, int x, int y, String name) : super(x, y, name, "n/a", 0, 1);
 
 
     @override
     void saveToBuilder(ByteBuilder builder) {
         print("saving positioned doll layer $name to builder");
+        builder.appendExpGolomb(renderingType);
         builder = doll.appendDataBytesToBuilder(builder);
         print("doll done, time for everything else");
         builder.appendExpGolomb(x);
@@ -25,8 +28,10 @@ class PositionedDollLayer extends PositionedLayer{
     }
 
     @override
-    void loadFromReader(ImprovedByteReader reader) {
+    void loadFromReader(ImprovedByteReader reader, [bool readType = true]) {
         print("loading positioned doll layer from reader");
+        //if read normally, will need to read and discard type, but if read as an extra layer will read the type ahead of time
+        if(readType) reader.readExpGolomb();
         doll = Doll.loadSpecificDollFromReader(reader);
         x = reader.readExpGolomb();
         y = reader.readExpGolomb();

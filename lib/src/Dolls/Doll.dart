@@ -755,12 +755,12 @@ abstract class Doll {
             print("reading exo whatever, type is $type");
             ret = allDollsMappedByType[type].clone();
             ret.load(reader, ds,true);
-        }catch(e){
+        }catch(e,trace){
             thingy = BASE64URL.decode(dataStringWithoutName);
             OldByteBuilder.ByteReader reader = new OldByteBuilder.ByteReader(thingy.buffer, 0);
             type = reader.readByte();
             ret = allDollsMappedByType[type].clone();
-            print("reading legacy because of error $e, type is $type");
+            print("reading legacy because of error $e with trace $trace, type is $type");
             ret.initFromReaderOld(reader);
         }
         return ret;
@@ -791,8 +791,8 @@ abstract class Doll {
             print("load from reader, ret is $ret");
             //name is NOT expected because if i'm loading from a reader this is a subdoll or similar, no plain text in any case
             ret.load(reader, "doesnotexist",false);
-        }catch(e){
-            print("ERROR: this method does not support legacy strings, but had error $e in parsing.");
+        }catch(e,trace){
+            print("ERROR: this method does not support legacy strings, but had error $e in parsing with trace $trace");
         }
         return ret;
     }
