@@ -486,6 +486,7 @@ abstract class Doll {
             if(dataOrderLayers.length < i) {
                 dataOrderLayers[i].loadFromReader(reader);
             }else {
+                print("more layers than expected, is it a dynamic layer?");
                 DynamicLayer d = DynamicLayer.instantiateLayer(reader);
                 addDynamicLayer(d);
             }

@@ -44,6 +44,8 @@ class PositionedLayer extends SpriteLayer {
         td1 = new TableCellElement()..text = "Y:";
         td2 = new TableCellElement()..text = "${reader.readExpGolomb()}";
         row3.append(td1);
+        row3.append(td2);
+
         return table;
     }
 

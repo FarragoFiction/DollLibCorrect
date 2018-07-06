@@ -67,6 +67,8 @@ class PositionedDollLayer extends DynamicLayer{
         td1 = new TableCellElement()..text = "Y:";
         td2 = new TableCellElement()..text = "${reader.readExpGolomb()}";
         row3.append(td1);
+        row3.append(td2);
+
 
         row3 = new TableRowElement();
         table.append(row3);
@@ -80,6 +82,8 @@ class PositionedDollLayer extends DynamicLayer{
         td1 = new TableCellElement()..text = "Height:";
         td2 = new TableCellElement()..text = "${reader.readExpGolomb()}";
         row3.append(td1);
+        row3.append(td2);
+
         return table;
     }
 
