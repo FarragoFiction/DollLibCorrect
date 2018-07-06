@@ -48,12 +48,18 @@ class PositionedDollLayer extends DynamicLayer{
         TableElement table = new TableElement();
         table.style.border = "3px solid black";
 
+        TableRowElement row13 = new TableRowElement();
+        table.append(row13);
+        TableCellElement td1 = new TableCellElement()..text = "Type:";
+        TableCellElement td2 = new TableCellElement()..text = "${reader.readExpGolomb()}";
+        row13.append(td1);
+        row13.append(td2);
+
         TableRowElement row0 = new TableRowElement();
         table.append(row0);
-
-        TableCellElement td1 = new TableCellElement()..text = "Doll:";
+         td1 = new TableCellElement()..text = "Doll:";
         doll = Doll.loadSpecificDollFromReader(reader);
-        TableCellElement td2 = new TableCellElement()..text = "TODO, but it's a ${doll.name}";
+         td2 = new TableCellElement()..text = "TODO, but it's a ${doll.name}";
         row0.append(td1);
         row0.append(td2);
 
