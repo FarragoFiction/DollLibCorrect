@@ -620,15 +620,7 @@ abstract class Doll {
         row.append(td2);
     }
 
-
-    //first, the rendering type. (this will get taken off before being passed to the loader)
-    //numColors, colors, numLayers, layers
-    String toDataBytesX([ByteBuilder builder = null]) {
-        if(dollName == null || dollName.isEmpty) dollName = name;
-
-        beforeSaving();
-         print("saving to data bytes x");
-        if(builder == null) builder = new ByteBuilder();
+    ByteBuilder appendDataBytesToBuilder(ByteBuilder builder) {
         builder.appendExpGolomb(renderingType); //value of 1 means homestuck doll, etc. exo whatever so can have more than 255 dolltypes becaues i am thinking ahead for once. you won't get any 'no way we'll have more than 250 dolls' from me anytime soon
 
 
@@ -657,6 +649,17 @@ abstract class Doll {
         print("saved rotation, now for orientation of $orientation");
         builder.appendExpGolomb(orientation);
         print("saved orientation");
+        return builder;
+    }
+    //first, the rendering type. (this will get taken off before being passed to the loader)
+    //numColors, colors, numLayers, layers
+    String toDataBytesX([ByteBuilder builder = null]) {
+        if(dollName == null || dollName.isEmpty) dollName = name;
+
+        beforeSaving();
+         print("saving to data bytes x");
+        if(builder == null) builder = new ByteBuilder();
+
         return "$label${BASE64URL.encode(builder.toBuffer().asUint8List())}";
     }
 
@@ -665,6 +668,7 @@ abstract class Doll {
         beforeSaving();
        // print("saving to data bytes x");
         if(builder == null) builder = new ByteBuilder();
+        builder = appendDataBytesToBuilder(builder);
         int length = palette.names.length + 1;//one byte for doll type
 
         for(SpriteLayer layer in dataOrderLayers) {
@@ -779,6 +783,7 @@ abstract class Doll {
         //RIGHT TYPE, BUT IT'S STILL LOADING WRONG AND I DON'T KNOW WHY???
         Doll ret;
         try {
+            print("reading exo whatever in load from reader, reader is ${reader}");
             type = reader.readExpGolomb();
             print("reading exo whatever in load from reader, type is $type");
             ret = allDollsMappedByType[type].clone();
