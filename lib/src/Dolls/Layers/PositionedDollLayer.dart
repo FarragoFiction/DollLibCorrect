@@ -41,6 +41,7 @@ class PositionedDollLayer extends DynamicLayer{
         y = reader.readExpGolomb();
         width = reader.readExpGolomb();
         height = reader.readExpGolomb();
+        name = "${doll.name}DynamicLayer";
     }
 
     @override

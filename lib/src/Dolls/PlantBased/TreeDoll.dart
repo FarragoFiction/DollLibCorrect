@@ -311,8 +311,8 @@ class TreeDoll extends Doll{
       return newPalette;
   }
 
-  List<SpriteLayer> get hangables => renderingOrderLayers.where((SpriteLayer s) => s.name.contains("Hang"));
-    List<SpriteLayer> get clusters => renderingOrderLayers.where((SpriteLayer s) => s.name.contains("Cluster"));
+  List<SpriteLayer> get hangables => renderingOrderLayers.where((SpriteLayer s) => s.name.contains("Hang") || s.name.contains("Dynamic")  );
+    List<SpriteLayer> get clusters => renderingOrderLayers.where((SpriteLayer s) => s.name.contains("Cluster") || s.name.contains("Leaf"));
 
   bool hasHangablesAlready() {
       return hangables.isNotEmpty;
