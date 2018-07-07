@@ -281,6 +281,11 @@ class TreeDoll extends Doll{
 
       //can move anywhere from 1 to 3 fruits away
       lastXForHangable += rand.nextInt(space*2)+(space).round();
+      int yJitterDirection = 1;
+      if(rand.nextBool()) yJitterDirection = -1;
+      lastYForHangable += yJitterDirection* rand.nextInt(space*0.25.round());
+
+
       return new Point(lastXForHangable, lastYForHangable);
   }
 
