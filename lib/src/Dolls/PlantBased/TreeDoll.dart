@@ -264,8 +264,6 @@ class TreeDoll extends Doll{
 
 
 
-
-
   Math.Point spacedHangableXY() {
       int space = fruitWidth;
       print("spacing fruits roughly $space apart");
@@ -273,7 +271,7 @@ class TreeDoll extends Doll{
       if(lastXForHangable >= width-fruitWidth) {
           lastXForHangable = fruitWidth;
           //y only moves at row end
-          lastYForHangable += rand.nextInt(space)+(space/2).round();
+          lastYForHangable += rand.nextInt(space*2)+(space).round();
       }
 
       //don't go off screen.
@@ -282,16 +280,18 @@ class TreeDoll extends Doll{
       }
 
       //can move anywhere from 1 to 3 fruits away
-      lastXForHangable += rand.nextInt(space)+(space/2).round();
+      lastXForHangable += rand.nextInt(space*2)+(space).round();
       return new Point(lastXForHangable, lastYForHangable);
   }
 
+  //deprecated
     int randomValidHangableX() {
-      return rand.nextIntRange(form.leafX+bufferWidth, form.leafX + form.canopyWidth-bufferWidth);
+      return rand.nextIntRange(form.leafX+leafWidth, form.leafX + form.canopyWidth-leafWidth);
   }
 
+  //deprecated
   int randomVAlidHangableY() {
-      return rand.nextIntRange(form.leafY+bufferHeight, form.leafY + form.canopyHeight-bufferHeight);
+      return rand.nextIntRange(form.leafY+leafHeight, form.leafY + form.canopyHeight-leafHeight);
   }
 
    Colour getRandomFruitColor() {
