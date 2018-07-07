@@ -69,7 +69,7 @@ class TreeDoll extends Doll{
   @override
   String relativefolder = "images/Tree";
   final int maxBranches = 30;
-  final int maxLeaves = 12;
+  final int maxLeaves = 13;
 
   int fruitWidth = 50;
   int fruitHeight = 50;
@@ -283,7 +283,7 @@ class TreeDoll extends Doll{
       lastXForHangable += rand.nextInt(space*2)+(space).round();
       int yJitterDirection = 1;
       if(rand.nextBool()) yJitterDirection = -1;
-      lastYForHangable += yJitterDirection* rand.nextInt(space*0.25.round());
+      lastYForHangable += yJitterDirection* rand.nextInt(space*0.5.round());
 
 
       return new Point(lastXForHangable, lastYForHangable);
