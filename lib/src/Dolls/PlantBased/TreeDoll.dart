@@ -235,7 +235,7 @@ class TreeDoll extends Doll{
               if(img_data.data[i+3] >100) {
                   //the '0' point for the data is xguess,yguess so take that into account.
                  // print("found valid position at ${x+xGuess}, ${y+yGuess} because alpha is ${img_data.data[i+3]}");
-                  return keepInBounds(new Math.Point(x + xGuess, y + yGuess));
+                  return keepInBounds(new Math.Point(x + xGuess, y + yGuess), forLeaf);
               }
           }
 
@@ -244,9 +244,15 @@ class TreeDoll extends Doll{
       return null;
   }
 
-  Math.Point keepInBounds(Math.Point p) {
+  Math.Point keepInBounds(Math.Point p, bool forLeaf) {
       int x = p.x;
       int y = p.y;
+      int bufferWidth = fruitWidth;
+      int bufferHeight = fruitHeight;
+      if(forLeaf) {
+        bufferWidth = leafWidth;
+        bufferHeight = leafHeight;
+      }
       if(p.x > width-bufferWidth) x = width-bufferWidth;
       if(p.x < bufferWidth) x = bufferWidth;
 
@@ -256,19 +262,18 @@ class TreeDoll extends Doll{
 
   }
 
-  //leafs can be up to 1.5 times their base size
-  int get bufferWidth => (leafWidth).round();
-  int get bufferHeight => (leafHeight).round();
+
 
 
 
   Math.Point spacedHangableXY() {
-      int space = (width/fruitWidth).round(); //if they were perfect, what would they be?
+      int space = fruitWidth;
+      print("spacing fruits roughly $space apart");
       //go down a row
       if(lastXForHangable >= width-fruitWidth) {
           lastXForHangable = fruitWidth;
           //y only moves at row end
-          lastYForHangable += rand.nextInt(space*2)+(space/2).round();
+          lastYForHangable += rand.nextInt(space)+(space/2).round();
       }
 
       //don't go off screen.
@@ -276,8 +281,8 @@ class TreeDoll extends Doll{
         lastYForHangable = fruitHeight;
       }
 
-      //can move anywhere from .5 to 2.5 fruits away
-      lastXForHangable += rand.nextInt(space*2)+(space/2).round();
+      //can move anywhere from 1 to 3 fruits away
+      lastXForHangable += rand.nextInt(space)+(space/2).round();
       return new Point(lastXForHangable, lastYForHangable);
   }
 
@@ -391,6 +396,9 @@ class TreeDoll extends Doll{
 
   Future<Null> createHangables() async {
       if(barren || hasHangablesAlready()) return;
+      //reset after leaf shenanigans
+        lastXForHangable = 0;
+        lastYForHangable = 0;
         double chosenNum = rand.nextDouble();
         //print("creating hangables and chosen num is $chosenNum is it less than 0.45? ${chosenNum < 0.45}");
         if(chosenNum < 0.45) {
