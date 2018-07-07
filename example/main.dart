@@ -16,11 +16,11 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
     //doll =  Doll.randomDollOfType(28);
-    doll = Doll.randomDollOfType(35);
+    doll = Doll.randomDollOfType(33);
 
-   //TreeDoll tree = doll as TreeDoll;
+   TreeDoll tree = doll as TreeDoll;
    //tree.branches.imgNumber =23;
-    //tree.barren = false;
+    tree.barren = false;
 
     //doll = new HomestuckDoll();
     // doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/index.html?EPD_AQD-QwwsCgGiDAyABAQ-AAD-_______z-f____0dKyzIDg5uGxwuBQZWVla2trYWggBQenoCAgQ4AAAAAAgA");

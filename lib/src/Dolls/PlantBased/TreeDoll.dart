@@ -76,6 +76,10 @@ class TreeDoll extends Doll{
     int leafWidth = 100;
     int leafHeight = 100;
 
+    //have limited memory so i have more even distribution
+    int lastXForHangable = 0;
+    int lastYForHangable = 0;
+
 
   SpriteLayer branches;
   PositionedLayer leavesFront;
@@ -210,9 +214,10 @@ class TreeDoll extends Doll{
 
   Future<Math.Point> randomValidPointOnTree(bool forLeaf) async {
       //print("looking for a valid point on tree");
-      int xGuess = randomValidHangableX();
+      Point guess = spacedHangableXY();
+      int xGuess = guess.x;
       if(xGuess == form.canopyWidth) xGuess = form.leafX;
-      int yGuess = randomVAlidHangableY();
+      int yGuess = guess.y;
       if(yGuess == form.canopyHeight) yGuess = form.leafY;
       CanvasElement pointFinderCanvas;
       //handles caching shit, no need to redraw for each leave/fruit
@@ -255,6 +260,26 @@ class TreeDoll extends Doll{
   int get bufferWidth => (leafWidth).round();
   int get bufferHeight => (leafHeight).round();
 
+
+
+  Math.Point spacedHangableXY() {
+      int space = (width/fruitWidth).round(); //if they were perfect, what would they be?
+      //go down a row
+      if(lastXForHangable >= width-fruitWidth) {
+          lastXForHangable = fruitWidth;
+          //y only moves at row end
+          lastYForHangable += rand.nextInt(space*2)+(space/2).round();
+      }
+
+      //don't go off screen.
+      if(lastYForHangable >= height-fruitWidth) {
+        lastYForHangable = fruitHeight;
+      }
+
+      //can move anywhere from .5 to 2.5 fruits away
+      lastXForHangable += rand.nextInt(space*2)+(space/2).round();
+      return new Point(lastXForHangable, lastYForHangable);
+  }
 
     int randomValidHangableX() {
       return rand.nextIntRange(form.leafX+bufferWidth, form.leafX + form.canopyWidth-bufferWidth);
