@@ -9,7 +9,7 @@ import 'package:RenderingLib/RendereringLib.dart';
 
 import "../../Rendering/ReferenceColors.dart";
 class FlowerDoll extends Doll {
-    int maxBody = 17;
+    int maxBody = 25;
     String relativefolder = "images/Flower";
 
     SpriteLayer body;
