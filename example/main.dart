@@ -19,7 +19,7 @@ Future<bool> start() async {
     doll = Doll.randomDollOfType(33);
 
    TreeDoll tree = doll as TreeDoll;
-   //tree.branches.imgNumber =23;
+   tree.branches.imgNumber =31;
     tree.barren = false;
 
     //doll = new HomestuckDoll();
