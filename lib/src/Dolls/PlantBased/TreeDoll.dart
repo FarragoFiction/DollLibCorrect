@@ -69,7 +69,7 @@ class TreeDoll extends Doll{
   @override
   String relativefolder = "images/Tree";
   final int maxBranches = 32;
-  final int maxLeaves = 13;
+  final int maxLeaves = 18;
 
   int fruitWidth = 50;
   int fruitHeight = 50;
