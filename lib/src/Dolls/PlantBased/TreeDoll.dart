@@ -423,12 +423,17 @@ class TreeDoll extends Doll{
   Future<Null> createFlowers() async {
      //print ('first creating flowers');
      int amount = rand.nextIntRange(minFruit,maxFruit);
-     if(flowerTemplate == null) flowerTemplate = new FlowerDoll();
-     flowerTemplate.rand = rand.spawn();
-     flowerTemplate.randomizeNotColors(); //now it will fit my seed.
-     flowerTemplate.copyPalette(palette);
+     if(flowerTemplate == null) {
+         flowerTemplate = new FlowerDoll();
+         flowerTemplate.rand = rand.spawn();
+         flowerTemplate.randomizeNotColors(); //now it will fit my seed.
+         flowerTemplate.copyPalette(palette);
+     }
+
      for(int i = 0; i < amount; i++) {
          Math.Point point = await randomValidPointOnTree(false);
+         Doll clone = flowerTemplate.clone();
+         if(rand.nextBool()) clone.orientation = Doll.TURNWAYS;
          //print("second point is $point");
          if(point != null) {
              int xpos = point.x;
@@ -436,7 +441,7 @@ class TreeDoll extends Doll{
 
 
              PositionedDollLayer newLayer = new PositionedDollLayer(
-                 flowerTemplate.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
+                 clone, fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
              addDynamicLayer(newLayer);
          }
      }
@@ -446,19 +451,21 @@ class TreeDoll extends Doll{
   Future<Null> createFruit() async{
       //print ('first creating fruit');
       int amount = rand.nextIntRange(minFruit,maxFruit);
-      if(fruitTemplate == null) fruitTemplate = new FruitDoll();
-      fruitTemplate.rand = rand.spawn();
-      fruitTemplate.randomizeNotColors(); //now it will fit my seed.
-      fruitTemplate.copyPalette(palette);
+      if(fruitTemplate == null) {
+          fruitTemplate = new FruitDoll();
+          fruitTemplate.rand = rand.spawn();
+          fruitTemplate.randomizeNotColors(); //now it will fit my seed.
+          fruitTemplate.copyPalette(palette);
+      }
       for(int i = 0; i < amount; i++) {
           FruitDoll clonedDoll = fruitTemplate.clone();
+          if(rand.nextBool()) clonedDoll.orientation = Doll.TURNWAYS;
           Math.Point point = await randomValidPointOnTree(false);
           //print("second point is $point");
 
           if(point != null) {
               int xpos = point.x;
               int ypos = point.y;
-
               PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
               addDynamicLayer(newLayer);
           }

@@ -17,7 +17,9 @@ Future<bool> start() async {
     print("done awaiting");
     //doll =  Doll.randomDollOfType(28);
     doll = Doll.randomDollOfType(33);
-    FlowerDoll flower = new FlowerDoll()..body.imgNumber = 26;
+    doll  = Doll.loadSpecificDoll("Tree:___BEEnFNANg2AJAkADJvACFKABYxAP_______2QKAJYQANmoO5BvJ__eO6qTJ_-vAKp0AP___xo0CYAlw2NAmAJdgjCTimgGwbAEgSABk3gBClAAsYgH_______7IFAEsIAGzUHcg3k__vHdVJk__XgFU6AH___6DeAlwDHAzBmwRhJxTQDYNgCQJAAybwAhSgAWMQD_______9kCgCWEADZqDuQbyf_3juqkyf_rwCqdAD___9BvAcACkBmDNgjCTimgGwbAEgSABk3gBClAAsYgH_______7IFAEsIAGzUHcg3k__vHdVJk__XgFU6AH___6DeAW0B8gzBmwRhJxTQDYNgCQJAAybwAhSgAWMQD_______9kCgCWEADZqDuQbyf_3juqkyf_rwCqdAD___9BugFqA1gZgzYIwk4poBsGwBIEgAZN4AQpQALGIB_______-yBQBLCABs1B3IN5P_7x3VSZP_14BVOgB___-g3QBPgGMDMGbBGEnFNANg2AJAkADJvACFKABYxAP_______2QKAJYQANmoO5BvJ__eO6qTJ_-vAKp0AP___0G8BbgNIGYM2CMJOKaAbBsASBIAGTeAEKUACxiAf_______sgUASwgAbNQdyDeT_-8d1UmT_9eAVToAf___oN4BOQGEDMGbBGEnFNANg2AJAkADJvACFKABYxAP_______2QKAJYQANmoO5BvJ__eO6qTJ_-vAKp0AP___0G6AXIDQBmDNgjCTimgGwbAEgSABk3gBClAAsYgH_______7IFAEsIAGzUHcg3k__vHdVJk__XgFU6AH___6DeAR8BXgzBng=");
+    FlowerDoll flower = new FlowerDoll()..dollName="RoseForIvy"..body.imgNumber = 26;
+    flower.copyPalette(doll.palette);
 
    TreeDoll tree = doll as TreeDoll;
    tree.flowerTemplate = flower;
