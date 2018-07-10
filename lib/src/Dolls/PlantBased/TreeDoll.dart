@@ -58,6 +58,9 @@ class TreeDoll extends Doll{
   @override
   int renderingType =33;
 
+  bool fruitTime = false;
+  bool flowerTime = false;
+
   @override
   int width = 500;
   @override
@@ -85,7 +88,8 @@ class TreeDoll extends Doll{
   PositionedLayer leavesFront;
   PositionedLayer leavesBack;
 
-    //TODO think about how i wanna do flowers/fruit, wont know how many to have will I?
+  Doll fruitTemplate;
+  Doll flowerTemplate;
 
   //not a get, so i can add flowers/fruit to it over time.
   @override
@@ -114,11 +118,9 @@ class TreeDoll extends Doll{
     ..hair_accent = '#ADADAD'
     ..skin = '#ffffff';
 
-  //for making random trees in the randomdolloftype method, don't let it recurse and need ever more fruit.
-  //(to make one tree with random doll fruit, i would need to make another tree to genererate a random doll)
-  bool barren = false;
 
-  TreeDoll([bool this.barren = false]) {
+
+  TreeDoll() {
       //print("making a new tree");
       forms.addAll(<TreeForm>[new TreeForm(), new BushForm(), new LeftForm(), new RightFrom()]);
       rand.nextInt(); //init;
@@ -400,28 +402,31 @@ class TreeDoll extends Doll{
     }
 
   Future<Null> createHangables() async {
-      if(barren || hasHangablesAlready()) return;
+      if(hasHangablesAlready()) return;
       //reset after leaf shenanigans
         lastXForHangable = 0;
         lastYForHangable = 0;
         double chosenNum = rand.nextDouble();
         //print("creating hangables and chosen num is $chosenNum is it less than 0.45? ${chosenNum < 0.45}");
-        if(chosenNum < 0.45) {
+      //not both at once, fruit is more important than flowers (both can be true but in that case fruit)
+        if(fruitTime) {
             await createFruit();
-        }else if (chosenNum < 0.9) {
+        }else if(flowerTime) {
             await createFlowers();
-        }else {
-            await createGloriousBullshit();
         }
+        //slows shit down too much unless i mean too
+        /*else {
+            await createGloriousBullshit();
+        }*/
   }
 
   Future<Null> createFlowers() async {
      //print ('first creating flowers');
      int amount = rand.nextIntRange(minFruit,maxFruit);
-     FlowerDoll doll = new FlowerDoll();
-     doll.rand = rand.spawn();
-     doll.randomizeNotColors(); //now it will fit my seed.
-     doll.copyPalette(palette);
+     if(flowerTemplate == null) flowerTemplate = new FlowerDoll();
+     flowerTemplate.rand = rand.spawn();
+     flowerTemplate.randomizeNotColors(); //now it will fit my seed.
+     flowerTemplate.copyPalette(palette);
      for(int i = 0; i < amount; i++) {
          Math.Point point = await randomValidPointOnTree(false);
          //print("second point is $point");
@@ -431,7 +436,7 @@ class TreeDoll extends Doll{
 
 
              PositionedDollLayer newLayer = new PositionedDollLayer(
-                 doll.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
+                 flowerTemplate.clone(), fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
              addDynamicLayer(newLayer);
          }
      }
@@ -441,12 +446,12 @@ class TreeDoll extends Doll{
   Future<Null> createFruit() async{
       //print ('first creating fruit');
       int amount = rand.nextIntRange(minFruit,maxFruit);
-      FruitDoll doll = new FruitDoll();
-      doll.rand = rand.spawn();
-      doll.randomizeNotColors(); //now it will fit my seed.
-      doll.copyPalette(palette);
+      if(fruitTemplate == null) fruitTemplate = new FruitDoll();
+      fruitTemplate.rand = rand.spawn();
+      fruitTemplate.randomizeNotColors(); //now it will fit my seed.
+      fruitTemplate.copyPalette(palette);
       for(int i = 0; i < amount; i++) {
-          FruitDoll clonedDoll = doll.clone();
+          FruitDoll clonedDoll = fruitTemplate.clone();
           Math.Point point = await randomValidPointOnTree(false);
           //print("second point is $point");
 

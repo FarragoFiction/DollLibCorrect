@@ -35,7 +35,7 @@ abstract class Doll {
         cachedAllDolls.clear();
         if(cachedAllDolls.isEmpty) {
             //passing true means the tree doll won't try to make any fruit, which would let it accidentally recurse if its fruit were a random doll
-            cachedAllDolls.add(new TreeDoll(true));
+            cachedAllDolls.add(new TreeDoll());
             cachedAllDolls.add(new LeafDoll());
             cachedAllDolls.add(new FlowerDoll());
             cachedAllDolls.add(new FruitDoll());

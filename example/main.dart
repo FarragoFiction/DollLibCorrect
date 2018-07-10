@@ -17,10 +17,11 @@ Future<bool> start() async {
     print("done awaiting");
     //doll =  Doll.randomDollOfType(28);
     doll = Doll.randomDollOfType(33);
+    FlowerDoll flower = new FlowerDoll()..body.imgNumber = 26;
 
    TreeDoll tree = doll as TreeDoll;
-   tree.branches.imgNumber =31;
-    tree.barren = false;
+   tree.flowerTemplate = flower;
+   tree.flowerTime = true;
 
     //doll = new HomestuckDoll();
     // doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/index.html?EPD_AQD-QwwsCgGiDAyABAQ-AAD-_______z-f____0dKyzIDg5uGxwuBQZWVla2trYWggBQenoCAgQ4AAAAAAgA");
@@ -191,7 +192,12 @@ Future<Null> makeForestOfDollOfType(int type) async {
         print("drawing a thing of type $type, x is $x");
         Doll tmpDoll = Doll.randomDollOfType(type);
         if(tmpDoll is TreeDoll) {
-            (tmpDoll as TreeDoll).barren = false;
+            if(doll.rand.nextBool()) {
+                (tmpDoll as TreeDoll).flowerTime = true;
+            }else {
+                (tmpDoll as TreeDoll).fruitTime = true;
+
+            }
         }
         tmpDoll.copyPalette(sampleDoll.palette);
         CanvasElement dollCanvas = new CanvasElement(width: tmpDoll.width, height: tmpDoll.height);
