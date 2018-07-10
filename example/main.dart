@@ -23,10 +23,13 @@ Future<bool> start() async {
     FlowerDoll flower = new FlowerDoll()..dollName="RoseFlower"..body.imgNumber = 26;
     flower.copyPalette(doll.palette);
 
+    FruitDoll fruit = new FruitDoll()..dollName="DickFlower"..body.imgNumber = 26;
+    fruit.copyPalette(doll.palette);
+
    TreeDoll tree = doll as TreeDoll;
    tree.leafTemplate = leaf;
-   tree.flowerTemplate = flower;
-   tree.flowerTime = true;
+   tree.fruitTemplate = fruit;
+   tree.fruitTime = true;
 
     //doll = new HomestuckDoll();
     // doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/index.html?EPD_AQD-QwwsCgGiDAyABAQ-AAD-_______z-f____0dKyzIDg5uGxwuBQZWVla2trYWggBQenoCAgQ4AAAAAAgA");
