@@ -88,6 +88,7 @@ class TreeDoll extends Doll{
   PositionedLayer leavesFront;
   PositionedLayer leavesBack;
 
+  Doll leafTemplate;
   Doll fruitTemplate;
   Doll flowerTemplate;
 
@@ -372,12 +373,12 @@ class TreeDoll extends Doll{
 
       }
       int amount = rand.nextIntRange(minLeaf,maxLeaf);
-      LeafDoll doll = new LeafDoll();
-      doll.rand = rand.spawn();
-      doll.randomizeNotColors(); //now it will fit my seed.
-      doll.copyPalette(palette);
+      if(leafTemplate == null) leafTemplate = new LeafDoll();
+      leafTemplate.rand = rand.spawn();
+      leafTemplate.randomizeNotColors(); //now it will fit my seed.
+      leafTemplate.copyPalette(palette);
       for(int i = 0; i < amount; i++) {
-          LeafDoll clonedDoll = doll.clone();
+          LeafDoll clonedDoll = leafTemplate.clone();
           Math.Point point = await randomValidPointOnTree(true);
 //          print("second point is $point and doll is $clonedDoll");
 
