@@ -373,10 +373,12 @@ class TreeDoll extends Doll{
 
       }
       int amount = rand.nextIntRange(minLeaf,maxLeaf);
-      if(leafTemplate == null) leafTemplate = new LeafDoll();
-      leafTemplate.rand = rand.spawn();
-      leafTemplate.randomizeNotColors(); //now it will fit my seed.
-      leafTemplate.copyPalette(palette);
+      if(leafTemplate == null) {
+          leafTemplate = new LeafDoll();
+          leafTemplate.rand = rand.spawn();
+          leafTemplate.randomizeNotColors(); //now it will fit my seed.
+          leafTemplate.copyPalette(palette);
+      }
       for(int i = 0; i < amount; i++) {
           LeafDoll clonedDoll = leafTemplate.clone();
           Math.Point point = await randomValidPointOnTree(true);
