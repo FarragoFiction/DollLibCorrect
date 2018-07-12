@@ -642,7 +642,7 @@ abstract class Doll {
         List<String> names = new List<String>.from(palette.names);
         names.sort();
         builder.appendExpGolomb(names.length); //for length of palette
-        print("saved color length");
+        //print("saved color length");
         for(String name2 in names) {
             Colour color = palette[name2];
             //print("saving color $name2 with value red ${color.red}, green${color.green} blue${color.blue}");
@@ -650,20 +650,20 @@ abstract class Doll {
             builder.appendByte(color.green);
             builder.appendByte(color.blue);
         }
-        print('saved colors');
+        //print('saved colors');
         builder.appendExpGolomb(dataOrderLayers.length); //for length of layers
-        print('saved data length');
+        //print('saved data length');
         //layer is last so can add new layers
         for(SpriteLayer l in dataOrderLayers) {
             //print("adding ${l.name}  with value ${l.imgNumber} to data string builder.");
             l.saveToBuilder(builder);
             //builder.appendByte(l.imgNumber);
         }
-        print("saved data, now for rotaiton of $rotation");
+        //print("saved data, now for rotaiton of $rotation");
         builder.appendExpGolomb(rotation);
-        print("saved rotation, now for orientation of $orientation");
+        //print("saved rotation, now for orientation of $orientation");
         builder.appendExpGolomb(orientation);
-        print("saved orientation");
+        //print("saved orientation");
         return builder;
     }
     //first, the rendering type. (this will get taken off before being passed to the loader)
@@ -672,7 +672,7 @@ abstract class Doll {
         if(dollName == null || dollName.isEmpty) dollName = name;
 
         beforeSaving();
-         print("saving to data bytes x");
+         //print("saving to data bytes x");
         if(builder == null) builder = new ByteBuilder();
         builder = appendDataBytesToBuilder(builder);
 
