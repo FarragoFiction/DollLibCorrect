@@ -767,7 +767,9 @@ abstract class Doll {
         try {
             type = reader.readExpGolomb();
             print("reading exo whatever, type is $type");
-            ret = allDollsMappedByType[type].clone();
+            Doll source = allDollsMappedByType[type];
+            if(source == null) throw "ERROR: COULD NOT FIND DOLL OF TYPE $type.";
+            ret = source.clone();
             ret.load(reader, ds,true);
         }catch(e,trace){
             thingy = BASE64URL.decode(dataStringWithoutName);
