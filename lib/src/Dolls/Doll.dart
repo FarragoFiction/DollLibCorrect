@@ -736,7 +736,7 @@ abstract class Doll {
         List<String> parts = ds.split("$labelPattern");
         if(parts.length == 1) {
             //this should defeat DQ0N
-            if(nameExpected) throw "ERROR: THERE WAS NO NAME WHICH MEANS THIS WAS LEGACY. ABORTING SO I CAN SWITCH TO LEGACY MODE.";
+            if(nameExpected) throw "ERROR: THERE WAS NO NAME IN $ds WHICH MEANS THIS WAS LEGACY. ABORTING SO I CAN SWITCH TO LEGACY MODE.";
         }else {
             dollName = parts[0];
         }
