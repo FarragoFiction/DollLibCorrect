@@ -8,6 +8,7 @@ import 'dart:convert';
 import 'package:RenderingLib/RendereringLib.dart';
 
 import "../../Rendering/ReferenceColors.dart";
+import 'package:RenderingLib/src/Misc/weighted_lists.dart';
 class FruitDoll extends Doll {
     int maxBody = 26;
     String relativefolder = "images/Fruit";
@@ -57,6 +58,39 @@ class FruitDoll extends Doll {
     FruitDoll() {
         initLayers();
         randomize();
+        setName();
+    }
+
+    void setName() {
+        WeightedList<String> genericStarts = new WeightedList<String>();
+        genericStarts.addAll(<String>["Star","Bread","Yum","Sweet","Juicy","Tart","Sour","Bitter","Musk","Dragon","Bird","Lizard","Horse","Pigeon"]);
+        genericStarts.addAll(<String>["Planet","Cosmic","Delicious","Rice","Snack","Dinner","Hazle","Pea","Chest","Song","Pain","Tall","Hard","Soft"]);
+        genericStarts.addAll(<String>["Canary","Duck","Monkey","Ape","Bat","Pony","Shogun","Jaded","Paradox","Karmic","Manic","Table","Aspiring","Recursive"]);
+        genericStarts.addAll(<String>["Woo","Chew","Bite","Dilletant","Oracle","Insomniac","Insufferable","Some","Body","Mathematician","Guardian","Mod","Watcher","Slacker"]);
+        genericStarts.addAll(<String>["Dog","Land","Retribution","Researcher","Cat","Troll","Canine","Gull","Wing","Pineapple","Cactus","Coma","Catatonic","Cumulus"]);
+        genericStarts.addAll(<String>["Moon","Cool","Yogistic","Doctor","Knight","Seer","Page","Mage","Rogue","Sylph","Fairy","Thief","Maid","Heir","Prince","Witch","Hag","Mermaid"]);
+        genericStarts.addAll(<String>["Fish","Corpse","Cake","Muffin","Bacon","Pig","Taco","Salsa","Carpet","Kiwi","Snake","Salamander","Breath","Time","King","Queen","Royal","Clubs"]);
+        genericStarts.addAll(<String>["Spades","Heart","Diamond","Butler","Doom","Blood","Heart","Mind","Space","Light","Void","Rage","Bacchus","Drunk","Hope","Life"]);
+        genericStarts.addAll(<String>["Wine","Jelly","Jam","Juice","Gum","Fire","Icy","Blanket","Cool","Heat","Dour","Shadow","Luck","Rattle"]);
+
+        WeightedList<String> genericEnds = new WeightedList<String>();
+        genericEnds.add("Seed", 1.0);
+        genericEnds.add("Fruit", 1.0);
+        genericEnds.add("Berry", 1.0);
+        genericEnds.add("Nut", 1.0);
+        genericEnds.add("Melon", 1.0);
+        if(body.imgNumber == 0 || body.imgNumber == 11) genericEnds.add("Apple");
+        if(body.imgNumber == 5 || body.imgNumber == 6) genericEnds.add("Grape");
+        if(body.imgNumber == 12) genericEnds.add("Cherry");
+
+        if(body.imgNumber == 24 ) genericStarts.add("Eye",100.0);
+        if(body.imgNumber == 26 ) genericStarts.add("Cod",100.0);
+        if(body.imgNumber == 15 ) genericStarts.add("Frog",100.0);
+
+        String start = rand.pickFrom(genericStarts);
+        String end = rand.pickFrom(genericEnds);
+
+        dollName = "$start $end";
     }
 
 
