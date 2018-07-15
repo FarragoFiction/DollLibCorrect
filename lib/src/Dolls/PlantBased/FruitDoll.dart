@@ -10,6 +10,9 @@ import 'package:RenderingLib/RendereringLib.dart';
 import "../../Rendering/ReferenceColors.dart";
 import 'package:RenderingLib/src/Misc/weighted_lists.dart';
 class FruitDoll extends Doll {
+    @override
+    List<Palette> validPalettes = new List<Palette>.from(ReferenceColours.paletteList.values);
+
     int maxBody = 26;
     String relativefolder = "images/Fruit";
 
@@ -57,13 +60,16 @@ class FruitDoll extends Doll {
 
     FruitDoll([Random setRand]) {
         if(setRand != null) rand = setRand;
+        if(rand == null) rand = new Random();
         initPalettes(); //since a fruit makes a tree, needs same palettes
         initLayers();
         randomize();
+        rand = new Random(seed);
         setName();
     }
 
     void initPalettes() {
+        rand.nextInt(); //initialize it before palette time
         for(int i = 0; i < 13*2; i++) {
             validPalettes.add(makeRandomPalette());
         }
@@ -142,6 +148,7 @@ class FruitDoll extends Doll {
 
         if(body.imgNumber == 24 ) genericStarts.add("Eye",100.0);
         if(body.imgNumber == 26 ) genericStarts.add("Cod",100.0);
+        if(body.imgNumber == 14 ) genericStarts.add("Justice",100.0);
         if(body.imgNumber == 15 ) genericStarts.add("Frog",100.0);
 
         String start = rand.pickFrom(genericStarts);
@@ -176,7 +183,7 @@ class FruitDoll extends Doll {
     }
 
     void randomizeColors() {
-        if(rand == null) rand = new Random();;
+        if(rand == null) rand = new Random();
 
         Palette newPallete = rand.pickFrom(validPalettes);
         copyPalette(newPallete);

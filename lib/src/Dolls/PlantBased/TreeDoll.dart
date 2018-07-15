@@ -143,7 +143,7 @@ class TreeDoll extends Doll{
   //how does the drop downs work?
   @override
   void randomizeColors() {
-    if(rand == null) rand = new Random();;
+    if(rand == null) rand = new Random(seed);
 
     Palette newPallete = rand.pickFrom(validPalettes);
     copyPalette(newPallete);
