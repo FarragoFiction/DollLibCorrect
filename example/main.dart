@@ -11,6 +11,7 @@ void main() {
 
 }
 
+//remember you can turn debug statements on to print on screen     //doll.visualizeData(output);
 Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");

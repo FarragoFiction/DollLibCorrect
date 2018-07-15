@@ -345,6 +345,12 @@ abstract class Doll {
         //dolls only do this if needed.
     }
 
+    Future<CanvasElement> getNewCanvas() async {
+        CanvasElement newCanvas = new CanvasElement(width: width, height: height);
+        await DollRenderer.drawDoll(newCanvas, this);
+        return newCanvas;
+    }
+
     static Doll breedDolls(List<Doll> dolls) {
         dolls.removeWhere((Doll doll) => doll is NamedLayerDoll);
         Random rand = new Random();
