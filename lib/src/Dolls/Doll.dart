@@ -340,6 +340,11 @@ abstract class Doll {
         return ret;
     }
 
+    //set things like subdolls
+    void afterBreeding(List<Doll> dolls) {
+        //dolls only do this if needed.
+    }
+
     static Doll breedDolls(List<Doll> dolls) {
         dolls.removeWhere((Doll doll) => doll is NamedLayerDoll);
         Random rand = new Random();
@@ -347,19 +352,26 @@ abstract class Doll {
         Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls).renderingType);
             for(int i = 0; i<ret.dataOrderLayers.length; i++) {
                 SpriteLayer mine = ret.dataOrderLayers[i];
-                Doll d = rand.pickFrom(dolls);
-                SpriteLayer yours;
-                if(d.dataOrderLayers.length > i) yours = d.dataOrderLayers[i];
-                //for each doll in the thing, pick one to be the source of this part
-                //if i don't pick any it's a 'mutant' since it's the random doll
-                if(yours != null && rand.nextDouble() > .1) {
-                    //print("my ${mine} was ${mine.imgNumber}, your ${yours} was ${yours.imgNumber}, them together is ${mine.imgNumber & yours.imgNumber}");
-                    int max = mine.maxImageNumber;
-                    if(max == 0) max = 1;
-                    mine.imgNumber = yours.imgNumber % max; //dont' go over you dick
-                    //print("mine after alchemy is ${mine.imgNumber}");
-                    if(firstEye > 0 && mine.imgNameBase.contains("Eye")) mine.imgNumber = firstEye;
-                    if(firstEye < 0 && mine.imgNameBase.contains("Eye")) firstEye = mine.imgNumber;
+                //decide what to do with dynamics in individual dollsets
+                if(!(mine is DynamicLayer)) {
+                    Doll d = rand.pickFrom(dolls);
+                    SpriteLayer yours;
+                    if (d.dataOrderLayers.length > i)
+                        yours = d.dataOrderLayers[i];
+                    //for each doll in the thing, pick one to be the source of this part
+                    //if i don't pick any it's a 'mutant' since it's the random doll
+                    if (yours != null && rand.nextDouble() > .1) {
+                        //print("my ${mine} was ${mine.imgNumber}, your ${yours} was ${yours.imgNumber}, them together is ${mine.imgNumber & yours.imgNumber}");
+                        int max = mine.maxImageNumber;
+                        if (max == 0) max = 1;
+                        mine.imgNumber =
+                            yours.imgNumber % max; //dont' go over you dick
+                        //print("mine after alchemy is ${mine.imgNumber}");
+                        if (firstEye > 0 && mine.imgNameBase.contains("Eye"))
+                            mine.imgNumber = firstEye;
+                        if (firstEye < 0 && mine.imgNameBase.contains("Eye"))
+                            firstEye = mine.imgNumber;
+                    }
                 }
             }
 
@@ -374,6 +386,7 @@ abstract class Doll {
                     mine.blue = yours.blue;
                 }
             }
+            ret.afterBreeding(dolls);
 
         return ret;
 

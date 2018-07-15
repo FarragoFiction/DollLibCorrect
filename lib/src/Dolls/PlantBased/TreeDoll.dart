@@ -149,6 +149,26 @@ class TreeDoll extends Doll{
     copyPalette(newPallete);
   }
 
+    @override
+    void afterBreeding(List<Doll> dolls) {
+        List<Doll> leaves = new List<Doll>();
+        List<Doll> fruit = new List<Doll>();
+        List<Doll> flowers = new List<Doll>();
+        for(Doll d in dolls) {
+            if(d is TreeDoll) {
+                if(d.leafTemplate != null) leaves.add(d.leafTemplate);
+                if(d.flowerTemplate != null) flowers.add(d.flowerTemplate);
+                if(d.fruitTemplate != null) fruit.add(d.fruitTemplate);
+
+            }
+        }
+        leafTemplate = Doll.breedDolls(leaves);
+        flowerTemplate = Doll.breedDolls(flowers);
+        fruitTemplate = Doll.breedDolls(fruit);
+
+
+    }
+
   @override
   void randomizeNotColors() {
       //print("randomizing not colors, rendering order layers is $renderingOrderLayers");
