@@ -55,7 +55,8 @@ class FruitDoll extends Doll {
     @override
     String originalCreator = "jadedResearcher and dystopicFuturism";
 
-    FruitDoll() {
+    FruitDoll([Random setRand]) {
+        if(setRand != null) rand = setRand;
         initLayers();
         randomize();
         setName();
