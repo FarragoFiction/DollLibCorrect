@@ -5,7 +5,6 @@ import 'package:RenderingLib/RendereringLib.dart';
 import 'package:RenderingLib/src/loader/loader.dart';
 
 Element output = querySelector('#output');
-Doll doll;
 void main() {
     querySelector('#output').text = 'Your Dart app is running.';
     start();
@@ -15,114 +14,15 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
-    //doll =  Doll.randomDollOfType(28);
-    doll = Doll.randomDollOfType(35);
-   /* LeafDoll leaf = new LeafDoll()..dollName="IvyLeaf"..body.imgNumber = 26;
-    leaf.copyPalette(doll.palette);
-
-    FlowerDoll flower = new FlowerDoll()..dollName="RoseFlower"..body.imgNumber = 26;
-    flower.copyPalette(doll.palette);
-
-    FruitDoll fruit = new FruitDoll()..dollName="DickFlower"..body.imgNumber = 26;
-    fruit.copyPalette(doll.palette);
-
-   TreeDoll tree = doll as TreeDoll;
-   tree.leafTemplate = leaf;
-   tree.fruitTemplate = fruit;
-   tree.fruitTime = true;
-*/
-    //doll = new HomestuckDoll();
-    // doll = Doll.loadSpecificDoll("http://farragofiction.com/DollSim/index.html?EPD_AQD-QwwsCgGiDAyABAQ-AAD-_______z-f____0dKyzIDg5uGxwuBQZWVla2trYWggBQenoCAgQ4AAAAAAgA");
-    //doll = Doll.loadSpecificDoll("manicInsomniac??:___QSADMADw8PAQEBHiEeFBYUCw0L________AAAAaz4UGSwWEh8QIEAgESAP6AIDxwMA____Fh0Oh-CLA0AtBa");
-    //doll = Doll.randomDollOfType(18);
-    //HomestuckCherubDoll t = doll as HomestuckCherubDoll;
-    //doll.useAbsolutePath = false;
-   // doll.initLayers();
-    //vandalize body 1 to see if its absolute or relative
-    //t.body.imgNumber = 1;
-    //print("going to use folder ${t.folder}");
-
-    //HiveswapDoll t = doll as HiveswapDoll;
-    //HomestuckTrollDoll t = doll as HomestuckTrollDoll;
-
-    //t.extendedRightHorn.imgNumber = 0;
-    //t.extendedLeftHorn.imgNumber = 0;
-
-    //print("body is ${t.body.imgNumber}");
-
-    /*
-
-    int minus = 9;
-    t.extendedHairTop.imgNumber = t.maxHair-minus;
-    t.extendedHairBack.imgNumber = t.maxHair-minus;
-    t.mouth.imgNumber = t.maxMouth-minus;
-    t.extendedLeftHorn.imgNumber = t.maxHorn-minus;
-    t.extendedRightHorn.imgNumber = t.maxHorn-minus;
-    t.leftEye.imgNumber = t.maxEye-minus;
-    t.rightEye.imgNumber = t.maxEye-minus;
-    t.extendedBody.imgNumber = t.maxBody - minus;
-    t.facePaint.imgNumber = t.maxFacePaint-minus;
-    //t.glasses2.imgNumber = 120;
-    */
-
-
-
-
-
-    // doll = new DadDoll();
-   // doll = Doll.loadSpecificDoll("DiC0tLQ8IDQaEBo5IDRKME4bEBr510351005IDSqqKhYWlrS0dGpqKgAAACIiIiYmZkhJiY-IDQaEBoZICAgMDBAQCgAABAA");
-
-    await drawDoll(); //normal
-   // makeForestOfDollOfType(33);
-    /*
-    doll.orientation = Doll.TURNWAYS;
-    await drawDoll();
-    doll.orientation = Doll.UPWAYS;
-    await drawDoll();
-    doll.orientation = Doll.TURNWAYSBUTUP;
-    await drawDoll();
-    */
-
-
-
-
-    //doll.orientation = Doll.TURNWAYS;
-    //await drawDoll();
-
-    /*
-    Doll tmp = new HomestuckTrollDoll();
-    doll = Doll.convertOneDollToAnother(doll, tmp);
-    await drawDoll(); //normal
-    */
-
-
-    //test png doll
-    //doll = new PngDoll("Bed","images/Homestuck/Items/bed.png");
-    //await (doll as PngDoll).getWidthFiguredOut();
-    //await drawDoll(); //normal
-
-    //test animtions
-   // Doll regular = Doll.loadSpecificDoll("ASDsGdUy-E8mQC3suHKxKCKJuOn4_______3nIzuEcnY8XsyiZrpGdVy0Rtyc3BRQsD4__8XaWgAAAC4AAAAEAFoaAA=");
-    //Doll edna = Doll.loadSpecificDoll("ASDsGdUy-E8mQC3suHKxKCKJuOn4_______3nIzuEcnY8XsyiZrpGdVy0Rtyc3BRQsD4__8XaWgAAAC4AAAAEAFoaAA=");
-    //(edna as HomestuckDoll).extendedHairTop.imgNumber = 0;
-    //(edna as HomestuckDoll).extendedHairBack.imgNumber = 0;
-
-    //doll = new MatryoshkaDoll(<Doll>[regular, edna]);
-    //await drawDollLoop();
-
-
-    //await drawDollScaled(doll,375,480); //char sheet
-    //await drawDollScaled(doll,256,208); //trading card
-    //await drawDollScaled(doll,300,450);//troll call
-
-
-
-
-    // doll = Doll.convertOneDollToAnother(doll, new HomestuckTrollDoll());
-    //await drawDoll();
-    //doll = Doll.convertOneDollToAnother(doll, new HomestuckGrubDoll());
-    //drawDoll();
-    //drawDoll();
+    Doll doll = Doll.randomDollOfType(33);
+    (doll as TreeDoll).fruitTime = true;
+    await drawDoll(doll);
+    Doll doll2 = Doll.randomDollOfType(33);
+    (doll2 as TreeDoll).fruitTime = true;
+    await drawDoll(doll2);
+    Doll doll3 = Doll.breedDolls(<Doll>[doll, doll2]);
+    (doll3 as TreeDoll).fruitTime = true;
+    await drawDoll(doll3);
 }
 
 Future<Null>  drawDollScaled(Doll doll, int w, int h) async {
@@ -140,14 +40,9 @@ Future<Null>  drawDollScaled(Doll doll, int w, int h) async {
 
 
 
-Future<bool>  drawDollLoop([CanvasElement canvas = null]) async {
-    CanvasElement ret = await drawDoll(canvas);
-    new Timer(new Duration(milliseconds: 100), () => drawDollLoop(ret));
-
-}
 
 
-Future<CanvasElement>  drawDoll([CanvasElement finishedProduct = null]) async{
+Future<CanvasElement>  drawDoll(Doll doll, [CanvasElement finishedProduct = null]) async{
 
     output.appendHtml(doll.quirk.translate("<br><br>The quick brown fox jumped over the lazy dog, yes?"));
 
@@ -184,12 +79,13 @@ Future<CanvasElement>  drawDoll([CanvasElement finishedProduct = null]) async{
         output.append(a);
     }
 
-    doll.visualizeData(output);
+    //TODO turn this back on
+    //doll.visualizeData(output);
     return finishedProduct;
 }
 
 
-Future<Null> makeForestOfDollOfType(int type) async {
+Future<Null> makeForestOfDollOfType(Doll doll, int type) async {
     int width = 2000;
     int height = 800;
     CanvasElement canvas = new CanvasElement(width: width, height: height);

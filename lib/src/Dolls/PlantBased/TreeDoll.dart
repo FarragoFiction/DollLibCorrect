@@ -162,9 +162,9 @@ class TreeDoll extends Doll{
 
             }
         }
-        leafTemplate = Doll.breedDolls(leaves);
-        flowerTemplate = Doll.breedDolls(flowers);
-        fruitTemplate = Doll.breedDolls(fruit);
+        if(leaves.isNotEmpty)leafTemplate = Doll.breedDolls(leaves);
+        if(flowers.isNotEmpty)flowerTemplate = Doll.breedDolls(flowers);
+        if(fruit.isNotEmpty)fruitTemplate = Doll.breedDolls(fruit);
 
 
     }
