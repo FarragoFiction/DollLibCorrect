@@ -14,8 +14,8 @@ class BroomDoll extends Doll {
     @override
     String originalCreator = "Cat,fireRachet";
 
-    int maxHandle = 10;
-    int maxHead = 13;
+    int maxHandle = 11;
+    int maxHead = 14;
 
     String relativefolder = "images/Broom";
 
