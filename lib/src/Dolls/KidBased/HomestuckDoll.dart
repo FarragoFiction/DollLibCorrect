@@ -143,7 +143,7 @@ class HomestuckDoll extends HatchableDoll {
     @override
     void initFromReaderOld(OldByteBuilder.ByteReader reader, [bool layersNeedInit = true]) {
         super.initFromReaderOld(reader, layersNeedInit);
-        print("overwritten load");
+        //print("overwritten load");
         if(extendedBody.imgNumber ==0) extendedBody.imgNumber = body.imgNumber;
         if(extendedHairBack.imgNumber ==0) extendedHairBack.imgNumber = hairBack.imgNumber;
         if(extendedHairTop.imgNumber ==0) extendedHairTop.imgNumber = hairTop.imgNumber;
