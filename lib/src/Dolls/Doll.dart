@@ -852,16 +852,20 @@ abstract class Doll {
         int last = 255; //don't care about first ree id cuz they can be deleted.
         List<SavedDoll> ret = new List<SavedDoll>();
         for(int i = 0; i< last; i++) {
+            print("processing doll from storage $i");
             if(window.localStorage.containsKey("${Doll.localStorageKey}$i")) {
                 String dataString = window.localStorage["${Doll
                     .localStorageKey}$i"];
+                print("doll actually exists and is $dataString");
 
                 if (dataString != null) {
                     Doll doll = loadSpecificDoll(dataString);
+                    print("I loaded the doll and it was $doll");
                     ret.add(new SavedDoll(doll, i));
                 }
             }
         }
+        print("returning ${ret.length} saved dolls from local storage");
         return ret;
     }
 
