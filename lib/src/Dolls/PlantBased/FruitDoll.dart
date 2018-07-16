@@ -135,6 +135,7 @@ class FruitDoll extends Doll {
         genericStarts.addAll(<String>["Fish","Corpse","Cake","Muffin","Bacon","Pig","Taco","Salsa","Carpet","Kiwi","Snake","Salamander","Breath","Time","King","Queen","Royal","Clubs"]);
         genericStarts.addAll(<String>["Spades","Heart","Diamond","Butler","Doom","Blood","Heart","Mind","Space","Light","Void","Rage","Bacchus","Drunk","Hope","Life"]);
         genericStarts.addAll(<String>["Wine","Jelly","Jam","Juice","Gum","Fire","Icy","Blanket","Cool","Heat","Dour","Shadow","Luck","Rattle"]);
+        genericStarts.addAll(<String>["Apple","Grape","Sauce","Dream","Rain","Mist","Sand","Mighty","Orange","Tangerine","Water","Cave","Dirt","Clam"]);
 
         WeightedList<String> genericEnds = new WeightedList<String>();
         genericEnds.add("Seed", 1.0);
