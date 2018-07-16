@@ -785,7 +785,7 @@ abstract class Doll {
         Doll ret;
         try {
             type = reader.readExpGolomb();
-            print("reading exo whatever, type is $type");
+            //print("reading exo whatever, type is $type");
             Doll source = allDollsMappedByType[type];
             if(source == null) throw "ERROR: COULD NOT FIND DOLL OF TYPE $type.";
             ret = source.clone();
