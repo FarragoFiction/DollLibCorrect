@@ -289,7 +289,7 @@ class TreeDoll extends Doll{
 
   Math.Point spacedHangableXY() {
       int space = fruitWidth;
-      print("spacing fruits roughly $space apart");
+      //print("spacing fruits roughly $space apart");
       //go down a row
       if(lastXForHangable >= width-fruitWidth) {
           lastXForHangable = fruitWidth;
@@ -523,7 +523,7 @@ class TreeDoll extends Doll{
 
   @override
   Future<Null> beforeRender() async{
-      print ("doing a before render");
+      //print ("doing a before render");
       leavesBack.x = form.leafX;
       leavesBack.y = form.leafY;
       leavesFront.x = form.leafX;
