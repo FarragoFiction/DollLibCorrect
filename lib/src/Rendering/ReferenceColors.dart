@@ -581,10 +581,10 @@ abstract class ReferenceColours {
         ..shirt_dark = '#201546'
         ..pants_light = '#131313'
         ..pants_dark = '#000000'
-        ..hair_main = "000000"
+        ..hair_main = "#000000"
         ..hair_accent = '#00ff00'
-        ..eye_white_left = "00ff00"
-        ..eye_white_right = "00ff00"
+        ..eye_white_left = "#000000"
+        ..eye_white_right = "#000000"
         ..skin = '#494949';
 
 
