@@ -16,10 +16,12 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     print("done awaiting");
     Doll doll = Doll.randomDollOfType(33);
+    doll.palette = ReferenceColours.CORRUPT;
+    (doll as TreeDoll).fruitTemplate = new FruitDoll()..body.imgNumber = 24;
     (doll as TreeDoll).fruitTime = true;
     await drawDoll(doll);
-    Doll doll2 = Doll.randomDollOfType(33);
-    (doll2 as TreeDoll).fruitTime = true;
+    Doll doll2 = Doll.randomDollOfType(2);
+    doll2.palette = ReferenceColours.CORRUPT;
     await drawDoll(doll2);
     Doll doll3 = Doll.breedDolls(<Doll>[doll, doll2]);
     (doll3 as TreeDoll).fruitTime = true;

@@ -571,6 +571,22 @@ abstract class ReferenceColours {
         ..pants_dark = '#8C1D1D'
         ..hair_accent = '#FFF775';
 
+    static HomestuckPalette CORRUPT = new HomestuckPalette()
+        ..shoe_light = '#00ff00'
+        ..shoe_dark = '#00ff00'
+        ..cloak_light = '#85afff'
+        ..cloak_mid = '#789ee6'
+        ..cloak_dark = '#7393d0'
+        ..shirt_light = '#291d53'
+        ..shirt_dark = '#201546'
+        ..pants_light = '#131313'
+        ..pants_dark = '#000000'
+        ..hair_main = "000000"
+        ..hair_accent = '#00ff00'
+        ..eye_white_left = "00ff00"
+        ..eye_white_right = "00ff00"
+        ..skin = '#494949';
+
 
     static Map<String, Palette> _paletteList;
 
@@ -596,6 +612,7 @@ abstract class ReferenceColours {
             _paletteList["Robot"] = ROBOT_PALETTE;
             _paletteList["Prospit"] = PROSPIT_PALETTE;
             _paletteList["Derse"] = DERSE_PALETTE;
+            _paletteList["Corrupt"] = CORRUPT;
             _paletteList["Sketch"] = SKETCH;
             _paletteList["Ink"] = INK;
             _paletteList["Burgundy"] = BURGUNDY;

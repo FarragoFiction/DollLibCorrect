@@ -126,7 +126,7 @@ class FruitDoll extends Doll {
 
     void setName() {
         WeightedList<String> genericStarts = new WeightedList<String>();
-        genericStarts.addAll(<String>["Star","Bread","Yum","Sweet","Juicy","Tart","Sour","Bitter","Musk","Dragon","Bird","Lizard","Horse","Pigeon"]);
+        genericStarts.addAll(<String>["Plant","Star","Bread","Yum","Sweet","Juicy","Tart","Sour","Bitter","Musk","Dragon","Bird","Lizard","Horse","Pigeon"]);
         genericStarts.addAll(<String>["Planet","Cosmic","Delicious","Rice","Snack","Dinner","Hazle","Pea","Chest","Song","Pain","Tall","Hard","Soft"]);
         genericStarts.addAll(<String>["Canary","Duck","Monkey","Ape","Bat","Pony","Shogun","Jaded","Paradox","Karmic","Manic","Table","Aspiring","Recursive"]);
         genericStarts.addAll(<String>["Woo","Chew","Bite","Dilletant","Oracle","Insomniac","Insufferable","Some","Body","Mathematician","Guardian","Mod","Watcher","Slacker"]);
