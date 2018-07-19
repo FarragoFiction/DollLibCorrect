@@ -17,10 +17,10 @@ class PositionedDollLayer extends DynamicLayer{
 
     @override
     void saveToBuilder(ByteBuilder builder) {
-        print("saving positioned doll layer $name of type $renderingType to builder");
+        //print("saving positioned doll layer $name of type $renderingType to builder");
         builder.appendExpGolomb(renderingType);
         builder = doll.appendDataBytesToBuilder(builder);
-        print("doll done, time for everything else");
+       // print("doll done, time for everything else");
         builder.appendExpGolomb(x);
         builder.appendExpGolomb(y);
         builder.appendExpGolomb(width);
@@ -30,10 +30,10 @@ class PositionedDollLayer extends DynamicLayer{
 
     @override
     void loadFromReader(ImprovedByteReader reader, [bool readType = true]) {
-        print("loading positioned doll layer from reader");
+        //print("loading positioned doll layer from reader");
         //if read normally, will need to read and discard type, but if read as an extra layer will read the type ahead of time
         if(readType) {
-            print("i have to read (and discard) the type");
+           // print("i have to read (and discard) the type");
             reader.readExpGolomb();
         }
         doll = Doll.loadSpecificDollFromReader(reader);
@@ -46,7 +46,7 @@ class PositionedDollLayer extends DynamicLayer{
 
     @override
     Element parseDataForDebugging(ImprovedByteReader reader) {
-        print("debugging positioned doll layer from reader");
+        //print("debugging positioned doll layer from reader");
         TableElement table = new TableElement();
         table.style.border = "3px solid black";
 
