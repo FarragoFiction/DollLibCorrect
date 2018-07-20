@@ -13,7 +13,7 @@ class FruitDoll extends Doll {
     @override
     List<Palette> validPalettes = new List<Palette>.from(ReferenceColours.paletteList.values);
 
-    int maxBody = 26;
+    int maxBody = 33;
     String relativefolder = "images/Fruit";
 
     SpriteLayer body;
@@ -126,6 +126,9 @@ class FruitDoll extends Doll {
 
     void setName() {
         WeightedList<String> genericStarts = new WeightedList<String>();
+        genericStarts.addAll(<String>["Dust","Mud","Leaf","Seed","Juicey","Moose","Squirrell","Bone","Pain","Blush","Skull","Finger","Haste","Sleep"]);
+        genericStarts.addAll(<String>["Mob","Psycho","Psychic","Butter","Drink","Ghost","Magic","Wizard","Chocolate","Pudding","Desert","Dessert","Sand","Jungle"]);
+        genericStarts.addAll(<String>["Meadow","Forest","City","Exotic","Socratic","Historical","Wood","Spice","Meat","Fast","Family","Plum","Temper","Wolf"]);
         genericStarts.addAll(<String>["Plant","Star","Bread","Yum","Sweet","Juicy","Tart","Sour","Bitter","Musk","Dragon","Bird","Lizard","Horse","Pigeon"]);
         genericStarts.addAll(<String>["Planet","Cosmic","Delicious","Rice","Snack","Dinner","Hazle","Pea","Chest","Song","Pain","Tall","Hard","Soft"]);
         genericStarts.addAll(<String>["Canary","Duck","Monkey","Ape","Bat","Pony","Shogun","Jaded","Paradox","Karmic","Manic","Table","Aspiring","Recursive"]);
@@ -134,8 +137,10 @@ class FruitDoll extends Doll {
         genericStarts.addAll(<String>["Moon","Cool","Yogistic","Doctor","Knight","Seer","Page","Mage","Rogue","Sylph","Fairy","Thief","Maid","Heir","Prince","Witch","Hag","Mermaid"]);
         genericStarts.addAll(<String>["Fish","Corpse","Cake","Muffin","Bacon","Pig","Taco","Salsa","Carpet","Kiwi","Snake","Salamander","Breath","Time","King","Queen","Royal","Clubs"]);
         genericStarts.addAll(<String>["Spades","Heart","Diamond","Butler","Doom","Blood","Heart","Mind","Space","Light","Void","Rage","Bacchus","Drunk","Hope","Life"]);
-        genericStarts.addAll(<String>["Wine","Jelly","Jam","Juice","Gum","Fire","Icy","Blanket","Cool","Heat","Dour","Shadow","Luck","Rattle"]);
+        genericStarts.addAll(<String>["Poisonous","Toxic","Generic","Wine","Jelly","Jam","Juice","Gum","Fire","Icy","Blanket","Cool","Heat","Dour","Shadow","Luck","Rattle"]);
         genericStarts.addAll(<String>["Apple","Grape","Sauce","Dream","Rain","Mist","Sand","Mighty","Orange","Tangerine","Water","Cave","Dirt","Clam"]);
+        genericStarts.add("Tidepod", 0.5);
+        genericStarts.add("Forbidden", 0.5);
 
         WeightedList<String> genericEnds = new WeightedList<String>();
         genericEnds.add("Seed", 1.0);
@@ -143,9 +148,11 @@ class FruitDoll extends Doll {
         genericEnds.add("Berry", 1.0);
         genericEnds.add("Nut", 1.0);
         genericEnds.add("Melon", 1.0);
-        if(body.imgNumber == 0 || body.imgNumber == 11) genericEnds.add("Apple");
-        if(body.imgNumber == 5 || body.imgNumber == 6) genericEnds.add("Grape");
-        if(body.imgNumber == 12) genericEnds.add("Cherry");
+        if(body.imgNumber == 0 || body.imgNumber == 11) genericEnds.add("Apple",12.0);
+        if(body.imgNumber == 5 || body.imgNumber == 6) genericEnds.add("Grape",12.0);
+        if(body.imgNumber == 12) genericEnds.add("Cherry",1.0);
+        if(body.imgNumber == 33) genericEnds.add("Star",12.0);
+        if(body.imgNumber == 27) genericEnds.add("Bulb",12.0);
 
         if(body.imgNumber == 24 ) genericStarts.add("Eye",100.0);
         if(body.imgNumber == 26 ) genericStarts.add("Cod",100.0);
