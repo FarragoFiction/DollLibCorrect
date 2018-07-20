@@ -345,9 +345,16 @@ abstract class Doll {
         //dolls only do this if needed.
     }
 
-    Future<CanvasElement> getNewCanvas() async {
+    Future<CanvasElement> getNewCanvas([bool testTime = false]) async {
         CanvasElement newCanvas = new CanvasElement(width: width, height: height);
-        await DollRenderer.drawDoll(newCanvas, this);
+        await DollRenderer.drawDoll(newCanvas, this, false, testTime);
+        return newCanvas;
+    }
+
+    //before pl's color swap updates to make them faster
+    Future<CanvasElement> getNewCanvasLegacy([bool testTime = false]) async {
+        CanvasElement newCanvas = new CanvasElement(width: width, height: height);
+        await DollRenderer.drawDoll(newCanvas, this,true, testTime);
         return newCanvas;
     }
 

@@ -17,10 +17,12 @@ class DollRenderer {
     static int imagesLoaded = 0;
 
 
-    static  Future<bool>  drawDoll(CanvasElement canvas, Doll doll) async {
+    static  Future<bool>  drawDoll(CanvasElement canvas, Doll doll, [bool legacy = false, bool debugTime = false]) async {
         //print("Drawing a doll of width ${doll.width}");
         //most dolls will do nothing here, but if they need to calculate where their layers get positioned they do it here.
         //or if they need to figure out if they even have shit
+        DateTime now;
+        if(debugTime) now = new DateTime.now();
         await doll.beforeRender();
         if(doll.width == null) {
             ImageElement image = await Loader.getResource((doll.renderingOrderLayers.first.imgLocation));
@@ -43,13 +45,25 @@ class DollRenderer {
         }
         //print("done drawing images");
 
-        if(doll.palette.isNotEmpty) Renderer.swapPalette(buffer, doll.paletteSource, doll.palette);
+        if(doll.palette.isNotEmpty) {
+            if(legacy) {
+                Renderer.swapPaletteLegacy(buffer, doll.paletteSource, doll.palette);
+            }else {
+                Renderer.swapPalette(buffer, doll.paletteSource, doll.palette);
+            }
+        }
         scaleCanvasForDoll(canvas, doll);
         canvas.context2D.imageSmoothingEnabled = false;
 
         Renderer.copyTmpCanvasToRealCanvasAtPos(canvas, buffer, 0, 0);
 
         buffer.context2D.restore();
+        if(debugTime) {
+            DateTime now2 = new DateTime.now();
+            Duration diff = now2.difference(now);
+            print("Legacy was $legacy. It took ${diff.inMilliseconds} ms to render $doll.");
+
+        }
 
     }
 
