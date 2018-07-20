@@ -14,7 +14,6 @@ void main() {
 //remember you can turn debug statements on to print on screen     //doll.visualizeData(output);
 Future<bool> start() async {
     await Loader.preloadManifest();
-    print("done awaiting");
     Doll doll = Doll.randomDollOfType(33);
     doll.palette = ReferenceColours.CORRUPT;
     (doll as TreeDoll).fruitTemplate = new FruitDoll()..body.imgNumber = 24;
@@ -23,9 +22,6 @@ Future<bool> start() async {
     Doll doll2 = Doll.randomDollOfType(2);
     doll2.palette = ReferenceColours.CORRUPT;
     await drawDoll(doll2);
-    Doll doll3 = Doll.breedDolls(<Doll>[doll, doll2]);
-    (doll3 as TreeDoll).fruitTime = true;
-    await drawDoll(doll3);
 }
 
 Future<Null>  drawDollScaled(Doll doll, int w, int h) async {
