@@ -126,41 +126,43 @@ class FruitDoll extends Doll {
 
     void setName() {
         WeightedList<String> genericStarts = new WeightedList<String>();
-        genericStarts.addAll(<String>["Straw","Hay","Barn","Field","Farm","Mine","Craft","Compote","Curry","Sauce","Yes","No","Bob","Donkey"]);
-        genericStarts.addAll(<String>["Salt","Sugar","Pepper","Spicy","Cran","Gum","Razz","Pepo","Banana","Mango","Bay","Nutrient","Health","Citris"]);
+        genericStarts.addAll(<String>["Fox","Badger","Honey Badger","Skunk","Bird","Birb","Borb","Cloud","Servant","Logan","Elder","Young","Deer","Antelope","Mull","Chintz"]);
+        genericStarts.addAll(<String>["Dry","Crocodile","Rose","Bed","Service","Sea","Gulf","Golf","Base","Fort","Saw","Spiny","Strawberry","Tamarind","Thimble","Vanilla","Wax","Choke","Alien"]);
+        genericStarts.addAll(<String>["Alligator","Crocodile","Snake","Salamander","Turtle","Guava","Grape","Hairless","Ice Cream","Hardy","Huckle","Jack","Juniper","Palm","Kumquat","Lady"]);
+        genericStarts.addAll(<String>["Shenanigan","Crazy","Adult","Truth","Lie","Bone","Honey","Tiger","Relish","Salsa","Giggle","Dance","Party","Fiesta","Ground","Button"]);
+        genericStarts.addAll(<String>["Rock","Stone","Pit","Wood","Metal","Bone","Custard","Hair","Fluffy","Fae","Claw","Beach","Bitter","Buffalo", "Bush","Tree","Vine","Yew"]);
+        genericStarts.addAll(<String>["Medicinal","Cleaning","Cleansing","Mowhawk","Hawk","Sparrow","Parrot","Tropical","Mop","Gravity","Vision","Eagle","Winter","Spring","Summer","Fall"]);
+        genericStarts.addAll(<String>["Straw","Hay","Barn","Field","Farm","Mine","Craft","Compote","Curry","Sauce","Yes","No","Bob","Donkey","Cape","Cashew"]);
+        genericStarts.addAll(<String>["Salt","Sugar","Pepper","Spicy","Cran","Gum","Razz","Pepo","Banana","Mango","Bay","Nutrient","Health","Citris","Cherry"]);
         genericStarts.addAll(<String>["Goose","Duck","Pawpaw","Quince","Bully","Cow","Ox","Rabbit","Ginko","Medicine","Syrup","Roll","Cheese","Dimple"]);
-        genericStarts.addAll(<String>["Crab","Ugli","Pawpaw","Passion","Apricot","Key","Island","Ocean","Lake","River","One","Angel","Devil","Hand"]);
-        genericStarts.addAll(<String>["Dust","Mud","Leaf","Seed","Juicey","Moose","Squirrell","Bone","Pain","Blush","Skull","Finger","Haste","Sleep"]);
-        genericStarts.addAll(<String>["Mob","Psycho","Psychic","Butter","Drink","Ghost","Magic","Wizard","Chocolate","Pudding","Desert","Dessert","Sand","Jungle"]);
+        genericStarts.addAll(<String>["Crab","Ugli","Pawpaw","Passion","Apricot","Key","Island","Ocean","Lake","River","One","Angel","Devil","Hand","Energy","Coffee"]);
+        genericStarts.addAll(<String>["Dust","Mud","Leaf","Seed","Juicey","Moose","Squirrell","Bone","Pain","Blush","Skull","Finger","Haste","Sleep","Eastern","Northern","Southern","Western"]);
+        genericStarts.addAll(<String>["Mob","Psycho","Psychic","Butter","Drink","Ghost","Magic","Wizard","Chocolate","Pudding","Desert","Dessert","Sand","Jungle","Snow"]);
         genericStarts.addAll(<String>["Meadow","Forest","City","Exotic","Socratic","Historical","Wood","Spice","Meat","Fast","Family","Plum","Temper","Wolf"]);
-        genericStarts.addAll(<String>["Plant","Star","Bread","Yum","Sweet","Juicy","Tart","Sour","Bitter","Musk","Dragon","Bird","Lizard","Horse","Pigeon"]);
-        genericStarts.addAll(<String>["Planet","Cosmic","Delicious","Rice","Snack","Dinner","Hazle","Pea","Chest","Song","Pain","Tall","Hard","Soft"]);
+        genericStarts.addAll(<String>["Plant","Star","Bread","Yum","Sweet","Juicy","Tart","Sour","Bitter","Musk","Dragon","Bird","Lizard","Horse","Pigeon","Emu","Elephant","Fig"]);
+        genericStarts.addAll(<String>["Planet","Cosmic","Delicious","Rice","Snack","Dinner","Hazle","Pea","Chest","Song","Pain","Tall","Hard","Soft","Cola","Crow","Common"]);
         genericStarts.addAll(<String>["Canary","Duck","Monkey","Ape","Bat","Pony","Shogun","Jaded","Paradox","Karmic","Manic","Table","Aspiring","Recursive"]);
         genericStarts.addAll(<String>["Woo","Chew","Bite","Dilletant","Oracle","Insomniac","Insufferable","Some","Body","Mathematician","Guardian","Mod","Watcher","Slacker"]);
         genericStarts.addAll(<String>["Dog","Land","Retribution","Researcher","Cat","Troll","Canine","Gull","Wing","Pineapple","Cactus","Coma","Catatonic","Cumulus"]);
         genericStarts.addAll(<String>["Moon","Cool","Yogistic","Doctor","Knight","Seer","Page","Mage","Rogue","Sylph","Fairy","Thief","Maid","Heir","Prince","Witch","Hag","Mermaid"]);
         genericStarts.addAll(<String>["Fish","Corpse","Cake","Muffin","Bacon","Pig","Taco","Salsa","Carpet","Kiwi","Snake","Salamander","Breath","Time","King","Queen","Royal","Clubs"]);
-        genericStarts.addAll(<String>["Spades","Heart","Diamond","Butler","Doom","Blood","Heart","Mind","Space","Light","Void","Rage","Bacchus","Drunk","Hope","Life"]);
-        genericStarts.addAll(<String>["Poisonous","Toxic","Generic","Wine","Jelly","Jam","Juice","Gum","Fire","Icy","Blanket","Cool","Heat","Dour","Shadow","Luck","Rattle"]);
-        genericStarts.addAll(<String>["Apple","Grape","Sauce","Dream","Rain","Mist","Sand","Mighty","Orange","Tangerine","Water","Cave","Dirt","Clam"]);
+        genericStarts.addAll(<String>["Spades","Heart","Diamond","Butler","Doom","Blood","Heart","Mind","Space","Light","Void","Rage","Bacchus","Drunk","Hope","Life","Durian"]);
+        genericStarts.addAll(<String>["Ring","Pomelo","Sharp","Prickly","Donut","Baby","Papaya","Oil","Poisonous","Toxic","Generic","Wine","Jelly","Jam","Juice","Gum","Fire","Icy","Blanket","Cool","Heat","Dour","Shadow","Luck","Rattle"]);
+        genericStarts.addAll(<String>["May","June","Mock","Mountain","Nut","Apple","Grape","Sauce","Dream","Rain","Mist","Sand","Mighty","Orange","Tangerine","Water","Cave","Dirt","Clam","Apple","Berry","Date","Marriage"]);
         genericStarts.add("Tidepod", 0.5);
         genericStarts.add("Forbidden", 0.5);
         genericStarts.add("God", 0.5);
+        genericStarts.add("Rare", 0.5);
 
 
         WeightedList<String> genericEnds = new WeightedList<String>();
-        genericEnds.add("Seed", 1.0);
-        genericEnds.add("Fruit", 1.0);
-        genericEnds.add("Berry", 1.0);
-        genericEnds.add("Nut", 1.0);
-        genericEnds.add("Melon", 1.0);
+        genericEnds.addAll(<String>["Seed","Fruit","Berry","Nut","Melon","Fig","Mango","Apple"]);
         genericEnds.add("Lemon", 0.5);
         genericEnds.add("Peach", 0.5);
         genericEnds.add("Plum", 0.5);
         genericEnds.add("Gum", 0.1);
+        genericEnds.add("Currant", 0.1);
         genericEnds.add("Apricot", 0.5);
-        genericEnds.add("Orange", 0.5);
-
 
         if(body.imgNumber == 0 || body.imgNumber == 11) genericEnds.add("Apple",12.0);
         if(body.imgNumber == 5 || body.imgNumber == 6) genericEnds.add("Grape",12.0);
