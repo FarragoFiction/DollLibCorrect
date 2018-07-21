@@ -156,13 +156,18 @@ class FruitDoll extends Doll {
 
 
         WeightedList<String> genericEnds = new WeightedList<String>();
-        genericEnds.addAll(<String>["Seed","Fruit","Berry","Nut","Melon","Fig","Mango","Apple"]);
-        genericEnds.add("Lemon", 0.5);
-        genericEnds.add("Peach", 0.5);
-        genericEnds.add("Plum", 0.5);
+        genericEnds.addAll(<String>["Seed","Fruit","Berry","Nut"]);
+        genericEnds.add("Melon", 0.3);
+        genericEnds.add("Fig", 0.3);
+        genericEnds.add("Mango", 0.3);
+        genericEnds.add("Apple", 0.3);
+
+        genericEnds.add("Lemon", 0.3);
+        genericEnds.add("Peach", 0.3);
+        genericEnds.add("Plum", 0.3);
         genericEnds.add("Gum", 0.1);
         genericEnds.add("Currant", 0.1);
-        genericEnds.add("Apricot", 0.5);
+        genericEnds.add("Apricot", 0.3);
 
         if(body.imgNumber == 0 || body.imgNumber == 11) genericEnds.add("Apple",12.0);
         if(body.imgNumber == 5 || body.imgNumber == 6) genericEnds.add("Grape",12.0);
