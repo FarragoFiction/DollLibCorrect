@@ -126,6 +126,10 @@ class FruitDoll extends Doll {
 
     void setName() {
         WeightedList<String> genericStarts = new WeightedList<String>();
+        genericStarts.addAll(<String>["Straw","Hay","Barn","Field","Farm","Mine","Craft","Compote","Curry","Sauce","Yes","No","Bob","Donkey"]);
+        genericStarts.addAll(<String>["Salt","Sugar","Pepper","Spicy","Cran","Gum","Razz","Pepo","Banana","Mango","Bay","Nutrient","Health","Citris"]);
+        genericStarts.addAll(<String>["Goose","Duck","Pawpaw","Quince","Bully","Cow","Ox","Rabbit","Ginko","Medicine","Syrup","Roll","Cheese","Dimple"]);
+        genericStarts.addAll(<String>["Crab","Ugli","Pawpaw","Passion","Apricot","Key","Island","Ocean","Lake","River","One","Angel","Devil","Hand"]);
         genericStarts.addAll(<String>["Dust","Mud","Leaf","Seed","Juicey","Moose","Squirrell","Bone","Pain","Blush","Skull","Finger","Haste","Sleep"]);
         genericStarts.addAll(<String>["Mob","Psycho","Psychic","Butter","Drink","Ghost","Magic","Wizard","Chocolate","Pudding","Desert","Dessert","Sand","Jungle"]);
         genericStarts.addAll(<String>["Meadow","Forest","City","Exotic","Socratic","Historical","Wood","Spice","Meat","Fast","Family","Plum","Temper","Wolf"]);
@@ -141,6 +145,8 @@ class FruitDoll extends Doll {
         genericStarts.addAll(<String>["Apple","Grape","Sauce","Dream","Rain","Mist","Sand","Mighty","Orange","Tangerine","Water","Cave","Dirt","Clam"]);
         genericStarts.add("Tidepod", 0.5);
         genericStarts.add("Forbidden", 0.5);
+        genericStarts.add("God", 0.5);
+
 
         WeightedList<String> genericEnds = new WeightedList<String>();
         genericEnds.add("Seed", 1.0);
@@ -148,10 +154,19 @@ class FruitDoll extends Doll {
         genericEnds.add("Berry", 1.0);
         genericEnds.add("Nut", 1.0);
         genericEnds.add("Melon", 1.0);
+        genericEnds.add("Lemon", 0.5);
+        genericEnds.add("Peach", 0.5);
+        genericEnds.add("Plum", 0.5);
+        genericEnds.add("Gum", 0.1);
+        genericEnds.add("Apricot", 0.5);
+        genericEnds.add("Orange", 0.5);
+
+
         if(body.imgNumber == 0 || body.imgNumber == 11) genericEnds.add("Apple",12.0);
         if(body.imgNumber == 5 || body.imgNumber == 6) genericEnds.add("Grape",12.0);
         if(body.imgNumber == 12) genericEnds.add("Cherry",1.0);
         if(body.imgNumber == 33) genericEnds.add("Star",12.0);
+        if(body.imgNumber == 17) genericEnds.add("Pepper",12.0);
         if(body.imgNumber == 27) genericEnds.add("Bulb",12.0);
 
         if(body.imgNumber == 24 ) genericStarts.add("Eye",100.0);
