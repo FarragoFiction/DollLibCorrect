@@ -191,8 +191,9 @@ class FruitDoll extends Doll {
         if(body.imgNumber == 14 ) genericStarts.add("Justice",100.0);
         if(body.imgNumber == 15 ) genericStarts.add("Frog",100.0);
 
-        String start = rand.pickFrom(genericStarts);
-        String end = rand.pickFrom(genericEnds);
+        Random freshRand = new Random(seed);
+        String start = freshRand.pickFrom(genericStarts);
+        String end = freshRand.pickFrom(genericEnds);
 
         dollName = "$start $end";
     }
