@@ -37,7 +37,7 @@ Future<Null> clickTest() async {
             Rectangle rect = canvas.getBoundingClientRect();
             Point point = new Point(e.client.x-rect.left, e.client.y-rect.top);
             bool clicked = dollLayer.pointInsideMe(point);
-            print("Did click on $dollLayer: $clicked");
+            print("Did click on ${dollLayer.doll.dollName} with seed ${dollLayer.doll.seed}: $clicked");
         }
     });
 

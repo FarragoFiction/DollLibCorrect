@@ -97,9 +97,12 @@ abstract class Doll {
 
     int get seed {
         int s = associatedColor.red + associatedColor.green + associatedColor.blue;
+        print("getting seed, colors added up is $s");
         for(SpriteLayer imageLayer in renderingOrderLayers) {
+            print('rendering layer ${imageLayer.imgNumber}');
             s += imageLayer.imgNumber;
         }
+        print("colors and layers added up is $s");
         return s;
     }
 
@@ -128,7 +131,6 @@ abstract class Doll {
     // in degrees, things like 0, 90, 180, etc. used for auto rendering
     int rotation = 0;
 
-    Colour _associatedColor;
     int width;
     int height;
     int renderingType = 0;
@@ -151,15 +153,14 @@ abstract class Doll {
 
     Palette paletteSource = ReferenceColours.SPRITE_PALETTE;
 
+    //i used to cache it here, but no longer. because if i cache it, it won't respond to color changes
     Colour get associatedColor {
-        if(_associatedColor == null) {
-            if(palette is HomestuckPalette || palette is HomestuckTrollPalette) {
-                _associatedColor = (palette as HomestuckPalette).aspect_light;
-            }else {
-                _associatedColor = palette.first;
-            }
+
+        if(palette is HomestuckPalette || palette is HomestuckTrollPalette) {
+            return  (palette as HomestuckPalette).aspect_light;
+        }else {
+            return  palette.first;
         }
-        return _associatedColor;
     }
 
     Doll() {
