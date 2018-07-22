@@ -97,12 +97,12 @@ abstract class Doll {
 
     int get seed {
         int s = associatedColor.red + associatedColor.green + associatedColor.blue;
-        print("getting seed, colors added up is $s");
+        //print("getting seed, colors added up is $s");
         for(SpriteLayer imageLayer in renderingOrderLayers) {
-            print('rendering layer ${imageLayer.imgNumber}');
+            //print('rendering layer ${imageLayer.imgNumber}');
             s += imageLayer.imgNumber;
         }
-        print("colors and layers added up is $s");
+       // print("colors and layers added up is $s");
         return s;
     }
 
@@ -479,6 +479,7 @@ abstract class Doll {
             reader = new ImprovedByteReader(thingy.buffer, 0);
             reader.readExpGolomb(); //pop it off, i already know my type
         }
+        initFromReader(reader, false);
         initFromReader(reader, false);
     }
 
