@@ -14,7 +14,7 @@ void main() {
 //remember you can turn debug statements on to print on screen     //doll.visualizeData(output);
 Future<bool> start() async {
     await Loader.preloadManifest();
-    await clickTest();
+    await breedTest();
     //speedTest();
     Doll doll = Doll.randomDollOfType(33);
     doll.palette = ReferenceColours.CORRUPT;
@@ -41,6 +41,21 @@ Future<Null> clickTest() async {
         }
     });
 
+}
+
+//if a cloned fruit is identical to its parent does it have the same name?
+Future<Null> breedTest() async {
+    FruitDoll fruit = new FruitDoll();
+    CanvasElement canvas = await fruit.getNewCanvas(true);
+    Doll child = Doll.breedDolls(<Doll>[fruit]);
+    output.append(canvas);
+    output.append(new SpanElement()..text = "${fruit.dollName}");
+    for(int i = 0; i <10; i++) {
+        Doll child = Doll.breedDolls(<Doll>[fruit]);
+        CanvasElement childCanvas = await fruit.getNewCanvas(true);
+        output.append(childCanvas);
+        output.append(new SpanElement()..text = "${fruit.dollName}");
+    }
 }
 
 Future<Null> speedTest() async {

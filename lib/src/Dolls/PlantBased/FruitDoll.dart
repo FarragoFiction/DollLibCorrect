@@ -10,6 +10,16 @@ import 'package:RenderingLib/RendereringLib.dart';
 import "../../Rendering/ReferenceColors.dart";
 import 'package:RenderingLib/src/Misc/weighted_lists.dart';
 class FruitDoll extends Doll {
+
+    @override
+    Colour get associatedColor {
+
+        if(palette is HomestuckPalette ) {
+            return  (palette as HomestuckPalette).shoe_light;
+        }else {
+            return  palette.first;
+        }
+    }
     @override
     List<Palette> validPalettes = new List<Palette>.from(ReferenceColours.paletteList.values);
 
