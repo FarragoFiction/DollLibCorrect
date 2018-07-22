@@ -351,6 +351,7 @@ abstract class Doll {
         return newCanvas;
     }
 
+
     //before pl's color swap updates to make them faster
     Future<CanvasElement> getNewCanvasLegacy([bool testTime = false]) async {
         CanvasElement newCanvas = new CanvasElement(width: width, height: height);

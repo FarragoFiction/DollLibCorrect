@@ -28,6 +28,13 @@ class PositionedDollLayer extends DynamicLayer{
 
     }
 
+    bool pointInsideMe(Point point) {
+        Rectangle rect = new Rectangle(x, y, width, height);
+        //TODO also experiment with "is this pixel opaque"
+        return rect.containsPoint(point);
+    }
+
+
     @override
     void loadFromReader(ImprovedByteReader reader, [bool readType = true]) {
         //print("loading positioned doll layer from reader");

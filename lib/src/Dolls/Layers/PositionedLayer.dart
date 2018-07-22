@@ -19,6 +19,7 @@ class PositionedLayer extends SpriteLayer {
         builder.appendExpGolomb(y);
     }
 
+
     @override
     Element parseDataForDebugging(ImprovedByteReader reader) {
         TableElement table = new TableElement();
