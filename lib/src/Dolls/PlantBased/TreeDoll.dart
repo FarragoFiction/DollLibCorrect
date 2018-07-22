@@ -44,8 +44,8 @@ class TreeDoll extends Doll{
         return forms.first;
     }
 
-  int minFruit = 13;
-  int maxFruit = 33;
+  int minFruit = 6;
+  int maxFruit = 24;
   int minLeaf = 13;
   int maxLeaf = 33;
 
@@ -302,8 +302,8 @@ class TreeDoll extends Doll{
         lastYForHangable = fruitHeight;
       }
 
-      //can move anywhere from 1 to 3 fruits away
-      lastXForHangable += rand.nextInt(space*2)+(space).round();
+      //can move anywhere from 1 to 6 fruits away
+      lastXForHangable += rand.nextInt(space*6)+(space).round();
       int yJitterDirection = 1;
       if(rand.nextBool()) yJitterDirection = -1;
       lastYForHangable += yJitterDirection* rand.nextInt(space*0.5.round());
