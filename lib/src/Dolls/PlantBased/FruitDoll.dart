@@ -200,6 +200,7 @@ class FruitDoll extends Doll {
             l.imgNumber = rand.nextInt(l.maxImageNumber + 1);
         }
         randomizeColors();
+        setName();
     }
 
 
@@ -210,6 +211,7 @@ class FruitDoll extends Doll {
         for (SpriteLayer l in renderingOrderLayers) {
             l.imgNumber = rand.nextInt(l.maxImageNumber + 1);
         }
+        setName();
     }
 
     void randomizeColors() {
@@ -217,6 +219,7 @@ class FruitDoll extends Doll {
 
         Palette newPallete = rand.pickFrom(validPalettes);
         copyPalette(newPallete);
+        setName();
     }
 
 

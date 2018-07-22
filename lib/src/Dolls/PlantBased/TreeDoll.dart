@@ -480,6 +480,8 @@ class TreeDoll extends Doll{
           fruitTemplate.randomizeNotColors(); //now it will fit my seed.
           fruitTemplate.copyPalette(palette);
       }
+      //make sure it's synced one last time (could have wrong name if it were loaded or whatever)
+      if(fruitTemplate is FruitDoll) (fruitTemplate as FruitDoll).setName();
       for(int i = 0; i < amount; i++) {
           FruitDoll clonedDoll = fruitTemplate.clone();
           if(rand.nextBool()) clonedDoll.orientation = Doll.TURNWAYS;
