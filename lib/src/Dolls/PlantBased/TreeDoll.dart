@@ -151,12 +151,14 @@ class TreeDoll extends Doll{
   }
 
     Future<CanvasElement> renderJustBranches() async {
+        await beforeRender();
         CanvasElement newCanvas = new CanvasElement(width: width, height: height);
         await DollRenderer.drawSubsetLayers(newCanvas, this, <SpriteLayer>[branches]);
         return newCanvas;
     }
 
     Future<CanvasElement> renderJustLeavesAndBranches() async {
+        await beforeRender();
         CanvasElement newCanvas = new CanvasElement(width: width, height: height);
         List<SpriteLayer> leaves = <SpriteLayer>[leavesFront,branches, leavesBack];
         leaves.addAll(clusters);
@@ -165,6 +167,7 @@ class TreeDoll extends Doll{
     }
 
     Future<CanvasElement> renderJustHangables() async {
+        await beforeRender();
         CanvasElement newCanvas = new CanvasElement(width: width, height: height);
         List<SpriteLayer> leaves = <SpriteLayer>[];
         leaves.addAll(hangables);
