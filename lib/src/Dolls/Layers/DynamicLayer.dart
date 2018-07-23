@@ -14,7 +14,7 @@ class DynamicLayer extends PositionedLayer {
 
   static DynamicLayer instantiateLayer(ImprovedByteReader reader) {
       int type = reader.readExpGolomb();
-      print("I think the type is $type");
+     // print("I think the type is $type");
 
       List<DynamicLayer> list = <DynamicLayer>[new PositionedDollLayer(null,0,0,0, 0, "LoadedDynamicLayer")];
       for(DynamicLayer layer in list) {
@@ -30,7 +30,7 @@ class DynamicLayer extends PositionedLayer {
     @override
     void loadFromReader(ImprovedByteReader reader, [bool readType = true]) {
         if(readType) {
-            print("i have to read (and discard) the type");
+           // print("i have to read (and discard) the type");
             reader.readExpGolomb();
         }
         super.loadFromReader(reader);

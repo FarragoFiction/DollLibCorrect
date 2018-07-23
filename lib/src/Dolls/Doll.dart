@@ -516,7 +516,7 @@ abstract class Doll {
             if( i < dataOrderLayers.length) {
                 dataOrderLayers[i].loadFromReader(reader);
             }else {
-                print("more layers than expected, is it a dynamic layer?");
+                //print("more layers than expected, is it a dynamic layer?");
                 DynamicLayer d = DynamicLayer.instantiateLayer(reader);
                 addDynamicLayer(d);
             }
@@ -830,11 +830,11 @@ abstract class Doll {
         //RIGHT TYPE, BUT IT'S STILL LOADING WRONG AND I DON'T KNOW WHY???
         Doll ret;
         try {
-            print("reading exo whatever in load from reader, reader is ${reader}");
+            //print("reading exo whatever in load from reader, reader is ${reader}");
             type = reader.readExpGolomb();
-            print("reading exo whatever in load from reader, type is $type");
+            //print("reading exo whatever in load from reader, type is $type");
             ret = allDollsMappedByType[type].clone();
-            print("load from reader, ret is $ret");
+            //print("load from reader, ret is $ret");
             //name is NOT expected because if i'm loading from a reader this is a subdoll or similar, no plain text in any case
             ret.load(reader, "doesnotexist",false);
         }catch(e,trace){
