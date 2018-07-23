@@ -479,7 +479,8 @@ abstract class Doll {
             reader = new ImprovedByteReader(thingy.buffer, 0);
             reader.readExpGolomb(); //pop it off, i already know my type
         }
-        initFromReader(reader, false);
+        //for the love of all that is holy, future JR, please do not call initFromREader twice in a row
+        //like a fucking dunkass and then WONDER WHY IT CRASHES BECAUE THE READER IS EMPTY
         initFromReader(reader, false);
     }
 

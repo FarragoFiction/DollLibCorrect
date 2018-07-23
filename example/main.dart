@@ -15,15 +15,33 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     await breedTest();
+    await tryAll();
     //speedTest();
-    Doll doll = Doll.randomDollOfType(33);
-    doll.palette = ReferenceColours.CORRUPT;
-    (doll as TreeDoll).fruitTemplate = new FruitDoll()..body.imgNumber = 24;
-    (doll as TreeDoll).fruitTime = true;
+    //Doll doll = Doll.randomDollOfType(2);
+    Doll doll = Doll.loadSpecificDoll("Teal Blooded Troll:___YU_d_BAIKCAEFBAIKCAMPDAEFB_7op_7opAIKCAAAAS0tLOjo6ERERAAAAERERMzMzxMTEAIKCAEFBCIDIAZAF6ArfATMBSgcQOIBAACAYA=");
     await drawDoll(doll);
-    Doll doll2 = Doll.randomDollOfType(2);
-    doll2.palette = ReferenceColours.CORRUPT;
-    await drawDoll(doll2);
+
+}
+
+Future<Null> tryAll() async {
+    for(int type in Doll.allDollTypes) {
+        DivElement us = new DivElement()..style.border = "3px solid black";
+        output.append(us);
+        try {
+
+            Doll doll = Doll.randomDollOfType(type);
+            String dollString = doll.toDataBytesX();
+            //(doll as TreeDoll).fruitTemplate = new FruitDoll()..body.imgNumber = 24;
+            //(doll as TreeDoll).fruitTime = true;
+            CanvasElement canvas = await doll.getNewCanvas(true);
+            us.append(canvas);
+            Doll doll2 = Doll.loadSpecificDoll(dollString);
+            CanvasElement canvas2 = await doll2.getNewCanvas(true);
+            us.append(canvas2);
+        }catch(e) {
+            us.append(new SpanElement()..text = "no alt form for $type");
+        }
+    }
 }
 
 Future<Null> clickTest() async {
