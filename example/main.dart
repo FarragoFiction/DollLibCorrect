@@ -51,10 +51,12 @@ Future<Null> breedTest() async {
     output.append(canvas);
     output.append(new SpanElement()..text = "${fruit.dollName}");
     for(int i = 0; i <10; i++) {
+        //FruitDoll fruit2 = new FruitDoll();
         Doll child = Doll.breedDolls(<Doll>[fruit]);
-        CanvasElement childCanvas = await fruit.getNewCanvas(true);
+        CanvasElement childCanvas = await child.getNewCanvas(true);
         output.append(childCanvas);
-        output.append(new SpanElement()..text = "${fruit.dollName}");
+        (child as FruitDoll).setName();
+        output.append(new SpanElement()..text = "${child.dollName}");
     }
 }
 
