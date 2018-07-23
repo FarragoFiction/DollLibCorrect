@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:html';
 import 'dart:math' as Math;
+import 'package:DollLibCorrect/DollRenderer.dart';
 import 'package:DollLibCorrect/src/Dolls/PlantBased/FlowerDoll.dart';
 import 'package:DollLibCorrect/src/Dolls/PlantBased/FruitDoll.dart';
 import 'package:DollLibCorrect/src/Dolls/Layers/PositionedDollLayer.dart';
@@ -148,6 +149,47 @@ class TreeDoll extends Doll{
     Palette newPallete = rand.pickFrom(validPalettes);
     copyPalette(newPallete);
   }
+
+    Future<CanvasElement> renderJustBranches() async {
+        CanvasElement newCanvas = new CanvasElement(width: width, height: height);
+        await DollRenderer.drawSubsetLayers(newCanvas, this, <SpriteLayer>[branches]);
+        return newCanvas;
+    }
+
+    Future<CanvasElement> renderJustLeavesAndBranches() async {
+        CanvasElement newCanvas = new CanvasElement(width: width, height: height);
+        List<SpriteLayer> leaves = <SpriteLayer>[leavesFront,branches, leavesBack];
+        leaves.addAll(clusters);
+        await DollRenderer.drawSubsetLayers(newCanvas, this, leaves);
+        return newCanvas;
+    }
+
+    Future<CanvasElement> renderJustHangables() async {
+        CanvasElement newCanvas = new CanvasElement(width: width, height: height);
+        List<SpriteLayer> leaves = <SpriteLayer>[];
+        leaves.addAll(hangables);
+        await DollRenderer.drawSubsetLayers(newCanvas, this, leaves);
+        return newCanvas;
+    }
+
+    void transformHangablesInto([Doll template]) {
+      if(template == null) {
+            if(fruitTemplate ==null) {
+                spawnFruit();
+            }
+
+            template = fruitTemplate;
+      }
+        List<SpriteLayer> h = <SpriteLayer>[];
+        h.addAll(hangables);
+        for(PositionedDollLayer layer in h) {
+            Doll backupDoll = layer.doll;
+            layer.doll = template.clone();
+            layer.doll.orientation = backupDoll.orientation;
+            layer.doll.rotation = backupDoll.rotation;
+        }
+    }
+
 
     @override
     void afterBreeding(List<Doll> dolls) {
@@ -471,14 +513,18 @@ class TreeDoll extends Doll{
      //print ("fourth is done");
   }
 
+  FruitDoll spawnFruit() {
+      fruitTemplate = new FruitDoll();
+      fruitTemplate.rand = rand.spawn();
+      fruitTemplate.randomizeNotColors(); //now it will fit my seed.
+      fruitTemplate.copyPalette(palette);
+  }
+
   Future<Null> createFruit() async{
       //print ('first creating fruit');
       int amount = rand.nextIntRange(minFruit,maxFruit);
       if(fruitTemplate == null) {
-          fruitTemplate = new FruitDoll();
-          fruitTemplate.rand = rand.spawn();
-          fruitTemplate.randomizeNotColors(); //now it will fit my seed.
-          fruitTemplate.copyPalette(palette);
+          spawnFruit();
       }
       //make sure it's synced one last time (could have wrong name if it were loaded or whatever)
       if(fruitTemplate is FruitDoll) (fruitTemplate as FruitDoll).setName();

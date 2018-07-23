@@ -15,15 +15,45 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     await breedTest();
-    await tryAll();
+    await testPartial();
     //speedTest();
     //Doll doll = Doll.randomDollOfType(2);
     Doll doll = Doll.loadSpecificDoll("Teal Blooded Troll:___YU_d_BAIKCAEFBAIKCAMPDAEFB_7op_7opAIKCAAAAS0tLOjo6ERERAAAAERERMzMzxMTEAIKCAEFBCIDIAZAF6ArfATMBSgcQOIBAACAYA=");
     await drawDoll(doll);
-
+    //runTests();
 }
 
-Future<Null> tryAll() async {
+Future<Null> runTests() async{
+   await renderEverythingAndLoad();
+   await speedTest();
+   await breedTest();
+   await clickTest();
+   await testPartial();
+}
+
+Future<Null> testPartial() async {
+    DivElement me = new DivElement()..style.border = "3px solid black";
+    output.append(me);
+    TreeDoll tree = new TreeDoll();
+    tree.flowerTime = true;
+    CanvasElement canvas = await tree.getNewCanvas(true);
+    me.append(canvas);
+
+    CanvasElement branchCanvas = await tree.renderJustBranches();
+    me.append(branchCanvas);
+
+    CanvasElement leavesAndBranches = await tree.renderJustLeavesAndBranches();
+    me.append(leavesAndBranches);
+
+    CanvasElement flowers = await tree.renderJustHangables();
+    me.append(flowers);
+
+    tree.transformHangablesInto();
+    CanvasElement fruit = await tree.renderJustHangables();
+    me.append(fruit);
+}
+
+Future<Null> renderEverythingAndLoad() async {
     for(int type in Doll.allDollTypes) {
         DivElement us = new DivElement()..style.border = "3px solid black";
         output.append(us);

@@ -16,8 +16,14 @@ class DollRenderer {
     static int imagesWaiting = 0;
     static int imagesLoaded = 0;
 
-
+    //drawing this out into a wrapper so a doll can ask to just draw sub parts of itself
     static  Future<bool>  drawDoll(CanvasElement canvas, Doll doll, [bool legacy = false, bool debugTime = false]) async {
+        return await drawSubsetLayers(canvas, doll,doll.renderingOrderLayers);
+    }
+
+
+    //ideal timeline has us not pass the doll at all, but until i need that i'm not coding it, things like upways matter here.
+    static  Future<bool>  drawSubsetLayers(CanvasElement canvas, Doll doll,List<SpriteLayer> layers, [bool legacy = false, bool debugTime = false]) async {
         //print("Drawing a doll of width ${doll.width}");
         //most dolls will do nothing here, but if they need to calculate where their layers get positioned they do it here.
         //or if they need to figure out if they even have shit
@@ -25,7 +31,7 @@ class DollRenderer {
         if(debugTime) now = new DateTime.now();
         await doll.beforeRender();
         if(doll.width == null) {
-            ImageElement image = await Loader.getResource((doll.renderingOrderLayers.first.imgLocation));
+            ImageElement image = await Loader.getResource((layers.first.imgLocation));
             doll.width = image.width;
             doll.height = image.height;
            // print("loaded image of ${doll.width} and height ${doll.height}. ");
@@ -39,7 +45,7 @@ class DollRenderer {
         processOrientation(buffer, doll);
         processRotation(buffer, doll);
 
-        for(SpriteLayer l in doll.renderingOrderLayers) {
+        for(SpriteLayer l in layers) {
             //print("drawing rendering order layer $l for doll $doll");
             await l.drawSelf(buffer);
         }
