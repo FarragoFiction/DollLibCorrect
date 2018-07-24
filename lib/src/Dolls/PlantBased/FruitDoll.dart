@@ -158,7 +158,7 @@ class FruitDoll extends Doll {
         genericStarts.addAll(<String>["Fish","Corpse","Cake","Muffin","Bacon","Pig","Taco","Salsa","Carpet","Kiwi","Snake","Salamander","Breath","Time","King","Queen","Royal","Clubs"]);
         genericStarts.addAll(<String>["Spades","Heart","Diamond","Butler","Doom","Blood","Heart","Mind","Space","Light","Void","Rage","Bacchus","Drunk","Hope","Life","Durian"]);
         genericStarts.addAll(<String>["Ring","Pomelo","Sharp","Prickly","Donut","Baby","Papaya","Oil","Poisonous","Toxic","Generic","Wine","Jelly","Jam","Juice","Gum","Fire","Icy","Blanket","Cool","Heat","Dour","Shadow","Luck","Rattle"]);
-        genericStarts.addAll(<String>["May","June","Mock","Mountain","Nut","Apple","Grape","Sauce","Dream","Rain","Mist","Sand","Mighty","Orange","Tangerine","Water","Cave","Dirt","Clam","Apple","Berry","Date","Marriage"]);
+        genericStarts.addAll(<String>["Dank","Muse","Lord","Meme","May","June","Mock","Mountain","Nut","Apple","Grape","Sauce","Dream","Rain","Mist","Sand","Mighty","Orange","Tangerine","Water","Cave","Dirt","Clam","Apple","Berry","Date","Marriage"]);
         genericStarts.add("Tidepod", 0.5);
         genericStarts.add("Forbidden", 0.5);
         genericStarts.add("God", 0.5);
