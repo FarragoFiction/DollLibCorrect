@@ -171,7 +171,7 @@ class TreeDoll extends Doll{
         CanvasElement newCanvas = new CanvasElement(width: width, height: height);
         List<SpriteLayer> leaves = <SpriteLayer>[];
         leaves.addAll(hangables);
-        print("going to be rendering hangables: $hangables");
+        //print("going to be rendering hangables: $hangables");
         await DollRenderer.drawSubsetLayers(newCanvas, this, leaves);
         return newCanvas;
     }
