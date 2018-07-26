@@ -15,10 +15,9 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     await breedTest();
-    await testPartial();
+    //await testPartial();
     //speedTest();
-    //Doll doll = Doll.randomDollOfType(2);
-    Doll doll = Doll.loadSpecificDoll("Teal Blooded Troll:___YU_d_BAIKCAEFBAIKCAMPDAEFB_7op_7opAIKCAAAAS0tLOjo6ERERAAAAERERMzMzxMTEAIKCAEFBCIDIAZAF6ArfATMBSgcQOIBAACAYA=");
+    Doll doll = Doll.loadSpecificDoll("Tree:___BEEmoaAL1FAH4uAHHyAEuhADJrAP_______6qeAP_uALKTOHZhJUUSAC4MAO88AJ8oAP___xgkCZFCQJlgkCTUNAF6igD8XADj5ACXQgBk1gH_______9VPAH_3AFlJnDswkqKJABcGAHeeAE-UAH___6BBQDKBmDMGbBIEmoaAL1FAH4uAHHyAEuhADJrAP_______6qeAP_uALKTOHZhJUUSAC4MAO88AJ8oAP___0CDAdAGkGYM2CQJNQ0AXqKAPxcAOPkAJdCAGTWAf_______1U8Af_cAWUmcOzCSookAFwYAd54AT5QAf___oEFAOoBwAzBmwSBJqGgC9RQB-LgBx8gBLoQAyawD_______-qngD_7gCykzh2YSVFEgAuDADvPACfKAD___9AgwPwBEAZgzYJAk1DQBeooA_FwA4-QAl0IAZNYB________VTwB_9wBZSZw7MJKiiQAXBgB3ngBPlAB___-gQYBYQNgMwZsEgSahoAvUUAfi4AcfIAS6EAMmsA________qp4A_-4AspM4dmElRRIALgwA7zwAnygA____QIMAggOAZgzYJAk1DQBeooA_FwA4-QAl0IAZNYB________VTwB_9wBZSZw7MJKiiQAXBgB3ngBPlAB___-gQUATcCADMGbBIEmoaAL1FAH4uAHHyAEuhADJrAP_______6qeAP_uALKTOHZhJUUSAC4MAO88AJ8oAP___0CCgCegJgGYM8=");
     await drawDoll(doll);
     //runTests();
 }

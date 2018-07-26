@@ -429,6 +429,8 @@ class TreeDoll extends Doll{
   Future<Null> createLeafClusters() async {
       //print("leaf cluster being made, leavesfront is ${leavesFront.imgNumber}");
       if(leavesFront.imgNumber != 0 || hasClustersAlready()) return;
+      rand = new Random(seed);
+
       //print ('first creating clusters');
       if(rand.nextBool()) {
             //less leaves but bigger on average
@@ -472,6 +474,8 @@ class TreeDoll extends Doll{
 
   Future<Null> createHangables() async {
       if(hasHangablesAlready()) return;
+      rand = new Random(seed);
+
       //reset after leaf shenanigans
         lastXForHangable = 0;
         lastYForHangable = 0;
@@ -492,6 +496,8 @@ class TreeDoll extends Doll{
   Future<Null> createFlowers() async {
      //print ('first creating flowers');
      int amount = rand.nextIntRange(minFruit,maxFruit);
+     rand = new Random(seed);
+
      if(flowerTemplate == null) {
          flowerTemplate = new FlowerDoll();
          flowerTemplate.rand = rand.spawn();
@@ -519,6 +525,7 @@ class TreeDoll extends Doll{
 
   FruitDoll spawnFruit() {
       fruitTemplate = new FruitDoll();
+      rand = new Random(seed);
       fruitTemplate.rand = rand.spawn();
       fruitTemplate.randomizeNotColors(); //now it will fit my seed.
       fruitTemplate.copyPalette(palette);
@@ -530,6 +537,7 @@ class TreeDoll extends Doll{
       if(fruitTemplate == null) {
           spawnFruit();
       }
+      rand = new Random(seed);
       //make sure it's synced one last time (could have wrong name if it were loaded or whatever)
       if(fruitTemplate is FruitDoll) (fruitTemplate as FruitDoll).setName();
       for(int i = 0; i < amount; i++) {
@@ -549,6 +557,7 @@ class TreeDoll extends Doll{
   }
 
   Future<Null> createGloriousBullshit() async {
+      rand = new Random(seed);
       int type = rand.pickFrom(Doll.allDollTypes);
       //print("creating glorious bullshit, type is $type");
 
@@ -556,6 +565,7 @@ class TreeDoll extends Doll{
       doll.rand = rand.spawn();
       doll.randomize(); //now it will fit my seed.
       doll.copyPalette(palette);
+      rand = new Random(seed);
 
       int amount = rand.nextIntRange(minFruit,maxFruit);
       for(int i = 0; i < amount; i++) {
