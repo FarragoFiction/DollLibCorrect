@@ -448,6 +448,8 @@ class TreeDoll extends Doll{
           leafTemplate.randomizeNotColors(); //now it will fit my seed.
           leafTemplate.copyPalette(palette);
       }
+      rand = new Random(seed);
+
       for(int i = 0; i < amount; i++) {
           LeafDoll clonedDoll = leafTemplate.clone();
           Math.Point point = await randomValidPointOnTree(true);
@@ -506,6 +508,7 @@ class TreeDoll extends Doll{
          flowerTemplate.copyPalette(palette);
      }
 
+     rand = new Random(seed);
      for(int i = 0; i < amount; i++) {
          Math.Point point = await randomValidPointOnTree(false);
          Doll clone = flowerTemplate.clone();
@@ -538,9 +541,9 @@ class TreeDoll extends Doll{
       if(fruitTemplate == null) {
           spawnFruit();
       }
-      rand = new Random(seed);
       //make sure it's synced one last time (could have wrong name if it were loaded or whatever)
       if(fruitTemplate is FruitDoll) (fruitTemplate as FruitDoll).setName();
+      rand = new Random(seed);
       for(int i = 0; i < amount; i++) {
           FruitDoll clonedDoll = fruitTemplate.clone();
           if(rand.nextBool()) clonedDoll.orientation = Doll.TURNWAYS;
