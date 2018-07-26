@@ -442,6 +442,7 @@ class TreeDoll extends Doll{
       }
       int amount = rand.nextIntRange(minLeaf,maxLeaf);
       if(leafTemplate == null) {
+          rand = new Random(seed);
           leafTemplate = new LeafDoll();
           leafTemplate.rand = rand.spawn();
           leafTemplate.randomizeNotColors(); //now it will fit my seed.
