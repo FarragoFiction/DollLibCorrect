@@ -17,7 +17,10 @@ Future<bool> start() async {
     await breedTest();
     //await testPartial();
     //speedTest();
-    Doll doll = Doll.loadSpecificDoll("Tree:___BEEmoaAL1FAH4uAHHyAEuhADJrAP_______6qeAP_uALKTOHZhJUUSAC4MAO88AJ8oAP___xgkCZFCQJlgkCTUNAF6igD8XADj5ACXQgBk1gH_______9VPAH_3AFlJnDswkqKJABcGAHeeAE-UAH___6BBQDKBmDMGbBIEmoaAL1FAH4uAHHyAEuhADJrAP_______6qeAP_uALKTOHZhJUUSAC4MAO88AJ8oAP___0CDAdAGkGYM2CQJNQ0AXqKAPxcAOPkAJdCAGTWAf_______1U8Af_cAWUmcOzCSookAFwYAd54AT5QAf___oEFAOoBwAzBmwSBJqGgC9RQB-LgBx8gBLoQAyawD_______-qngD_7gCykzh2YSVFEgAuDADvPACfKAD___9AgwPwBEAZgzYJAk1DQBeooA_FwA4-QAl0IAZNYB________VTwB_9wBZSZw7MJKiiQAXBgB3ngBPlAB___-gQYBYQNgMwZsEgSahoAvUUAfi4AcfIAS6EAMmsA________qp4A_-4AspM4dmElRRIALgwA7zwAnygA____QIMAggOAZgzYJAk1DQBeooA_FwA4-QAl0IAZNYB________VTwB_9wBZSZw7MJKiiQAXBgB3ngBPlAB___-gQUATcCADMGbBIEmoaAL1FAH4uAHHyAEuhADJrAP_______6qeAP_uALKTOHZhJUUSAC4MAO88AJ8oAP___0CCgCegJgGYM8=");
+    DateTime startTime = new DateTime.now();
+    Doll doll = Doll.randomDollOfType(33);
+    //Doll doll = Doll.loadSpecificDoll("Wax Nut:___BIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0Kw==");
+    new TimeProfiler("load doll", startTime);
     await drawDoll(doll);
     //runTests();
 }
@@ -208,4 +211,17 @@ Future<Null> makeForestOfDollOfType(Doll doll, int type) async {
     }
     print("appending canvas to output");
     output.append(canvas);
+}
+
+
+class TimeProfiler {
+    String label;
+    DateTime start;
+    DateTime end;
+
+    TimeProfiler(String this.label, DateTime this.start) {
+        end = new DateTime.now();
+        Duration diff = end.difference(start);
+        print("$label stopped after ${diff.inMilliseconds} ms.");
+    }
 }

@@ -32,7 +32,7 @@ abstract class Doll {
         //never cache this
         //okay so like, past jr SAYS that, but now that i have tree dolls caching makes a LOT of sense.
         //except that makes it crash so whatever, uncache for now
-        cachedAllDolls.clear();
+        //cachedAllDolls.clear();
         if(cachedAllDolls.isEmpty) {
             //passing true means the tree doll won't try to make any fruit, which would let it accidentally recurse if its fruit were a random doll
             cachedAllDolls.add(new TreeDoll());
@@ -426,6 +426,7 @@ abstract class Doll {
     }
 
     void copy(Doll source) {
+        if(source == this) return; //if i'm trying to copy myself i'm already done.
         copyPalette(source.palette);
         copyLayers(source.dataOrderLayers);
         dollName = source.dollName;
