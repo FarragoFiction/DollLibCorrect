@@ -18,61 +18,45 @@ abstract class Doll {
     static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22,23,25,27,21,28,34,35];
 
 
-    static Map<int, Doll> get  allDollsMappedByType {
-        Map<int, Doll> ret = new Map<int, Doll>();
-            for(Doll doll in allDollsEvenWIPS) {
-                ret[doll.renderingType]= doll;
-            }
-        return ret;
-    }
-
-    static List<Doll> cachedAllDolls = new List<Doll>();
-
-    static List<Doll> get allDollsEvenWIPS {
-        //never cache this
-        //okay so like, past jr SAYS that, but now that i have tree dolls caching makes a LOT of sense.
-        //except that makes it crash so whatever, uncache for now
-        //cachedAllDolls.clear();
-        if(cachedAllDolls.isEmpty) {
-            //passing true means the tree doll won't try to make any fruit, which would let it accidentally recurse if its fruit were a random doll
-            cachedAllDolls.add(new TreeDoll());
-            cachedAllDolls.add(new LeafDoll());
-            cachedAllDolls.add(new FlowerDoll());
-            cachedAllDolls.add(new FruitDoll());
-            cachedAllDolls.add(new AncestorDoll());
-            cachedAllDolls.add(new FekDoll());
-            cachedAllDolls.add(new BlobMonsterDoll());
-            cachedAllDolls.add(new BroDoll());
-            cachedAllDolls.add(new BroomDoll());
-            cachedAllDolls.add(new CatDoll());
-            cachedAllDolls.add(new ConsortDoll());
-            cachedAllDolls.add(new DadDoll());
-            cachedAllDolls.add(new DenizenDoll());
-            cachedAllDolls.add(new DocDoll());
-            cachedAllDolls.add(new DogDoll());
-            cachedAllDolls.add(new EasterEggDoll());
-            cachedAllDolls.add(new EggDoll());
-            cachedAllDolls.add(new HatchedChick());
-            cachedAllDolls.add(new HiveswapDoll());
-            cachedAllDolls.add(new HomestuckBabyDoll());
-            cachedAllDolls.add(new HomestuckCherubDoll());
-            cachedAllDolls.add(new HomestuckDoll());
-            cachedAllDolls.add(new HomestuckGrubDoll());
-            cachedAllDolls.add(new HomestuckHeroDoll());
-            cachedAllDolls.add(new HomestuckSatyrDoll());
-            cachedAllDolls.add(new HomestuckTrollDoll());
-            cachedAllDolls.add(new MomDoll());
-            cachedAllDolls.add(new MonsterPocketDoll());
-            cachedAllDolls.add(new OpenBoundDoll());
-            cachedAllDolls.add(new PigeonDoll());
-            cachedAllDolls.add(new PupperDoll());
-            cachedAllDolls.add(new QueenDoll());
-            cachedAllDolls.add(new SuperbSuckDoll());
-            cachedAllDolls.add(new TalkSpriteDoll());
-            cachedAllDolls.add(new TrollEggDoll());
-            cachedAllDolls.add(new VirusDoll());
-        }
-        return cachedAllDolls;
+    /* first part of any data string tells me what type of doll to load.*/
+    static Doll randomDollOfType(int type) {
+        if(type == 2) return new HomestuckTrollDoll();
+        if(type == 13) return new HomestuckGrubDoll();
+        if(type == 1) return new HomestuckDoll();
+        if(type == 35) return new FruitDoll();
+        if(type == 34) return new FlowerDoll();
+        if(type == 33) return new TreeDoll();
+        if(type == 36) return new LeafDoll();
+        if(type == 27) return new AncestorDoll();
+        if(type == 28) return new FekDoll();
+        if(type == 18) return new VirusDoll();
+        if(type == 65) return new TrollEggDoll();
+        if(type == 20) return new TalkSpriteDoll();
+        if(type == 17) return new SuperbSuckDoll();
+        if(type == 8) return new QueenDoll();
+        if(type == 24) return new PupperDoll();
+        if(type == 113) return new PigeonDoll();
+        if(type == 21) return new OpenBoundDoll();
+        if(type == 151) return new MonsterPocketDoll();
+        if(type == 15) return new HomestuckSatyrDoll();
+        if(type == 11) return new HomestuckHeroDoll();
+        if(type == 16) return new HomestuckCherubDoll();
+        if(type == 12) return new HomestuckBabyDoll();
+        if(type == 9) return new MomDoll();
+        if(type == 14) return new HiveswapDoll();
+        if(type == 42) return new HatchedChick();
+        if(type == 66) return new EggDoll();
+        if(type == 41) return new EasterEggDoll();
+        if(type == 19) return new DogDoll();
+        if(type == 26) return new DocDoll();
+        if(type == 4) return new DenizenDoll();
+        if(type == 7) return new DadDoll();
+        if(type == 25) return new BlobMonsterDoll();
+        if(type == 10) return new BroDoll();
+        if(type == 22) return new BroomDoll();
+        if(type == 23) return new CatDoll();
+        if(type == 3) return new ConsortDoll();
+        throw("ERROR could not find doll of type $type");
     }
 
     String originalCreator = "???";
@@ -433,7 +417,7 @@ abstract class Doll {
     }
 
     Doll clone() {
-        Doll ret = allDollsMappedByType[renderingType];
+        Doll ret = randomDollOfType(renderingType);
         ret.copy(this);
         return ret;
     }
@@ -798,7 +782,7 @@ abstract class Doll {
         try {
             type = reader.readExpGolomb();
             //print("reading exo whatever, type is $type");
-            Doll source = allDollsMappedByType[type];
+            Doll source = randomDollOfType(type);
             if(source == null) throw "ERROR: COULD NOT FIND DOLL OF TYPE $type.";
             ret = source.clone();
             ret.load(reader, ds,true);
@@ -806,7 +790,7 @@ abstract class Doll {
             thingy = BASE64URL.decode(dataStringWithoutName);
             OldByteBuilder.ByteReader reader = new OldByteBuilder.ByteReader(thingy.buffer, 0);
             type = reader.readByte();
-            ret = allDollsMappedByType[type].clone();
+            ret = randomDollOfType(type);
             print("reading legacy because of error $e with trace $trace, type is $type");
             ret.initFromReaderOld(reader);
         }
@@ -834,7 +818,7 @@ abstract class Doll {
             //print("reading exo whatever in load from reader, reader is ${reader}");
             type = reader.readExpGolomb();
             //print("reading exo whatever in load from reader, type is $type");
-            ret = allDollsMappedByType[type].clone();
+            ret = randomDollOfType(type);
             //print("load from reader, ret is $ret");
             //name is NOT expected because if i'm loading from a reader this is a subdoll or similar, no plain text in any case
             ret.load(reader, "doesnotexist",false);
@@ -855,10 +839,7 @@ abstract class Doll {
         return rand.pickFrom(choices);
     }
 
-    /* first part of any data string tells me what type of doll to load.*/
-    static Doll randomDollOfType(int type) {
-        return allDollsMappedByType[type].clone();
-    }
+
 
     static List<SavedDoll> loadAllFromLocalStorage() {
         int last = 255; //don't care about first ree id cuz they can be deleted.

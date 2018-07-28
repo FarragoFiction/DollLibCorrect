@@ -7,8 +7,10 @@ import 'package:RenderingLib/src/loader/loader.dart';
 Element output = querySelector('#output');
 void main() {
     querySelector('#output').text = 'Your Dart app is running.';
+    DateTime startTime = new DateTime.now();
+    Doll doll = Doll.loadSpecificDoll("Pain Plum:___BIEv-bAP-bAP-HAIWv_3ie5nOT0AAAAAAAAAD_AAAAABMTEwAAACkdUyAVRgD_AAD_AElJSUJw==");
+    new TimeProfiler("load doll", startTime);
     start();
-
 }
 
 //remember you can turn debug statements on to print on screen     //doll.visualizeData(output);
@@ -18,9 +20,12 @@ Future<bool> start() async {
     //await testPartial();
     //speedTest();
     DateTime startTime = new DateTime.now();
-    Doll doll = Doll.randomDollOfType(33);
-    //Doll doll = Doll.loadSpecificDoll("Wax Nut:___BIEmMdtGMdtEELkmMdtEELkiAJcP_______2MdtP___0tLSzo6OhEREQAAABERETMzM____0Kw==");
+    Doll doll = Doll.randomDollOfType(35);
+    doll = Doll.loadSpecificDoll("Pain Plum:___BIEv-bAP-bAP-HAIWv_3ie5nOT0AAAAAAAAAD_AAAAABMTEwAAACkdUyAVRgD_AAD_AElJSUJw==");
     new TimeProfiler("load doll", startTime);
+    await drawDoll(doll);
+
+    doll = Doll.randomDollOfType(35);
     await drawDoll(doll);
     //runTests();
 }
