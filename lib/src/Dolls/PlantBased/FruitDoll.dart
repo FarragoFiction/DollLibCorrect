@@ -11,7 +11,7 @@ import "../../Rendering/ReferenceColors.dart";
 import 'package:RenderingLib/src/Misc/weighted_lists.dart';
 class FruitDoll extends Doll {
 
-    List <int> mutants = <int>[56,50,55,44,50,48,46,27,24,15,14];
+    static List <int> mutants = <int>[56,50,55,44,50,48,46,27,24,15,14];
 
     @override
     Colour get associatedColor {
