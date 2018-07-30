@@ -45,8 +45,8 @@ class TreeDoll extends Doll{
         return forms.first;
     }
 
-  int minFruit = 6;
-  int maxFruit = 24;
+  int minFruit = 3;
+  int maxFruit = 13;
   int minLeaf = 13;
   int maxLeaf = 33;
 
@@ -192,6 +192,11 @@ class TreeDoll extends Doll{
         List<SpriteLayer> h = <SpriteLayer>[];
         h.addAll(hangables);
         for(PositionedDollLayer layer in h) {
+            //if it's not fruit allow it to be bigger
+            if((template is FruitDoll)) {
+                layer.width = layer.width * 2;
+                layer.height = layer.height * 2;
+            }
             Doll backupDoll = layer.doll;
             layer.doll = template.clone();
             layer.doll.orientation = backupDoll.orientation;
@@ -503,6 +508,11 @@ class TreeDoll extends Doll{
 
   Future<Null> createFlowers() async {
      //print ('first creating flowers');
+      //if i know the fruit is weird, make less of it
+      if(fruitTemplate != null && !(fruitTemplate is FruitDoll)) {
+        minFruit = 1;
+        maxFruit = 3;
+      }
      int amount = rand.nextIntRange(minFruit,maxFruit);
      rand = new Random(seed);
 
