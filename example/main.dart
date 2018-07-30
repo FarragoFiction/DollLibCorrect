@@ -17,6 +17,7 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     await breedTest();
+    await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
     DateTime startTime = new DateTime.now();
