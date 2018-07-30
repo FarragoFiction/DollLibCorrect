@@ -70,6 +70,11 @@ class TreeDoll extends Doll{
   @override
   String name = "Tree";
 
+    @override
+    Colour get associatedColor {
+         return  (palette as HomestuckPalette).shoe_light;
+    }
+
   @override
   String relativefolder = "images/Tree";
   final int maxBranches = 32;
