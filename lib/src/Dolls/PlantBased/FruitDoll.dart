@@ -204,8 +204,8 @@ class FruitDoll extends Doll {
         genericEnds.add("Currant", 0.1);
         genericEnds.add("Apricot", 0.3);
 
-        if(body.imgNumber == 0 || body.imgNumber == 11) genericEnds.add("Apple",12.0);
-        if(body.imgNumber == 5 || body.imgNumber == 6) genericEnds.add("Grape",12.0);
+        if(body.imgNumber == 11) genericEnds.add("Apple",12.0);
+        if(body.imgNumber == 6) genericEnds.add("Grape",12.0);
         if(body.imgNumber == 12) genericEnds.add("Cherry",1.0);
         if(body.imgNumber == 33) genericEnds.add("Star",12.0);
         if(body.imgNumber == 17) genericEnds.add("Pepper",12.0);
