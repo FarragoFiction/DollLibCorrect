@@ -22,6 +22,27 @@ class FruitDoll extends Doll {
             return  palette.first;
         }
     }
+
+    //fruits have a different seed algo so that the global seed bank in LOHAE is all neat and tidy
+    //net effect is there is 1000 * body numbers of possible fruits.
+    //or put another way, there is 999 color variation sets for each fruit body.
+    @override
+    int get seed {
+        int s = body.imgNumber;
+        //multiply it by powers of ten so they don't overlap with each other
+        s = s * 1000; //last three digits are zero, will store numbers derived from hue, saturation and value there.
+        //for color, if the hue is .3, the saturation is .5 and the value is .7
+        //we would end up with a number like  s + 300+50+7 or s + 357;
+        //the weird shit double.parse(associatedColor.hue.toStringAsFixed(1)
+        //that shit? it makes sure the values are a single decimal, not like .338 which would end up 338 which would step on saturation and value
+        s += double.parse(associatedColor.hue.toStringAsFixed(1)*1000).round();
+        s += double.parse(associatedColor.saturation.toStringAsFixed(1)*100).round();
+        s += double.parse(associatedColor.value.toStringAsFixed(1)*10).round();
+        //what this means is fruit color can change a bit without changing the name
+
+        return s;
+    }
+
     @override
     List<Palette> validPalettes = new List<Palette>.from(ReferenceColours.paletteList.values);
 
