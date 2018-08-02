@@ -100,6 +100,37 @@ class HomestuckTrollDoll extends HomestuckDoll {
     static int get randomFuchsiaSign => randomSignBetween(265,288);
 
 
+    static int casteToRandomSign(String caste) {
+        if(caste == HomestuckTrollDoll.BURGUNDY) {
+            return HomestuckTrollDoll.randomBurgundySign;
+        }else if(caste == HomestuckTrollDoll.BRONZE) {
+            return HomestuckTrollDoll.randomBronzeSign;
+        }else if(caste == HomestuckTrollDoll.GOLD) {
+            return HomestuckTrollDoll.randomGoldSign;
+        }else if(caste == HomestuckTrollDoll.LIME) {
+            return HomestuckTrollDoll.randomLimeSign;
+        }else if(caste == HomestuckTrollDoll.OLIVE) {
+            return HomestuckTrollDoll.randomOliveSign;
+        }else if(caste == HomestuckTrollDoll.JADE) {
+            return HomestuckTrollDoll.randomJadeSign;
+        }else if(caste == HomestuckTrollDoll.TEAL) {
+            return HomestuckTrollDoll.randomTealSign;
+        }else if(caste == HomestuckTrollDoll.CERULEAN) {
+            return HomestuckTrollDoll.randomCeruleanSign;
+        }else if(caste == HomestuckTrollDoll.INDIGO) {
+            return HomestuckTrollDoll.randomIndigoSign;
+        }else if(caste == HomestuckTrollDoll.PURPLE) {
+            return HomestuckTrollDoll.randomPurpleSign;
+        }else if(caste == HomestuckTrollDoll.VIOLET) {
+            return HomestuckTrollDoll.randomVioletSign;
+        }else if(caste == HomestuckTrollDoll.FUCHSIA) {
+            return HomestuckTrollDoll.randomFuchsiaSign;
+        }
+
+        return 0;
+    }
+
+
 
     @override
     Palette paletteSource = ReferenceColours.TROLL_PALETTE;
