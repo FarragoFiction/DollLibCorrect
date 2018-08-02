@@ -28,6 +28,9 @@ Future<bool> start() async {
     await drawDoll(doll);
     doll.transformHangablesInto();
     await drawDoll(doll);
+    doll = Doll.loadSpecificDoll(doll.toDataBytesX());
+    doll.transformHangablesInto();
+    await drawDoll(doll);
     //runTests();
 }
 

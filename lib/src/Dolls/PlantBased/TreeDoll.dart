@@ -33,6 +33,10 @@ class TreeDoll extends Doll{
     //for drawing fruit and other hangables only want to get tree once
     CanvasElement leavesAndBranchCache;
 
+    List<SpriteLayer> get hangables => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Hang") || !s.name.contains("Leaf"))  );
+    List<SpriteLayer> get clusters => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Cluster") || s.name.contains("Leaf")));
+
+
     @override
     List<Palette> validPalettes = new List<Palette>.from(ReferenceColours.paletteList.values);
 
@@ -420,8 +424,6 @@ class TreeDoll extends Doll{
       return newPalette;
   }
 
-  List<SpriteLayer> get hangables => renderingOrderLayers.where((SpriteLayer s) => s.name.contains("Hang") || s.name.contains("Dynamic")  );
-    List<SpriteLayer> get clusters => renderingOrderLayers.where((SpriteLayer s) => s.name.contains("Cluster") || s.name.contains("Leaf"));
 
   bool hasHangablesAlready() {
       return hangables.isNotEmpty;
