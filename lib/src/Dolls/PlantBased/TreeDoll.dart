@@ -192,11 +192,6 @@ class TreeDoll extends Doll{
         List<SpriteLayer> h = <SpriteLayer>[];
         h.addAll(hangables);
         for(PositionedDollLayer layer in h) {
-            //if it's not fruit allow it to be bigger
-            if((template is FruitDoll)) {
-                layer.width = layer.width * 2;
-                layer.height = layer.height * 2;
-            }
             Doll backupDoll = layer.doll;
             layer.doll = template.clone();
             layer.doll.orientation = backupDoll.orientation;
