@@ -35,9 +35,9 @@ class FruitDoll extends Doll {
         //we would end up with a number like  s + 300+50+7 or s + 357;
         //the weird shit double.parse(associatedColor.hue.toStringAsFixed(1)
         //that shit? it makes sure the values are a single decimal, not like .338 which would end up 338 which would step on saturation and value
-        s += double.parse(associatedColor.hue.toStringAsFixed(1)*1000).round();
-        s += double.parse(associatedColor.saturation.toStringAsFixed(1)*100).round();
-        s += double.parse(associatedColor.value.toStringAsFixed(1)*10).round();
+        s += (double.parse(associatedColor.hue.toStringAsFixed(1))*1000).round();
+        s += (double.parse(associatedColor.saturation.toStringAsFixed(1))*100).round();
+        s += (double.parse(associatedColor.value.toStringAsFixed(1))*10).round();
         //what this means is fruit color can change a bit without changing the name
 
         return s;
