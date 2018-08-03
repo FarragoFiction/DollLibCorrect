@@ -204,13 +204,13 @@ class FruitDoll extends Doll {
         genericEnds.add("Currant", 0.1);
         genericEnds.add("Apricot", 0.3);
 
-        if(body.imgNumber == 11) genericEnds.add("Apple",12.0);
-        if(body.imgNumber == 13) genericEnds.add("Mystery",12.0);
-        if(body.imgNumber == 6) genericEnds.add("Grape",12.0);
-        if(body.imgNumber == 12) genericEnds.add("Cherry",1.0);
-        if(body.imgNumber == 33) genericEnds.add("Star",12.0);
-        if(body.imgNumber == 17) genericEnds.add("Pepper",12.0);
-        if(body.imgNumber == 27) genericEnds.add("Bulb",12.0);
+        if(body.imgNumber == 11) genericEnds.add("Apple",33.0);
+        if(body.imgNumber == 13) genericEnds.add("Mystery",33.0);
+        if(body.imgNumber == 6) genericEnds.add("Grape",33.0);
+        if(body.imgNumber == 12) genericEnds.add("Cherry",33.0);
+        if(body.imgNumber == 33) genericEnds.add("Star",33.0);
+        if(body.imgNumber == 17) genericEnds.add("Pepper",33.0);
+        if(body.imgNumber == 27) genericEnds.add("Bulb",33.0);
 
         if(body.imgNumber == 24 ) genericStarts.add("Eye",100.0);
         if(body.imgNumber == 74 ) genericStarts.add("Skull",100.0);
