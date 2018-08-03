@@ -11,7 +11,7 @@ import "../../Rendering/ReferenceColors.dart";
 import 'package:RenderingLib/src/Misc/weighted_lists.dart';
 class FruitDoll extends Doll {
 
-    static List <int> mutants = <int>[56,50,55,44,50,48,46,27,24,15,14];
+    static List <int> mutants = <int>[56,50,55,44,50,48,46,27,24,15,14,76,74,71,62,34,59,61,57];
 
     @override
     Colour get associatedColor {
@@ -46,7 +46,7 @@ class FruitDoll extends Doll {
     @override
     List<Palette> validPalettes = new List<Palette>.from(ReferenceColours.paletteList.values);
 
-    int maxBody = 33;
+    int maxBody = 79;
     String relativefolder = "images/Fruit";
 
     SpriteLayer body;
@@ -176,7 +176,7 @@ class FruitDoll extends Doll {
         genericStarts.addAll(<String>["Planet","Cosmic","Delicious","Rice","Snack","Dinner","Hazle","Pea","Chest","Song","Pain","Tall","Hard","Soft","Cola","Crow","Common"]);
         genericStarts.addAll(<String>["Canary","Duck","Monkey","Ape","Bat","Pony","Shogun","Jaded","Paradox","Karmic","Manic","Table","Aspiring","Recursive"]);
         genericStarts.addAll(<String>["Woo","Chew","Bite","Dilletant","Oracle","Insomniac","Insufferable","Some","Body","Mathematician","Guardian","Mod","Watcher","Slacker"]);
-        genericStarts.addAll(<String>["Dog","Land","Retribution","Researcher","Cat","Troll","Canine","Gull","Wing","Pineapple","Cactus","Coma","Catatonic","Cumulus"]);
+        genericStarts.addAll(<String>["Good","Bad","Dog","Land","Retribution","Researcher","Cat","Troll","Canine","Gull","Wing","Pineapple","Cactus","Coma","Catatonic","Cumulus"]);
         genericStarts.addAll(<String>["Moon","Cool","Yogistic","Doctor","Knight","Seer","Page","Mage","Rogue","Sylph","Fairy","Thief","Maid","Heir","Prince","Witch","Hag","Mermaid"]);
         genericStarts.addAll(<String>["Fish","Corpse","Cake","Muffin","Bacon","Pig","Taco","Salsa","Carpet","Kiwi","Snake","Salamander","Breath","Time","King","Queen","Royal","Clubs"]);
         genericStarts.addAll(<String>["Spades","Heart","Diamond","Butler","Doom","Blood","Heart","Mind","Space","Light","Void","Rage","Bacchus","Drunk","Hope","Life","Durian"]);
@@ -205,6 +205,7 @@ class FruitDoll extends Doll {
         genericEnds.add("Apricot", 0.3);
 
         if(body.imgNumber == 11) genericEnds.add("Apple",12.0);
+        if(body.imgNumber == 13) genericEnds.add("Mystery",12.0);
         if(body.imgNumber == 6) genericEnds.add("Grape",12.0);
         if(body.imgNumber == 12) genericEnds.add("Cherry",1.0);
         if(body.imgNumber == 33) genericEnds.add("Star",12.0);
@@ -212,6 +213,11 @@ class FruitDoll extends Doll {
         if(body.imgNumber == 27) genericEnds.add("Bulb",12.0);
 
         if(body.imgNumber == 24 ) genericStarts.add("Eye",100.0);
+        if(body.imgNumber == 74 ) genericStarts.add("Skull",100.0);
+        if(body.imgNumber == 60 ) genericStarts.add("Crab",100.0);
+        if(body.imgNumber == 71 ) genericStarts.add("Bun",100.0);
+        if(body.imgNumber == 57 || body.imgNumber == 56  ) genericStarts.add("Loss",100.0);
+        if(body.imgNumber == 76 ) genericStarts.add("Flame",100.0);
         if(body.imgNumber == 26 ) genericStarts.add("Cod",100.0);
         if(body.imgNumber == 14 ) genericStarts.add("Justice",100.0);
         if(body.imgNumber == 15 ) genericStarts.add("Frog",100.0);
