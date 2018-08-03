@@ -214,6 +214,7 @@ class FruitDoll extends Doll {
 
         if(body.imgNumber == 24 ) genericStarts.add("Eye",100.0);
         if(body.imgNumber == 74 ) genericStarts.add("Skull",100.0);
+        if(body.imgNumber == 45 ) genericStarts.add("Puzzle",100.0);
         if(body.imgNumber == 60 ) genericStarts.add("Crab",100.0);
         if(body.imgNumber == 71 ) genericStarts.add("Bun",100.0);
         if(body.imgNumber == 57 || body.imgNumber == 56  ) genericStarts.add("Loss",100.0);
