@@ -180,7 +180,7 @@ class FruitDoll extends Doll {
         genericStarts.addAll(<String>["Moon","Cool","Yogistic","Doctor","Knight","Seer","Page","Mage","Rogue","Sylph","Fairy","Thief","Maid","Heir","Prince","Witch","Hag","Mermaid"]);
         genericStarts.addAll(<String>["Fish","Corpse","Cake","Muffin","Bacon","Pig","Taco","Salsa","Carpet","Kiwi","Snake","Salamander","Breath","Time","King","Queen","Royal","Clubs"]);
         genericStarts.addAll(<String>["Spades","Heart","Diamond","Butler","Doom","Blood","Heart","Mind","Space","Light","Void","Rage","Bacchus","Drunk","Hope","Life","Durian"]);
-        genericStarts.addAll(<String>["Ring","Pomelo","Sharp","Prickly","Donut","Baby","Papaya","Oil","Poisonous","Toxic","Generic","Wine","Jelly","Jam","Juice","Gum","Fire","Icy","Blanket","Cool","Heat","Dour","Shadow","Luck","Rattle"]);
+        genericStarts.addAll(<String>["Guide","Ring","Pomelo","Sharp","Prickly","Donut","Baby","Papaya","Oil","Poisonous","Toxic","Generic","Wine","Jelly","Jam","Juice","Gum","Fire","Icy","Blanket","Cool","Heat","Dour","Shadow","Luck","Rattle"]);
         genericStarts.addAll(<String>["Script","Java","Dart","Dank","Muse","Lord","Meme","May","June","Mock","Mountain","Nut","Apple","Grape","Sauce","Dream","Rain","Mist","Sand","Mighty","Orange","Tangerine","Water","Cave","Dirt","Clam","Apple","Berry","Date","Marriage"]);
         genericStarts.addAll(<String>["Army","Navy","Marine","Tank","Walk","Run","Hop","Jump","Skip","March","Meow","Woof","Hoof","Slime","Joint","Taco","Mint","Fog","Wind","Love","Hate","Stable","Correct","Omni","All","Flavor","Hybrid","Jerry","Pickle","Acid"]);
 
@@ -259,6 +259,21 @@ class FruitDoll extends Doll {
 
     void randomizeColors() {
         if(rand == null) rand = new Random();
+        //i like the weird red trees with the black fruit
+        //validPalettes.remove(ReferenceColours.BURGUNDY);
+        validPalettes.remove(ReferenceColours.ANON);
+        validPalettes.remove(ReferenceColours.BRONZE);
+        validPalettes.remove(ReferenceColours.GOLD);
+        validPalettes.remove(ReferenceColours.OLIVE);
+        validPalettes.remove(ReferenceColours.LIMEBLOOD);
+        validPalettes.remove(ReferenceColours.JADE);
+        validPalettes.remove(ReferenceColours.TEAL);
+        validPalettes.remove(ReferenceColours.CERULEAN);
+        validPalettes.remove(ReferenceColours.INDIGO);
+        validPalettes.remove(ReferenceColours.PURPLE);
+        validPalettes.remove(ReferenceColours.VIOLET);
+        validPalettes.remove(ReferenceColours.FUSCHIA);
+
 
         Palette newPallete = rand.pickFrom(validPalettes);
         copyPalette(newPallete);

@@ -154,6 +154,18 @@ class TreeDoll extends Doll{
   @override
   void randomizeColors() {
     if(rand == null) rand = new Random(seed);
+    validPalettes.remove(ReferenceColours.ANON);
+    validPalettes.remove(ReferenceColours.BRONZE);
+    validPalettes.remove(ReferenceColours.GOLD);
+    validPalettes.remove(ReferenceColours.OLIVE);
+    validPalettes.remove(ReferenceColours.LIMEBLOOD);
+    validPalettes.remove(ReferenceColours.JADE);
+    validPalettes.remove(ReferenceColours.TEAL);
+    validPalettes.remove(ReferenceColours.CERULEAN);
+    validPalettes.remove(ReferenceColours.INDIGO);
+    validPalettes.remove(ReferenceColours.PURPLE);
+    validPalettes.remove(ReferenceColours.VIOLET);
+    validPalettes.remove(ReferenceColours.FUSCHIA);
 
     Palette newPallete = rand.pickFrom(validPalettes);
     copyPalette(newPallete);
