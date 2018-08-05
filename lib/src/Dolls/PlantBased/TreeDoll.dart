@@ -561,6 +561,10 @@ class TreeDoll extends Doll{
 
   Future<Null> createFruit() async{
       //print ('first creating fruit');
+      if(fruitTemplate != null && !(fruitTemplate is FruitDoll)) {
+          minFruit = 1;
+          maxFruit = 3;
+      }
       int amount = rand.nextIntRange(minFruit,maxFruit);
       if(fruitTemplate == null) {
           spawnFruit();
