@@ -128,14 +128,14 @@ Future<Null> breedTestTrees() async {
     //loading from string so its as close as possible to LOHAE
     TreeDoll tree = Doll.loadSpecificDoll("Tree:___BEEnEAZ6EAAKqdAJrZAGaQAERgAP_______2siAP___3QzAE0iAGcxHUQgE_8A6aoAm____wrAmAJdwJgCXYJQk4gDPQgABVToBNbIAzSAAiMAB_______-1kQB___-6GYAmkQAzmI6iEAn_gHTVAE3___-ihRAXQCWAeQPLBKEnEAZ6EAAKqdAJrZAGaQAERgAP_______2siAP___3QzAE0iAGcxHUQgE_8A6aoAm____0UNwCAgOcBNgJtglCTiAM9CAAFVOgE1sgDNIACIwAH_______7WRAH___7oZgCaRADOYjqIQCf-AdNUATf___6KGoF4AjQCMARjBKEnEAZ6EAAKqdAJrZAGaQAERgAP_______2siAP___3QzAE0iAGcxHUQgE_8A6aoAm____0UAyyAdABCgEUAimCUJOIAz0IAAVU6ATWyAM0gAIjAAf_______tZEAf___uhmAJpEAM5iOohAJ_4B01QBN____ooJoCVAZoDDAYbBKEnEAZ6EAAKqdAJrZAGaQAERgAP_______2siAP___3QzAE0iAGcxHUQgE_8A6aoAm____0UEkBPgMUBPAJ5glCTiAM9CAAFVOgE1sgDNIACIwAH_______7WRAH___7oZgCaRADOYjqIQCf-AdNUATf___6KLgNQBzgMEBgsEoScQBnoQAAqp0AmtkAZpAARGAA________ayIA____dDMATSIAZzEdRCAT_wDpqgCb____RQSoDAA6AF2Au2CUJOIAz0IAAVU6ATWyAM0gAIjAAf_______tZEAf___uhmAJpEAM5iOohAJ_4B01QBN____orQDtAIIAiwEWwShJxAGehAACqnQCa2QBmkABEYAD_______9rIgD___90MwBNIgBnMR1EIBP_AOmqAJv___9FAL4gFIATIBMgJlglCTiAM9CAAFVOgE1sgDNIACIwAH_______7WRAH___7oZgCaRADOYjqIQCf-AdNUATf___6KAXqAoAHGAwwGGwShJxAGehAACqnQCa2QBmkABEYAD_______9rIgD___90MwBNIgBnMR1EIBP_AOmqAJv___9FAMFAfID4AvAXmCUJOIAz0IAAVU6ATWyAM0gAIjAAf_______tZEAf___uhmAJpEAM5iOohAJ_4B01QBN____ooBhIDcAIkBUAqMEoScQBnoQAAqp0AmtkAZpAARGAA________ayIA____dDMATSIAZzEdRCAT_wDpqgCb____RQDGoCmASEBHAI5gkCTiAM9CAAFVOgE1sgDNIACIwAH_______7WRAH___7oZgCaRADOYjqIQCf-AdNUATf___6F0AggCIgzBmwSBJxAGehAACqnQCa2QBmkABEYAD_______9rIgD___90MwBNIgBnMR1EIBP_AOmqAJv___9C6AYoDdBmDNgkCTiAM9CAAFVOgE1sgDNIACIwAH_______7WRAH___7oZgCaRADOYjqIQCf-AdNUATf___6F0AV4B9AzBngkCTiAM9CAAFVOgE1sgDNIACIwAH_______7WRAH___7oZgCaRADOYjqIQCf-AdNUATf___6F4Iwk4gDPQgABVToBNbIAzSAAiMAB_______-1kQB___-6GYAmkQAzmI6iEAn_gHTVAE3___-gzglCTiAM9CAAFVOgE1sgDNIACIwAH_______7WRAH___7oZgCaRADOYjqIQCf-AdNUATf___6Lg==");
     tree.fruitTime = true;
-    tree.fruitTemplate = new FruitDoll()..setName();
     //fruit.body.imgNumber = 74;
     CanvasElement canvas = await tree.getNewCanvas(true);
     output.append(canvas);
-    output.append(new SpanElement()..text = "${tree.dollName}");
+    output.append(new SpanElement()..text = "${tree.fruitTemplate.dollName}");
     for(int i = 0; i <3; i++) {
         //FruitDoll fruit2 = new FruitDoll();
         TreeDoll child = Doll.breedDolls(<Doll>[tree]);
+        print("after breeding the fruit template of the child is ${child.fruitTemplate}");
         child.fruitTime = true;
         CanvasElement childCanvas = await child.getNewCanvas(true);
         output.append(childCanvas);

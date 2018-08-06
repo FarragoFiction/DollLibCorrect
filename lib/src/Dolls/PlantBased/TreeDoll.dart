@@ -220,22 +220,20 @@ class TreeDoll extends Doll{
     @override
     ImprovedByteReader initFromReader(ImprovedByteReader reader, [bool layersNeedInit = true]) {
       reader = super.initFromReader(reader, layersNeedInit);
-      print("reader is $reader");
+      //print("reader is $reader");
       try {
           //builder.appendExpGolomb(rotation);
           //        builder.appendExpGolomb(orientation);
           fruitTemplate = Doll.loadSpecificDollFromReader(reader);
-          print("loaded a fruit template");
+        //  print("loaded a fruit template");
           flowerTemplate = Doll.loadSpecificDollFromReader(reader);
-          print("loaded a floewr template");
+          //print("loaded a floewr template");
           //leaves are last because might not be stored
           leafTemplate = Doll.loadSpecificDollFromReader(reader);
-          print("loaded a leaf template");
-
-
-
+          //print("loaded a leaf template");
       }catch(e,s) {
-          print("no template data, $e, $s");
+          //not a problem, this was just for debugging
+          //print("no template data, $e, $s");
       }
       return reader;
     }
@@ -277,13 +275,13 @@ class TreeDoll extends Doll{
 
             }
         }
-        print("breeding with ${leaves.length} leaves, ${flowers.length} flowers, and ${fruit.length} fruit");
+        //print("breeding with ${leaves.length} leaves, ${flowers.length} flowers, and ${fruit.length} fruit");
         if(leaves.isNotEmpty)leafTemplate = Doll.breedDolls(leaves);
         if(flowers.isNotEmpty)flowerTemplate = Doll.breedDolls(flowers);
         if(fruit.isNotEmpty) {
-            print("fruits to breed are $fruit");
+          //  print("fruits to breed are $fruit");
             fruitTemplate = Doll.breedDolls(fruit);
-            print("chosen fruit template is $fruitTemplate");
+            //print("chosen fruit template is $fruitTemplate");
         }
     }
 

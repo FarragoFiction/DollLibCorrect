@@ -354,6 +354,7 @@ abstract class Doll {
                 //decide what to do with dynamics in individual dollsets
                 if(!(mine is DynamicLayer)) {
                     Doll d = rand.pickFrom(dolls);
+                    //print("first parent is $d with seed ${d.seed}");
                     SpriteLayer yours;
                     if (d.dataOrderLayers.length > i)
                         yours = d.dataOrderLayers[i];
@@ -363,8 +364,7 @@ abstract class Doll {
                         //print("my ${mine} was ${mine.imgNumber}, your ${yours} was ${yours.imgNumber}, them together is ${mine.imgNumber & yours.imgNumber}");
                         int max = mine.maxImageNumber;
                         if (max == 0) max = 1;
-                        mine.imgNumber =
-                            yours.imgNumber % max; //dont' go over you dick
+                        mine.imgNumber = yours.imgNumber % max; //dont' go over you dick
                         //print("mine after alchemy is ${mine.imgNumber}");
                         if (firstEye > 0 && mine.imgNameBase.contains("Eye"))
                             mine.imgNumber = firstEye;
