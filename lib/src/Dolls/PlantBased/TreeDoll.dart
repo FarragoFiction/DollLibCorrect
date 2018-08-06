@@ -250,9 +250,9 @@ class TreeDoll extends Doll{
       if(flowerTemplate != null) {
           flowerTemplate.appendDataBytesToBuilder(builder);
       }
-
-      //don't have the unused leaves stored.
-      if(leafTemplate != null && leavesBack.imgNumber ==0) {
+        //store it even if you aren't using it (kind of like recessive)
+      //or it will bitch like a mother fucker
+      if(leafTemplate != null) {
           leafTemplate.appendDataBytesToBuilder(builder);
       }
 
