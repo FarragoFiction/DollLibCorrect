@@ -515,9 +515,7 @@ abstract class Doll {
         }catch(e) {
             //print("no rotation data but that's okay");
         }
-
-
-
+        return reader; //so subclasses can do things to it (like load fruit templates)
     }
 
 

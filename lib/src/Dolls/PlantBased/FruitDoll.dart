@@ -230,6 +230,12 @@ class FruitDoll extends Doll {
         dollName = "$start $end";
     }
 
+    @override
+    String toString() {
+        if(dollName == name) setName();
+        return dollName;
+    }
+
 
     @override
     void initLayers() {
