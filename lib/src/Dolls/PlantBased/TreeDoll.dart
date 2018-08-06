@@ -32,8 +32,6 @@ class TreeDoll extends Doll{
     CanvasElement branchCache;
     //for drawing fruit and other hangables only want to get tree once
     CanvasElement leavesAndBranchCache;
-    List<SpriteLayer> get fruit => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Hang") || !s.name.contains("Flower")&& !s.name.contains("Leaf"))  );
-    List<SpriteLayer> get flowers => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Hang") || s.name.contains("Flower"))  );
 
     List<SpriteLayer> get hangables => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Hang") || !s.name.contains("Leaf"))  );
     List<SpriteLayer> get clusters => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Cluster") || s.name.contains("Leaf")));
@@ -224,12 +222,12 @@ class TreeDoll extends Doll{
       try {
           //builder.appendExpGolomb(rotation);
           //        builder.appendExpGolomb(orientation);
-          fruitTemplate = Doll.loadSpecificDollFromReader(reader);
+          fruitTemplate = Doll.loadSpecificDollFromReader(reader,true);
         //  print("loaded a fruit template");
-          flowerTemplate = Doll.loadSpecificDollFromReader(reader);
+          flowerTemplate = Doll.loadSpecificDollFromReader(reader,true);
           //print("loaded a floewr template");
           //leaves are last because might not be stored
-          leafTemplate = Doll.loadSpecificDollFromReader(reader);
+          leafTemplate = Doll.loadSpecificDollFromReader(reader,true);
           //print("loaded a leaf template");
       }catch(e,s) {
           //not a problem, this was just for debugging

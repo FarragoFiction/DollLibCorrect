@@ -799,7 +799,7 @@ abstract class Doll {
         return new CanvasElement(width: width, height: height);
     }
 
-    static Doll loadSpecificDollFromReader(ImprovedByteReader reader) {
+    static Doll loadSpecificDollFromReader(ImprovedByteReader reader, [bool ignoreError = false]) {
         //print("loading doll from string $ds");
         int type = -99;
         //FUTURE JR, PAY ATTENTION
@@ -821,7 +821,7 @@ abstract class Doll {
             //name is NOT expected because if i'm loading from a reader this is a subdoll or similar, no plain text in any case
             ret.load(reader, "doesnotexist",false);
         }catch(e,trace){
-            print("ERROR: this method does not support legacy strings, but had error $e in parsing with trace $trace");
+            if(!ignoreError) print("ERROR: this method does not support legacy strings, but had error $e in parsing with trace $trace");
         }
         return ret;
     }
