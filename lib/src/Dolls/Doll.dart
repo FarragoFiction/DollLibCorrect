@@ -479,7 +479,7 @@ abstract class Doll {
 
     //i am assuming type was already read at this point. Type, Exo is required.
     //IMPORTANT: WHATEVER CALLS ME SHOULD try/catch FOR OLD DATA
-    void initFromReader(ImprovedByteReader reader, [bool layersNeedInit = true]) {
+    ImprovedByteReader initFromReader(ImprovedByteReader reader, [bool layersNeedInit = true]) {
         if(layersNeedInit) {
             //print("initalizing layers");
             initLayers();

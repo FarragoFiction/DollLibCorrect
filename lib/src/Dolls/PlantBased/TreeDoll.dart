@@ -252,6 +252,40 @@ class TreeDoll extends Doll{
         }
     }
 
+    @override
+    ImprovedByteReader initFromReader(ImprovedByteReader reader, [bool layersNeedInit = true]) {
+      reader = super.initFromReader(reader, layersNeedInit);
+      try {
+          //builder.appendExpGolomb(rotation);
+          //        builder.appendExpGolomb(orientation);
+          leafTemplate = Doll.loadSpecificDollFromReader(reader);
+          flowerTemplate = Doll.loadSpecificDollFromReader(reader);
+          fruitTemplate = Doll.loadSpecificDollFromReader(reader);
+
+      }catch(e) {
+          //print("no rotation data but that's okay");
+      }
+      return reader;
+    }
+
+        @override
+    ByteBuilder appendDataBytesToBuilder(ByteBuilder builder) {
+      builder = super.appendDataBytesToBuilder(builder);
+
+      if(leafTemplate != null) {
+          leafTemplate.appendDataBytesToBuilder(builder);
+      }
+
+      if(flowerTemplate != null) {
+          flowerTemplate.appendDataBytesToBuilder(builder);
+      }
+
+      if(fruitTemplate != null) {
+          fruitTemplate.appendDataBytesToBuilder(builder);
+      }
+      return builder;
+    }
+
 
     @override
     void afterBreeding(List<Doll> dolls) {
