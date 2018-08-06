@@ -252,6 +252,9 @@ class TreeDoll extends Doll{
         List<Doll> leaves = new List<Doll>();
         List<Doll> fruit = new List<Doll>();
         List<Doll> flowers = new List<Doll>();
+        setLeafTemplate();
+        setFlowerTemplate();
+        setFruitTemplate();
         for(Doll d in dolls) {
             if(d is TreeDoll) {
                 if(d.leafTemplate != null) leaves.add(d.leafTemplate);
@@ -263,8 +266,6 @@ class TreeDoll extends Doll{
         if(leaves.isNotEmpty)leafTemplate = Doll.breedDolls(leaves);
         if(flowers.isNotEmpty)flowerTemplate = Doll.breedDolls(flowers);
         if(fruit.isNotEmpty)fruitTemplate = Doll.breedDolls(fruit);
-
-
     }
 
   @override
