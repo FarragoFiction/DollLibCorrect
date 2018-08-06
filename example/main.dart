@@ -125,12 +125,11 @@ Future<Null> breedTest() async {
 }
 
 Future<Null> breedTestTrees() async {
-    TreeDoll tree = new TreeDoll();
+    TreeDoll tree = Doll.loadSpecificDoll("Tree:___BEEgBBYKgdAHATAAD_AACqAABxAP_______6qZAP_nAJocAGYSAP-0Pqp4KQCU2ABikP___xCwitgkCQAgsFQOgDgJgAB_gABVAAA4gH_______9VMgH_zgE0OADMJAH_aH1U8FIBKbAAxSH___6DFASgOIMwZsEgSAEFgqB0AcBMAAP8AAKoAAHEA________qpkA_-cAmhwAZhIA_7Q-qngpAJTYAGKQ____QYwCoAJIGYM2CQJACCwVA6AOAmAAH-AAFUAADiAf_______1UyAf_OATQ4AMwkAf9ofVTwUgEpsADFIf___oMYBFgF0DMGbBIEgBBYKgdAHATAAD_AACqAABxAP_______6qZAP_nAJocAGYSAP-0Pqp4KQCU2ABikP___0GKAIeDMGYM8");
     tree.fruitTime = true;
     tree.fruitTemplate = new FruitDoll()..setName();
     //fruit.body.imgNumber = 74;
     CanvasElement canvas = await tree.getNewCanvas(true);
-    Doll child = Doll.breedDolls(<Doll>[tree]);
     output.append(canvas);
     output.append(new SpanElement()..text = "${tree.dollName}");
     for(int i = 0; i <3; i++) {

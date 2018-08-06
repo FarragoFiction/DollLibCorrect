@@ -233,20 +233,22 @@ class TreeDoll extends Doll{
 
     void setLeafTemplate() {
       List<PositionedDollLayer> leaves = clusters;
-      if(clusters.isNotEmpty) leafTemplate = leaves.first.doll;
+      if(leaves.isNotEmpty) leafTemplate = leaves.first.doll;
     }
 
     void setFlowerTemplate() {
         List<PositionedDollLayer> leaves = flowers;
-        if(clusters.isNotEmpty) flowerTemplate = leaves.first.doll;
+        if(leaves.isNotEmpty) flowerTemplate = leaves.first.doll;
     }
 
     void setFruitTemplate() {
         List<PositionedDollLayer> leaves = fruit;
         print("trying to set fruit template from ${leaves}");
-        if(clusters.isNotEmpty) {
+        if(leaves.isNotEmpty) {
             print("saved fruit isn't empty, so template should be ${leaves.first.doll}");
             fruitTemplate = leaves.first.doll;
+        }else {
+            print("no fruit found, are there any hangables? $hangables actually what do my layers look like? $renderingOrderLayers");
         }
     }
 
@@ -257,11 +259,12 @@ class TreeDoll extends Doll{
         List<Doll> leaves = new List<Doll>();
         List<Doll> fruit = new List<Doll>();
         List<Doll> flowers = new List<Doll>();
-        setLeafTemplate();
-        setFlowerTemplate();
-        setFruitTemplate();
+
         for(Doll d in dolls) {
             if(d is TreeDoll) {
+                d.setLeafTemplate();
+                d.setFlowerTemplate();
+                d.setFruitTemplate();
                 if(d.leafTemplate != null) leaves.add(d.leafTemplate);
                 if(d.flowerTemplate != null) flowers.add(d.flowerTemplate);
                 if(d.fruitTemplate != null) fruit.add(d.fruitTemplate);
