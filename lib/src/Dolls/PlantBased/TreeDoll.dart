@@ -32,6 +32,8 @@ class TreeDoll extends Doll{
     CanvasElement branchCache;
     //for drawing fruit and other hangables only want to get tree once
     CanvasElement leavesAndBranchCache;
+    List<SpriteLayer> get fruit => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Hang") || !s.name.contains("Flower")&& !s.name.contains("Leaf"))  );
+    List<SpriteLayer> get flowers => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Hang") || s.name.contains("Flower"))  );
 
     List<SpriteLayer> get hangables => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Hang") || !s.name.contains("Leaf"))  );
     List<SpriteLayer> get clusters => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Cluster") || s.name.contains("Leaf")));
@@ -213,6 +215,35 @@ class TreeDoll extends Doll{
             layer.doll.orientation = backupDoll.orientation;
             layer.doll.rotation = backupDoll.rotation;
         }
+    }
+
+    void setTemplates() {
+        if(leafTemplate == null) {
+            setLeafTemplate();
+        }
+
+        if(fruitTemplate == null) {
+            setFruitTemplate();
+        }
+
+        if(flowerTemplate == null) {
+            setFlowerTemplate();
+        }
+    }
+
+    void setLeafTemplate() {
+      List<PositionedDollLayer> leaves = clusters;
+      if(clusters.isNotEmpty) leafTemplate = leaves.first.doll;
+    }
+
+    void setFlowerTemplate() {
+        List<PositionedDollLayer> leaves = flowers;
+        if(clusters.isNotEmpty) flowerTemplate = leaves.first.doll;
+    }
+
+    void setFruitTemplate() {
+        List<PositionedDollLayer> leaves = fruit;
+        if(clusters.isNotEmpty) fruitTemplate = leaves.first.doll;
     }
 
 
