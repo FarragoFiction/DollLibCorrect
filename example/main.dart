@@ -17,7 +17,9 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     await breedTest();
-   // await renderEverythingAndLoad();
+    await breedTestTrees();
+
+    // await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
     DateTime startTime = new DateTime.now();
@@ -38,6 +40,7 @@ Future<Null> runTests() async{
    await renderEverythingAndLoad();
    await speedTest();
    await breedTest();
+   await breedTestTrees();
    await clickTest();
    await testPartial();
 }
@@ -118,6 +121,25 @@ Future<Null> breedTest() async {
         output.append(childCanvas);
         (child as FruitDoll).setName();
         output.append(new SpanElement()..text = "${child.dollName}");
+    }
+}
+
+Future<Null> breedTestTrees() async {
+    TreeDoll tree = new TreeDoll();
+    tree.fruitTime = true;
+    tree.fruitTemplate = new FruitDoll()..setName();
+    //fruit.body.imgNumber = 74;
+    CanvasElement canvas = await tree.getNewCanvas(true);
+    Doll child = Doll.breedDolls(<Doll>[tree]);
+    output.append(canvas);
+    output.append(new SpanElement()..text = "${tree.dollName}");
+    for(int i = 0; i <3; i++) {
+        //FruitDoll fruit2 = new FruitDoll();
+        TreeDoll child = Doll.breedDolls(<Doll>[tree]);
+        child.fruitTime = true;
+        CanvasElement childCanvas = await child.getNewCanvas(true);
+        output.append(childCanvas);
+        output.append(new SpanElement()..text = "${child.fruitTemplate.dollName}");
     }
 }
 

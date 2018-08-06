@@ -243,12 +243,17 @@ class TreeDoll extends Doll{
 
     void setFruitTemplate() {
         List<PositionedDollLayer> leaves = fruit;
-        if(clusters.isNotEmpty) fruitTemplate = leaves.first.doll;
+        print("trying to set fruit template from ${leaves}");
+        if(clusters.isNotEmpty) {
+            print("saved fruit isn't empty, so template should be ${leaves.first.doll}");
+            fruitTemplate = leaves.first.doll;
+        }
     }
 
 
     @override
     void afterBreeding(List<Doll> dolls) {
+      print("after breeding  being called");
         List<Doll> leaves = new List<Doll>();
         List<Doll> fruit = new List<Doll>();
         List<Doll> flowers = new List<Doll>();
