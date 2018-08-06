@@ -243,19 +243,19 @@ class TreeDoll extends Doll{
 
     void setFruitTemplate() {
         List<PositionedDollLayer> leaves = fruit;
-        print("trying to set fruit template from ${leaves}");
+        //print("trying to set fruit template from ${leaves}");
         if(leaves.isNotEmpty) {
-            print("saved fruit isn't empty, so template should be ${leaves.first.doll}");
+            //print("saved fruit isn't empty, so template should be ${leaves.first.doll}");
             fruitTemplate = leaves.first.doll;
         }else {
-            print("no fruit found, are there any hangables? $hangables actually what do my layers look like? $renderingOrderLayers");
+            //print("no fruit found, are there any hangables? $hangables actually what do my layers look like? $renderingOrderLayers");
         }
     }
 
 
     @override
     void afterBreeding(List<Doll> dolls) {
-      print("after breeding  being called");
+      //print("after breeding  being called");
         List<Doll> leaves = new List<Doll>();
         List<Doll> fruit = new List<Doll>();
         List<Doll> flowers = new List<Doll>();
