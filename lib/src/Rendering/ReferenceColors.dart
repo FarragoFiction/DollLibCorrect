@@ -587,6 +587,21 @@ abstract class ReferenceColours {
         ..eye_white_right = "#000000"
         ..skin = '#494949';
 
+    static HomestuckPalette CROCKERTIER = new HomestuckPalette()
+        ..accent = '#ff0000'
+        ..aspect_light = '#fcfcfc'
+        ..aspect_dark = '#f2f2f2'
+        ..shoe_light = '#000000'
+        ..shoe_dark = '#313133'
+        ..cloak_light = '#ff0000'
+        ..cloak_mid = '#ff0100'
+        ..cloak_dark = '#ad0001'
+        ..shirt_light = '#d30000'
+        ..shirt_dark = '#ae0000'
+        ..pants_light = '#000000'
+        ..pants_dark = '#313133'
+        ..hair_accent = '#ff0000';
+
 
     static Map<String, Palette> _paletteList;
 
@@ -613,6 +628,7 @@ abstract class ReferenceColours {
             _paletteList["Prospit"] = PROSPIT_PALETTE;
             _paletteList["Derse"] = DERSE_PALETTE;
             _paletteList["Corrupt"] = CORRUPT;
+            _paletteList["CrockerTier"] = CROCKERTIER;
             _paletteList["Sketch"] = SKETCH;
             _paletteList["Ink"] = INK;
             _paletteList["Burgundy"] = BURGUNDY;
