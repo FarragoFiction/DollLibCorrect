@@ -17,21 +17,15 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     await breedTest();
-    await breedTestTrees();
 
-    // await renderEverythingAndLoad();
+    //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
     DateTime startTime = new DateTime.now();
-    TreeDoll doll = Doll.randomDollOfType(33);
+    TreeDoll doll = Doll.randomDollOfType(16);
     new TimeProfiler("load doll", startTime);
     await drawDoll(doll);
-    doll.flowerTime = true;
-    await drawDoll(doll);
-    doll.transformHangablesInto();
-    await drawDoll(doll);
     doll = Doll.loadSpecificDoll(doll.toDataBytesX());
-    doll.transformHangablesInto();
     await drawDoll(doll);
     //runTests();
 }
