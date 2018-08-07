@@ -30,7 +30,7 @@ class MomDoll extends Doll {
     String relativefolder = "images/Homestuck/Mom";
 
     final int maxHair = 14;
-    final int maxDrink = 6;
+    final int maxDrink = 7;
     final int maxOutfit = 11;
     final int maxMouth = 8;
     final int maxBase = 0;

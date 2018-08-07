@@ -28,13 +28,13 @@ class HomestuckDoll extends HatchableDoll {
     final int maxSecretBody = 510; //the legacy limit
     final int maxHair = 306; //don't go above this yet, but have
     final int maxSecretHair = 254;
-    final int maxEye = 264;
+    final int maxEye = 263;
     final int maxMouth = 269; //actually
     final int maxSecretMouth = 254;
     final int maxSymbol = 384;  //don't go above this yet, but have
     final int maxSecretSymbol = 254;
-    final int maxGlass = 227;
-    final int maxGlass2 = 257;
+    final int maxGlass = 241;
+    final int maxGlass2 = 267;
     final int maxSecretGlass2 = 254;
     final int maxFacePaint = 184;
 

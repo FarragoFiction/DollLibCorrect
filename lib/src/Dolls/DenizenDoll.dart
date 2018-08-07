@@ -29,11 +29,11 @@ class DenizenDoll extends Doll{
   String relativefolder = "images/Homestuck/Denizen";
   final int maxFace = 14;
   final int maxBack = 11;
-  final int maxMouth =14;
-  final int maxOther = 9;
-  final int maxBody = 14;
-  final int maxCore = 1;
-  final int maxEyes = 18;
+  final int maxMouth =15;
+  final int maxOther = 10;
+  final int maxBody = 15;
+  final int maxCore = 2;
+  final int maxEyes = 19;
 
   SpriteLayer face;
   SpriteLayer back;
