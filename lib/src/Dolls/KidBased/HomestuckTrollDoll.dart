@@ -46,7 +46,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     int maxFin = 21;
     int maxCanonSymbol = 288; //288 eventually
     int maxSecretCanonSymbol = 288;
-    int maxWing = 65;
+    int maxWing = 77;
 
     SpriteLayer leftHorn;
     SpriteLayer canonSymbol; //can pick any color, but when randomized will be a canon color.
