@@ -31,7 +31,7 @@ class DogDoll extends Doll{
 
   @override
   String relativefolder = "images/Dog";
-  final int maxAccessory = 2;
+  final int maxAccessory = 3;
   final int maxbackLegs = 1;
   final int maxBody = 2;
   final int maxChestFur = 1;

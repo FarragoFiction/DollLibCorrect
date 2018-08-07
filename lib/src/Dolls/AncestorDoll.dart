@@ -55,12 +55,12 @@ class AncestorDoll extends Doll{
   String relativefolder = "images/Ancestors";
   final int maxAccessoryBehind = 2;
   final int maxAccessoryFront = 5;
-  final int maxBody = 18;
-  final int maxEye = 4;
+  final int maxBody = 30;
+  final int maxEye = 7;
   final int maxPaint = 2;
-  final int maxHair = 14;
-  final int maxHorn = 14;
-  final int maxMouth = 11;
+  final int maxHair = 15;
+  final int maxHorn = 16;
+  final int maxMouth = 13;
   final int maxFin = 1;
 
   SpriteLayer accessoryFront;
