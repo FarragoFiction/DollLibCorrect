@@ -31,12 +31,12 @@ class HomestuckDoll extends HatchableDoll {
     final int maxEye = 244;
     final int maxMouth = 260; //actually
     final int maxSecretMouth = 254;
-    final int maxSymbol = 308;  //don't go above this yet, but have
+    final int maxSymbol = 384;  //don't go above this yet, but have
     final int maxSecretSymbol = 254;
     final int maxGlass = 227;
     final int maxGlass2 = 257;
     final int maxSecretGlass2 = 254;
-    final int maxFacePaint = 168;
+    final int maxFacePaint = 184;
 
     SpriteLayer body;
     //need extended layers separate to keep  backwards compatibility with old data strings that had a single byte
