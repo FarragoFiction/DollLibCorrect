@@ -32,14 +32,14 @@ class FekDoll extends Doll{
   @override
   String relativefolder = "images/fek";
   final int maxCanonSymbol = 288;
-  final int maxBody = 14;
-  final int maxFace = 11;
-  final int maxFacePaint = 4;
-  final int maxGlasses = 9;
-  final int maxHair = 33;
-  final int maxHorns = 16;
-  final int maxSymbol = 18;
-  final int maxText = 8;
+  final int maxBody = 20;
+  final int maxFace = 14;
+  final int maxFacePaint = 5;
+  final int maxGlasses = 10;
+  final int maxHair = 34;
+  final int maxHorns = 17;
+  final int maxSymbol = 19;
+  final int maxText = 11;
 
 
 
