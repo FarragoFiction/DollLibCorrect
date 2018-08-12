@@ -29,10 +29,14 @@ class PositionedDollLayer extends DynamicLayer{
     }
 
     bool pointInsideMe(Point point) {
-        Rectangle rect = new Rectangle(x, y, width, height);
-        //TODO also experiment with "is this pixel opaque"
+        Rectangle rect = getSelfRect();
         return rect.containsPoint(point);
     }
+
+    Rectangle getSelfRect() {
+        return new Rectangle(x, y, width, height);
+    }
+
 
 
     @override
