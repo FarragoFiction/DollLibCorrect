@@ -102,7 +102,7 @@ Future<Null> clickTest() async {
 //if a cloned fruit is identical to its parent does it have the same name?
 Future<Null> breedTest() async {
     FruitDoll fruit = new FruitDoll();
-    //fruit.body.imgNumber = 74;
+    fruit.body.imgNumber = 85;
     print("first fruit in breed test has body of ${fruit.body.imgNumber}, hue of ${fruit.associatedColor.hue}, saturation of ${fruit.associatedColor.saturation} and value of  ${fruit.associatedColor.value} and a seed of ${fruit.seed}");
     CanvasElement canvas = await fruit.getNewCanvas(true);
     Doll child = Doll.breedDolls(<Doll>[fruit]);

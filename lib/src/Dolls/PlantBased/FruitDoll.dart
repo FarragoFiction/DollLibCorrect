@@ -11,7 +11,7 @@ import "../../Rendering/ReferenceColors.dart";
 import 'package:RenderingLib/src/Misc/weighted_lists.dart';
 class FruitDoll extends Doll {
 
-    static List <int> mutants = <int>[56,50,55,44,50,48,46,27,24,15,14,76,74,71,62,34,59,61,57];
+    static List <int> mutants = <int>[56,50,55,44,50,48,46,27,24,15,14,76,74,71,62,34,59,61,57,86];
 
     @override
     Colour get associatedColor {
@@ -46,7 +46,7 @@ class FruitDoll extends Doll {
     @override
     List<Palette> validPalettes = new List<Palette>.from(ReferenceColours.paletteList.values);
 
-    int maxBody = 79;
+    int maxBody = 86;
     String relativefolder = "images/Fruit";
 
     SpriteLayer body;
@@ -213,6 +213,8 @@ class FruitDoll extends Doll {
         if(body.imgNumber == 27) genericEnds.add("Bulb",33.0);
 
         if(body.imgNumber == 24 ) genericStarts.add("Eye",100.0);
+        if(body.imgNumber == 80 ) genericStarts.add("Bread",300.0);
+        if(body.imgNumber == 86 ) genericStarts.add("Pizza",300.0);
         if(body.imgNumber == 74 ) genericStarts.add("Skull",100.0);
         if(body.imgNumber == 45 ) genericStarts.add("Puzzle",100.0);
         if(body.imgNumber == 60 ) genericStarts.add("Crab",100.0);
@@ -222,6 +224,16 @@ class FruitDoll extends Doll {
         if(body.imgNumber == 26 ) genericStarts.add("Cod",100.0);
         if(body.imgNumber == 14 ) genericStarts.add("Justice",100.0);
         if(body.imgNumber == 15 ) genericStarts.add("Frog",100.0);
+
+        if(body.imgNumber >= 82 && body.imgNumber <=85) {
+            genericStarts.add("Fresh",300.0);
+            genericStarts.add("Impudent",300.0);
+            genericStarts.add("Fruity",300.0);
+            genericStarts.add("Rambunctious",300.0);
+            genericStarts.add("Rumpus",300.0);
+            genericStarts.add("Rude",300.0);
+            genericStarts.add("Mock",300.0);
+        }
 
         Random freshRand = new Random(seed);
         String start = freshRand.pickFrom(genericStarts);
