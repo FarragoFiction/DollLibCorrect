@@ -232,6 +232,11 @@ abstract class Doll {
         quirkButDontUse = Quirk.randomHumanQuirk(rand);
     }
 
+    //dolls know where to look for their name list
+    void setName() {
+
+    }
+
     void randomizeNotColors() {
         int firstEye = -100;
         for(SpriteLayer l in renderingOrderLayers) {

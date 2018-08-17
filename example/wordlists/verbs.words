@@ -1,0 +1,199 @@
+TextEngine Word List
+
+// this default set should cover a most(?) things
+?present:?MAIN?
+?pc:?MAIN?
+?presentFirst:?present?
+?presentSecond:?presentFirst?
+?presentThird:?presentFirst?s
+?presentPlural:?presentSecond?
+?past:?pc?ed
+?pastFirst:?past?
+?pastSecond:?pastFirst?
+?pastThird:?pastFirst?
+?pastPlural:?pastSecond?
+?continuous:?pc?ing
+?perfect:?pastFirst?
+
+verb
+    @verb_programming: 0.2
+    @verb_travel
+    @verb_action
+    @verb_rivalry
+    @verbpositiveFeedback
+    @verbnegativeFeedback
+    @verb_pale
+
+
+verb_rivalry
+    fight
+        past: fought
+    compete
+        pc: compet
+    quarrel
+    argue
+        pc: argu
+    bicker
+    struggle
+        pc: struggl
+
+verb_pale
+    pap
+        pc: papp
+    shoosh
+    cuddle
+        pc: cuddl
+    caress
+
+verb_action
+    // to be or not to be?
+    // gotta fucking love how irregular this is in English
+    be
+        presentFirst: am
+        presentSecond: are
+        presentThird: is
+        pastFirst: was
+        pastSecond: were
+
+    throw
+        past: threw
+    kick
+    stab
+        pc: stabb
+    eat
+        past: ate
+    kiss: 0.2
+    caress: 0.2
+        presetThird: caresses
+    pet
+        pc: pett
+    sample
+        pc: sampl
+    imagine
+        pc: imagin
+    tap
+    use
+        pc: us
+    discard
+    draw
+    imbibe
+        pc: imbib
+    create
+        pc: creat
+    devour
+    vore
+        pc: vor
+    scatter
+    shred
+    place
+        pc: plac
+    select
+    choose
+        past: chose
+    levitate
+        pc: levitat
+    burn
+    throw
+    place
+    humiliate
+        pc: humilat
+    dominate
+        pc: dominat
+    oggle
+    auto-parry
+    wear
+    flip
+    fondly regard
+    retrieve
+        pc: retriev
+    slay
+    defeat
+    grab
+    order
+    steal
+    smell
+    sample
+        pc: sampl
+    taste
+        pc: tast
+    caress
+    fondle
+        pc: fondl
+    hydrate
+        pc: hydrat
+    placate
+        pc: placat
+    handle
+        pc: handl
+    pirouette
+        pc: piroutt
+    entrench
+    crumple
+        pc: crumpl
+    shatter
+    drop
+        pc: dropp
+    farm
+    sign
+    pile
+        pc: pil
+    smash
+    resist
+    sip
+    understand
+    contemplate
+        pc: contemplat
+    murder
+    elevate
+       pc: elevat
+    enslave
+        pc: enslav
+
+verbpositiveFeedback
+    cheer
+    clap
+    applaud
+    dab
+        pc: dabb
+    smile
+        pc:smil
+    grin
+
+verbnegativeFeedback
+    frown
+    boo
+    jeer
+    scowl
+    laugh
+
+verb_travel
+    walk
+    fly
+        past:flew
+    slide
+        pc:slid
+    crawl
+    swim
+        pc:swimm
+        past:swam
+    stroll: 0.5
+    climb
+    waddle: 0.2
+        pc:waddl
+
+verb_programming
+    write
+        past: wrote
+        pc: writ
+    script
+    design
+    program
+        pc: programm
+    engineer
+    code
+        pc: cod
+    sample
+        pc: sampl
+    construct
+    fabricate
+        pc: fabricat
