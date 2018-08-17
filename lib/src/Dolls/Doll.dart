@@ -244,18 +244,17 @@ abstract class Doll {
     Future<Null> setNameFromEngine() async {
         try {
             TextEngine textEngine;
-            try {
+           if(useAbsolutePath){
                 //absolute location, don't need to keep shit maintained between sims
-                print("trying absolute location first");
+                //print("trying absolute location first");
                 textEngine = new TextEngine(seed, "/WordSource");
-                //textEngine = new TextEngine(seed);
-                await textEngine.loadList("$nameFileLocation");
-            }catch(ignore) {
+            }else{
                 //relative location for testing
                 print("using relative location, must be testing locally");
                 textEngine = new TextEngine(seed);
-                await textEngine.loadList("$nameFileLocation");
             }
+            await textEngine.loadList("$nameFileLocation");
+
             dollName = textEngine.phrase("$nameGeneratorSection");
         }catch(e,trace) {
             print("Error doing text engine stuff, did you remember to copy the .words file to the right place? $e $trace");
