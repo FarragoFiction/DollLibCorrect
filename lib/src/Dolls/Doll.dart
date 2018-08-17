@@ -11,6 +11,7 @@ import "../../DollRenderer.dart";
 import 'package:RenderingLib/src/Misc/weighted_lists.dart';
 import 'package:RenderingLib/src/includes/bytebuilder.dart'as OldByteBuilder;
 abstract class Doll {
+    TextEngine textEngine; //cached so that if i want more names it can do that, kr said
     static String labelPattern = ":___";
     //whatever calls me is responsible for deciding if it wants to be url encoded or not
     String get label => "$dollName$labelPattern";
@@ -243,15 +244,17 @@ abstract class Doll {
     //dolls know where to look for their name list
     Future<Null> setNameFromEngine() async {
         try {
-            TextEngine textEngine;
-           if(useAbsolutePath){
-                //absolute location, don't need to keep shit maintained between sims
-                //print("trying absolute location first");
-                textEngine = new TextEngine(seed, "/WordSource");
-            }else{
-                //relative location for testing
-                print("using relative location, must be testing locally");
-                textEngine = new TextEngine(seed);
+            if(textEngine == null) {
+                //first name is the 'canon' name but can keep asking for 'random' names
+                if (useAbsolutePath) {
+                    //absolute location, don't need to keep shit maintained between sims
+                    //print("trying absolute location first");
+                    textEngine = new TextEngine(seed, "/WordSource");
+                } else {
+                    //relative location for testing
+                    print("using relative location, must be testing locally");
+                    textEngine = new TextEngine(seed);
+                }
             }
             await textEngine.loadList("$nameFileLocation");
 
