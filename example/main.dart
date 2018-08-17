@@ -18,7 +18,7 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     await breedTest();
 
-    //await renderEverythingAndLoad();
+    await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
     DateTime startTime = new DateTime.now();
@@ -68,9 +68,12 @@ Future<Null> renderEverythingAndLoad() async {
         try {
 
             Doll doll = Doll.randomDollOfType(type);
+            await doll.setNameFromEngine();
             String dollString = doll.toDataBytesX();
             //(doll as TreeDoll).fruitTemplate = new FruitDoll()..body.imgNumber = 24;
             //(doll as TreeDoll).fruitTime = true;
+            DivElement nameElement = new DivElement()..text = "${doll.dollName} (ID: ${doll.seed})";
+            us.append(nameElement);
             CanvasElement canvas = await doll.getNewCanvas(true);
             us.append(canvas);
             Doll doll2 = Doll.loadSpecificDoll(dollString);

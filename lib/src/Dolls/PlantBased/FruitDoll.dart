@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:CommonLib/Compression.dart';
 
 import "../../Dolls/Doll.dart";
@@ -155,6 +156,10 @@ class FruitDoll extends Doll {
         return newPalette;
     }
 
+    @override
+    Future<Null> setNameFromEngine() async {
+        setName();
+    }
 
 
     void setName() {

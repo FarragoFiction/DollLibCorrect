@@ -82,9 +82,9 @@ dollname_openbound
 dollname_fek
     fek
 dollname_flower
-
+    flower
 dollname_fruit
-
+    set by sim
 
 //#############################################################################################
 // TROLLS
@@ -266,384 +266,259 @@ wigglername_all
 //######################################################
 
 wigglername_title
-    Player
-    Duke
-    Earl
-    Duchess
-    Marquess
-    Marchioness
-    Lord
-    Viscount
-    Viscountess
+    Abbess
+    Abbot
+    Archbishop
+    Archdeacon
+    Archpriest
+    Assistant
+    Bard
     Baroness
+    Bishop
+    Brother
+    Cardinal
     Chief
     Chieftain
-    Saint
-    Bishop
-    Archbishop
-    Cardinal
     Chorbishop
-    Dean
-    Vice
-    Pope
-    Supreme
-    Assistant
-    Researcher
-    Vice President
-    Archdeacon
-    Sensei
-    Archpriest
-    Abbot
-    Abbess
-    Monk
-    Novice
-    Sister
-    Brother
-    Father
-    Mother
-    Elder
-    Judge
-    Executioner
-    Patriarch
-    Reverend
-    Pastor
-    Rabbi
     Cleric
-    Master
-    King
-    Queen
+    Dean
+    Dr.
     Druid
-    Knight
-    Seer
-    Bard
+    Duchess
+    Duke
+    Earl
+    Elder
+    Executioner
+    Father
     Heir
+    Judge
+    King
+    Knight
+    Lord
+    Mage
     Maid
-    Rogue
-    Thief
+    Marchioness
+    Marquess
+    Master
+    Monk
+    Monsignor
+    Mother
+    Mr.
+    Novice
     Page
-    Sylph
-    Witch
+    Pastor
+    Patriarch
+    Player
+    Pope
     Prince
     Princess
-    Mage
-    Monsignor
-    TV's
-    Sherrif
     Professor
+    Queen
+    Rabbi
+    Researcher
+    Reverend
+    Rogue
+    Saint
+    Seer
+    Sensei
+    Sherrif
+    Sister
+    Supreme
+    Sylph
+    Thief
+    TV's
+    Vice
+    Vice President
     Vice-Chancellor
+    Viscount
+    Viscountess
+    Witch
 
 //######################################################
 // WIGGLER FIRST NAMES
 //######################################################
 
 wigglername_first
-    Luigi
-    Teddy
-    Morgan
-    Gordon
-    Tom
-    Crow
-    George
-    Jim
-    Stan
-    Isaac
-    Nikalo
-    Thomas
-    Santa
-    Milton
-    Peter
-    Micheal
-    Freddy
-    Hugo
-    Steven
-    Peewee
-    Stevie
-    James
-    Harvey
-    Oswald
-    Selina
-    Obnoxio
-    Irving
-    Zygmunt
-    Waluigi
-    Wario
-    Tony
-    Ivo
     Albert
-    Hannibal
-    Mike
-    Scooby
-    Scoobert
+    Arnold
+    Autumn
+    Baby
     Barney
-    Sauce
+    Bibbles
+    Bubbles
+    Candy
+    Capybara
+    Casey
+    Charles
+    Chuck
+    Crow
+    Donut
+    Duncan
+    Ender
+    Farmstink
+    Fluffy
+    Fred
+    Freddy
+    George
+    Gordon
+    Grubby
+    Hannibal
+    Harvey
+    Hugo
+    Irving
+    Isaac
+    Ivo
+    Jack
+    James
+    Jerry
+    Jibbly
+    Jiggy
+    Jim
     Juice
     Juicy
-    Chuck
-    Jerry
-    Capybara
-    Bibbles
-    Jiggy
-    Jibbly
-    Wiggly
-    Wiggler
-    Grubby
-    Zoosmell
-    Farmstink
-    Bubbles
-    Nic
+    Julius
+    Kid
     Lil
     Liv
-    Charles
-    Meowsers
-    Casey
-    Candy
-    Sterling
-    Fred
-    Kid
+    Luigi
     Meowgon
-    Fluffy
-    Meredith
-    Bill
-    Ted
-    Ash
-    Frank
-    Flan
-    Quill
-    Squeezykins
-    Spot
-    Squeakems
-    Stephen
-    Edward
-    Hissy
-    Scaley
-    Glubglub
-    Mutie
-    Donnie
-    Clattersworth
-    Bonebone
-    Nibbles
-    Fossilbee
-    Skulligan
-    Jack
-    Nigel
-    Dazzle
-    Fancy
-    Pounce
-    Cheddar
-    Bob
-    Winston
-    Lobster
-    Snookems
-    Squeezy Face
-    Cutie
-    Sugar
-    Sweetie
-    Squishy
-    Katana
-    Sakura
-    Snuffles
-    Sniffles
-    John
-    Rose
-    Dave
-    Jade
-    Brock
-    Dirk
-    Roxy
-    Jane
-    Jake
-    Sneezy
-    Bubbly
-    Licky
-    Fido
-    Grub
-    Elizabeth
-    Malory
-    Elenora
-    Vic
-    Jason
-    Christmas
-    Hershey
-    Mario
-    Judy
+    Meowsers
+    Mew
+    Micheal
+    Mike
+    Milton
+    Misty
+    Morgan
+    Nic
+    Nikalo
+    Obnoxio
+    Oswald
+    Peewee
+    Peter
+    Santa
+    Sauce
+    Scoobert
+    Scooby
+    Selina
+    Stan
+    Sterling
+    Steven
+    Stevie
+    Teddy
+    Thomas
+    Tina
+    Tom
+    Tony
+    Waluigi
+    Wario
+    Wiggler
+    Wiggly
+    Zoosmell
+    Zygmunt
 
 //######################################################
 // WIGGLER LAST NAMES
 //######################################################
 
 wigglername_last
-    Lickface
-    McProblems
-    Pooper
-    von Wigglesmith
-    von Horn
-    Grub
-    Dumbface
-    Buttlass
-    Pooplord
-    Cage
-    Sebastion
-    Taylor
-    Dutton
-    von Wigglebottom
-    Kazoo
-    von Salamancer
-    Savage
-    Rock
-    Spangler
-    Fluffybutton
-    Wigglesona
-    S Preston
-    Logan
-    Juice
-    Clowder
-    Squeezykins
-    Boi
-    Oldington the Third
-    Malone
-    Ribs
-    Noir
-    Sandwich
-    Sauce
-    Lobster
-    Butter
-    Pie
-    Poofykins
-    Snugglepuff
-    Diabetes
-    Face
-    Puffers
-    Dorkbutt
-    Butt
-    Katanta
-    Sakura
-    Legs
-    Poppenfresh
-    Stubblies
-    Licker
-    Kilobyte
-    Samson
-    Terabyte
-    Gigabyte
-    Megabyte
-    Puker
-    Edington
-    Rockerfeller
-    Archer
     Addington
     Ainsworth
+    Archer
+    the Asshole
+    Beena
+    Boi
+    Butt
+    Butter
+    Buttlass
+    Cage
+    Cakes
+    Clowder
+    Diabetes
+    Dorkbutt
+    Dumbface
+    Dutton
+    Edington
+    Face
+    Faraday
+    Fluffybutton
+    Gigabyte
     Gladestone
-    Valentine
+    Grub
     Heart
+    Juice
+    Katanta
+    Kazoo
+    Kilobyte
+    Legs
+    Licker
+    Lickface
+    Lobster
+    Logan
     Love
+    Malone
+    McEnderton
+    McProblems
+    Megabyte
+    Noir
+    Oldington the Third
+    Oppenheimer
+    Perlstein
+    Pie
+    Poof
+    Poofykins
+    Pooper
+    Pooplord
+    Poppenfresh
+    Puffers
+    Puker
+    Ribs
+    Rock
+    Rockerfeller
+    S Preston
+    Sakura
+    Samson
+    Sandwich
+    Sauce
+    Savage
+    Sebastion
     Sniffles
-    Herman
-    Powers
-    Bond
-    King
-    Karl
-    Forbush
-    Gorazdowski
-    Costanza
-    Sinatra
-    Stark
-    Parker
-    Thornberry
-    Robotnik
-    Wily
-    Frankenstein
-    Machino
-    Lecter
-    Wazowski
-    P. Sullivan
-    Doo
-    Doobert
-    Rubble
-    Ross
-    Churchill
-    Washington
-    Adams
-    Jefferson
-    Madison
-    Monroe
-    Jackson
-    Van Buren
-    Harrison
-    Knox
-    Polk
-    Fillmore
-    T Robot
-    Servo
-    Wonder
-    Pierce
-    Buchanan
-    Grant
-    Hayes
-    Garfield
-    Arthur
-    Cleveland
-    Ketchum
-    Williams
-    Quill
-    Weave
-    Myers
-    Voorhees
-    Kramer
-    Seinfeld
-    Dent
-    Nigma
-    Cobblepot
-    Strange
-    Universe
-    Darko
-    McKinley
-    Roosevelt
-    Taft
-    Harding
-    Wilson
-    Coolidge
-    Hoover
-    Truman
-    Eisenhower
-    Kennedy
-    Johnson
-    Carter
-    Arbuckle
-    Rodgers
-    T
-    G
-    Henson
-    Newton
-    Tesla
-    Edison
-    Claus
-    Hershey
-    Freeman
-    Nietzsche
+    Snugglepuff
+    Spangler
+    Squeezykins
+    Stubblies
+    Taylor
+    Terabyte
+    Valentine
+    von Horn
+    von Salamancer
+    von Wigglebottom
+    von Wigglesmith
+    Wigglesona
 
 //######################################################
 // WIGGLER ENDINGS
 //######################################################
 
 wigglername_end
-    , the Third
-    , esq
-    , MD
-    , Ph.D.
-    , Junior
-    , Senior
-    , CPA
-     the Shippest
      III
      IV
+     IX
+     the Shippest
      V
      VI
      VII
      VIII
-     IX
      X
+    , CPA
+    , esq
+    , Junior
+    , MD
+    , Ph.D.
+    , Senior
+    , the Third
     -chan
-
+    -Mew
+    
 
 //#############################################################################################
 // KIDS
@@ -2641,3 +2516,8 @@ brooms
     Twigger 90
     Varápidos
     Yajirushi
+    Broomy McBroomface
+    The Staff of Faygo
+    Shovelator
+    My Stick
+    The Impaler

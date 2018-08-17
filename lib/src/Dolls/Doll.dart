@@ -4,6 +4,7 @@ import "dart:typed_data";
 import "dart:html";
 import 'dart:convert';
 import 'dart:async';
+import 'package:TextEngine/TextEngine.dart';
 
 import "../../DollRenderer.dart";
 
@@ -13,6 +14,9 @@ abstract class Doll {
     static String labelPattern = ":___";
     //whatever calls me is responsible for deciding if it wants to be url encoded or not
     String get label => "$dollName$labelPattern";
+    String nameFileLocation = "names";
+    //subclasses override this for specifics
+    String nameGeneratorSection = "name_all";
 
     //useful for the builder
     static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22,23,25,27,21,28,34,35];
@@ -233,8 +237,14 @@ abstract class Doll {
     }
 
     //dolls know where to look for their name list
-    void setName() {
-
+    Future<Null> setNameFromEngine() async {
+        try {
+            TextEngine textEngine = new TextEngine(seed);
+            await textEngine.loadList("$nameFileLocation");
+            dollName = textEngine.phrase("$nameGeneratorSection");
+        }catch(e,trace) {
+            print("Error doing text engine stuff, did you remember to copy the .words file to the right place? $e $trace");
+        }
     }
 
     void randomizeNotColors() {
