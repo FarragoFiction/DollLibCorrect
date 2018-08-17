@@ -16,8 +16,12 @@ abstract class Doll {
     String get label => "$dollName$labelPattern";
     String nameFileLocation = "names";
     //subclasses override this for specifics
-    String nameGeneratorSection = "name_all";
 
+    //kr seems to be using a specific formula, lets see if its consistent
+    String get nameGeneratorSection {
+        String ret = "dollname_${name.toLowerCase()}";
+        return ret.replaceAll(' ','');
+    }
     //useful for the builder
     static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22,23,25,27,21,28,34,35];
 
@@ -239,8 +243,19 @@ abstract class Doll {
     //dolls know where to look for their name list
     Future<Null> setNameFromEngine() async {
         try {
-            TextEngine textEngine = new TextEngine(seed);
-            await textEngine.loadList("$nameFileLocation");
+            TextEngine textEngine;
+            try {
+                //absolute location, don't need to keep shit maintained between sims
+                print("trying absolute location first");
+                textEngine = new TextEngine(seed, "/WordSource");
+                //textEngine = new TextEngine(seed);
+                await textEngine.loadList("$nameFileLocation");
+            }catch(ignore) {
+                //relative location for testing
+                print("using relative location, must be testing locally");
+                textEngine = new TextEngine(seed);
+                await textEngine.loadList("$nameFileLocation");
+            }
             dollName = textEngine.phrase("$nameGeneratorSection");
         }catch(e,trace) {
             print("Error doing text engine stuff, did you remember to copy the .words file to the right place? $e $trace");

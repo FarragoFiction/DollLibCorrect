@@ -42,6 +42,7 @@ will also need to figure out how to do the drop downs.
      @override
      int renderingType =8;
 
+
      @override
      String name = "Queen";
 

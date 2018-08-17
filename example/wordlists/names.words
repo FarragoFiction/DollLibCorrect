@@ -43,7 +43,7 @@ dollname_denizen
     @denizenname_all
 dollname_dad
     #kidname_male# #kidname_last#
-dollname_dollname_mom
+dollname_mom
     #kidname_female# #kidname_last#
 dollname_bro
     #kidname_male# #kidname_last#

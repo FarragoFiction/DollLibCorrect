@@ -20,10 +20,6 @@ class HomestuckDoll extends HatchableDoll {
     @override
     String name = "Kid";
 
-    @override
-    String nameGeneratorSection = "kidname_all";
-
-
 
     @override
     String relativefolder = "images/Homestuck";

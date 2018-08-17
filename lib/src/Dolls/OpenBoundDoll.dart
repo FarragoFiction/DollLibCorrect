@@ -16,10 +16,6 @@ class OpenBoundDoll extends Doll{
   String originalCreator = "NER0";
 
   @override
-  String nameGeneratorSection = "trollname_all";
-
-
-  @override
   int renderingType =21;
 
   @override

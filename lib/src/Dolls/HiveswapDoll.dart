@@ -53,9 +53,6 @@ class HiveswapDoll extends Doll {
     List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[body,eyebrows,leftEye, rightEye,hairBack,hairTop,leftHorn, rightHorn,mouth,leftFin,rightFin,glasses, facepaint];
 
     @override
-    String nameGeneratorSection = "trollname_all";
-
-    @override
     int width = 900;
     @override
     int height = 1000;

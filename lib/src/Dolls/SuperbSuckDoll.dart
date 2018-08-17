@@ -20,9 +20,6 @@ class SuperbSuckDoll extends Doll{
   int renderingType =17;
 
   @override
-  String nameGeneratorSection = "suckname_all";
-
-  @override
   int width = 400;
   @override
   int height = 300;
