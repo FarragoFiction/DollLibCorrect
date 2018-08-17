@@ -241,8 +241,7 @@ abstract class Doll {
         quirkButDontUse = Quirk.randomHumanQuirk(rand);
     }
 
-    //dolls know where to look for their name list
-    Future<Null> setNameFromEngine() async {
+    Future<String> getNameFromEngine() async {
         try {
             if(textEngine == null) {
                 //first name is the 'canon' name but can keep asking for 'random' names
@@ -258,10 +257,16 @@ abstract class Doll {
             }
             await textEngine.loadList("$nameFileLocation");
 
-            dollName = textEngine.phrase("$nameGeneratorSection");
+           return  textEngine.phrase("$nameGeneratorSection");
         }catch(e,trace) {
             print("Error doing text engine stuff, did you remember to copy the .words file to the right place? $e $trace");
         }
+        return dollName; //don't change on error
+    }
+
+    //dolls know where to look for their name list
+    Future<Null> setNameFromEngine() async {
+        dollName = await getNameFromEngine();
     }
 
     void randomizeNotColors() {
