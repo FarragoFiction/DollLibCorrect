@@ -18,6 +18,9 @@ class TalkSpriteDoll extends Doll{
   String originalCreator = "Azuki";
 
   @override
+  String nameGeneratorSection = "kidname_all";
+
+  @override
   int renderingType =20;
 
   @override

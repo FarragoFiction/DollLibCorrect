@@ -15,6 +15,9 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
 
     @override
     String originalCreator = "karmicRetribution";
+
+    @override
+    String nameGeneratorSection = "wigglername_all";
     
     @override
     int renderingType =13;

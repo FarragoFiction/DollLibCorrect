@@ -17,6 +17,9 @@ class HomestuckSatyrDoll extends HomestuckDoll {
     String originalCreator = "Popo Merrygamz";
 
     @override
+    String nameGeneratorSection = "satyrname_all";
+
+    @override
     int renderingType = 15;
 
     @override

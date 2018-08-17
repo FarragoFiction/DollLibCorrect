@@ -41,6 +41,9 @@ class AncestorDoll extends Doll{
   String originalCreator = "Ner0 and agressiveArchenemy";
 
   @override
+  String nameGeneratorSection = "ancestortitle_all";
+
+  @override
   int renderingType =27;
 
   @override

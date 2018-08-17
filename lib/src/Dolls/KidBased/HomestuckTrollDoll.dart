@@ -33,6 +33,9 @@ class HomestuckTrollDoll extends HomestuckDoll {
     String name = "Troll";
 
     @override
+    String nameGeneratorSection = "trollname_all";
+
+    @override
     int renderingType = 2;
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
 

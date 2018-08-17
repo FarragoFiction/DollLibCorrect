@@ -19,6 +19,9 @@ class FekDoll extends Doll{
   String originalCreator = "nebulousHarmony and Firanka";
 
   @override
+  String nameGeneratorSection = "kidname_all";
+
+  @override
   int renderingType =28;
 
   @override
