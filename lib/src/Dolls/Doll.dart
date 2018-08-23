@@ -157,7 +157,7 @@ abstract class Doll {
     }
 
     Doll() {
-        if(window.location.hostname.contains("localhost")) {
+        if(!window.location.hostname.contains("farrago")) {
             useAbsolutePath = false;
              //absolutePathStart = "http://www.farragofiction.com/DollSource/";
         }
