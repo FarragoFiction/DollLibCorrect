@@ -241,18 +241,19 @@ abstract class Doll {
         quirkButDontUse = Quirk.randomHumanQuirk(rand);
     }
 
-    Future<String> getNameFromEngine() async {
+    Future<String> getNameFromEngine([int seedReplace = -13]) async {
+        if(seedReplace <0) seedReplace = seed;
         try {
             if(textEngine == null) {
                 //first name is the 'canon' name but can keep asking for 'random' names
                 if (useAbsolutePath) {
                     //absolute location, don't need to keep shit maintained between sims
                     //print("trying absolute location first");
-                    textEngine = new TextEngine(seed, "/WordSource");
+                    textEngine = new TextEngine(seedReplace, "/WordSource");
                 } else {
                     //relative location for testing
                     print("using relative location, must be testing locally");
-                    textEngine = new TextEngine(seed);
+                    textEngine = new TextEngine(seedReplace);
                 }
             }
             await textEngine.loadList("$nameFileLocation");
