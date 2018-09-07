@@ -18,14 +18,13 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     await breedTest();
 
-    await renderEverythingAndLoad();
+    //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
     DateTime startTime = new DateTime.now();
-    TreeDoll doll = Doll.randomDollOfType(16);
-    new TimeProfiler("load doll", startTime);
-    await drawDoll(doll);
-    doll = Doll.loadSpecificDoll(doll.toDataBytesX());
+    //new TimeProfiler("load doll", startTime);
+   // await drawDoll(doll);
+    Doll doll = Doll.loadSpecificDoll("&&&:___HBTfxSoAIcsAEGUAIMsAMP8AEGUAIcsAIcsAIcsAAABLS0s6OjoREREAAAAREREzMzPExMQAIcsAEGUIgRgIwDhgKD8gDaAbQ0bg");
     await drawDoll(doll);
     //runTests();
 }

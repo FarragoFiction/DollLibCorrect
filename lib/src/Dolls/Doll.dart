@@ -772,7 +772,12 @@ abstract class Doll {
     }
 
     static String removeLabelFromString(String ds) {
-        ds = Uri.decodeQueryComponent(ds); //get rid of any url encoding that might exist
+        try {
+            ds = Uri.decodeQueryComponent(
+                ds); //get rid of any url encoding that might exist
+        }catch(error, trace){
+            print("couldn't decode query component, probably because doll name had a % in $ds . $error $trace");
+        }
         List<String> parts = ds.split("$labelPattern");
         if(parts.length == 1) {
             return parts[0];
@@ -782,7 +787,12 @@ abstract class Doll {
     }
 
     void setDollNameFromString(String ds, bool nameExpected) {
-        ds = Uri.decodeQueryComponent(ds); //get rid of any url encoding that might exist
+        try {
+            ds = Uri.decodeQueryComponent(
+                ds); //get rid of any url encoding that might exist
+        }catch(error, trace){
+            print("couldn't decode query component, probably because doll name had a % in $ds . $error $trace");
+        }
         List<String> parts = ds.split("$labelPattern");
         if(parts.length == 1) {
             //this should defeat DQ0N
