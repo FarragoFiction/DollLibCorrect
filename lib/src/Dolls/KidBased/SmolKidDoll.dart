@@ -77,13 +77,15 @@ class SmolKidDoll extends HomestuckDoll {
         glasses = new SpriteLayer("Glasses","$folder/Glasses/", 1, maxGlass);
         glasses2 = new SpriteLayer("Glasses2","$folder/Glasses2/", 0, maxGlass2)..secretMax = maxSecretGlass2;
          */
-        int scale = 60;
-        int smolWidth = (width / 60).round();
-        int smolHeight = (height / 60).round();
+        double scale = 0.6;
+        int smolWidth = (width * scale).round();
+        int smolHeight = (height * scale).round();
+        int x = 90;
+        int y = 120;
 
 
-        leftEye = new PositionedLayerPlusUltra(smolWidth, smolHeight, 0,0,"LeftEye","$folder/LeftEye/", 1, maxEye)..primaryPartner = false;
-        rightEye = new PositionedLayerPlusUltra(smolWidth, smolHeight,0,0,"RightEye","$folder/RightEye/", 1, maxEye)..partners.add(leftEye);
+        leftEye = new PositionedLayerPlusUltra(smolWidth, smolHeight, x,y,"LeftEye","$folder/LeftEye/", 1, maxEye)..primaryPartner = false;
+        rightEye = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"RightEye","$folder/RightEye/", 1, maxEye)..partners.add(leftEye);
 
 
     }

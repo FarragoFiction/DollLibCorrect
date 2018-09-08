@@ -5,13 +5,13 @@ import 'package:DollLibCorrect/src/Dolls/Layers/DynamicLayer.dart';
 import 'package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart';
 import 'package:CommonLib/Compression.dart';
 
-class PositionedLayerPlusUltra extends PositionedLayer {
+class PositionedLayerPlusUltra extends SpriteLayer {
     //assume doll's upper left is 0,0
     int x;
     int y;
     int width;
     int height;
-    PositionedLayerPlusUltra(int this.width, int this.height, int x, int y, String name, String imgNameBase, int imgNumber, int maxImageNumber) : super(x,y,name, imgNameBase, imgNumber, maxImageNumber);
+    PositionedLayerPlusUltra(int this.width, int this.height, int this.x, int this.y, String name, String imgNameBase, int imgNumber, int maxImageNumber) : super(name, imgNameBase, imgNumber, maxImageNumber);
 
   @override
     void saveToBuilder(ByteBuilder builder) {
@@ -83,11 +83,11 @@ class PositionedLayerPlusUltra extends PositionedLayer {
             //print("I must be testing something, it's a preloaded Element");
             bool res = await Renderer.drawExistingElementFuture(buffer, preloadedElement,x,y);
         }else {
-            bool res = await Renderer.drawWhateverFuture(buffer, imgLocation,x,y);
             ImageElement image = await Loader.getResource((imgLocation));
             image.crossOrigin = "";
             //print("got image $image");
             buffer.context2D.imageSmoothingEnabled = false;
+            print("image is $image, x is $x, y is $y and width is $width and height is $height");
             buffer.context2D.drawImageScaled(image, x, y , width, height);
         }
     }
