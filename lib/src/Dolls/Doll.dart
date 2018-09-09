@@ -66,6 +66,7 @@ abstract class Doll {
         if(type == 23) return new CatDoll();
         if(type == 3) return new ConsortDoll();
         if(type == 37) return new SmolKidDoll();
+        if(type == 38) return new SmolTrollDoll();
 
         throw("ERROR could not find doll of type $type");
     }

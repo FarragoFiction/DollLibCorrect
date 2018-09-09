@@ -24,10 +24,40 @@ Future<bool> start() async {
     DateTime startTime = new DateTime.now();
     //new TimeProfiler("load doll", startTime);
    // await drawDoll(doll);
-    Doll doll = Doll.randomDollOfType(37);
-   // Doll doll = Doll.loadSpecificDoll("&&&:___HBTfxSoAIcsAEGUAIMsAMP8AEGUAIcsAIcsAIcsAAABLS0s6OjoREREAAAAREREzMzPExMQAIcsAEGUIgRgIwDhgKD8gDaAbQ0bg");
+    Doll doll = Doll.randomDollOfType(38);
+    //(doll as SmolKidDoll).extendedHairTop.imgNumber = 43;
+    //(doll as SmolKidDoll).extendedHairBack.imgNumber = 43;
+
+    // Doll doll = Doll.loadSpecificDoll("&&&:___HBTfxSoAIcsAEGUAIMsAMP8AEGUAIcsAIcsAIcsAAABLS0s6OjoREREAAAAREREzMzPExMQAIcsAEGUIgRgIwDhgKD8gDaAbQ0bg");
     await drawDoll(doll);
+    lifeSpanTest();
     //runTests();
+}
+
+Future<Null> lifeSpanTest() async {
+    //want to have three lifestages displayed
+    HomestuckGrubDoll wiggler = new HomestuckGrubDoll();
+
+    CanvasElement newCanvas = new CanvasElement(width: wiggler.width*2, height: wiggler.height);
+    output.append(newCanvas);
+
+
+    CanvasElement canvas = await wiggler.getNewCanvas(true);
+
+    SmolTrollDoll doll = wiggler.hatch();
+
+    CanvasElement canvas2 = await doll.getNewCanvas(true);
+
+    Doll doll2 = doll.hatch();
+    CanvasElement canvas3 = await doll2.getNewCanvas(true);
+
+
+    newCanvas.context2D.drawImage(canvas2,-50,0);
+    newCanvas.context2D.drawImage(canvas3,50,0);
+    newCanvas.context2D.drawImageScaled(canvas,0,wiggler.height-100,wiggler.width/3, wiggler.height/3);
+
+
+
 }
 
 Future<Null> runTests() async{

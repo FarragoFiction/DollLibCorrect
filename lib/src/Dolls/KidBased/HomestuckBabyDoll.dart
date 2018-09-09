@@ -83,7 +83,7 @@ class HomestuckBabyDoll extends HomestuckDoll {
 
     @override
     Doll hatch() {
-        HomestuckDoll newDoll = new HomestuckDoll();
+        SmolKidDoll newDoll = new SmolKidDoll();
         int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
         newDoll.rand = new Random(seed);
         newDoll.randomize();

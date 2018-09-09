@@ -74,7 +74,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
 
     @override
     Doll hatch() {
-        HomestuckTrollDoll newDoll = new HomestuckTrollDoll();
+        SmolTrollDoll newDoll = new SmolTrollDoll();
         int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
         newDoll.rand = new Random(seed);
         newDoll.randomize();

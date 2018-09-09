@@ -1,3 +1,4 @@
+import 'package:DollLibCorrect/src/Dolls/KidBased/HomestuckTrollDoll.dart';
 import 'package:DollLibCorrect/src/Dolls/Layers/PositionedLayer.dart';
 import 'package:DollLibCorrect/src/Dolls/Layers/PositionedLayerPlusUltra.dart';
 import 'package:RenderingLib/RendereringLib.dart';
@@ -12,16 +13,16 @@ import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
 import "../../Rendering/ReferenceColors.dart";
 
 
-class SmolKidDoll extends HomestuckDoll {
+class SmolTrollDoll extends HomestuckTrollDoll {
 
     @override
     String originalCreator = "Luigicat";
 
     @override
-    int renderingType = 37;
+    int renderingType = 38;
 
     @override
-    String name = "Smol";
+    String name = "SmolButTroll";
 
 
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
@@ -33,7 +34,7 @@ class SmolKidDoll extends HomestuckDoll {
     @override
     String relativefolder = "images/Homestuck";
 
-    SmolKidDoll([int sign]) :super() {
+    SmolTrollDoll([int sign]) :super() {
         if(sign != null) {
             //makes sure palette is sign appropriate
             randomize();
@@ -45,16 +46,6 @@ class SmolKidDoll extends HomestuckDoll {
 
 
 
-    @override
-    Doll hatch() {
-        HomestuckDoll newDoll = new HomestuckDoll();
-        int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
-        newDoll.rand = new Random(seed);
-        newDoll.randomize();
-        Doll.convertOneDollToAnother(this, newDoll);
-        newDoll.symbol.imgNumber = 0; //use canon sign you dunkass.
-        return newDoll;
-    }
 
 
     @override
@@ -87,7 +78,31 @@ class SmolKidDoll extends HomestuckDoll {
         symbol = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"Symbol","$folder/Symbol/", 1, maxSymbol)..secretMax = maxSecretSymbol;
         facePaint = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"FacePaint","$folder/FacePaint/", 0, maxFacePaint);
 
+        canonSymbol = new PositionedLayerPlusUltra(smolWidth, smolHeight, x,y,"CanonSymbol", "$folder/CanonSymbol/", 0, maxCanonSymbol)..secretMax = 288;
+        leftFin = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"FinLeft", "$folder/LeftFin/", 1, maxFin);
+        rightFin = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"FinRight", "$folder/RightFin/", 1, maxFin,);
+        rightFin.syncedWith.add(leftFin);
+        leftFin.syncedWith.add(rightFin);
+        rightFin.slave = true; //can't be selected on it's own
 
+        wings = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"Wings", "$folder/Wings/", 0, maxWing);
+        leftHorn = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"LeftHornOld", "$folder/LeftHorn/", 1, 255);
+        rightHorn = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"RightHornOld", "$folder/RightHorn/", 1, 255);
+        extendedRightHorn =new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"RightHorn", "$folder/RightHorn/", 1, maxHorn)..primaryPartner = false..secretMax = maxSecretHorn;
+        extendedLeftHorn = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"LeftHorn", "$folder/LeftHorn/", 1, maxHorn)..partners.add(extendedRightHorn)..secretMax = maxSecretHorn;
+    }
+
+    @override
+    Doll hatch() {
+        HomestuckTrollDoll newDoll = new HomestuckTrollDoll();
+        int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
+        newDoll.rand = new Random(seed);
+        newDoll.randomize();
+        Doll.convertOneDollToAnother(this, newDoll);
+        newDoll.extendedBody.imgNumber = newDoll.rand.nextInt(newDoll.extendedBody.maxImageNumber);
+        newDoll.symbol.imgNumber = 0; //use canon sign you dunkass.
+        //(newDoll as HomestuckTrollDoll).mutantEyes(false);
+        return newDoll;
     }
 
 
