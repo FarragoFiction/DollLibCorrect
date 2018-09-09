@@ -48,11 +48,6 @@ class DuckDoll extends Doll{
 
 
 
-
-
-
-
-
   @override
   List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[hairBack,body, symbol, eyes, beak, glasses, hairFront];
   @override
@@ -80,7 +75,7 @@ class DuckDoll extends Doll{
     ..skin = '#ffffff';
 
 
-  DocDoll() {
+  DuckDoll() {
     initLayers();
     randomize();
   }
@@ -128,15 +123,15 @@ class DuckDoll extends Doll{
   SpriteLayer hairBack;
   SpriteLayer symbol;
        */
-      beak = new SpriteLayer("Beak","$folder/Beak/", 1, maxBody);
-      eyes = new SpriteLayer("Eyes","$folder/Eyes/", 0, maxBody);
-      glasses = new SpriteLayer("Glasses","$folder/Glasses/", 1, maxBody);
-      hairFront = new SpriteLayer("HairFront","$folder/HairFront/", 1, maxBody);
+      beak = new SpriteLayer("Beak","$folder/Beak/", 1, maxBeaks);
+      eyes = new SpriteLayer("Eyes","$folder/Eyes/", 0, maxEyes);
+      glasses = new SpriteLayer("Glasses","$folder/Glasses/", 1, maxGlasses);
+      hairFront = new SpriteLayer("HairFront","$folder/HairFront/", 1, maxHair);
       hairFront.slave = true;
-      hairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxBody);
+      hairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair);
       hairFront.syncedWith.add(hairBack);
       hairBack.syncedWith.add(hairFront);
-      symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxBody);
+      symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbols);
     }
   }
 

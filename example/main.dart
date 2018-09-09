@@ -24,9 +24,7 @@ Future<bool> start() async {
     DateTime startTime = new DateTime.now();
     //new TimeProfiler("load doll", startTime);
    // await drawDoll(doll);
-    Doll doll = Doll.randomDollOfType(38);
-    //(doll as SmolKidDoll).extendedHairTop.imgNumber = 43;
-    //(doll as SmolKidDoll).extendedHairBack.imgNumber = 43;
+    Doll doll = Doll.randomDollOfType(39);
 
     // Doll doll = Doll.loadSpecificDoll("&&&:___HBTfxSoAIcsAEGUAIMsAMP8AEGUAIcsAIcsAIcsAAABLS0s6OjoREREAAAAREREzMzPExMQAIcsAEGUIgRgIwDhgKD8gDaAbQ0bg");
     await drawDoll(doll);

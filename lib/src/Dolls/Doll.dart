@@ -67,7 +67,7 @@ abstract class Doll {
         if(type == 3) return new ConsortDoll();
         if(type == 37) return new SmolKidDoll();
         if(type == 38) return new SmolTrollDoll();
-        if(type == 9) return new DuckDoll();
+        if(type == 39) return new DuckDoll();
 
         throw("ERROR could not find doll of type $type");
     }
@@ -96,7 +96,7 @@ abstract class Doll {
         int s = associatedColor.red + associatedColor.green + associatedColor.blue;
         //print("getting seed, colors added up is $s");
         for(SpriteLayer imageLayer in renderingOrderLayers) {
-            //print('rendering layer ${imageLayer.imgNumber}');
+            //print('rendering layer $imageLayer ');
             s += imageLayer.imgNumber;
         }
        // print("colors and layers added up is $s");
