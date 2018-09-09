@@ -32,6 +32,7 @@ export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckGrubDoll.dart";
 export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckHeroDoll.dart";
 export "src/Dolls/DogDoll.dart";
 export "src/Dolls/DocDoll.dart";
+export "src/Dolls/DuckDoll.dart";
 export "src/Dolls/PupperDoll.dart";
 export "src/Dolls/TalkSpriteDoll.dart";
 export "src/Dolls/OpenBoundDoll.dart";
