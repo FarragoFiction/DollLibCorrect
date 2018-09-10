@@ -35,7 +35,7 @@ class DuckDoll extends Doll{
   final int maxBody = 13;
   final int maxEyes = 1;
   final int maxGlasses = 4;
-  final int maxHair = 11;
+  final int maxHair = 12;
   final int maxSymbols = 4;
 
   SpriteLayer beak;
