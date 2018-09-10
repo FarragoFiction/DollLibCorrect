@@ -31,8 +31,8 @@ class DuckDoll extends Doll{
 
   @override
   String relativefolder = "images/Duck";
-  final int maxBeaks = 0;
-  final int maxBody = 11;
+  final int maxBeaks = 1;
+  final int maxBody = 13;
   final int maxEyes = 1;
   final int maxGlasses = 4;
   final int maxHair = 7;
