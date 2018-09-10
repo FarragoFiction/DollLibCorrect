@@ -27,7 +27,7 @@ class DuckDoll extends Doll{
   int height = 600;
 
   @override
-  String name = "DuckDoll";
+  String name = "Duck";
 
   @override
   String relativefolder = "images/Duck";
@@ -35,7 +35,7 @@ class DuckDoll extends Doll{
   final int maxBody = 13;
   final int maxEyes = 1;
   final int maxGlasses = 4;
-  final int maxHair = 7;
+  final int maxHair = 9;
   final int maxSymbols = 4;
 
   SpriteLayer beak;
