@@ -16,7 +16,7 @@ import "Quirk.dart";
 class DuckDoll extends Doll{
 
   @override
-  String originalCreator = "insufferableOracle";
+  String originalCreator = "Popo Merrygamz";
 
   @override
   int renderingType =39;
