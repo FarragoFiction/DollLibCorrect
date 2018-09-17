@@ -590,16 +590,13 @@ abstract class ReferenceColours {
     static HomestuckPalette CLEANSED = new HomestuckPalette()
         ..shoe_light = '#333333'
         ..shoe_dark = '#111111'
-        ..cloak_light = '#fefefe'
-        ..cloak_mid = '#f7f7f7'
-        ..cloak_dark = '#f0f0f0'
         ..shirt_light = '#03500e'
         ..shirt_dark = '#084711'
         ..hair_main = "#482313"
         ..hair_accent = '#ffa8ff'
-        ..eye_white_left = "#d65755"
-        ..eye_white_right = "#bfc2c1"
-        ..accent = '#fefefe'
+        ..eye_white_left = "#fefefe"
+        ..eye_white_right = "#fefefe"
+        ..accent = '#000000'
         ..skin = '#f8dc57';
 
 
