@@ -21,13 +21,15 @@ Future<bool> start() async {
     //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
-    DateTime startTime = new DateTime.now();
-    //new TimeProfiler("load doll", startTime);
-   // await drawDoll(doll);
-    Doll doll = Doll.randomDollOfType(39);
+    HomestuckTrollDoll doll = new HomestuckTrollDoll();
+    doll.extendedBody.imgNumber = 325;
+    doll.palette = ReferenceColours.CORRUPT;
 
     // Doll doll = Doll.loadSpecificDoll("&&&:___HBTfxSoAIcsAEGUAIMsAMP8AEGUAIcsAIcsAIcsAAABLS0s6OjoREREAAAAREREzMzPExMQAIcsAEGUIgRgIwDhgKD8gDaAbQ0bg");
     await drawDoll(doll);
+    doll.palette = ReferenceColours.CLEANSED;
+    await drawDoll(doll);
+
     lifeSpanTest();
     //runTests();
 }
