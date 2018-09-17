@@ -22,8 +22,8 @@ Future<bool> start() async {
     //await testPartial();
     //speedTest();
     HomestuckTrollDoll doll = new HomestuckTrollDoll();
-    doll.extendedBody.imgNumber = 325;
-    doll.palette = ReferenceColours.CORRUPT;
+    //doll.extendedBody.imgNumber = 360;
+    //doll.palette = ReferenceColours.CORRUPT;
 
     // Doll doll = Doll.loadSpecificDoll("&&&:___HBTfxSoAIcsAEGUAIMsAMP8AEGUAIcsAIcsAIcsAAABLS0s6OjoREREAAAAREREzMzPExMQAIcsAEGUIgRgIwDhgKD8gDaAbQ0bg");
     await drawDoll(doll);

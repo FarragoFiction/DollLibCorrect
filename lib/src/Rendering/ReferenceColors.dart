@@ -588,16 +588,14 @@ abstract class ReferenceColours {
         ..skin = '#494949';
 
     static HomestuckPalette CLEANSED = new HomestuckPalette()
-        ..shoe_light = '#00ff00'
-        ..shoe_dark = '#00ff00'
+        ..shoe_light = '#333333'
+        ..shoe_dark = '#111111'
         ..cloak_light = '#fefefe'
         ..cloak_mid = '#f7f7f7'
         ..cloak_dark = '#f0f0f0'
         ..shirt_light = '#03500e'
         ..shirt_dark = '#084711'
-        ..pants_light = '#bfc2c1'
-        ..pants_dark = '#38190c'
-        ..hair_main = "#ffffff"
+        ..hair_main = "#482313"
         ..hair_accent = '#ffa8ff'
         ..eye_white_left = "#d65755"
         ..eye_white_right = "#bfc2c1"
