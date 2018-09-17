@@ -24,10 +24,14 @@ Future<bool> start() async {
     HomestuckTrollDoll doll = new HomestuckTrollDoll();
     //doll.extendedBody.imgNumber = 360;
     //doll.palette = ReferenceColours.CORRUPT;
+   Palette tmp = new Palette.combined([doll.palette, ReferenceColours.CORRUPT]);
+   doll.copyPalette(tmp);
+
 
     // Doll doll = Doll.loadSpecificDoll("&&&:___HBTfxSoAIcsAEGUAIMsAMP8AEGUAIcsAIcsAIcsAAABLS0s6OjoREREAAAAREREzMzPExMQAIcsAEGUIgRgIwDhgKD8gDaAbQ0bg");
     await drawDoll(doll);
-    doll.palette = ReferenceColours.CLEANSED;
+    doll.palette =
+    doll.palette = new Palette.combined([doll.palette, ReferenceColours.PURIFIED]);
     await drawDoll(doll);
 
     lifeSpanTest();

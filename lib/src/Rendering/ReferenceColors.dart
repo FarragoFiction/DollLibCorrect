@@ -587,7 +587,21 @@ abstract class ReferenceColours {
         ..eye_white_right = "#000000"
         ..skin = '#494949';
 
-    static HomestuckPalette CLEANSED = new HomestuckPalette()
+    static HomestuckPalette PURIFIED = new HomestuckPalette()
+        ..shoe_light = '#ffa8ff'
+        ..shoe_dark = '#ff5bff'
+        ..cloak_light = '#f8dc57'
+        ..cloak_mid = '#d1a93b'
+        ..cloak_dark = '#ad871e'
+        ..shirt_light = '#eae8e7'
+        ..shirt_dark = '#bfc2c1'
+        ..pants_light = '#03500e'
+        ..pants_dark = '#00341a'
+        ..eye_white_left = "#ffa8ff"
+        ..eye_white_right = "#ffa8ff"
+        ..skin = '#8ccad6';
+
+    static HomestuckPalette HISSIE = new HomestuckPalette()
         ..shoe_light = '#333333'
         ..shoe_dark = '#111111'
         ..shirt_light = '#03500e'
@@ -641,7 +655,8 @@ abstract class ReferenceColours {
             _paletteList["Prospit"] = PROSPIT_PALETTE;
             _paletteList["Derse"] = DERSE_PALETTE;
             _paletteList["Corrupt"] = CORRUPT;
-            _paletteList["Cleansed"] = CLEANSED;
+            _paletteList["Purified"] = PURIFIED;
+            _paletteList["Hissie"] = HISSIE;
 
             _paletteList["CrockerTier"] = CROCKERTIER;
             _paletteList["Sketch"] = SKETCH;
