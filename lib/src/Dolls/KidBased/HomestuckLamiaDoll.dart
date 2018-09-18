@@ -27,7 +27,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
 
 
     @override
-    String name = "Grub";
+    String name = "Lamia";
 
 
     @override
