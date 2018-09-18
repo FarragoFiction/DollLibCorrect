@@ -112,7 +112,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
 
     {
         super.randomize(chooseSign);
-        if(seadwellerBodies.contains(body.imgNumber)) {
+        if(seadwellerBodies.contains(extendedBody.imgNumber)) {
             int chosenFin = rand.nextIntRange(1,leftFin.maxImageNumber);
             leftFin.imgNumber = chosenFin;
             rightFin.imgNumber = chosenFin;
