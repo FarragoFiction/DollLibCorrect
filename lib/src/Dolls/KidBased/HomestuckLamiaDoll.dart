@@ -15,7 +15,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
 
     @override
     String originalCreator = "???";
-    List<int> seadwellerBodies = <int>[7,8,9,12,13,27,28,29,34,35,39,40,46];
+    List<int> seadwellerBodies = <int>[7,8,9,12,13,27,28,29,34,35,39,40,46,50,51,52];
 
     
     @override
