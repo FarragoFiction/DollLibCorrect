@@ -30,7 +30,6 @@ Future<bool> start() async {
 
     // Doll doll = Doll.loadSpecificDoll("&&&:___HBTfxSoAIcsAEGUAIMsAMP8AEGUAIcsAIcsAIcsAAABLS0s6OjoREREAAAAREREzMzPExMQAIcsAEGUIgRgIwDhgKD8gDaAbQ0bg");
     await drawDoll(doll);
-    doll.palette =
     doll.palette = new Palette.combined([doll.palette, ReferenceColours.PURIFIED]);
     await drawDoll(doll);
 

@@ -74,15 +74,6 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
         //grubs don't have wings. trolls do.
     }
 
-    @override
-    void randomizeNotColors()
-
-    {
-        super.randomizeNotColors();
-        canonSymbol.imgNumber = 0;
-    }
-
-
 
     @override
     void regularEyes(older) {
@@ -97,17 +88,6 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
     }
 
     @override
-    void randomizeColors()
-
-    {
-        super.randomizeColors();
-        HomestuckPalette h = palette as HomestuckPalette;
-        h.add(HomestuckPalette.EYE_WHITE_LEFT, h.aspect_light,true);
-        h.add(HomestuckPalette.EYE_WHITE_RIGHT, h.aspect_light,true);
-
-    }
-
-    @override
     void randomize([bool chooseSign = true])
 
     {
@@ -117,6 +97,23 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
             leftFin.imgNumber = chosenFin;
             rightFin.imgNumber = chosenFin;
         }
+    }
+
+    @override
+    void randomizeColors() {
+        super.randomizeColors();
+        copyPalette(ReferenceColours.PURIFIED);
+    }
+
+    @override
+    void randomizeNotColors() {
+        super.randomizeColors();
+        if(seadwellerBodies.contains(extendedBody.imgNumber)) {
+            int chosenFin = rand.nextIntRange(1,leftFin.maxImageNumber);
+            leftFin.imgNumber = chosenFin;
+            rightFin.imgNumber = chosenFin;
+        }
+
     }
 
 
