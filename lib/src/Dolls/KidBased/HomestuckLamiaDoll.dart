@@ -15,7 +15,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
 
     @override
     String originalCreator = "???";
-    List<int> seadwellerBodies = <int>[7,8,9,12,13,27,28,29];
+    List<int> seadwellerBodies = <int>[7,8,9,12,13,27,28,29,34,35];
 
     
     @override
@@ -23,7 +23,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
     @override
     String relativeFolder = "images/Homestuck";
     @override
-    final int maxBody = 30;
+    final int maxBody = 35;
 
 
     @override

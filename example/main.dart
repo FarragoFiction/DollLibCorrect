@@ -32,7 +32,7 @@ Future<bool> start() async {
     await drawDoll(doll);
     doll.palette = new Palette.combined([doll.palette, ReferenceColours.PURIFIED]);
     await drawDoll(doll);
-    makeForestOfDollOfType(doll,88);
+    makeForestOfDollOfTypeNewColors(doll,88);
 
     lifeSpanTest();
     //runTests();
@@ -279,6 +279,36 @@ Future<Null> makeForestOfDollOfType(Doll doll, int type) async {
     print("appending canvas to output");
     output.append(canvas);
 }
+
+Future<Null> makeForestOfDollOfTypeNewColors(Doll doll, int type) async {
+    int width = 2000;
+    int height = 800;
+    CanvasElement canvas = new CanvasElement(width: width, height: height);
+    Doll sampleDoll = Doll.randomDollOfType(type);
+    int x = -1 * doll.width;
+    int y = height - doll.height;
+    while(x < width) {
+        print("drawing a thing of type $type, x is $x");
+        Doll tmpDoll = Doll.randomDollOfType(type);
+        if(tmpDoll is TreeDoll) {
+            if(doll.rand.nextBool()) {
+                (tmpDoll as TreeDoll).flowerTime = true;
+            }else {
+                (tmpDoll as TreeDoll).fruitTime = true;
+
+            }
+        }
+        CanvasElement dollCanvas = new CanvasElement(width: tmpDoll.width, height: tmpDoll.height);
+        await DollRenderer.drawDoll(dollCanvas, tmpDoll);
+        canvas.context2D.drawImage(dollCanvas,x, y);
+        x += sampleDoll.rand.nextIntRange((sampleDoll.width*.25).round(), (sampleDoll.width*.75).round());
+        print("finished drawing, x is $x");
+
+    }
+    print("appending canvas to output");
+    output.append(canvas);
+}
+
 
 
 class TimeProfiler {
