@@ -8,6 +8,7 @@ library DollRenderer;
 
 export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
 export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckTrollDoll.dart";
+export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckLamiaDoll.dart";
 export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckSatyrDoll.dart";
 export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckCherubDoll.dart";
 export "package:DollLibCorrect/src/Dolls/KidBased/SmolKidDoll.dart";
