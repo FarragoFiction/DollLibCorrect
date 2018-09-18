@@ -22,7 +22,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
     @override
     String relativeFolder = "images/Homestuck";
     @override
-    final int maxBody = 26;
+    final int maxBody = 19;
 
 
     @override

@@ -21,7 +21,7 @@ Future<bool> start() async {
     //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
-    HomestuckTrollDoll doll = new HomestuckTrollDoll();
+    HomestuckLamiaDoll doll = new HomestuckLamiaDoll();
     //doll.extendedBody.imgNumber = 360;
     //doll.palette = ReferenceColours.CORRUPT;
    Palette tmp = new Palette.combined([doll.palette, ReferenceColours.CORRUPT]);
