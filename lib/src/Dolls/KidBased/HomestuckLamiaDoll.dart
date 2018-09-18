@@ -15,6 +15,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
 
     @override
     String originalCreator = "???";
+    List<int> seadwellerBodies = <int>[7,8,9,12,13];
 
     
     @override
@@ -111,10 +112,11 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
 
     {
         super.randomize(chooseSign);
-        canonSymbol.imgNumber = 0;
-        HomestuckPalette h = palette as HomestuckPalette;
-        h.add(HomestuckPalette.EYE_WHITE_LEFT, h.aspect_light,true);
-        h.add(HomestuckPalette.EYE_WHITE_RIGHT, h.aspect_light,true);
+        if(seadwellerBodies.contains(body.imgNumber)) {
+            int chosenFin = rand.nextIntRange(1,leftFin.maxImageNumber);
+            leftFin.imgNumber = chosenFin;
+            rightFin.imgNumber = chosenFin;
+        }
     }
 
 
