@@ -18,7 +18,7 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     await breedTest();
 
-    //await renderEverythingAndLoad();
+    await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
     HomestuckLamiaDoll doll = new HomestuckLamiaDoll();

@@ -93,6 +93,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
     {
         super.randomize(chooseSign);
         pickFin();
+        copyPalette(ReferenceColours.PURIFIED);
     }
 
     @override
