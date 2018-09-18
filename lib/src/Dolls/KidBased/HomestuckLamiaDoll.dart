@@ -92,11 +92,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
 
     {
         super.randomize(chooseSign);
-        if(seadwellerBodies.contains(extendedBody.imgNumber)) {
-            int chosenFin = rand.nextIntRange(1,leftFin.maxImageNumber);
-            leftFin.imgNumber = chosenFin;
-            rightFin.imgNumber = chosenFin;
-        }
+        pickFin();
     }
 
     @override
@@ -108,12 +104,17 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
     @override
     void randomizeNotColors() {
         super.randomizeColors();
+        pickFin();
+
+    }
+
+    void pickFin() {
         if(seadwellerBodies.contains(extendedBody.imgNumber)) {
             int chosenFin = rand.nextIntRange(1,leftFin.maxImageNumber);
+            print("fin chosen is $chosenFin");
             leftFin.imgNumber = chosenFin;
             rightFin.imgNumber = chosenFin;
         }
-
     }
 
 

@@ -23,6 +23,7 @@ Future<bool> start() async {
     //speedTest();
     HomestuckLamiaDoll doll = new HomestuckLamiaDoll();
     doll.extendedBody.imgNumber = 7;
+    doll.pickFin();
     //doll.palette = ReferenceColours.CORRUPT;
    Palette tmp = new Palette.combined([doll.palette, ReferenceColours.CORRUPT]);
    doll.copyPalette(tmp);
