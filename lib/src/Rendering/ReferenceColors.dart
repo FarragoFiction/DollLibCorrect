@@ -1,6 +1,7 @@
 
 import "../Dolls/Doll.dart";
 import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
+import 'package:DollLibCorrect/src/Dolls/KidBased/HomestuckLamiaDoll.dart';
 import 'package:RenderingLib/RendereringLib.dart';
 
 import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckTrollDoll.dart";
@@ -77,6 +78,30 @@ abstract class ReferenceColours {
         ..eye_white_left = '#ffba35'
         ..eye_white_right = '#ffba15'
         ..skin = '#ffffff';
+
+    static HomestuckLamiaPalette LAMIA_PALETTE = new HomestuckLamiaPalette()
+        ..accent = '#FF9B00'
+        ..aspect_light = '#FEFD49'
+        ..aspect_dark = '#FEC910'
+        ..wing1 = '#00FF2A'
+        ..wing2 = '#FF0000'
+        ..aspect_dark = '#FEC910'
+        ..shoe_light = '#10E0FF'
+        ..shoe_dark = '#00A4BB'
+        ..cloak_light = '#FA4900'
+        ..cloak_mid = '#E94200'
+        ..cloak_dark = '#C33700'
+        ..shirt_light = '#FF8800'
+        ..shirt_dark = '#D66E04'
+        ..pants_light = '#E76700'
+        ..pants_dark = '#CA5B00'
+        ..hair_main = '#313131'
+        ..hair_accent = '#202020'
+        ..eye_white_left = '#ffba35'
+        ..eye_white_right = '#ffba15'
+        ..skinDark = '#b5b5b5'
+        ..skin = '#ffffff';
+
 
 
 

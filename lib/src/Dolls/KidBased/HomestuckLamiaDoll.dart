@@ -23,7 +23,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
     @override
     String relativeFolder = "images/Homestuck";
     @override
-    final int maxBody = 19;
+    final int maxBody = 22;
 
 
     @override
@@ -31,24 +31,28 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
 
 
     @override
-    Palette palette = new HomestuckTrollPalette()
+    Palette palette = new HomestuckLamiaPalette()
         ..accent = '#FF9B00'
+        ..shoe_light = '#ffa8ff'
+        ..shoe_dark = '#ff5bff'
+        ..cloak_light = '#f8dc57'
+        ..cloak_mid = '#d1a93b'
+        ..cloak_dark = '#ad871e'
+        ..shirt_light = '#eae8e7'
+        ..shirt_dark = '#bfc2c1'
+        ..pants_light = '#03500e'
+        ..pants_dark = '#00341a'
+        ..eye_white_left = "#ffa8ff"
+        ..eye_white_right = "#ffa8ff"
         ..aspect_light = '#FF9B00'
         ..aspect_dark = '#FF8700'
-        ..shoe_light = '#111111'
-        ..shoe_dark = '#333333'
-        ..cloak_light = '#A3A3A3'
-        ..cloak_mid = '#999999'
-        ..cloak_dark = '#898989'
-        ..shirt_light = '#111111'
-        ..shirt_dark = '#000000'
-        ..pants_light = '#4b4b4b'
-        ..eye_white_left = '#ffba29'
-        ..eye_white_right = '#ffba29'
-        ..pants_dark = '#3a3a3a'
         ..hair_accent = '#aa0000'
         ..hair_main = '#000000'
-        ..skin = '#C4C4C4';
+        ..skinDark = '#69b8c8'
+        ..skin = '#8ccad6';
+
+    @override
+    Palette paletteSource = ReferenceColours.LAMIA_PALETTE;
 
 
 
@@ -142,4 +146,52 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
 
 
 
+}
+
+/// Convenience class for getting/setting aspect palettes
+class HomestuckLamiaPalette extends HomestuckTrollPalette {
+    static String _ACCENT = "accent";
+    static String _ASPECT_LIGHT = "aspect1";
+    static String _ASPECT_DARK = "aspect2";
+    static String _SHOE_LIGHT = "shoe1";
+    static String _SHOE_DARK = "shoe2";
+    static String _CLOAK_LIGHT = "cloak1";
+    static String _CLOAK_MID = "cloak2";
+    static String _CLOAK_DARK = "cloak3";
+    static String _SHIRT_LIGHT = "shirt1";
+    static String _SHIRT_DARK = "shirt2";
+    static String _PANTS_LIGHT = "pants1";
+    static String _PANTS_DARK = "pants2";
+    static String _WING1 = "wing1";
+    static String _WING2 = "wing2";
+    static String _HAIR_MAIN = "hairMain";
+    static String _HAIR_ACCENT = "hairAccent";
+    static String _EYE_WHITES = "eyeWhites";
+    static String _SKIN = "skin";
+    static String _SKINDARK = "skinDark";
+
+
+    static Colour _handleInput(Object input) {
+        if (input is Colour) {
+            return input;
+        }
+        if (input is int) {
+            return new Colour.fromHex(input, input
+                .toRadixString(16)
+                .padLeft(6, "0")
+                .length > 6);
+        }
+        if (input is String) {
+            if (input.startsWith("#")) {
+                return new Colour.fromStyleString(input);
+            } else {
+                return new Colour.fromHexString(input);
+            }
+        }
+        throw "Invalid AspectPalette input: colour must be a Colour object, a valid colour int, or valid hex string (with or without leading #)";
+    }
+
+    Colour get skinDark => this[_SKINDARK];
+
+    void set skinDark(dynamic c) => this.add(_SKINDARK, _handleInput(c), true);
 }
