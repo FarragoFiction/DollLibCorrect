@@ -18,12 +18,11 @@ Future<bool> start() async {
     await Loader.preloadManifest();
     await breedTest();
 
-    await renderEverythingAndLoad();
+    //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
     HomestuckLamiaDoll doll = new HomestuckLamiaDoll();
-    doll.extendedBody.imgNumber = 22;
-    doll.pickFin();
+
     //doll.palette = ReferenceColours.CORRUPT;
    Palette tmp = new Palette.combined([doll.palette, ReferenceColours.CORRUPT]);
    doll.copyPalette(tmp);
@@ -33,6 +32,7 @@ Future<bool> start() async {
     await drawDoll(doll);
     doll.palette = new Palette.combined([doll.palette, ReferenceColours.PURIFIED]);
     await drawDoll(doll);
+    makeForestOfDollOfType(doll,88);
 
     lifeSpanTest();
     //runTests();
