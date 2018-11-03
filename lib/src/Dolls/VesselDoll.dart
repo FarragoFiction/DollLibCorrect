@@ -19,7 +19,7 @@ class VesselDoll extends Doll{
   String originalCreator = "Popo Merrygamz";
 
   @override
-  int renderingType =66;
+  int renderingType =44;
 
   @override
   int width = 100;
@@ -112,7 +112,7 @@ class VesselDoll extends Doll{
   void initLayers() {
 
     {
-      torso = new SpriteLayer("Torso","$folder/Body/", 1, maxTorso);
+      torso = new SpriteLayer("Torso","$folder/Torso/", 1, maxTorso);
       head = new SpriteLayer("Head","$folder/Head/", 1, maxHead);
       legs = new SpriteLayer("Legs","$folder/Legs/", 1, maxLegs);
     }

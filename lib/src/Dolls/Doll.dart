@@ -69,6 +69,7 @@ abstract class Doll {
         if(type == 38) return new SmolTrollDoll();
         if(type == 39) return new DuckDoll();
         if(type == 88) return new HomestuckLamiaDoll();
+        if(type == 44) return new VesselDoll();
 
 
         throw("ERROR could not find doll of type $type");

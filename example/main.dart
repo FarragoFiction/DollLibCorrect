@@ -8,7 +8,7 @@ Element output = querySelector('#output');
 void main() {
     querySelector('#output').text = 'Your Dart app is running.';
     DateTime startTime = new DateTime.now();
-    Doll doll = Doll.randomDollOfType(33);
+    Doll doll = Doll.randomDollOfType(66);
     new TimeProfiler("load doll", startTime);
     start();
 }
@@ -21,20 +21,10 @@ Future<bool> start() async {
     //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
-    HomestuckLamiaDoll doll = new HomestuckLamiaDoll();
-
-    //doll.palette = ReferenceColours.CORRUPT;
-   Palette tmp = new Palette.combined([doll.palette, ReferenceColours.CORRUPT]);
-   doll.copyPalette(tmp);
-
-
-    // Doll doll = Doll.loadSpecificDoll("&&&:___HBTfxSoAIcsAEGUAIMsAMP8AEGUAIcsAIcsAIcsAAABLS0s6OjoREREAAAAREREzMzPExMQAIcsAEGUIgRgIwDhgKD8gDaAbQ0bg");
+    Doll doll = Doll.randomDollOfType(44);
     await drawDoll(doll);
-    doll.palette = new Palette.combined([doll.palette, ReferenceColours.PURIFIED]);
-    await drawDoll(doll);
-    makeForestOfDollOfTypeNewColors(doll,88);
 
-    lifeSpanTest();
+    makeForestOfDollOfTypeNewColors(doll,44);
     //runTests();
 }
 

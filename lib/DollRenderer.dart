@@ -13,7 +13,7 @@ export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckSatyrDoll.dart";
 export "package:DollLibCorrect/src/Dolls/KidBased/HomestuckCherubDoll.dart";
 export "package:DollLibCorrect/src/Dolls/KidBased/SmolKidDoll.dart";
 export "package:DollLibCorrect/src/Dolls/KidBased/SmolTrolDoll.dart";
-
+export "src/Dolls/VesselDoll.dart";
 export "src/Dolls/BlobMonsterDoll.dart";
 export "src/Dolls/PngDoll.dart";
 export "src/Dolls/MatryoshkaDoll.dart";
