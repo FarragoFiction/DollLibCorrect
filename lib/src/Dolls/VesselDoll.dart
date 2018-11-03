@@ -66,12 +66,12 @@ class VesselDoll extends Doll{
     ..shirt_light = '#EFEFEF'
     ..shirt_dark = '#DBDBDB'
     ..pants_light = '#C6C6C6'
-    ..eye_white_left = '#ffffff'
-    ..eye_white_right = '#ffffff'
+    ..eye_white_left = '#000000'
+    ..eye_white_right = '#000000'
     ..pants_dark = '#ADADAD'
-    ..hair_main = '#ffffff'
+    ..hair_main = '#000000'
     ..hair_accent = '#ADADAD'
-    ..skin = '#ffffff';
+    ..skin = '#fdca0d';
 
 
   VesselDoll() {
