@@ -24,19 +24,19 @@ class HomestuckDoll extends HatchableDoll {
     @override
     String relativefolder = "images/Homestuck";
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
-    final int maxBody = 636;
+    final int maxBody = 646;
     final int maxSecretBody = 510; //the legacy limit
-    final int maxHair = 333; //don't go above this yet, but have
+    final int maxHair = 341; //don't go above this yet, but have
     final int maxSecretHair = 254; //old max
-    final int maxEye = 268;
-    final int maxMouth = 274; //actually
+    final int maxEye = 278;
+    final int maxMouth = 281; //actually
     final int maxSecretMouth = 254;
-    final int maxSymbol = 401;  //don't go above this yet, but have
+    final int maxSymbol = 420;  //don't go above this yet, but have
     final int maxSecretSymbol = 254;
-    final int maxGlass = 265;
-    final int maxGlass2 = 306;
+    final int maxGlass = 275;
+    final int maxGlass2 = 310;
     final int maxSecretGlass2 = 254;
-    final int maxFacePaint = 186;
+    final int maxFacePaint = 187;
 
     SpriteLayer body;
     //need extended layers separate to keep  backwards compatibility with old data strings that had a single byte
