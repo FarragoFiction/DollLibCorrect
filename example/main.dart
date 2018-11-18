@@ -17,6 +17,8 @@ void main() {
 Future<bool> start() async {
     await Loader.preloadManifest();
     await breedTest();
+    runTests();
+
 
     //await renderEverythingAndLoad();
     //await testPartial();
@@ -25,7 +27,6 @@ Future<bool> start() async {
     await drawDoll(doll);
 
     makeForestOfDollOfTypeNewColors(doll,44);
-    //runTests();
 }
 
 Future<Null> lifeSpanTest() async {
