@@ -33,7 +33,7 @@ class DogDoll extends Doll{
   String relativefolder = "images/Dog";
   final int maxAccessory = 3;
   final int maxbackLegs = 1;
-  final int maxBody = 2;
+  final int maxBody = 4;
   final int maxChestFur = 1;
   final int maxFrontLegs = 1;
   final int maxHead = 1;
