@@ -33,7 +33,7 @@ class SuperbSuckDoll extends Doll{
   final int maxBody = 71;
   final int maxSymbol =49;
   final int maxHair = 60;
-  final int maxCanonSymbol = 51;
+  final int maxCanonSymbol = 288;
 
 
 
