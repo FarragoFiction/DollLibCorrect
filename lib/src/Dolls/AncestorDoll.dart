@@ -56,10 +56,10 @@ class AncestorDoll extends Doll{
   String relativefolder = "images/Ancestors";
   final int maxAccessoryBehind = 4;
   final int maxAccessoryFront = 5;
-  final int maxBody = 30;
+  final int maxBody = 36;
   final int maxEye = 7;
   final int maxPaint = 2;
-  final int maxHair = 17;
+  final int maxHair = 18;
   final int maxHorn = 17;
   final int maxMouth = 13;
   final int maxFin = 1;
