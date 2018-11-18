@@ -32,7 +32,7 @@ class MomDoll extends Doll {
     final int maxHair = 14;
     final int maxDrink = 7;
     final int maxOutfit = 11;
-    final int maxMouth = 8;
+    final int maxMouth = 9;
     final int maxBase = 0;
 
     SpriteLayer hair;
