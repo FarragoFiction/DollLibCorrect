@@ -31,12 +31,12 @@ class DuckDoll extends Doll{
 
   @override
   String relativefolder = "images/Duck";
-  final int maxBeaks = 2;
-  final int maxBody = 19;
-  final int maxEyes = 4;
-  final int maxGlasses = 5;
-  final int maxHair = 18;
-  final int maxSymbols = 14;
+  final int maxBeaks = 6;
+  final int maxBody = 42;
+  final int maxEyes = 8;
+  final int maxGlasses = 9;
+  final int maxHair = 26;
+  final int maxSymbols = 15;
 
   SpriteLayer beak;
   SpriteLayer body;
