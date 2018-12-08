@@ -1,12 +1,7 @@
-import 'package:RenderingLib/RendereringLib.dart';
 import "../../DollRenderer.dart";
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-
-import "../Rendering/ReferenceColors.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 //MadCreativity championed this one.
 class HiveswapDoll extends Doll {
@@ -263,27 +258,27 @@ class HiveswapDoll extends Doll {
 
     @override
     void initLayers() {
-        hairTop = new SpriteLayer("HairFront","$folder/HairTop/", 1, maxHair);
-        hairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[hairTop]);
-        hairTop.syncedWith.add(hairBack);
-        hairBack.slave = true; //can't be selected on it's own
+        hairTop = layer("Hiveswap.HairFront", "HairTop/", 1);//new SpriteLayer("HairFront","$folder/HairTop/", 1, maxHair);
+        hairBack = layer("Hiveswap.HairBack", "HairBack/", 1)..slaveTo(hairTop);//new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[hairTop]);
+        //hairTop.syncedWith.add(hairBack);
+        //hairBack.slave = true; //can't be selected on it's own
 
-        leftFin = new SpriteLayer("LeftFin", "$folder/LeftFin/", 1, maxFin);
-        rightFin = new SpriteLayer("RightFin", "$folder/RightFin/", 1, maxFin, syncedWith: <SpriteLayer>[leftFin]);
-        leftFin.syncedWith.add(rightFin);
-        rightFin.slave = true; //can't be selected on it's own
+        leftFin = layer("Hiveswap.LeftFin", "LeftFin/", 1);//new SpriteLayer("LeftFin", "$folder/LeftFin/", 1, maxFin);
+        rightFin = layer("Hiveswap.RightFin", "RightFin/", 1)..slaveTo(leftFin);//new SpriteLayer("RightFin", "$folder/RightFin/", 1, maxFin, syncedWith: <SpriteLayer>[leftFin]);
+        //leftFin.syncedWith.add(rightFin);
+        //rightFin.slave = true; //can't be selected on it's own
 
-        body = new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
-        glasses = new SpriteLayer("Glasses", "$folder/Glasses/", 1, maxGlasses);
-        facepaint = new SpriteLayer("FacePaint", "$folder/Facepaint/", 1, maxFacepaint);
+        body = layer("Hiveswap.Body", "Body/", 1);//new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
+        glasses = layer("Hiveswap.Glasses", "Glasses/", 1);//new SpriteLayer("Glasses", "$folder/Glasses/", 1, maxGlasses);
+        facepaint = layer("Hiveswap.FacePaint", "Facepaint/", 1);//new SpriteLayer("FacePaint", "$folder/Facepaint/", 1, maxFacepaint);
 
 
-        eyebrows = new SpriteLayer("EyeBrows", "$folder/Eyebrows/", 1, maxEyebrows);
-        leftEye = new SpriteLayer("LeftEye", "$folder/LeftEye/", 1, maxEyes)..primaryPartner = false;
-        rightEye = new SpriteLayer("RightEye", "$folder/RightEye/", 1, maxEyes)..partners.add(leftEye);
-        leftHorn = new SpriteLayer("LeftHorn", "$folder/LeftHorn/", 1, maxHorn)..primaryPartner = false;
-        rightHorn = new SpriteLayer("RightHorn", "$folder/RightHorn/", 1, maxHorn)..partners.add(leftHorn);
-        mouth = new SpriteLayer("Mouth", "$folder/Mouth/", 1, maxMouth);
+        eyebrows = layer("Hiveswap.EyeBrows", "Eyebrows/", 1);//new SpriteLayer("EyeBrows", "$folder/Eyebrows/", 1, maxEyebrows);
+        leftEye = layer("Hiveswap.LeftEye", "LeftEye/", 1);//new SpriteLayer("LeftEye", "$folder/LeftEye/", 1, maxEyes)..primaryPartner = false;
+        rightEye = layer("Hiveswap.RightEye", "RightEye/", 1)..addPartner(leftEye);//new SpriteLayer("RightEye", "$folder/RightEye/", 1, maxEyes)..partners.add(leftEye);
+        leftHorn = layer("Hiveswap.LeftHorn", "LeftHorn/", 1);//new SpriteLayer("LeftHorn", "$folder/LeftHorn/", 1, maxHorn)..primaryPartner = false;
+        rightHorn = layer("Hiveswap.RightHorn", "RightHorn/", 1)..addPartner(leftHorn);//new SpriteLayer("RightHorn", "$folder/RightHorn/", 1, maxHorn)..partners.add(leftHorn);
+        mouth = layer("Hiveswap.Mouth", "Mouth/", 1);//new SpriteLayer("Mouth", "$folder/Mouth/", 1, maxMouth);
     }
 
 }

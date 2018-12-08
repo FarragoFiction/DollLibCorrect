@@ -1,15 +1,8 @@
-import 'package:DollLibCorrect/src/Dolls/Layers/PositionedLayer.dart';
-import 'package:DollLibCorrect/src/Dolls/Layers/PositionedLayerPlusUltra.dart';
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
+import "../../commonImports.dart";
 import "../Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckSatyrDoll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "../../Rendering/ReferenceColors.dart";
+import '../Layers/PositionedLayerPlusUltra.dart';
+import "../Layers/SpriteLayer.dart";
+import "HomestuckDoll.dart";
 
 
 class SmolKidDoll extends HomestuckDoll {
@@ -63,7 +56,7 @@ class SmolKidDoll extends HomestuckDoll {
         //only do what is special to me here.
         //print("initializing layers, folder is: $folder and use absolute path is $useAbsolutePath");
 
-        extendedBody = new SpriteLayer("SmolBody","$folder/SmolBody/", 1, maxBody);
+        extendedBody = layer("Smol.SmolBody", "SmolBody/", 1);//new SpriteLayer("SmolBody","$folder/SmolBody/", 1, maxBody);
         double scale = 0.6;
         int smolWidth = (width * scale).round();
         int smolHeight = (height * scale).round();
@@ -71,21 +64,21 @@ class SmolKidDoll extends HomestuckDoll {
         int y = 123;
 
 
-        leftEye = new PositionedLayerPlusUltra(smolWidth, smolHeight, x,y,"LeftEye","$folder/LeftEye/", 1, maxEye)..primaryPartner = false;
-        rightEye = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"RightEye","$folder/RightEye/", 1, maxEye)..partners.add(leftEye);
+        leftEye = layerPlusUltra(smolWidth, smolHeight, x, y, "Kid.LeftEye", "LeftEye/", 1);//new PositionedLayerPlusUltra(smolWidth, smolHeight, x,y,"LeftEye","$folder/LeftEye/", 1, maxEye)..primaryPartner = false;
+        rightEye = layerPlusUltra(smolWidth, smolHeight, x, y, "Kid.RightEye", "RightEye/", 1);//new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"RightEye","$folder/RightEye/", 1, maxEye)..partners.add(leftEye);
 
-        extendedHairTop = new PositionedLayerPlusUltra(smolWidth, smolHeight, x,y,"HairFront","$folder/HairTop/", 1, maxHair)..secretMax = maxSecretHair;
-        extendedHairBack = new PositionedLayerPlusUltra(smolWidth, smolHeight, x,y,"HairBack","$folder/HairBack/", 1, maxHair)..secretMax = maxSecretHair;
-        extendedHairBack.syncedWith.add(extendedHairTop);
-        extendedHairTop.syncedWith.add(extendedHairBack);
-        extendedHairBack.slave = true;
+        extendedHairTop = layerPlusUltra(smolWidth, smolHeight, x, y, "Kid.HairFront", "HairTop/", 1, secret:maxSecretHair);//new PositionedLayerPlusUltra(smolWidth, smolHeight, x,y,"HairFront","$folder/HairTop/", 1, maxHair)..secretMax = maxSecretHair;
+        extendedHairBack = layerPlusUltra(smolWidth, smolHeight, x, y, "Kid.HairBack", "HairBack/", 1, secret:maxSecretHair)..slaveTo(extendedHairTop);//new PositionedLayerPlusUltra(smolWidth, smolHeight, x,y,"HairBack","$folder/HairBack/", 1, maxHair)..secretMax = maxSecretHair;
+        //extendedHairBack.syncedWith.add(extendedHairTop);
+        //extendedHairTop.syncedWith.add(extendedHairBack);
+        //extendedHairBack.slave = true;
 
-        glasses = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"Glasses","$folder/Glasses/", 1, maxGlass);
-        glasses2 = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"Glasses2","$folder/Glasses2/", 0, maxGlass2)..secretMax = maxSecretGlass2;
+        glasses = layerPlusUltra(smolWidth, smolHeight, x, y, "Kid.Glasses", "Glasses/", 1);//new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"Glasses","$folder/Glasses/", 1, maxGlass);
+        glasses2 = layerPlusUltra(smolWidth, smolHeight, x, y, "Kid.Glasses2", "Glasses2/", 0, secret:maxSecretGlass2);//new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"Glasses2","$folder/Glasses2/", 0, maxGlass2)..secretMax = maxSecretGlass2;
 
-        mouth = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"Mouth","$folder/Mouth/", 1, maxMouth)..secretMax = maxSecretMouth;
-        symbol = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"Symbol","$folder/Symbol/", 1, maxSymbol)..secretMax = maxSecretSymbol;
-        facePaint = new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"FacePaint","$folder/FacePaint/", 0, maxFacePaint);
+        mouth = layerPlusUltra(smolWidth, smolHeight, x, y, "Kid.Mouth", "Mouth/", 1, secret:maxSecretMouth);//new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"Mouth","$folder/Mouth/", 1, maxMouth)..secretMax = maxSecretMouth;
+        symbol = layerPlusUltra(smolWidth, smolHeight, x, y, "Kid.Symbol", "Symbol/", 1, secret:maxSecretSymbol);//new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"Symbol","$folder/Symbol/", 1, maxSymbol)..secretMax = maxSecretSymbol;
+        facePaint = layerPlusUltra(smolWidth, smolHeight, x, y, "Kid.FacePaint", "FacePaint/", 0);//new PositionedLayerPlusUltra(smolWidth, smolHeight,x,y,"FacePaint","$folder/FacePaint/", 0, maxFacePaint);
 
 
     }

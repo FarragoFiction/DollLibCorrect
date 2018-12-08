@@ -1,12 +1,10 @@
 import 'package:DollLibCorrect/src/Dolls/KidBased/HomestuckTrollDoll.dart';
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
+import 'package:CommonLib/Random.dart';
+import 'package:CommonLib/Colours.dart';
 
 import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
+import "../Dolls/KidBased/HomestuckDoll.dart";
+import "../Dolls/Layers/SpriteLayer.dart";
 import "../Rendering/ReferenceColors.dart";
 import "Quirk.dart";
 
@@ -170,20 +168,20 @@ class AncestorDoll extends Doll{
     {
 
      // hairFront, hornLeft, hornRight
-      body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      fin = new SpriteLayer("Fin","$folder/Fin/", 1, maxFin);
-      accessoryBack = new SpriteLayer("BehindAccessory","$folder/AccessoriesBehind/", 1, maxAccessoryBehind);
-      hairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair);
-      facepaint = new SpriteLayer("Facepaint","$folder/Facepaint/", 1, maxPaint);
-      mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
-      eyeLeft = new SpriteLayer("LeftEye","$folder/EyeLeft/", 1, maxEye)..primaryPartner = false;
-      eyeRight = new SpriteLayer("RightEye","$folder/EyeRight/", 1, maxEye)..partners.add(eyeLeft);
-      accessoryFront = new SpriteLayer("FrontAccessory","$folder/AccessoriesFront/", 1, maxAccessoryFront);
-      hairFront = new SpriteLayer("HairFront","$folder/HairFront/", 1, maxHair, syncedWith: <SpriteLayer>[hairBack]);
-      hairBack.syncedWith.add(hairFront);
-      hairFront.slave = true; //can't be selected on it's own
-      hornLeft = new SpriteLayer("LeftHorn","$folder/HornLeft/", 1, maxHorn)..primaryPartner = false;;
-      hornRight = new SpriteLayer("RightHorn","$folder/HornRight/", 1, maxHorn)..partners.add(hornLeft);
+      body = layer("Ancestor.Body", "Body/", 1);//new SpriteLayer("Body","$folder/Body/", 1, maxBody);
+      fin = layer("Ancestor.Fin", "Fin/", 1);//new SpriteLayer("Fin","$folder/Fin/", 1, maxFin);
+      accessoryBack = layer("Ancestor.BehindAccessory", "AccessoriesBehind/", 1);//new SpriteLayer("BehindAccessory","$folder/AccessoriesBehind/", 1, maxAccessoryBehind);
+      hairBack = layer("Ancestor.HairBack", "HairBack/", 1);//new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair);
+      facepaint = layer("Ancestor.Facepaint", "Facepaint/", 1);//new SpriteLayer("Facepaint","$folder/Facepaint/", 1, maxPaint);
+      mouth = layer("Ancestor.Mouth", "Mouth/", 1);//new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
+      eyeLeft = layer("Ancestor.LeftEye", "EyeLeft/", 1);//new SpriteLayer("LeftEye","$folder/EyeLeft/", 1, maxEye)..primaryPartner = false;
+      eyeRight = layer("Ancestor.RightEye", "EyeRight/", 1)..addPartner(eyeLeft);//new SpriteLayer("RightEye","$folder/EyeRight/", 1, maxEye)..partners.add(eyeLeft);
+      accessoryFront = layer("Ancestor.FrontAccessory", "AccessoriesFront/", 1);//new SpriteLayer("FrontAccessory","$folder/AccessoriesFront/", 1, maxAccessoryFront);
+      hairFront = layer("Ancestor.HairFront", "HairFront/", 1)..slaveTo(hairBack);//new SpriteLayer("HairFront","$folder/HairFront/", 1, maxHair, syncedWith: <SpriteLayer>[hairBack]);
+      //hairBack.syncedWith.add(hairFront);
+      //hairFront.slave = true; //can't be selected on it's own
+      hornLeft = layer("Ancestor.LeftHorn", "HornLeft/", 1);//new SpriteLayer("LeftHorn","$folder/HornLeft/", 1, maxHorn)..primaryPartner = false;;
+      hornRight = layer("Ancestor.RightHorn", "HornRight/", 1)..addPartner(hornLeft);//new SpriteLayer("RightHorn","$folder/HornRight/", 1, maxHorn)..partners.add(hornLeft);
 
       //slave hair, partner horns/eyes
 

@@ -1,13 +1,8 @@
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
+import "../../DollRenderer.dart";
 import "../Rendering/ReferenceColors.dart";
-import "Quirk.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 //saving and loading isn't working .why?
@@ -139,15 +134,15 @@ class FekDoll extends Doll{
 
   @override
   void initLayers() {
-      body = new SpriteLayer("Body","$folder/body/", 1, maxBody);
-      canonSymbol = new SpriteLayer("canonSymbol","$folder/canonSymbol/", 1, maxCanonSymbol);
-      face = new SpriteLayer("Face","$folder/face/", 1, maxFace);
-      text = new SpriteLayer("Text","$folder/text/", 1, maxText);
-      glasses = new SpriteLayer("Glasses","$folder/glasses/", 1, maxGlasses);
-      hair = new SpriteLayer("Hair","$folder/hair/", 1, maxHair);
-      horns = new SpriteLayer("Horns","$folder/horns/", 1, maxHorns);
-      symbol = new SpriteLayer("Symbol","$folder/symbol/", 1, maxSymbol);
-      facePaint = new SpriteLayer("FacePaint","$folder/facepaint/", 1, maxFacePaint);
+      body = layer("Fek.Body", "body/", 1);//new SpriteLayer("Body","$folder/body/", 1, maxBody);
+      canonSymbol = layer("Fek.canonSymbol", "canonSymbol/", 1);//new SpriteLayer("canonSymbol","$folder/canonSymbol/", 1, maxCanonSymbol);
+      face = layer("Fek.Face", "face/", 1);//new SpriteLayer("Face","$folder/face/", 1, maxFace);
+      text = layer("Fek.Text", "text/", 1);//new SpriteLayer("Text","$folder/text/", 1, maxText);
+      glasses = layer("Fek.Glasses", "glasses/", 1);//new SpriteLayer("Glasses","$folder/glasses/", 1, maxGlasses);
+      hair = layer("Fek.Hair", "hair/", 1);//new SpriteLayer("Hair","$folder/hair/", 1, maxHair);
+      horns = layer("Fek.Horns", "horns/", 1);//new SpriteLayer("Horns","$folder/horns/", 1, maxHorns);
+      symbol = layer("Fek.Symbol", "symbol/", 1);//new SpriteLayer("Symbol","$folder/symbol/", 1, maxSymbol);
+      facePaint = layer("Fek.FacePaint", "facepaint/", 1);//new SpriteLayer("FacePaint","$folder/facepaint/", 1, maxFacePaint);
   }
 
 }

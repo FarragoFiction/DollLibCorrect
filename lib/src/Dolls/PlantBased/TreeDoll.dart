@@ -1,30 +1,15 @@
-import 'dart:async';
-import 'dart:html';
-import 'dart:math' as Math;
-import 'package:DollLibCorrect/DollRenderer.dart';
-import 'package:DollLibCorrect/src/Dolls/PlantBased/FlowerDoll.dart';
-import 'package:DollLibCorrect/src/Dolls/PlantBased/FruitDoll.dart';
-import 'package:DollLibCorrect/src/Dolls/Layers/PositionedDollLayer.dart';
-import 'package:DollLibCorrect/src/Dolls/Layers/PositionedLayer.dart';
-import 'package:DollLibCorrect/src/Dolls/PlantBased/LeafDoll.dart';
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
+import "dart:math" as Math;
+import "../../../DollRenderer.dart";
 import "../../Rendering/ReferenceColors.dart";
-import "../Quirk.dart";
+import "../../commonImports.dart";
+import "../Doll.dart";
+import "../Layers/SpriteLayer.dart";
 
 
 /*
 
 prototype for a doll that has positioned layers
  */
-
-
 class TreeDoll extends Doll{
 
     List<TreeForm> forms = new List<TreeForm>();

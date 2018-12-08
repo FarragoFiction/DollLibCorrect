@@ -1,12 +1,8 @@
-import 'package:CommonLib/Compression.dart';
-import 'package:RenderingLib/RendereringLib.dart';
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckTrollDoll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import 'package:RenderingLib/src/includes/bytebuilder.dart'as OldByteBuilder;
-
 import "../../../DollRenderer.dart";
+import "../../commonImports.dart";
+import '../../legacybytebuilder.dart' as OldByteBuilder;
+import "../Layers/SpriteLayer.dart";
+import "HomestuckTrollDoll.dart";
 
 class HomestuckDoll extends HatchableDoll {
 
@@ -24,19 +20,19 @@ class HomestuckDoll extends HatchableDoll {
     @override
     String relativefolder = "images/Homestuck";
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
-    final int maxBody = 646;
+    //final int maxBody = 646;
     final int maxSecretBody = 510; //the legacy limit
-    final int maxHair = 341; //don't go above this yet, but have
+    //final int maxHair = 341; //don't go above this yet, but have
     final int maxSecretHair = 254; //old max
-    final int maxEye = 278;
-    final int maxMouth = 281; //actually
+    //final int maxEye = 278;
+    //final int maxMouth = 281; //actually
     final int maxSecretMouth = 254;
-    final int maxSymbol = 420;  //don't go above this yet, but have
+    //final int maxSymbol = 420;  //don't go above this yet, but have
     final int maxSecretSymbol = 254;
-    final int maxGlass = 275;
-    final int maxGlass2 = 310;
+    //final int maxGlass = 275;
+    //final int maxGlass2 = 310;
     final int maxSecretGlass2 = 254;
-    final int maxFacePaint = 187;
+    //final int maxFacePaint = 187;
 
     SpriteLayer body;
     //need extended layers separate to keep  backwards compatibility with old data strings that had a single byte
@@ -54,6 +50,10 @@ class HomestuckDoll extends HatchableDoll {
     SpriteLayer glasses;
     SpriteLayer glasses2;
 
+    HomestuckDoll() {
+        initLayers();
+        randomize();
+    }
 
     @override
     List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[extendedHairBack, extendedBody, facePaint,symbol, mouth, leftEye, rightEye, glasses, extendedHairTop, glasses2];
@@ -86,14 +86,6 @@ class HomestuckDoll extends HatchableDoll {
         ..hair_accent = '#ADADAD'
         ..skin = '#ffffff';
 
-
-
-    HomestuckDoll() {
-        initLayers();
-        randomize();
-    }
-
-
     @override
     void beforeSaving() {
         super.beforeSaving();
@@ -107,31 +99,33 @@ class HomestuckDoll extends HatchableDoll {
 
     }
 
-    void initLayers()
-
-    {
+    @override
+    void initLayers() {
         //old layers aren't rendered, but still exist so that data can be parsed
-        hairTop = new SpriteLayer("HairOld","$folder/HairTop/", 1, 255);
-        hairBack = new SpriteLayer("HairOld","$folder/HairBack/", 1, 255);
+        hairTop = new SpriteLayer("HairOld","$folder/HairTop/", 1, 255, legacy:true);
+        hairBack = new SpriteLayer("HairOldBack","$folder/HairBack/", 1, 255, legacy:true);
         //hairTop.syncedWith.add(hairBack);
        // hairBack.slave = true; //can't be selected on it's own
 
-        extendedHairTop = new SpriteLayer("HairFront","$folder/HairTop/", 1, maxHair, supportsMultiByte: true)..secretMax = maxSecretHair;
-        extendedHairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[extendedHairTop], supportsMultiByte: true)..secretMax = maxSecretHair;
-        extendedHairTop.syncedWith.add(extendedHairBack);
-        extendedHairBack.slave = true;
+        extendedHairTop = layer("Kid.HairFront", "HairTop/", 1, mb:true, secret:maxSecretHair);
+        //extendedHairTop = new SpriteLayer("HairFront","$folder/HairTop/", 1, maxHair, supportsMultiByte: true)..secretMax = maxSecretHair;
+        extendedHairBack = layer("Kid.HairBack", "HairBack/", 1, mb:true, secret:maxSecretHair)..slaveTo(extendedHairTop);
+        //extendedHairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[extendedHairTop], supportsMultiByte: true)..secretMax = maxSecretHair;
+        //extendedHairTop.syncedWith.add(extendedHairBack);
+        //extendedHairBack.slave = true;
 
-        extendedBody = new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true)..secretMax = maxSecretBody;
-        body = new SpriteLayer("BodyOld","$folder/Body/", 0, 255);
+        extendedBody = layer("Kid.Body", "Body/", 0, mb:true, secret:maxSecretBody);
+        //extendedBody = new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true)..secretMax = maxSecretBody;
+        body = new SpriteLayer("BodyOld","$folder/Body/", 0, 255, legacy:true);
 
-        facePaint = new SpriteLayer("FacePaint","$folder/FacePaint/", 0, maxFacePaint);
+        facePaint = layer("Kid.FacePaint", "FacePaint/", 0);//new SpriteLayer("FacePaint","$folder/FacePaint/", 0, maxFacePaint);
 
-        symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol)..secretMax = maxSecretSymbol;
-        mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth)..secretMax = maxSecretMouth;
-        leftEye = new SpriteLayer("LeftEye","$folder/LeftEye/", 1, maxEye)..primaryPartner = false;
-        rightEye = new SpriteLayer("RightEye","$folder/RightEye/", 1, maxEye)..partners.add(leftEye);
-        glasses = new SpriteLayer("Glasses","$folder/Glasses/", 1, maxGlass);
-        glasses2 = new SpriteLayer("Glasses2","$folder/Glasses2/", 0, maxGlass2)..secretMax = maxSecretGlass2;
+        symbol = layer("Kid.Symbol", "Symbol/", 1, secret:maxSecretSymbol);//new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol)..secretMax = maxSecretSymbol;
+        mouth = layer("Kid.Mouth", "Mouth/", 1, secret:maxSecretMouth);//new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth)..secretMax = maxSecretMouth;
+        leftEye = layer("Kid.LeftEye", "LeftEye/", 1);//new SpriteLayer("LeftEye","$folder/LeftEye/", 1, maxEye)..primaryPartner = false;
+        rightEye = layer("Kid.RightEye", "RightEye/", 1)..addPartner(leftEye);//new SpriteLayer("RightEye","$folder/RightEye/", 1, maxEye)..partners.add(leftEye);
+        glasses = layer("Kid.Glasses", "Glasses/", 1);//new SpriteLayer("Glasses","$folder/Glasses/", 1, maxGlass);
+        glasses2 = layer("Kid.Glasses2", "Glasses2/", 0, secret:maxSecretGlass2);//new SpriteLayer("Glasses2","$folder/Glasses2/", 0, maxGlass2)..secretMax = maxSecretGlass2;
     }
 
 

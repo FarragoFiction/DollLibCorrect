@@ -1,14 +1,9 @@
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
+import "../../DollRenderer.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
 
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-
-import "../Rendering/ReferenceColors.dart";
 class BroomDoll extends Doll {
 
     @override
@@ -72,8 +67,8 @@ class BroomDoll extends Doll {
 
     @override
     void initLayers() {
-        handle = new SpriteLayer("Handle", "$folder/Handle/", 1, maxHandle);
-        head = new SpriteLayer("Head", "$folder/Head/", 1, maxHead);
+        handle = layer("Broom.Handle", "Handle/", 1);//new SpriteLayer("Handle", "$folder/Handle/", 1, maxHandle);
+        head = layer("Broom.Head", "Head/", 1);//new SpriteLayer("Head", "$folder/Head/", 1, maxHead);
     }
 
 

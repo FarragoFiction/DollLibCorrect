@@ -1,13 +1,8 @@
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
+import "../../DollRenderer.dart";
 import "../Rendering/ReferenceColors.dart";
-import "Quirk.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 //saving and loading isn't working .why?
@@ -138,24 +133,24 @@ class DogDoll extends Doll{
 
     {
       //leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
-      tail = new SpriteLayer("Tail","$folder/Tail/", 1, maxTail);
-      body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      chestFur = new SpriteLayer("ChestFur","$folder/chestFur/", 1, maxChestFur);
-      rightHeadFur = new SpriteLayer("HairFur","$folder/rightHeadFur/", 1, maxHeadFur);
-      head = new SpriteLayer("Head","$folder/head/", 1, maxHead);
-      leftEye = new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxEye);
-      rightEye = new SpriteLayer("RightEye","$folder/rightEye/", 1, maxEye);
-      leftHeadFur = new SpriteLayer("HairFur","$folder/leftHeadFur/", 1, maxHeadFur, syncedWith: <SpriteLayer>[rightHeadFur]);
-      leftEar = new SpriteLayer("LeftEar","$folder/leftEar/", 1, maxEar);
-      rightEar = new SpriteLayer("RightEar","$folder/rightEar/", 1, maxEar);
-      snout = new SpriteLayer("Snout","$folder/snout/", 1, maxSnout);
-      accessory = new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
-      backLegs = new SpriteLayer("BackLegs","$folder/backLegs/", 1, maxbackLegs);
-      frontLegs = new SpriteLayer("FrontLegs","$folder/frontLeg/", 1, maxFrontLegs);
+      tail = layer("Dog.Tail", "Tail/", 1);//new SpriteLayer("Tail","$folder/Tail/", 1, maxTail);
+      body = layer("Dog.Body", "Body/", 1);//new SpriteLayer("Body","$folder/Body/", 1, maxBody);
+      chestFur = layer("Dog.ChestFur", "chestFur/", 1);//new SpriteLayer("ChestFur","$folder/chestFur/", 1, maxChestFur);
+      rightHeadFur = layer("Dog.RightHeadFur", "rightHeadFur/", 1);//new SpriteLayer("HairFur","$folder/rightHeadFur/", 1, maxHeadFur);
+      head = layer("Dog.Head", "head/", 1);//new SpriteLayer("Head","$folder/head/", 1, maxHead);
+      leftEye = layer("Dog.LeftEye", "leftEye/", 1);//new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxEye);
+      rightEye = layer("Dog.RightEye", "rightEye/", 1);//new SpriteLayer("RightEye","$folder/rightEye/", 1, maxEye);
+      leftHeadFur = layer("Dog.LeftHeadFur", "leftHeadFur/", 1)..slaveTo(rightHeadFur);//new SpriteLayer("HairFur","$folder/leftHeadFur/", 1, maxHeadFur, syncedWith: <SpriteLayer>[rightHeadFur]);
+      leftEar = layer("Dog.LeftEar", "leftEar/", 1);//new SpriteLayer("LeftEar","$folder/leftEar/", 1, maxEar);
+      rightEar = layer("Dog.RightEar", "rightEar/", 1);//new SpriteLayer("RightEar","$folder/rightEar/", 1, maxEar);
+      snout = layer("Dog.Snout", "snout/", 1);//new SpriteLayer("Snout","$folder/snout/", 1, maxSnout);
+      accessory = layer("Dog.Accessory", "accessory/", 1);//new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
+      backLegs = layer("Dog.BackLegs", "backLegs/", 1);//new SpriteLayer("BackLegs","$folder/backLegs/", 1, maxbackLegs);
+      frontLegs = layer("Dog.FrontLegs", "frontLeg/", 1);//new SpriteLayer("FrontLegs","$folder/frontLeg/", 1, maxFrontLegs);
 
 
-      rightHeadFur.syncedWith.add(leftHeadFur);
-      leftHeadFur.slave = true; //can't be selected on it's own
+      //rightHeadFur.syncedWith.add(leftHeadFur);
+      //leftHeadFur.slave = true; //can't be selected on it's own
 
 
 

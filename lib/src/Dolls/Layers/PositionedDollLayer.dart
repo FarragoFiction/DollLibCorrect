@@ -1,9 +1,6 @@
-import 'dart:async';
-import 'dart:html';
-import 'package:DollLibCorrect/DollRenderer.dart';
-import 'package:DollLibCorrect/src/Dolls/Doll.dart';
-import 'package:DollLibCorrect/src/Dolls/Layers/DynamicLayer.dart';
-import 'package:CommonLib/Compression.dart';
+import "../../commonImports.dart";
+import '../Doll.dart';
+import 'DynamicLayer.dart';
 //it's a layer which is an entire doll (like fruit or flower or whatever, or evne a kid)
 class PositionedDollLayer extends DynamicLayer{
     Doll doll;

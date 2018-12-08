@@ -1,15 +1,7 @@
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import "../Rendering/ReferenceColors.dart";
-import "Quirk.dart";
-
-
+import "../../DollRenderer.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 class BlobMonsterDoll extends Doll{
@@ -116,11 +108,11 @@ class BlobMonsterDoll extends Doll{
   void initLayers() {
     {
       //leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
-      body = new SpriteLayer("Body","$folder/bodies/", 1, maxBody);
-      horns = new SpriteLayer("Horns","$folder/horns/", 1, maxHorn);
-      mouth = new SpriteLayer("Mouth","$folder/mouths/", 1, maxMouth);
-      eyes = new SpriteLayer("Eyes","$folder/eyes/", 1, maxEyes);
-      wings = new SpriteLayer("Limb","$folder/wings/", 1, maxWing);
+      body = layer("BlobMonster.Body", "bodies/", 1);//new SpriteLayer("Body","$folder/bodies/", 1, maxBody);
+      horns = layer("BlobMonster.Horns", "horns/", 1);//new SpriteLayer("Horns","$folder/horns/", 1, maxHorn);
+      mouth = layer("BlobMonster.Mouth", "mouths/", 1);//new SpriteLayer("Mouth","$folder/mouths/", 1, maxMouth);
+      eyes = layer("BlobMonster.Eyes", "eyes/", 1);//new SpriteLayer("Eyes","$folder/eyes/", 1, maxEyes);
+      wings = layer("BlobMonster.Limb", "wings/", 1);//new SpriteLayer("Limb","$folder/wings/", 1, maxWing);
 
     }
   }

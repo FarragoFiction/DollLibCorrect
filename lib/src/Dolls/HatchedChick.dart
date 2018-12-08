@@ -1,17 +1,9 @@
- import 'package:RenderingLib/RendereringLib.dart';
- import 'package:CommonLib/Compression.dart';
-
-import "../Dolls/Doll.dart";
-import "../Dolls/PigeonDoll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import "Quirk.dart";
- import "../Dolls/HatchableDoll.dart";
+import "../../DollRenderer.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
-import "../Rendering/ReferenceColors.dart";
-import 'package:RenderingLib/src/Misc/weighted_lists.dart';
 class HatchedChick extends HatchableDoll {
 
     @override
@@ -141,12 +133,10 @@ class HatchedChick extends HatchableDoll {
 
     @override
     void initLayers() {
-        base = new SpriteLayer("Base", "$folder/base/", 1, maxBase);
-        middle = new SpriteLayer("Middle", "$folder/middle/", 1, maxMiddle);
-        bottom = new SpriteLayer("Bottom", "$folder/bottom/", 1, maxBottom);
-        top = new SpriteLayer("Top", "$folder/top/", 1, maxTop
-        );
-
+        base = layer("HatchedChick.Base", "base/", 1);//new SpriteLayer("Base", "$folder/base/", 1, maxBase);
+        middle = layer("HatchedChick.Middle", "middle/", 1);//new SpriteLayer("Middle", "$folder/middle/", 1, maxMiddle);
+        bottom = layer("HatchedChick.Bottom", "bottom/", 1);//new SpriteLayer("Bottom", "$folder/bottom/", 1, maxBottom);
+        top = layer("HatchedChick.Top", "top/", 1);//new SpriteLayer("Top", "$folder/top/", 1, maxTop);
     }
 
     Doll hatch() {

@@ -1,14 +1,10 @@
-import 'package:CommonLib/Compression.dart';
-import 'package:RenderingLib/RendereringLib.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-
+import "../../DollRenderer.dart";
 import "../Rendering/ReferenceColors.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
+
+
 class MonsterPocketDoll extends Doll {
 
     @override
@@ -71,10 +67,10 @@ class MonsterPocketDoll extends Doll {
 
     @override
     void initLayers() {
-        body = new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
-        leftarm = new SpriteLayer("LeftArm", "$folder/LeftArm/", 1, maxLeftArm);
-        rightarm = new SpriteLayer("RightArm", "$folder/RightArm/", 1, maxRightArm);
-        head = new SpriteLayer("Head", "$folder/Head/", 1, maxHead);
+        body = layer("Monster Pocket.Body", "Body/", 1);//new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
+        leftarm = layer("Monster Pocket.LeftArm", "LeftArm/", 1);//new SpriteLayer("LeftArm", "$folder/LeftArm/", 1, maxLeftArm);
+        rightarm = layer("Monster Pocket.RightArm", "RightArm/", 1);//new SpriteLayer("RightArm", "$folder/RightArm/", 1, maxRightArm);
+        head = layer("Monster Pocket.Head", "Head/", 1);//new SpriteLayer("Head", "$folder/Head/", 1, maxHead);
     }
 
     @override

@@ -1,15 +1,12 @@
-import 'package:CommonLib/Compression.dart';
-
-import "../../Dolls/Doll.dart";
-import 'package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart';
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import 'package:RenderingLib/RendereringLib.dart';
-
+import "../../../DollRenderer.dart";
 import "../../Rendering/ReferenceColors.dart";
+import "../../commonImports.dart";
+import "../Doll.dart";
+import "../Layers/SpriteLayer.dart";
+
 class FlowerDoll extends Doll {
     int maxBody = 28;
+    @override
     String relativefolder = "images/Flower";
 
     SpriteLayer body;

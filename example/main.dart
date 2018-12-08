@@ -1,12 +1,14 @@
-import 'dart:html';
-import 'package:DollLibCorrect/DollRenderer.dart';
-import 'dart:async';
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:RenderingLib/src/loader/loader.dart';
+import "dart:async";
+import "dart:html";
+
+import "package:DollLibCorrect/DollRenderer.dart";
+import "package:LoaderLib/Loader.dart";
+import "package:RenderingLib/RendereringLib.dart";
 
 Element output = querySelector('#output');
-void main() {
-    querySelector('#output').text = 'Your Dart app is running.';
+Future<Null> main() async {
+    await Doll.loadFileData();
+
     DateTime startTime = new DateTime.now();
     Doll doll = Doll.randomDollOfType(66);
     new TimeProfiler("load doll", startTime);
@@ -14,19 +16,19 @@ void main() {
 }
 
 //remember you can turn debug statements on to print on screen     //doll.visualizeData(output);
-Future<bool> start() async {
-    await Loader.preloadManifest();
-    await breedTest();
+Future<Null> start() async {
+    await Loader.loadManifest();
+    //await breedTest();
     runTests();
 
 
     //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
-    Doll doll = Doll.randomDollOfType(44);
-    await drawDoll(doll);
+    //Doll doll = Doll.randomDollOfType(44);
+    //await drawDoll(doll);
 
-    makeForestOfDollOfTypeNewColors(doll,44);
+    //makeForestOfDollOfTypeNewColors(doll,44);
 }
 
 Future<Null> lifeSpanTest() async {
@@ -56,12 +58,13 @@ Future<Null> lifeSpanTest() async {
 }
 
 Future<Null> runTests() async{
-   await renderEverythingAndLoad();
-   await speedTest();
-   await breedTest();
-   await breedTestTrees();
-   await clickTest();
-   await testPartial();
+    await renderEverythingAndLoad();
+    //await renderAndLoadDoll(8); // queen
+    //await speedTest();
+    //await breedTest();
+    //await breedTestTrees();
+    //await clickTest();
+    //await testPartial();
 }
 
 Future<Null> testPartial() async {
@@ -88,25 +91,32 @@ Future<Null> testPartial() async {
 
 Future<Null> renderEverythingAndLoad() async {
     for(int type in Doll.allDollTypes) {
-        DivElement us = new DivElement()..style.border = "3px solid black";
-        output.append(us);
-        try {
+        await renderAndLoadDoll(type);
+    }
+}
 
-            Doll doll = Doll.randomDollOfType(type);
-            await doll.setNameFromEngine();
-            String dollString = doll.toDataBytesX();
-            //(doll as TreeDoll).fruitTemplate = new FruitDoll()..body.imgNumber = 24;
-            //(doll as TreeDoll).fruitTime = true;
-            DivElement nameElement = new DivElement()..text = "${doll.dollName} (ID: ${doll.seed})";
-            us.append(nameElement);
-            CanvasElement canvas = await doll.getNewCanvas(true);
-            us.append(canvas);
-            Doll doll2 = Doll.loadSpecificDoll(dollString);
-            CanvasElement canvas2 = await doll2.getNewCanvas(true);
-            us.append(canvas2);
-        }catch(e) {
-            us.append(new SpanElement()..text = "no alt form for $type");
-        }
+Future<Null> renderAndLoadDoll(int type) async {
+    DivElement us = new DivElement()..style.border = "3px solid black";
+    output.append(us);
+    try {
+
+        Doll doll = Doll.randomDollOfType(type);
+        //print("type $type - ${doll.name}");
+        await doll.setNameFromEngine();
+        //print("save");
+        String dollString = doll.toDataBytesX();
+        //(doll as TreeDoll).fruitTemplate = new FruitDoll()..body.imgNumber = 24;
+        //(doll as TreeDoll).fruitTime = true;
+        DivElement nameElement = new DivElement()..text = "${doll.dollName} (ID: ${doll.seed})";
+        us.append(nameElement);
+        CanvasElement canvas = await doll.getNewCanvas(true);
+        us.append(canvas);
+        //print("load");
+        Doll doll2 = Doll.loadSpecificDoll(dollString);
+        CanvasElement canvas2 = await doll2.getNewCanvas(true);
+        us.append(canvas2);
+    }catch(e) {
+        us.append(new SpanElement()..text = "no alt form for $type");
     }
 }
 
@@ -249,7 +259,7 @@ Future<Null> makeForestOfDollOfType(Doll doll, int type) async {
     int x = -1 * doll.width;
     int y = height - doll.height;
     while(x < width) {
-        print("drawing a thing of type $type, x is $x");
+        //print("drawing a thing of type $type, x is $x"); //TODO uncomment
         Doll tmpDoll = Doll.randomDollOfType(type);
         if(tmpDoll is TreeDoll) {
             if(doll.rand.nextBool()) {
@@ -264,7 +274,7 @@ Future<Null> makeForestOfDollOfType(Doll doll, int type) async {
         await DollRenderer.drawDoll(dollCanvas, tmpDoll);
         canvas.context2D.drawImage(dollCanvas,x, y);
         x += sampleDoll.rand.nextIntRange((sampleDoll.width*.25).round(), (sampleDoll.width*.75).round());
-        print("finished drawing, x is $x");
+        //print("finished drawing, x is $x"); //TODO uncomment
 
     }
     print("appending canvas to output");
@@ -279,7 +289,7 @@ Future<Null> makeForestOfDollOfTypeNewColors(Doll doll, int type) async {
     int x = -1 * doll.width;
     int y = height - doll.height;
     while(x < width) {
-        print("drawing a thing of type $type, x is $x");
+        //print("drawing a thing of type $type, x is $x"); //TODO uncomment
         Doll tmpDoll = Doll.randomDollOfType(type);
         if(tmpDoll is TreeDoll) {
             if(doll.rand.nextBool()) {
@@ -293,7 +303,7 @@ Future<Null> makeForestOfDollOfTypeNewColors(Doll doll, int type) async {
         await DollRenderer.drawDoll(dollCanvas, tmpDoll);
         canvas.context2D.drawImage(dollCanvas,x, y);
         x += sampleDoll.rand.nextIntRange((sampleDoll.width*.25).round(), (sampleDoll.width*.75).round());
-        print("finished drawing, x is $x");
+        //print("finished drawing, x is $x"); //TODO uncomment
 
     }
     print("appending canvas to output");

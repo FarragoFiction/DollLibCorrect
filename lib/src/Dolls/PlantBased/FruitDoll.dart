@@ -1,15 +1,9 @@
-import 'dart:async';
-import 'package:CommonLib/Compression.dart';
-
-import "../../Dolls/Doll.dart";
-import 'package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart';
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import 'package:RenderingLib/RendereringLib.dart';
-
+import "../../../DollRenderer.dart";
 import "../../Rendering/ReferenceColors.dart";
-import 'package:RenderingLib/src/Misc/weighted_lists.dart';
+import "../../commonImports.dart";
+import "../Doll.dart";
+import "../Layers/SpriteLayer.dart";
+
 class FruitDoll extends Doll {
 
     static List <int> mutants = <int>[56,50,55,44,50,48,46,27,24,15,14,76,74,71,62,34,59,61,57,86];

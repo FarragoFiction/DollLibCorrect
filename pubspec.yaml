@@ -5,26 +5,28 @@ version: 0.0.1
 #author: JR <email@example.com>
 
 environment:
-  sdk: '>=1.20.1 <2.0.0'
+  sdk: '>=1.24.2 <2.0.0'
 
 dependencies:
   js: ^0.6.0
-  xml: "^2.6.0"
-  source_map_stack_trace: ^1.1.4
-  archive: "^1.0.31"
+  RenderingLib:
+    git: git://github.com/FarragoFiction/RenderingLib.git
+  CommonLib:
+    git: git://github.com/FarragoFiction/CommonLib.git
+  LoaderLib:
+    git: git://github.com/FarragoFiction/LoaderLib.git
+  TextEngine:
+    git: git://github.com/FarragoFiction/TextEngine.git
 
 dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
-  RenderingLib:
-          git: git://github.com/FarragoFiction/RenderingLib.git
-  CommonLib:
-          git: git://github.com/FarragoFiction/CommonLib.git
-  TextEngine:
-          git: git://github.com/FarragoFiction/TextEngine.git
+  source_maps: any
+  source_map_stack_trace: any
+  package_resolver: any
+
 
 transformers:
 - $dart2js:
     sourceMaps: true
     commandLineOptions: [--fast-startup, --trust-type-annotations]
-    $exclude: ["web/manifest/tarbuilder.dart", "web/manifest/sourcemanifest.txt"]

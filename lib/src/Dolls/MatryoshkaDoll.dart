@@ -1,7 +1,7 @@
-
+import "../../DollRenderer.dart";
+import "../commonImports.dart";
 import "Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import 'package:RenderingLib/RendereringLib.dart';
+import "Layers/SpriteLayer.dart";
 
 /*
     used for animation, but could be extended for emotions or battle damage, i don't care.

@@ -1,13 +1,8 @@
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
+import "../../DollRenderer.dart";
 import "../Rendering/ReferenceColors.dart";
-import "Quirk.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 //saving and loading isn't working .why?
@@ -113,7 +108,7 @@ class DuckDoll extends Doll{
   void initLayers() {
 
     {
-      body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
+      body = layer("Duck.Body", "Body/", 1);//new SpriteLayer("Body","$folder/Body/", 1, maxBody);
       /*
         SpriteLayer beak;
   SpriteLayer body;
@@ -123,15 +118,16 @@ class DuckDoll extends Doll{
   SpriteLayer hairBack;
   SpriteLayer symbol;
        */
-      beak = new SpriteLayer("Beak","$folder/Beak/", 1, maxBeaks);
-      eyes = new SpriteLayer("Eyes","$folder/Eyes/", 0, maxEyes);
-      glasses = new SpriteLayer("Glasses","$folder/Glasses/", 1, maxGlasses);
-      hairFront = new SpriteLayer("HairFront","$folder/HairFront/", 1, maxHair);
-      hairFront.slave = true;
-      hairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair);
-      hairFront.syncedWith.add(hairBack);
-      hairBack.syncedWith.add(hairFront);
-      symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbols);
+      beak = layer("Duck.Beak", "Beak/", 1);//new SpriteLayer("Beak","$folder/Beak/", 1, maxBeaks);
+      eyes = layer("Duck.Eyes", "Eyes/", 0);//new SpriteLayer("Eyes","$folder/Eyes/", 0, maxEyes);
+      glasses = layer("Duck.Glasses", "Glasses/", 1);//new SpriteLayer("Glasses","$folder/Glasses/", 1, maxGlasses);
+      hairFront = layer("Duck.HairFront", "HairFront/", 1);//new SpriteLayer("HairFront","$folder/HairFront/", 1, maxHair);
+      //hairFront.slave = true;
+      hairBack = layer("Duck.HairBack", "HairBack/", 1);//new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair);
+      //hairFront.syncedWith.add(hairBack);
+      //hairBack.syncedWith.add(hairFront);
+      hairFront.slaveTo(hairBack);
+      symbol = layer("Duck.Symbol", "Symbol/", 1);//new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbols);
     }
   }
 

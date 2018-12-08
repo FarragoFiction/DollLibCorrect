@@ -1,13 +1,8 @@
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
+import "../../DollRenderer.dart";
 import "../Rendering/ReferenceColors.dart";
-import "Quirk.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 //saving and loading isn't working .why?
@@ -31,27 +26,18 @@ class VesselDoll extends Doll{
 
   @override
   String relativefolder = "images/Vessel";
-  final int maxHead = 9;
-  final int maxTorso = 4;
-  final int maxLegs = 3;
-
-
-
+  //final int maxHead = 9;
+  //final int maxTorso = 4;
+  //final int maxLegs = 3;
 
   SpriteLayer torso;
   SpriteLayer head;
   SpriteLayer legs;
 
-
-
-
-
-
   @override
   List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[legs, torso, head];
   @override
   List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[legs, torso, head];
-
 
   @override
   Palette palette = new HomestuckPalette()
@@ -112,9 +98,9 @@ class VesselDoll extends Doll{
   void initLayers() {
 
     {
-      torso = new SpriteLayer("Torso","$folder/Torso/", 1, maxTorso);
-      head = new SpriteLayer("Head","$folder/Head/", 1, maxHead);
-      legs = new SpriteLayer("Legs","$folder/Legs/", 1, maxLegs);
+      torso = layer("Vessel.Torso", "Torso/", 1);//new SpriteLayer("Torso","$folder/Torso/", 1, maxTorso);
+      head = layer("Vessel.Head", "Head/", 1);//new SpriteLayer("Head","$folder/Head/", 1, maxHead);
+      legs = layer("Vessel.Legs", "Legs/", 1);//new SpriteLayer("Legs","$folder/Legs/", 1, maxLegs);
     }
   }
 

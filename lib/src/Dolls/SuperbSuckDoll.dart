@@ -1,15 +1,7 @@
-import 'package:RenderingLib/RendereringLib.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-
-import "../Rendering/ReferenceColors.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-
-
-import 'package:CommonLib/Compression.dart';
+import "../../DollRenderer.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 class SuperbSuckDoll extends Doll{
@@ -83,11 +75,11 @@ class SuperbSuckDoll extends Doll{
 
     {
 
-      body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      face = new SpriteLayer("Face","$folder/Face/", 1, maxFace);
-      hair = new SpriteLayer("Hair","$folder/Hair/", 1, maxHair);
-      symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol);
-      canonSymbol = new SpriteLayer("CanonSymbol", "$folder/CanonSymbol/", 0, maxCanonSymbol, supportsMultiByte: true);
+      body = layer("Superb Suck.Body", "Body/", 1);//new SpriteLayer("Body","$folder/Body/", 1, maxBody);
+      face = layer("Superb Suck.Face", "Face/", 1);//new SpriteLayer("Face","$folder/Face/", 1, maxFace);
+      hair = layer("Superb Suck.Hair", "Hair/", 1);//new SpriteLayer("Hair","$folder/Hair/", 1, maxHair);
+      symbol = layer("Superb Suck.Symbol", "Symbol/", 1);//new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol);
+      canonSymbol = layer("Superb Suck.CanonSymbol", "CanonSymbol/", 0, mb:true);//new SpriteLayer("CanonSymbol", "$folder/CanonSymbol/", 0, maxCanonSymbol, supportsMultiByte: true);
 
     }
   }

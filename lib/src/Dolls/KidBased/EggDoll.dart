@@ -1,14 +1,6 @@
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckTrollDoll.dart";
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "../../Rendering/ReferenceColors.dart";
+import "../../../DollRenderer.dart";
+import "../Layers/SpriteLayer.dart";
+import "HomestuckDoll.dart";
 
 class EggDoll extends HomestuckDoll {
 
@@ -35,7 +27,7 @@ class EggDoll extends HomestuckDoll {
     {
         super.initLayers();
         //only one thing different
-        extendedBody = new SpriteLayer("Body","$folder/Egg/", 1, maxBody, supportsMultiByte: true);
+        extendedBody = layer("Egg.Body", "Egg/", 1, mb:true);//new SpriteLayer("Body","$folder/Egg/", 1, maxBody, supportsMultiByte: true);
 
 
     }

@@ -1,15 +1,12 @@
-import 'package:CommonLib/Compression.dart';
-
-import "../../Dolls/Doll.dart";
-import 'package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart';
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import 'package:RenderingLib/RendereringLib.dart';
-
+import "../../../DollRenderer.dart";
 import "../../Rendering/ReferenceColors.dart";
+import "../../commonImports.dart";
+import "../Doll.dart";
+import "../Layers/SpriteLayer.dart";
+
 class LeafDoll extends Doll {
-    int maxBody = 25;
+    //int maxBody = 25;
+    @override
     String relativefolder = "images/LeafClump";
 
     SpriteLayer body;
@@ -62,7 +59,7 @@ class LeafDoll extends Doll {
 
     @override
     void initLayers() {
-        body = new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
+        body = layer("Leaf.Body", "Body/", 1);//new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
     }
 
     @override

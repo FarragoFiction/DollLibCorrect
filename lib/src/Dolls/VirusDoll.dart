@@ -1,11 +1,8 @@
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
+import "../../DollRenderer.dart";
 import "../Rendering/ReferenceColors.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 //saving and loading isn't working .why?
@@ -114,13 +111,13 @@ class VirusDoll extends Doll{
   void initLayers() {
 
     {
-      capsid = new SpriteLayer("Capsid","$folder/Capsid/", 1, maxCapsid);
-      decoLegs = new SpriteLayer("DecoLegs","$folder/DecoLegs/", 1, maxDecoLegs);
-      body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      leg1 = new SpriteLayer("Leg1","$folder/Leg1/", 1, maxLeg1);
-      leg2 = new SpriteLayer("Leg2","$folder/Leg2/", 1, maxLeg2);
-      leg3 = new SpriteLayer("Leg3","$folder/Leg3/", 1, maxLeg3);
-      leg4 = new SpriteLayer("Leg4","$folder/Leg4/", 1, maxLeg4);
+      capsid = layer("Virus.Capsid", "Capsid/", 1);//new SpriteLayer("Capsid","$folder/Capsid/", 1, maxCapsid);
+      decoLegs = layer("Virus.DecoLegs", "DecoLegs/", 1);//new SpriteLayer("DecoLegs","$folder/DecoLegs/", 1, maxDecoLegs);
+      body = layer("Virus.Body", "Body/", 1);//new SpriteLayer("Body","$folder/Body/", 1, maxBody);
+      leg1 = layer("Virus.Leg1", "Leg1/", 1);//new SpriteLayer("Leg1","$folder/Leg1/", 1, maxLeg1);
+      leg2 = layer("Virus.Leg2", "Leg2/", 1);//new SpriteLayer("Leg2","$folder/Leg2/", 1, maxLeg2);
+      leg3 = layer("Virus.Leg3", "Leg3/", 1);//new SpriteLayer("Leg3","$folder/Leg3/", 1, maxLeg3);
+      leg4 = layer("Virus.Leg4", "Leg4/", 1);//new SpriteLayer("Leg4","$folder/Leg4/", 1, maxLeg4);
     }
   }
 

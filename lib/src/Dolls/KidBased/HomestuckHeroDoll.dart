@@ -1,11 +1,7 @@
-import 'package:RenderingLib/RendereringLib.dart';
-
-import "../Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-
 import "../../../DollRenderer.dart";
+import "../../commonImports.dart";
+import "../Layers/SpriteLayer.dart";
+import "HomestuckDoll.dart";
 
 
 class HomestuckHeroDoll extends HomestuckDoll {

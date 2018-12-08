@@ -1,11 +1,9 @@
 //unlike other dolls, bros have  a single, non chooseable base.
 //also bros can be any color.
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
+import "../../DollRenderer.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 
@@ -107,11 +105,11 @@ class BroDoll extends Doll {
 
     @override
     void initLayers() {
-        base = new SpriteLayer("Base","$folder/Base/", 0, maxBase);
-        outfit = new SpriteLayer("Outfit","$folder/Outfit/", 1, maxOutfit);
-        hat = new SpriteLayer("Hat","$folder/Hat/", 1, maxHat);
-        glasses = new SpriteLayer("Glasses","$folder/Glasses/", 1, maxGlasses);
-        hair = new SpriteLayer("Hair","$folder/Hair/", 1, maxHair);
+        base = layer("Bro.Base", "Base/", 0);//new SpriteLayer("Base","$folder/Base/", 0, maxBase);
+        outfit = layer("Bro.Outfit", "Outfit/", 1);//new SpriteLayer("Outfit","$folder/Outfit/", 1, maxOutfit);
+        hat = layer("Bro.Hat", "Hat/", 1);//new SpriteLayer("Hat","$folder/Hat/", 1, maxHat);
+        glasses = layer("Bro.Glasses", "Glasses/", 1);//new SpriteLayer("Glasses","$folder/Glasses/", 1, maxGlasses);
+        hair = layer("Bro.Hair", "Hair/", 1);//new SpriteLayer("Hair","$folder/Hair/", 1, maxHair);
     }
 
 

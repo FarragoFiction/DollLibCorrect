@@ -1,7 +1,7 @@
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import 'package:CommonLib/Compression.dart';
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:RenderingLib/src/includes/bytebuilder.dart' as OldByteBuilder;
+import "../../commonImports.dart";
+import '../../legacybytebuilder.dart' as OldByteBuilder;
+
+import "SpriteLayer.dart";
 
 class PNGWrapperSpriteLayer extends SpriteLayer {
 

@@ -1,7 +1,6 @@
-import 'package:CommonLib/Compression.dart';
-import 'package:DollLibCorrect/src/Dolls/Layers/PositionedDollLayer.dart';
-import 'package:DollLibCorrect/src/Dolls/Layers/PositionedLayer.dart';
-import 'package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart';
+import "../../commonImports.dart";
+import 'PositionedDollLayer.dart';
+import 'PositionedLayer.dart';
 
 //layers that aren't necessarily present when a doll is intialized (like fruit/flowers/etc)
 //has a type so that when loaded from datastring it knows how to instantiate itself

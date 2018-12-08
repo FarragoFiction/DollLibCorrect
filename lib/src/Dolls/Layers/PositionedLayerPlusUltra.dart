@@ -1,9 +1,5 @@
-import 'dart:async';
-import 'dart:html';
-import 'package:DollLibCorrect/DollRenderer.dart';
-import 'package:DollLibCorrect/src/Dolls/Layers/DynamicLayer.dart';
-import 'package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart';
-import 'package:CommonLib/Compression.dart';
+import "../../commonImports.dart";
+import 'SpriteLayer.dart';
 
 class PositionedLayerPlusUltra extends SpriteLayer {
     //assume doll's upper left is 0,0
@@ -11,7 +7,7 @@ class PositionedLayerPlusUltra extends SpriteLayer {
     int y;
     int width;
     int height;
-    PositionedLayerPlusUltra(int this.width, int this.height, int this.x, int this.y, String name, String imgNameBase, int imgNumber, int maxImageNumber) : super(name, imgNameBase, imgNumber, maxImageNumber);
+    PositionedLayerPlusUltra(int this.width, int this.height, int this.x, int this.y, String name, String imgNameBase, int imgNumber, int maxImageNumber, {bool legacy=false}) : super(name, imgNameBase, imgNumber, maxImageNumber, legacy:legacy);
 
   @override
     void saveToBuilder(ByteBuilder builder) {

@@ -1,12 +1,7 @@
-import 'package:RenderingLib/RendereringLib.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import "../Rendering/ReferenceColors.dart";
-
-import 'package:CommonLib/Compression.dart';
+import "../../DollRenderer.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 
@@ -157,26 +152,26 @@ class OpenBoundDoll extends Doll{
 
     {
 
-      hairFront = new SpriteLayer("Hair","$folder/HairFront/", 1, maxHair, supportsMultiByte: true);
-      hairBack = new SpriteLayer("Hair","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[hairFront], supportsMultiByte: true);
-      hairFront.syncedWith.add(hairBack);
-      hairBack.slave = true;
+      hairFront = layer("OpenBound.HairFront", "HairFront/", 1, mb:true);//new SpriteLayer("Hair","$folder/HairFront/", 1, maxHair, supportsMultiByte: true);
+      hairBack = layer("OpenBound.HairBack", "HairBack/", 1, mb:true)..slaveTo(hairFront);//new SpriteLayer("Hair","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[hairFront], supportsMultiByte: true);
+      //hairFront.syncedWith.add(hairBack);
+      //hairBack.slave = true;
 
-      leftFin = new SpriteLayer("Fin", "$folder/FinLeft/", 1, maxFin,supportsMultiByte: true);
-      rightFin = new SpriteLayer("Fin", "$folder/FinRight/", 1, maxFin, syncedWith: <SpriteLayer>[leftFin],supportsMultiByte: true);
-      leftFin.syncedWith.add(rightFin);
-      rightFin.slave = true; //can't be selected on it's own
+      leftFin = layer("OpenBound.FinLeft", "FinLeft/", 1, mb:true);//new SpriteLayer("Fin", "$folder/FinLeft/", 1, maxFin,supportsMultiByte: true);
+      rightFin = layer("OpenBound.FinRight", "FinRight/", 1, mb:true)..slaveTo(leftFin);//new SpriteLayer("Fin", "$folder/FinRight/", 1, maxFin, syncedWith: <SpriteLayer>[leftFin],supportsMultiByte: true);
+      //leftFin.syncedWith.add(rightFin);
+      //rightFin.slave = true; //can't be selected on it's own
 
-      body = new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true);
-      cape = new SpriteLayer("Cape","$folder/Cape/", 1, maxCape, supportsMultiByte: true);
-      mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth, supportsMultiByte: true);
-      leftEye = new SpriteLayer("Eye","$folder/EyeLeft/", 1, maxEye, supportsMultiByte: true);
-      rightEye = new SpriteLayer("Eye","$folder/EyeRight/", 1, maxEye, supportsMultiByte: true);
-      glasses = new SpriteLayer("Accessory","$folder/Accessory/", 1, maxAccessory, supportsMultiByte: true);
-      accessory = new SpriteLayer("Accessory2","$folder/Accessory/", 1, maxAccessory, supportsMultiByte: true);
-      leftHorn = new SpriteLayer("Horns","$folder/HornLeft/", 1, maxHorn, supportsMultiByte: true);
-      rightHorn = new SpriteLayer("Horns","$folder/HornRight/", 1, maxHorn, supportsMultiByte: true);
-      symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol, supportsMultiByte: true);
+      body = layer("OpenBound.Body", "Body/", 0, mb:true);//new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true);
+      cape = layer("OpenBound.Cape", "Cape/", 1, mb:true);//new SpriteLayer("Cape","$folder/Cape/", 1, maxCape, supportsMultiByte: true);
+      mouth = layer("OpenBound.Mouth", "Mouth/", 1, mb:true);//new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth, supportsMultiByte: true);
+      leftEye = layer("OpenBound.EyeLeft", "EyeLeft/", 1, mb:true);//new SpriteLayer("Eye","$folder/EyeLeft/", 1, maxEye, supportsMultiByte: true);
+      rightEye = layer("OpenBound.EyeRight", "EyeRight/", 1, mb:true);//new SpriteLayer("Eye","$folder/EyeRight/", 1, maxEye, supportsMultiByte: true);
+      glasses = layer("OpenBound.Accessory", "Accessory/", 1, mb:true);//new SpriteLayer("Accessory","$folder/Accessory/", 1, maxAccessory, supportsMultiByte: true);
+      accessory = layer("OpenBound.Accessory2", "Accessory/", 1, mb:true);//new SpriteLayer("Accessory2","$folder/Accessory/", 1, maxAccessory, supportsMultiByte: true);
+      leftHorn = layer("OpenBound.HornLeft", "HornLeft/", 1, mb:true);//new SpriteLayer("Horns","$folder/HornLeft/", 1, maxHorn, supportsMultiByte: true);
+      rightHorn = layer("OpenBound.HornRight", "HornRight/", 1, mb:true);//new SpriteLayer("Horns","$folder/HornRight/", 1, maxHorn, supportsMultiByte: true);
+      symbol = layer("OpenBound.Symbol", "Symbol/", 1, mb:true);//new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol, supportsMultiByte: true);
 
     }
   }

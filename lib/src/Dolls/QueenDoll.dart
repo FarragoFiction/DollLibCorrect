@@ -1,14 +1,7 @@
-import 'package:RenderingLib/RendereringLib.dart';
-
-import "../Dolls/NamedLayerDoll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/NamedSpriteLayer.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-
-import "dart:typed_data";
-import 'dart:convert';
-import 'package:RenderingLib/RendereringLib.dart';
-
 import "../../DollRenderer.dart";
+import "../Rendering/ReferenceColors.dart";
+import "../commonImports.dart";
+import "Layers/SpriteLayer.dart";
 
 /*
 
@@ -69,7 +62,7 @@ will also need to figure out how to do the drop downs.
      ..cracks = '#ffffff';
 
      @override
-     List<String> possibleParts = <String>["Bird","Bug","Buggy_As_Fuck_Retro_Game","Butler", "Cat", "Chihuahua","Chinchilla","Clippy","Cow","Cowboy","Doctor","Dutton","Fly","Game_Bro","Game_Grl","Gerbil","Github","Golfer","Google","Horse","Husky","Internet_Troll","Kid_Rock","Librarian","Llama","Mosquito","Nic_Cage","Penguin","Pitbull","Pomeranian","Pony","Praying_Mantis","Rabbit","Robot","Sleuth","Sloth","Tissue","Web_Comic_Creator","Pigeon","Octopus", "Worm", "Kitten","Fish"];
+     List<String> possibleParts = Doll.dataValue("Queen.parts");//<String>["Bird","Bug","Buggy_As_Fuck_Retro_Game","Butler", "Cat", "Chihuahua","Chinchilla","Clippy","Cow","Cowboy","Doctor","Dutton","Fly","Game_Bro","Game_Grl","Gerbil","Github","Golfer","Google","Horse","Husky","Internet_Troll","Kid_Rock","Librarian","Llama","Mosquito","Nic_Cage","Penguin","Pitbull","Pomeranian","Pony","Praying_Mantis","Rabbit","Robot","Sleuth","Sloth","Tissue","Web_Comic_Creator","Pigeon","Octopus", "Worm", "Kitten","Fish"];
 
      QueenDoll([bool randomColor = true]) {
          initLayers();
@@ -99,7 +92,6 @@ will also need to figure out how to do the drop downs.
          for(int i = 0; i< numLayers; i++) {
             addLayerNamed(rand.pickFrom(possibleParts));
          }
-
 
      }
 

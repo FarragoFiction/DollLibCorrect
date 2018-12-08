@@ -1,21 +1,15 @@
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-
 import "../../../DollRenderer.dart";
-import "dart:html";
-import 'dart:async';
+import "../../Rendering/ReferenceColors.dart";
+import "../../commonImports.dart";
+import "../Layers/SpriteLayer.dart";
+import "HomestuckDoll.dart";
 
 
 class HomestuckLamiaDoll extends HomestuckTrollDoll {
 
     @override
     String originalCreator = "???";
-    List<int> seadwellerBodies = <int>[7,8,9,12,13,27,28,29,34,35,39,40,46,50,51,52,60,61];
+    List<int> seadwellerBodies = Doll.dataValue("Lamia.seaDwellerBodies");//<int>[7,8,9,12,13,27,28,29,34,35,39,40,46,50,51,52,60,61];
 
     
     @override
@@ -133,8 +127,8 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
 
     {
         super.initLayers();
-        body = new SpriteLayer("Body","$folder/SnakeBody/", 0, maxBody);
-        extendedBody = new SpriteLayer("Body","$folder/SnakeBody/", 0, maxBody, supportsMultiByte: true);
+        body = new SpriteLayer("Body","$folder/SnakeBody/", 0, maxBody, legacy: true);
+        extendedBody = layer("Lamia.Body", "SnakeBody/", 0, mb:true);//new SpriteLayer("Body","$folder/SnakeBody/", 0, maxBody, supportsMultiByte: true);
 
 
     }

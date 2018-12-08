@@ -1,10 +1,7 @@
-import 'dart:async';
-import 'package:CommonLib/Compression.dart';
-import 'package:RenderingLib/RendereringLib.dart';
-import 'dart:convert';
-import "dart:typed_data";
-import "dart:html";
-import 'package:RenderingLib/src/includes/bytebuilder.dart'as OldByteBuilder;
+import "../../commonImports.dart";
+import '../../legacybytebuilder.dart'as OldByteBuilder;
+
+import "../Doll.dart";
 
 typedef void JROnClick();
 
@@ -45,7 +42,20 @@ class SpriteLayer {
     List<SpriteLayer> partners = new List<SpriteLayer>();
     bool changed = true; //generate descriptions when created, that will set it to false
 
-    SpriteLayer(this.name, this.imgNameBase, this._imgNumber, this.maxImageNumber, {this.supportsMultiByte = false, this.syncedWith:null, this.imgFormat:"png"}) {
+    //TODO: sort this again after dealing with conversion
+    static bool legacyConstructorToggle = true;
+    static Doll legacyConstructorDoll = null;
+
+    SpriteLayer(this.name, this.imgNameBase, this._imgNumber, this.maxImageNumber, {this.supportsMultiByte = false, this.syncedWith:null, this.imgFormat:"png", bool legacy = false}) {
+        if (legacyConstructorToggle && !legacy) {
+            String dollname = legacyConstructorDoll.name;
+            String layername = name;
+            String dolllayername = "$dollname.$layername";
+            String layerpath = imgNameBase.substring(legacyConstructorDoll.folder.length+1);
+
+            //print('layer("$dolllayername", "$layerpath", $_imgNumber${supportsMultiByte?", mb:true":""});');
+        }
+
         numbytes = (secretMax/255).ceil();
         if(syncedWith == null) syncedWith = new List<SpriteLayer>();
     }
@@ -150,4 +160,14 @@ class SpriteLayer {
         }
     }
 
+    void slaveTo(SpriteLayer master) {
+        this.syncedWith.add(master);
+        master.syncedWith.add(this);
+        this.slave = true;
+    }
+
+    void addPartner(SpriteLayer partner) {
+        partner.primaryPartner = false;
+        this.partners.add(partner);
+    }
 }

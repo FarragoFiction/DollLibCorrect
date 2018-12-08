@@ -1,23 +1,19 @@
+import "../../DollRenderer.dart";
+import "../commonImports.dart";
 import "Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import 'package:RenderingLib/RendereringLib.dart';
-import "dart:html";
-import 'dart:async';
-
-import "package:DollLibCorrect/src/Dolls/Layers/PNGWrapperSpriteLayer.dart";
-import 'package:RenderingLib/src/loader/loader.dart';
+import "Layers/SpriteLayer.dart";
 /*
     before drawing:     await (doll as PngDoll).getWidthFiguredOut();
 
 
-    A doll in name only. This is a simple wrapper for a png file, so that things that use the doll libarary
+    A doll in name only. This is a simple wrapper for a png file, so that things that use the doll library
     can interchangeably use dolls or pngs at will.
 
         cannot be loaded/saved.
 
 
-    NOTE an indivudual project can extend this to, for example, always draw jail cell bars on top of an image
-    the laeyrs will work like normal
+    NOTE an individual project can extend this to, for example, always draw jail cell bars on top of an image
+    the layers will work like normal
  */
 
 class PngDoll extends Doll {

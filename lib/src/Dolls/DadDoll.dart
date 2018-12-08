@@ -1,12 +1,9 @@
 //unlike other dolls, dads have  a single, non chooseable base.
 //also dads are mostly muted colors.
-import 'package:RenderingLib/RendereringLib.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import 'package:CommonLib/Compression.dart';
+import "../../DollRenderer.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 
@@ -109,11 +106,11 @@ class DadDoll extends Doll {
 
     @override
   void initLayers() {
-        base = new SpriteLayer("Base","$folder/Base/", 0, maxBase);
-        hat = new SpriteLayer("Hat","$folder/Hat/", 1, maxHat);
-        nose = new SpriteLayer("Nose","$folder/Nose/", 1, maxNose);
-        shirt = new SpriteLayer("Shirt","$folder/Shirt/", 1, maxShirt);
-        pants = new SpriteLayer("Pants","$folder/Pants/", 1, maxPants);
+        base = layer("Dad.Base", "Base/", 0);//new SpriteLayer("Base","$folder/Base/", 0, maxBase);
+        hat = layer("Dad.Hat", "Hat/", 1);//new SpriteLayer("Hat","$folder/Hat/", 1, maxHat);
+        nose = layer("Dad.Nose", "Nose/", 1);//new SpriteLayer("Nose","$folder/Nose/", 1, maxNose);
+        shirt = layer("Dad.Shirt", "Shirt/", 1);//new SpriteLayer("Shirt","$folder/Shirt/", 1, maxShirt);
+        pants = layer("Dad.Pants", "Pants/", 1);//new SpriteLayer("Pants","$folder/Pants/", 1, maxPants);
   }
 
 

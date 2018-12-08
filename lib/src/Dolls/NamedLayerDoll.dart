@@ -1,8 +1,8 @@
-
+import "dart:convert";
 import "../../DollRenderer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import 'package:CommonLib/src/compression/bytebuilder.dart';
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 abstract class NamedLayerDoll extends Doll {
     List<String> possibleParts = new List<String>();
@@ -17,7 +17,7 @@ abstract class NamedLayerDoll extends Doll {
     ImprovedByteReader initFromReader(ImprovedByteReader reader, [bool layersNeedInit = true]) {
         initLayers(); //gets body/crown.
         int numFeatures = reader.readExpGolomb();
-        print("I think there are ${numFeatures} features");
+        //print("I think there are ${numFeatures} features");
         int featuresRead = 2; //for exo and doll type
 
         List<String> names = new List<String>.from(palette.names);
@@ -30,17 +30,19 @@ abstract class NamedLayerDoll extends Doll {
 
         for(int i = 1; i< (numFeatures-featuresRead); i++) {
             int imgNumber = reader.readByte();
-            print("reading layer feature $i ,its $imgNumber");
+            //print("reading layer feature $i ,its $imgNumber");
 
             addLayerNamed(possibleParts[imgNumber]);
         }
 
     }
 
+    @override
     String toDataBytesX([ByteBuilder builder = null]) {
         if(builder == null) builder = new ByteBuilder();
         int length = dataOrderLayers.length + palette.names.length + 1;//one byte for doll type
-        builder.appendByte(renderingType); //value of 1 means homestuck doll
+        //builder.appendByte(renderingType); //value of 1 means homestuck doll
+        builder.appendExpGolomb(renderingType);
         builder.appendExpGolomb(length); //for length
 
 
@@ -57,12 +59,12 @@ abstract class NamedLayerDoll extends Doll {
         for(SpriteLayer l in layers) {
             int number = possibleParts.indexOf(l.name);
             if(number>=0) {
-                print("adding${l.name}/ ${number} to data string builder.");
+                //print("adding ${l.name} / $number to data string builder.");
                 builder.appendByte(number);
             }
         }
 
-        return BASE64URL.encode(builder.toBuffer().asUint8List());
+        return "$label${BASE64URL.encode(builder.toBuffer().asUint8List())}";
     }
     
 

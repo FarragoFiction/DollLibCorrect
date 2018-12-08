@@ -1,14 +1,8 @@
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-
 import "../../../DollRenderer.dart";
-import "dart:html";
-import 'dart:async';
+import "../../commonImports.dart";
+import "../Doll.dart";
+import "../Layers/SpriteLayer.dart";
+import "HomestuckDoll.dart";
 
 
 class HomestuckGrubDoll extends HomestuckTrollDoll {
@@ -24,11 +18,11 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     @override
     final int maxBody = 26;
 
-    static List<int> landDwellerBodies = <int>[0,1,2,3,4,5,6,7,8];
+    static List<int> landDwellerBodies = Doll.dataValue("Grub.landDwellerBodies");// <int>[0,1,2,3,4,5,6,7,8];
 
-    static List<int> seadwellerBodies1 = <int>[9,10,11,12,13,14,15,16,17];
-    static List<int> seadwellerBodies2 = <int>[18,19,20,21,22,23,24,26,26];
-    static List<int> upsideDownBodies = <int>[7,8,26,25,16,17];
+    static List<int> seadwellerBodies1 = Doll.dataValue("Grub.seaDwellerBodies1");// <int>[9,10,11,12,13,14,15,16,17];
+    static List<int> seadwellerBodies2 = Doll.dataValue("Grub.seaDwellerBodies2");// <int>[18,19,20,21,22,23,24,26,26];
+    static List<int> upsideDownBodies = Doll.dataValue("Grub.upsideDownBodies");// <int>[7,8,26,25,16,17];
 
 
     @override
@@ -189,8 +183,8 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
 
     {
         super.initLayers();
-        body = new SpriteLayer("Body","$folder/Grub/", 0, maxBody);
-        extendedBody = new SpriteLayer("Body","$folder/Grub/", 0, maxBody, supportsMultiByte: true);
+        body = new SpriteLayer("Body","$folder/Grub/", 0, maxBody, legacy:true);
+        extendedBody = layer("Grub.Body", "Grub/", 0, mb:true);//new SpriteLayer("Body","$folder/Grub/", 0, maxBody, supportsMultiByte: true);
 
 
     }

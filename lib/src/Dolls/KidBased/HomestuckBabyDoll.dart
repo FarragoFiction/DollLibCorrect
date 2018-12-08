@@ -1,12 +1,8 @@
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-
 import "../../../DollRenderer.dart";
+import "../../commonImports.dart";
+import "../Doll.dart";
+import "../Layers/SpriteLayer.dart";
+import "HomestuckDoll.dart";
 
 
 class HomestuckBabyDoll extends HomestuckDoll {
@@ -74,8 +70,8 @@ class HomestuckBabyDoll extends HomestuckDoll {
 
     {
         super.initLayers();
-        body = new SpriteLayer("Body","$folder/Baby/", 0, maxBody);
-        extendedBody = new SpriteLayer("Body","$folder/Baby/", 0, maxBody, supportsMultiByte: true);
+        body = new SpriteLayer("Body","$folder/Baby/", 0, maxBody, legacy:true);
+        extendedBody = layer("Baby.Body", "Baby/", 0, mb:true);//new SpriteLayer("Body","$folder/Baby/", 0, maxBody, supportsMultiByte: true);
 
 
     }

@@ -1,12 +1,8 @@
-import 'package:RenderingLib/RendereringLib.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
+import "../../DollRenderer.dart";
 import "../Rendering/ReferenceColors.dart";
-
-import 'package:CommonLib/Compression.dart';
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 //saving and loading isn't working .why?
@@ -155,24 +151,24 @@ class TalkSpriteDoll extends Doll{
   void initLayers() {
 
     {
-      hairFront = new SpriteLayer("HairFront","$folder/HairFront/", 1, maxHair);
-      hairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair, syncedWith: <SpriteLayer>[hairFront]);
-      hairFront.syncedWith.add(hairBack);
-      hairBack.slave = true; //can't be selected on it's own
+      hairFront = layer("TalkSprite.HairFront", "HairFront/", 1);//new SpriteLayer("HairFront","$folder/HairFront/", 1, maxHair);
+      hairBack = layer("TalkSprite.HairBack", "HairBack/", 1)..slaveTo(hairFront);//new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair, syncedWith: <SpriteLayer>[hairFront]);
+      //hairFront.syncedWith.add(hairBack);
+      //hairBack.slave = true; //can't be selected on it's own
 
-      body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
+      body = layer("TalkSprite.Body", "Body/", 1);//new SpriteLayer("Body","$folder/Body/", 1, maxBody);
 
-      facePaint = new SpriteLayer("FacePaint","$folder/FacePaint/", 1, maxFacePaint);
-      brows = new SpriteLayer("Brows","$folder/Brows/", 1, maxBrows);
-      mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
-      leftEye = new SpriteLayer("LeftEye","$folder/LeftEye/", 1, maxEyes)..primaryPartner = false;
-      rightEye = new SpriteLayer("RightEye","$folder/RightEye/", 1, maxEyes)..partners.add(leftEye);
+      facePaint = layer("TalkSprite.FacePaint", "FacePaint/", 1);//new SpriteLayer("FacePaint","$folder/FacePaint/", 1, maxFacePaint);
+      brows = layer("TalkSprite.Brows", "Brows/", 1);//new SpriteLayer("Brows","$folder/Brows/", 1, maxBrows);
+      mouth = layer("TalkSprite.Mouth", "Mouth/", 1);//new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
+      leftEye = layer("TalkSprite.LeftEye", "LeftEye/", 1);//new SpriteLayer("LeftEye","$folder/LeftEye/", 1, maxEyes)..primaryPartner = false;
+      rightEye = layer("TalkSprite.RightEye", "RightEye/", 1)..addPartner(leftEye);//new SpriteLayer("RightEye","$folder/RightEye/", 1, maxEyes)..partners.add(leftEye);
 
-      nose = new SpriteLayer("Nose","$folder/Nose/", 1, maxNose);
-      accessory = new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
-      shirt = new SpriteLayer("Shirt","$folder/Shirt/", 1, maxShirt);
-      symbol = new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol);
-      hood = new SpriteLayer("Hood","$folder/Hood/", 1, maxHood);
+      nose = layer("TalkSprite.Nose", "Nose/", 1);//new SpriteLayer("Nose","$folder/Nose/", 1, maxNose);
+      accessory = layer("TalkSprite.Accessory", "accessory/", 1);//new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
+      shirt = layer("TalkSprite.Shirt", "Shirt/", 1);//new SpriteLayer("Shirt","$folder/Shirt/", 1, maxShirt);
+      symbol = layer("TalkSprite.Symbol", "Symbol/", 1);//new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol);
+      hood = layer("TalkSprite.Hood", "Hood/", 1);//new SpriteLayer("Hood","$folder/Hood/", 1, maxHood);
 
     }
   }

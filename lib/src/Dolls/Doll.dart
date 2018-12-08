@@ -1,16 +1,17 @@
-import 'package:DollLibCorrect/src/Dolls/Layers/DynamicLayer.dart';
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import "dart:html";
-import 'dart:convert';
 import 'dart:async';
-import 'package:TextEngine/TextEngine.dart';
+import 'dart:convert';
+import "dart:html";
+import "dart:typed_data";
 
 import "../../DollRenderer.dart";
+import "../commonImports.dart";
+import '../legacybytebuilder.dart'as OldByteBuilder;
+import 'Layers/DynamicLayer.dart';
+import "Layers/PositionedLayerPlusUltra.dart";
+import "Layers/SpriteLayer.dart";
 
-import 'package:RenderingLib/src/Misc/weighted_lists.dart';
-import 'package:RenderingLib/src/includes/bytebuilder.dart'as OldByteBuilder;
 abstract class Doll {
+    static JsonHandler fileData;
     TextEngine textEngine; //cached so that if i want more names it can do that, kr said
     static String labelPattern = ":___";
     //whatever calls me is responsible for deciding if it wants to be url encoded or not
@@ -168,7 +169,8 @@ abstract class Doll {
             useAbsolutePath = false;
              //absolutePathStart = "http://www.farragofiction.com/DollSource/";
         }
-
+        //TODO: clean this up after conversion
+        SpriteLayer.legacyConstructorDoll = this;
     }
 
     //does nothing by default
@@ -781,10 +783,9 @@ abstract class Doll {
 
     static String removeLabelFromString(String ds) {
         try {
-            ds = Uri.decodeQueryComponent(
-                ds); //get rid of any url encoding that might exist
+            ds = Uri.decodeQueryComponent(ds); //get rid of any url encoding that might exist
         }catch(error, trace){
-            print("couldn't decode query component, probably because doll name had a % in $ds . $error $trace");
+            //print("couldn't decode query component, probably because doll name had a % in $ds . $error $trace");
         }
         List<String> parts = ds.split("$labelPattern");
         if(parts.length == 1) {
@@ -920,7 +921,7 @@ abstract class Doll {
     }
 
     static Doll makeRandomDoll()  {
-        Random rand = new Random();;
+        Random rand = new Random();
         WeightedList<Doll> dolls = new WeightedList<Doll>();
         dolls.add(new HomestuckDoll());
         dolls.add(new HomestuckTrollDoll());
@@ -938,7 +939,35 @@ abstract class Doll {
         return rand.pickFrom(dolls);
     }
 
+    SpriteLayer layer(String dollLayerName, String path, int defaultId, {bool mb = false, List<SpriteLayer> sync = null, int secret = -1}) {
+        List<String> split = dollLayerName.split(".");
+        String dollName = split.first;
+        String layerName = split.last;
 
+        SpriteLayer.legacyConstructorToggle = false;
+        SpriteLayer l = new SpriteLayer(layerName, "$folder/$path", defaultId, fileData.getValue("$dollName.layers.$layerName", defaultId), supportsMultiByte: mb, syncedWith: sync)..secretMax = secret;
+        SpriteLayer.legacyConstructorToggle = true;
+        return l;
+    }
+
+    SpriteLayer layerPlusUltra(int w, int h, int x, int y, String dollLayerName, String path, int defaultId, {bool mb = false, List<SpriteLayer> sync = null, int secret = -1}) {
+        List<String> split = dollLayerName.split(".");
+        String dollName = split.first;
+        String layerName = split.last;
+
+        SpriteLayer.legacyConstructorToggle = false;
+        SpriteLayer l = new PositionedLayerPlusUltra(w,h,x,y, layerName, "$folder/$path", defaultId, fileData.getValue("$dollName.layers.$layerName", defaultId))..supportsMultiByte = mb..syncedWith = sync..secretMax = secret;
+        SpriteLayer.legacyConstructorToggle = true;
+        return l;
+    }
+
+    static T dataValue<T>(String value, [T fallback = null]) => fileData.getValue(value, fallback);
+
+    static Future<Null> loadFileData([String path = "package:DollLibCorrect/dolldata.json"]) async {
+        Loader.init();
+        Map<String,dynamic> json = await Loader.getResource(path);
+        fileData = new JsonHandler(json);
+    }
 }
 
 

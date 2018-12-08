@@ -1,15 +1,8 @@
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
+import "../../DollRenderer.dart";
 import "../Rendering/ReferenceColors.dart";
-import "Quirk.dart";
-
-
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 class CatDoll extends Doll{
@@ -139,25 +132,25 @@ class CatDoll extends Doll{
 
     {
       //leftHeadFur, leftEar, rightEar, snout, accessory, backLegs, frontLegs];
-      tail = new SpriteLayer("Tail","$folder/Tail/", 1, maxTail);
-      body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      chestFur = new SpriteLayer("ChestFur","$folder/chestFur/", 1, maxChestFur);
-      head = new SpriteLayer("Head","$folder/head/", 1, maxHead);
-      leftEye = new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxLeftEye);
-      rightEye = new SpriteLayer("RightEye","$folder/rightEye/", 1, maxRightEye);
-      leftEar = new SpriteLayer("LeftEar","$folder/leftEar/", 1, maxLeftEar);
-      rightEar = new SpriteLayer("RightEar","$folder/rightEar/", 1, maxRightEar);
-      snout = new SpriteLayer("Snout","$folder/snout/", 1, maxSnout);
-      accessory = new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
-      backLegs = new SpriteLayer("BackLegs","$folder/backLegs/", 1, maxbackLegs);
-      frontLegs = new SpriteLayer("FrontLegs","$folder/frontLeg/", 1, maxFrontLegs);
+      tail = layer("Cat.Tail", "Tail/", 1);//new SpriteLayer("Tail","$folder/Tail/", 1, maxTail);
+      body = layer("Cat.Body", "Body/", 1);//new SpriteLayer("Body","$folder/Body/", 1, maxBody);
+      chestFur = layer("Cat.ChestFur", "chestFur/", 1);//new SpriteLayer("ChestFur","$folder/chestFur/", 1, maxChestFur);
+      head = layer("Cat.Head", "Head/", 1);//new SpriteLayer("Head","$folder/Head/", 1, maxHead);
+      leftEye = layer("Cat.LeftEye", "leftEye/", 1);//new SpriteLayer("LeftEye","$folder/leftEye/", 1, maxLeftEye);
+      rightEye = layer("Cat.RightEye", "rightEye/", 1);//new SpriteLayer("RightEye","$folder/rightEye/", 1, maxRightEye);
+      leftEar = layer("Cat.LeftEar", "leftEar/", 1);//new SpriteLayer("LeftEar","$folder/leftEar/", 1, maxLeftEar);
+      rightEar = layer("Cat.RightEar", "rightEar/", 1);//new SpriteLayer("RightEar","$folder/rightEar/", 1, maxRightEar);
+      snout = layer("Cat.Snout", "snout/", 1);//new SpriteLayer("Snout","$folder/snout/", 1, maxSnout);
+      accessory = layer("Cat.Accessory", "accessory/", 1);//new SpriteLayer("Accessory","$folder/accessory/", 1, maxAccessory);
+      backLegs = layer("Cat.BackLegs", "backLegs/", 1);//new SpriteLayer("BackLegs","$folder/backLegs/", 1, maxbackLegs);
+      frontLegs = layer("Cat.FrontLegs", "frontLeg/", 1);//new SpriteLayer("FrontLegs","$folder/frontLeg/", 1, maxFrontLegs);
 
-      rightHeadFur = new SpriteLayer("HairFur","$folder/rightHeadFur/", 1, maxHeadFur);
-      leftHeadFur = new SpriteLayer("HairFur","$folder/leftHeadFur/", 1, maxHeadFur, syncedWith: <SpriteLayer>[rightHeadFur]);
+      rightHeadFur = layer("Cat.RightHeadFur", "rightHeadFur/", 1);//new SpriteLayer("HairFur","$folder/rightHeadFur/", 1, maxHeadFur);
+      leftHeadFur = layer("Cat.LeftHeadFur", "leftHeadFur/", 1)..slaveTo(rightHeadFur);//new SpriteLayer("HairFur","$folder/leftHeadFur/", 1, maxHeadFur, syncedWith: <SpriteLayer>[rightHeadFur]);
 
 
-      rightHeadFur.syncedWith.add(leftHeadFur);
-      leftHeadFur.slave = true; //can't be selected on it's own
+      //rightHeadFur.syncedWith.add(leftHeadFur);
+      //leftHeadFur.slave = true; //can't be selected on it's own
 
     }
   }

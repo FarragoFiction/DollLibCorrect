@@ -1,14 +1,7 @@
-import 'package:CommonLib/Compression.dart';
-import 'package:RenderingLib/RendereringLib.dart';
-
-import "../Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckCherubDoll.dart";
-
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "../../Rendering/ReferenceColors.dart";
+import "../../../DollRenderer.dart";
+import "../../commonImports.dart";
+import "../Layers/SpriteLayer.dart";
+import "HomestuckDoll.dart";
 
 
 class HomestuckSatyrDoll extends HomestuckDoll {
@@ -25,8 +18,8 @@ class HomestuckSatyrDoll extends HomestuckDoll {
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
 
     //these bodies look terrible with troll signs. if any of these use 47,48, or 49
-    List<int> bannedRandomBodies = <int>[96,219,221,223,5,11,14,43,50,59,65,66,67,70,72,75,74,98,100,101,102,106,107,109,63,17];
-    int defaultBody = 48;
+    List<int> bannedRandomBodies = Doll.dataValue("Satyr.bannedBodies");//<int>[96,219,221,223,5,11,14,43,50,59,65,66,67,70,72,75,74,98,100,101,102,106,107,109,63,17];
+    int defaultBody = Doll.dataValue("Satyr.defaultBody");//48;
     int maxHorn = 17;
     int maxFluff = 19;
     int maxFacePattern = 24;
@@ -251,12 +244,12 @@ class HomestuckSatyrDoll extends HomestuckDoll {
     void initLayers() {
         super.initLayers();
         //only do what is special to me here.
-        satyrSymbol = new SpriteLayer("SatyrSymbol", "$folder/SatyrSymbol/", 0, maxSatyrSymbol, supportsMultiByte: true);
-        fluff = new SpriteLayer("Fluff", "$folder/SatyrFluff/", 1, maxFluff);
-        tail = new SpriteLayer("Tail", "$folder/SatyrTail/", 0, maxTail);
-        leftHorn = new SpriteLayer("LeftHorn", "$folder/SatyrLeftHorn/", 1, maxHorn);
-        rightHorn = new SpriteLayer("RightHorn", "$folder/SatyrRightHorn/", 1, maxHorn);
-        facePaint = new SpriteLayer("FacePattern","$folder/SatyrFacePattern/", 0, maxFacePattern);
+        satyrSymbol = layer("Satyr.SatyrSymbol", "SatyrSymbol/", 0, mb:true);//new SpriteLayer("SatyrSymbol", "$folder/SatyrSymbol/", 0, maxSatyrSymbol, supportsMultiByte: true);
+        fluff = layer("Satyr.Fluff", "SatyrFluff/", 1);//new SpriteLayer("Fluff", "$folder/SatyrFluff/", 1, maxFluff);
+        tail = layer("Satyr.Tail", "SatyrTail/", 0);//new SpriteLayer("Tail", "$folder/SatyrTail/", 0, maxTail);
+        leftHorn = layer("Satyr.LeftHorn", "SatyrLeftHorn/", 1);//new SpriteLayer("LeftHorn", "$folder/SatyrLeftHorn/", 1, maxHorn);
+        rightHorn = layer("Satyr.RightHorn", "SatyrRightHorn/", 1);//new SpriteLayer("RightHorn", "$folder/SatyrRightHorn/", 1, maxHorn);
+        facePaint = layer("Satyr.FacePattern", "SatyrFacePattern/", 0);//new SpriteLayer("FacePattern","$folder/SatyrFacePattern/", 0, maxFacePattern);
     }
 
     @override

@@ -1,14 +1,5 @@
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckTrollDoll.dart";
-import 'package:CommonLib/Compression.dart';
-import 'package:RenderingLib/RendereringLib.dart';
-
-import "../Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "../../Rendering/ReferenceColors.dart";
+import "../Layers/SpriteLayer.dart";
+import "HomestuckTrollDoll.dart";
 
 class TrollEggDoll extends HomestuckTrollDoll {
 

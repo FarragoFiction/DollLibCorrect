@@ -1,13 +1,7 @@
-import 'package:RenderingLib/RendereringLib.dart';
 import "../../DollRenderer.dart";
-import 'package:CommonLib/Compression.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-
-
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 class DenizenDoll extends Doll{
@@ -89,13 +83,13 @@ class DenizenDoll extends Doll{
 
     {
 
-      back = new SpriteLayer("Back","$folder/Back/", 1, maxBack);
-      core = new SpriteLayer("Core","$folder/Core/", 1, maxCore);
-      body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      face = new SpriteLayer("AspectFace","$folder/AspectFace/", 1, maxFace);
-      mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
-      eyes = new SpriteLayer("Eyes","$folder/Eyes/", 1, maxEyes);
-      other = new SpriteLayer("Other","$folder/Other/", 1, maxOther);
+      back = layer("Denizen.Back", "Back/", 1);//new SpriteLayer("Back","$folder/Back/", 1, maxBack);
+      core = layer("Denizen.Core", "Core/", 1);//new SpriteLayer("Core","$folder/Core/", 1, maxCore);
+      body = layer("Denizen.Body", "Body/", 1);//new SpriteLayer("Body","$folder/Body/", 1, maxBody);
+      face = layer("Denizen.AspectFace", "AspectFace/", 1);//new SpriteLayer("AspectFace","$folder/AspectFace/", 1, maxFace);
+      mouth = layer("Denizen.Mouth", "Mouth/", 1);//new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
+      eyes = layer("Denizen.Eyes", "Eyes/", 1);//new SpriteLayer("Eyes","$folder/Eyes/", 1, maxEyes);
+      other = layer("Denizen.Other", "Other/", 1);//new SpriteLayer("Other","$folder/Other/", 1, maxOther);
 
     }
   }

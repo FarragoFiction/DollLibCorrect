@@ -1,12 +1,9 @@
-import 'package:CommonLib/Compression.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import 'package:RenderingLib/RendereringLib.dart';
-
+import "../../DollRenderer.dart";
 import "../Rendering/ReferenceColors.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
+
 class ConsortDoll extends Doll {
     int maxBody = 45;
     String relativefolder = "images/Homestuck";
@@ -50,7 +47,7 @@ class ConsortDoll extends Doll {
 
     @override
     void initLayers() {
-        body = new SpriteLayer("Body", "$folder/Consort/", 1, maxBody);
+        body = layer("Consort.Body", "Consort/", 1);//new SpriteLayer("Body", "$folder/Consort/", 1, maxBody);
     }
 
     @override

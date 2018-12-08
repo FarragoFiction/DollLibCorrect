@@ -1,13 +1,10 @@
-import 'package:RenderingLib/RendereringLib.dart';
-
-import "../Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
 import "../../../DollRenderer.dart";
-import 'package:RenderingLib/src/includes/bytebuilder.dart'as OldByteBuilder;
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
 import "../../Rendering/ReferenceColors.dart";
+import "../../commonImports.dart";
+import '../../legacybytebuilder.dart' as OldByteBuilder;
+import "../Doll.dart";
+import "../Layers/SpriteLayer.dart";
+import "HomestuckDoll.dart";
 
 
 class HomestuckTrollDoll extends HomestuckDoll {
@@ -37,16 +34,16 @@ class HomestuckTrollDoll extends HomestuckDoll {
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
 
     //these bodies look terrible with troll signs. if any of these use 47,48, or 49
-    List<int> bannedRandomBodies = <int>[238,252,256,259,235,226,227,230,96,219,221,223,5,11,14,43,50,59,65,66,67,70,72,75,74,98,100,101,102,106,107,109,63,17];
+    List<int> bannedRandomBodies = Doll.dataValue("Troll.bannedBodies");//<int>[238,252,256,259,235,226,227,230,96,219,221,223,5,11,14,43,50,59,65,66,67,70,72,75,74,98,100,101,102,106,107,109,63,17];
     //if a troll or grub has these eyes, they will be mutant
-    List<int> mutantEyeList = <int>[2,11,31,44,46,47,85];
-    int defaultBody = 48;
-    int maxHorn = 347;
+    List<int> mutantEyeList = Doll.dataValue("Troll.mutantEyes");//<int>[2,11,31,44,46,47,85];
+    int defaultBody = Doll.dataValue("Troll.defaultBody", 0); //48;
+    //int maxHorn = 347;
     int maxSecretHorn = 314;
-    int maxFin = 26;
-    int maxCanonSymbol = 288; //288 eventually
+    //int maxFin = 26;
+    //int maxCanonSymbol = 288; //288 eventually
     int maxSecretCanonSymbol = 288;
-    int maxWing = 78;
+    //int maxWing = 78;
 
     SpriteLayer leftHorn;
     SpriteLayer canonSymbol; //can pick any color, but when randomized will be a canon color.
@@ -159,17 +156,17 @@ class HomestuckTrollDoll extends HomestuckDoll {
     void initLayers() {
         super.initLayers();
         //only do what is special to me here.
-        canonSymbol = new SpriteLayer("CanonSymbol", "$folder/CanonSymbol/", 0, maxCanonSymbol, supportsMultiByte: true)..secretMax = 288;
-        leftFin = new SpriteLayer("FinLeft", "$folder/LeftFin/", 1, maxFin);
-        rightFin = new SpriteLayer("FinRight", "$folder/RightFin/", 1, maxFin, syncedWith: <SpriteLayer>[leftFin]);
-        leftFin.syncedWith.add(rightFin);
-        rightFin.slave = true; //can't be selected on it's own
+        canonSymbol = layer("Troll.CanonSymbol", "CanonSymbol/", 0, mb:true, secret:maxSecretCanonSymbol);//new SpriteLayer("CanonSymbol", "$folder/CanonSymbol/", 0, maxCanonSymbol, supportsMultiByte: true)..secretMax = 288;
+        leftFin = layer("Troll.FinLeft", "LeftFin/", 1);//new SpriteLayer("FinLeft", "$folder/LeftFin/", 1, maxFin);
+        rightFin = layer("Troll.FinRight", "RightFin/", 1)..slaveTo(leftFin);//new SpriteLayer("FinRight", "$folder/RightFin/", 1, maxFin, syncedWith: <SpriteLayer>[leftFin]);
+        //leftFin.syncedWith.add(rightFin);
+        //rightFin.slave = true; //can't be selected on it's own
 
-        wings = new SpriteLayer("Wings", "$folder/Wings/", 0, maxWing);
-        leftHorn = new SpriteLayer("LeftHornOld", "$folder/LeftHorn/", 1, 255);
-        rightHorn = new SpriteLayer("RightHornOld", "$folder/RightHorn/", 1, 255);
-        extendedRightHorn =new SpriteLayer("RightHorn", "$folder/RightHorn/", 1, maxHorn, supportsMultiByte: true)..primaryPartner = false..secretMax = maxSecretHorn;
-        extendedLeftHorn = new SpriteLayer("LeftHorn", "$folder/LeftHorn/", 1, maxHorn, supportsMultiByte: true)..partners.add(extendedRightHorn)..secretMax = maxSecretHorn;
+        wings = layer("Troll.Wings", "Wings/", 0);//new SpriteLayer("Wings", "$folder/Wings/", 0, maxWing);
+        leftHorn = new SpriteLayer("LeftHornOld", "$folder/LeftHorn/", 1, 255, legacy:true);
+        rightHorn = new SpriteLayer("RightHornOld", "$folder/RightHorn/", 1, 255, legacy:true);
+        extendedRightHorn = layer("Troll.RightHorn", "RightHorn/", 1, mb:true, secret:maxSecretHorn);//new SpriteLayer("RightHorn", "$folder/RightHorn/", 1, maxHorn, supportsMultiByte: true)..primaryPartner = false..secretMax = maxSecretHorn;
+        extendedLeftHorn = layer("Troll.LeftHorn", "LeftHorn/", 1, mb:true, secret:maxSecretHorn)..addPartner(extendedRightHorn);//new SpriteLayer("LeftHorn", "$folder/LeftHorn/", 1, maxHorn, supportsMultiByte: true)..partners.add(extendedRightHorn)..secretMax = maxSecretHorn;
 
     }
 

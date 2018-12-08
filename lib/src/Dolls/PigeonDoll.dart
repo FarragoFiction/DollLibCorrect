@@ -1,12 +1,9 @@
-import 'package:CommonLib/Compression.dart';
-import 'package:RenderingLib/RendereringLib.dart';
+import "../../DollRenderer.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
 
-import "../Rendering/ReferenceColors.dart";
 class PigeonDoll extends Doll {
 
     @override
@@ -134,10 +131,10 @@ class PigeonDoll extends Doll {
 
     @override
     void initLayers() {
-        body = new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
-        head = new SpriteLayer("Head", "$folder/Head/", 1, maxHead);
-        wing = new SpriteLayer("Wing", "$folder/Wing/", 1, maxWing);
-        tail = new SpriteLayer("Tail", "$folder/Tail/", 1, maxTail);
+        body = layer("Pigeon.Body", "Body/", 1);//new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
+        head = layer("Pigeon.Head", "Head/", 1);//new SpriteLayer("Head", "$folder/Head/", 1, maxHead);
+        wing = layer("Pigeon.Wing", "Wing/", 1);//new SpriteLayer("Wing", "$folder/Wing/", 1, maxWing);
+        tail = layer("Pigeon.Tail", "Tail/", 1);//new SpriteLayer("Tail", "$folder/Tail/", 1, maxTail);
 
     }
 

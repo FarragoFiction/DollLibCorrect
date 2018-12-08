@@ -1,5 +1,5 @@
-import 'dart:math';
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
+import "../../commonImports.dart";
+import "SpriteLayer.dart";
 
 
 class NamedSpriteLayer extends SpriteLayer {
@@ -8,8 +8,9 @@ class NamedSpriteLayer extends SpriteLayer {
   NamedSpriteLayer(this.possibleNames, String name, String imgNameBase, int imgNumber, int maxImageNumber) : super(name, imgNameBase, imgNumber, maxImageNumber);
 
   //major difference from named layer to regular
+    @override
   String get imgLocation {
-      return "$imgNameBase${name}.${imgFormat}";
+      return "$imgNameBase$name.$imgFormat";
   }
 
 }

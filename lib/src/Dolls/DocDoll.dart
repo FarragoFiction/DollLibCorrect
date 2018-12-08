@@ -1,13 +1,8 @@
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
+import "../../DollRenderer.dart";
 import "../Rendering/ReferenceColors.dart";
-import "Quirk.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 //saving and loading isn't working .why?
@@ -114,10 +109,10 @@ class DocDoll extends Doll{
   void initLayers() {
 
     {
-      body = new SpriteLayer("Body","$folder/Body/", 1, maxBody);
-      head = new SpriteLayer("Head","$folder/Head/", 1, maxHead);
-      accessory = new SpriteLayer("Accessory","$folder/Accessory/", 1, maxAccessory);
-      legs = new SpriteLayer("Legs","$folder/Legs/", 1, maxLeg);
+      body = layer("Doc.Body", "Body/", 1);//new SpriteLayer("Body","$folder/Body/", 1, maxBody);
+      head = layer("Doc.Head", "Head/", 1);//new SpriteLayer("Head","$folder/Head/", 1, maxHead);
+      accessory = layer("Doc.Accessory", "Accessory/", 1);//new SpriteLayer("Accessory","$folder/Accessory/", 1, maxAccessory);
+      legs = layer("Doc.Legs", "Legs/", 1);//new SpriteLayer("Legs","$folder/Legs/", 1, maxLeg);
     }
   }
 

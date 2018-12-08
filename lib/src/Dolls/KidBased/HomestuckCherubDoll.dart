@@ -1,13 +1,8 @@
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckSatyrDoll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
+import "../../../DollRenderer.dart";
 import "../../Rendering/ReferenceColors.dart";
+import "../../commonImports.dart";
+import "../Layers/SpriteLayer.dart";
+import "HomestuckDoll.dart";
 
 
 class HomestuckCherubDoll extends HomestuckDoll {
@@ -127,14 +122,14 @@ class HomestuckCherubDoll extends HomestuckDoll {
         super.initLayers();
         //only do what is special to me here.
         //print("initializing layers, folder is: $folder and use absolute path is $useAbsolutePath");
-        mouth = new SpriteLayer("Mouth","$folder/CherubMouth/", 1, maxMouth);
-        wings = new SpriteLayer("Wings","$folder/CherubWings/", 1, maxWings);
-        leftEye = new SpriteLayer("LeftEye","$folder/CherubLeftEyes/", 1, maxEyes)..primaryPartner = false;
-        rightEye = new SpriteLayer("RightEye","$folder/CherubRightEyes/", 1, maxEyes)..partners.add(leftEye);
-        cheeks = new SpriteLayer("Cheeks","$folder/CherubCheeks/", 1, maxCheeks);
-        body = new SpriteLayer("Body","$folder/CherubBody/", 1, maxBody);
-        glasses = new SpriteLayer("Glasses","$folder/CherubGlasses/", 0, maxGlass);
-        glasses2 = new SpriteLayer("Glasses2","$folder/CherubGlasses/", 0, maxGlass2);
+        mouth = layer("Cherub.Mouth", "CherubMouth/", 1);//new SpriteLayer("Mouth","$folder/CherubMouth/", 1, maxMouth);
+        wings = layer("Cherub.Wings", "CherubWings/", 1);//new SpriteLayer("Wings","$folder/CherubWings/", 1, maxWings);
+        leftEye = layer("Cherub.LeftEye", "CherubLeftEyes/", 1);//new SpriteLayer("LeftEye","$folder/CherubLeftEyes/", 1, maxEyes)..primaryPartner = false;
+        rightEye = layer("Cherub.RightEye", "CherubRightEyes/", 1)..addPartner(leftEye);//new SpriteLayer("RightEye","$folder/CherubRightEyes/", 1, maxEyes)..partners.add(leftEye);
+        cheeks = layer("Cherub.Cheeks", "CherubCheeks/", 1);//new SpriteLayer("Cheeks","$folder/CherubCheeks/", 1, maxCheeks);
+        body = layer("Cherub.Body", "CherubBody/", 1);//new SpriteLayer("Body","$folder/CherubBody/", 1, maxBody);
+        glasses = layer("Cherub.Glasses", "CherubGlasses/", 0);//new SpriteLayer("Glasses","$folder/CherubGlasses/", 0, maxGlass);
+        glasses2 = layer("Cherub.Glasses2", "CherubGlasses/", 0);//new SpriteLayer("Glasses2","$folder/CherubGlasses/", 0, maxGlass2);
     }
 
     @override

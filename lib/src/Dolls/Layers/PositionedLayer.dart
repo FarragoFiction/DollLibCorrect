@@ -1,15 +1,11 @@
-import 'dart:async';
-import 'dart:html';
-import 'package:DollLibCorrect/DollRenderer.dart';
-import 'package:DollLibCorrect/src/Dolls/Layers/DynamicLayer.dart';
-import 'package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart';
-import 'package:CommonLib/Compression.dart';
+import "../../commonImports.dart";
+import 'SpriteLayer.dart';
 
 class PositionedLayer extends SpriteLayer {
     //assume doll's upper left is 0,0
     int x;
     int y;
-  PositionedLayer(int this.x, int this.y, String name, String imgNameBase, int imgNumber, int maxImageNumber) : super(name, imgNameBase, imgNumber, maxImageNumber);
+  PositionedLayer(int this.x, int this.y, String name, String imgNameBase, int imgNumber, int maxImageNumber, {bool legacy = false}) : super(name, imgNameBase, imgNumber, maxImageNumber, legacy:legacy);
 
   @override
     void saveToBuilder(ByteBuilder builder) {

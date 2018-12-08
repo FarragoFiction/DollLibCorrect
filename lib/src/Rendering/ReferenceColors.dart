@@ -1,15 +1,11 @@
+import "package:CommonLib/Colours.dart";
 
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import 'package:DollLibCorrect/src/Dolls/KidBased/HomestuckLamiaDoll.dart';
-import 'package:RenderingLib/RendereringLib.dart';
-
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckTrollDoll.dart";
-import "dart:html";
-import 'dart:async';
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
 import "../Dolls/ConsortDoll.dart";
+import "../Dolls/KidBased/HomestuckDoll.dart";
+import '../Dolls/KidBased/HomestuckLamiaDoll.dart';
+import "../Dolls/KidBased/HomestuckTrollDoll.dart";
 import "../Dolls/QueenDoll.dart";
+
 abstract class ReferenceColours {
     static Colour WHITE = new Colour.fromHex(0xFFFFFF);
     static Colour BLACK = new Colour.fromHex(0x000000);

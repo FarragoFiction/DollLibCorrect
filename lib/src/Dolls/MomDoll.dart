@@ -1,13 +1,9 @@
 //unlike other dolls, moms have  a single, non chooseable base.
 //also moms are mostly pastel colors.
-import 'package:RenderingLib/RendereringLib.dart';
-import 'package:CommonLib/Compression.dart';
-
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import "dart:typed_data";
-import 'dart:convert';
-
+import "../../DollRenderer.dart";
+import "../commonImports.dart";
+import "Doll.dart";
+import "Layers/SpriteLayer.dart";
 
 
 class MomDoll extends Doll {
@@ -108,11 +104,11 @@ class MomDoll extends Doll {
 
     @override
     void initLayers() {
-        base = new SpriteLayer("Base","$folder/Base/", 0, maxBase);
-        outfit = new SpriteLayer("Outfit","$folder/Outfit/", 1, maxOutfit);
-        mouth = new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
-        drink = new SpriteLayer("Drink","$folder/Drink/", 1, maxDrink);
-        hair = new SpriteLayer("Hair","$folder/Hair/", 1, maxHair);
+        base = layer("Mom.Base", "Base/", 0);//new SpriteLayer("Base","$folder/Base/", 0, maxBase);
+        outfit = layer("Mom.Outfit", "Outfit/", 1);//new SpriteLayer("Outfit","$folder/Outfit/", 1, maxOutfit);
+        mouth = layer("Mom.Mouth", "Mouth/", 1);//new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth);
+        drink = layer("Mom.Drink", "Drink/", 1);//new SpriteLayer("Drink","$folder/Drink/", 1, maxDrink);
+        hair = layer("Mom.Hair", "Hair/", 1);//new SpriteLayer("Hair","$folder/Hair/", 1, maxHair);
     }
 
 
