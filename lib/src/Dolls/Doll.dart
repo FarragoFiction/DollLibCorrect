@@ -965,6 +965,7 @@ abstract class Doll {
 
     static Future<Null> loadFileData([String path = "package:DollLibCorrect/dolldata.json"]) async {
         if(path == "package:DollLibCorrect/dolldata.json" && (window.location.hostname.contains("farrago"))){
+            print("using global dolldata");
             path = "http://www.farragofiction.com/DollSource/dolldata.json";
         }
         Loader.init();
