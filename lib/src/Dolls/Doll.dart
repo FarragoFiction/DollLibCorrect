@@ -964,8 +964,8 @@ abstract class Doll {
     static T dataValue<T>(String value, [T fallback = null]) => fileData.getValue(value, fallback);
 
     static Future<Null> loadFileData([String path = "package:DollLibCorrect/dolldata.json"]) async {
-        if(path == "package:DollLibCorrect/dolldata.json" && (!window.location.hostname.contains("farrago"))){
-            path = "DollSource/dolldata.json";
+        if(path == "package:DollLibCorrect/dolldata.json" && (window.location.hostname.contains("farrago"))){
+            path = "http://www.farragofiction.com/DollSource/dolldata.json";
         }
         Loader.init();
         Map<String,dynamic> json = await Loader.getResource(path);
