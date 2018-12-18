@@ -2,8 +2,8 @@ import "dart:async";
 import "dart:html";
 
 import "package:DollLibCorrect/DollRenderer.dart";
+import 'package:DollLibCorrect/src/commonImports.dart';
 import "package:LoaderLib/Loader.dart";
-import "package:RenderingLib/RendereringLib.dart";
 
 Element output = querySelector('#output');
 Future<Null> main() async {
@@ -91,7 +91,13 @@ Future<Null> testPartial() async {
 
 Future<Null> renderEverythingAndLoad() async {
     for(int type in Doll.allDollTypes) {
-        await renderAndLoadDoll(type);
+        print("rendering type $type");
+        try {
+            await renderAndLoadDoll(type);
+        }catch(e,trace) {
+            window.alert("error rendering type $type, $e");
+            print("error rendering type $type, $e");
+        }
     }
 }
 
@@ -116,7 +122,7 @@ Future<Null> renderAndLoadDoll(int type) async {
         CanvasElement canvas2 = await doll2.getNewCanvas(true);
         us.append(canvas2);
     }catch(e) {
-        us.append(new SpanElement()..text = "no alt form for $type");
+        us.append(new SpanElement()..text = "no alt form for $type, OR error $e");
     }
 }
 
