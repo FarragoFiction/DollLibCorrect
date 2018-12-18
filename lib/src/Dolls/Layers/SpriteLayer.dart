@@ -60,7 +60,6 @@ class SpriteLayer {
         if(syncedWith == null) {
             syncedWith = new List<SpriteLayer>();
         }
-        print("path $imgNameBase has syncedWith of $syncedWith on init");
     }
 
     String get imgLocation {
@@ -164,7 +163,6 @@ class SpriteLayer {
     }
 
     void slaveTo(SpriteLayer master) {
-        print("I am $this with path ${imgNameBase} and i am trying to add $master to $syncedWith");
         this.syncedWith.add(master);
         master.syncedWith.add(this);
         this.slave = true;
