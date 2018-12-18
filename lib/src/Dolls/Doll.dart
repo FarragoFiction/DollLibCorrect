@@ -956,7 +956,10 @@ abstract class Doll {
         String layerName = split.last;
 
         SpriteLayer.legacyConstructorToggle = false;
-        SpriteLayer l = new PositionedLayerPlusUltra(w,h,x,y, layerName, "$folder/$path", defaultId, fileData.getValue("$dollName.layers.$layerName", defaultId))..supportsMultiByte = mb..syncedWith = sync..secretMax = secret;
+        SpriteLayer l = new PositionedLayerPlusUltra(w,h,x,y, layerName, "$folder/$path", defaultId, fileData.getValue("$dollName.layers.$layerName", defaultId))..supportsMultiByte = mb..secretMax = secret;
+        if (sync != null) {
+            l.syncedWith.addAll(sync);
+        }
         SpriteLayer.legacyConstructorToggle = true;
         return l;
     }
