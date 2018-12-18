@@ -121,8 +121,9 @@ Future<Null> renderAndLoadDoll(int type) async {
         Doll doll2 = Doll.loadSpecificDoll(dollString);
         CanvasElement canvas2 = await doll2.getNewCanvas(true);
         us.append(canvas2);
-    }catch(e) {
+    }catch(e,trace) {
         us.append(new SpanElement()..text = "no alt form for $type, OR error $e");
+        print("Error $e and trace $trace");
     }
 }
 
