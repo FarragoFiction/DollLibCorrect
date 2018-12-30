@@ -19,14 +19,14 @@ Future<Null> main() async {
 Future<Null> start() async {
     await Loader.loadManifest();
     //await breedTest();
-    runTests();
+    //runTests();
 
 
     //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
-    //Doll doll = Doll.randomDollOfType(44);
-    //await drawDoll(doll);
+    Doll doll = Doll.randomDollOfType(45);
+    await drawDoll(doll);
 
     //makeForestOfDollOfTypeNewColors(doll,44);
 }

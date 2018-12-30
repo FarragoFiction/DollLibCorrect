@@ -25,7 +25,7 @@ abstract class Doll {
         return ret.replaceAll(' ','');
     }
     //useful for the builder
-    static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22,23,25,27,21,28,34,35,37,38,39,88,26,44];
+    static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22,23,25,27,21,28,34,35,37,38,39,88,26,44,45];
 
 
     /* first part of any data string tells me what type of doll to load.*/
@@ -71,7 +71,7 @@ abstract class Doll {
         if(type == 39) return new DuckDoll();
         if(type == 88) return new HomestuckLamiaDoll();
         if(type == 44) return new VesselDoll();
-
+        if(type == 45) return new MagicalDoll();
 
         throw("ERROR could not find doll of type $type");
     }

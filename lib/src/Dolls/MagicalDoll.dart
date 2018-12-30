@@ -22,10 +22,10 @@ class MagicalDoll extends Doll{
   int height = 600;
 
   @override
-  String name = "MagicalDolls";
+  String name = "MagicalDoll";
 
   @override
-  String relativefolder = "images/MagicalDolls";
+  String relativefolder = "images/MagicalDoll";
 
   SpriteLayer hairBack;
   SpriteLayer bowBack;
@@ -45,6 +45,9 @@ class MagicalDoll extends Doll{
   @override
   List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[hairBack, bowBack, body, socks, shoes, skirt,frontBow, eyes, eyebrows, mouth,hairFront, glasses];
 
+  //definitely doesn't sound creepy
+  //wait i can make worse
+  List<String> jrs_skin_collection = <String>["#CFCFCF","#FFDBAC", "#F1C27D" ,"#E0AC69" ,"#C68642", "#8D5524"];
   @override
   Palette palette = new HomestuckPalette()
     ..accent = '#FF9B00'
@@ -84,12 +87,14 @@ class MagicalDoll extends Doll{
     }else {
       copyPalette(newPallete);
     }
+    HomestuckPalette hp = palette as HomestuckPalette;
+    hp.skin = new Colour.fromStyleString(rand.pickFrom(jrs_skin_collection));
   }
 
   @override
   void randomizeNotColors() {
     for(SpriteLayer l in renderingOrderLayers) {
-      l.imgNumber = rand.nextInt(l.maxImageNumber+1);
+      l.imgNumber = rand.nextInt(l.maxImageNumber)+1;
     }
   }
 
@@ -117,11 +122,12 @@ class MagicalDoll extends Doll{
       socks = layer("$name.Socks", "Socks/", 1);
       shoes = layer("$name.Shoes", "Shoes/", 1);
       skirt = layer("$name.Skirt", "Skirt/", 1);
+      //HEY FUTURE JR, JUST BECAUSE THEY BOTH ARE NAMED 'BOW' DOESN'T MEAN THEY SHOULD BE SLAVED TO EACH OTHER
       frontBow = layer("$name.BowFront", "BowFront/", 1);
       eyes = layer("$name.Eyes", "Eyes/", 1);
       eyebrows = layer("$name.Eyebrows", "Eyebrows/", 1);;
       mouth = layer("$name.Mouth", "Mouth/", 1);
-      hairFront = layer("$name.HairFront", "HairFront/", 1);
+      hairFront = layer("$name.HairFront", "HairFront/", 1)..slaveTo(hairBack);
       glasses = layer("$name.Glasses", "Glasses/", 1);
 
 
