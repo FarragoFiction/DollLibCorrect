@@ -91,6 +91,9 @@ class MagicalDoll extends Doll{
     }
     HomestuckPalette hp = palette as HomestuckPalette;
     hp.skin = new Colour.fromStyleString(rand.pickFrom(jrs_skin_collection));
+    hp.eye_white_right = new Colour(255,255,255);
+    hp.eye_white_left = new Colour(255,255,255);
+
     if(newPallete != ReferenceColours.SKETCH) hp.add("hairMain",new Colour.fromStyleString(rand.pickFrom(human_hair_colors)),true);
 
   }
