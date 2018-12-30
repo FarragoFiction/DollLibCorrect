@@ -48,6 +48,24 @@
     }
   },
 
+
+  "MagicalDoll": {
+    "layers": {
+      "HairBack": 1,
+      "BowBack": 1,
+      "Body": 1,
+      "Socks": 1,
+      "Shoes": 1,
+      "Skirt": 1,
+      "BowFront": 1,
+      "Eyes": 1,
+      "Eyebrows": 1,
+      "Mouth": 1,
+      "HairFront": 1,
+      "Glasses": 1
+    }
+  },
+
   "Leaf": {
     "layers": {
       "body": 25

@@ -111,18 +111,18 @@ class MagicalDoll extends Doll{
   SpriteLayer hair;
   SpriteLayer glasses;
        */
-      hairBack = layer("$name.HairBack", "HairBack/", 1);//new SpriteLayer("Torso","$folder/Torso/", 1, maxTorso);
-      bowBack = layer("$name.BowBack", "BowBack/", 1);//new SpriteLayer("Head","$folder/Head/", 1, maxHead);
-      body = layer("$name.Body", "Body/", 1);//new SpriteLayer("Legs","$folder/Legs/", 1, maxLegs);
-      socks = layer("$name.Socks", "Socks/", 1);//new SpriteLayer("Legs","$folder/Legs/", 1, maxLegs);
-      shoes = layer("$name.Shoes", "Shoes/", 1);//new SpriteLayer("Legs","$folder/Legs/", 1, maxLegs);
-      skirt = layer("$name.Skirt", "Skirt/", 1);//new SpriteLayer("Legs","$folder/Legs/", 1, maxLegs);
-      frontBow = layer("$name.BowFront", "BowFront/", 1);//new SpriteLayer("Legs","$folder/Legs/", 1, maxLegs);
-      eyes = layer("$name.Eyes", "Eyes/", 1);//new SpriteLayer("Legs","$folder/Legs/", 1, maxLegs);
-      eyebrows = layer("$name.Eyebrows", "Eyebrows/", 1);//new SpriteLayer("Legs","$folder/Legs/", 1, maxLegs);
-      mouth = layer("$name.Mouth", "Mouth/", 1);//new SpriteLayer("Legs","$folder/Legs/", 1, maxLegs);
-      hairFront = layer("$name.HairFront", "HairFront/", 1);//new SpriteLayer("Legs","$folder/Legs/", 1, maxLegs);
-      glasses = layer("$name.Glasses", "Glasses/", 1);//new SpriteLayer("Legs","$folder/Legs/", 1, maxLegs);
+      hairBack = layer("$name.HairBack", "HairBack/", 1);
+      bowBack = layer("$name.BowBack", "BowBack/", 1);
+      body = layer("$name.Body", "Body/", 1);
+      socks = layer("$name.Socks", "Socks/", 1);
+      shoes = layer("$name.Shoes", "Shoes/", 1);
+      skirt = layer("$name.Skirt", "Skirt/", 1);
+      frontBow = layer("$name.BowFront", "BowFront/", 1);
+      eyes = layer("$name.Eyes", "Eyes/", 1);
+      eyebrows = layer("$name.Eyebrows", "Eyebrows/", 1);;
+      mouth = layer("$name.Mouth", "Mouth/", 1);
+      hairFront = layer("$name.HairFront", "HairFront/", 1);
+      glasses = layer("$name.Glasses", "Glasses/", 1);
 
 
     }
