@@ -48,6 +48,8 @@ class MagicalDoll extends Doll{
   //definitely doesn't sound creepy
   //wait i can make worse
   List<String> jrs_skin_collection = <String>["#CFCFCF","#FFDBAC", "#F1C27D" ,"#E0AC69" ,"#C68642", "#8D5524"];
+  List<String> human_hair_colors = <String>["#2C222B", "#FFF5E1", "#B89778", "#A56B46", "#B55239", "#8D4A43", "#3B3024", "#504444","#68410a", "#fffffe", "#000000", "#000000", "#000000", "#f3f28d", "#cf6338", "#feffd7", "#fff3bd", "#724107", "#382207", "#ff5a00", "#3f1904", "#ffd46d", "#473200", "#91683c"];
+
   @override
   Palette palette = new HomestuckPalette()
     ..accent = '#FF9B00'
@@ -89,6 +91,8 @@ class MagicalDoll extends Doll{
     }
     HomestuckPalette hp = palette as HomestuckPalette;
     hp.skin = new Colour.fromStyleString(rand.pickFrom(jrs_skin_collection));
+    if(newPallete != ReferenceColours.SKETCH) hp.add("hairMain",new Colour.fromStyleString(rand.pickFrom(human_hair_colors)),true);
+
   }
 
   @override

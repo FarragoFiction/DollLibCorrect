@@ -51,18 +51,18 @@
 
   "MagicalDoll": {
     "layers": {
-      "HairBack": 1,
-      "BowBack": 1,
-      "Body": 1,
-      "Socks": 1,
-      "Shoes": 1,
-      "Skirt": 1,
-      "BowFront": 1,
-      "Eyes": 1,
-      "Eyebrows": 1,
-      "Mouth": 1,
-      "HairFront": 1,
-      "Glasses": 1
+      "HairBack": 11,
+      "BowBack": 4,
+      "Body": 16,
+      "Socks": 8,
+      "Shoes": 4,
+      "Skirt": 24,
+      "BowFront": 12,
+      "Eyes": 2,
+      "Eyebrows": 2,
+      "Mouth": 3,
+      "HairFront": 11,
+      "Glasses": 8
     }
   },
 
