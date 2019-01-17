@@ -10,7 +10,7 @@ Future<Null> main() async {
     await Doll.loadFileData();
 
     DateTime startTime = new DateTime.now();
-    Doll doll = Doll.randomDollOfType(66);
+    Doll doll = Doll.randomDollOfType(88);
     new TimeProfiler("load doll", startTime);
     start();
 }
@@ -25,7 +25,8 @@ Future<Null> start() async {
     //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
-    Doll doll = Doll.randomDollOfType(45);
+    //Olive Blooded Lamia:___AshVh4rRBZgAgMwD43FfRqTuthx7_qP__qP9BZgAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMhBZgAgMwAIhYLANCDLwNUCOUoEMCHgA==
+    Doll doll = Doll.randomDollOfType(88);
     await drawDoll(doll);
 
     //makeForestOfDollOfTypeNewColors(doll,44);

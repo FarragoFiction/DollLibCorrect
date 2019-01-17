@@ -96,6 +96,9 @@ abstract class ReferenceColours {
         ..eye_white_left = '#ffba35'
         ..eye_white_right = '#ffba15'
         ..skinDark = '#b5b5b5'
+        ..horn1 = "#ffba29"
+        ..horn2 = "#ff9000"
+        ..horn3 = "#ff4200"
         ..skin = '#ffffff';
 
 

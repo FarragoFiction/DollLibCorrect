@@ -43,6 +43,10 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
         ..hair_accent = '#aa0000'
         ..hair_main = '#000000'
         ..skinDark = '#69b8c8'
+        ..horn1 = "#000000"
+        ..horn2 = "#000000"
+        ..horn3 = "#000000"
+
         ..skin = '#8ccad6';
 
     @override
@@ -91,13 +95,33 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
     {
         super.randomize(chooseSign);
         pickFin();
-        copyPalette(ReferenceColours.PURIFIED);
+        randomizeColors();
     }
 
     @override
     void randomizeColors() {
         super.randomizeColors();
+        HomestuckLamiaPalette h = palette as HomestuckLamiaPalette;
         copyPalette(ReferenceColours.PURIFIED);
+        print("trying to set horn to ${h.aspect_light.toStyleString()}");
+        String light = h.aspect_light.toStyleString();
+        String dark = h.aspect_dark.toStyleString();
+        if (rand.nextBool()) {
+            h.horn1 = new Colour.fromStyleString(light);
+        } else {
+            h.horn1 = new Colour.fromStyleString(dark);
+        }
+        if (rand.nextBool()) {
+            h.horn2 = new Colour.fromStyleString(light);
+        } else {
+            h.horn2 = new Colour.fromStyleString(dark);
+        }
+
+        if (rand.nextBool()) {
+            h.horn3 = new Colour.fromStyleString(light);
+        } else {
+            h.horn3 = new Colour.fromStyleString(dark);
+        }
     }
 
     @override
@@ -145,6 +169,9 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
 /// Convenience class for getting/setting aspect palettes
 class HomestuckLamiaPalette extends HomestuckTrollPalette {
     static String _ACCENT = "accent";
+    static String _HORN1 = "horn1";
+    static String _HORN2 = "horn2";
+    static String _HORN3 = "horn3";
     static String _ASPECT_LIGHT = "aspect1";
     static String _ASPECT_DARK = "aspect2";
     static String _SHOE_LIGHT = "shoe1";
@@ -188,4 +215,16 @@ class HomestuckLamiaPalette extends HomestuckTrollPalette {
     Colour get skinDark => this[_SKINDARK];
 
     void set skinDark(dynamic c) => this.add(_SKINDARK, _handleInput(c), true);
+
+    Colour get horn1 => this[_HORN1];
+
+    void set horn1(dynamic c) => this.add(_HORN1, _handleInput(c), true);
+
+    Colour get horn2 => this[_HORN2];
+
+    void set horn2(dynamic c) => this.add(_HORN2, _handleInput(c), true);
+
+    Colour get horn3 => this[_HORN3];
+
+    void set horn3(dynamic c) => this.add(_HORN3, _handleInput(c), true);
 }
