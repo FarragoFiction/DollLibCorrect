@@ -27,6 +27,7 @@ Future<Null> start() async {
     //speedTest();
     //Olive Blooded Lamia:___AshVh4rRBZgAgMwD43FfRqTuthx7_qP__qP9BZgAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMhBZgAgMwAIhYLANCDLwNUCOUoEMCHgA==
     Doll doll = Doll.randomDollOfType(88);
+    doll = Doll.loadSpecificDoll("http://www.farragofiction.com/DollSim/?Ruhkhi+Gonjid%3A___AshWqJ46hAABQAAD43FfRqTuthx7_qP__qP-hAAAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMihAABQAAAIgNgBsARvzw2ATMAmYbDeA%3D%3D");
     await drawDoll(doll);
 
     //makeForestOfDollOfTypeNewColors(doll,44);

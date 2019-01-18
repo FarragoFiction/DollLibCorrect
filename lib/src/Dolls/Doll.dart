@@ -24,6 +24,9 @@ abstract class Doll {
         String ret = "dollname_${name.toLowerCase()}";
         return ret.replaceAll(' ','');
     }
+
+    //lamia required this, decided to make it more general purpose
+    List<String> colorsToSkipIfProblem = new List<String>();
     //useful for the builder
     static List<int> allDollTypes = <int>[1,2,16,12,13,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22,23,25,27,21,28,34,35,37,38,39,88,26,44,45];
 
@@ -531,16 +534,7 @@ abstract class Doll {
             //print("initalizing layers");
             initLayers();
         }
-        int numColors = reader.readExpGolomb();
-        //print("Number of colors is $numColors");
-        List<String> names = new List<String>.from(palette.names);
-        names.sort();
-
-        for(int i = 0; i< numColors; i++) {
-            //print("reading color ${names[i]}");
-            Colour newColor = new Colour(reader.readByte(),reader.readByte(),reader.readByte());
-            palette.add(names[i], newColor, true);
-        }
+        readColors(reader);
 
         int numLayers = reader.readExpGolomb();
         //print("Number of layers is $numLayers");
@@ -563,6 +557,27 @@ abstract class Doll {
             //print("no rotation data but that's okay");
         }
         return reader; //so subclasses can do things to it (like load fruit templates)
+    }
+
+    //if i need to add colors to a palette the specfici doll can override just this part
+    //i.e. i extracted this just now (1/18/2019) for lamia horn colors
+    void readColors(ImprovedByteReader reader) {
+      int numColors = reader.readExpGolomb();
+      //print("Number of colors is $numColors");
+      List<String> names = new List<String>.from(palette.names);
+      names.sort();
+
+      if(numColors != palette.length) {
+          colorsToSkipIfProblem.forEach((String color) {
+            names.remove(color);
+          });
+      }
+
+      for(int i = 0; i< numColors; i++) {
+          //print("reading color ${names[i]}");
+          Colour newColor = new Colour(reader.readByte(),reader.readByte(),reader.readByte());
+          palette.add(names[i], newColor, true);
+      }
     }
 
 

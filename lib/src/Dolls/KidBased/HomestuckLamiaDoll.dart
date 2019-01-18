@@ -11,9 +11,12 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
     String originalCreator = "???";
     List<int> seadwellerBodies = Doll.dataValue("Lamia.seaDwellerBodies");//<int>[7,8,9,12,13,27,28,29,34,35,39,40,46,50,51,52,60,61];
 
-    
     @override
     int renderingType =88;
+
+    @override
+  List<String> colorsToSkipIfProblem = <String>["horn1","horn2","horn3"];
+
     @override
     String relativeFolder = "images/Homestuck";
     @override
@@ -97,6 +100,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
         pickFin();
         randomizeColors();
     }
+
 
     @override
     void randomizeColors() {
