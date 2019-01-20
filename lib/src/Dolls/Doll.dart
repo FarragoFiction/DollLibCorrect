@@ -856,11 +856,11 @@ abstract class Doll {
             ret = source.clone();
             ret.load(reader, ds,true);
         }catch(e,trace){
+            print("reading legacy because of error $e with trace $trace, type is $type");
             thingy = BASE64URL.decode(dataStringWithoutName);
             OldByteBuilder.ByteReader reader = new OldByteBuilder.ByteReader(thingy.buffer, 0);
             type = reader.readByte();
             ret = randomDollOfType(type);
-            print("reading legacy because of error $e with trace $trace, type is $type");
             ret.initFromReaderOld(reader);
         }
         return ret;
