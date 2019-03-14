@@ -78,7 +78,7 @@ class DollRenderer {
         if(doll.rotation != 0) {
             //print("rotating ${doll.rotation}");
             buffer.context2D.translate(buffer.width/2, buffer.height/2);
-            buffer.context2D.rotate(doll.rotation*Math.PI/180);
+            buffer.context2D.rotate(doll.rotation*Math.pi/180);
             //return
             buffer.context2D.translate(-buffer.width/2, -buffer.height/2);
         }

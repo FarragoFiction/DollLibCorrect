@@ -509,7 +509,7 @@ abstract class Doll {
     void load(ImprovedByteReader reader, String dataString, bool nameExpected) {
         setDollNameFromString(removeURLFromString(dataString), nameExpected);//i know it has a name, or else it's legacy and this will throw an error.
         String dataStringWithoutName = removeLabelFromString(dataString);
-        Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
+        Uint8List thingy = base64Url.decode(dataStringWithoutName);
         if(reader == null) {
             reader = new ImprovedByteReader(thingy.buffer, 0);
             reader.readExpGolomb(); //pop it off, i already know my type
@@ -653,7 +653,7 @@ abstract class Doll {
             dataString = toDataBytesX();
         }
         String dataStringWithoutName = removeLabelFromString(dataString);
-        Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
+        Uint8List thingy = base64Url.decode(dataStringWithoutName);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer);
         TableElement table = new TableElement();
         me.append(table);
@@ -751,7 +751,7 @@ abstract class Doll {
         if(builder == null) builder = new ByteBuilder();
         builder = appendDataBytesToBuilder(builder);
 
-        return "$label${BASE64URL.encode(builder.toBuffer().asUint8List())}";
+        return "$label${base64Url.encode(builder.toBuffer().asUint8List())}";
     }
 
     //legacy as of 6/18/18
@@ -785,7 +785,7 @@ abstract class Doll {
             //builder.appendByte(l.imgNumber);
         }
 
-        return BASE64URL.encode(builder.toBuffer().asUint8List());
+        return base64Url.encode(builder.toBuffer().asUint8List());
     }
 
     //if it's in url form, it has a ? right before the text.
@@ -835,7 +835,7 @@ abstract class Doll {
         //print("datastring without url is $dataStringWithoutName");
         dataStringWithoutName = removeLabelFromString(dataStringWithoutName);
         //print("dataString without name is $dataStringWithoutName");
-        Uint8List thingy = BASE64URL.decode(dataStringWithoutName);
+        Uint8List thingy = base64Url.decode(dataStringWithoutName);
         ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
         int type = -99;
         //FUTURE JR, PAY ATTENTION
@@ -857,7 +857,7 @@ abstract class Doll {
             ret.load(reader, ds,true);
         }catch(e,trace){
             print("reading legacy because of error $e with trace $trace, type is $type");
-            thingy = BASE64URL.decode(dataStringWithoutName);
+            thingy = base64Url.decode(dataStringWithoutName);
             OldByteBuilder.ByteReader reader = new OldByteBuilder.ByteReader(thingy.buffer, 0);
             type = reader.readByte();
             ret = randomDollOfType(type);

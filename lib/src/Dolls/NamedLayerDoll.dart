@@ -64,7 +64,7 @@ abstract class NamedLayerDoll extends Doll {
             }
         }
 
-        return "$label${BASE64URL.encode(builder.toBuffer().asUint8List())}";
+        return "$label${base64Url.encode(builder.toBuffer().asUint8List())}";
     }
     
 
