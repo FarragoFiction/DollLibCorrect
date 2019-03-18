@@ -18,7 +18,7 @@ class HomestuckSatyrDoll extends HomestuckDoll {
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
 
     //these bodies look terrible with troll signs. if any of these use 47,48, or 49
-    List<int> bannedRandomBodies = Doll.dataValue("Satyr.bannedBodies");//<int>[96,219,221,223,5,11,14,43,50,59,65,66,67,70,72,75,74,98,100,101,102,106,107,109,63,17];
+    List<int> bannedRandomBodies = Doll.dataList("Satyr.bannedBodies");//<int>[96,219,221,223,5,11,14,43,50,59,65,66,67,70,72,75,74,98,100,101,102,106,107,109,63,17];
     int defaultBody = Doll.dataValue("Satyr.defaultBody");//48;
     int maxHorn = 17;
     int maxFluff = 19;

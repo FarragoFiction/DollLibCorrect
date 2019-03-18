@@ -980,6 +980,7 @@ abstract class Doll {
     }
 
     static T dataValue<T>(String value, [T fallback = null]) => fileData.getValue(value, fallback);
+    static List<T> dataList<T>(String value) => fileData.getArray<List<T>,T>(value);
 
     static Future<Null> loadFileData([String path = "package:DollLibCorrect/dolldata.json"]) async {
         if(path == "package:DollLibCorrect/dolldata.json" && (window.location.hostname.contains("farrago"))){

@@ -62,7 +62,7 @@ will also need to figure out how to do the drop downs.
      ..cracks = '#ffffff';
 
      @override
-     List<String> possibleParts = Doll.dataValue("Queen.parts");//<String>["Bird","Bug","Buggy_As_Fuck_Retro_Game","Butler", "Cat", "Chihuahua","Chinchilla","Clippy","Cow","Cowboy","Doctor","Dutton","Fly","Game_Bro","Game_Grl","Gerbil","Github","Golfer","Google","Horse","Husky","Internet_Troll","Kid_Rock","Librarian","Llama","Mosquito","Nic_Cage","Penguin","Pitbull","Pomeranian","Pony","Praying_Mantis","Rabbit","Robot","Sleuth","Sloth","Tissue","Web_Comic_Creator","Pigeon","Octopus", "Worm", "Kitten","Fish"];
+     List<String> possibleParts = Doll.dataList("Queen.parts");//<String>["Bird","Bug","Buggy_As_Fuck_Retro_Game","Butler", "Cat", "Chihuahua","Chinchilla","Clippy","Cow","Cowboy","Doctor","Dutton","Fly","Game_Bro","Game_Grl","Gerbil","Github","Golfer","Google","Horse","Husky","Internet_Troll","Kid_Rock","Librarian","Llama","Mosquito","Nic_Cage","Penguin","Pitbull","Pomeranian","Pony","Praying_Mantis","Rabbit","Robot","Sleuth","Sloth","Tissue","Web_Comic_Creator","Pigeon","Octopus", "Worm", "Kitten","Fish"];
 
      QueenDoll([bool randomColor = true]) {
          initLayers();
