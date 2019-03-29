@@ -28,7 +28,7 @@
       "CanonSymbol": 288,
       "FinLeft": 27,
       "FinRight": 27,
-      "Wings": 78,
+      "Wings": 81,
       "LeftHorn": 366,
       "RightHorn": 366
     }
@@ -43,7 +43,7 @@
   "Vessel": {
     "layers": {
       "Head": 9,
-      "Torso": 4,
+      "Torso": 7,
       "Legs": 3
     }
   },
@@ -51,18 +51,18 @@
 
   "MagicalDoll": {
     "layers": {
-      "HairBack": 11,
-      "BowBack": 6,
+      "HairBack": 15,
+      "BowBack": 8,
       "Body": 16,
-      "Socks": 8,
-      "Shoes": 6,
-      "Skirt": 24,
-      "BowFront": 12,
-      "Eyes": 2,
+      "Socks": 9,
+      "Shoes": 8,
+      "Skirt": 25,
+      "BowFront": 17,
+      "Eyes": 3,
       "Eyebrows": 2,
-      "Mouth": 3,
+      "Mouth": 5,
       "HairFront": 11,
-      "Glasses": 8
+      "Glasses": 13
     }
   },
 
@@ -170,9 +170,9 @@
   "Pigeon": {
     "layers": {
       "Body": 1,
-      "Head": 3,
+      "Head": 5,
       "Wing": 1,
-      "Tail": 0
+      "Tail": 1
     }
   },
 
@@ -380,16 +380,16 @@
 
   "Ancestor": {
     "layers": {
-      "Body": 36,
+      "Body": 40,
       "Fin": 1,
       "BehindAccessory": 4,
       "HairBack": 18,
-      "Facepaint": 2,
+      "Facepaint": 3,
       "Mouth": 13,
       "LeftEye": 7,
       "RightEye": 7,
-      "FrontAccessory": 5,
-      "HairFront": 18,
+      "FrontAccessory": 8,
+      "HairFront": 19,
       "LeftHorn": 17,
       "RightHorn": 17
     }

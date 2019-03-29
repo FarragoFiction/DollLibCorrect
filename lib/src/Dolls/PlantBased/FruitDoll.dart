@@ -41,7 +41,7 @@ class FruitDoll extends Doll {
     @override
     List<Palette> validPalettes = new List<Palette>.from(ReferenceColours.paletteList.values);
 
-    int maxBody = 86;
+    int maxBody = 87;
     String relativefolder = "images/Fruit";
 
     SpriteLayer body;
