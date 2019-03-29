@@ -7,12 +7,12 @@
 
   "Kid": {
     "layers": {
-      "Body": 646,
+      "Body": 676,
       "FacePaint": 187,
       "Glasses": 275,
       "Glasses2": 310,
-      "HairFront": 341,
-      "HairBack": 341,
+      "HairFront": 355,
+      "HairBack": 355,
       "LeftEye": 278,
       "RightEye": 278,
       "Mouth": 281,
@@ -103,19 +103,19 @@
 
   "Consort": {
     "layers": {
-      "Body": 45
+      "Body": 46
     }
   },
 
   "Denizen": {
     "layers": {
-      "Back": 11,
-      "Core": 2,
-      "Body": 15,
+      "Back": 14,
+      "Core": 9,
+      "Body": 17,
       "AspectFace": 14,
-      "Mouth": 15,
-      "Eyes": 19,
-      "Other": 10
+      "Mouth": 17,
+      "Eyes": 21,
+      "Other": 11
     }
   },
 
