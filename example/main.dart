@@ -18,8 +18,8 @@ Future<Null> main() async {
 //remember you can turn debug statements on to print on screen     //doll.visualizeData(output);
 Future<Null> start() async {
     await Loader.loadManifest();
-    //await breedTest();
-    //runTests();
+    await breedTest();
+    runTests();
 
 
     //await renderEverythingAndLoad();
