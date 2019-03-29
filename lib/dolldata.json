@@ -9,14 +9,14 @@
     "layers": {
       "Body": 676,
       "FacePaint": 187,
-      "Glasses": 275,
-      "Glasses2": 310,
+      "Glasses": 283,
+      "Glasses2": 330,
       "HairFront": 355,
       "HairBack": 355,
-      "LeftEye": 278,
-      "RightEye": 278,
-      "Mouth": 281,
-      "Symbol": 420
+      "LeftEye": 287,
+      "RightEye": 287,
+      "Mouth": 285,
+      "Symbol": 433
     }
   },
 
@@ -26,11 +26,11 @@
     "bannedBodies": [238,252,256,259,235,226,227,230,96,219,221,223,5,11,14,43,50,59,65,66,67,70,72,75,74,98,100,101,102,106,107,109,63,17],
     "layers": {
       "CanonSymbol": 288,
-      "FinLeft": 26,
-      "FinRight": 26,
+      "FinLeft": 27,
+      "FinRight": 27,
       "Wings": 78,
-      "LeftHorn": 347,
-      "RightHorn": 347
+      "LeftHorn": 366,
+      "RightHorn": 366
     }
   },
 
@@ -151,7 +151,7 @@
 
   "Hiveswap": {
     "layers": {
-      "HairFront": 19,
+      "HairFront": 22,
       "HairBack": 19,
       "LeftFin": 1,
       "RightFin": 1,
@@ -252,7 +252,7 @@
   "Lamia": {
     "seaDwellerBodies": [7,8,9,12,13,27,28,29,34,35,39,40,46,50,51,52,60,61],
     "layers": {
-      "Body": 74
+      "Body": 77
     }
   },
 
@@ -267,10 +267,10 @@
 
   "Superb Suck": {
     "layers": {
-      "Body": 76,
-      "Face": 38,
-      "Hair": 61,
-      "Symbol": 51,
+      "Body": 78,
+      "Face": 44,
+      "Hair": 63,
+      "Symbol": 52,
       "CanonSymbol": 288
     }
   },
@@ -401,15 +401,15 @@
       "HairBack": 33,
       "FinLeft": 1,
       "FinRight": 1,
-      "Body": 40,
+      "Body": 43,
       "Cape": 8,
-      "Mouth": 7,
-      "EyeLeft": 8,
-      "EyeRight": 8,
-      "Accessory": 15,
+      "Mouth": 8,
+      "EyeLeft": 9,
+      "EyeRight": 9,
+      "Accessory": 24,
       "Accessory2": 15,
-      "HornLeft": 14,
-      "HornRight": 14,
+      "HornLeft": 17,
+      "HornRight": 17,
       "Symbol": 21
     }
   },
