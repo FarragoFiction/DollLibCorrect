@@ -116,9 +116,6 @@ Future<Null> renderAndLoadDoll(int type) async {
     try {
 
         Doll doll = Doll.randomDollOfType(type);
-        if(doll is HomestuckDoll) {
-            doll.extendedBody.imgNumber = 647;
-        }
         //print("type $type - ${doll.name}");
         await doll.setNameFromEngine();
         //print("save");
