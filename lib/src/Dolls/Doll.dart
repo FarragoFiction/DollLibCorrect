@@ -989,7 +989,9 @@ abstract class Doll {
         }
         Loader.init();
         Map<String,dynamic> json = await Loader.getResource(path);
+
         fileData = new JsonHandler(json);
+
     }
 }
 

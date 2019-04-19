@@ -28,7 +28,14 @@ Future<Null> start() async {
     //Olive Blooded Lamia:___AshVh4rRBZgAgMwD43FfRqTuthx7_qP__qP9BZgAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMhBZgAgMwAIhYLANCDLwNUCOUoEMCHgA==
     Doll doll = Doll.randomDollOfType(88);
     doll = Doll.loadSpecificDoll("http://www.farragofiction.com/DollSim/?Ruhkhi+Gonjid%3A___AshWqJ46hAABQAAD43FfRqTuthx7_qP__qP-hAAAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMihAABQAAAIgNgBsARvzw2ATMAmYbDeA%3D%3D");
-    await drawDoll(doll);
+    try {
+        await drawDoll(doll);
+
+        await drawDoll(doll);
+    }catch(error,trace) {
+        output.appendHtml("ERROR DRAWING DOLL: $error");
+        window.console.error([error,trace]);
+    }
 
     //makeForestOfDollOfTypeNewColors(doll,44);
 }
@@ -109,6 +116,9 @@ Future<Null> renderAndLoadDoll(int type) async {
     try {
 
         Doll doll = Doll.randomDollOfType(type);
+        if(doll is HomestuckDoll) {
+            doll.extendedBody.imgNumber = 647;
+        }
         //print("type $type - ${doll.name}");
         await doll.setNameFromEngine();
         //print("save");
@@ -126,6 +136,7 @@ Future<Null> renderAndLoadDoll(int type) async {
     }catch(e,trace) {
         us.append(new SpanElement()..text = "no alt form for $type, OR error $e");
         print("Error $e and trace $trace");
+        window.console.error(e);
     }
 }
 
@@ -218,7 +229,7 @@ Future<Null>  drawDollScaled(Doll doll, int w, int h) async {
 
 
 Future<CanvasElement>  drawDoll(Doll doll, [CanvasElement finishedProduct = null]) async{
-
+    print("trying to draw doll with debug shit");
     output.appendHtml(doll.quirk.translate("<br><br>The quick brown fox jumped over the lazy dog, yes?"));
 
     Element innerDiv   = new DivElement();
