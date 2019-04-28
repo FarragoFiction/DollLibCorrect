@@ -54,7 +54,7 @@ class MonsterGirlDoll extends MagicalDoll {
             skirt = layer("$name.Clothing", "6Clothing/", 1);
             frontBow = layer("$name.Legs", "7Legs/", 1);
             eyes = layer("$name.Torso", "8Torso/", 1);
-            eyebrows = layer("$name.Capes", "9Capes/", 1);;
+            eyebrows = layer("$name.Capes", "9Capes/", 1)..slaveTo(bowBack);
             mouth = layer("$name.Wings", "10Wings/", 1);
             hairFront = layer("$name.Tail", "11Tail/", 1);
             glasses = layer("$name.FX", "12FX/", 1);

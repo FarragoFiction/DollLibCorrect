@@ -139,13 +139,13 @@ class MagicalDoll extends HatchableDoll{
     if(monster.hairBack.maxImageNumber == 0) {
       monster.hairBack.imgNumber = 0;
     }else {
-      monster.hairBack.imgNumber = hairBack.imgNumber % monster.hairBack.maxImageNumber;
+      monster.hairBack.imgNumber = bowBack.imgNumber % monster.hairBack.maxImageNumber;
     }
 
     if(monster.bowBack.maxImageNumber == 0) {
       monster.bowBack.imgNumber = 0;
     }else {
-      monster.bowBack.imgNumber = bowBack.imgNumber % monster.bowBack.maxImageNumber;
+      monster.bowBack.imgNumber = hairBack.imgNumber % monster.bowBack.maxImageNumber;
     }
 
     if(monster.body.maxImageNumber == 0) {
