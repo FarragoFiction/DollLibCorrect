@@ -26,8 +26,7 @@ Future<Null> start() async {
     //await testPartial();
     //speedTest();
     //Olive Blooded Lamia:___AshVh4rRBZgAgMwD43FfRqTuthx7_qP__qP9BZgAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMhBZgAgMwAIhYLANCDLwNUCOUoEMCHgA==
-    Doll doll = Doll.randomDollOfType(88);
-    doll = Doll.loadSpecificDoll("http://www.farragofiction.com/DollSim/?Ruhkhi+Gonjid%3A___AshWqJ46hAABQAAD43FfRqTuthx7_qP__qP-hAAAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMihAABQAAAIgNgBsARvzw2ATMAmYbDeA%3D%3D");
+    Doll doll = Doll.randomDollOfType(427);
     try {
         await drawDoll(doll);
 
@@ -66,7 +65,18 @@ Future<Null> lifeSpanTest() async {
 
 }
 
+Future<Null> monstrousTest() async {
+    MonsterGirlDoll genesis = new MonsterGirlDoll();
+    await drawDoll(genesis);
+    MagicalDoll doll = new MagicalDoll();
+    await drawDoll(doll);
+    MonsterGirlDoll monster = doll.hatch();
+    await drawDoll(monster);
+
+}
+
 Future<Null> runTests() async{
+    await monstrousTest();
     await renderEverythingAndLoad();
     //await renderAndLoadDoll(8); // queen
     //await speedTest();

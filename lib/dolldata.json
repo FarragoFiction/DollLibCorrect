@@ -66,6 +66,23 @@
     }
   },
 
+  "MonsterDoll": {
+    "layers": {
+      "1HeadDecorations": 1,
+      "2Whatever": 1,
+      "3Head": 18,
+      "4Arms": 6,
+      "5Skirts": 3,
+      "6Clothing": 7,
+      "7Legs": 10,
+      "8Torso": 1,
+      "9Capes": 1,
+      "10Wings": 4,
+      "11Tail": 5,
+      "12FX": 3
+    }
+  },
+
   "Leaf": {
     "layers": {
       "body": 25

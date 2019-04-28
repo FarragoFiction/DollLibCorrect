@@ -1,3 +1,5 @@
+import 'package:DollLibCorrect/src/Dolls/MonsterGirlDoll.dart';
+
 import "../../DollRenderer.dart";
 import "../Rendering/ReferenceColors.dart";
 import "../commonImports.dart";
@@ -8,7 +10,7 @@ import "Layers/SpriteLayer.dart";
 //saving and loading isn't working .why?
 
 
-class MagicalDoll extends Doll{
+class MagicalDoll extends HatchableDoll{
 
   @override
   String originalCreator = "Popo Merrygamz";
@@ -109,20 +111,6 @@ class MagicalDoll extends Doll{
   void initLayers() {
 
     {
-      /*
-        SpriteLayer hairBack;
-  SpriteLayer bowBack;
-  SpriteLayer body;
-  SpriteLayer socks;
-  SpriteLayer shoes;
-  SpriteLayer skirt;
-  SpriteLayer frontBow;
-  SpriteLayer eyes;
-  SpriteLayer eyebrows;
-  SpriteLayer mouth;
-  SpriteLayer hair;
-  SpriteLayer glasses;
-       */
       hairBack = layer("$name.HairBack", "HairBack/", 1);
       bowBack = layer("$name.BowBack", "BowBack/", 1);
       body = layer("$name.Body", "Body/", 1);
@@ -139,6 +127,90 @@ class MagicalDoll extends Doll{
 
 
     }
+  }
+
+  @override
+  Doll hatch() {
+
+    MonsterGirlDoll monster = new MonsterGirlDoll();
+    monster.copyPalette(palette);
+    //same color, same layers (but don't go over max)
+
+    if(monster.hairBack.maxImageNumber == 0) {
+      monster.hairBack.imgNumber = 0;
+    }else {
+      monster.hairBack.imgNumber = hairBack.imgNumber % monster.hairBack.maxImageNumber;
+    }
+
+    if(monster.bowBack.maxImageNumber == 0) {
+      monster.bowBack.imgNumber = 0;
+    }else {
+      monster.bowBack.imgNumber = bowBack.imgNumber % monster.bowBack.maxImageNumber;
+    }
+
+    if(monster.body.maxImageNumber == 0) {
+      monster.body.imgNumber = 0;
+    }else {
+      monster.body.imgNumber = body.imgNumber % monster.body.maxImageNumber;
+    }
+
+    if(monster.socks.maxImageNumber == 0) {
+      monster.socks.imgNumber = 0;
+    }else {
+      monster.socks.imgNumber = socks.imgNumber % monster.socks.maxImageNumber;
+    }
+
+    if(monster.shoes.maxImageNumber == 0) {
+      monster.shoes.imgNumber = 0;
+    }else {
+      monster.shoes.imgNumber = shoes.imgNumber % monster.shoes.maxImageNumber;
+    }
+
+    if(monster.skirt.maxImageNumber == 0) {
+      monster.skirt.imgNumber = 0;
+    }else {
+      monster.skirt.imgNumber = skirt.imgNumber % monster.skirt.maxImageNumber;
+    }
+
+    if(monster.frontBow.maxImageNumber == 0) {
+      monster.frontBow.imgNumber = 0;
+    }else {
+      monster.frontBow.imgNumber = frontBow.imgNumber % monster.frontBow.maxImageNumber;
+    }
+
+    if(monster.eyes.maxImageNumber == 0) {
+      monster.eyes.imgNumber = 0;
+    }else {
+      monster.eyes.imgNumber = eyes.imgNumber % monster.eyes.maxImageNumber;
+    }
+
+    if(monster.eyebrows.maxImageNumber == 0) {
+      monster.eyebrows.imgNumber = 0;
+    }else {
+      monster.eyebrows.imgNumber = eyebrows.imgNumber % monster.eyebrows.maxImageNumber;
+    }
+
+    if(monster.mouth.maxImageNumber == 0) {
+      monster.mouth.imgNumber = 0;
+    }else {
+      monster.mouth.imgNumber = mouth.imgNumber % monster.mouth.maxImageNumber;
+    }
+
+    if(monster.hairFront.maxImageNumber == 0) {
+      monster.hairFront.imgNumber = 0;
+    }else {
+      monster.hairFront.imgNumber = hairFront.imgNumber % monster.hairFront.maxImageNumber;
+    }
+
+    if(monster.glasses.maxImageNumber == 0) {
+      monster.glasses.imgNumber = 0;
+    }else {
+      monster.glasses.imgNumber = glasses.imgNumber % monster.glasses.maxImageNumber;
+    }
+
+    //print("bird head is ${bird.head.imgNumber} and egg top was ${top.imgNumber}");
+    return monster;
+
   }
 
 }
