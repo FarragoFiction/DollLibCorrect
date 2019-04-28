@@ -47,7 +47,7 @@ class MonsterGirlDoll extends MagicalDoll {
 
         {
             hairBack = layer("$name.HeadDecorations", "1HeadDecorations/", 1);
-            bowBack = layer("$name.Nothair", "2NotHair/", 1);
+            bowBack = layer("$name.Nothair", "2Nothair/", 1);
             body = layer("$name.Head", "3Head/", 1);
             socks = layer("$name.Arms", "4Arms/", 1);
             shoes = layer("$name.Skirts", "5Skirts/", 1);
