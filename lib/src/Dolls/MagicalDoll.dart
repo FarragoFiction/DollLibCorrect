@@ -161,7 +161,7 @@ class MagicalDoll extends HatchableDoll{
     betterOptions.add(purpleGirl);
 
     Palette newPallete = rand.pickFrom(paletteOptions);
-    if(rand.nextDouble()>0.7) {
+    if(rand.nextDouble()>0.6) {
       newPallete = rand.pickFrom(betterOptions);
     }
     if(newPallete == ReferenceColours.INK) {
