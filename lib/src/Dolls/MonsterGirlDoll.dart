@@ -34,9 +34,9 @@ class MonsterGirlDoll extends MagicalDoll {
 
 
     @override
-    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[glasses,hairFront,mouth,eyebrows,eyes,frontBow,skirt,shoes,socks,body,bowBack,hairBack];
+    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[fx,tail,wings, notHairBack, torso, legs, clothing, skirt, arms, head, notHairFront, headDecorations];
     @override
-    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[glasses,hairFront,mouth,eyebrows,eyes,frontBow,skirt,shoes,socks,body,bowBack,hairBack];
+    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[fx,tail,wings, notHairBack, torso, legs, clothing, skirt, arms, head, notHairFront, headDecorations];
 
     MonsterDoll() {
         initLayers();

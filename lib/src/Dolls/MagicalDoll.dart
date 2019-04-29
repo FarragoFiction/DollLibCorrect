@@ -216,9 +216,6 @@ class MagicalDoll extends HatchableDoll{
     monster.copyPalette(palette);
     //same color, same layers (but don't go over max)
 
-
-
-
     if(monster.headDecorations.maxImageNumber == 0) {
       monster.headDecorations.imgNumber = 0;
     }else {
@@ -238,10 +235,10 @@ class MagicalDoll extends HatchableDoll{
       monster.head.imgNumber = body.imgNumber % monster.head.maxImageNumber;
     }
 
-    if(monster.socks.maxImageNumber == 0) {
-      monster.socks.imgNumber = 0;
+    if(monster.clothing.maxImageNumber == 0) {
+      monster.clothing.imgNumber = 0;
     }else {
-      monster.socks.imgNumber = socks.imgNumber % monster.socks.maxImageNumber;
+      monster.clothing.imgNumber = socks.imgNumber % monster.clothing.maxImageNumber;
     }
 
 
