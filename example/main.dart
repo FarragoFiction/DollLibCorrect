@@ -27,6 +27,7 @@ Future<Null> start() async {
     //speedTest();
     //Olive Blooded Lamia:___AshVh4rRBZgAgMwD43FfRqTuthx7_qP__qP9BZgAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMhBZgAgMwAIhYLANCDLwNUCOUoEMCHgA==
     Doll doll = Doll.loadSpecificDoll("MonsterDoll:___ANYEv-bAP__AP_JNf_MAP-bAMZpAP_______62trbVSOf-3HMZ9AP_ZHP_pk39_f3Jycv_brBrMRJFRypYA=");
+
     try {
         await drawDoll(doll);
 
@@ -65,12 +66,17 @@ Future<Null> lifeSpanTest() async {
 }
 
 Future<Null> monstrousTest() async {
-    MonsterGirlDoll genesis = new MonsterGirlDoll();
-    await drawDoll(genesis);
-    MagicalDoll doll = new MagicalDoll();
-    await drawDoll(doll);
-    MonsterGirlDoll monster = doll.hatch();
-    await drawDoll(monster);
+    List<Palette> choices = <Palette>[MagicalDoll().pinkGirl,MagicalDoll().blueGirl,MagicalDoll().orangeGirl,MagicalDoll().greenGirl,MagicalDoll().purpleGirl];
+    for(Palette choice in choices) {
+        DivElement div = new DivElement();
+        MagicalDoll doll = new MagicalDoll();
+        doll.copyPalette(choice);
+        div.append(await doll.getNewCanvas()..style.display = "inline-block");
+        MonsterGirlDoll monster = doll.hatch();
+        div.append(await monster.getNewCanvas()..style.display = "inline-block");
+        output.append(div);
+
+    }
 
 }
 

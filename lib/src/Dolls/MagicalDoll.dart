@@ -72,6 +72,73 @@ class MagicalDoll extends HatchableDoll{
     ..hair_accent = '#ADADAD'
     ..skin = '#fdca0d';
 
+  Palette pinkGirl = new HomestuckPalette()
+    ..aspect_light = '#fffdde'
+    ..aspect_dark = '#eee495'
+    ..shoe_light = '#ff2a5b'
+    ..shoe_dark = '#c5002d'
+    ..cloak_light = '#d11575'
+    ..cloak_mid = '#f169b6'
+    ..cloak_dark = '#aa004d'
+    ..shirt_light = '#f587d6'
+    ..shirt_dark = '#eb6ab4'
+    ..pants_light = '#eb1f85'
+    ..pants_dark = '#d21f5a';
+
+  Palette blueGirl = new HomestuckPalette()
+    ..shirt_light = '#73dafe'
+    ..shirt_dark = '#52b0dc'
+    ..pants_light = '#3965e4'
+    ..pants_dark = '#1933cc'
+    ..aspect_light = '#c4fcf3'
+    ..aspect_dark = '#78f1e4'
+    ..cloak_light = '#3babef'
+    ..cloak_mid = '#0060cb'
+    ..cloak_dark = '#0060cb'
+    ..shoe_light = '#2538bd'
+    ..shoe_dark = '#000785'
+  ;
+
+  Palette orangeGirl = new HomestuckPalette()
+    ..shirt_light = '#f9ed8c'
+    ..shirt_dark = '#e1bc54'
+    ..pants_light = '#f08c00'
+    ..pants_dark = '#d36a00'
+    ..aspect_light = '#fac100'
+    ..aspect_dark = '#dc8300'
+    ..cloak_light = '#fdcb00'
+    ..cloak_mid = '#fae74e'
+    ..cloak_dark = '#d88000'
+    ..shoe_light = '#ff6200'
+    ..shoe_dark = '#b93700'
+  ;
+
+  Palette greenGirl = new HomestuckPalette()
+    ..shirt_light = '#00a25b'
+    ..shirt_dark = '#008a4d'
+    ..pants_light = '#00533b'
+    ..pants_dark = '#002422'
+    ..aspect_light = '#97f1c7'
+    ..aspect_dark = '#3ec78f'
+    ..cloak_light = '#45dcab'
+    ..cloak_mid = '#8cf8ab'
+    ..cloak_dark = '#16b683'
+    ..shoe_light = '#00b889'
+    ..shoe_dark = '#008465';
+
+  Palette purpleGirl = new HomestuckPalette()
+    ..shirt_light = '#2a1932'
+    ..shirt_dark = '#13041a'
+    ..pants_light = '#13041a'
+    ..pants_dark = '#522665'
+    ..aspect_light = '#f7effe'
+    ..aspect_dark = '#cfa5f0'
+    ..cloak_light = '#7820ae'
+    ..cloak_mid = '#9c00cb'
+    ..cloak_dark = '#570093'
+    ..shoe_light = '#480080'
+    ..shoe_dark = '#2a004c';
+
 
   MagicalDoll() {
     initLayers();
@@ -85,7 +152,14 @@ class MagicalDoll extends HatchableDoll{
   void randomizeColors() {
             if(rand == null) rand = new Random();;
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
-    Palette newPallete = rand.pickFrom(paletteOptions);
+    //TODO add the magical palettes
+    paletteOptions.add(pinkGirl);
+    paletteOptions.add(blueGirl);
+    paletteOptions.add(greenGirl);
+    paletteOptions.add(orangeGirl);
+    paletteOptions.add(purpleGirl);
+
+            Palette newPallete = rand.pickFrom(paletteOptions);
     if(newPallete == ReferenceColours.INK) {
       super.randomizeColors();
     }else {
