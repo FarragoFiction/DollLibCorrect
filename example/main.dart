@@ -75,7 +75,7 @@ Future<Null> monstrousTest() async {
         MonsterGirlDoll monster = doll.hatch();
         div.append(await monster.getNewCanvas()..style.display = "inline-block");
         output.append(div);
-        DivElement doop = new DivElement()..text = "Not Hair: ${monster.notHairBack.imgNumber}";
+        DivElement doop = new DivElement()..text = "Not Hair: ${monster.bowBack.imgNumber}";
         output.append(doop);
 
     }
@@ -87,7 +87,7 @@ Future<Null> monstrousTest() async {
         MonsterGirlDoll monster = doll.hatch();
         div.append(await monster.getNewCanvas()..style.display = "inline-block");
         output.append(div);
-        DivElement doop = new DivElement()..text = "Not Hair: ${monster.notHairBack.imgNumber}";
+        DivElement doop = new DivElement()..text = "Not Hair: ${monster.bowBack.imgNumber}";
         output.append(doop);
     }
 
