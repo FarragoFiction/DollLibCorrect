@@ -68,18 +68,18 @@
 
   "MonsterDoll": {
     "layers": {
-      "HeadDecorations": 1,
-      "Nothair": 1,
-      "Head": 18,
-      "Arms": 6,
-      "Skirts": 3,
-      "Clothing": 7,
+      "HeadDecorations": 3,
+      "Nothair": 18,
+      "Head": 21,
+      "Arms": 10,
+      "Skirts": 13,
+      "Clothing": 10,
       "Legs": 10,
       "Torso": 1,
-      "NothairBack": 1,
-      "Wings": 4,
-      "Tail": 5,
-      "FX": 4
+      "NothairBack": 18,
+      "Wings": 5,
+      "Tail": 7,
+      "FX": 5
     }
   },
 
