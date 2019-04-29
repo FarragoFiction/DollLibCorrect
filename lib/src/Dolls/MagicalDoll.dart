@@ -225,7 +225,6 @@ class MagicalDoll extends HatchableDoll{
     if(monster.notHairBack.maxImageNumber == 0) {
       monster.notHairBack.imgNumber = 0;
     }else {
-      window.console.log("Trying to figure out bow back. ");
       monster.notHairBack.imgNumber = hairBack.imgNumber % monster.notHairBack.maxImageNumber;
     }
 
