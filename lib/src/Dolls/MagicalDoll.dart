@@ -153,13 +153,17 @@ class MagicalDoll extends HatchableDoll{
             if(rand == null) rand = new Random();;
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
     //TODO add the magical palettes
-    paletteOptions.add(pinkGirl);
-    paletteOptions.add(blueGirl);
-    paletteOptions.add(greenGirl);
-    paletteOptions.add(orangeGirl);
-    paletteOptions.add(purpleGirl);
+    List<Palette> betterOptions = <Palette>[];
+    betterOptions.add(pinkGirl);
+    betterOptions.add(blueGirl);
+    betterOptions.add(greenGirl);
+    betterOptions.add(orangeGirl);
+    betterOptions.add(purpleGirl);
 
-            Palette newPallete = rand.pickFrom(paletteOptions);
+    Palette newPallete = rand.pickFrom(paletteOptions);
+    if(rand.nextDouble()>0.7) {
+      newPallete = rand.pickFrom(betterOptions);
+    }
     if(newPallete == ReferenceColours.INK) {
       super.randomizeColors();
     }else {

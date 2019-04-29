@@ -78,6 +78,15 @@ Future<Null> monstrousTest() async {
 
     }
 
+    for(int i = 0; i<6; i++) {
+        DivElement div = new DivElement();
+        MagicalDoll doll = new MagicalDoll();
+        div.append(await doll.getNewCanvas()..style.display = "inline-block");
+        MonsterGirlDoll monster = doll.hatch();
+        div.append(await monster.getNewCanvas()..style.display = "inline-block");
+        output.append(div);
+    }
+
 }
 
 Future<Null> runTests() async{
