@@ -2,7 +2,7 @@ import 'package:DollLibCorrect/DollRenderer.dart';
 
 class MonsterGirlDoll extends MagicalDoll {
     @override
-    String originalCreator = "yearnfulNode and karmicRetribution";
+    String originalCreator = "yearnfulNode, karmicRetribution, insufferableOracle, and nebulousHarmony";
 
     @override
     int renderingType =427;
