@@ -26,7 +26,9 @@ Future<Null> start() async {
     //await testPartial();
     //speedTest();
     //Olive Blooded Lamia:___AshVh4rRBZgAgMwD43FfRqTuthx7_qP__qP9BZgAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMhBZgAgMwAIhYLANCDLwNUCOUoEMCHgA==
-    Doll doll = Doll.loadSpecificDoll("MonsterDoll:___ANYEv-bAP__AP_JNf_MAP-bAMZpAP_______62trbVSOf-3HMZ9AP_ZHP_pk39_f3Jycv_brBrMRJFRypYA=");
+    HomestuckTrollDoll doll = new HomestuckGrubDoll();
+    doll.glasses.imgNumber = doll.glasses.maxImageNumber;
+    print("max image number for doll glasses is ${doll.glasses.maxImageNumber}");
 
     try {
         await drawDoll(doll);
