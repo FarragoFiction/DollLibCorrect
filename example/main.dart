@@ -26,9 +26,7 @@ Future<Null> start() async {
     //await testPartial();
     //speedTest();
     //Olive Blooded Lamia:___AshVh4rRBZgAgMwD43FfRqTuthx7_qP__qP9BZgAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMhBZgAgMwAIhYLANCDLwNUCOUoEMCHgA==
-    HomestuckTrollDoll doll = new HomestuckGrubDoll();
-    doll.glasses.imgNumber = doll.glasses.maxImageNumber;
-    print("max image number for doll glasses is ${doll.glasses.maxImageNumber}");
+    HomestuckKittenDoll doll = Doll.loadSpecificDoll("Kitten:___BeElsAhYQAplsAhYQAplsAhU4AY________6oAAAAAAP___wAAAP___wAAAFsAhU4AY____wgA-gH0A3-xAREC6ALAAWDA==");
 
     try {
         await drawDoll(doll);
@@ -126,6 +124,14 @@ Future<Null> testPartial() async {
     tree.transformHangablesInto();
     CanvasElement fruit = await tree.renderJustHangables();
     me.append(fruit);
+}
+
+void dumbshittest(Doll doll) async {
+    Future<CanvasElement> futureCanvas = doll.getNewCanvas();
+    CanvasElement canvas1 = await futureCanvas;
+    CanvasElement canvas2 = await futureCanvas;
+    window.alert("canvas 1 is $canvas1, and canvas 2 is $canvas2");
+
 }
 
 Future<Null> renderEverythingAndLoad() async {
