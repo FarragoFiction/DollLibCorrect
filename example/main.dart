@@ -26,7 +26,7 @@ Future<Null> start() async {
     //await testPartial();
     //speedTest();
     //Olive Blooded Lamia:___AshVh4rRBZgAgMwD43FfRqTuthx7_qP__qP9BZgAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMhBZgAgMwAIhYLANCDLwNUCOUoEMCHgA==
-    HomestuckKittenDoll doll = Doll.loadSpecificDoll("Kitten:___BeElsAhYQAplsAhYQAplsAhU4AY________6oAAAAAAP___wAAAP___wAAAFsAhU4AY____wgA-gH0A3-xAREC6ALAAWDA==");
+    HomestuckKittenDoll doll = new HomestuckKittenDoll();
 
     try {
         await drawDoll(doll);

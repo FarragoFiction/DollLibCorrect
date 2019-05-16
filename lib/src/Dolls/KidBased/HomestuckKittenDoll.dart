@@ -53,7 +53,7 @@ class HomestuckKittenDoll extends HomestuckSatyrDoll {
     {
         super.randomizeNotColors();
         symbol.imgNumber = 0;
-        satyrSymbol.imgNumber = 0;
+        satyrSymbol.imgNumber = 22;
 
     }
 
