@@ -66,86 +66,89 @@ class MonsterGirlDoll extends MagicalDoll {
     @override
     Doll hatch() {
 
-        MagicalDoll girl = new MagicalDoll();
-        girl.copyPalette(palette);
+        MagicalDoll monster = new MagicalDoll();
+        monster.copyPalette(palette);
         //same color, same layers (but don't go over max)
 
-        if(girl.hairBack.maxImageNumber == 0) {
-            girl.hairBack.imgNumber = 0;
+        if(monster.bowBack.maxImageNumber == 0) {
+            monster.bowBack.imgNumber = 0;
         }else {
-            girl.hairBack.imgNumber = hairBack.imgNumber % girl.hairBack.maxImageNumber;
+            monster.bowBack.imgNumber = headDecorations.imgNumber % monster.bowBack.maxImageNumber;
         }
 
-        if(girl.bowBack.maxImageNumber == 0) {
-            girl.bowBack.imgNumber = 0;
+        if(monster.hairBack.maxImageNumber == 0) {
+            monster.hairBack.imgNumber = 0;
         }else {
-            girl.bowBack.imgNumber = bowBack.imgNumber % girl.bowBack.maxImageNumber;
+            monster.hairBack.imgNumber = notHairBack.imgNumber % monster.hairBack.maxImageNumber;
         }
 
-        if(girl.body.maxImageNumber == 0) {
-            girl.body.imgNumber = 0;
+        if(monster.body.maxImageNumber == 0) {
+            monster.body.imgNumber = 0;
         }else {
-            girl.body.imgNumber = body.imgNumber % girl.body.maxImageNumber;
+            monster.body.imgNumber = head.imgNumber % monster.body.maxImageNumber;
         }
 
-        if(girl.socks.maxImageNumber == 0) {
-            girl.socks.imgNumber = 0;
+        if(monster.socks.maxImageNumber == 0) {
+            monster.socks.imgNumber = 0;
         }else {
-            girl.socks.imgNumber = socks.imgNumber % girl.socks.maxImageNumber;
+            monster.socks.imgNumber = clothing.imgNumber % monster.socks.maxImageNumber;
         }
 
-        if(girl.shoes.maxImageNumber == 0) {
-            girl.shoes.imgNumber = 0;
+
+
+        if(monster.shoes.maxImageNumber == 0) {
+            monster.shoes.imgNumber = 0;
         }else {
-            girl.shoes.imgNumber = shoes.imgNumber % girl.shoes.maxImageNumber;
+            monster.shoes.imgNumber = arms.imgNumber % monster.shoes.maxImageNumber;
         }
 
-        if(girl.skirt.maxImageNumber == 0) {
-            girl.skirt.imgNumber = 0;
+        if(monster.skirt.maxImageNumber == 0) {
+            monster.skirt.imgNumber = 0;
         }else {
-            girl.skirt.imgNumber = skirt.imgNumber % girl.skirt.maxImageNumber;
+            monster.skirt.imgNumber = skirt.imgNumber % monster.skirt.maxImageNumber;
         }
 
-        if(girl.frontBow.maxImageNumber == 0) {
-            girl.frontBow.imgNumber = 0;
+
+
+        if(monster.frontBow.maxImageNumber == 0) {
+            monster.frontBow.imgNumber = 0;
         }else {
-            girl.frontBow.imgNumber = frontBow.imgNumber % girl.frontBow.maxImageNumber;
+            monster.frontBow.imgNumber = legs.imgNumber % monster.frontBow.maxImageNumber;
         }
 
-        if(girl.eyes.maxImageNumber == 0) {
-            girl.eyes.imgNumber = 0;
+        if(monster.eyes.maxImageNumber == 0) {
+            monster.eyes.imgNumber = 0;
         }else {
-            girl.eyes.imgNumber = eyes.imgNumber % girl.eyes.maxImageNumber;
+            monster.eyes.imgNumber = torso.imgNumber % monster.eyes.maxImageNumber;
         }
 
-        if(girl.eyebrows.maxImageNumber == 0) {
-            girl.eyebrows.imgNumber = 0;
+        if(monster.eyebrows.maxImageNumber == 0) {
+            monster.eyebrows.imgNumber = 0;
         }else {
-            girl.eyebrows.imgNumber = eyebrows.imgNumber % girl.eyebrows.maxImageNumber;
+            monster.eyebrows.imgNumber = wings.imgNumber % monster.eyebrows.maxImageNumber;
         }
 
-        if(girl.mouth.maxImageNumber == 0) {
-            girl.mouth.imgNumber = 0;
+        if(monster.mouth.maxImageNumber == 0) {
+            monster.mouth.imgNumber = 0;
         }else {
-            girl.mouth.imgNumber = mouth.imgNumber % girl.mouth.maxImageNumber;
+            monster.mouth.imgNumber = tail.imgNumber % monster.mouth.maxImageNumber;
         }
 
-        if(girl.hairFront.maxImageNumber == 0) {
-            girl.hairFront.imgNumber = 0;
+        if(monster.hairFront.maxImageNumber == 0) {
+            monster.hairFront.imgNumber = 0;
         }else {
-            girl.hairFront.imgNumber = hairFront.imgNumber % girl.hairFront.maxImageNumber;
+            monster.hairFront.imgNumber = notHairFront.imgNumber % monster.hairFront.maxImageNumber;
         }
 
-        if(girl.glasses.maxImageNumber == 0) {
-            girl.glasses.imgNumber = 0;
+        if(monster.glasses.maxImageNumber == 0) {
+            monster.glasses.imgNumber = 0;
         }else {
-            girl.glasses.imgNumber = glasses.imgNumber % girl.glasses.maxImageNumber;
+            monster.glasses.imgNumber = fx.imgNumber % monster.glasses.maxImageNumber;
         }
 
         //print("bird head is ${bird.head.imgNumber} and egg top was ${top.imgNumber}");
-        return girl;
+        return monster;
 
     }
-
 
 }

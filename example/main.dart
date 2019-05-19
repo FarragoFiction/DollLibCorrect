@@ -26,11 +26,14 @@ Future<Null> start() async {
     //await testPartial();
     //speedTest();
     //Olive Blooded Lamia:___AshVh4rRBZgAgMwD43FfRqTuthx7_qP__qP9BZgAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMhBZgAgMwAIhYLANCDLwNUCOUoEMCHgA==
-    TreeDoll doll = new TreeDoll();
+    MonsterGirlDoll doll = new MonsterGirlDoll();
+    testMaxParts(13);
     //makeForestOfDollOfTypeNewColors(doll,doll.renderingType);
 
     try {
         await drawDoll(doll);
+        Doll newDoll = doll.hatch();
+        await drawDoll(newDoll);
 
     }catch(error,trace) {
         output.appendHtml("ERROR DRAWING DOLL: $error");
@@ -38,6 +41,12 @@ Future<Null> start() async {
     }
 
     //makeForestOfDollOfTypeNewColors(doll,44);
+}
+
+void testMaxParts(int dollType) {
+    Doll doll = Doll.randomDollOfType(dollType);
+    doll.renderingOrderLayers.forEach((SpriteLayer layer) => layer.imgNumber = layer.maxImageNumber);
+    drawDoll(doll);
 }
 
 Future<Null> lifeSpanTest() async {
