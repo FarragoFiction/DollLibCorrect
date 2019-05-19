@@ -104,22 +104,11 @@ class HomestuckDoll extends HatchableDoll {
         //old layers aren't rendered, but still exist so that data can be parsed
         hairTop = new SpriteLayer("HairOld","$folder/HairTop/", 1, 255, legacy:true);
         hairBack = new SpriteLayer("HairOldBack","$folder/HairBack/", 1, 255, legacy:true);
-        //hairTop.syncedWith.add(hairBack);
-       // hairBack.slave = true; //can't be selected on it's own
-
         extendedHairTop = layer("Kid.HairFront", "HairTop/", 1, mb:true, secret:maxSecretHair);
-        //extendedHairTop = new SpriteLayer("HairFront","$folder/HairTop/", 1, maxHair, supportsMultiByte: true)..secretMax = maxSecretHair;
         extendedHairBack = layer("Kid.HairBack", "HairBack/", 1, mb:true, secret:maxSecretHair)..slaveTo(extendedHairTop);
-        //extendedHairBack = new SpriteLayer("HairBack","$folder/HairBack/", 1, maxHair, syncedWith:<SpriteLayer>[extendedHairTop], supportsMultiByte: true)..secretMax = maxSecretHair;
-        //extendedHairTop.syncedWith.add(extendedHairBack);
-        //extendedHairBack.slave = true;
-
         extendedBody = layer("Kid.Body", "Body/", 0, mb:true, secret:maxSecretBody);
-        //extendedBody = new SpriteLayer("Body","$folder/Body/", 0, maxBody, supportsMultiByte: true)..secretMax = maxSecretBody;
         body = new SpriteLayer("BodyOld","$folder/Body/", 0, 255, legacy:true);
-
         facePaint = layer("Kid.FacePaint", "FacePaint/", 0);//new SpriteLayer("FacePaint","$folder/FacePaint/", 0, maxFacePaint);
-
         symbol = layer("Kid.Symbol", "Symbol/", 1, secret:maxSecretSymbol);//new SpriteLayer("Symbol","$folder/Symbol/", 1, maxSymbol)..secretMax = maxSecretSymbol;
         mouth = layer("Kid.Mouth", "Mouth/", 1, secret:maxSecretMouth);//new SpriteLayer("Mouth","$folder/Mouth/", 1, maxMouth)..secretMax = maxSecretMouth;
         leftEye = layer("Kid.LeftEye", "LeftEye/", 1);//new SpriteLayer("LeftEye","$folder/LeftEye/", 1, maxEye)..primaryPartner = false;
