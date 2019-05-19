@@ -19,14 +19,15 @@ Future<Null> main() async {
 Future<Null> start() async {
     await Loader.loadManifest();
     await breedTest();
-    runTests();
+    //runTests();
 
 
     //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
     //Olive Blooded Lamia:___AshVh4rRBZgAgMwD43FfRqTuthx7_qP__qP9BZgAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMhBZgAgMwAIhYLANCDLwNUCOUoEMCHgA==
-    HomestuckKittenDoll doll = new HomestuckKittenDoll();
+    TreeDoll doll = new TreeDoll();
+    //makeForestOfDollOfTypeNewColors(doll,doll.renderingType);
 
     try {
         await drawDoll(doll);

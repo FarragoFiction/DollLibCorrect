@@ -18,8 +18,8 @@ class TreeDoll extends Doll{
     //for drawing fruit and other hangables only want to get tree once
     CanvasElement leavesAndBranchCache;
 
-    List<SpriteLayer> get hangables => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Hang") || !s.name.contains("Leaf"))  );
-    List<SpriteLayer> get clusters => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Cluster") || s.name.contains("Leaf")));
+    List<SpriteLayer> get hangables => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Hang") || !s.name.contains("Leaf"))  ).toList();
+    List<SpriteLayer> get clusters => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Cluster") || s.name.contains("Leaf"))).toList();
 
 
     @override
@@ -307,7 +307,7 @@ class TreeDoll extends Doll{
     if it's not for leaf, then in addition to leaves front and back, it ALSO checks for cluster leaves
    */
 
-  Future<Null> getBranchCache() async {
+  Future<CanvasElement> getBranchCache() async {
       if(branchCache == null) {
           branchCache = new CanvasElement(
               width: width, height: height);
@@ -319,7 +319,7 @@ class TreeDoll extends Doll{
   }
 
 
-  Future<Null> getTreeCache() async {
+  Future<CanvasElement> getTreeCache() async {
       if(leavesAndBranchCache == null) {
           leavesAndBranchCache = new CanvasElement(
               width: width, height: height);
