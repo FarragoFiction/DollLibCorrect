@@ -108,7 +108,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
         super.randomizeColors();
         HomestuckLamiaPalette h = palette as HomestuckLamiaPalette;
         copyPalette(ReferenceColours.PURIFIED);
-        print("trying to set horn to ${h.aspect_light.toStyleString()}");
+        //print("trying to set horn to ${h.aspect_light.toStyleString()}");
         String light = h.aspect_light.toStyleString();
         String dark = h.aspect_dark.toStyleString();
         if (rand.nextBool()) {
