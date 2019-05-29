@@ -7,15 +7,15 @@
 
   "Kid": {
     "layers": {
-      "Body": 695,
+      "Body": 800,
       "FacePaint": 203,
-      "Glasses": 350,
-      "Glasses2": 330,
-      "HairFront": 369,
-      "HairBack": 369,
+      "Glasses": 317,
+      "Glasses2": 429,
+      "HairFront": 450,
+      "HairBack": 450,
       "LeftEye": 331,
       "RightEye": 331,
-      "Mouth": 289,
+      "Mouth": 338,
       "Symbol": 450
     }
   },
