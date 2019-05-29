@@ -52,16 +52,16 @@
   "MagicalDoll": {
     "layers": {
       "HairBack": 34,
-      "BowBack": 10,
+      "BowBack": 11,
       "Body": 35,
       "Socks": 13,
-      "Shoes": 12,
+      "Shoes": 13,
       "Skirt": 36,
       "BowFront": 26,
       "Eyes": 5,
       "Eyebrows": 3,
       "Mouth": 6,
-      "HairFront": 34,
+      "HairFront": 33,
       "Glasses": 14
     }
   },
