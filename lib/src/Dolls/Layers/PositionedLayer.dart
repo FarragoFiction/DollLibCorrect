@@ -54,7 +54,7 @@ class PositionedLayer extends SpriteLayer {
     }
 
     @override
-    Future<Null> drawSelf(CanvasElement buffer) async {
+    Future<void> drawSelf(CanvasElement buffer) async {
         if(preloadedElement != null) {
             //print("I must be testing something, it's a preloaded Element");
             bool res = await Renderer.drawExistingElementFuture(buffer, preloadedElement,x,y);

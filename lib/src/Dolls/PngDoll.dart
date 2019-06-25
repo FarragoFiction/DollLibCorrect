@@ -29,7 +29,7 @@ class PngDoll extends Doll {
           renderingOrderLayers.add(pngWrapper);
   }
 
-  Future<Null> getWidthFiguredOut() async {
+  Future<void> getWidthFiguredOut() async {
       if(width == null) {
           ImageElement image = await Loader.getResource((renderingOrderLayers.first.imgLocation));
           width = image.width;

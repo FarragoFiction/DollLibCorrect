@@ -1,8 +1,8 @@
 name: DollLibCorrect
-description: A starting point for Dart libraries or applications.
-version: 0.0.1
-#homepage: https://www.example.com
-#author: JR <email@example.com>
+description: Doll rendering library
+version: 2.2.0
+homepage: https://github.com/FarragoFiction/DollLibCorrect
+author: jadedResearcher, paradoxLands
 
 environment:
   sdk: '>=2.2.0 <3.0.0'

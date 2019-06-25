@@ -278,7 +278,7 @@ abstract class Doll {
     }
 
     //dolls know where to look for their name list
-    Future<Null> setNameFromEngine() async {
+    Future<void> setNameFromEngine() async {
         dollName = await getNameFromEngine();
     }
 
@@ -487,7 +487,7 @@ abstract class Doll {
     }
 
     //most dolls do nothing, but things with positioned layers, like trees, will do things.
-    Future<Null> beforeRender() async {
+    Future<void> beforeRender() async {
 
     }
 
@@ -982,7 +982,7 @@ abstract class Doll {
     static T dataValue<T>(String value, [T fallback = null]) => fileData.getValue(value, fallback);
     static List<T> dataList<T>(String value) => fileData.getArray<T>(value);
 
-    static Future<Null> loadFileData([String path = "package:DollLibCorrect/dolldata.json"]) async {
+    static Future<void> loadFileData([String path = "package:DollLibCorrect/dolldata.json"]) async {
         if(path == "package:DollLibCorrect/dolldata.json" && (window.location.hostname.contains("farrago"))){
             print("using global dolldata");
             path = "http://www.farragofiction.com/DollSource/dolldata.json";
@@ -1016,13 +1016,13 @@ class SavedDoll {
     }
 
 
-    Future<Null> renderSelfToContainer(Element container) async {
+    Future<void> renderSelfToContainer(Element container) async {
         canvas = new CanvasElement(width: doll.width, height: doll.height);
         container.append(canvas);
         DollRenderer.drawDoll(canvas, doll);
     }
 
-    Future<Null> renderDataUrlToContainer(Element container, dynamic refreshMethod) async {
+    Future<void> renderDataUrlToContainer(Element container, dynamic refreshMethod) async {
         Element bluh = new DivElement();
         container.append(bluh);
         textAreaElement = new TextAreaElement();

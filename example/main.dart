@@ -6,7 +6,7 @@ import 'package:DollLibCorrect/src/commonImports.dart';
 import "package:LoaderLib/Loader.dart";
 
 Element output = querySelector('#output');
-Future<Null> main() async {
+Future<void> main() async {
     await Doll.loadFileData();
 
     DateTime startTime = new DateTime.now();
@@ -16,7 +16,7 @@ Future<Null> main() async {
 }
 
 //remember you can turn debug statements on to print on screen     //doll.visualizeData(output);
-Future<Null> start() async {
+Future<void> start() async {
     await Loader.loadManifest();
     await breedTest();
     runTests();
@@ -33,7 +33,7 @@ Future<Null> start() async {
     //makeForestOfDollOfTypeNewColors(doll,44);
 }
 
-Future<Null> lifeSpanTest() async {
+Future<void> lifeSpanTest() async {
     //want to have three lifestages displayed
     HomestuckGrubDoll wiggler = new HomestuckGrubDoll();
 
@@ -59,7 +59,7 @@ Future<Null> lifeSpanTest() async {
 
 }
 
-Future<Null> runTests() async{
+Future<void> runTests() async{
     await renderEverythingAndLoad();
     //await renderAndLoadDoll(8); // queen
     //await speedTest();
@@ -69,7 +69,7 @@ Future<Null> runTests() async{
     //await testPartial();
 }
 
-Future<Null> testPartial() async {
+Future<void> testPartial() async {
     DivElement me = new DivElement()..style.border = "3px solid black";
     output.append(me);
     TreeDoll tree = new TreeDoll();
@@ -91,7 +91,7 @@ Future<Null> testPartial() async {
     me.append(fruit);
 }
 
-Future<Null> renderEverythingAndLoad() async {
+Future<void> renderEverythingAndLoad() async {
     for(int type in Doll.allDollTypes) {
         print("rendering type $type");
         try {
@@ -103,7 +103,7 @@ Future<Null> renderEverythingAndLoad() async {
     }
 }
 
-Future<Null> renderAndLoadDoll(int type) async {
+Future<void> renderAndLoadDoll(int type) async {
     DivElement us = new DivElement()..style.border = "3px solid black";
     output.append(us);
     try {
@@ -129,7 +129,7 @@ Future<Null> renderAndLoadDoll(int type) async {
     }
 }
 
-Future<Null> clickTest() async {
+Future<void> clickTest() async {
     TreeDoll tree = new TreeDoll();
     tree.fruitTime = true;
     CanvasElement canvas = await tree.getNewCanvas(true);
@@ -147,7 +147,7 @@ Future<Null> clickTest() async {
 }
 
 //if a cloned fruit is identical to its parent does it have the same name?
-Future<Null> breedTest() async {
+Future<void> breedTest() async {
     FruitDoll fruit = new FruitDoll();
     fruit.body.imgNumber = 85;
     print("first fruit in breed test has body of ${fruit.body.imgNumber}, hue of ${fruit.associatedColor.hue}, saturation of ${fruit.associatedColor.saturation} and value of  ${fruit.associatedColor.value} and a seed of ${fruit.seed}");
@@ -165,7 +165,7 @@ Future<Null> breedTest() async {
     }
 }
 
-Future<Null> breedTestTrees() async {
+Future<void> breedTestTrees() async {
     //loading from string so its as close as possible to LOHAE
     TreeDoll tree = new TreeDoll();
     tree.fruitTime = true;
@@ -187,20 +187,32 @@ Future<Null> breedTestTrees() async {
     }
 }
 
-Future<Null> speedTest() async {
-    Doll doll = Doll.randomDollOfType(33);
-        (doll as TreeDoll).fruitTime = true;
+Future<void> speedTest() async {
+    Future<void> test(Future<void> stuff()) async {
+        final int then = DateTime.now().millisecondsSinceEpoch;
+        await stuff();
+        final int now = DateTime.now().millisecondsSinceEpoch;
+        print("elapsed: ${now - then}ms");
+    }
+
+    final TreeDoll doll = Doll.randomDollOfType(33);
+    doll.fruitTime = true;
+
     CanvasElement canvas = await doll.getNewCanvas(true);
     output.append(canvas);
 
-    canvas = await doll.getNewCanvasLegacy(true);
-    output.append(canvas);
+    await test(() async{
+        CanvasElement canvas = await doll.getNewCanvasLegacy(true);
+        output.append(canvas);
+    });
 
-    canvas = await doll.getNewCanvas(true);
-    output.append(canvas);
+    await test(() async{
+        CanvasElement canvas = await doll.getNewCanvas(true);
+        output.append(canvas);
+    });
 }
 
-Future<Null>  drawDollScaled(Doll doll, int w, int h) async {
+Future<void>  drawDollScaled(Doll doll, int w, int h) async {
     CanvasElement monsterElement = new CanvasElement(width:w, height: h);
     CanvasElement dollCanvas = new CanvasElement(width: doll.width, height: doll.height);
 
@@ -260,7 +272,7 @@ Future<CanvasElement>  drawDoll(Doll doll, [CanvasElement finishedProduct = null
 }
 
 
-Future<Null> makeForestOfDollOfType(Doll doll, int type) async {
+Future<void> makeForestOfDollOfType(Doll doll, int type) async {
     int width = 2000;
     int height = 800;
     CanvasElement canvas = new CanvasElement(width: width, height: height);
@@ -290,7 +302,7 @@ Future<Null> makeForestOfDollOfType(Doll doll, int type) async {
     output.append(canvas);
 }
 
-Future<Null> makeForestOfDollOfTypeNewColors(Doll doll, int type) async {
+Future<void> makeForestOfDollOfTypeNewColors(Doll doll, int type) async {
     int width = 2000;
     int height = 800;
     CanvasElement canvas = new CanvasElement(width: width, height: height);

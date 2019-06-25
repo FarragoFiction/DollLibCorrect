@@ -18,8 +18,8 @@ class TreeDoll extends Doll{
     //for drawing fruit and other hangables only want to get tree once
     CanvasElement leavesAndBranchCache;
 
-    List<SpriteLayer> get hangables => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Hang") || !s.name.contains("Leaf"))  );
-    List<SpriteLayer> get clusters => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Cluster") || s.name.contains("Leaf")));
+    Iterable<SpriteLayer> get hangables => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Hang") || !s.name.contains("Leaf"))  );
+    Iterable<SpriteLayer> get clusters => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Cluster") || s.name.contains("Leaf")));
 
 
     @override
@@ -307,7 +307,7 @@ class TreeDoll extends Doll{
     if it's not for leaf, then in addition to leaves front and back, it ALSO checks for cluster leaves
    */
 
-  Future<Null> getBranchCache() async {
+  Future<CanvasElement> getBranchCache() async {
       if(branchCache == null) {
           branchCache = new CanvasElement(
               width: width, height: height);
@@ -319,14 +319,14 @@ class TreeDoll extends Doll{
   }
 
 
-  Future<Null> getTreeCache() async {
+  Future<CanvasElement> getTreeCache() async {
       if(leavesAndBranchCache == null) {
           leavesAndBranchCache = new CanvasElement(
               width: width, height: height);
           await leavesFront.drawSelf(leavesAndBranchCache);
           await branches.drawSelf(leavesAndBranchCache);
           await leavesBack.drawSelf(leavesAndBranchCache);
-          List<SpriteLayer> tmp = clusters;
+          Iterable<SpriteLayer> tmp = clusters;
           for (SpriteLayer l in tmp) {
               await l.drawSelf(leavesAndBranchCache);
           }
@@ -477,7 +477,7 @@ class TreeDoll extends Doll{
         return clusters.isNotEmpty;
     }
 
-  Future<Null> createLeafClusters() async {
+  Future<void> createLeafClusters() async {
       //print("leaf cluster being made, leavesfront is ${leavesFront.imgNumber}");
       if(leavesFront.imgNumber != 0 || hasClustersAlready()) return;
       rand = new Random(seed);
@@ -526,7 +526,7 @@ class TreeDoll extends Doll{
       }
     }
 
-  Future<Null> createHangables() async {
+  Future<void> createHangables() async {
       if(hasHangablesAlready()) return;
       rand = new Random(seed);
 
@@ -547,7 +547,7 @@ class TreeDoll extends Doll{
         }*/
   }
 
-  Future<Null> createFlowers() async {
+  Future<void> createFlowers() async {
      //print ('first creating flowers');
       //if i know the fruit is weird, make less of it
       if(fruitTemplate != null && !(fruitTemplate is FruitDoll)) {
@@ -591,7 +591,7 @@ class TreeDoll extends Doll{
       fruitTemplate.copyPalette(palette);
   }
 
-  Future<Null> createFruit() async{
+  Future<void> createFruit() async{
       //print ('first creating fruit');
       if(fruitTemplate != null && !(fruitTemplate is FruitDoll)) {
           minFruit = 1;
@@ -620,7 +620,7 @@ class TreeDoll extends Doll{
       //print ("fourth is done");
   }
 
-  Future<Null> createGloriousBullshit() async {
+  Future<void> createGloriousBullshit() async {
       rand = new Random(seed);
       int type = rand.pickFrom(Doll.allDollTypes);
       //print("creating glorious bullshit, type is $type");
@@ -648,7 +648,7 @@ class TreeDoll extends Doll{
   }
 
   @override
-  Future<Null> beforeRender() async{
+  Future<void> beforeRender() async{
       //print ("doing a before render");
       leavesBack.x = form.leafX;
       leavesBack.y = form.leafY;

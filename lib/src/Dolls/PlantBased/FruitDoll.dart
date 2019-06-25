@@ -151,7 +151,7 @@ class FruitDoll extends Doll {
     }
 
     @override
-    Future<Null> setNameFromEngine() async {
+    Future<void> setNameFromEngine() async {
         setName();
     }
 

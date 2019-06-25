@@ -107,7 +107,7 @@ class PositionedDollLayer extends DynamicLayer{
     }
 
     @override
-    Future<Null> drawSelf(CanvasElement buffer) async {
+    Future<void> drawSelf(CanvasElement buffer) async {
         //print("drawing a positioned doll layer named $name");
         CanvasElement dollCanvas = doll.blankCanvas;
         await DollRenderer.drawDoll(dollCanvas, doll);

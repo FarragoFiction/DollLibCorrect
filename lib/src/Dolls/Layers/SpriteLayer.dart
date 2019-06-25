@@ -44,14 +44,14 @@ class SpriteLayer {
 
     //TODO: sort this again after dealing with conversion
     static bool legacyConstructorToggle = true;
-    static Doll legacyConstructorDoll = null;
+    static Doll legacyConstructorDoll;
 
-    SpriteLayer(this.name, this.imgNameBase, this._imgNumber, this.maxImageNumber, {this.supportsMultiByte = false, this.syncedWith:null, this.imgFormat:"png", bool legacy = false}) {
+    SpriteLayer(this.name, this.imgNameBase, this._imgNumber, this.maxImageNumber, {this.supportsMultiByte = false, this.syncedWith, this.imgFormat = "png", bool legacy = false}) {
         if (legacyConstructorToggle && !legacy) {
-            String dollname = legacyConstructorDoll.name;
-            String layername = name;
-            String dolllayername = "$dollname.$layername";
-            String layerpath = imgNameBase.substring(legacyConstructorDoll.folder.length+1);
+            //String dollname = legacyConstructorDoll.name;
+            //String layername = name;
+            //String dolllayername = "$dollname.$layername";
+            //String layerpath = imgNameBase.substring(legacyConstructorDoll.folder.length+1);
 
             //print('layer("$dolllayername", "$layerpath", $_imgNumber${supportsMultiByte?", mb:true":""});');
         }
@@ -107,7 +107,7 @@ class SpriteLayer {
         }
     }
 
-    Future<Null> drawSelf(CanvasElement buffer) async {
+    Future<void> drawSelf(CanvasElement buffer) async {
         if(preloadedElement != null) {
             //print("I must be testing something, it's a preloaded Element");
             bool res = await Renderer.drawExistingElementFuture(buffer, preloadedElement);

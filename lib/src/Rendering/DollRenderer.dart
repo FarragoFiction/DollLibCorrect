@@ -1,29 +1,22 @@
-import "../Dolls/Doll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckDoll.dart";
-import "package:DollLibCorrect/src/Dolls/KidBased/HomestuckTrollDoll.dart";
-import "dart:html";
 import 'dart:async';
-import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
-import 'package:RenderingLib/RendereringLib.dart';
-
-
+import "dart:html";
 import "dart:math" as Math;
 
-import "../Dolls/ConsortDoll.dart";
+import "package:DollLibCorrect/src/Dolls/Layers/SpriteLayer.dart";
+import 'package:RenderingLib/RendereringLib.dart';
 import "package:LoaderLib/Loader.dart";
 
+import "../Dolls/Doll.dart";
+
 class DollRenderer {
-    static int imagesWaiting = 0;
-    static int imagesLoaded = 0;
 
     //drawing this out into a wrapper so a doll can ask to just draw sub parts of itself
-    static  Future<bool>  drawDoll(CanvasElement canvas, Doll doll, [bool legacy = false, bool debugTime = false]) async {
-        return await drawSubsetLayers(canvas, doll,doll.renderingOrderLayers);
+    static Future<void> drawDoll(CanvasElement canvas, Doll doll, [bool legacy = false, bool debugTime = false]) async {
+        return drawSubsetLayers(canvas, doll, doll.renderingOrderLayers);
     }
 
-
     //ideal timeline has us not pass the doll at all, but until i need that i'm not coding it, things like upways matter here.
-    static  Future<bool>  drawSubsetLayers(CanvasElement canvas, Doll doll,List<SpriteLayer> layers, [bool legacy = false, bool debugTime = false]) async {
+    static Future<void> drawSubsetLayers(CanvasElement canvas, Doll doll,List<SpriteLayer> layers, [bool legacy = false, bool debugTime = false]) async {
         //print("Drawing a doll of width ${doll.width}");
         //most dolls will do nothing here, but if they need to calculate where their layers get positioned they do it here.
         //or if they need to figure out if they even have shit
@@ -31,13 +24,13 @@ class DollRenderer {
         if(debugTime) now = new DateTime.now();
         await doll.beforeRender();
         if(doll.width == null) {
-            ImageElement image = await Loader.getResource((layers.first.imgLocation));
+            ImageElement image = await Loader.getResource(layers.first.imgLocation);
             doll.width = image.width;
             doll.height = image.height;
            // print("loaded image of ${doll.width} and height ${doll.height}. ");
 
         }
-        CanvasElement buffer = new CanvasElement(width: doll.width, height: doll.height);
+        final CanvasElement buffer = new CanvasElement(width: doll.width, height: doll.height);
         buffer.context2D.imageSmoothingEnabled = false;
         doll.setUpWays();
         buffer.context2D.save();
@@ -45,18 +38,34 @@ class DollRenderer {
         processOrientation(buffer, doll);
         processRotation(buffer, doll);
 
-        for(SpriteLayer l in layers) {
-            //print("drawing rendering order layer $l for doll $doll");
-            await l.drawSelf(buffer);
-        }
-        //print("done drawing images");
+        if (legacy) {
+            for (SpriteLayer l in layers) {
+                //print("drawing rendering order layer $l for doll $doll");
+                await l.drawSelf(buffer);
+            }
+            //print("done drawing images");
 
-        if(doll.palette.isNotEmpty) {
-            if(legacy) {
-                Renderer.swapPaletteLegacy(buffer, doll.paletteSource, doll.palette);
-            }else {
+            if (doll.palette.isNotEmpty) {
                 Renderer.swapPalette(buffer, doll.paletteSource, doll.palette);
             }
+        } else {
+
+            if (!doll.palette.isEmpty) {
+                final CanvasElement layerBuffer = new CanvasElement(width: doll.width, height: doll.height);
+                final Map<int,int> mapping = Renderer.makePaletteMapping(doll.paletteSource, doll.palette);
+
+                for (final SpriteLayer l in layers) {
+                    layerBuffer.context2D.clearRect(0, 0, doll.width, doll.height);
+                    await l.drawSelf(layerBuffer);
+                    Renderer.swapPaletteMapped(layerBuffer, mapping);
+                    buffer.context2D.drawImage(layerBuffer, 0, 0);
+                }
+            } else {
+                for (SpriteLayer l in layers) {
+                    await l.drawSelf(buffer);
+                }
+            }
+
         }
         scaleCanvasForDoll(canvas, doll);
         canvas.context2D.imageSmoothingEnabled = false;
