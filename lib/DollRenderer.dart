@@ -2,6 +2,7 @@ library DollRenderer;
 
 export "src/Dolls/AncestorDoll.dart";
 export "src/Dolls/BlobMonsterDoll.dart";
+export "src/Dolls/KidBased/HomestuckKittenDoll.dart";
 export "src/Dolls/BroDoll.dart";
 export "src/Dolls/BroomDoll.dart";
 export "src/Dolls/CatDoll.dart";
@@ -9,6 +10,7 @@ export "src/Dolls/ConsortDoll.dart";
 export "src/Dolls/DadDoll.dart";
 export "src/Dolls/DenizenDoll.dart";
 export "src/Dolls/MagicalDoll.dart";
+export "src/Dolls/MonsterGirlDoll.dart";
 export "src/Dolls/DocDoll.dart";
 export "src/Dolls/DogDoll.dart";
 export "src/Dolls/Doll.dart";

@@ -19,18 +19,34 @@ Future<void> main() async {
 Future<void> start() async {
     await Loader.loadManifest();
     await breedTest();
-    runTests();
+    //runTests();
 
 
     //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
     //Olive Blooded Lamia:___AshVh4rRBZgAgMwD43FfRqTuthx7_qP__qP9BZgAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMhBZgAgMwAIhYLANCDLwNUCOUoEMCHgA==
-    Doll doll = Doll.randomDollOfType(88);
-    doll = Doll.loadSpecificDoll("http://www.farragofiction.com/DollSim/?Ruhkhi+Gonjid%3A___AshWqJ46hAABQAAD43FfRqTuthx7_qP__qP-hAAAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMihAABQAAAIgNgBsARvzw2ATMAmYbDeA%3D%3D");
-    await drawDoll(doll);
+    MonsterGirlDoll doll = new MonsterGirlDoll();
+    testMaxParts(13);
+    //makeForestOfDollOfTypeNewColors(doll,doll.renderingType);
+
+    try {
+        await drawDoll(doll);
+        Doll newDoll = doll.hatch();
+        await drawDoll(newDoll);
+
+    }catch(error,trace) {
+        output.appendHtml("ERROR DRAWING DOLL: $error");
+        window.console.error([error,trace]);
+    }
 
     //makeForestOfDollOfTypeNewColors(doll,44);
+}
+
+void testMaxParts(int dollType) {
+    Doll doll = Doll.randomDollOfType(dollType);
+    doll.renderingOrderLayers.forEach((SpriteLayer layer) => layer.imgNumber = layer.maxImageNumber);
+    drawDoll(doll);
 }
 
 Future<void> lifeSpanTest() async {
@@ -59,7 +75,36 @@ Future<void> lifeSpanTest() async {
 
 }
 
+Future<void> monstrousTest() async {
+    List<Palette> choices = <Palette>[MagicalDoll().pinkGirl,MagicalDoll().blueGirl,MagicalDoll().orangeGirl,MagicalDoll().greenGirl,MagicalDoll().purpleGirl];
+    for(Palette choice in choices) {
+        DivElement div = new DivElement();
+        MagicalDoll doll = new MagicalDoll();
+        doll.copyPalette(choice);
+        div.append(await doll.getNewCanvas()..style.display = "inline-block");
+        MonsterGirlDoll monster = doll.hatch();
+        div.append(await monster.getNewCanvas()..style.display = "inline-block");
+        output.append(div);
+        DivElement doop = new DivElement()..text = "Not Hair: ${monster.notHairFront.imgNumber}";
+        output.append(doop);
+
+    }
+
+    for(int i = 0; i<6; i++) {
+        DivElement div = new DivElement();
+        MagicalDoll doll = new MagicalDoll();
+        div.append(await doll.getNewCanvas()..style.display = "inline-block");
+        MonsterGirlDoll monster = doll.hatch();
+        div.append(await monster.getNewCanvas()..style.display = "inline-block");
+        output.append(div);
+        DivElement doop = new DivElement()..text = "Not Hair: ${monster.notHairFront.imgNumber}";
+        output.append(doop);
+    }
+
+}
+
 Future<void> runTests() async{
+    await monstrousTest();
     await renderEverythingAndLoad();
     //await renderAndLoadDoll(8); // queen
     //await speedTest();
@@ -89,6 +134,14 @@ Future<void> testPartial() async {
     tree.transformHangablesInto();
     CanvasElement fruit = await tree.renderJustHangables();
     me.append(fruit);
+}
+
+void dumbshittest(Doll doll) async {
+    Future<CanvasElement> futureCanvas = doll.getNewCanvas();
+    CanvasElement canvas1 = await futureCanvas;
+    CanvasElement canvas2 = await futureCanvas;
+    window.alert("canvas 1 is $canvas1, and canvas 2 is $canvas2");
+
 }
 
 Future<void> renderEverythingAndLoad() async {
@@ -126,6 +179,7 @@ Future<void> renderAndLoadDoll(int type) async {
     }catch(e,trace) {
         us.append(new SpanElement()..text = "no alt form for $type, OR error $e");
         print("Error $e and trace $trace");
+        window.console.error(e);
     }
 }
 
@@ -230,7 +284,7 @@ Future<void>  drawDollScaled(Doll doll, int w, int h) async {
 
 
 Future<CanvasElement>  drawDoll(Doll doll, [CanvasElement finishedProduct = null]) async{
-
+    print("trying to draw doll with debug shit");
     output.appendHtml(doll.quirk.translate("<br><br>The quick brown fox jumped over the lazy dog, yes?"));
 
     Element innerDiv   = new DivElement();
