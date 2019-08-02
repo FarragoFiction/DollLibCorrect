@@ -19,21 +19,19 @@ Future<void> main() async {
 Future<void> start() async {
     await Loader.loadManifest();
     await breedTest();
-    //runTests();
+    runTests();
 
 
     //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
     //Olive Blooded Lamia:___AshVh4rRBZgAgMwD43FfRqTuthx7_qP__qP9BZgAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMhBZgAgMwAIhYLANCDLwNUCOUoEMCHgA==
-    MonsterGirlDoll doll = new MonsterGirlDoll();
+    Doll doll = Doll.loadSpecificDoll("http://www.farragofiction.com/DollSim/?Daniel+Cruz%3A___QS_5sA_5sA_4cA-NxX0ak7rYce_6j__6j_ra2taEEKA1AOADQa6ujnv8LB_6j__1v_jMrWFgKgBUAK8A2oCNwKQD8Afm");
     testMaxParts(13);
     //makeForestOfDollOfTypeNewColors(doll,doll.renderingType);
 
     try {
         await drawDoll(doll);
-        Doll newDoll = doll.hatch();
-        await drawDoll(newDoll);
 
     }catch(error,trace) {
         output.appendHtml("ERROR DRAWING DOLL: $error");
@@ -154,6 +152,13 @@ Future<void> renderEverythingAndLoad() async {
             print("error rendering type $type, $e");
         }
     }
+
+    await renderAndLoadDoll(34);
+    await renderAndLoadDoll(35);
+    await renderAndLoadDoll(36);
+    await renderAndLoadDoll(33);
+
+
 }
 
 Future<void> renderAndLoadDoll(int type) async {
