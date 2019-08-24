@@ -10,7 +10,7 @@ Future<void> main() async {
     await Doll.loadFileData();
 
     DateTime startTime = new DateTime.now();
-    Doll doll = Doll.randomDollOfType(88);
+    Doll doll = Doll.randomDollOfType(85);
     new TimeProfiler("load doll", startTime);
     start();
 }
@@ -25,9 +25,8 @@ Future<void> start() async {
     //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
-    //Olive Blooded Lamia:___AshVh4rRBZgAgMwD43FfRqTuthx7_qP__qP9BZgAAAAADUA4ANBrq6Oe_wsH_qP__W_-MytZpuMhBZgAgMwAIhYLANCDLwNUCOUoEMCHgA==
-    Doll doll = Doll.loadSpecificDoll("http://www.farragofiction.com/DollSim/?Daniel+Cruz%3A___QS_5sA_5sA_4cA-NxX0ak7rYce_6j__6j_ra2taEEKA1AOADQa6ujnv8LB_6j__1v_jMrWFgKgBUAK8A2oCNwKQD8Afm");
-    testMaxParts(13);
+    Doll doll = Doll.randomDollOfType(85);
+    testMaxParts(85);
     //makeForestOfDollOfTypeNewColors(doll,doll.renderingType);
 
     try {

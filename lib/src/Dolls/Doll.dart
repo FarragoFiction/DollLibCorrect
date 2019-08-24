@@ -36,6 +36,7 @@ abstract class Doll {
         if(type == 2) return new HomestuckTrollDoll();
         if(type == 13) return new HomestuckGrubDoll();
         if(type == 1) return new HomestuckDoll();
+        if(type == 85) return new HomestuckTreeBab();
         if(type == 35) return new FruitDoll();
         if(type == 34) return new FlowerDoll();
         if(type == 33) return new TreeDoll();

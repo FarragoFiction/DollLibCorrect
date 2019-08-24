@@ -25,6 +25,7 @@ export "src/Dolls/KidBased/HomestuckBabyDoll.dart";
 export "src/Dolls/KidBased/HomestuckCherubDoll.dart";
 export "src/Dolls/KidBased/HomestuckDoll.dart";
 export "src/Dolls/KidBased/HomestuckGrubDoll.dart";
+export "src/Dolls/KidBased/HomestuckTreeBabDoll.dart";
 export "src/Dolls/KidBased/HomestuckHeroDoll.dart";
 export "src/Dolls/KidBased/HomestuckLamiaDoll.dart";
 export "src/Dolls/KidBased/HomestuckSatyrDoll.dart";
