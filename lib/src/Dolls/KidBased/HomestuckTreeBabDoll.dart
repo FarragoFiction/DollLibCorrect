@@ -89,7 +89,6 @@ class HomestuckTreeBab extends HomestuckGrubDoll {
 
     {
         super.randomizeNotColors();
-        pickCasteAppropriateBody();
         canonSymbol.imgNumber = 0;
     }
 
