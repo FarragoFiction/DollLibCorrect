@@ -10,8 +10,8 @@ Future<void> main() async {
     await Doll.loadFileData();
 
     DateTime startTime = new DateTime.now();
-    Doll doll = Doll.randomDollOfType(85);
-    new TimeProfiler("load doll", startTime);
+    //Doll doll = Doll.randomDollOfType(85);
+    //new TimeProfiler("load doll", startTime);
     start();
 }
 
@@ -19,14 +19,17 @@ Future<void> main() async {
 Future<void> start() async {
     await Loader.loadManifest();
     await breedTest();
-    runTests();
+    //runTests();
 
 
     //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
-    Doll doll = Doll.randomDollOfType(85);
-    testMaxParts(85);
+    print("starting");
+    HomestuckTreeBab doll = new HomestuckTreeBab();
+    print("max tree bab body is ${doll.body.maxImageNumber} ${doll.extendedBody.maxImageNumber}");
+
+    // testMaxParts(85);
     //makeForestOfDollOfTypeNewColors(doll,doll.renderingType);
 
     try {

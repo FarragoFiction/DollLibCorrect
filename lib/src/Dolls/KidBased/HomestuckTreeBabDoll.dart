@@ -15,33 +15,39 @@ class HomestuckTreeBab extends HomestuckGrubDoll {
     int renderingType =85;
     @override
     String relativeFolder = "images/Homestuck";
-    @override
-    final int maxBody = 3;
-
 
     @override
     String name = "TreeBab";
-
+    @override
+    final int maxBody = 3;
 
     @override
-    Palette palette = new HomestuckTrollPalette()
+    Palette paletteSource = ReferenceColours.LAMIA_PALETTE;
+
+    @override
+    Palette palette = new HomestuckLamiaPalette()
         ..accent = '#FF9B00'
+        ..shoe_light = '#ffa8ff'
+        ..shoe_dark = '#ff5bff'
+        ..cloak_light = '#f8dc57'
+        ..cloak_mid = '#d1a93b'
+        ..cloak_dark = '#ad871e'
+        ..shirt_light = '#eae8e7'
+        ..shirt_dark = '#bfc2c1'
+        ..pants_light = '#03500e'
+        ..pants_dark = '#00341a'
+        ..eye_white_left = "#ffa8ff"
+        ..eye_white_right = "#ffa8ff"
         ..aspect_light = '#FF9B00'
         ..aspect_dark = '#FF8700'
-        ..shoe_light = '#111111'
-        ..shoe_dark = '#333333'
-        ..cloak_light = '#A3A3A3'
-        ..cloak_mid = '#999999'
-        ..cloak_dark = '#898989'
-        ..shirt_light = '#111111'
-        ..shirt_dark = '#000000'
-        ..pants_light = '#4b4b4b'
-        ..eye_white_left = '#ffba29'
-        ..eye_white_right = '#ffba29'
-        ..pants_dark = '#3a3a3a'
         ..hair_accent = '#aa0000'
         ..hair_main = '#000000'
-        ..skin = '#C4C4C4';
+        ..skinDark = '#69b8c8'
+        ..horn1 = "#000000"
+        ..horn2 = "#000000"
+        ..horn3 = "#000000"
+
+        ..skin = '#8ccad6';
 
 
 
@@ -102,14 +108,29 @@ class HomestuckTreeBab extends HomestuckGrubDoll {
     }
 
     @override
-    void randomizeColors()
-
-    {
+    void randomizeColors() {
         super.randomizeColors();
-        HomestuckPalette h = palette as HomestuckPalette;
-        h.add(HomestuckPalette.EYE_WHITE_LEFT, h.aspect_light,true);
-        h.add(HomestuckPalette.EYE_WHITE_RIGHT, h.aspect_light,true);
+        HomestuckLamiaPalette h = palette as HomestuckLamiaPalette;
+        copyPalette(ReferenceColours.PURIFIED);
+        //print("trying to set horn to ${h.aspect_light.toStyleString()}");
+        String light = h.aspect_light.toStyleString();
+        String dark = h.aspect_dark.toStyleString();
+        if (rand.nextBool()) {
+            h.horn1 = new Colour.fromStyleString(light);
+        } else {
+            h.horn1 = new Colour.fromStyleString(dark);
+        }
+        if (rand.nextBool()) {
+            h.horn2 = new Colour.fromStyleString(light);
+        } else {
+            h.horn2 = new Colour.fromStyleString(dark);
+        }
 
+        if (rand.nextBool()) {
+            h.horn3 = new Colour.fromStyleString(light);
+        } else {
+            h.horn3 = new Colour.fromStyleString(dark);
+        }
     }
 
     @override

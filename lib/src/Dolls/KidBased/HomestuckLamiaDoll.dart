@@ -45,7 +45,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
         ..aspect_light = '#FF9B00'
         ..aspect_dark = '#FF8700'
         ..hair_accent = '#aa0000'
-        ..hair_main = '#000000'
+        ..hair_main = '#ffffff'
         ..skinDark = '#69b8c8'
         ..horn1 = "#000000"
         ..horn2 = "#000000"
