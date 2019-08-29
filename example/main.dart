@@ -34,6 +34,19 @@ Future<void> start() async {
 
     try {
         await drawDoll(doll);
+         doll = new HomestuckTreeBab();
+        await drawDoll(doll);
+
+        doll = new HomestuckTreeBab();
+        await drawDoll(doll);
+
+        doll = new HomestuckTreeBab();
+        await drawDoll(doll);
+
+        doll = new HomestuckTreeBab();
+        await drawDoll(doll);
+
+
 
     }catch(error,trace) {
         output.appendHtml("ERROR DRAWING DOLL: $error");

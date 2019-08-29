@@ -5,7 +5,7 @@ import "../Layers/SpriteLayer.dart";
 import "HomestuckDoll.dart";
 
 
-class HomestuckTreeBab extends HomestuckGrubDoll {
+class HomestuckTreeBab extends HomestuckLamiaDoll {
 
     @override
     String originalCreator = "karmicRetribution";
@@ -138,7 +138,6 @@ class HomestuckTreeBab extends HomestuckGrubDoll {
     {
         super.randomize(chooseSign);
         canonSymbol.imgNumber = 0;
-        pickCasteAppropriateBody();
         HomestuckPalette h = palette as HomestuckPalette;
         h.add(HomestuckPalette.EYE_WHITE_LEFT, h.aspect_light,true);
         h.add(HomestuckPalette.EYE_WHITE_RIGHT, h.aspect_light,true);
