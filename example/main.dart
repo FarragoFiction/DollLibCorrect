@@ -26,8 +26,7 @@ Future<void> start() async {
     //await testPartial();
     //speedTest();
     print("starting");
-    HomestuckTreeBab doll = new HomestuckTreeBab();
-    print("max tree bab body is ${doll.body.maxImageNumber} ${doll.extendedBody.maxImageNumber}");
+    HomestuckTreeBab doll = Doll.loadSpecificDoll("Monk Baby-Mew:___ArBiXPMqhAABQAAChAADwAABQAAD_uin_uimhAAAAAAAAgoIAgoIAgoJLS0s6OjoREREAAAAREREzMzPExMRpuMihAABQAAAIgdwO4BMcBffQsWNG4A=");
 
     // testMaxParts(85);
     //makeForestOfDollOfTypeNewColors(doll,doll.renderingType);
