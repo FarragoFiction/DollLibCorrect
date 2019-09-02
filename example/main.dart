@@ -26,24 +26,14 @@ Future<void> start() async {
     //await testPartial();
     //speedTest();
     print("starting");
-    HomestuckTreeBab doll = Doll.loadSpecificDoll("Monk Baby-Mew:___ArBiXPMqhAABQAAChAADwAABQAAD_uin_uimhAAAAAAAAgoIAgoIAgoJLS0s6OjoREREAAAAREREzMzPExMRpuMihAABQAAAIgdwO4BMcBffQsWNG4A=");
+    Doll doll = Doll.loadSpecificDoll("Despap Citato:___ArBhlggBlggBDYACFr_94nuZzk9BlggBlggAA_wAAAABAUwBQaABlggATExMAAAApHVMgFUYA_wAA_wBJSUlpuMgHhEYDQiMIgSwJYDtgLQBpeAp0AxgGMAqAFRg");
 
     // testMaxParts(85);
     //makeForestOfDollOfTypeNewColors(doll,doll.renderingType);
 
     try {
         await drawDoll(doll);
-         doll = new HomestuckTreeBab();
-        await drawDoll(doll);
-
-        doll = new HomestuckTreeBab();
-        await drawDoll(doll);
-
-        doll = new HomestuckTreeBab();
-        await drawDoll(doll);
-
-        doll = new HomestuckTreeBab();
-        await drawDoll(doll);
+        //convertDollToTreeBab();
 
 
 
@@ -53,6 +43,34 @@ Future<void> start() async {
     }
 
     //makeForestOfDollOfTypeNewColors(doll,44);
+}
+
+void convertDollToTreeBab() async {
+    Doll doll = Doll.loadSpecificDoll("Othala Grigor:___ArBiZAE3y4Onju8-Fr_94nuZzk9AAAAAAAAAA_wAAAADy4Onyqs7y4OkTExMAAAApHVMgFUYA_wAA_wBJSUlpuMgzMzMREREIgE_AJ-AUrANWl0AbcA24BowDR4=");
+    await drawDoll(doll);
+    doll = Doll.convertOneDollToAnother(doll, new HomestuckTreeBab());
+    (doll as HomestuckTreeBab).extendedBody.imgNumber = 1;
+    (doll as HomestuckTreeBab).body.imgNumber = 1;
+    HomestuckLamiaPalette h = doll.palette;
+    final String light = h.aspect_light.toStyleString();
+        h.horn1 = new Colour.fromStyleString(light);
+
+    makeOtherColorsDarker(h, "horn1", <String>["horn2","horn3"]);
+
+    doll.dollName = "Othala Grigor";
+    await drawDoll(doll);
+}
+
+void makeOtherColorsDarker(Palette p, String sourceKey, List<String> otherColorKeys) {
+    String referenceKey = sourceKey;
+    //print("$name, is going to make other colors darker than $sourceKey, which is ${p[referenceKey]}");
+    for(String key in otherColorKeys) {
+        //print("$name is going to make $key darker than $sourceKey");
+        p.add(key, new Colour(p[referenceKey].red, p[referenceKey].green, p[referenceKey].blue)..setHSV(p[referenceKey].hue, 7*p[referenceKey].saturation/3, 5*p[referenceKey].value / 5), true);
+        //print("$name made  $key darker than $referenceKey, its ${p[key]}");
+
+        referenceKey = key; //each one is progressively darker
+    }
 }
 
 void testMaxParts(int dollType) {
