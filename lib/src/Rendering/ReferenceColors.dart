@@ -1,4 +1,5 @@
 import "package:CommonLib/Colours.dart";
+import 'package:DollLibCorrect/src/Dolls/CookieDoll.dart';
 
 import "../Dolls/ConsortDoll.dart";
 import "../Dolls/KidBased/HomestuckDoll.dart";
@@ -99,6 +100,28 @@ abstract class ReferenceColours {
         ..horn1 = "#ffba29"
         ..horn2 = "#ff9000"
         ..horn3 = "#ff4200"
+        ..skin = '#ffffff';
+
+    static CookiePalette COOKIE_PALETTE = new CookiePalette()
+        ..accent = '#FF9B00'
+        ..aspect_light = '#FEFD49'
+        ..aspect_dark = '#FEC910'
+        ..aspect_dark = '#FEC910'
+        ..shoe_light = '#10E0FF'
+        ..shoe_dark = '#00A4BB'
+        ..cloak_light = '#FA4900'
+        ..cloak_mid = '#E94200'
+        ..cloak_dark = '#C33700'
+        ..shirt_light = '#FF8800'
+        ..shirt_dark = '#D66E04'
+        ..pants_light = '#E76700'
+        ..pants_dark = '#CA5B00'
+        ..hair_main = '#313131'
+        ..hair_accent = '#202020'
+        ..hairDark = "#111111"
+        ..eye_white_left = '#ffba35'
+        ..eye_white_right = '#ffba15'
+        ..skinDark = '#b5b5b5'
         ..skin = '#ffffff';
 
 

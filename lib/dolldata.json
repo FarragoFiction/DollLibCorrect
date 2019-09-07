@@ -40,6 +40,16 @@
     }
   },
 
+  "Cookie": {
+    "layers": {
+      "HairBack": 24,
+      "Body": 34,
+      "Eyes": 17,
+      "Mouth": 17,
+      "HairFront": 24
+    }
+  },
+
   "Vessel": {
     "layers": {
       "Head": 9,

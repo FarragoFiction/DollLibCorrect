@@ -19,15 +19,15 @@ Future<void> main() async {
 Future<void> start() async {
     await Loader.loadManifest();
     await breedTest();
-    //runTests();
+    runTests();
 
 
     //await renderEverythingAndLoad();
     //await testPartial();
     //speedTest();
     print("starting");
-    Doll doll = Doll.loadSpecificDoll("Despap Citato:___ArBhlggBlggBDYACFr_94nuZzk9BlggBlggAA_wAAAABAUwBQaABlggATExMAAAApHVMgFUYA_wAA_wBJSUlpuMgHhEYDQiMIgSwJYDtgLQBpeAp0AxgGMAqAFRg");
-
+    //Doll doll = Doll.loadSpecificDoll("Despap Citato:___ArBhlggBlggBDYACFr_94nuZzk9BlggBlggAA_wAAAABAUwBQaABlggATExMAAAApHVMgFUYA_wAA_wBJSUlpuMgHhEYDQiMIgSwJYDtgLQBpeAp0AxgGMAqAFRg");
+    Doll doll = new CookieDoll();
     // testMaxParts(85);
     //makeForestOfDollOfTypeNewColors(doll,doll.renderingType);
 
