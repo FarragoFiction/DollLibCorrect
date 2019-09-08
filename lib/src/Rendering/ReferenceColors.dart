@@ -175,6 +175,34 @@ abstract class ReferenceColours {
         ..pants_light = "#494949"
         ..pants_dark = "#393939";
 
+    static HomestuckPalette NULL = new HomestuckPalette()
+        ..accent = '#FF9B00'
+        ..aspect_light = '#FF9B00'
+        ..aspect_dark = '#FF8700'
+        ..shoe_light = '#7F7F7F'
+        ..shoe_dark = '#727272'
+        ..cloak_light = '#A3A3A3'
+        ..cloak_mid = '#999999'
+        ..cloak_dark = '#898989'
+        ..shirt_light = '#EFEFEF'
+        ..shirt_dark = '#DBDBDB'
+        ..pants_light = '#C6C6C6'
+        ..pants_dark = '#ADADAD';
+
+    static HomestuckPalette LAW = new HomestuckPalette()
+        ..accent = "#003300"
+        ..aspect_light = '#383838'
+        ..aspect_dark = '#000000'
+        ..shoe_light = '#2b1130'
+        ..shoe_dark = '#130017'
+        ..cloak_light = '#eba900'
+        ..cloak_mid = '#c28900'
+        ..cloak_dark = '#855900'
+        ..shirt_light = '#ffd800'
+        ..shirt_dark = '#d1a900'
+        ..pants_light = '#44244d'
+        ..pants_dark = '#271128';
+
     static HomestuckPalette BLOOD = new HomestuckPalette()
         ..accent = "#993300"
         ..aspect_light = '#BA1016'
@@ -698,6 +726,8 @@ abstract class ReferenceColours {
             _paletteList["Life"] = LIFE;
             _paletteList["Doom"] = DOOM;
             _paletteList["Dream"] = DREAM;
+            _paletteList["Law"] = LAW;
+            _paletteList["Null"] = NULL;
             _paletteList["Robot"] = ROBOT_PALETTE;
             _paletteList["Prospit"] = PROSPIT_PALETTE;
             _paletteList["Derse"] = DERSE_PALETTE;
