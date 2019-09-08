@@ -207,7 +207,7 @@
       "Body": 12,
       "Glasses": 4,
       "FacePaint": 5,
-      "EyeBrows": 7,
+      "EyeBrows": 6,
       "LeftEye": 14,
       "RightEye": 14,
       "LeftHorn": 16,
@@ -367,7 +367,7 @@
       "RightEye": 5,
       "Nose": 3,
       "Accessory": 4,
-      "Shirt": 11,
+      "Shirt": 9,
       "Symbol": 16,
       "Hood": 12
     }

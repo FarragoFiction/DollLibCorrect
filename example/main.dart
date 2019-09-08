@@ -19,7 +19,7 @@ Future<void> main() async {
 Future<void> start() async {
     await Loader.loadManifest();
     await breedTest();
-    //runTests();
+    runTests();
 
 
     //await renderEverythingAndLoad();
