@@ -50,6 +50,17 @@
     }
   },
 
+  "Magical2": {
+    "layers": {
+      "HairBack": 26,
+      "Body": 44,
+      "Eyes": 5,
+      "Mouth": 3,
+      "Glasses":5,
+      "HairFront": 24
+    }
+  },
+
   "Vessel": {
     "layers": {
       "Head": 9,

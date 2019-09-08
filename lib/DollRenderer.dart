@@ -7,6 +7,7 @@ export "src/Dolls/BroDoll.dart";
 export "src/Dolls/BroomDoll.dart";
 export "src/Dolls/CatDoll.dart";
 export "src/Dolls/CookieDoll.dart";
+export "src/Dolls/MGM2Doll.dart";
 export "src/Dolls/ConsortDoll.dart";
 export "src/Dolls/DadDoll.dart";
 export "src/Dolls/DenizenDoll.dart";

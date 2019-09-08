@@ -711,6 +711,7 @@ abstract class ReferenceColours {
     static Map<String, Palette> get paletteList {
         if(_paletteList == null) {
             _paletteList = new Map<String, Palette>();
+
             _paletteList["Blood"] = BLOOD;
             _paletteList["Mind"] = MIND;
             _paletteList["Sauce"] = SAUCE;

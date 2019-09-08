@@ -78,6 +78,7 @@ abstract class Doll {
         if(type == 45) return new MagicalDoll();
         if(type == 46) return new HomestuckKittenDoll();
         if(type == 47) return new CookieDoll();
+        if(type == 48) return new Magical2Doll();
 
         if(type == 427) return new MonsterGirlDoll();
 

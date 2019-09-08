@@ -19,7 +19,7 @@ Future<void> main() async {
 Future<void> start() async {
     await Loader.loadManifest();
     await breedTest();
-    runTests();
+    //runTests();
 
 
     //await renderEverythingAndLoad();
@@ -28,15 +28,15 @@ Future<void> start() async {
     print("starting");
     //Doll doll = Doll.loadSpecificDoll("Despap Citato:___ArBhlggBlggBDYACFr_94nuZzk9BlggBlggAA_wAAAABAUwBQaABlggATExMAAAApHVMgFUYA_wAA_wBJSUlpuMgHhEYDQiMIgSwJYDtgLQBpeAp0AxgGMAqAFRg");
     Doll doll = new CookieDoll();
+    Doll doll2 = new Magical2Doll();
+
     // testMaxParts(85);
     //makeForestOfDollOfTypeNewColors(doll,doll.renderingType);
 
     try {
         await drawDoll(doll);
+        await drawDoll(doll2);
         //convertDollToTreeBab();
-
-
-
     }catch(error,trace) {
         output.appendHtml("ERROR DRAWING DOLL: $error");
         window.console.error([error,trace]);
