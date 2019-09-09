@@ -133,6 +133,7 @@ class CookieDoll extends Doll{
 
 class CookiePalette extends HomestuckPalette {
   static String _ACCENT = "accent";
+  static String _ACCENT2 = "accent2";
   static String _ASPECT_LIGHT = "aspect1";
   static String _SKINDARK = "skinDark";
   static String _ASPECT_DARK = "aspect2";
@@ -147,6 +148,8 @@ class CookiePalette extends HomestuckPalette {
   static String _PANTS_DARK = "pants2";
   static String _HAIR_MAIN = "hairMain";
   static String _HAIR_ACCENT = "hairAccent";
+  static String _HAIR_ACCENT2 = "hairAccent2";
+  static String _MOUTH = "mouth";
   static String _HAIR_DARK = "hairDark";
   static String _EYE_WHITES = "eyeWhites";
   static String _SKIN = "skin";
@@ -178,4 +181,16 @@ class CookiePalette extends HomestuckPalette {
   Colour get hairDark => this[_HAIR_DARK];
 
   void set hairDark(dynamic c) => this.add(_HAIR_DARK, _handleInput(c), true);
+
+  Colour get hairAccent2 => this[_HAIR_ACCENT2];
+
+  void set hairAccent2(dynamic c) => this.add(_HAIR_ACCENT2, _handleInput(c), true);
+
+  Colour get accent2 => this[_ACCENT2];
+
+  void set accent2(dynamic c) => this.add(_HAIR_DARK, _handleInput(c), true);
+
+  Colour get mouth => this[_MOUTH];
+
+  void set mouth(dynamic c) => this.add(_MOUTH, _handleInput(c), true);
 }

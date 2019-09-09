@@ -131,7 +131,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
 
     @override
     void randomizeNotColors() {
-        super.randomizeColors();
+        super.randomizeNotColors();
         pickFin();
 
     }

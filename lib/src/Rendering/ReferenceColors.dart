@@ -118,6 +118,9 @@ abstract class ReferenceColours {
         ..pants_dark = '#CA5B00'
         ..hair_main = '#313131'
         ..hair_accent = '#202020'
+        ..hairAccent2 = "#1D1D1D"
+        ..accent2 = "#CB3D00"
+        ..mouth = "#D83C36"
         ..hairDark = "#111111"
         ..eye_white_left = '#ffba35'
         ..eye_white_right = '#ffba15'
