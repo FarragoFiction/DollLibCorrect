@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "what this does is rename the files based on the biggest files in DollLibCorrect but leave them in teh current dir (so you have to copy and paste them over yourself)"
 for f in $(find ./ -type d )
 do
     LIST=`exec ls /c/Users/jadedResearcher/IdeaProjects/DollLibCorrect/example/images/$f/*.png | sort -rV`
