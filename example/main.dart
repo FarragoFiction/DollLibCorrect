@@ -193,12 +193,20 @@ Future<void> renderEverythingAndLoad() async {
 
 }
 
+void maxAllLayers(Doll doll) {
+    for(SpriteLayer layer in doll.renderingOrderLayers) {
+        layer.imgNumber = layer.maxImageNumber;
+    }
+}
+
 Future<void> renderAndLoadDoll(int type) async {
     DivElement us = new DivElement()..style.border = "3px solid black";
     output.append(us);
     try {
 
         Doll doll = Doll.randomDollOfType(type);
+        maxAllLayers(doll);
+
         //print("type $type - ${doll.name}");
         await doll.setNameFromEngine();
         //print("save");
