@@ -430,21 +430,49 @@ abstract class Doll {
                 }
             }
 
-            for(int i = 0; i<ret.palette.length; i++) {
-                Doll d = rand.pickFrom(dolls);
-                Colour mine = ret.palette[i];
-                Colour yours;
-                if(d.palette.length > i) yours = d.palette[i];
-                if(yours != null && rand.nextDouble() > .1) {
-                    mine.red = yours.red;
-                    mine.green =yours.green;
-                    mine.blue = yours.blue;
-                }
-            }
+            breedPalette(ret, rand, dolls);
             ret.afterBreeding(dolls);
 
         return ret;
 
+    }
+
+    static void breedPalette(Doll ret, Random rand, List<Doll> dolls) {
+      for(int i = 0; i<ret.palette.length; i++) {
+          Colour mine = ret.palette[i];
+          Colour yours = pickParentColor(i, dolls);
+          //if saturation is similar, just do random
+          //otherwise pick the lesser saturation one
+          if(yours != null && rand.nextDouble() > .1) {
+              mine.red = yours.red;
+              mine.green =yours.green;
+              mine.blue = yours.blue;
+          }
+      }
+    }
+
+    static Colour pickParentColor(int paletteIndex, List<Doll> dolls ) {
+        //detect the lowest saturated color.
+        //keep track of all colors within x of it
+        //return a random choice from these low saturated (dominant) colors
+        double threshold = .5;
+        //we now know ret is the least saturated.
+        List<Colour> dominents = new List<Colour>();
+        for(Doll doll in dolls) {
+            if(doll.palette.length > paletteIndex && (doll.palette[paletteIndex].saturation).abs() > threshold) {
+                dominents.add(doll.palette[paletteIndex]);
+            }
+        }
+        if(dominents.isNotEmpty) {
+            return new Random().pickFrom(dominents);
+        }else {
+            Doll doll = new Random().pickFrom(dolls);
+            if(doll.palette.length > paletteIndex) {
+                return doll.palette[paletteIndex];
+            }else {
+                return null;
+            }
+        }
     }
 
     //who is shogun???

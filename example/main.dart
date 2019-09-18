@@ -19,7 +19,8 @@ Future<void> main() async {
 Future<void> start() async {
     await Loader.loadManifest();
     await breedTest();
-    runTests();
+    await breedGrubTest();
+   // runTests();
 
 
     //await renderEverythingAndLoad();
@@ -243,6 +244,25 @@ Future<void> clickTest() async {
         }
     });
 
+}
+
+
+//if a cloned fruit is identical to its parent does it have the same name?
+Future<void> breedGrubTest() async {
+    HomestuckGrubDoll fruit = new HomestuckGrubDoll();
+    HomestuckGrubDoll fruit2 = new HomestuckGrubDoll();
+
+    CanvasElement canvas = await fruit.getNewCanvas(true);
+    Doll child = Doll.breedDolls(<Doll>[fruit,fruit2]);
+    output.append(canvas);
+    output.append(new SpanElement()..text = "${fruit.dollName}");
+    for(int i = 0; i <10; i++) {
+        //FruitDoll fruit2 = new FruitDoll();
+        Doll child = Doll.breedDolls(<Doll>[fruit,fruit2]);
+        CanvasElement childCanvas = await child.getNewCanvas(true);
+        output.append(childCanvas);
+        output.append(new SpanElement()..text = "${child.dollName}");
+    }
 }
 
 //if a cloned fruit is identical to its parent does it have the same name?
