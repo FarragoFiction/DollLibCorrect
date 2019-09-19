@@ -437,7 +437,9 @@ abstract class Doll {
 
     }
 
+    //psuedo  recessive breeding (if its too saturated its recessive)
     static void breedPalette(Doll ret, Random rand, List<Doll> dolls) {
+        print("breeding $ret");
       for(int i = 0; i<ret.palette.length; i++) {
           Colour mine = ret.palette[i];
           Colour yours = pickParentColor(i, dolls);
@@ -455,21 +457,24 @@ abstract class Doll {
         //detect the lowest saturated color.
         //keep track of all colors within x of it
         //return a random choice from these low saturated (dominant) colors
-        double threshold = .5;
+        double threshold = .8;
         //we now know ret is the least saturated.
         List<Colour> dominents = new List<Colour>();
         for(Doll doll in dolls) {
-            if(doll.palette.length > paletteIndex && (doll.palette[paletteIndex].saturation).abs() > threshold) {
+            if(doll.palette.length > paletteIndex && (doll.palette[paletteIndex].value).abs() < threshold) {
                 dominents.add(doll.palette[paletteIndex]);
             }
         }
         if(dominents.isNotEmpty) {
+            print("there were ${dominents.length} dominents");
             return new Random().pickFrom(dominents);
         }else {
+            print("all were recessive, pick any of them");
             Doll doll = new Random().pickFrom(dolls);
             if(doll.palette.length > paletteIndex) {
                 return doll.palette[paletteIndex];
             }else {
+                print("palette length is wrong (index ${doll.palette.length} is not ${paletteIndex}), returning null");
                 return null;
             }
         }

@@ -249,13 +249,18 @@ Future<void> clickTest() async {
 
 //if a cloned fruit is identical to its parent does it have the same name?
 Future<void> breedGrubTest() async {
-    HomestuckGrubDoll fruit = new HomestuckGrubDoll();
-    HomestuckGrubDoll fruit2 = new HomestuckGrubDoll();
+    HomestuckDoll fruit = new HomestuckDoll();
 
-    CanvasElement canvas = await fruit.getNewCanvas(true);
-    Doll child = Doll.breedDolls(<Doll>[fruit,fruit2]);
-    output.append(canvas);
-    output.append(new SpanElement()..text = "${fruit.dollName}");
+    CanvasElement childCanvas = await fruit.getNewCanvas(true)..style.display;
+    output.appendHtml("<br>");
+    output.append(childCanvas);
+    output.append(new SpanElement()..text = "First Parent");
+    HomestuckDoll fruit2 = new HomestuckDoll();
+
+    CanvasElement childCanvas2 = await fruit2.getNewCanvas(true);
+    output.append(childCanvas2);
+    output.append(new SpanElement()..text = "Second Parent");
+
     for(int i = 0; i <10; i++) {
         //FruitDoll fruit2 = new FruitDoll();
         Doll child = Doll.breedDolls(<Doll>[fruit,fruit2]);
@@ -268,15 +273,18 @@ Future<void> breedGrubTest() async {
 //if a cloned fruit is identical to its parent does it have the same name?
 Future<void> breedTest() async {
     FruitDoll fruit = new FruitDoll();
-    fruit.body.imgNumber = 85;
-    print("first fruit in breed test has body of ${fruit.body.imgNumber}, hue of ${fruit.associatedColor.hue}, saturation of ${fruit.associatedColor.saturation} and value of  ${fruit.associatedColor.value} and a seed of ${fruit.seed}");
     CanvasElement canvas = await fruit.getNewCanvas(true);
-    Doll child = Doll.breedDolls(<Doll>[fruit]);
     output.append(canvas);
-    output.append(new SpanElement()..text = "${fruit.dollName}");
+    output.append(new SpanElement()..text = "First Parent");
+
+    FruitDoll fruit2 = new FruitDoll();
+    CanvasElement canvas2 = await fruit2.getNewCanvas(true);
+    output.append(canvas2);
+    output.append(new SpanElement()..text = "Second Parent");
+
     for(int i = 0; i <10; i++) {
         //FruitDoll fruit2 = new FruitDoll();
-        Doll child = Doll.breedDolls(<Doll>[fruit]);
+        Doll child = Doll.breedDolls(<Doll>[fruit, fruit2]);
         CanvasElement childCanvas = await child.getNewCanvas(true);
         output.append(childCanvas);
         (child as FruitDoll).setName();
