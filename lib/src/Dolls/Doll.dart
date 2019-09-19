@@ -466,15 +466,15 @@ abstract class Doll {
             }
         }
         if(dominents.isNotEmpty) {
-            print("there were ${dominents.length} dominents");
+            //print("there were ${dominents.length} dominents");
             return new Random().pickFrom(dominents);
         }else {
-            print("all were recessive, pick any of them");
+            //print("all were recessive, pick any of them");
             Doll doll = new Random().pickFrom(dolls);
             if(doll.palette.length > paletteIndex) {
                 return doll.palette[paletteIndex];
             }else {
-                print("palette length is wrong (index ${doll.palette.length} is not ${paletteIndex}), returning null");
+              //  print("palette length is wrong (index ${doll.palette.length} is not ${paletteIndex}), returning null");
                 return null;
             }
         }
