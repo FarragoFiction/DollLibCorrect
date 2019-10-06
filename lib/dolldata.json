@@ -7,16 +7,16 @@
 
   "Kid": {
     "layers": {
-      "Body": 862,
-      "FacePaint": 219,
-      "Glasses": 341,
-      "Glasses2": 471,
-      "HairFront": 495,
-      "HairBack": 495,
-      "LeftEye": 348,
-      "RightEye": 348,
-      "Mouth": 340,
-      "Symbol": 469
+      "Body": 894,
+      "FacePaint": 222,
+      "Glasses": 348,
+      "Glasses2": 498,
+      "HairFront": 517,
+      "HairBack": 517,
+      "LeftEye": 353,
+      "RightEye": 353,
+      "Mouth": 343,
+      "Symbol": 472
     }
   },
 
@@ -28,9 +28,9 @@
       "CanonSymbol": 288,
       "FinLeft": 40,
       "FinRight": 40,
-      "Wings": 116,
-      "LeftHorn": 471,
-      "RightHorn": 471
+      "Wings": 119,
+      "LeftHorn": 483,
+      "RightHorn": 483
     }
   },
 
