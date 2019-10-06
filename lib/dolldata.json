@@ -54,7 +54,7 @@
     "layers": {
       "HairBack": 64,
       "Body": 212,
-      "Eyes": 12,
+      "Eyes": 8,
       "Mouth": 8,
       "Glasses":5,
       "HairFront": 64
