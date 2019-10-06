@@ -43,7 +43,7 @@
   "Cookie": {
     "layers": {
       "HairBack": 24,
-      "Body": 34,
+      "Body": 36,
       "Eyes": 17,
       "Mouth": 17,
       "HairFront": 24
@@ -53,11 +53,11 @@
   "Magical2": {
     "layers": {
       "HairBack": 26,
-      "Body": 44,
-      "Eyes": 5,
-      "Mouth": 3,
+      "Body": 212,
+      "Eyes": 12,
+      "Mouth": 8,
       "Glasses":5,
-      "HairFront": 24
+      "HairFront": 64
     }
   },
 
@@ -288,7 +288,7 @@
 
   "Duck": {
     "layers": {
-      "Body": 42,
+      "Body": 43,
       "Beak": 6,
       "Eyes": 8,
       "Glasses": 9,
