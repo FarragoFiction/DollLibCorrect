@@ -20,7 +20,7 @@ Future<void> start() async {
     await Loader.loadManifest();
     await breedTest();
     await breedGrubTest();
-   // runTests();
+    runTests();
 
 
     //await renderEverythingAndLoad();
@@ -31,7 +31,7 @@ Future<void> start() async {
     Doll doll = new CookieDoll();
     Doll doll2 = new Magical2Doll();
 
-    // testMaxParts(85);
+     testMaxParts(2);
     //makeForestOfDollOfTypeNewColors(doll,doll.renderingType);
 
     try {
