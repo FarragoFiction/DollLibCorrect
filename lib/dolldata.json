@@ -7,15 +7,15 @@
 
   "Kid": {
     "layers": {
-      "Body": 894,
+      "Body": 900,
       "FacePaint": 222,
-      "Glasses": 348,
-      "Glasses2": 498,
+      "Glasses": 349,
+      "Glasses2": 499,
       "HairFront": 517,
       "HairBack": 517,
-      "LeftEye": 353,
-      "RightEye": 353,
-      "Mouth": 343,
+      "LeftEye": 354,
+      "RightEye": 354,
+      "Mouth": 344,
       "Symbol": 472
     }
   },
@@ -29,8 +29,8 @@
       "FinLeft": 40,
       "FinRight": 40,
       "Wings": 119,
-      "LeftHorn": 483,
-      "RightHorn": 483
+      "LeftHorn": 484,
+      "RightHorn": 484
     }
   },
 
