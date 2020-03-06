@@ -313,7 +313,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     }
 
     @override
-    void initFromReaderOld(OldByteBuilder.ByteReader reader, [bool layersNeedInit = true]) {
+    void initFromReaderOld(OldByteBuilder.LegacyByteReader reader, [bool layersNeedInit = true]) {
         super.initFromReaderOld(reader, layersNeedInit);
         if(extendedRightHorn.imgNumber ==0) extendedRightHorn.imgNumber = rightHorn.imgNumber;
         if(extendedLeftHorn.imgNumber ==0) extendedLeftHorn.imgNumber = leftHorn.imgNumber;

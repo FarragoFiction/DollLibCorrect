@@ -116,15 +116,15 @@ class SpriteLayer {
         }
     }
 
-    Element parseDataForDebugging(ImprovedByteReader reader) {
+    Element parseDataForDebugging(ByteReader reader) {
         return new DivElement()..text = "${reader.readExpGolomb()}";
     }
 
-    void loadFromReader(ImprovedByteReader reader) {
+    void loadFromReader(ByteReader reader) {
         imgNumber = reader.readExpGolomb();
     }
 
-    void loadFromReaderOld(OldByteBuilder.ByteReader reader) {
+    void loadFromReaderOld(OldByteBuilder.LegacyByteReader reader) {
         numbytes = (secretMax/255).ceil();
        // print("in legacy reader, numbytes is $numbytes");
         //print("I am $name and number of bytes is $numbytes and secretMax is $secretMax");

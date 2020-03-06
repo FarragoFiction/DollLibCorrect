@@ -11,7 +11,7 @@ class DynamicLayer extends PositionedLayer {
 
   DynamicLayer(int x, int y, String name, String imgNameBase, int imgNumber, int maxImageNumber) : super(x, y, name, imgNameBase, imgNumber, maxImageNumber);
 
-  static DynamicLayer instantiateLayer(ImprovedByteReader reader) {
+  static DynamicLayer instantiateLayer(ByteReader reader) {
       int type = reader.readExpGolomb();
      // print("I think the type is $type");
 
@@ -27,7 +27,7 @@ class DynamicLayer extends PositionedLayer {
 
 
     @override
-    void loadFromReader(ImprovedByteReader reader, [bool readType = true]) {
+    void loadFromReader(ByteReader reader, [bool readType = true]) {
         if(readType) {
            // print("i have to read (and discard) the type");
             reader.readExpGolomb();

@@ -17,7 +17,7 @@ Future<void> main() async {
 
 //remember you can turn debug statements on to print on screen     //doll.visualizeData(output);
 Future<void> start() async {
-    await Loader.loadManifest();
+    //await Loader.loadManifest();
     await breedTest();
     await breedGrubTest();
     runTests();
