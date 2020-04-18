@@ -21,7 +21,7 @@ class PositionedLayerPlusUltra extends SpriteLayer {
 
 
     @override
-    Element parseDataForDebugging(ImprovedByteReader reader) {
+    Element parseDataForDebugging(ByteReader reader) {
         TableElement table = new TableElement();
         table.style.border = "3px solid black";
 
@@ -65,7 +65,7 @@ class PositionedLayerPlusUltra extends SpriteLayer {
     }
 
     @override
-    void loadFromReader(ImprovedByteReader reader) {
+    void loadFromReader(ByteReader reader) {
         imgNumber = reader.readExpGolomb();
         x = reader.readExpGolomb();
         y = reader.readExpGolomb();

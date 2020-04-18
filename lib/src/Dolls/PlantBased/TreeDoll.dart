@@ -201,7 +201,7 @@ class TreeDoll extends Doll{
     }
 
     @override
-    ImprovedByteReader initFromReader(ImprovedByteReader reader, [bool layersNeedInit = true]) {
+    ByteReader initFromReader(ByteReader reader, [bool layersNeedInit = true]) {
       reader = super.initFromReader(reader, layersNeedInit);
       //print("reader is $reader");
       try {

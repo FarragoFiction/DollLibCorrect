@@ -545,12 +545,12 @@ abstract class Doll {
 
 
     //if its a subdoll, can skip the name, it won't be legacy anywyas
-    void load(ImprovedByteReader reader, String dataString, bool nameExpected) {
+    void load(ByteReader reader, String dataString, bool nameExpected) {
         setDollNameFromString(removeURLFromString(dataString), nameExpected);//i know it has a name, or else it's legacy and this will throw an error.
         String dataStringWithoutName = removeLabelFromString(dataString);
         Uint8List thingy = base64Url.decode(dataStringWithoutName);
         if(reader == null) {
-            reader = new ImprovedByteReader(thingy.buffer, 0);
+            reader = new ByteReader(thingy.buffer, 0);
             reader.readExpGolomb(); //pop it off, i already know my type
         }
         //for the love of all that is holy, future JR, please do not call initFromREader twice in a row
@@ -568,7 +568,7 @@ abstract class Doll {
 
     //i am assuming type was already read at this point. Type, Exo is required.
     //IMPORTANT: WHATEVER CALLS ME SHOULD try/catch FOR OLD DATA
-    ImprovedByteReader initFromReader(ImprovedByteReader reader, [bool layersNeedInit = true]) {
+    ByteReader initFromReader(ByteReader reader, [bool layersNeedInit = true]) {
         if(layersNeedInit) {
             //print("initalizing layers");
             initLayers();
@@ -600,7 +600,7 @@ abstract class Doll {
 
     //if i need to add colors to a palette the specfici doll can override just this part
     //i.e. i extracted this just now (1/18/2019) for lamia horn colors
-    void readColors(ImprovedByteReader reader) {
+    void readColors(ByteReader reader) {
       int numColors = reader.readExpGolomb();
       //print("Number of colors is $numColors");
       List<String> names = new List<String>.from(palette.names);
@@ -620,7 +620,7 @@ abstract class Doll {
     }
 
 
-    void initFromReaderOld(OldByteBuilder.ByteReader reader, [bool layersNeedInit = true]) {
+    void initFromReaderOld(OldByteBuilder.LegacyByteReader reader, [bool layersNeedInit = true]) {
         if(layersNeedInit) {
             //print("initalizing layers");
             initLayers();
@@ -693,7 +693,7 @@ abstract class Doll {
         }
         String dataStringWithoutName = removeLabelFromString(dataString);
         Uint8List thingy = base64Url.decode(dataStringWithoutName);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer);
+        ByteReader reader = new ByteReader(thingy.buffer);
         TableElement table = new TableElement();
         me.append(table);
         oneRowOfDataTable("Type",table, reader);
@@ -729,7 +729,7 @@ abstract class Doll {
 
     }
 
-    void oneRowOfDataTable( String label, TableElement table, ImprovedByteReader reader, [bool oneByte = false, SpriteLayer layer]) {
+    void oneRowOfDataTable( String label, TableElement table, ByteReader reader, [bool oneByte = false, SpriteLayer layer]) {
         TableRowElement row = new TableRowElement();
         table.append(row);
 
@@ -875,7 +875,7 @@ abstract class Doll {
         dataStringWithoutName = removeLabelFromString(dataStringWithoutName);
         //print("dataString without name is $dataStringWithoutName");
         Uint8List thingy = base64Url.decode(dataStringWithoutName);
-        ImprovedByteReader reader = new ImprovedByteReader(thingy.buffer, 0);
+        ByteReader reader = new ByteReader(thingy.buffer, 0);
         int type = -99;
         //FUTURE JR, PAY ATTENTION
         //IF THE EXOWHATEVER ACCIDENTALLY READS SOMETHING THAT MAKES SENSE
@@ -897,7 +897,7 @@ abstract class Doll {
         }catch(e,trace){
             print("reading legacy because of error $e with trace $trace, type is $type");
             thingy = base64Url.decode(dataStringWithoutName);
-            OldByteBuilder.ByteReader reader = new OldByteBuilder.ByteReader(thingy.buffer, 0);
+            OldByteBuilder.LegacyByteReader reader = new OldByteBuilder.LegacyByteReader(thingy.buffer, 0);
             type = reader.readByte();
             ret = randomDollOfType(type);
             ret.initFromReaderOld(reader);
@@ -909,7 +909,7 @@ abstract class Doll {
         return new CanvasElement(width: width, height: height);
     }
 
-    static Doll loadSpecificDollFromReader(ImprovedByteReader reader, [bool ignoreError = false]) {
+    static Doll loadSpecificDollFromReader(ByteReader reader, [bool ignoreError = false]) {
         //print("loading doll from string $ds");
         int type = -99;
         //FUTURE JR, PAY ATTENTION
@@ -1026,7 +1026,7 @@ abstract class Doll {
             print("using global dolldata");
             path = "http://www.farragofiction.com/DollSource/dolldata.json";
         }
-        Loader.init();
+        //Loader.init();
         Map<String,dynamic> json = await Loader.getResource(path);
 
         fileData = new JsonHandler(json);

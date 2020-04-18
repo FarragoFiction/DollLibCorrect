@@ -37,7 +37,7 @@ class PositionedDollLayer extends DynamicLayer{
 
 
     @override
-    void loadFromReader(ImprovedByteReader reader, [bool readType = true]) {
+    void loadFromReader(ByteReader reader, [bool readType = true]) {
         //print("loading positioned doll layer from reader");
         //if read normally, will need to read and discard type, but if read as an extra layer will read the type ahead of time
         if(readType) {
@@ -53,7 +53,7 @@ class PositionedDollLayer extends DynamicLayer{
     }
 
     @override
-    Element parseDataForDebugging(ImprovedByteReader reader) {
+    Element parseDataForDebugging(ByteReader reader) {
         //print("debugging positioned doll layer from reader");
         TableElement table = new TableElement();
         table.style.border = "3px solid black";

@@ -144,14 +144,14 @@ class ByteBuilder {
 }
 
 /// Reads a [ByteBuffer] as a stream of bits.
-class ByteReader {
+class LegacyByteReader {
 	/// Source buffer.
 	ByteData _bytes;
 	/// Current bit position within the buffer.
 	int _position = 0;
 
 	/// Creates a new ByteReader reading from [bytes]. The start position will be offset by [offset] bytes.
-	ByteReader(ByteBuffer bytes, [int offset = 0]) {
+	LegacyByteReader(ByteBuffer bytes, [int offset = 0]) {
 		this._bytes = bytes.asByteData(offset);
 	}
 

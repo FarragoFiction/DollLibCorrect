@@ -17,13 +17,13 @@ class PNGWrapperSpriteLayer extends SpriteLayer {
   }
 
   @override
-  void loadFromReaderOld(OldByteBuilder.ByteReader reader) {
+  void loadFromReaderOld(OldByteBuilder.LegacyByteReader reader) {
     //throw("does not support loading");
 
   }
 
   @override
-  void loadFromReader(ImprovedByteReader reader) {
+  void loadFromReader(ByteReader reader) {
     //throw("does not support loading");
 
   }
