@@ -780,6 +780,17 @@ abstract class Doll {
         //print("saved orientation");
         return builder;
     }
+
+    //gets the structure for dolldata, but is not responsible with fetching the true max value from remote
+    Map<String, dynamic> toDollDataLayers() {
+        Map<String,dynamic> ret = new Map<String, dynamic>();
+        for(SpriteLayer layer in dataOrderLayers) {
+            ret[layer.name] = -13;
+            ret["${layer.name}_loc"] = layer.imgLocation;
+        }
+        return ret;
+    }
+
     //first, the rendering type. (this will get taken off before being passed to the loader)
     //numColors, colors, numLayers, layers
     String toDataBytesX([ByteBuilder builder = null]) {
@@ -1029,7 +1040,7 @@ abstract class Doll {
         //Loader.init();
         Map<String,dynamic> json = await Loader.getResource(path);
 
-        fileData = new JsonHandler(json);
+        fileDdata = new JsonHandler(json);
 
     }
 }

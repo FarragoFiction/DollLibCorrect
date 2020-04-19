@@ -1,8 +1,10 @@
 import "dart:async";
+import 'dart:convert';
 import "dart:html";
 
 import "package:DollLibCorrect/DollRenderer.dart";
 import 'package:DollLibCorrect/src/commonImports.dart';
+import "generateDollDataJSON.dart";
 import "package:LoaderLib/Loader.dart";
 
 Element output = querySelector('#output');
@@ -12,7 +14,14 @@ Future<void> main() async {
     DateTime startTime = new DateTime.now();
     //Doll doll = Doll.randomDollOfType(85);
     //new TimeProfiler("load doll", startTime);
+    handleGeneratingJSON();
     start();
+}
+
+void handleGeneratingJSON() async {
+    TextAreaElement jsonElement = new TextAreaElement();
+    output.append(jsonElement);
+    jsonElement.value = jsonEncode(await DollDataGenerator.generateAllData());
 }
 
 //remember you can turn debug statements on to print on screen     //doll.visualizeData(output);
