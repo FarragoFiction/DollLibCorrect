@@ -786,7 +786,7 @@ abstract class Doll {
         Map<String,dynamic> ret = new Map<String, dynamic>();
         for(SpriteLayer layer in dataOrderLayers) {
             ret[layer.name] = -13;
-            ret["${layer.name}_loc"] = layer.imgLocation;
+            ret["${layer.name}_loc"] = layer.imgNameBase;
         }
         return ret;
     }
