@@ -42,6 +42,7 @@ abstract class DollDataGenerator {
             print("Max num for $key is $maxNum");
             map["layers"][key] = maxNum;
         }
+        map.remove("urls");
     }
 
     static Future<int> getMaxNumber(String url)async {

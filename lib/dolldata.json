@@ -1,221 +1,168 @@
 {
-  "Egg": {
-    "layers": {
-      "Body": 13
-    }
-  },
-
   "Kid": {
     "layers": {
-      "Body": 900,
-      "FacePaint": 222,
-      "Glasses": 350,
-      "Glasses2": 500,
-      "HairFront": 518,
-      "HairBack": 518,
-      "LeftEye": 355,
-      "RightEye": 355,
-      "Mouth": 345,
-      "Symbol": 472
+      "LeftEye": 415,
+      "RightEye": 415,
+      "Mouth": 369,
+      "Symbol": 508,
+      "Glasses": 376,
+      "Glasses2": 634,
+      "FacePaint": 262,
+      "Body": 1070,
+      "HairFront": 620,
+      "HairBack": 620
     }
   },
-
   "Troll": {
-    "defaultBody": 48,
-    "mutantEyes": [2,11,31,44,46,47,85],
-    "bannedBodies": [238,252,256,259,235,226,227,230,96,219,221,223,5,11,14,43,50,59,65,66,67,70,72,75,74,98,100,101,102,106,107,109,63,17],
     "layers": {
+      "LeftEye": 415,
+      "RightEye": 415,
+      "Mouth": 369,
+      "Symbol": 508,
+      "Glasses": 376,
+      "Glasses2": 634,
+      "FinLeft": 41,
+      "FinRight": 41,
+      "Wings": 129,
       "CanonSymbol": 288,
-      "FinLeft": 40,
-      "FinRight": 40,
-      "Wings": 119,
-      "LeftHorn": 485,
-      "RightHorn": 485
+      "FacePaint": 262,
+      "Body": 1070,
+      "HairFront": 620,
+      "HairBack": 620,
+      "LeftHorn": 558,
+      "RightHorn": 558
     }
   },
-
-  "Smol": {
-    "layers": {
-      "SmolBody": 28
-    }
-  },
-
-  "Cookie": {
-    "layers": {
-      "HairBack": 24,
-      "Body": 36,
-      "Eyes": 17,
-      "Mouth": 17,
-      "HairFront": 24
-    }
-  },
-
-  "Magical2": {
-    "layers": {
-      "HairBack": 64,
-      "Body": 212,
-      "Eyes": 8,
-      "Mouth": 8,
-      "Glasses":5,
-      "HairFront": 67
-    }
-  },
-
-  "Vessel": {
-    "layers": {
-      "Head": 9,
-      "Torso": 7,
-      "Legs": 3
-    }
-  },
-
-
-  "MagicalDoll": {
-    "layers": {
-      "HairBack": 42,
-      "BowBack": 20,
-      "Body": 63,
-      "Socks": 16,
-      "Shoes": 13,
-      "Skirt": 46,
-      "BowFront": 27,
-      "Eyes": 12,
-      "Eyebrows": 3,
-      "Mouth": 8,
-      "HairFront": 42,
-      "Glasses": 15
-    }
-  },
-
-  "MonsterDoll": {
-    "layers": {
-      "HeadDecorations": 3,
-      "Nothair": 18,
-      "Head": 21,
-      "Arms": 10,
-      "Skirts": 25,
-      "Clothing": 10,
-      "Legs": 10,
-      "Torso": 1,
-      "NothairBack": 18,
-      "Wings": 5,
-      "Tail": 7,
-      "FX": 5
-    }
-  },
-
-  "Leaf": {
-    "layers": {
-      "Body": 25
-    }
-  },
-
   "Cherub": {
     "layers": {
-      "Mouth": 15,
-      "Wings": 2,
       "LeftEye": 35,
       "RightEye": 35,
+      "Mouth": 18,
+      "Symbol": 508,
+      "Glasses": 118,
+      "Glasses2": 118,
+      "FacePaint": 262,
+      "Wings": 2,
       "Cheeks": 24,
-      "Body": 239,
-      "Glasses": 113,
-      "Glasses2": 113
+      "HairBack": 620,
+      "HairFront": 620,
+      "Body": 242
     }
   },
-
   "Baby": {
     "layers": {
-      "Body": 11
+      "LeftEye": 415,
+      "RightEye": 415,
+      "Mouth": 369,
+      "Symbol": 508,
+      "Glasses": 376,
+      "Glasses2": 634,
+      "FacePaint": 262,
+      "Body": 13,
+      "HairFront": 620,
+      "HairBack": 620
     }
   },
-
-  "Kitten": {
-    "layers": {
-      "Body": 8
-    }
-  },
-
   "Grub": {
-    "landDwellerBodies": [0,1,2,3,4,5,6,7,8],
-    "seaDwellerBodies1": [9,10,11,12,13,14,15,16,17],
-    "seaDwellerBodies2": [18,19,20,21,22,23,24,26,26],
-    "upsideDownBodies": [7,8,26,25,16,17],
     "layers": {
-      "Body": 76
+      "LeftEye": 415,
+      "RightEye": 415,
+      "Mouth": 369,
+      "Symbol": 508,
+      "Glasses": 376,
+      "Glasses2": 634,
+      "FinLeft": 41,
+      "FinRight": 41,
+      "Wings": 129,
+      "CanonSymbol": 288,
+      "FacePaint": 262,
+      "Body": 78,
+      "HairFront": 620,
+      "HairBack": 620,
+      "LeftHorn": 558,
+      "RightHorn": 558
     }
   },
-  "HomestuckTreeBab": {
+  "TreeBab": {
     "layers": {
-      "Body": 3,
-      "ExtendedBody": 3
+      "LeftEye": 415,
+      "RightEye": 415,
+      "Mouth": 369,
+      "Symbol": 508,
+      "Glasses": 376,
+      "Glasses2": 634,
+      "FinLeft": 41,
+      "FinRight": 41,
+      "Wings": 129,
+      "CanonSymbol": 288,
+      "FacePaint": 262,
+      "Body": 12,
+      "HairFront": 620,
+      "HairBack": 620,
+      "LeftHorn": 558,
+      "RightHorn": 558
     }
   },
   "Consort": {
     "layers": {
-      "Body": 49
+      "Body": 72
     }
   },
-
   "Denizen": {
     "layers": {
-      "Back": 14,
-      "Core": 12,
-      "Body": 17,
       "AspectFace": 18,
+      "Back": 14,
       "Mouth": 17,
-      "Eyes": 21,
-      "Other": 11
+      "Other": 12,
+      "Body": 107,
+      "Core": 12,
+      "Eyes": 21
     }
   },
-
   "Dad": {
     "layers": {
-      "Base": 0,
-      "Hat": 14,
-      "Nose": 10,
+      "Hat": 15,
       "Shirt": 6,
-      "Pants": 10
+      "Pants": 10,
+      "Nose": 10,
+      "Base": 0
     }
   },
-
   "Mom": {
     "layers": {
-      "Base": 3,
-      "Outfit": 34,
-      "Mouth": 12,
       "Drink": 11,
-      "Hair": 57
+      "Outfit": 35,
+      "Hair": 64,
+      "Mouth": 12,
+      "Base": 3
     }
   },
-
   "Bro": {
     "layers": {
       "Base": 0,
-      "Outfit": 6,
-      "Hat": 5,
-      "Glasses": 7,
-      "Hair": 5
+      "Outfit": 10,
+      "Hair": 6,
+      "Glasses": 8,
+      "Hat": 6
     }
   },
-
   "Hiveswap": {
     "layers": {
-      "HairFront": 22,
-      "HairBack": 22,
-      "LeftFin": 3,
-      "RightFin": 3,
-      "Body": 13,
-      "Glasses": 6,
-      "FacePaint": 13,
+      "Body": 14,
       "EyeBrows": 7,
       "LeftEye": 14,
       "RightEye": 14,
+      "HairBack": 22,
+      "HairFront": 22,
       "LeftHorn": 16,
       "RightHorn": 16,
-      "Mouth": 24
+      "Mouth": 24,
+      "LeftFin": 3,
+      "RightFin": 3,
+      "Glasses": 6,
+      "FacePaint": 13
     }
   },
-
   "Pigeon": {
     "layers": {
       "Body": 1,
@@ -224,155 +171,88 @@
       "Tail": 1
     }
   },
-
   "Satyr": {
-    "defaultBody": 48,
-    "bannedBodies": [96,219,221,223,5,11,14,43,50,59,65,66,67,70,72,75,74,98,100,101,102,106,107,109,63,17],
     "layers": {
-      "SatyrSymbol": 21,
-      "Fluff": 19,
-      "Tail": 9,
-      "LeftHorn": 17,
-      "RightHorn": 17,
-      "FacePattern": 24
+      "LeftEye": 415,
+      "RightEye": 415,
+      "Mouth": 369,
+      "Symbol": 508,
+      "Glasses": 376,
+      "Glasses2": 634,
+      "LeftHorn": 22,
+      "RightHorn": 22,
+      "Fluff": 20,
+      "Tail": 10,
+      "SatyrSymbol": 23,
+      "FacePattern": 25,
+      "Body": 1070,
+      "HairFront": 620,
+      "HairBack": 620
     }
   },
-
-  "Queen": {
-    "parts": [
-      "Bird",
-      "Bug",
-      "Buggy_As_Fuck_Retro_Game",
-      "Butler",
-      "Cat",
-      "Chihuahua",
-      "Chinchilla",
-      "Clippy",
-      "Cow",
-      "Cowboy",
-      "Doctor",
-      "Dutton",
-      "Fly",
-      "Game_Bro",
-      "Game_Grl",
-      "Gerbil",
-      "Github",
-      "Golfer",
-      "Google",
-      "Horse",
-      "Husky",
-      "Internet_Troll",
-      "Kid_Rock",
-      "Librarian",
-      "Llama",
-      "Mosquito",
-      "Nic_Cage",
-      "Penguin",
-      "Pitbull",
-      "Pomeranian",
-      "Pony",
-      "Praying_Mantis",
-      "Rabbit",
-      "Robot",
-      "Sleuth",
-      "Sloth",
-      "Tissue",
-      "Web_Comic_Creator",
-      "Pigeon",
-      "Octopus",
-      "Worm",
-      "Kitten",
-      "Fish"
-    ]
-  },
-
-  "Duck": {
-    "layers": {
-      "Body": 43,
-      "Beak": 6,
-      "Eyes": 8,
-      "Glasses": 9,
-      "HairFront": 27,
-      "HairBack": 27,
-      "Symbol": 15
-    }
-  },
-
-  "Lamia": {
-    "seaDwellerBodies": [7,8,9,12,13,27,28,29,34,35,39,40,46,50,51,52,60,61,78],
-    "layers": {
-      "Body": 78
-    }
-  },
-
   "Monster Pocket": {
     "layers": {
-      "Body": 3,
-      "LeftArm": 3,
-      "RightArm": 3,
-      "Head": 3
+      "RightArm": 4,
+      "Head": 4,
+      "Body": 4,
+      "LeftArm": 4
     }
   },
-
   "Superb Suck": {
     "layers": {
-      "Body": 79,
-      "Face": 44,
-      "Hair": 63,
+      "Body": 87,
       "Symbol": 52,
-      "CanonSymbol": 288
+      "CanonSymbol": 288,
+      "Face": 44,
+      "Hair": 63
     }
   },
-
   "Virus": {
     "layers": {
-      "Capsid": 3,
-      "DecoLegs": 2,
-      "Body": 2,
       "Leg1": 3,
       "Leg2": 3,
       "Leg3": 3,
-      "Leg4": 3
+      "Leg4": 3,
+      "DecoLegs": 2,
+      "Capsid": 3,
+      "Body": 2
     }
   },
-
   "Dog": {
     "layers": {
-      "Tail": 3,
-      "Body": 4,
-      "ChestFur": 1,
-      "LeftHeadFur": 1,
+      "Tail": 7,
+      "Body": 6,
+      "ChestFur": 2,
       "RightHeadFur": 1,
-      "Head": 1,
-      "LeftEye": 3,
-      "RightEye": 3,
-      "LeftEar": 1,
-      "RightEar": 1,
-      "Snout": 3,
+      "Head": 2,
+      "LeftEye": 7,
+      "RightEye": 7,
+      "LeftHeadFur": 1,
+      "LeftEar": 2,
+      "RightEar": 2,
+      "Snout": 5,
       "Accessory": 3,
-      "BackLegs": 1,
-      "FrontLegs": 1
+      "BackLegs": 2,
+      "FrontLegs": 2
     }
   },
-
   "TalkSprite": {
     "layers": {
-      "HairFront": 19,
       "HairBack": 19,
       "Body": 3,
       "FacePaint": 3,
-      "Brows": 3,
-      "Mouth": 8,
+      "Accessory": 4,
       "LeftEye": 6,
       "RightEye": 6,
+      "Brows": 3,
+      "Mouth": 8,
       "Nose": 3,
-      "Accessory": 4,
-      "Shirt": 9,
-      "Symbol": 16,
-      "Hood": 12
+      "Shirt": 11,
+      "Symbol": 17,
+      "Hood": 12,
+      "HairFront": 19
     }
   },
-
   "EasterEgg": {
     "layers": {
       "Base": 113,
@@ -381,7 +261,6 @@
       "Top": 35
     }
   },
-
   "HatchedChick": {
     "layers": {
       "Base": 46,
@@ -390,17 +269,15 @@
       "Top": 61
     }
   },
-
   "Broom": {
     "layers": {
-      "Handle": 12,
-      "Head": 15
+      "Handle": 16,
+      "Head": 16
     }
   },
-
   "Cat": {
     "layers": {
-      "Tail": 25,
+      "Tail": 26,
       "Body": 5,
       "ChestFur": 2,
       "Head": 1,
@@ -412,77 +289,224 @@
       "Accessory": 0,
       "BackLegs": 2,
       "FrontLegs": 5,
-      "LeftHeadFur": 1,
-      "RightHeadFur": 1
+      "RightHeadFur": 1,
+      "LeftHeadFur": 1
     }
   },
-
   "BlobMonster": {
     "layers": {
-      "Body": 13,
-      "Horns": 14,
-      "Mouth": 13,
+      "Body": 14,
       "Eyes": 8,
-      "Limb": 8
+      "Mouth": 13,
+      "Horns": 14,
+      "Limb": 10
     }
   },
-
   "Ancestor": {
     "layers": {
-      "Body": 44,
       "Fin": 1,
       "BehindAccessory": 4,
-      "HairBack": 20,
+      "HairBack": 26,
+      "Body": 99,
       "Facepaint": 3,
-      "Mouth": 14,
-      "LeftEye": 8,
-      "RightEye": 8,
-      "FrontAccessory": 9,
-      "HairFront": 20,
-      "LeftHorn": 21,
-      "RightHorn": 21
+      "Mouth": 16,
+      "LeftEye": 12,
+      "RightEye": 12,
+      "FrontAccessory": 11,
+      "HairFront": 26,
+      "LeftHorn": 33,
+      "RightHorn": 33
     }
   },
-
   "OpenBound": {
     "layers": {
-      "HairFront": 33,
       "HairBack": 33,
-      "FinLeft": 1,
+      "Cape": 10,
       "FinRight": 1,
-      "Body": 48,
-      "Cape": 9,
+      "Body": 53,
       "Mouth": 8,
-      "EyeLeft": 9,
       "EyeRight": 9,
+      "EyeLeft": 9,
       "Accessory": 28,
+      "HairFront": 33,
+      "FinLeft": 1,
       "Accessory2": 28,
-      "HornLeft": 17,
       "HornRight": 17,
+      "HornLeft": 17,
       "Symbol": 22
     }
   },
-
   "Fek": {
     "layers": {
-      "Body": 22,
+      "Body": 61,
+      "Face": 21,
+      "FacePaint": 11,
+      "Hair": 52,
+      "Horns": 18,
+      "Symbol": 22,
       "canonSymbol": 288,
-      "Face": 15,
-      "Text": 11,
-      "Glasses": 10,
-      "Hair": 34,
-      "Horns": 17,
-      "Symbol": 20,
-      "FacePaint": 5
+      "Glasses": 34,
+      "Text": 27
     }
   },
-
+  "Flower": {
+    "layers": {
+      "Body": 28
+    }
+  },
+  "Fruit": {
+    "layers": {
+      "Body": 91
+    }
+  },
+  "Smol": {
+    "layers": {
+      "LeftEye": 415,
+      "RightEye": 415,
+      "Mouth": 369,
+      "Symbol": 508,
+      "Glasses": 376,
+      "Glasses2": 634,
+      "FacePaint": 262,
+      "SmolBody": 30,
+      "HairFront": 620,
+      "HairBack": 620
+    }
+  },
+  "SmolButTroll": {
+    "layers": {
+      "LeftEye": 415,
+      "RightEye": 415,
+      "Mouth": 369,
+      "Symbol": 508,
+      "Glasses": 376,
+      "Glasses2": 634,
+      "FinLeft": 41,
+      "FinRight": 41,
+      "Wings": 129,
+      "CanonSymbol": 288,
+      "FacePaint": 262,
+      "SmolBody": 30,
+      "HairFront": 620,
+      "HairBack": 620,
+      "LeftHorn": 558,
+      "RightHorn": 558
+    }
+  },
+  "Duck": {
+    "layers": {
+      "HairBack": 27,
+      "Body": 46,
+      "Symbol": 16,
+      "Eyes": 9,
+      "Beak": 6,
+      "Glasses": 9,
+      "HairFront": 27
+    }
+  },
+  "Lamia": {
+    "layers": {
+      "LeftEye": 415,
+      "RightEye": 415,
+      "Mouth": 369,
+      "Symbol": 508,
+      "Glasses": 376,
+      "Glasses2": 634,
+      "FinLeft": 41,
+      "FinRight": 41,
+      "Wings": 129,
+      "CanonSymbol": 288,
+      "FacePaint": 262,
+      "Body": 159,
+      "HairFront": 620,
+      "HairBack": 620,
+      "LeftHorn": 558,
+      "RightHorn": 558
+    }
+  },
   "Doc": {
     "layers": {
+      "Legs": 14,
       "Body": 11,
-      "Head": 37,
-      "Accessory": 4,
-      "Legs": 14
+      "Head": 41,
+      "Accessory": 5
+    }
+  },
+  "Vessel": {
+    "layers": {
+      "Legs": 3,
+      "Torso": 7,
+      "Head": 11
+    }
+  },
+  "MagicalDoll": {
+    "layers": {
+      "HairBack": 43,
+      "BowBack": 20,
+      "Body": 64,
+      "Socks": 16,
+      "Shoes": 13,
+      "Skirt": 52,
+      "BowFront": 27,
+      "Eyes": 12,
+      "Eyebrows": 3,
+      "Mouth": 8,
+      "HairFront": 43,
+      "Glasses": 15
+    }
+  },
+  "MonsterDoll": {
+    "layers": {
+      "FX": 5,
+      "Tail": 7,
+      "Wings": 6,
+      "NothairBack": 19,
+      "Torso": 1,
+      "Legs": 15,
+      "Clothing": 16,
+      "Skirts": 33,
+      "Arms": 11,
+      "Head": 29,
+      "Nothair": 19,
+      "HeadDecorations": 3
+    }
+  },
+  "Kitten": {
+    "layers": {
+      "LeftEye": 415,
+      "RightEye": 415,
+      "Mouth": 369,
+      "Symbol": 508,
+      "Glasses": 376,
+      "Glasses2": 634,
+      "LeftHorn": 22,
+      "RightHorn": 22,
+      "Fluff": 20,
+      "Tail": 10,
+      "SatyrSymbol": 23,
+      "FacePattern": 25,
+      "Body": 8,
+      "HairFront": 620,
+      "HairBack": 620
+    }
+  },
+  "Cookie": {
+    "layers": {
+      "HairBack": 27,
+      "Body": 43,
+      "Eyes": 17,
+      "Mouth": 17,
+      "HairFront": 27
+    }
+  },
+  "Magical2": {
+    "layers": {
+      "HairBack": 143,
+      "Body": 426,
+      "Eyes": 48,
+      "Mouth": 24,
+      "HairFront": 143,
+      "Glasses": 113
     }
   }
 }
