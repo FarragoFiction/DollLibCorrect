@@ -21,6 +21,8 @@ Future<void> main() async {
 void handleGeneratingJSON() async {
     TextAreaElement jsonElement = new TextAreaElement();
     output.append(jsonElement);
+    LabelElement label = new LabelElement()..text = "warning, takes a while to load json, this is why we cache it";
+    output.append(label);
     jsonElement.value = jsonEncode(await DollDataGenerator.generateAllData());
 }
 
@@ -186,7 +188,7 @@ void dumbshittest(Doll doll) async {
 
 Future<void> renderEverythingAndLoad() async {
     for(int type in Doll.allDollTypes) {
-        print("rendering type $type");
+        //print("rendering type $type");
         try {
             await renderAndLoadDoll(type);
         }catch(e,trace) {

@@ -107,7 +107,7 @@ class Magical2Doll extends Doll{
 
   void makeOtherColorsDarker(Palette p, String sourceKey, List<String> otherColorKeys) {
     String referenceKey = sourceKey;
-    print("$name, is going to make other colors darker than $sourceKey, which is ${p[referenceKey]}, other colors are $otherColorKeys");
+    //print("$name, is going to make other colors darker than $sourceKey, which is ${p[referenceKey]}, other colors are $otherColorKeys");
     for(String key in otherColorKeys) {
       //print("$name is going to make $key darker than $sourceKey");
       p.add(key, new Colour(p[referenceKey].red, p[referenceKey].green, p[referenceKey].blue)..setHSV(p[referenceKey].hue, p[referenceKey].saturation, 2*p[referenceKey].value / 3), true);
