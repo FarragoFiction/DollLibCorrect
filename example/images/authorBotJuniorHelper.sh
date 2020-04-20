@@ -20,7 +20,7 @@ do
     done
     echo last biggest number is $bigNum
 
-    for file in $f/*.png
+    for file in  `ls $f/*.png | sort -V`
     do
         bigNum=$((bigNum + 1))
         newFile=${f}/${bigNum}jr.png
