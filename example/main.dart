@@ -21,7 +21,7 @@ Future<void> main() async {
 void handleGeneratingJSON() async {
     TextAreaElement jsonElement = new TextAreaElement();
     output.append(jsonElement);
-    DivElement label = new DivElement()..text = "warning, takes a while to load json, this is why we cache it";
+    DivElement label = new DivElement()..text = "warning, takes a while to load json, this is why we cache it. once its populated, put it into lib/dolldata.json";
     AnchorElement link = new AnchorElement(href:"https://jsonformatter.org/json-pretty-print")..text = "JSON Prettifier";
     output.append(link);
     output.append(label);
