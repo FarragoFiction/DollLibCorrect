@@ -87,7 +87,9 @@ abstract class DollDataGenerator {
         }
         for(String key in ret.keys) {
             print("key is $key");
-            await processLayersForDollData(ret[key]);
+            if(key != "Queen") {
+                await processLayersForDollData(ret[key]);
+            }
         }
         print("going to return $ret with keys ${ret.keys}");
         return ret;
