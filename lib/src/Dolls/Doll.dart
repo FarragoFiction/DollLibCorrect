@@ -786,10 +786,18 @@ abstract class Doll {
         Map<String,dynamic> ret = new Map<String, dynamic>();
         for(SpriteLayer layer in dataOrderLayers) {
             ret[layer.name] = -13;
-            ret["${layer.name}_loc"] = layer.imgNameBase;
         }
         return ret;
     }
+
+    Map<String, dynamic> toDollDataLayersURLs() {
+        Map<String,dynamic> ret = new Map<String, dynamic>();
+        for(SpriteLayer layer in dataOrderLayers) {
+            ret["${layer.name}"] = layer.imgNameBase;
+        }
+        return ret;
+    }
+
 
     //first, the rendering type. (this will get taken off before being passed to the loader)
     //numColors, colors, numLayers, layers
