@@ -1,11 +1,11 @@
 name: DollLibCorrect
 description: Doll rendering library
-version: 2.2.0
+version: 2.8.1
 homepage: https://github.com/FarragoFiction/DollLibCorrect
 author: jadedResearcher, paradoxLands
 
 environment:
-  sdk: '>=2.2.0 <3.0.0'
+  sdk: '>=2.8.1 <3.0.0'
 
 dependencies:
   js: ^0.6.0
