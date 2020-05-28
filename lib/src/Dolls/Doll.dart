@@ -175,8 +175,8 @@ abstract class Doll {
 
     Doll() {
         if(!window.location.hostname.contains("farrago")) {
-            useAbsolutePath = false;
-             //absolutePathStart = "http://www.farragofiction.com/DollSource/";
+            //useAbsolutePath = false;
+             absolutePathStart = "http://www.farragofiction.com/DollSource/";
         }
         //TODO: clean this up after conversion
         SpriteLayer.legacyConstructorDoll = this;
