@@ -59,7 +59,7 @@ class LeafDoll extends Doll {
 
     @override
     void initLayers() {
-        body = layer("Leaf.Body", "Body/", 1);//new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
+        body = layer("LeafClump.Body", "Body/", 1);//new SpriteLayer("Body", "$folder/Body/", 1, maxBody);
     }
 
     @override

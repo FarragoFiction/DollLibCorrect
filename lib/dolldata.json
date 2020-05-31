@@ -483,6 +483,11 @@
       "Text": 27
     }
   },
+  "LeafClump": {
+    "layers": {
+      "Body": 26
+    }
+  },
   "Flower": {
     "layers": {
       "Body": 28

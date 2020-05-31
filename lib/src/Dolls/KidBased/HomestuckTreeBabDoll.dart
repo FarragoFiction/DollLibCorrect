@@ -151,7 +151,7 @@ class HomestuckTreeBab extends HomestuckLamiaDoll {
     {
         super.initLayers();
         body = new SpriteLayer("Body","$folder/TreeBab/", 0, maxBody, legacy:true);
-        extendedBody = layer("HomestuckTreeBab.Body", "TreeBab/", 0, mb:true);//new SpriteLayer("Body","$folder/Grub/", 0, maxBody, supportsMultiByte: true);
+        extendedBody = layer("TreeBab.Body", "TreeBab/", 0, mb:true);//new SpriteLayer("Body","$folder/Grub/", 0, maxBody, supportsMultiByte: true);
 
 
     }

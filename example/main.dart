@@ -14,7 +14,7 @@ Future<void> main() async {
     DateTime startTime = new DateTime.now();
     //Doll doll = Doll.randomDollOfType(85);
     //new TimeProfiler("load doll", startTime);
-    handleGeneratingJSON();
+    //handleGeneratingJSON();
     start();
 }
 
