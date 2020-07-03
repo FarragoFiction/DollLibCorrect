@@ -9,7 +9,8 @@ class OpenBoundDoll extends Doll{
 
   @override
   String originalCreator = "NER0";
-
+  @override
+  bool facesRight = false;
   @override
   int renderingType =21;
 

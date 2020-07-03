@@ -12,7 +12,8 @@ class FekDoll extends Doll{
 
   @override
   String originalCreator = "nebulousHarmony and Firanka";
-
+  @override
+  bool facesRight = false;
   @override
   int renderingType =28;
 

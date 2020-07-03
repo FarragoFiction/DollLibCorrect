@@ -6,7 +6,8 @@ class MonsterGirlDoll extends MagicalDoll {
 
     @override
     int renderingType =427;
-
+    @override
+    bool facesRight = false;
     @override
     int width = 600;
     @override

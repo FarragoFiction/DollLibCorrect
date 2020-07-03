@@ -14,7 +14,8 @@ class MagicalDoll extends HatchableDoll{
 
   @override
   String originalCreator = "Popo Merrygamz";
-
+  @override
+  bool facesRight = false;
   @override
   int renderingType =45;
 

@@ -18,7 +18,7 @@ abstract class Doll {
     String get label => "$dollName$labelPattern";
     String nameFileLocation = "names";
     //subclasses override this for specifics
-
+    bool facesRight = true; //most do, override if not (used for LOSAS)
     //kr seems to be using a specific formula, lets see if its consistent
     String get nameGeneratorSection {
         String ret = "dollname_${name.toLowerCase()}";

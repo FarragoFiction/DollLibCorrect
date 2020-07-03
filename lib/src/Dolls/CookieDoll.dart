@@ -23,7 +23,8 @@ class CookieDoll extends Doll{
 
   @override
   String name = "Cookie";
-
+  @override
+  bool facesRight = false;
   @override
   String relativefolder = "images/Cookie";
 
