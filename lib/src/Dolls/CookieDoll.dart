@@ -32,7 +32,8 @@ class CookieDoll extends Doll{
   SpriteLayer mouth;
   SpriteLayer hairBack;
   SpriteLayer hairFront;
-
+  @override
+  bool facesRight = false;
   List<String> jrs_skin_collection = <String>["#CFCFCF","#FFDBAC", "#F1C27D" ,"#E0AC69" ,"#C68642", "#8D5524"];
   List<String> human_hair_colors = <String>["#FFD4DB", "#8CBCCA", "#BF6C80", "#F7DA7C", "#735A77","#2C222B", "#FFF5E1", "#B89778", "#A56B46", "#B55239", "#8D4A43", "#3B3024", "#504444","#68410a", "#fffffe", "#000000", "#000000", "#000000", "#f3f28d", "#cf6338", "#feffd7", "#fff3bd", "#724107", "#382207", "#ff5a00", "#3f1904", "#ffd46d", "#473200", "#91683c"];
 

@@ -13,7 +13,8 @@ class MonsterPocketDoll extends Doll {
     int maxRightArm = 3;
     int maxLeftArm = 3;
     int maxHead = 3;
-
+    @override
+    bool facesRight = false;
     String relativefolder = "images/MonsterPocket";
 
     @override

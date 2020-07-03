@@ -17,6 +17,7 @@ abstract class Doll {
     //whatever calls me is responsible for deciding if it wants to be url encoded or not
     String get label => "$dollName$labelPattern";
     String nameFileLocation = "names";
+    bool facesRight = true; //most do, override if not (used for LOSAS)
     //subclasses override this for specifics
 
     //kr seems to be using a specific formula, lets see if its consistent

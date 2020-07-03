@@ -11,7 +11,8 @@ class MonsterGirlDoll extends MagicalDoll {
     int width = 600;
     @override
     int height = 600;
-
+    @override
+    bool facesRight = false;
     @override
     String name = "MonsterDoll";
 

@@ -15,7 +15,8 @@ class FekDoll extends Doll{
 
   @override
   int renderingType =28;
-
+  @override
+  bool facesRight = false;
   @override
   int width = 214;
   @override

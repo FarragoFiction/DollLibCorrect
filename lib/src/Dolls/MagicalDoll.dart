@@ -28,7 +28,8 @@ class MagicalDoll extends HatchableDoll{
 
   @override
   String relativefolder = "images/MagicalDoll";
-
+  @override
+  bool facesRight = false;
   SpriteLayer hairBack;
   SpriteLayer bowBack;
   SpriteLayer body;

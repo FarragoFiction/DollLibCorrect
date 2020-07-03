@@ -32,7 +32,8 @@ class OpenBoundDoll extends Doll{
   final int maxHorn = 14;
   final int maxMouth = 7;
   final int maxSymbol = 21;
-
+  @override
+  bool facesRight = false;
 
 
   SpriteLayer accessory;

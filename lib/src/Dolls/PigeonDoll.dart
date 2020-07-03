@@ -14,6 +14,9 @@ class PigeonDoll extends Doll {
     int maxHead = 3;
     int maxTail = 0;
     int maxWing = 1;
+    @override
+    bool facesRight = false;
+
 
     String relativefolder = "images/Pigeon";
 
