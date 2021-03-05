@@ -18,11 +18,11 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     @override
     final int maxBody = 26;
 
-    static List<int> landDwellerBodies = Doll.dataList("Grub.landDwellerBodies");// <int>[0,1,2,3,4,5,6,7,8];
+    static List<int> landDwellerBodies = Doll.dataList("Grub.landDwellerBodies")!;// <int>[0,1,2,3,4,5,6,7,8];
 
-    static List<int> seadwellerBodies1 = Doll.dataList("Grub.seaDwellerBodies1");// <int>[9,10,11,12,13,14,15,16,17];
-    static List<int> seadwellerBodies2 = Doll.dataList("Grub.seaDwellerBodies2");// <int>[18,19,20,21,22,23,24,26,26];
-    static List<int> upsideDownBodies = Doll.dataList("Grub.upsideDownBodies");// <int>[7,8,26,25,16,17];
+    static List<int> seadwellerBodies1 = Doll.dataList("Grub.seaDwellerBodies1")!;// <int>[9,10,11,12,13,14,15,16,17];
+    static List<int> seadwellerBodies2 = Doll.dataList("Grub.seaDwellerBodies2")!;// <int>[18,19,20,21,22,23,24,26,26];
+    static List<int> upsideDownBodies = Doll.dataList("Grub.upsideDownBodies")!;// <int>[7,8,26,25,16,17];
 
 
     @override
@@ -51,7 +51,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
 
 
 
-    HomestuckGrubDoll([int sign]) {
+    HomestuckGrubDoll([int? sign]) {
         initLayers();
         randomize();
         if(sign != null) {
@@ -96,7 +96,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
     void pickCasteAppropriateBody() {
         Random hairRand = new Random(extendedHairBack.imgNumber);
         hairRand.nextInt(); //init;
-        List<int> choices = new List<int>();
+        List<int> choices = <int>[];
         //should match up to wigglersim
         if(bloodColor == HomestuckTrollDoll.VIOLET || bloodColor == HomestuckTrollDoll.FUCHSIA) {
             //print("TEST: it's a seadweller");
@@ -128,7 +128,7 @@ class HomestuckGrubDoll extends HomestuckTrollDoll {
         });
 
        // print("choices are $choices");
-        extendedBody.imgNumber =  hairRand.pickFrom(choices);
+        extendedBody.imgNumber =  hairRand.pickFrom(choices)!;
     }
 
     @override

@@ -40,19 +40,19 @@ class PupperDoll extends Doll{
 
 
 
-  SpriteLayer accessory;
-  SpriteLayer backLegs;
-  SpriteLayer body;
-  SpriteLayer frontLegs;
-  SpriteLayer head;
-  SpriteLayer leftEar;
-  SpriteLayer leftEye;
-  SpriteLayer leftHeadFur;
-  SpriteLayer rightEar;
-  SpriteLayer rightEye;
-  SpriteLayer rightHeadFur;
-  SpriteLayer snout;
-  SpriteLayer tail;
+  late SpriteLayer accessory;
+  late SpriteLayer backLegs;
+  late SpriteLayer body;
+  late SpriteLayer frontLegs;
+  late SpriteLayer head;
+  late SpriteLayer leftEar;
+  late SpriteLayer leftEye;
+  late SpriteLayer leftHeadFur;
+  late SpriteLayer rightEar;
+  late SpriteLayer rightEye;
+  late SpriteLayer rightHeadFur;
+  late SpriteLayer snout;
+  late SpriteLayer tail;
 
 
 
@@ -97,7 +97,7 @@ class PupperDoll extends Doll{
   void randomizeColors() {
             if(rand == null) rand = new Random();;
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
-    Palette newPallete = rand.pickFrom(paletteOptions);
+    Palette newPallete = rand.pickFrom(paletteOptions)!;
     if(newPallete == ReferenceColours.INK) {
       super.randomizeColors();
     }else {
@@ -120,7 +120,7 @@ class PupperDoll extends Doll{
     int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
     Random rand  = new Random(seed);
     quirkButDontUse = Quirk.randomHumanQuirk(rand);
-    quirkButDontUse.lettersToReplaceIgnoreCase = [["^.*\$", "Woof"],["[.]\$", "Bark"],["[.]\$", "Yip"],];
+    quirkButDontUse!.lettersToReplaceIgnoreCase = [["^.*\$", "Woof"],["[.]\$", "Bark"],["[.]\$", "Yip"],];
 
   }
 
@@ -144,7 +144,7 @@ class PupperDoll extends Doll{
       frontLegs = new SpriteLayer("FrontLegs","$folder/frontLeg/", 1, maxFrontLegs);
 
 
-      rightHeadFur.syncedWith.add(leftHeadFur);
+      rightHeadFur.syncedWith?.add(leftHeadFur);
       leftHeadFur.slave = true; //can't be selected on it's own
 
 

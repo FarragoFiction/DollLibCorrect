@@ -30,9 +30,9 @@ class VesselDoll extends Doll{
   //final int maxTorso = 4;
   //final int maxLegs = 3;
 
-  SpriteLayer torso;
-  SpriteLayer head;
-  SpriteLayer legs;
+  late SpriteLayer torso;
+  late SpriteLayer head;
+  late SpriteLayer legs;
 
   @override
   List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[legs, torso, head];
@@ -72,7 +72,7 @@ class VesselDoll extends Doll{
   void randomizeColors() {
             if(rand == null) rand = new Random();;
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
-    Palette newPallete = rand.pickFrom(paletteOptions);
+    Palette newPallete = rand.pickFrom(paletteOptions)!;
     if(newPallete == ReferenceColours.INK) {
       super.randomizeColors();
     }else {

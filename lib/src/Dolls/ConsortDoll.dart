@@ -8,7 +8,7 @@ class ConsortDoll extends Doll {
     int maxBody = 45;
     String relativefolder = "images/Homestuck";
 
-    SpriteLayer body;
+    late SpriteLayer body;
 
     @override
     List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body];

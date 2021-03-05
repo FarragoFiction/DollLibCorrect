@@ -37,8 +37,8 @@ class HomestuckCherubDoll extends HomestuckDoll {
     @override
     int maxGlass2 = 113;
 
-    SpriteLayer cheeks;
-    SpriteLayer wings;
+    late SpriteLayer cheeks;
+    late SpriteLayer wings;
 
 
 
@@ -57,7 +57,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
 
 
 
-    HomestuckCherubDoll([int sign]) :super() {
+    HomestuckCherubDoll([int? sign]) :super() {
         if(sign != null) {
             //makes sure palette is sign appropriate
             randomize();
@@ -139,7 +139,7 @@ class HomestuckCherubDoll extends HomestuckDoll {
                 if(rand == null) rand = new Random();;
         HomestuckPalette h = palette as HomestuckPalette;
         List<HomestuckPalette> paletteOptions = new List<HomestuckPalette>.from(ReferenceColours.paletteList.values);
-        HomestuckPalette newPallete = rand.pickFrom(paletteOptions);
+        HomestuckPalette newPallete = rand.pickFrom(paletteOptions)!;
         if(newPallete == ReferenceColours.INK) {
             tackyColors();
         }else {

@@ -17,9 +17,9 @@ import "Layers/SpriteLayer.dart";
  */
 
 class PngDoll extends Doll {
-  PNGWrapperSpriteLayer pngWrapper;
+    late PNGWrapperSpriteLayer pngWrapper;
   @override
-  List<SpriteLayer>  renderingOrderLayers  =  new List<SpriteLayer>();
+  List<SpriteLayer>  renderingOrderLayers  =  <SpriteLayer>[];
   //empty
   Palette palette = new Palette();
 
@@ -32,8 +32,8 @@ class PngDoll extends Doll {
   Future<void> getWidthFiguredOut() async {
       if(width == null) {
           ImageElement image = await Loader.getResource((renderingOrderLayers.first.imgLocation));
-          width = image.width;
-          height = image.height;
+          width = image.width!;
+          height = image.height!;
           print("loaded image of ${width} and height ${height}. ");
       }
   }

@@ -38,19 +38,19 @@ class TalkSpriteDoll extends Doll{
   final int maxBody = 0;
   final int maxFacePaint = 2;
 
-  SpriteLayer accessory;
-  SpriteLayer symbol;
-  SpriteLayer hood;
-  SpriteLayer brows;
-  SpriteLayer leftEye;
-  SpriteLayer hairBack;
-  SpriteLayer hairFront;
-  SpriteLayer rightEye;
-  SpriteLayer mouth;
-  SpriteLayer nose;
-  SpriteLayer shirt;
-  SpriteLayer body;
-  SpriteLayer facePaint;
+  late SpriteLayer accessory;
+  late SpriteLayer symbol;
+  late SpriteLayer hood;
+  late SpriteLayer brows;
+  late SpriteLayer leftEye;
+  late SpriteLayer hairBack;
+  late SpriteLayer hairFront;
+  late SpriteLayer rightEye;
+  late SpriteLayer mouth;
+  late SpriteLayer nose;
+  late SpriteLayer shirt;
+  late SpriteLayer body;
+  late SpriteLayer facePaint;
 
 
   @override
@@ -114,7 +114,7 @@ class TalkSpriteDoll extends Doll{
     List<String> human_hair_colors = <String>["#68410a", "#fffffe", "#000000", "#000000", "#000000", "#f3f28d", "#cf6338", "#feffd7", "#fff3bd", "#724107", "#382207", "#ff5a00", "#3f1904", "#ffd46d", "#473200", "#91683c"];
 
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
-    Palette newPallete = rand.pickFrom(paletteOptions);
+    Palette newPallete = rand.pickFrom(paletteOptions)!;
     if(newPallete == ReferenceColours.INK) {
       super.randomizeColors();
     }else {

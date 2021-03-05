@@ -7,7 +7,7 @@ import 'package:DollLibCorrect/src/commonImports.dart';
 import "generateDollDataJSON.dart";
 import "package:LoaderLib/Loader.dart";
 
-Element output = querySelector('#output');
+Element? output = querySelector('#output');
 Future<void> main() async {
     await Doll.loadFileData();
 
@@ -20,15 +20,15 @@ Future<void> main() async {
 
 void handleGeneratingJSON() async {
     TextAreaElement jsonElement = new TextAreaElement();
-    output.append(jsonElement);
+    output?..append(jsonElement);
     DivElement label = new DivElement()..text = "warning, takes a while to load json, this is why we cache it. once its populated, put it into lib/dolldata.json";
     AnchorElement link = new AnchorElement(href:"https://jsonformatter.org/json-pretty-print")..text = "JSON Prettifier";
-    output.append(link);
-    output.append(label);
+    output?..append(link);
+    output?..append(label);
     jsonElement.value = jsonEncode(await DollDataGenerator.generateAllData());
 }
 
-//remember you can turn debug statements on to print on screen     //doll.visualizeData(output);
+//remember you can turn debug statements on to print on screen     //doll.visualizeData(output?.;
 Future<void> start() async {
     //await Loader.loadManifest();
     await breedTest();
@@ -52,20 +52,20 @@ Future<void> start() async {
         await drawDoll(doll2);
         //convertDollToTreeBab();
     }catch(error,trace) {
-        output.appendHtml("ERROR DRAWING DOLL: $error");
+        output?..appendHtml("ERROR DRAWING DOLL: $error");
         window.console.error([error,trace]);
     }
 
     //makeForestOfDollOfTypeNewColors(doll,44);
 }
 
-void convertDollToTreeBab() async {
+Future<void> convertDollToTreeBab() async {
     Doll doll = Doll.loadSpecificDoll("Othala Grigor:___ArBiZAE3y4Onju8-Fr_94nuZzk9AAAAAAAAAA_wAAAADy4Onyqs7y4OkTExMAAAApHVMgFUYA_wAA_wBJSUlpuMgzMzMREREIgE_AJ-AUrANWl0AbcA24BowDR4=");
     await drawDoll(doll);
     doll = Doll.convertOneDollToAnother(doll, new HomestuckTreeBab());
     (doll as HomestuckTreeBab).extendedBody.imgNumber = 1;
-    (doll as HomestuckTreeBab).body.imgNumber = 1;
-    HomestuckLamiaPalette h = doll.palette;
+    doll.body.imgNumber = 1;
+    HomestuckLamiaPalette h = doll.palette as HomestuckLamiaPalette;
     final String light = h.aspect_light.toStyleString();
         h.horn1 = new Colour.fromStyleString(light);
 
@@ -98,12 +98,12 @@ Future<void> lifeSpanTest() async {
     HomestuckGrubDoll wiggler = new HomestuckGrubDoll();
 
     CanvasElement newCanvas = new CanvasElement(width: wiggler.width*2, height: wiggler.height);
-    output.append(newCanvas);
+    output?.append(newCanvas);
 
 
     CanvasElement canvas = await wiggler.getNewCanvas(true);
 
-    SmolTrollDoll doll = wiggler.hatch();
+    SmolTrollDoll doll = wiggler.hatch() as SmolTrollDoll;
 
     CanvasElement canvas2 = await doll.getNewCanvas(true);
 
@@ -126,11 +126,11 @@ Future<void> monstrousTest() async {
         MagicalDoll doll = new MagicalDoll();
         doll.copyPalette(choice);
         div.append(await doll.getNewCanvas()..style.display = "inline-block");
-        MonsterGirlDoll monster = doll.hatch();
+        MonsterGirlDoll monster = doll.hatch() as MonsterGirlDoll;
         div.append(await monster.getNewCanvas()..style.display = "inline-block");
-        output.append(div);
+        output?.append(div);
         DivElement doop = new DivElement()..text = "Not Hair: ${monster.notHairFront.imgNumber}";
-        output.append(doop);
+        output?.append(doop);
 
     }
 
@@ -138,11 +138,11 @@ Future<void> monstrousTest() async {
         DivElement div = new DivElement();
         MagicalDoll doll = new MagicalDoll();
         div.append(await doll.getNewCanvas()..style.display = "inline-block");
-        MonsterGirlDoll monster = doll.hatch();
+        MonsterGirlDoll monster = doll.hatch() as MonsterGirlDoll;
         div.append(await monster.getNewCanvas()..style.display = "inline-block");
-        output.append(div);
+        output?.append(div);
         DivElement doop = new DivElement()..text = "Not Hair: ${monster.notHairFront.imgNumber}";
-        output.append(doop);
+        output?.append(doop);
     }
 
 }
@@ -160,7 +160,7 @@ Future<void> runTests() async{
 
 Future<void> testPartial() async {
     DivElement me = new DivElement()..style.border = "3px solid black";
-    output.append(me);
+    output?.append(me);
     TreeDoll tree = new TreeDoll();
     tree.flowerTime = true;
     CanvasElement canvas = await tree.getNewCanvas(true);
@@ -215,7 +215,7 @@ void maxAllLayers(Doll doll) {
 
 Future<void> renderAndLoadDoll(int type) async {
     DivElement us = new DivElement()..style.border = "3px solid black";
-    output.append(us);
+    output?.append(us);
     try {
 
         Doll doll = Doll.randomDollOfType(type);
@@ -246,14 +246,14 @@ Future<void> clickTest() async {
     TreeDoll tree = new TreeDoll();
     tree.fruitTime = true;
     CanvasElement canvas = await tree.getNewCanvas(true);
-    output.append(canvas);
+    output?.append(canvas);
 
     canvas.onClick.listen((MouseEvent e){
-        for(PositionedDollLayer dollLayer in tree.hangables) {
+        for(PositionedDollLayer dollLayer in tree.hangables.whereType()) {
             Rectangle rect = canvas.getBoundingClientRect();
             Point point = new Point(e.client.x-rect.left, e.client.y-rect.top);
             bool clicked = dollLayer.pointInsideMe(point);
-            print("Did click on ${dollLayer.doll.dollName} with seed ${dollLayer.doll.seed}: $clicked");
+            print("Did click on ${dollLayer.doll!.dollName} with seed ${dollLayer.doll!.seed}: $clicked");
         }
     });
 
@@ -265,21 +265,21 @@ Future<void> breedGrubTest() async {
     HomestuckDoll fruit = new HomestuckDoll();
 
     CanvasElement childCanvas = await fruit.getNewCanvas(true)..style.display;
-    output.appendHtml("<br>");
-    output.append(childCanvas);
-    output.append(new SpanElement()..text = "First Parent");
+    output?.appendHtml("<br>");
+    output?.append(childCanvas);
+    output?.append(new SpanElement()..text = "First Parent");
     HomestuckDoll fruit2 = new HomestuckDoll();
 
     CanvasElement childCanvas2 = await fruit2.getNewCanvas(true);
-    output.append(childCanvas2);
-    output.append(new SpanElement()..text = "Second Parent");
+    output?.append(childCanvas2);
+    output?.append(new SpanElement()..text = "Second Parent");
 
     for(int i = 0; i <10; i++) {
         //FruitDoll fruit2 = new FruitDoll();
         Doll child = Doll.breedDolls(<Doll>[fruit,fruit2]);
         CanvasElement childCanvas = await child.getNewCanvas(true);
-        output.append(childCanvas);
-        output.append(new SpanElement()..text = "${child.dollName}");
+        output?.append(childCanvas);
+        output?.append(new SpanElement()..text = "${child.dollName}");
     }
 }
 
@@ -287,21 +287,21 @@ Future<void> breedGrubTest() async {
 Future<void> breedTest() async {
     FruitDoll fruit = new FruitDoll();
     CanvasElement canvas = await fruit.getNewCanvas(true);
-    output.append(canvas);
-    output.append(new SpanElement()..text = "First Parent");
+    output?.append(canvas);
+    output?.append(new SpanElement()..text = "First Parent");
 
     FruitDoll fruit2 = new FruitDoll();
     CanvasElement canvas2 = await fruit2.getNewCanvas(true);
-    output.append(canvas2);
-    output.append(new SpanElement()..text = "Second Parent");
+    output?.append(canvas2);
+    output?.append(new SpanElement()..text = "Second Parent");
 
     for(int i = 0; i <10; i++) {
         //FruitDoll fruit2 = new FruitDoll();
         Doll child = Doll.breedDolls(<Doll>[fruit, fruit2]);
         CanvasElement childCanvas = await child.getNewCanvas(true);
-        output.append(childCanvas);
+        output?.append(childCanvas);
         (child as FruitDoll).setName();
-        output.append(new SpanElement()..text = "${child.dollName}");
+        output?.append(new SpanElement()..text = "${child.dollName}");
     }
 }
 
@@ -314,16 +314,16 @@ Future<void> breedTestTrees() async {
 
     //fruit.body.imgNumber = 74;
     CanvasElement canvas = await tree.getNewCanvas(true);
-    output.append(canvas);
-    output.append(new SpanElement()..text = "${tree.fruitTemplate.dollName}");
+    output?.append(canvas);
+    output?.append(new SpanElement()..text = "${tree.fruitTemplate!.dollName}");
     for(int i = 0; i <3; i++) {
         //FruitDoll fruit2 = new FruitDoll();
-        TreeDoll child = Doll.breedDolls(<Doll>[tree]);
+        TreeDoll child = Doll.breedDolls(<Doll>[tree]) as TreeDoll;
         print("after breeding the fruit template of the child is ${child.fruitTemplate}");
         child.fruitTime = true;
         CanvasElement childCanvas = await child.getNewCanvas(true);
-        output.append(childCanvas);
-        output.append(new SpanElement()..text = "${child.fruitTemplate.dollName}");
+        output?.append(childCanvas);
+        output?.append(new SpanElement()..text = "${child.fruitTemplate!.dollName}");
     }
 }
 
@@ -335,20 +335,20 @@ Future<void> speedTest() async {
         print("elapsed: ${now - then}ms");
     }
 
-    final TreeDoll doll = Doll.randomDollOfType(33);
+    final TreeDoll doll = Doll.randomDollOfType(33) as TreeDoll;
     doll.fruitTime = true;
 
     CanvasElement canvas = await doll.getNewCanvas(true);
-    output.append(canvas);
+    output?.append(canvas);
 
     await test(() async{
         CanvasElement canvas = await doll.getNewCanvasLegacy(true);
-        output.append(canvas);
+        output?.append(canvas);
     });
 
     await test(() async{
         CanvasElement canvas = await doll.getNewCanvas(true);
-        output.append(canvas);
+        output?.append(canvas);
     });
 }
 
@@ -362,16 +362,16 @@ Future<void>  drawDollScaled(Doll doll, int w, int h) async {
     dollCanvas = Renderer.cropToVisible(dollCanvas);
 
     Renderer.drawToFitCentered(monsterElement, dollCanvas);
-    querySelector('#output').append(monsterElement);
+    querySelector('#output')?.append(monsterElement);
 }
 
 
 
 
 
-Future<CanvasElement>  drawDoll(Doll doll, [CanvasElement finishedProduct = null]) async{
+Future<CanvasElement>  drawDoll(Doll doll, [CanvasElement? finishedProduct = null]) async{
     print("trying to draw doll with debug shit");
-    output.appendHtml(doll.quirk.translate("<br><br>The quick brown fox jumped over the lazy dog, yes?"));
+    output?.appendHtml(doll.quirk!.translate("<br><br>The quick brown fox jumped over the lazy dog, yes?"));
 
     Element innerDiv   = new DivElement();
     bool fresh = false;
@@ -390,24 +390,24 @@ Future<CanvasElement>  drawDoll(Doll doll, [CanvasElement finishedProduct = null
         finishedProduct.className = "cardCanvas";
         innerDiv.append(finishedProduct);
 
-        output.append(innerDiv);
+        output?.append(innerDiv);
         for (SpriteLayer i in doll.dataOrderLayers) {
             Element e = new DivElement();
             e.text = "${i.name}: ${i.imgLocation}";
 
-            output.append(e);
+            output?.append(e);
         }
-        output.appendHtml(doll.toDataBytesX());
+        output?.appendHtml(doll.toDataBytesX());
     }
     
     if(doll is EasterEggDoll) {
         AnchorElement a = new AnchorElement(href: (doll as EasterEggDoll).getEasterEgg());
         a.text = "${(doll as EasterEggDoll).getEasterEgg()} (${EasterEggDoll.eggs.length} possible)";
-        output.append(a);
+        output?.append(a);
     }
 
     //TODO turn this back on
-    //doll.visualizeData(output);
+    //doll.visualizeData(output?.;
     return finishedProduct;
 }
 
@@ -439,7 +439,7 @@ Future<void> makeForestOfDollOfType(Doll doll, int type) async {
 
     }
     print("appending canvas to output");
-    output.append(canvas);
+    output?.append(canvas);
 }
 
 Future<void> makeForestOfDollOfTypeNewColors(Doll doll, int type) async {
@@ -468,7 +468,7 @@ Future<void> makeForestOfDollOfTypeNewColors(Doll doll, int type) async {
 
     }
     print("appending canvas to output");
-    output.append(canvas);
+    output?.append(canvas);
 }
 
 
@@ -476,7 +476,7 @@ Future<void> makeForestOfDollOfTypeNewColors(Doll doll, int type) async {
 class TimeProfiler {
     String label;
     DateTime start;
-    DateTime end;
+    late DateTime end;
 
     TimeProfiler(String this.label, DateTime this.start) {
         end = new DateTime.now();

@@ -40,15 +40,15 @@ class FekDoll extends Doll{
 
 
 
-  SpriteLayer canonSymbol;
-  SpriteLayer body;
-  SpriteLayer face;
-  SpriteLayer text;
-  SpriteLayer glasses;
-  SpriteLayer hair;
-  SpriteLayer horns;
-  SpriteLayer symbol;
-  SpriteLayer facePaint;
+  late SpriteLayer canonSymbol;
+  late SpriteLayer body;
+  late SpriteLayer face;
+  late SpriteLayer text;
+  late SpriteLayer glasses;
+  late SpriteLayer hair;
+  late SpriteLayer horns;
+  late SpriteLayer symbol;
+  late SpriteLayer facePaint;
 
   @override
   List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body, facePaint,face, hair, horns,symbol,canonSymbol, glasses, text];
@@ -89,7 +89,7 @@ class FekDoll extends Doll{
   void randomizeColors() {
             if(rand == null) rand = new Random();;
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
-    Palette newPallete = rand.pickFrom(paletteOptions);
+    Palette newPallete = rand.pickFrom(paletteOptions)!;
     if(newPallete == ReferenceColours.INK) {
       super.randomizeColors();
     }else {

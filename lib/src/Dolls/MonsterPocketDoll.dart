@@ -21,10 +21,10 @@ class MonsterPocketDoll extends Doll {
 
 
 
-    SpriteLayer body;
-    SpriteLayer rightarm;
-    SpriteLayer leftarm;
-    SpriteLayer head;
+    late SpriteLayer body;
+    late SpriteLayer rightarm;
+    late SpriteLayer leftarm;
+    late SpriteLayer head;
 
     @override
     List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[leftarm, body, head, rightarm];
@@ -110,7 +110,7 @@ class MonsterPocketDoll extends Doll {
                 if(rand == null) rand = new Random();;
         HomestuckPalette h = palette as HomestuckPalette;
         List<HomestuckPalette> paletteOptions = new List<HomestuckPalette>.from(ReferenceColours.paletteList.values);
-        HomestuckPalette newPallete = rand.pickFrom(paletteOptions);
+        HomestuckPalette newPallete = rand.pickFrom(paletteOptions)!;
         if(newPallete == ReferenceColours.INK) {
             tackyColors();
         }else {

@@ -17,7 +17,7 @@ import "Layers/SpriteLayer.dart";
 class MatryoshkaDoll extends Doll {
 
     int frame = 0;
-    List<Doll> nestedDolls = new List<Doll>();
+    List<Doll> nestedDolls = <Doll>[];
     Palette get palette {
         Palette ret =  nestedDolls[frame].palette;
         return ret;

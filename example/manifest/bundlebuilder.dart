@@ -19,7 +19,7 @@ Future<bool> process() async {
     Map<String, Set<String>> manifest = <String, Set<String>>{};
 
     for (String bundle in sourceManifest.keys) {
-        Set<String> files = sourceManifest[bundle];
+        Set<String> files = sourceManifest[bundle]!;
 
         int split = bundle.lastIndexOf(slash)+1;
         String dir = bundle.substring(0, split);
@@ -34,7 +34,7 @@ Future<bool> process() async {
 
             List<FileSystemEntity> matching = entries.where((FileSystemEntity f) {
                 String filename = f.path.split(slash).last;
-                Match m = p.matchAsPrefix(filename);
+                Match? m = p.matchAsPrefix(filename);
                 return (f is File) && m != null && m.group(0) == filename;
             }).toList();
 
@@ -45,7 +45,7 @@ Future<bool> process() async {
             for (FileSystemEntity f in matching) {
                 String name = f.path.substring(remdir.length);
 
-                manifest[bundle].add(name);
+                manifest[bundle]!.add(name);
             }
         }
     }
@@ -65,7 +65,7 @@ Future<bool> process() async {
     }
 
     for (String bundle in manifest.keys) {
-        writeBundle(bundle, manifest[bundle]);
+        writeBundle(bundle, manifest[bundle]!);
     }
 
     return true;
@@ -100,7 +100,7 @@ void writeManifestFile(List<String> lines) {
 Map<String,Set<String>> readManifest(List<String> lines) {
     Map<String, Set<String>> data = <String, Set<String>>{};
 
-    String bundle = null;
+    String? bundle = null;
 
     for (int i=1; i<lines.length; i++) {
         String line = lines[i];
@@ -118,7 +118,7 @@ Map<String,Set<String>> readManifest(List<String> lines) {
                     data[bundle] = new Set<String>();
                 }
 
-                data[bundle].add(line.trim());
+                data[bundle]!.add(line.trim());
             }
         }
     }
@@ -133,7 +133,7 @@ List<String> writeManifest(Map<String,Set<String>> data) {
 
     for (String bundle in data.keys) {
         lines.add(bundle);
-        for (String file in data[bundle]) {
+        for (String file in data[bundle]!) {
             lines.add("    $file");
         }
         lines.add("");
@@ -157,7 +157,7 @@ Future<bool> writeBundle(String path, Iterable<String> files) async {
         archive.addFile(new ArchiveFile(file, len, await f.readAsBytes()));
     }
 
-    Uint8List compressed = encoder.encode(archive);
+    Uint8List compressed = encoder.encode(archive) as Uint8List;
     File out = new File(fullpath);
     out.writeAsBytes(compressed, flush: true);
 

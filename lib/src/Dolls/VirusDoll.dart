@@ -37,13 +37,13 @@ class VirusDoll extends Doll{
 
 
 
-  SpriteLayer body;
-  SpriteLayer capsid;
-  SpriteLayer decoLegs;
-  SpriteLayer leg1;
-  SpriteLayer leg2;
-  SpriteLayer leg3;
-  SpriteLayer leg4;
+  late SpriteLayer body;
+  late SpriteLayer capsid;
+  late SpriteLayer decoLegs;
+  late SpriteLayer leg1;
+  late SpriteLayer leg2;
+  late SpriteLayer leg3;
+  late SpriteLayer leg4;
 
 
 
@@ -92,7 +92,7 @@ class VirusDoll extends Doll{
   void randomizeColors() {
             if(rand == null) rand = new Random();;
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
-    Palette newPallete = rand.pickFrom(paletteOptions);
+    Palette newPallete = rand.pickFrom(paletteOptions)!;
     if(newPallete == ReferenceColours.INK) {
       super.randomizeColors();
     }else {

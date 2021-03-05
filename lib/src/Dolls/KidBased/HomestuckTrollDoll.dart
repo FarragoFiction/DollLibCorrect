@@ -34,10 +34,10 @@ class HomestuckTrollDoll extends HomestuckDoll {
     //Don't go over 255 for any old layer unless you want to break shit. over 255 adds an exo.
 
     //these bodies look terrible with troll signs. if any of these use 47,48, or 49
-    List<int> bannedRandomBodies = Doll.dataList("Troll.bannedBodies");//<int>[238,252,256,259,235,226,227,230,96,219,221,223,5,11,14,43,50,59,65,66,67,70,72,75,74,98,100,101,102,106,107,109,63,17];
+    List<int> bannedRandomBodies = Doll.dataList("Troll.bannedBodies")!;//<int>[238,252,256,259,235,226,227,230,96,219,221,223,5,11,14,43,50,59,65,66,67,70,72,75,74,98,100,101,102,106,107,109,63,17];
     //if a troll or grub has these eyes, they will be mutant
-    List<int> mutantEyeList = Doll.dataList("Troll.mutantEyes");//<int>[2,11,31,44,46,47,85];
-    int defaultBody = Doll.dataValue("Troll.defaultBody", 0); //48;
+    List<int> mutantEyeList = Doll.dataList("Troll.mutantEyes")!;//<int>[2,11,31,44,46,47,85];
+    int defaultBody = Doll.dataValue("Troll.defaultBody", 0)!; //48;
     //int maxHorn = 347;
     int maxSecretHorn = 314;
     //int maxFin = 26;
@@ -45,15 +45,15 @@ class HomestuckTrollDoll extends HomestuckDoll {
     int maxSecretCanonSymbol = 288;
     //int maxWing = 78;
 
-    SpriteLayer leftHorn;
-    SpriteLayer canonSymbol; //can pick any color, but when randomized will be a canon color.
-    SpriteLayer rightHorn;
-    SpriteLayer extendedLeftHorn;
-    SpriteLayer extendedRightHorn;
+    late SpriteLayer leftHorn;
+    late SpriteLayer canonSymbol; //can pick any color, but when randomized will be a canon color.
+    late SpriteLayer rightHorn;
+    late SpriteLayer extendedLeftHorn;
+    late SpriteLayer extendedRightHorn;
 
-    SpriteLayer leftFin;
-    SpriteLayer rightFin;
-    SpriteLayer wings;
+    late SpriteLayer leftFin;
+    late SpriteLayer rightFin;
+    late SpriteLayer wings;
 
     @override
     String relativefolder = "images/Homestuck";
@@ -69,7 +69,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
     List<SpriteLayer>  get oldDataLayers => <SpriteLayer>[body, hairTop, hairBack, leftEye, rightEye, mouth, symbol, glasses, glasses2,leftHorn, rightHorn, leftFin, rightFin, wings, canonSymbol, facePaint, extendedBody, extendedHairTop, extendedHairBack, extendedLeftHorn, extendedRightHorn];
 
 
-    HomestuckTrollDoll([int sign]) :super() {
+    HomestuckTrollDoll([int? sign]) :super() {
         if(sign != null) {
             canonSymbol.imgNumber = sign;
             //makes sure palette is sign appropriate
@@ -188,15 +188,15 @@ class HomestuckTrollDoll extends HomestuckDoll {
     }
 
     @override
-    String toDataBytesX([ByteBuilder builder = null]) {
-        if (dollName == null || dollName.isEmpty) dollName = "${bloodColor} Blooded ${name}";
+    String toDataBytesX([ByteBuilder? builder]) {
+        if (dollName == null || dollName!.isEmpty) dollName = "${bloodColor} Blooded ${name}";
         return super.toDataBytesX(builder);
     }
 
     String chooseBlood(Random rand, [bool forceMutant = false]) {
         List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
 
-        String chosenBlood = rand.pickFrom(bloodColors);
+        String chosenBlood = rand.pickFrom(bloodColors)!;
         if(canonSymbol.imgNumber <= 24) {
             chosenBlood = bloodColors[0];
         }else if(canonSymbol.imgNumber <= 24*2) {
@@ -271,7 +271,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
 
 
         if(force) {
-            leftEye.imgNumber = rand.pickFrom(mutantEyeList);
+            leftEye.imgNumber = rand.pickFrom(mutantEyeList)!;
             rightEye.imgNumber = leftEye.imgNumber;
         }
         if(mutantEyeList.contains(leftEye.imgNumber) || mutantEyeList.contains(rightEye.imgNumber)) {
@@ -284,7 +284,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
             String accentAsspect = "AA2";
             HomestuckPalette hp = palette as HomestuckPalette;
             List<String> possibilities = <String>[bothRandom, bothAccent, accentRandom, randomAccent, aspectAccent, accentAsspect];
-            String choice = rand.pickFrom(possibilities);
+            String choice = rand.pickFrom(possibilities)!;
             if(choice == bothRandom) {
                 palette.add(HomestuckPalette.EYE_WHITE_LEFT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
                 palette.add(HomestuckPalette.EYE_WHITE_RIGHT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);
@@ -412,7 +412,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
         int firstHorn = -100;
         List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
 
-        String chosenBlood = rand.pickFrom(bloodColors);
+        String chosenBlood = rand.pickFrom(bloodColors)!;
         for (SpriteLayer l in renderingOrderLayers) {
             //don't have wings normally
             if (!l.imgNameBase.contains("Wings")) l.imgNumber = rand.nextInt(l.maxImageNumber + 1);
@@ -457,7 +457,7 @@ class HomestuckTrollDoll extends HomestuckDoll {
         if(rand == null) rand = new Random();
         List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
 
-        String chosenBlood = rand.pickFrom(bloodColors);
+        String chosenBlood = rand.pickFrom(bloodColors)!;
         HomestuckTrollPalette h = palette as HomestuckTrollPalette;
 
         palette.add(HomestuckTrollPalette._ACCENT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);

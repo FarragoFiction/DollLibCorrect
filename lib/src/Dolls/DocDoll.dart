@@ -34,10 +34,10 @@ class DocDoll extends Doll{
 
 
 
-  SpriteLayer accessory;
-  SpriteLayer body;
-  SpriteLayer head;
-  SpriteLayer legs;
+  late SpriteLayer accessory;
+  late SpriteLayer body;
+  late SpriteLayer head;
+  late SpriteLayer legs;
 
 
 
@@ -83,7 +83,7 @@ class DocDoll extends Doll{
   void randomizeColors() {
             if(rand == null) rand = new Random();;
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
-    Palette newPallete = rand.pickFrom(paletteOptions);
+    Palette newPallete = rand.pickFrom(paletteOptions)!;
     if(newPallete == ReferenceColours.INK) {
       super.randomizeColors();
     }else {

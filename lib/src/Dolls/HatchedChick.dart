@@ -17,10 +17,10 @@ class HatchedChick extends HatchableDoll {
 
     String relativefolder = "images/HatchedChick";
 
-    SpriteLayer base;
-    SpriteLayer middle;
-    SpriteLayer bottom;
-    SpriteLayer top;
+    late SpriteLayer base;
+    late SpriteLayer middle;
+    late SpriteLayer bottom;
+    late SpriteLayer top;
 
     @override
     String name = "HatchedChick";
@@ -125,7 +125,7 @@ class HatchedChick extends HatchableDoll {
         int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
         Random rand  = new Random(seed);
         quirkButDontUse = Quirk.randomHumanQuirk(rand);
-        quirkButDontUse.lettersToReplaceIgnoreCase = [["^.*\$", "Cheep"],["[.]\$", "Peep"],["[.]\$", "Pip"],];
+        quirkButDontUse!.lettersToReplaceIgnoreCase = [["^.*\$", "Cheep"],["[.]\$", "Peep"],["[.]\$", "Pip"],];
 
     }
 
@@ -178,9 +178,9 @@ class HatchedChick extends HatchableDoll {
         possibilities.add(dark);
         possibilities.add(pastel,2.0);
 
-        String choice = rand.pickFrom(possibilities);
+        String choice = rand.pickFrom(possibilities)!;
         if(choice == valid) {
-            copyPalette(rand.pickFrom(validPalettes));
+            copyPalette(rand.pickFrom(validPalettes)!);
         }else if (choice == pastel) {
             pastelColor();
         }else if (choice == tacky) {

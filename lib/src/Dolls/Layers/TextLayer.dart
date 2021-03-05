@@ -9,7 +9,7 @@ It ALSO always has a x/y start location.
 
 class TextLayer {
 
-    Element element;
+    Element? element;
     String justification;
     String name;
     String text;
@@ -20,7 +20,7 @@ class TextLayer {
     int fontSize;
     String emphasis = "";
     //ctx.fillStyle = "#000000";
-    Colour fontColor;
+    Colour? fontColor;
     //ctx.font = "42px Times New Roman";
     String fontName;
 
@@ -39,17 +39,17 @@ class TextLayer {
         formElement.value = text;
         formElement.onChange.listen((Event e) {
             print("I felt a change in ${formElement.value}");
-            text = formElement.value;
+            text = formElement.value ?? "";
         });
 
 
-        element.append(formWrapper);
-        element.append(formElement);
+        element?.append(formWrapper);
+        element?.append(formElement);
 
     }
 
     String get font => "$emphasis ${fontSize}px $fontName";
-    String get fillStyle => fontColor.toStyleString();
+    String get fillStyle => fontColor?.toStyleString() ?? "black";
 
 
 

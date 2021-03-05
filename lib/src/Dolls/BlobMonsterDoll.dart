@@ -29,11 +29,11 @@ class BlobMonsterDoll extends Doll{
   final int maxEyes = 8;
 
 
-  SpriteLayer body;
-  SpriteLayer horns;
-  SpriteLayer mouth;
-  SpriteLayer eyes;
-  SpriteLayer wings;
+  late SpriteLayer body;
+  late SpriteLayer horns;
+  late SpriteLayer mouth;
+  late SpriteLayer eyes;
+  late SpriteLayer wings;
 
   @override
   List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body,eyes, mouth,horns,wings];

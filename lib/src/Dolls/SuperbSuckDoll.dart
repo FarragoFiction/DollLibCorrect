@@ -29,11 +29,11 @@ class SuperbSuckDoll extends Doll{
 
 
 
-  SpriteLayer face;
-  SpriteLayer body;
-  SpriteLayer symbol;
-  SpriteLayer hair;
-  SpriteLayer canonSymbol;
+  late SpriteLayer face;
+  late SpriteLayer body;
+  late SpriteLayer symbol;
+  late SpriteLayer hair;
+  late SpriteLayer canonSymbol;
 
   @override
   List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body,symbol,canonSymbol,face,hair];
@@ -60,11 +60,11 @@ class SuperbSuckDoll extends Doll{
     ..hair_accent = '#ADADAD'
     ..skin = '#ffffff';
 
-  Random rand;
+  late Random rand;
 
 
-  SuperbSuckDoll([Random this.rand]) {
-    if(rand == null) rand = new Random();
+  SuperbSuckDoll([Random? rand]) {
+    this.rand = rand ?? new Random();
     initLayers();
     randomize();
   }

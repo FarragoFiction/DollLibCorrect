@@ -20,18 +20,18 @@ class MonsterGirlDoll extends MagicalDoll {
     String relativefolder = "images/MonsterDoll";
 
     // yes technically its not REALLY these things. But it sure does make the transformation easier.
-    SpriteLayer headDecorations;
-    SpriteLayer notHairFront;
-    SpriteLayer head;
-    SpriteLayer arms;
-    SpriteLayer skirt;
-    SpriteLayer clothing;
-    SpriteLayer legs;
-    SpriteLayer torso;
-    SpriteLayer notHairBack;
-    SpriteLayer wings;
-    SpriteLayer tail;
-    SpriteLayer fx;
+    late SpriteLayer headDecorations;
+    late SpriteLayer notHairFront;
+    late SpriteLayer head;
+    late SpriteLayer arms;
+    late SpriteLayer skirt;
+    late SpriteLayer clothing;
+    late SpriteLayer legs;
+    late SpriteLayer torso;
+    late SpriteLayer notHairBack;
+    late SpriteLayer wings;
+    late SpriteLayer tail;
+    late SpriteLayer fx;
 
 
     @override

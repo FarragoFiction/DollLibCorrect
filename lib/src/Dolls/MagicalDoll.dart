@@ -30,18 +30,18 @@ class MagicalDoll extends HatchableDoll{
   @override
   String relativefolder = "images/MagicalDoll";
 
-  SpriteLayer hairBack;
-  SpriteLayer bowBack;
-  SpriteLayer body;
-  SpriteLayer socks;
-  SpriteLayer shoes;
-  SpriteLayer skirt;
-  SpriteLayer frontBow;
-  SpriteLayer eyes;
-  SpriteLayer eyebrows;
-  SpriteLayer mouth;
-  SpriteLayer hairFront;
-  SpriteLayer glasses;
+  late SpriteLayer hairBack;
+  late SpriteLayer bowBack;
+  late SpriteLayer body;
+  late SpriteLayer socks;
+  late SpriteLayer shoes;
+  late SpriteLayer skirt;
+  late SpriteLayer frontBow;
+  late SpriteLayer eyes;
+  late SpriteLayer eyebrows;
+  late SpriteLayer mouth;
+  late SpriteLayer hairFront;
+  late SpriteLayer glasses;
 
 
 
@@ -163,9 +163,9 @@ class MagicalDoll extends HatchableDoll{
     betterOptions.add(orangeGirl);
     betterOptions.add(purpleGirl);
 
-    Palette newPallete = rand.pickFrom(paletteOptions);
+    Palette newPallete = rand.pickFrom(paletteOptions)!;
     if(rand.nextDouble()>0.6) {
-      newPallete = rand.pickFrom(betterOptions);
+      newPallete = rand.pickFrom(betterOptions)!;
     }
     if(newPallete == ReferenceColours.INK) {
       super.randomizeColors();

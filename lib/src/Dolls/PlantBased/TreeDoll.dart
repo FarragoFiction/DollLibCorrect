@@ -12,11 +12,11 @@ prototype for a doll that has positioned layers
  */
 class TreeDoll extends Doll{
 
-    List<TreeForm> forms = new List<TreeForm>();
+    List<TreeForm> forms = <TreeForm>[];
     //for drawing leaves on, only want to get branches once
-    CanvasElement branchCache;
+    late CanvasElement branchCache;
     //for drawing fruit and other hangables only want to get tree once
-    CanvasElement leavesAndBranchCache;
+    late CanvasElement leavesAndBranchCache;
 
     Iterable<SpriteLayer> get hangables => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Hang") || !s.name.contains("Leaf"))  );
     Iterable<SpriteLayer> get clusters => renderingOrderLayers.where((SpriteLayer s) => s is PositionedDollLayer && (s.name.contains("Cluster") || s.name.contains("Leaf")));
@@ -78,20 +78,19 @@ class TreeDoll extends Doll{
     int lastXForHangable = 0;
     int lastYForHangable = 0;
 
+    late SpriteLayer branches;
+    late PositionedLayer leavesFront;
+    late PositionedLayer leavesBack;
 
-  SpriteLayer branches;
-  PositionedLayer leavesFront;
-  PositionedLayer leavesBack;
-
-  Doll leafTemplate;
-  Doll fruitTemplate;
-  Doll flowerTemplate;
+  Doll? leafTemplate;
+  Doll? fruitTemplate;
+  Doll? flowerTemplate;
 
   //not a get, so i can add flowers/fruit to it over time.
   @override
-  List<SpriteLayer>   renderingOrderLayers = new List <SpriteLayer>();
+  List<SpriteLayer>   renderingOrderLayers = <SpriteLayer>[];
   @override
-  List<SpriteLayer>   dataOrderLayers =new List <SpriteLayer>();
+  List<SpriteLayer>   dataOrderLayers = <SpriteLayer>[];
 
 
   @override
@@ -152,7 +151,7 @@ class TreeDoll extends Doll{
     validPalettes.remove(ReferenceColours.VIOLET);
     validPalettes.remove(ReferenceColours.FUSCHIA);
 
-    Palette newPallete = rand.pickFrom(validPalettes);
+    Palette newPallete = rand.pickFrom(validPalettes)!;
     copyPalette(newPallete);
   }
 
@@ -182,7 +181,7 @@ class TreeDoll extends Doll{
         return newCanvas;
     }
 
-    void transformHangablesInto([Doll template]) {
+    void transformHangablesInto([Doll? template]) {
       if(template == null) {
             if(fruitTemplate ==null) {
                 spawnFruit();
@@ -190,13 +189,13 @@ class TreeDoll extends Doll{
 
             template = fruitTemplate;
       }
-        List<SpriteLayer> h = <SpriteLayer>[];
-        h.addAll(hangables);
+        List<PositionedDollLayer> h = <PositionedDollLayer>[];
+        h.addAll(hangables.cast());
         for(PositionedDollLayer layer in h) {
-            Doll backupDoll = layer.doll;
-            layer.doll = template.clone();
-            layer.doll.orientation = backupDoll.orientation;
-            layer.doll.rotation = backupDoll.rotation;
+            Doll backupDoll = layer.doll!;
+            layer.doll = template?.clone();
+            layer.doll?.orientation = backupDoll.orientation;
+            layer.doll?.rotation = backupDoll.rotation;
         }
     }
 
@@ -207,12 +206,12 @@ class TreeDoll extends Doll{
       try {
           //builder.appendExpGolomb(rotation);
           //        builder.appendExpGolomb(orientation);
-          fruitTemplate = Doll.loadSpecificDollFromReader(reader,true);
+          fruitTemplate = Doll.loadSpecificDollFromReader(reader,true)!;
         //  print("loaded a fruit template");
-          flowerTemplate = Doll.loadSpecificDollFromReader(reader,true);
+          flowerTemplate = Doll.loadSpecificDollFromReader(reader,true)!;
           //print("loaded a floewr template");
           //leaves are last because might not be stored
-          leafTemplate = Doll.loadSpecificDollFromReader(reader,true);
+          leafTemplate = Doll.loadSpecificDollFromReader(reader,true)!;
           //print("loaded a leaf template");
       }catch(e,s) {
           //not a problem, this was just for debugging
@@ -227,16 +226,16 @@ class TreeDoll extends Doll{
 
 
       if(fruitTemplate != null) {
-          fruitTemplate.appendDataBytesToBuilder(builder);
+          fruitTemplate!.appendDataBytesToBuilder(builder);
       }
 
       if(flowerTemplate != null) {
-          flowerTemplate.appendDataBytesToBuilder(builder);
+          flowerTemplate!.appendDataBytesToBuilder(builder);
       }
         //store it even if you aren't using it (kind of like recessive)
       //or it will bitch like a mother fucker
       if(leafTemplate != null) {
-          leafTemplate.appendDataBytesToBuilder(builder);
+          leafTemplate!.appendDataBytesToBuilder(builder);
       }
 
       return builder;
@@ -246,15 +245,15 @@ class TreeDoll extends Doll{
     @override
     void afterBreeding(List<Doll> dolls) {
       //print("after breeding  being called");
-        List<Doll> leaves = new List<Doll>();
-        List<Doll> fruit = new List<Doll>();
-        List<Doll> flowers = new List<Doll>();
+        List<Doll> leaves = <Doll>[];
+        List<Doll> fruit = <Doll>[];
+        List<Doll> flowers = <Doll>[];
 
         for(Doll d in dolls) {
             if(d is TreeDoll) {
-                if(d.leafTemplate != null) leaves.add(d.leafTemplate);
-                if(d.flowerTemplate != null) flowers.add(d.flowerTemplate);
-                if(d.fruitTemplate != null) fruit.add(d.fruitTemplate);
+                if(d.leafTemplate != null) leaves.add(d.leafTemplate!);
+                if(d.flowerTemplate != null) flowers.add(d.flowerTemplate!);
+                if(d.fruitTemplate != null) fruit.add(d.fruitTemplate!);
 
             }
         }
@@ -291,7 +290,7 @@ class TreeDoll extends Doll{
 
   @override
     Doll spawn() {
-        TreeDoll copy = this.clone();
+        TreeDoll copy = this.clone() as TreeDoll;
         copy.renderingOrderLayers.clear();
         copy.initLayers();
         copy.randomize();
@@ -334,12 +333,12 @@ class TreeDoll extends Doll{
       return leavesAndBranchCache;
   }
 
-  Future<Math.Point> randomValidPointOnTree(bool forLeaf) async {
+  Future<Math.Point?> randomValidPointOnTree(bool forLeaf) async {
       //print("looking for a valid point on tree");
       Point guess = spacedHangableXY();
-      int xGuess = guess.x;
+      int xGuess = guess.x.toInt();
       if(xGuess == form.canopyWidth) xGuess = form.leafX;
-      int yGuess = guess.y;
+      int yGuess = guess.y.toInt();
       if(yGuess == form.canopyHeight) yGuess = form.leafY;
       CanvasElement pointFinderCanvas;
       //handles caching shit, no need to redraw for each leave/fruit
@@ -367,8 +366,8 @@ class TreeDoll extends Doll{
   }
 
   Math.Point keepInBounds(Math.Point p, bool forLeaf) {
-      int x = p.x;
-      int y = p.y;
+      int x = p.x.toInt();
+      int y = p.y.toInt();
       int bufferWidth = fruitWidth;
       int bufferHeight = fruitHeight;
       if(forLeaf) {
@@ -495,20 +494,20 @@ class TreeDoll extends Doll{
       if(leafTemplate == null) {
           rand = new Random(seed);
           leafTemplate = new LeafDoll();
-          leafTemplate.rand = rand.spawn();
-          leafTemplate.randomizeNotColors(); //now it will fit my seed.
-          leafTemplate.copyPalette(palette);
+          leafTemplate?.rand = rand.spawn();
+          leafTemplate?.randomizeNotColors(); //now it will fit my seed.
+          leafTemplate?.copyPalette(palette);
       }
       rand = new Random(seed);
 
       for(int i = 0; i < amount; i++) {
-          LeafDoll clonedDoll = leafTemplate.clone();
-          Math.Point point = await randomValidPointOnTree(true);
+          LeafDoll clonedDoll = leafTemplate!.clone() as LeafDoll;
+          Math.Point point = (await randomValidPointOnTree(true))!;
 //          print("second point is $point and doll is $clonedDoll");
 
           if(point != null) {
-              int xpos = point.x;
-              int ypos = point.y;
+              int xpos = point.x.toInt();
+              int ypos = point.y.toInt();
               double scale = 0.5+rand.nextDouble()*1.5;
               int w = (leafWidth * scale).round();
               int h = (leafHeight * scale).round();
@@ -559,20 +558,20 @@ class TreeDoll extends Doll{
 
      if(flowerTemplate == null) {
          flowerTemplate = new FlowerDoll();
-         flowerTemplate.rand = rand.spawn();
-         flowerTemplate.randomizeNotColors(); //now it will fit my seed.
-         flowerTemplate.copyPalette(palette);
+         flowerTemplate?.rand = rand.spawn();
+         flowerTemplate?.randomizeNotColors(); //now it will fit my seed.
+         flowerTemplate?.copyPalette(palette);
      }
 
      rand = new Random(seed);
      for(int i = 0; i < amount; i++) {
-         Math.Point point = await randomValidPointOnTree(false);
-         Doll clone = flowerTemplate.clone();
+         Math.Point point = (await randomValidPointOnTree(false))!;
+         Doll clone = flowerTemplate!.clone();
          if(rand.nextBool()) clone.orientation = Doll.TURNWAYS;
          //print("second point is $point");
          if(point != null) {
-             int xpos = point.x;
-             int ypos = point.y;
+             int xpos = point.x.toInt();
+             int ypos = point.y.toInt();
 
 
              PositionedDollLayer newLayer = new PositionedDollLayer(
@@ -583,12 +582,12 @@ class TreeDoll extends Doll{
      //print ("fourth is done");
   }
 
-  FruitDoll spawnFruit() {
+  void spawnFruit() {
       fruitTemplate = new FruitDoll();
       rand = new Random(seed);
-      fruitTemplate.rand = rand.spawn();
-      fruitTemplate.randomizeNotColors(); //now it will fit my seed.
-      fruitTemplate.copyPalette(palette);
+      fruitTemplate?.rand = rand.spawn();
+      fruitTemplate?.randomizeNotColors(); //now it will fit my seed.
+      fruitTemplate?.copyPalette(palette);
   }
 
   Future<void> createFruit() async{
@@ -605,14 +604,14 @@ class TreeDoll extends Doll{
       if(fruitTemplate is FruitDoll) (fruitTemplate as FruitDoll).setName();
       rand = new Random(seed);
       for(int i = 0; i < amount; i++) {
-          FruitDoll clonedDoll = fruitTemplate.clone();
+          FruitDoll clonedDoll = fruitTemplate!.clone() as FruitDoll;
           if(rand.nextBool()) clonedDoll.orientation = Doll.TURNWAYS;
-          Math.Point point = await randomValidPointOnTree(false);
+          Math.Point point = (await randomValidPointOnTree(false))!;
           //print("second point is $point");
 
           if(point != null) {
-              int xpos = point.x;
-              int ypos = point.y;
+              int xpos = point.x.toInt();
+              int ypos = point.y.toInt();
               PositionedDollLayer newLayer = new PositionedDollLayer(clonedDoll, fruitWidth, fruitHeight, xpos, ypos, "Hanging$i");
               addDynamicLayer(newLayer);
           }
@@ -622,7 +621,7 @@ class TreeDoll extends Doll{
 
   Future<void> createGloriousBullshit() async {
       rand = new Random(seed);
-      int type = rand.pickFrom(Doll.allDollTypes);
+      int type = rand.pickFrom(Doll.allDollTypes)!;
       //print("creating glorious bullshit, type is $type");
 
       Doll doll = Doll.randomDollOfType(type);
@@ -633,12 +632,12 @@ class TreeDoll extends Doll{
 
       int amount = rand.nextIntRange(minFruit,maxFruit);
       for(int i = 0; i < amount; i++) {
-          Math.Point point = await randomValidPointOnTree(false);
+          Math.Point point = (await randomValidPointOnTree(false))!;
           //print("point is $point");
 
           if(point != null) {
-              int xpos = point.x;
-              int ypos = point.y;
+              int xpos = point.x.toInt();
+              int ypos = point.y.toInt();
               PositionedDollLayer newLayer = new PositionedDollLayer(
                   doll.clone(), fruitWidth, fruitHeight, xpos, ypos,
                   "Hanging$i");
@@ -665,8 +664,8 @@ class TreeDoll extends Doll{
       branches = new SpriteLayer("Branches","$folder/branches/", 1, maxBranches);
       leavesBack = new PositionedLayer(0,0,"BackLeaves","$folder/leavesBack/", 1, maxLeaves);
       leavesFront = new PositionedLayer(0,0,"FrontLeaves","$folder/leavesFront/", 1, maxLeaves);
-      leavesBack.syncedWith.add(leavesFront);
-      leavesFront.syncedWith.add(leavesBack);
+      leavesBack.syncedWith?.add(leavesFront);
+      leavesFront.syncedWith?.add(leavesBack);
       leavesBack.slave = true;
       //have to do it here because not a get, can be modified
       renderingOrderLayers = <SpriteLayer>[leavesBack,branches, leavesFront];

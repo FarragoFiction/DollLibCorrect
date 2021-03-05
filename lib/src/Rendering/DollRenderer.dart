@@ -20,13 +20,13 @@ class DollRenderer {
         //print("Drawing a doll of width ${doll.width}");
         //most dolls will do nothing here, but if they need to calculate where their layers get positioned they do it here.
         //or if they need to figure out if they even have shit
-        DateTime now;
+        DateTime? now;
         if(debugTime) now = new DateTime.now();
         await doll.beforeRender();
         if(doll.width == null) {
             ImageElement image = await Loader.getResource(layers.first.imgLocation);
-            doll.width = image.width;
-            doll.height = image.height;
+            doll.width = image.width!;
+            doll.height = image.height!;
            // print("loaded image of ${doll.width} and height ${doll.height}. ");
 
         }
@@ -75,7 +75,7 @@ class DollRenderer {
         buffer.context2D.restore();
         if(debugTime) {
             DateTime now2 = new DateTime.now();
-            Duration diff = now2.difference(now);
+            Duration diff = now2.difference(now!);
             print("Legacy was $legacy. It took ${diff.inMilliseconds} ms to render $doll.");
 
         }
@@ -98,29 +98,29 @@ class DollRenderer {
             //print("drawing turnways");
             //fuck is anything ever using this? this seems wrong, should be
             //buffer.context2D.translate(dollCanvas.width, 0);
-            buffer.context2D.translate(buffer.width, 0);
+            buffer.context2D.translate(buffer.width!, 0);
             buffer.context2D.scale(-1, 1);
         }else if(doll.orientation == Doll.UPWAYS) {
             //print("drawing up ways");
-            buffer.context2D.translate(0, buffer.height);
+            buffer.context2D.translate(0, buffer.height!);
             //buffer.context2D.rotate(1);
             buffer.context2D.scale(1, -1);
         }else if(doll.orientation == Doll.TURNWAYSBUTUP) {
             //print("drawing turnways but up");
-            buffer.context2D.translate(buffer.width, buffer.height);
+            buffer.context2D.translate(buffer.width!, buffer.height!);
             buffer.context2D.scale(-1, -1);
         }else {
             buffer.context2D.scale(1, 1);
         }
     }
 
-    static  Future<bool>  drawDollEmbossed(CanvasElement canvas, Doll doll) async {
+    static  Future<void>  drawDollEmbossed(CanvasElement canvas, Doll doll) async {
         //print("Drawing a doll");
         CanvasElement buffer = new CanvasElement(width: doll.width, height: doll.height);
         for(SpriteLayer l in doll.renderingOrderLayers) {
             if(l.preloadedElement != null) {
                 print("I must be testing something, it's a preloaded Element");
-                bool res = await Renderer.drawExistingElementFuture(buffer, l.preloadedElement);
+                bool res = await Renderer.drawExistingElementFuture(buffer, l.preloadedElement!);
             }else {
                 bool res = await Renderer.drawWhateverFuture(buffer, l.imgLocation);
             }
@@ -135,7 +135,7 @@ class DollRenderer {
         canvas.context2D.imageSmoothingEnabled = false;
 
         if(doll.orientation == Doll.TURNWAYS) {
-            canvas.context2D.drawImage(buffer, -buffer.width/2, -buffer.height/2);
+            canvas.context2D.drawImage(buffer, -buffer.width!/2, -buffer.height!/2);
 
         }else {
             Renderer.copyTmpCanvasToRealCanvasAtPos(canvas, buffer, 0, 0);
@@ -151,9 +151,9 @@ class DollRenderer {
     static scaleCanvasForDoll(CanvasElement canvas, Doll doll) {
         double ratio = 1.0;
         if(doll.width > doll.height) {
-            ratio = canvas.width/doll.width;
+            ratio = canvas.width!/doll.width;
         }else {
-            ratio = canvas.height/doll.height;
+            ratio = canvas.height!/doll.height;
         }
         canvas.context2D.scale(ratio, ratio);
         //don't let it be all pixelated

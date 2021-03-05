@@ -34,21 +34,21 @@ class HomestuckDoll extends HatchableDoll {
     final int maxSecretGlass2 = 254;
     //final int maxFacePaint = 187;
 
-    SpriteLayer body;
+    late SpriteLayer body;
     //need extended layers separate to keep  backwards compatibility with old data strings that had a single byte
-    SpriteLayer extendedBody;
-    SpriteLayer extendedHairTop;
-    SpriteLayer extendedHairBack;
+    late SpriteLayer extendedBody;
+    late SpriteLayer extendedHairTop;
+    late SpriteLayer extendedHairBack;
 
-    SpriteLayer facePaint;
-    SpriteLayer hairTop;
-    SpriteLayer hairBack;
-    SpriteLayer leftEye;
-    SpriteLayer rightEye;
-    SpriteLayer mouth;
-    SpriteLayer symbol;
-    SpriteLayer glasses;
-    SpriteLayer glasses2;
+    late SpriteLayer facePaint;
+    late SpriteLayer hairTop;
+    late SpriteLayer hairBack;
+    late SpriteLayer leftEye;
+    late SpriteLayer rightEye;
+    late SpriteLayer mouth;
+    late SpriteLayer symbol;
+    late SpriteLayer glasses;
+    late SpriteLayer glasses2;
 
     HomestuckDoll() {
         initLayers();
@@ -138,7 +138,7 @@ class HomestuckDoll extends HatchableDoll {
                 if(rand == null) rand = new Random();;
         HomestuckPalette h = palette as HomestuckPalette;
         List<HomestuckPalette> paletteOptions = new List<HomestuckPalette>.from(ReferenceColours.paletteList.values);
-        HomestuckPalette newPallete = rand.pickFrom(paletteOptions);
+        HomestuckPalette newPallete = rand.pickFrom(paletteOptions)!;
         if(newPallete == ReferenceColours.INK) {
             tackyColors();
         }else {

@@ -32,11 +32,11 @@ class DadDoll extends Doll {
     final int maxPants = 10;
     final int maxBase = 0;
 
-    SpriteLayer hat;
-    SpriteLayer nose;
-    SpriteLayer shirt;
-    SpriteLayer pants;
-    SpriteLayer base;
+    late SpriteLayer hat;
+    late SpriteLayer nose;
+    late SpriteLayer shirt;
+    late SpriteLayer pants;
+    late SpriteLayer base;
 
 
     @override

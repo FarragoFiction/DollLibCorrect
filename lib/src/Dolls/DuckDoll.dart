@@ -33,13 +33,13 @@ class DuckDoll extends Doll{
   final int maxHair = 26;
   final int maxSymbols = 15;
 
-  SpriteLayer beak;
-  SpriteLayer body;
-  SpriteLayer eyes;
-  SpriteLayer glasses;
-  SpriteLayer hairFront;
-  SpriteLayer hairBack;
-  SpriteLayer symbol;
+  late SpriteLayer beak;
+  late SpriteLayer body;
+  late SpriteLayer eyes;
+  late SpriteLayer glasses;
+  late SpriteLayer hairFront;
+  late SpriteLayer hairBack;
+  late SpriteLayer symbol;
 
 
 
@@ -82,7 +82,7 @@ class DuckDoll extends Doll{
   void randomizeColors() {
             if(rand == null) rand = new Random();;
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
-    Palette newPallete = rand.pickFrom(paletteOptions);
+    Palette newPallete = rand.pickFrom(paletteOptions)!;
     if(newPallete == ReferenceColours.INK) {
       super.randomizeColors();
     }else {

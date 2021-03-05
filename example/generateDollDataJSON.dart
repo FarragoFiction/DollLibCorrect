@@ -118,7 +118,7 @@ abstract class DollDataGenerator {
         String content = await HttpRequest.getString("http://www.farragofiction.com/DollSource/$url");
         Iterable<Match> matches = filePattern.allMatches(content); // find all link targets
         for (Match m in matches) {
-            String filename = m.group(1);
+            String filename = m.group(1)!;
             if (!extensionPattern.hasMatch(filename)) { continue; } // extension rejection
 
             //print(filename);
@@ -134,7 +134,12 @@ abstract class DollDataGenerator {
         for (String file in files) {
             List<String> parts = file.split(".png");
             if(parts.length > 0) {
-                final int number = int.parse(parts[0],onError: (e) => null);
+                int? number;
+                try {
+                    number = int.tryParse(parts[0]);
+                } catch(e) {
+                    // no-op
+                }
                 if(number != null) numbers.add(number);
             }
         }

@@ -11,8 +11,8 @@ import "Layers/PositionedLayerPlusUltra.dart";
 import "Layers/SpriteLayer.dart";
 
 abstract class Doll {
-    static JsonHandler fileData;
-    TextEngine textEngine; //cached so that if i want more names it can do that, kr said
+    static late JsonHandler fileData;
+    TextEngine? textEngine; //cached so that if i want more names it can do that, kr said
     static String labelPattern = ":___";
     //whatever calls me is responsible for deciding if it wants to be url encoded or not
     String get label => "$dollName$labelPattern";
@@ -26,7 +26,7 @@ abstract class Doll {
     }
 
     //lamia required this, decided to make it more general purpose
-    List<String> colorsToSkipIfProblem = new List<String>();
+    List<String> colorsToSkipIfProblem = <String>[];
     //useful for the builder
     static List<int> allDollTypes = <int>[1,2,16,12,13,85,3,4,7,9,10,14,113,15,8,151,17,18,19,20,41,42,22,23,25,27,21,28,34,35,37,38,39,88,26,44,45,427,46,47,48];
 
@@ -90,11 +90,11 @@ abstract class Doll {
     //in case i want controlled random
     Random rand = new Random();
 
-    Quirk quirkButDontUse;
+    Quirk? quirkButDontUse;
 
     String name = "Unknown";
     //used for labeling and things like rom sim
-    String dollName = "";
+    String? dollName = "";
 
     //things can optionally cause the doll's orientation to change, like grub body 7 and 8
     static int NORMALWAYS = 0; //flipped horizontal
@@ -116,7 +116,7 @@ abstract class Doll {
         return s;
     }
 
-    Quirk get quirk {
+    Quirk? get quirk {
         if(quirkButDontUse == null) {
             setQuirk();
         }
@@ -124,7 +124,7 @@ abstract class Doll {
     }
 
 
-    String relativefolder;
+    late String relativefolder;
     String absolutePathStart = "/DollSource/";
 
     String get folder {
@@ -141,25 +141,25 @@ abstract class Doll {
     // in degrees, things like 0, 90, 180, etc. used for auto rendering
     int rotation = 0;
 
-    int width;
-    int height;
+    late int width;
+    late int height;
     int renderingType = 0;
     static String localStorageKey = "doll";
 
     List<Palette> get validPalettes => <Palette>[];
-    Map<String, Palette> get validPalettesMap =>new  Map<String, Palette>();
+    Map<String, Palette> get validPalettesMap => <String, Palette>{};
 
 
     //IMPORTANT  if i want save strings to not break if new rendering order, then rendering order and load order must be different things.
 
     ///in rendering order.
-    List<SpriteLayer>  get renderingOrderLayers => new List<SpriteLayer>();
+    List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[];
     //what order do we save load these. things humans have first, then trolls, then new layers so you don't break save data strings
-    List<SpriteLayer>  get dataOrderLayers => new List<SpriteLayer>();
+    List<SpriteLayer>  get dataOrderLayers => <SpriteLayer>[];
     List<SpriteLayer>  get oldDataLayers => dataOrderLayers; //if i change shit for a specific doll (like homestuck) go here
 
 
-    Palette palette;
+    late Palette palette;
 
     Palette paletteSource = ReferenceColours.SPRITE_PALETTE;
 
@@ -174,7 +174,7 @@ abstract class Doll {
     }
 
     Doll() {
-        if(!window.location.hostname.contains("farrago")) {
+        if(!window.location.hostname!.contains("farrago")) {
             useAbsolutePath = false;
              //absolutePathStart = "http://www.farragofiction.com/DollSource/";
         }
@@ -213,7 +213,7 @@ abstract class Doll {
                 }
             }
         }
-        List<String> keysToReplace = new List<String>();
+        List<String> keysToReplace = <String>[];
 
         for(String sourceName in source.palette.names) {
             for (String replacementName in replacement.palette.names) {
@@ -259,7 +259,7 @@ abstract class Doll {
         quirkButDontUse = Quirk.randomHumanQuirk(rand);
     }
 
-    Future<String> getNameFromEngine([int seedReplace = -13]) async {
+    Future<String?> getNameFromEngine([int seedReplace = -13]) async {
         if(seedReplace <0) seedReplace = seed;
         try {
             if(textEngine == null) {
@@ -274,9 +274,9 @@ abstract class Doll {
                     textEngine = new TextEngine(seedReplace);
                 }
             }
-            await textEngine.loadList("$nameFileLocation");
+            await textEngine!.loadList("$nameFileLocation");
 
-           return  textEngine.phrase("$nameGeneratorSection");
+           return  textEngine!.phrase("$nameGeneratorSection") ?? "";
         }catch(e,trace) {
             print("Error doing text engine stuff, did you remember to copy the .words file to the right place? $e $trace");
         }
@@ -301,7 +301,7 @@ abstract class Doll {
     }
 
     List<String> getAllNeededDirectories() {
-        List<String> ret = new List<String>();
+        List<String> ret = <String>[];
         for(SpriteLayer layer in dataOrderLayers) {
             ret.add(layer.imgNameBase);
         }
@@ -318,12 +318,12 @@ abstract class Doll {
 
     static Doll andAlchemizeDolls(List<Doll> dolls) {
         Random rand = new Random();
-        Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls).renderingType);
+        Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls)!.renderingType);
         dolls.removeWhere((Doll doll) => doll is NamedLayerDoll);
         for(Doll d in dolls) {
             for(int i = 0; i<ret.renderingOrderLayers.length; i++) {
                 SpriteLayer mine = ret.renderingOrderLayers[i];
-                SpriteLayer yours;
+                SpriteLayer? yours;
                 if(d.renderingOrderLayers.length > i) yours = d.renderingOrderLayers[i];
                 if(yours != null) {
                     //print("my ${mine} was ${mine.imgNumber}, your ${yours} was ${yours.imgNumber}, them together is ${mine.imgNumber & yours.imgNumber}");
@@ -336,7 +336,7 @@ abstract class Doll {
 
             for(int i = 0; i<ret.palette.length; i++) {
                 Colour mine = ret.palette[i];
-                Colour yours;
+                Colour? yours;
                 if(d.palette.length > i) yours = d.palette[i];
                 if(yours != null) {
                     mine.red = (mine.red & yours.red) % 256;
@@ -351,11 +351,11 @@ abstract class Doll {
     static Doll orAlchemizeDolls(List<Doll> dolls) {
         dolls.removeWhere((Doll doll) => doll is NamedLayerDoll);
         Random rand = new Random();
-        Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls).renderingType);
+        Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls)!.renderingType);
         for(Doll d in dolls) {
             for(int i = 0; i<ret.renderingOrderLayers.length; i++) {
                 SpriteLayer mine = ret.renderingOrderLayers[i];
-                SpriteLayer yours;
+                SpriteLayer? yours;
                 if(d.renderingOrderLayers.length > i) yours = d.renderingOrderLayers[i];
                 if(yours != null) {
                     //print("my ${mine} was ${mine.imgNumber}, your ${yours} was ${yours.imgNumber}, them together is ${mine.imgNumber & yours.imgNumber}");
@@ -369,7 +369,7 @@ abstract class Doll {
 
             for(int i = 0; i<ret.palette.length; i++) {
                 Colour mine = ret.palette[i];
-                Colour yours;
+                Colour? yours;
                 if(d.palette.length > i) yours = d.palette[i];
                 if(yours != null) {
                     mine.red = (mine.red | yours.red) % 256;
@@ -404,14 +404,14 @@ abstract class Doll {
         dolls.removeWhere((Doll doll) => doll is NamedLayerDoll);
         Random rand = new Random();
         int firstEye = -113;
-        Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls).renderingType);
+        Doll ret = Doll.randomDollOfType(rand.pickFrom(dolls)!.renderingType);
             for(int i = 0; i<ret.dataOrderLayers.length; i++) {
                 SpriteLayer mine = ret.dataOrderLayers[i];
                 //decide what to do with dynamics in individual dollsets
                 if(!(mine is DynamicLayer)) {
-                    Doll d = rand.pickFrom(dolls);
+                    Doll d = rand.pickFrom(dolls)!;
                     //print("first parent is $d with seed ${d.seed}");
-                    SpriteLayer yours;
+                    SpriteLayer? yours;
                     if (d.dataOrderLayers.length > i)
                         yours = d.dataOrderLayers[i];
                     //for each doll in the thing, pick one to be the source of this part
@@ -442,7 +442,7 @@ abstract class Doll {
         print("breeding $ret");
       for(int i = 0; i<ret.palette.length; i++) {
           Colour mine = ret.palette[i];
-          Colour yours = pickParentColor(i, dolls);
+          Colour? yours = pickParentColor(i, dolls);
           //if saturation is similar, just do random
           //otherwise pick the lesser saturation one
           if(yours != null && rand.nextDouble() > .1) {
@@ -453,13 +453,13 @@ abstract class Doll {
       }
     }
 
-    static Colour pickParentColor(int paletteIndex, List<Doll> dolls ) {
+    static Colour? pickParentColor(int paletteIndex, List<Doll> dolls ) {
         //detect the lowest saturated color.
         //keep track of all colors within x of it
         //return a random choice from these low saturated (dominant) colors
         double threshold = .8;
         //we now know ret is the least saturated.
-        List<Colour> dominents = new List<Colour>();
+        List<Colour> dominents = <Colour>[];
         for(Doll doll in dolls) {
             if(doll.palette.length > paletteIndex && (doll.palette[paletteIndex].value).abs() < threshold) {
                 dominents.add(doll.palette[paletteIndex]);
@@ -470,7 +470,7 @@ abstract class Doll {
             return new Random().pickFrom(dominents);
         }else {
             //print("all were recessive, pick any of them");
-            Doll doll = new Random().pickFrom(dolls);
+            Doll doll = new Random().pickFrom(dolls)!;
             if(doll.palette.length > paletteIndex) {
                 return doll.palette[paletteIndex];
             }else {
@@ -492,10 +492,11 @@ abstract class Doll {
     }
 
     static int getFirstFreeID() {
-        //fuck you if you want to store more than 1k dolls.
+        //fuck you if you want to store more than 1k dolls. (oh no, I don't want to be around when this explodes -PL)
         for(int i = 0; i<255; i++) {
             if(!window.localStorage.containsKey("${Doll.localStorageKey}$i")) return i;
         }
+        return -1;
     }
 
     void copy(Doll source) {
@@ -685,7 +686,7 @@ abstract class Doll {
     }
 
     //will always be new format, since it calls toDataBytesX itself
-    void visualizeData(Element container, [String dataString]) {
+    void visualizeData(Element container, [String? dataString]) {
         DivElement me = new DivElement();
         container.append(me);
         if(dataString == null) {
@@ -729,7 +730,7 @@ abstract class Doll {
 
     }
 
-    void oneRowOfDataTable( String label, TableElement table, ByteReader reader, [bool oneByte = false, SpriteLayer layer]) {
+    void oneRowOfDataTable( String label, TableElement table, ByteReader reader, [bool oneByte = false, SpriteLayer? layer]) {
         TableRowElement row = new TableRowElement();
         table.append(row);
 
@@ -801,22 +802,22 @@ abstract class Doll {
 
     //first, the rendering type. (this will get taken off before being passed to the loader)
     //numColors, colors, numLayers, layers
-    String toDataBytesX([ByteBuilder builder = null]) {
-        if(dollName == null || dollName.isEmpty) dollName = name;
+    String toDataBytesX([ByteBuilder? builder]) {
+        if(dollName == null || dollName!.isEmpty) dollName = name;
 
         beforeSaving();
          //print("saving to data bytes x");
-        if(builder == null) builder = new ByteBuilder();
+        builder ??= new ByteBuilder();
         builder = appendDataBytesToBuilder(builder);
 
         return "$label${base64Url.encode(builder.toBuffer().asUint8List())}";
     }
 
     //legacy as of 6/18/18
-    String toDataBytesXOld([ByteBuilder builder = null]) {
+    String toDataBytesXOld([ByteBuilder? builder]) {
         beforeSaving();
        // print("saving to data bytes x");
-        if(builder == null) builder = new ByteBuilder();
+        builder ??= new ByteBuilder();
         int length = palette.names.length + 1;//one byte for doll type
 
         for(SpriteLayer layer in dataOrderLayers) {
@@ -928,7 +929,7 @@ abstract class Doll {
         return new CanvasElement(width: width, height: height);
     }
 
-    static Doll loadSpecificDollFromReader(ByteReader reader, [bool ignoreError = false]) {
+    static Doll? loadSpecificDollFromReader(ByteReader reader, [bool ignoreError = false]) {
         //print("loading doll from string $ds");
         int type = -99;
         //FUTURE JR, PAY ATTENTION
@@ -940,7 +941,7 @@ abstract class Doll {
 
         //ACTUALLY, RET.LOAD DOESN'T TRY CATCH ANYMORE, SO IT COMES OUT AND SHOULD HAVE THE
         //RIGHT TYPE, BUT IT'S STILL LOADING WRONG AND I DON'T KNOW WHY???
-        Doll ret;
+        Doll? ret;
         try {
             //print("reading exo whatever in load from reader, reader is ${reader}");
             type = reader.readExpGolomb();
@@ -963,18 +964,18 @@ abstract class Doll {
         choices.add(new HomestuckGrubDoll(), 0.5);
         choices.add(new EggDoll(), 0.1);
         choices.add(new TrollEggDoll(), 0.1);
-        return rand.pickFrom(choices);
+        return rand.pickFrom(choices)!;
     }
 
 
 
     static List<SavedDoll> loadAllFromLocalStorage() {
         int last = 255; //don't care about first ree id cuz they can be deleted.
-        List<SavedDoll> ret = new List<SavedDoll>();
+        List<SavedDoll> ret = <SavedDoll>[];
         for(int i = 0; i< last; i++) {
            // print("processing doll from storage $i, already have processed ${ret.length} dolls");
             if(window.localStorage.containsKey("${Doll.localStorageKey}$i")) {
-                String dataString = window.localStorage["${Doll
+                String? dataString = window.localStorage["${Doll
                     .localStorageKey}$i"];
                 //print("doll actually exists and is $dataString");
 
@@ -1009,39 +1010,39 @@ abstract class Doll {
         dolls.add(new BroDoll(),0.3);
         dolls.add(new MomDoll(),0.3);
         //return new BroDoll(); //hardcoded for testing
-        return rand.pickFrom(dolls);
+        return rand.pickFrom(dolls)!;
     }
 
-    SpriteLayer layer(String dollLayerName, String path, int defaultId, {bool mb = false, List<SpriteLayer> sync = null, int secret = -1}) {
+    SpriteLayer layer(String dollLayerName, String path, int defaultId, {bool mb = false, List<SpriteLayer>? sync, int secret = -1}) {
         List<String> split = dollLayerName.split(".");
         String dollName = split.first;
         String layerName = split.last;
 
         SpriteLayer.legacyConstructorToggle = false;
-        SpriteLayer l = new SpriteLayer(layerName, "$folder/$path", defaultId, fileData.getValue("$dollName.layers.$layerName", defaultId), supportsMultiByte: mb, syncedWith: sync)..secretMax = secret;
+        SpriteLayer l = new SpriteLayer(layerName, "$folder/$path", defaultId, fileData.getValue("$dollName.layers.$layerName", defaultId)!, supportsMultiByte: mb, syncedWith: sync)..secretMax = secret;
         SpriteLayer.legacyConstructorToggle = true;
         return l;
     }
 
-    SpriteLayer layerPlusUltra(int w, int h, int x, int y, String dollLayerName, String path, int defaultId, {bool mb = false, List<SpriteLayer> sync = null, int secret = -1}) {
+    SpriteLayer layerPlusUltra(int w, int h, int x, int y, String dollLayerName, String path, int defaultId, {bool mb = false, List<SpriteLayer>? sync, int secret = -1}) {
         List<String> split = dollLayerName.split(".");
         String dollName = split.first;
         String layerName = split.last;
 
         SpriteLayer.legacyConstructorToggle = false;
-        SpriteLayer l = new PositionedLayerPlusUltra(w,h,x,y, layerName, "$folder/$path", defaultId, fileData.getValue("$dollName.layers.$layerName", defaultId))..supportsMultiByte = mb..secretMax = secret;
+        SpriteLayer l = new PositionedLayerPlusUltra(w,h,x,y, layerName, "$folder/$path", defaultId, fileData.getValue("$dollName.layers.$layerName", defaultId)!)..supportsMultiByte = mb..secretMax = secret;
         if (sync != null) {
-            l.syncedWith.addAll(sync);
+            l.syncedWith?.addAll(sync);
         }
         SpriteLayer.legacyConstructorToggle = true;
         return l;
     }
 
-    static T dataValue<T>(String value, [T fallback = null]) => fileData.getValue(value, fallback);
-    static List<T> dataList<T>(String value) => fileData.getArray<T>(value);
+    static T? dataValue<T>(String value, [T? fallback]) => fileData.getValue(value, fallback);
+    static List<T>? dataList<T>(String value) => fileData.getArray<T>(value);
 
     static Future<void> loadFileData([String path = "package:DollLibCorrect/dolldata.json"]) async {
-        if(path == "package:DollLibCorrect/dolldata.json" && (window.location.hostname.contains("farrago"))){
+        if(path == "package:DollLibCorrect/dolldata.json" && (window.location.hostname!.contains("farrago"))){
             print("using global dolldata");
             path = "http://www.farragofiction.com/DollSource/dolldata.json";
         }
@@ -1060,8 +1061,8 @@ abstract class Doll {
 class SavedDoll {
     Doll doll;
     int id;
-    CanvasElement canvas;
-    TextAreaElement textAreaElement;
+    CanvasElement? canvas;
+    TextAreaElement? textAreaElement;
 
     SavedDoll(this.doll, this.id) {
 
@@ -1078,22 +1079,22 @@ class SavedDoll {
 
     Future<void> renderSelfToContainer(Element container) async {
         canvas = new CanvasElement(width: doll.width, height: doll.height);
-        container.append(canvas);
-        DollRenderer.drawDoll(canvas, doll);
+        container.append(canvas!);
+        DollRenderer.drawDoll(canvas!, doll);
     }
 
     Future<void> renderDataUrlToContainer(Element container, dynamic refreshMethod) async {
         Element bluh = new DivElement();
         container.append(bluh);
         textAreaElement = new TextAreaElement();
-        textAreaElement.setInnerHtml(doll.toDataBytesX());
-        bluh.append(textAreaElement);
+        textAreaElement!.setInnerHtml(doll.toDataBytesX());
+        bluh.append(textAreaElement!);
 
         ButtonElement copyButton = new ButtonElement();
         bluh.append(copyButton);
         copyButton.setInnerHtml("Copy Doll $id");
         copyButton.onClick.listen((Event e) {
-            textAreaElement.select();
+            textAreaElement!.select();
             document.execCommand('copy');
         });
 

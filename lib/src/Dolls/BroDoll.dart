@@ -31,11 +31,11 @@ class BroDoll extends Doll {
     final int maxGlasses = 7;
     final int maxBase = 0;
 
-    SpriteLayer hair;
-    SpriteLayer hat;
-    SpriteLayer outfit;
-    SpriteLayer glasses;
-    SpriteLayer base;
+    late SpriteLayer hair;
+    late SpriteLayer hat;
+    late SpriteLayer outfit;
+    late SpriteLayer glasses;
+    late SpriteLayer base;
 
 
     @override

@@ -32,19 +32,19 @@ class SpriteLayer {
 
 
     //used for testing layers that aren't yet part of the sim
-    ImageElement preloadedElement;
+    ImageElement? preloadedElement;
     String description = "";
     //slaves just match whatever another thingy tells them to do.
     bool slave = false;
     //partners aren't forced to do anything, but i need to know they exist
     bool primaryPartner = true;
-    List<SpriteLayer> syncedWith  = new List<SpriteLayer>(); //for things like hair where they should always match.
-    List<SpriteLayer> partners = new List<SpriteLayer>();
+    List<SpriteLayer>? syncedWith  = <SpriteLayer>[]; //for things like hair where they should always match.
+    List<SpriteLayer> partners = <SpriteLayer>[];
     bool changed = true; //generate descriptions when created, that will set it to false
 
     //TODO: sort this again after dealing with conversion
     static bool legacyConstructorToggle = true;
-    static Doll legacyConstructorDoll;
+    static Doll? legacyConstructorDoll;
 
     SpriteLayer(this.name, this.imgNameBase, this._imgNumber, this.maxImageNumber, {this.supportsMultiByte = false, this.syncedWith, this.imgFormat = "png", bool legacy = false}) {
         if (legacyConstructorToggle && !legacy) {
@@ -58,7 +58,7 @@ class SpriteLayer {
 
         numbytes = (secretMax/255).ceil();
         if(syncedWith == null) {
-            syncedWith = new List<SpriteLayer>();
+            syncedWith = <SpriteLayer>[];
         }
     }
 
@@ -102,15 +102,17 @@ class SpriteLayer {
     void randomize() {
         Random rand  = new Random();
         imgNumber = rand.nextInt(maxImageNumber);
-        for(SpriteLayer l in syncedWith) {
-            l.imgNumber = imgNumber;
+        if (syncedWith != null) {
+            for (SpriteLayer l in syncedWith!) {
+                l.imgNumber = imgNumber;
+            }
         }
     }
 
     Future<void> drawSelf(CanvasElement buffer) async {
         if(preloadedElement != null) {
             //print("I must be testing something, it's a preloaded Element");
-            bool res = await Renderer.drawExistingElementFuture(buffer, preloadedElement);
+            bool res = await Renderer.drawExistingElementFuture(buffer, preloadedElement!);
         }else {
             bool res = await Renderer.drawWhateverFuture(buffer, imgLocation);
         }
@@ -157,14 +159,16 @@ class SpriteLayer {
         _imgNumber = i;
         changed = true;
         //things like hair top/back
-        for(SpriteLayer l in syncedWith) {
-            if(l.imgNumber != i) l.imgNumber = i; //no infinite loops, dunkass
+        if (syncedWith != null) {
+            for (SpriteLayer l in syncedWith!) {
+                if (l.imgNumber != i) l.imgNumber = i; //no infinite loops, dunkass
+            }
         }
     }
 
     void slaveTo(SpriteLayer master) {
-        this.syncedWith.add(master);
-        master.syncedWith.add(this);
+        this.syncedWith?.add(master);
+        master.syncedWith?.add(this);
         this.slave = true;
     }
 

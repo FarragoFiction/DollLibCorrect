@@ -29,13 +29,13 @@ class DenizenDoll extends Doll{
   final int maxCore = 2;
   final int maxEyes = 19;
 
-  SpriteLayer face;
-  SpriteLayer back;
-  SpriteLayer mouth;
-  SpriteLayer other;
-  SpriteLayer body;
-  SpriteLayer core;
-  SpriteLayer eyes;
+  late SpriteLayer face;
+  late SpriteLayer back;
+  late SpriteLayer mouth;
+  late SpriteLayer other;
+  late SpriteLayer body;
+  late SpriteLayer core;
+  late SpriteLayer eyes;
 
   @override
   List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[back,core,body,face,mouth,eyes,other];
@@ -74,7 +74,7 @@ class DenizenDoll extends Doll{
     int seed = associatedColor.red + associatedColor.green + associatedColor.blue ;
     Random rand  = new Random(seed);
     quirkButDontUse = Quirk.randomHumanQuirk(rand);
-    quirkButDontUse.capitalization = Quirk.ALLCAPS;
+    quirkButDontUse!.capitalization = Quirk.ALLCAPS;
   }
 
 

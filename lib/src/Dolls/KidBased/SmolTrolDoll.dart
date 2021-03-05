@@ -26,7 +26,7 @@ class SmolTrollDoll extends HomestuckTrollDoll {
     @override
     String relativefolder = "images/Homestuck";
 
-    SmolTrollDoll([int sign]) :super() {
+    SmolTrollDoll([int? sign]) :super() {
         if(sign != null) {
             //makes sure palette is sign appropriate
             randomize();

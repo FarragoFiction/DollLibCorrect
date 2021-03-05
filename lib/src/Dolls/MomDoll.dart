@@ -31,11 +31,11 @@ class MomDoll extends Doll {
     final int maxMouth = 9;
     final int maxBase = 0;
 
-    SpriteLayer hair;
-    SpriteLayer drink;
-    SpriteLayer outfit;
-    SpriteLayer mouth;
-    SpriteLayer base;
+    late SpriteLayer hair;
+    late SpriteLayer drink;
+    late SpriteLayer outfit;
+    late SpriteLayer mouth;
+    late SpriteLayer base;
 
 
     @override

@@ -14,8 +14,8 @@ class BroomDoll extends Doll {
 
     String relativefolder = "images/Broom";
 
-    SpriteLayer handle;
-    SpriteLayer head;
+    late SpriteLayer handle;
+    late SpriteLayer head;
 
 
     @override

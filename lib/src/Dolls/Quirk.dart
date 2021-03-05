@@ -119,7 +119,7 @@ class Quirk {
         if(this.lettersToReplace.length > 0){
             ret += " \n * Replaces: ";
         }
-        for(num i = 0; i<this.lettersToReplace.length; i++){
+        for(int i = 0; i<this.lettersToReplace.length; i++){
             //querySelector("#debug").append(i);
             ret += "\n \t " + this.lettersToReplace[i][0] + " with " + this.lettersToReplace[i][1];
         }
@@ -168,7 +168,7 @@ class Quirk {
         if(this.lettersToReplace.length > 0){
             ret += " <br>Replaces: ";
         }
-        for(num i = 0; i<this.lettersToReplace.length; i++){
+        for(int i = 0; i<this.lettersToReplace.length; i++){
             //querySelector("#debug").append(i);
             ret += "<br>&nbsp&nbsp&nbsp&nbsp " + this.lettersToReplace[i][0] + " with " + this.lettersToReplace[i][1];
         }
@@ -186,14 +186,14 @@ class Quirk {
     }
     String replaceEverythingWithRandomJapanese(String input){
         List<String> words = input.split(" ");
-        for(num i = 0; i<words.length; i++){
+        for(int i = 0; i<words.length; i++){
             words[i] = this.randomJapaneseBullshit();
         }
         return words.join(" ");
     }
     String handleReplacements(String input){
         String ret = input;
-        for(num i = 0; i<this.lettersToReplace.length; i++){
+        for(int i = 0; i<this.lettersToReplace.length; i++){
             //querySelector("#debug").append("Replacing: " +this.lettersToReplace[i][0] );
             String replace = this.lettersToReplace[i][1] ;
             if(replace == "私"){
@@ -205,7 +205,7 @@ class Quirk {
     }
     String handleReplacementsIgnoreCase(String input){
         String ret = input;
-        for(num i = 0; i<this.lettersToReplaceIgnoreCase.length; i++){
+        for(int i = 0; i<this.lettersToReplaceIgnoreCase.length; i++){
             //querySelector("#debug").append("Replacing: " +this.lettersToReplaceIgnoreCase[i][0] );
             ////print("Replacing: " +this.lettersToReplaceIgnoreCase[i][0] );
             //g makes it replace all, i makes it ignore case
@@ -317,7 +317,7 @@ class Quirk {
         if(this.capitalization== 0){
             ret = ret.toLowerCase();
         }else if(this.capitalization== 4){
-            for(num i = 0; i<input.length; i++){
+            for(int i = 0; i<input.length; i++){
                 if(i%2 == 0){
                     ret = replaceStringAt(ret, i, ret[i].toLowerCase());
                 }else{
@@ -325,7 +325,7 @@ class Quirk {
                 }
             }
         }else if(this.capitalization== 5){
-            for(num i = 0; i<input.length; i++){
+            for(int i = 0; i<input.length; i++){
                 if(ret[i] == ret[i].toUpperCase()){
                     ret = replaceStringAt(ret, i, ret[i].toLowerCase());
                 }else{
@@ -333,7 +333,7 @@ class Quirk {
                 }
             }
         }else if(this.capitalization== 3){
-            ret = ret.replaceAllMapped(new RegExp(r"\b\w", multiLine:true), (l){ return l.group(0).toUpperCase(); })  ;//this version works with old IE browsers.;
+            ret = ret.replaceAllMapped(new RegExp(r"\b\w", multiLine:true), (l){ return l.group(0)!.toUpperCase(); })  ;//this version works with old IE browsers.;
         }else if(this.capitalization== 1){
             ret = input; //no change
         }else if(this.capitalization== 2){
@@ -392,7 +392,7 @@ class Quirk {
         ret.capitalization = ret.rand.nextIntRange(0,5);
         ret.punctuation = ret.rand.nextIntRange(0,5);
         if(ret.rand.nextDouble() > .5){
-            ret.prefix = ret.rand.pickFrom(prefixes);
+            ret.prefix = ret.rand.pickFrom(prefixes)!;
             if(ret.prefix.length == 1){
                 ret.prefix = multiplyCharacter(ret.prefix, ret.prefix[0], ret.favoriteNumber);
             }
@@ -401,7 +401,7 @@ class Quirk {
             if(ret.prefix != "" && ret.rand.nextDouble()>.7){ //mostly just repeat your prefix
                 ret.suffix = ret.prefix;
             }else{
-                ret.suffix = ret.rand.pickFrom(prefixes);
+                ret.suffix = ret.rand.pickFrom(prefixes)!;
             }
 
             if(ret.suffix.length == 1){
@@ -424,13 +424,13 @@ class Quirk {
 
     static List<String> getOneNormalReplaceArray(Random rand){
         //these should ignore case.
-        return rand.pickFrom(conversational_quirks);
+        return rand.pickFrom(conversational_quirks)!;
     }
 
 
 
     List<String> getOneRandomFishArray(Random rand){
-        return rand.pickFrom(fish_quirks);
+        return rand.pickFrom(fish_quirks)!;
     }
 
 
@@ -468,7 +468,7 @@ class Quirk {
 
 
         if(rand.nextDouble() > .5){
-            return rand.pickFrom(arr);
+            return rand.pickFrom(arr)!;
         }
 
         return getOneNormalReplaceArray(rand); //if i get here, just do a normal one.

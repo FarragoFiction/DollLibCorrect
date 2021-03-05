@@ -92,7 +92,7 @@ class ByteBuilder {
 	}
 
 	/// Creates a new [ByteBuffer] containing the data in this ByteBuilder.
-	ByteBuffer toBuffer([ByteBuffer toExtend = null]) {
+	ByteBuffer toBuffer([ByteBuffer? toExtend]) {
 		int length = _position > 0 ? _data.length+1 : _data.length;
 		int offset = 0;
 
@@ -146,7 +146,7 @@ class ByteBuilder {
 /// Reads a [ByteBuffer] as a stream of bits.
 class LegacyByteReader {
 	/// Source buffer.
-	ByteData _bytes;
+	late ByteData _bytes;
 	/// Current bit position within the buffer.
 	int _position = 0;
 

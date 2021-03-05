@@ -5,8 +5,8 @@ import "Doll.dart";
 import "Layers/SpriteLayer.dart";
 
 abstract class NamedLayerDoll extends Doll {
-    List<String> possibleParts = new List<String>();
-    List<NamedSpriteLayer> layers = new List<NamedSpriteLayer>();
+    List<String> possibleParts = <String>[];
+    List<NamedSpriteLayer> layers = <NamedSpriteLayer>[];
 
     void addLayerNamed(String name) {
         layers.add(new NamedSpriteLayer(possibleParts,name,"$folder/Parts/", 0, 0));
@@ -35,10 +35,11 @@ abstract class NamedLayerDoll extends Doll {
             addLayerNamed(possibleParts[imgNumber]);
         }
 
+        return reader;
     }
 
     @override
-    String toDataBytesX([ByteBuilder builder = null]) {
+    String toDataBytesX([ByteBuilder? builder]) {
         if(builder == null) builder = new ByteBuilder();
         int length = dataOrderLayers.length + palette.names.length + 1;//one byte for doll type
         //builder.appendByte(renderingType); //value of 1 means homestuck doll

@@ -41,20 +41,20 @@ class DogDoll extends Doll{
 
 
 
-  SpriteLayer accessory;
-  SpriteLayer backLegs;
-  SpriteLayer body;
-  SpriteLayer chestFur;
-  SpriteLayer frontLegs;
-  SpriteLayer head;
-  SpriteLayer leftEar;
-  SpriteLayer leftEye;
-  SpriteLayer leftHeadFur;
-  SpriteLayer rightEar;
-  SpriteLayer rightEye;
-  SpriteLayer rightHeadFur;
-  SpriteLayer snout;
-  SpriteLayer tail;
+  late SpriteLayer accessory;
+  late SpriteLayer backLegs;
+  late SpriteLayer body;
+  late SpriteLayer chestFur;
+  late SpriteLayer frontLegs;
+  late SpriteLayer head;
+  late SpriteLayer leftEar;
+  late SpriteLayer leftEye;
+  late SpriteLayer leftHeadFur;
+  late SpriteLayer rightEar;
+  late SpriteLayer rightEye;
+  late SpriteLayer rightHeadFur;
+  late SpriteLayer snout;
+  late SpriteLayer tail;
 
 
 
@@ -99,7 +99,7 @@ class DogDoll extends Doll{
   void randomizeColors() {
             if(rand == null) rand = new Random();;
     List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
-    Palette newPallete = rand.pickFrom(paletteOptions);
+    Palette newPallete = rand.pickFrom(paletteOptions)!;
     if(newPallete == ReferenceColours.INK) {
       super.randomizeColors();
     }else {
@@ -124,7 +124,7 @@ class DogDoll extends Doll{
     int seed = associatedColor.red + associatedColor.green + associatedColor.blue + renderingOrderLayers.first.imgNumber ;
     Random rand  = new Random(seed);
     quirkButDontUse = Quirk.randomHumanQuirk(rand);
-    quirkButDontUse.lettersToReplaceIgnoreCase = [["^.*\$", "Woof"],["[.]\$", "Bark"],["[.]\$", "Yip"],];
+    quirkButDontUse!.lettersToReplaceIgnoreCase = [["^.*\$", "Woof"],["[.]\$", "Bark"],["[.]\$", "Yip"],];
 
   }
 

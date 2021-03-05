@@ -51,7 +51,7 @@ class HomestuckTreeBab extends HomestuckLamiaDoll {
 
 
 
-    HomestuckTreeBab([int sign]) {
+    HomestuckTreeBab([int? sign]) {
         initLayers();
         randomize();
         if(sign != null) {

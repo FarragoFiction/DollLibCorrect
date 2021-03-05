@@ -708,55 +708,55 @@ abstract class ReferenceColours {
         ..hair_accent = '#ff0000';
 
 
-    static Map<String, Palette> _paletteList;
+    static Map<String, Palette>? _paletteList;
 
 
     static Map<String, Palette> get paletteList {
         if(_paletteList == null) {
-            _paletteList = new Map<String, Palette>();
+            _paletteList = <String, Palette>{};
 
-            _paletteList["Blood"] = BLOOD;
-            _paletteList["Mind"] = MIND;
-            _paletteList["Sauce"] = SAUCE;
-            _paletteList["Juice"] = JUICE;
-            _paletteList["Rage"] = RAGE;
-            _paletteList["Void"] = VOID;
-            _paletteList["Time"] = TIME;
-            _paletteList["Heart"] = HEART;
-            _paletteList["Breath"] = BREATH;
-            _paletteList["Light"] = LIGHT;
-            _paletteList["Space"] = SPACE;
-            _paletteList["Hope"] = HOPE;
-            _paletteList["Life"] = LIFE;
-            _paletteList["Doom"] = DOOM;
-            _paletteList["Dream"] = DREAM;
-            _paletteList["Law"] = LAW;
-            _paletteList["Null"] = NULL;
-            _paletteList["Robot"] = ROBOT_PALETTE;
-            _paletteList["Prospit"] = PROSPIT_PALETTE;
-            _paletteList["Derse"] = DERSE_PALETTE;
-            _paletteList["Corrupt"] = CORRUPT;
-            _paletteList["Purified"] = PURIFIED;
-            _paletteList["Hissie"] = HISSIE;
+            _paletteList!["Blood"] = BLOOD;
+            _paletteList!["Mind"] = MIND;
+            _paletteList!["Sauce"] = SAUCE;
+            _paletteList!["Juice"] = JUICE;
+            _paletteList!["Rage"] = RAGE;
+            _paletteList!["Void"] = VOID;
+            _paletteList!["Time"] = TIME;
+            _paletteList!["Heart"] = HEART;
+            _paletteList!["Breath"] = BREATH;
+            _paletteList!["Light"] = LIGHT;
+            _paletteList!["Space"] = SPACE;
+            _paletteList!["Hope"] = HOPE;
+            _paletteList!["Life"] = LIFE;
+            _paletteList!["Doom"] = DOOM;
+            _paletteList!["Dream"] = DREAM;
+            _paletteList!["Law"] = LAW;
+            _paletteList!["Null"] = NULL;
+            _paletteList!["Robot"] = ROBOT_PALETTE;
+            _paletteList!["Prospit"] = PROSPIT_PALETTE;
+            _paletteList!["Derse"] = DERSE_PALETTE;
+            _paletteList!["Corrupt"] = CORRUPT;
+            _paletteList!["Purified"] = PURIFIED;
+            _paletteList!["Hissie"] = HISSIE;
 
-            _paletteList["CrockerTier"] = CROCKERTIER;
-            _paletteList["Sketch"] = SKETCH;
-            _paletteList["Ink"] = INK;
-            _paletteList["Burgundy"] = BURGUNDY;
-            _paletteList["Bronze"] = BRONZE;
-            _paletteList["Gold"] = GOLD;
-            _paletteList["Lime"] = LIMEBLOOD;
-            _paletteList["Olive"] = OLIVE;
-            _paletteList["Jade"] = JADE;
-            _paletteList["Teal"] = TEAL;
-            _paletteList["Cerulean"] = CERULEAN;
-            _paletteList["Indigo"] = INDIGO;
-            _paletteList["Purple"] = PURPLE;
-            _paletteList["Violet"] = VIOLET;
-            _paletteList["Fuschia"] = FUSCHIA;
-            _paletteList["Anon"] = ANON;
+            _paletteList!["CrockerTier"] = CROCKERTIER;
+            _paletteList!["Sketch"] = SKETCH;
+            _paletteList!["Ink"] = INK;
+            _paletteList!["Burgundy"] = BURGUNDY;
+            _paletteList!["Bronze"] = BRONZE;
+            _paletteList!["Gold"] = GOLD;
+            _paletteList!["Lime"] = LIMEBLOOD;
+            _paletteList!["Olive"] = OLIVE;
+            _paletteList!["Jade"] = JADE;
+            _paletteList!["Teal"] = TEAL;
+            _paletteList!["Cerulean"] = CERULEAN;
+            _paletteList!["Indigo"] = INDIGO;
+            _paletteList!["Purple"] = PURPLE;
+            _paletteList!["Violet"] = VIOLET;
+            _paletteList!["Fuschia"] = FUSCHIA;
+            _paletteList!["Anon"] = ANON;
         }
 
-        return _paletteList;
+        return _paletteList!;
     }
 }

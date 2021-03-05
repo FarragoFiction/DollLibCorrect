@@ -25,19 +25,19 @@ class HiveswapDoll extends Doll {
     @override
     String relativefolder = "images/Homestuck/Hiveswap";
 
-    SpriteLayer body;
-    SpriteLayer glasses;
-    SpriteLayer eyebrows;
-    SpriteLayer leftEye;
-    SpriteLayer rightEye;
-    SpriteLayer hairTop;
-    SpriteLayer hairBack;
-    SpriteLayer leftHorn;
-    SpriteLayer rightHorn;
-    SpriteLayer mouth;
-    SpriteLayer leftFin;
-    SpriteLayer rightFin;
-    SpriteLayer facepaint;
+    late SpriteLayer body;
+    late SpriteLayer glasses;
+    late SpriteLayer eyebrows;
+    late SpriteLayer leftEye;
+    late SpriteLayer rightEye;
+    late SpriteLayer hairTop;
+    late SpriteLayer hairBack;
+    late SpriteLayer leftHorn;
+    late SpriteLayer rightHorn;
+    late SpriteLayer mouth;
+    late SpriteLayer leftFin;
+    late SpriteLayer rightFin;
+    late SpriteLayer facepaint;
 
 
 
@@ -115,7 +115,7 @@ class HiveswapDoll extends Doll {
 
     String chooseBlood(Random rand) {
         List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
-        String chosenBlood = rand.pickFrom(bloodColors);
+        String chosenBlood = rand.pickFrom(bloodColors)!;
         return chosenBlood;
     }
 
@@ -195,7 +195,7 @@ class HiveswapDoll extends Doll {
         int firstHorn = -100;
         List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
 
-        String chosenBlood = rand.pickFrom(bloodColors);
+        String chosenBlood = rand.pickFrom(bloodColors)!;
         for (SpriteLayer l in renderingOrderLayers) {
             //don't have wings normally
             if (!l.imgNameBase.contains("Wings")) l.imgNumber = rand.nextInt(l.maxImageNumber + 1);
@@ -235,7 +235,7 @@ class HiveswapDoll extends Doll {
                 if(rand == null) rand = new Random();;
         List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
 
-        String chosenBlood = rand.pickFrom(bloodColors);
+        String chosenBlood = rand.pickFrom(bloodColors)!;
         HiveswapTrollPalette h = palette as HiveswapTrollPalette;
 
 

@@ -18,10 +18,10 @@ class PigeonDoll extends Doll {
     bool facesRight = false;
     String relativefolder = "images/Pigeon";
 
-    SpriteLayer body;
-    SpriteLayer head;
-    SpriteLayer wing;
-    SpriteLayer tail;
+    late SpriteLayer body;
+    late SpriteLayer head;
+    late SpriteLayer wing;
+    late SpriteLayer tail;
 
     @override
     String name = "Pigeon";
@@ -151,7 +151,7 @@ class PigeonDoll extends Doll {
     @override
     randomizeColors() {
                 if(rand == null) rand = new Random();;
-        copyPalette(rand.pickFrom(validPalettes));
+        copyPalette(rand.pickFrom(validPalettes)!);
     }
 
 

@@ -6,7 +6,7 @@ import "Layers/SpriteLayer.dart";
 
 class EasterEggDoll extends HatchableDoll {
 
-    static List<String> eggs = new List<String>();
+    static List<String> eggs = <String>[];
     @override
     String originalCreator = "jadedResearcher";
 
@@ -18,10 +18,10 @@ class EasterEggDoll extends HatchableDoll {
 
     String relativefolder = "images/EasterEgg";
 
-    SpriteLayer base;
-    SpriteLayer middle;
-    SpriteLayer bottom;
-    SpriteLayer top;
+    late SpriteLayer base;
+    late SpriteLayer middle;
+    late SpriteLayer bottom;
+    late SpriteLayer top;
 
     @override
     String name = "EasterEgg";
@@ -227,9 +227,9 @@ class EasterEggDoll extends HatchableDoll {
         possibilities.add(dark);
         possibilities.add(pastel,2.0);
 
-        String choice = rand.pickFrom(possibilities);
+        String choice = rand.pickFrom(possibilities)!;
         if(choice == valid) {
-            copyPalette(rand.pickFrom(validPalettes));
+            copyPalette(rand.pickFrom(validPalettes)!);
         }else if (choice == pastel) {
             pastelColor();
         }else if (choice == tacky) {

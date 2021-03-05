@@ -36,20 +36,20 @@ class OpenBoundDoll extends Doll{
 
 
 
-  SpriteLayer accessory;
-  SpriteLayer glasses;
-  SpriteLayer body;
-  SpriteLayer cape;
-  SpriteLayer leftEye;
-  SpriteLayer rightEye;
-  SpriteLayer leftFin;
-  SpriteLayer rightFin;
-  SpriteLayer hairFront;
-  SpriteLayer hairBack;
-  SpriteLayer leftHorn;
-  SpriteLayer rightHorn;
-  SpriteLayer mouth;
-  SpriteLayer symbol;
+  late SpriteLayer accessory;
+  late SpriteLayer glasses;
+  late SpriteLayer body;
+  late SpriteLayer cape;
+  late SpriteLayer leftEye;
+  late SpriteLayer rightEye;
+  late SpriteLayer leftFin;
+  late SpriteLayer rightFin;
+  late SpriteLayer hairFront;
+  late SpriteLayer hairBack;
+  late SpriteLayer leftHorn;
+  late SpriteLayer rightHorn;
+  late SpriteLayer mouth;
+  late SpriteLayer symbol;
 
 
   @override
@@ -85,8 +85,8 @@ class OpenBoundDoll extends Doll{
     if(rand == null) rand = new Random();
     //todo have versions of the major palettes for this.
     //have doll builder know to pick default palettes depending on palette lengths
-    List<Palette> paletteOptions = new List<Palette>();
-    Palette newPallete = rand.pickFrom(paletteOptions);
+    //List<Palette> paletteOptions = <Palette>[];
+    //Palette newPallete = rand.pickFrom(paletteOptions)!;
     tackyColors();
   }
 

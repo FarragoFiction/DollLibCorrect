@@ -62,18 +62,18 @@ class AncestorDoll extends Doll{
   final int maxMouth = 13;
   final int maxFin = 1;
 
-  SpriteLayer accessoryFront;
-  SpriteLayer accessoryBack;
-  SpriteLayer body;
-  SpriteLayer eyeLeft;
-  SpriteLayer eyeRight;
-  SpriteLayer hornLeft;
-  SpriteLayer hornRight;
-  SpriteLayer mouth;
-  SpriteLayer facepaint;
-  SpriteLayer hairBack;
-  SpriteLayer hairFront;
-  SpriteLayer fin;
+  late SpriteLayer accessoryFront;
+  late SpriteLayer accessoryBack;
+  late SpriteLayer body;
+  late SpriteLayer eyeLeft;
+  late SpriteLayer eyeRight;
+  late SpriteLayer hornLeft;
+  late SpriteLayer hornRight;
+  late SpriteLayer mouth;
+  late SpriteLayer facepaint;
+  late SpriteLayer hairBack;
+  late SpriteLayer hairFront;
+  late SpriteLayer fin;
 
   @override
   List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[accessoryBack, hairBack, body,fin, facepaint, mouth, eyeLeft, eyeRight, accessoryFront, hairFront, hornLeft, hornRight ];
@@ -115,7 +115,7 @@ class AncestorDoll extends Doll{
     if(rand == null) rand = new Random();
     List<String> bloodColors = <String>["#A10000", "#a25203", "#a1a100", "#658200", "#416600", "#078446", "#008282", "#004182", "#0021cb", "#631db4", "#610061", "#99004d"];
 
-    String chosenBlood = rand.pickFrom(bloodColors);
+    String chosenBlood = rand.pickFrom(bloodColors)!;
     HomestuckTrollPalette h = palette as HomestuckTrollPalette;
 
     palette.add(_ACCENT, new Colour(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)), true);

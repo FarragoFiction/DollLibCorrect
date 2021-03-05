@@ -9,7 +9,7 @@ class LeafDoll extends Doll {
     @override
     String relativefolder = "images/LeafClump";
 
-    SpriteLayer body;
+    late SpriteLayer body;
 
     @override
     List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body];
@@ -85,7 +85,7 @@ class LeafDoll extends Doll {
     void randomizeColors() {
         if(rand == null) rand = new Random();;
         List<Palette> paletteOptions = new List<Palette>.from(ReferenceColours.paletteList.values);
-        Palette newPallete = rand.pickFrom(paletteOptions);
+        Palette newPallete = rand.pickFrom(paletteOptions)!;
         if(newPallete == ReferenceColours.INK) {
             super.randomizeColors();
         }else {

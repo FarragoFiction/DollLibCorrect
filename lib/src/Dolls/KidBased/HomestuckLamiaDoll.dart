@@ -10,7 +10,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
     @override
     String originalCreator = "???";
     //have to force the data type for dart 2.0, says pl
-    List<int> seadwellerBodies = Doll.dataList<int>("Lamia.seaDwellerBodies");//<int>[7,8,9,12,13,27,28,29,34,35,39,40,46,50,51,52,60,61];
+    List<int> seadwellerBodies = Doll.dataList<int>("Lamia.seaDwellerBodies")!;//<int>[7,8,9,12,13,27,28,29,34,35,39,40,46,50,51,52,60,61];
 
     @override
     int renderingType =88;
@@ -58,7 +58,7 @@ class HomestuckLamiaDoll extends HomestuckTrollDoll {
 
 
 
-    HomestuckLamiaDoll([int sign]) {
+    HomestuckLamiaDoll([int? sign]) {
         initLayers();
         randomize();
         if(sign != null) {

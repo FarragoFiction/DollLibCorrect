@@ -44,7 +44,7 @@ class FruitDoll extends Doll {
     int maxBody = 91;
     String relativefolder = "images/Fruit";
 
-    SpriteLayer body;
+    late SpriteLayer body;
 
     @override
     List<SpriteLayer>  get renderingOrderLayers => <SpriteLayer>[body];
@@ -86,7 +86,7 @@ class FruitDoll extends Doll {
     @override
     String originalCreator = "jadedResearcher and dystopicFuturism";
 
-    FruitDoll([Random setRand]) {
+    FruitDoll([Random? setRand]) {
         if(setRand != null) rand = setRand;
         if(rand == null) rand = new Random();
         initPalettes(); //since a fruit makes a tree, needs same palettes
@@ -235,8 +235,8 @@ class FruitDoll extends Doll {
         }
 
         Random freshRand = new Random(seed);
-        String start = freshRand.pickFrom(genericStarts);
-        String end = freshRand.pickFrom(genericEnds);
+        String start = freshRand.pickFrom(genericStarts)!;
+        String end = freshRand.pickFrom(genericEnds)!;
 
         dollName = "$start $end";
     }
@@ -244,7 +244,7 @@ class FruitDoll extends Doll {
     @override
     String toString() {
         if(dollName == name) setName();
-        return dollName;
+        return dollName ?? "Unnamed Doll";
     }
 
 
@@ -292,7 +292,7 @@ class FruitDoll extends Doll {
         validPalettes.remove(ReferenceColours.FUSCHIA);
 
 
-        Palette newPallete = rand.pickFrom(validPalettes);
+        Palette newPallete = rand.pickFrom(validPalettes)!;
         copyPalette(newPallete);
         setName();
     }
