@@ -1,8 +1,8 @@
 {
   "Kid": {
     "layers": {
-      "LeftEye": 415,
-      "RightEye": 415,
+      "LeftEye": 717,
+      "RightEye": 717,
       "Mouth": 369,
       "Symbol": 508,
       "Glasses": 376,
@@ -15,7 +15,7 @@
   },
   "Troll": {
     "layers": {
-      "LeftEye": 415,
+      "LeftEye": 717,
       "RightEye": 415,
       "Mouth": 369,
       "Symbol": 508,
