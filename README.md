@@ -1,22 +1,5 @@
 # DollLibCorrect
 
-A library for Dart developers.
+***DEAR LORD FUTURE JR LISTEN TO ME:***
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
-
-## Usage
-
-A simple usage example:
-
-    import 'package:DollLibCorrect/DollLibCorrect.dart';
-
-    main() {
-      var awesome = new Awesome();
-    }
-
-## Features and bugs
-
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: http://example.com/issues/replaceme
+Only master has valid image/json data. Everything else is wildly out of sync and I don't feel like continuing to keep them in sync. Just deal with it. And if it gets annoying, make a new repo that is JUSt images/json. 
