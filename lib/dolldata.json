@@ -440,18 +440,18 @@
   },
   "Ancestor": {
     "layers": {
-      "Fin": 1,
-      "BehindAccessory": 4,
-      "HairBack": 26,
-      "Body": 99,
-      "Facepaint": 3,
-      "Mouth": 16,
-      "LeftEye": 12,
-      "RightEye": 12,
-      "FrontAccessory": 11,
-      "HairFront": 26,
-      "LeftHorn": 33,
-      "RightHorn": 33
+      "Fin": 3,
+      "BehindAccessory": 22,
+      "HairBack": 70,
+      "Body": 528,
+      "Facepaint": 14,
+      "Mouth": 19,
+      "LeftEye": 27,
+      "RightEye": 27,
+      "FrontAccessory": 44,
+      "HairFront": 70,
+      "LeftHorn": 120,
+      "RightHorn": 120
     }
   },
   "OpenBound": {
