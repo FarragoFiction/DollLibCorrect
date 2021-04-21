@@ -235,18 +235,18 @@
   },
   "Hiveswap": {
     "layers": {
-      "Body": 14,
+      "Body": 24,
       "EyeBrows": 7,
-      "LeftEye": 14,
-      "RightEye": 14,
-      "HairBack": 22,
-      "HairFront": 22,
-      "LeftHorn": 16,
-      "RightHorn": 16,
-      "Mouth": 24,
+      "LeftEye": 15,
+      "RightEye": 15,
+      "HairBack": 27,
+      "HairFront": 27,
+      "LeftHorn": 18,
+      "RightHorn": 18,
+      "Mouth": 32,
       "LeftFin": 3,
       "RightFin": 3,
-      "Glasses": 6,
+      "Glasses": 7,
       "FacePaint": 13
     }
   },
