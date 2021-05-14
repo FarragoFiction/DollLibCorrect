@@ -475,14 +475,14 @@
   "Fek": {
     "layers": {
       "Body": 61,
-      "Face": 21,
+      "Face": 23,
       "FacePaint": 11,
-      "Hair": 52,
-      "Horns": 18,
+      "Hair": 56,
+      "Horns": 19,
       "Symbol": 22,
       "canonSymbol": 288,
       "Glasses": 34,
-      "Text": 27
+      "Text": 31
     }
   },
   "Flower": {
