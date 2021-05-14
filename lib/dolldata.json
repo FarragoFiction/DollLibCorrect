@@ -459,7 +459,7 @@
       "HairBack": 33,
       "Cape": 10,
       "FinRight": 1,
-      "Body": 53,
+      "Body": 54,
       "Mouth": 8,
       "EyeRight": 9,
       "EyeLeft": 9,
@@ -467,9 +467,9 @@
       "HairFront": 33,
       "FinLeft": 1,
       "Accessory2": 28,
-      "HornRight": 17,
-      "HornLeft": 17,
-      "Symbol": 22
+      "HornRight": 18,
+      "HornLeft": 18,
+      "Symbol": 23
     }
   },
   "Fek": {
